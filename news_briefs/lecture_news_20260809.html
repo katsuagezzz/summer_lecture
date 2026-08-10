@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講義ネタ速報 Vol.1｜2026年8月9日配信</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e6d9a8;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:28px 22px 80px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px;
+  border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{
+  margin-top:18px; padding:16px 18px; background:var(--note-bg);
+  border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);
+}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+/* ---------- topic ---------- */
+section.topic{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px 28px; margin-bottom:22px; page-break-inside:auto;
+}
+.badge{
+  display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em;
+  padding:4px 12px; border-radius:999px; margin-bottom:10px;
+}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+
+h3{
+  font-size:16px; margin:26px 0 12px; padding-left:11px;
+  border-left:4px solid var(--accent); line-height:1.5;
+}
+
+/* ---------- KPI ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(158px,1fr)); gap:10px; margin:16px 0 4px;}
+.kpi{
+  border:1px solid var(--line); border-radius:10px; padding:12px 13px 11px; background:var(--bg);
+}
+.kpi .k{font-size:11.5px; color:var(--ink3); line-height:1.5; min-height:2.9em; font-weight:600;}
+.kpi .v{font-size:23px; font-weight:800; letter-spacing:-.01em; line-height:1.3; margin-top:3px;}
+.kpi .v small{font-size:13px; font-weight:700; margin-left:1px;}
+.kpi .d{font-size:12px; font-weight:700; margin-top:2px;}
+.d.up{color:var(--up);} .d.down{color:var(--down);} .d.flat{color:var(--ink3);}
+
+/* ---------- timeline ---------- */
+ol.tl{list-style:none; margin:8px 0 0; padding:0;}
+ol.tl li{
+  position:relative; padding:0 0 14px 108px; border-left:2px solid var(--line); margin-left:52px;
+}
+ol.tl li:last-child{border-left-color:transparent; padding-bottom:2px;}
+ol.tl li .date{
+  position:absolute; left:-52px; top:0; width:46px; text-align:right;
+  font-size:12.5px; font-weight:800; color:var(--ink3);
+}
+ol.tl li .dot{position:absolute; left:-6px; top:8px; width:10px; height:10px; border-radius:50%; background:var(--accent);}
+ol.tl li .body{margin-left:-90px; padding-left:16px; font-size:15px;}
+ol.tl li .body b{font-weight:800;}
+
+/* ---------- facts / structure ---------- */
+.facts li, .struct li{margin-bottom:9px;}
+ul{padding-left:1.25em;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc tr.sum td{font-weight:800; border-top:2px solid var(--line); border-bottom:2px solid var(--line);}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+
+/* ---------- views ---------- */
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+/* ---------- questions ---------- */
+.qbox{background:var(--q-bg); border:1px solid var(--q-line); border-radius:12px; padding:18px 20px 14px; margin-top:20px;}
+.qbox h3{margin-top:0; border-left-color:#c9a227;}
+ol.q{list-style:none; counter-reset:qq; margin:0; padding:0;}
+ol.q li{counter-increment:qq; margin-bottom:15px; padding-left:38px; position:relative;}
+ol.q li::before{
+  content:"Q" counter(qq); position:absolute; left:0; top:1px;
+  font-size:12px; font-weight:800; color:#fff; background:#c9a227;
+  padding:2px 7px; border-radius:5px; letter-spacing:.02em;
+}
+ol.q li .qt{font-size:16.5px; font-weight:700; line-height:1.7;}
+ol.q li .hint{font-size:13.5px; color:var(--ink2); margin-top:4px; line-height:1.65;}
+ol.q li .hint b{color:var(--ink);}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+
+.sideline{border:1px dashed var(--line); border-radius:10px; padding:14px 17px; margin-top:18px; font-size:14.5px;}
+.sideline .h{font-size:12.5px; font-weight:800; letter-spacing:.08em; color:var(--ink3); margin-bottom:7px;}
+.sideline ul{margin:0; padding-left:1.2em;}
+.sideline li{margin-bottom:5px;}
+
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+
+/* ---------- sources ---------- */
+section.src{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px 28px;}
+section.src h2{font-size:19px; margin:0 0 6px;}
+.srcnote{font-size:13px; color:var(--ink3); margin:0 0 14px;}
+ol.srclist{font-size:13.5px; line-height:1.7; padding-left:1.5em; margin:0;}
+ol.srclist li{margin-bottom:9px; word-break:break-all;}
+ol.srclist .m{font-weight:700; color:var(--ink);}
+ol.srclist a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+ol.srclist a:hover{text-decoration:underline;}
+.pri{display:inline-block; font-size:10.5px; font-weight:800; color:#fff; background:var(--bridge); padding:1px 6px; border-radius:4px; margin-right:5px; vertical-align:1.5px;}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+.next b{font-weight:800;}
+
+@media print{
+  body{background:#fff; font-size:11pt;}
+  .wrap{max-width:100%; padding:0;}
+  header.masthead, section.topic, section.src, footer{border:1px solid #ccc; box-shadow:none; page-break-inside:avoid; margin-bottom:12px;}
+  section.topic{page-break-after:auto;}
+  .qbox{page-break-inside:avoid;}
+  ol.srclist li{word-break:break-all;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;}
+  .wrap{padding:16px 13px 50px;}
+  section.topic, header.masthead, section.src, footer{padding:18px 16px;}
+  ol.tl li{padding-left:0; margin-left:44px;} ol.tl li .body{margin-left:0; padding-left:14px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="vol">LECTURE NEWS BRIEF ／ 講義ネタ速報　VOL.1</div>
+  <h1 class="title">介入で買えたのは「時間」だけか<br>― 同じ円安が、片方に＋3,450億円、片方に−1,461億円</h1>
+  <div class="meta">
+    <span><b>配信日</b>　2026年8月9日（日）</span>
+    <span><b>対象期間</b>　2026年8月5日（水）〜8月9日（日）<span class="tag">背景として7/30〜8/3の介入も収録</span></span>
+    <span><b>次回配信</b>　2026年8月11日（火）</span>
+    <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
+  </div>
+  <div class="lede">
+    7月末〜8月3日の<strong>日米協調による円買い介入</strong>で、ドル円は一時155.21円まで急落した。ところがわずか3営業日後の8月7日には158.55円へ戻っている。<strong>介入は為替の「フロー」を一時的に相殺するが、日米の政策金利差という「ストック」の構造は変えない</strong>——その構造がそのまま姿を現したのが、対象期間に集中した4〜6月期決算だ。同じ1ドル＝約160円の円安が、トヨタには営業利益＋3,450億円の追い風となり、ソフトバンクGには為替差損−1,461億円の逆風となった。<strong>為替がPLのどの段に効くかで、企業の顔は正反対になる</strong>。今回はこの1本の線＝「介入 → 金利差 → 段階損益」を追う。
+  </div>
+</header>
+
+<!-- ============ TOPIC 1 ============ -->
+<section class="topic">
+  <span class="badge macro">マクロ｜為替・金融政策</span>
+  <h2 class="thead">28年ぶりの日米円買い協調介入、その後の1週間<br>― 円は3営業日で戻り、焦点は「日銀9月利上げ」へ</h2>
+  <p class="sub">介入で155円台 → 8月7日には158.55円。市場の関心は介入の追撃から、日銀の追加利上げへ移った。</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">ドル円（8/7 週末水準）</div><div class="v">158.55<small>円</small></div><div class="d down">介入時安値から＋3.34円の円安戻し</div></div>
+    <div class="kpi"><div class="k">介入時の円高ピーク（8/3）</div><div class="v">155.21<small>円</small></div><div class="d flat">7/30の163円台後半から約8円</div></div>
+    <div class="kpi"><div class="k">日銀 政策金利</div><div class="v">1.00<small>%</small></div><div class="d flat">7/31会合で据え置き（6月に利上げ）</div></div>
+    <div class="kpi"><div class="k">FF金利 誘導目標（7月FOMC）</div><div class="v">3.50–3.75<small>%</small></div><div class="d flat">据え置き／3名が利上げに反対票</div></div>
+    <div class="kpi"><div class="k">日米 政策金利差</div><div class="v">約2.5–2.75<small>pt</small></div><div class="d down">縮小は限定的</div></div>
+    <div class="kpi"><div class="k">7月末 外貨準備高（8/6発表）</div><div class="v">1兆2,871<small>億ドル</small></div><div class="d flat">前月比 −3.77億ドル（ほぼ横ばい）</div></div>
+    <div class="kpi"><div class="k">6月 実質賃金（8/5発表）</div><div class="v">＋1.6<small>%</small></div><div class="d up">6カ月連続プラス＝2021年来最長</div></div>
+    <div class="kpi"><div class="k">米7月 雇用者数（8/7発表）</div><div class="v">−2.3<small>万人</small></div><div class="d down">市場予想＋8.0万人／失業率4.1%</div></div>
+  </div>
+
+  <h3>何が起きたか（時系列）</h3>
+  <ol class="tl">
+    <li><span class="date">7/30</span><span class="dot"></span><div class="body">ドル円が163円台後半から157円台へ、<b>約50分で約5円の急落</b>。単独介入との観測。ただし財務省は実施を公式確認しておらず、<b>市場推計にとどまる</b>。</div></li>
+    <li><span class="date">7/31</span><span class="dot"></span><div class="body">米国東部時間7月31日、<b>日本国財務省が米国財務省と協調して円買い介入を実施</b>（片山財務大臣談話）。円買いの日米協調介入は<b>1998年以来28年ぶり</b>、協調介入そのものとしては2011年以来15年ぶり。</div></li>
+    <li><span class="date">8/3</span><span class="dot"></span><div class="body">日米財務相が<b>共同声明</b>を発表。2025年9月の日米財務大臣共同声明に基づき「円の過度な変動や無秩序な動き」に対処したと説明し、<b>「更なる協調介入を実施することも躊躇しない」</b>と明記。日本はFRBの<b>FIMAレポ・ファシリティ</b>（米国債を売らずにドル資金を調達する枠組み）の活用も表明。ドル円は一時155.21円。</div></li>
+    <li><span class="date">8/5</span><span class="dot"></span><div class="body">6月の<b>実質賃金＋1.6%</b>（6カ月連続プラス、2021年来最長）。同日、市場が織り込む<b>日銀9月利上げ予想が6割超</b>に上昇（日経報道）。ドル円は157円台半ば。</div></li>
+    <li><span class="date">8/6</span><span class="dot"></span><div class="body">財務省が7月末の外貨準備高を発表。<b>1兆2,871億ドル（前月比−3.77億ドル）とほぼ横ばい</b>で、<b>7月30日以降の介入は反映されていない</b>とみられる。介入額の確定は8月末公表の「外国為替平衡操作の実施状況」待ち。</div></li>
+    <li><span class="date">8/7</span><span class="dot"></span><div class="body">米7月雇用統計は<b>非農業部門雇用者数が−2.3万人</b>（予想＋8.0万人）と予想外の減少、失業率は4.1%へ低下。中国の7月貿易統計（ドル建て）は<b>輸出＋23.9%・輸入＋27.5%</b>と伸びは減速、貿易黒字は1,125億ドル。ドル円は<b>158.55円</b>で週を終える。日経平均は一時1,031円安のあと<b>終値65,606円（−76円）</b>。</div></li>
+  </ol>
+
+  <h3>授業で押さえたい構造</h3>
+  <ul class="struct">
+    <li><b>介入は「フロー」、金利差は「ストック」。</b> 為替介入は当局が市場で通貨を売買する一回限りの取引で、需給のフローを一時的に押し戻す。しかし金利差が生む「円で借りてドルで運用する」インセンティブは残ったまま。だから3営業日で戻る。GW期の介入は<b>過去最大の11兆7,349億円</b>を投じたが、7月末には163円台まで円安が進んでいた——これが実証データだ。</li>
+    <li><b>介入資金はどこから来るか＝BSの話。</b> 円買い介入は外貨準備（＝日本のBSの資産サイド）のドル資産を取り崩して円を買う取引。外貨準備1兆2,871億ドルのうち<b>証券が9,273億ドル</b>を占める。ここが「米国債を売らずに済ませたい」という論点につながる。FIMAレポの活用表明は、<b>米国債を売却せずに担保に入れてドル資金を得る</b>＝米国債市場の金利上昇を避ける工夫。介入は「日本の資産の中身の組み替え」であって、収益が出るとは限らない。</li>
+    <li><b>米雇用が弱いのに、なぜ円安に戻ったのか。</b> 通常「米景気弱い→米利下げ観測→ドル安・円高」となるはず。ところが今回のFRB（ウォーシュ体制）は7月FOMCで据え置き、しかも<b>3名の地区連銀総裁が利上げを主張して反対票</b>を投じた。市場が見ているのは景気の強弱そのものではなく、<b>「政策金利がどう動くか」の予想</b>である。ここが講義でやった「金融政策と為替」の核心。</li>
+    <li><b>介入と利上げは補完関係。</b> 実質賃金が6カ月連続プラス＝賃金と物価の好循環が続くなら、日銀は利上げできる。介入で「時間」を買い、その間に利上げで金利差を実際に縮める——これが政策のシナリオ。逆にいえば、日銀が動かなければ介入は繰り返し無効化される。</li>
+  </ul>
+
+  <h3>見方が割れている論点</h3>
+  <div class="views">
+    <div class="view"><div class="who">野村證券・後藤祐二朗氏</div><p>日米協調介入によって円安是正は「新局面入り」。米国が円安を問題視した以上、日銀への追加利上げ圧力が高まる可能性がある。</p></div>
+    <div class="view b"><div class="who">「時間稼ぎ」派の見方</div><p>介入は需給のフローを止めるだけで、日米2.5pt超の金利差という根本原因は不変。実際に3営業日で158円台へ戻った事実がその証拠。</p></div>
+    <div class="view c"><div class="who">浜銀総研・北田氏（8/3コラム）</div><p>日銀は物価の上振れへの警戒を強めている。ドル円が再び円安方向に振れれば9月利上げの可能性がある——つまり<b>円安そのものが利上げのトリガー</b>になる。</p></div>
+  </div>
+
+  <div class="sideline">
+    <div class="h">今週のその他の数字（軽く触れる用）</div>
+    <ul>
+      <li><b>中国7月貿易統計（8/7発表・ドル建て）</b>：輸出＋23.9%（前月＋27.0%）、輸入＋27.5%（同＋36.0%）と<b>伸びは減速</b>。貿易黒字は1,125億ドル（前年同月982億ドル）。集積回路は価格高騰で3桁の伸びが続く。</li>
+      <li><b>米7月雇用統計</b>：非農業部門雇用者数−2.3万人（予想＋8.0万人）、失業率4.1%（予想4.2%）。雇用者数は減ったのに失業率は低下＝労働参加率の低下が示唆される。「失業率が下がった＝良いニュース」と読めないケースの教材。</li>
+    </ul>
+  </div>
+
+  <div class="qbox">
+    <h3>学生に投げる問い</h3>
+    <ol class="q">
+      <li>
+        <div class="qt">政府はGW期に過去最大の11.7兆円を使って円を買った。それでも3カ月後に円は163円台まで安くなった。では、8月の介入は「失敗」だったと言えるか？ 何をもって成功／失敗と判定する？</div>
+        <div class="hint">→ <b>KPIの定義の問題</b>に着地させる。「円高にすること」が目的なのか「変動速度を落とすこと」が目的なのか。共同声明の文言は<b>「過度な変動や無秩序な動き」への対処</b>であって、水準目標ではない。<b>指標の回（ROE・ROICの定義議論）</b>で扱った「何を測るかで評価は変わる」を為替政策に応用する。</div>
+      </li>
+      <li>
+        <div class="qt">円買い介入をすると、日本の外貨準備（ドル資産）が減って円が増える。これは日本にとって「損」なのか「得」なのか。BSと損益、どちらの話をしている？</div>
+        <div class="hint">→ <b>BSと段階損益の切り分け</b>へ。介入自体は資産の組み替え（BS内の移動）で、損益は「いくらで買ったドルをいくらで売ったか」で初めて決まる。実は円安局面での円買い介入は<b>過去の安値で買ったドルを高値で売る</b>ため、円ベースでは評価益が出ている可能性が高い。<b>財務三表の回（BS）＋CF分析の回</b>に接続。</div>
+      </li>
+      <li>
+        <div class="qt">8月7日、米国の雇用は予想外に減った（−2.3万人）。教科書通りなら「米景気が悪い→利下げ→ドル安・円高」のはず。なのに円は安くなった。教科書のどこが間違っている？</div>
+        <div class="hint">→ 為替を動かすのは<b>「現状」ではなく「将来の政策金利予想の差分」</b>だと気づかせる。ウォーシュFRBは据え置きで3名が利上げに反対票、対する日銀は1.00%。景気指標は政策予想を経由してしか為替に効かない。<b>日米金利差の回・金融政策と株価の回</b>の再確認。ここで「サプライズがなければ価格は動かない」という効率的市場の話にも広げられる。</div>
+      </li>
+      <li>
+        <div class="qt">日銀が9月に利上げしたとして、君が住宅ローンを変動金利で借りている社会人だったら賛成する？ 円安が続いて輸入食品が値上がりし続ける状況なら？ 誰の利益と誰の利益が衝突している？</div>
+        <div class="hint">→ 金融政策の<b>分配問題</b>へ。円安の受益者（輸出企業・株主・外貨資産保有者）と負担者（輸入依存の家計・中小企業）が違う。<b>ピケティ「r &gt; g」の回</b>と接続し、「資産を持つ側と持たない側で、同じ政策の意味が反転する」ところまで持っていく。答えを出さず対立の構造を描かせるのがゴール。</div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="rel">
+    <b>関連講義回</b>　為替（円安・円高、為替介入）／日米金利差／金融政策と株価の関係／財務三表の基礎（BS）／ピケティ「r &gt; g」
+  </div>
+</section>
+
+<!-- ============ TOPIC 2 ============ -->
+<section class="topic">
+  <span class="badge corp">企業・決算｜4〜6月期</span>
+  <h2 class="thead">同じ円安、正反対の決算<br>― トヨタは為替で＋3,450億円、ソフトバンクGは為替差損−1,461億円</h2>
+  <p class="sub">2026年4〜6月期の平均為替は1ドル＝約160円（前年同期比約15円の円安）。この1つの数字が、2社のPLの別々の段に、逆符号で入った。</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">トヨタ 営業利益（4〜6月）</div><div class="v">1兆634<small>億円</small></div><div class="d down">前年同期比 −8.8%</div></div>
+    <div class="kpi"><div class="k">トヨタ 親会社帰属利益</div><div class="v">1兆4,770<small>億円</small></div><div class="d up">前年同期比 ＋75.6%</div></div>
+    <div class="kpi"><div class="k">トヨタ 為替の営業利益押上げ</div><div class="v">＋3,450<small>億円</small></div><div class="d up">営業利益の増減要因の最大項目</div></div>
+    <div class="kpi"><div class="k">SBG 親会社帰属純利益</div><div class="v">3,473<small>億円</small></div><div class="d down">前年同期比 −17.7%</div></div>
+    <div class="kpi"><div class="k">SBG 為替差損</div><div class="v">−1,461<small>億円</small></div><div class="d down">円安が損失として計上</div></div>
+    <div class="kpi"><div class="k">SBG デリバティブ関連損失</div><div class="v">−3,916<small>億円</small></div><div class="d down">為替差損の2.7倍のインパクト</div></div>
+    <div class="kpi"><div class="k">SBG 投資利益合計</div><div class="v">1兆8,594<small>億円</small></div><div class="d up">うちIntel株で1兆3,329億円</div></div>
+    <div class="kpi"><div class="k">自動車大手7社 為替の営業増益効果</div><div class="v">約5,700<small>億円</small></div><div class="d up">7社合計／平均レート約160円</div></div>
+  </div>
+
+  <h3>何が起きたか（ファクト整理）</h3>
+  <ul class="facts">
+    <li><b>8/4　トヨタ</b>：営業収益13兆5,254億円（＋10.4%）、営業利益1兆634億円（<b>−8.8%</b>）、税引前利益1兆9,638億円、親会社帰属利益1兆4,770億円（<b>＋75.6%</b>）。同時に通期予想を上方修正し、営業利益3兆4,000億円、純利益3兆2,500億円へ。想定為替レートは<b>期初150円 → 160円</b>に見直した。</li>
+    <li><b>8/5〜8/7　自動車7社出そろう</b>：トヨタ・ホンダ・スズキが4〜6月期として<b>過去最高益</b>、日産とマツダは黒字転換、三菱自は増益、スバルのみ最終減益。7社合計の<b>為替による営業増益効果は約5,700億円</b>。</li>
+    <li><b>8/6　ソフトバンクグループ</b>：売上高2兆195億円（＋10.9%）、税引前利益5,891億円（<b>−14.6%</b>）、親会社帰属純利益3,473億円（<b>−17.7%</b>）。投資利益は合計1兆8,594億円（持株会社投資事業1兆3,822億円＝うちIntel株1兆3,329億円、SVF事業4,601億円）と巨額なのに、減益。</li>
+    <li>SBGの減益要因：販管費1兆2,869億円（<b>前年同期比＋5,287億円</b>、Armのエンジニア増員やアンペア子会社化に伴う株式報酬）、<b>デリバティブ関連損失3,916億円</b>、<b>為替差損1,461億円</b>、財務費用3,287億円。OpenAIは7月に100億ドル追加出資、累計投資446億ドルに対し公正価値896億ドル。</li>
+    <li><b>8/7　市場の反応</b>：SBG株は一時6.5%安。日経平均は一時1,031円安まで下げ、終値65,606円（−76円）。TOPIXは4日続伸で、指数の中身が割れた1日。</li>
+  </ul>
+
+  <h3>授業で押さえたい構造 ①　為替はPLの「どの段」に入るのか</h3>
+  <p style="font-size:15px;margin:0 0 4px;">これが今回の核心。為替は1カ所ではなく、少なくとも3つの経路でPLに入る。</p>
+  <ul class="struct">
+    <li><b>(A) 営業利益の段：換算・取引の効果。</b> 海外で稼いだドルの売上を円に直すと膨らむ／海外子会社のPLを円換算すると膨らむ。トヨタの<b>為替変動の影響＋3,450億円</b>はここ。実業の稼ぐ力そのものではないのに、営業利益に乗る。</li>
+    <li><b>(B) 営業外（金融収支）の段：外貨建て資産・負債の評価替え。</b> 期末レートで外貨建ての債権・債務を洗い替えると差損益が出る。<b>トヨタは為替差損益＋1,123億円（益）、SBGは為替差損−1,461億円（損）</b>。同じ円安で符号が逆になるのは、<b>外貨建ての「持ち高」の向きが逆</b>だから。ドル建ての資産（債権）が多ければ円安は益、ドル建ての負債（社債など）が多ければ円安は損になる。<span class="tag">※ 差損の内訳構成は開示範囲を超えるため、機構としての一般則で説明</span></li>
+    <li><b>(C) デリバティブの段：ヘッジや金融取引の評価損益。</b> SBGの<b>3,916億円のデリバティブ関連損失</b>。為替差損より大きい。ここは「本業でも投資の実現益でもない、契約の時価評価」。</li>
+  </ul>
+
+  <h3>授業で押さえたい構造 ②　段階損益で2社を並べる</h3>
+  <table class="calc">
+    <thead><tr><th>トヨタ：営業利益 → 税引前利益（4〜6月期）</th><th>金額（億円）</th></tr></thead>
+    <tbody>
+      <tr><td>営業利益</td><td class="num">10,634</td></tr>
+      <tr><td>持分法による投資損益</td><td class="num pos">＋2,106</td></tr>
+      <tr><td>その他の金融収益</td><td class="num pos">＋8,506</td></tr>
+      <tr><td>その他の金融費用</td><td class="num neg">−2,856</td></tr>
+      <tr><td>為替差損益（純額）</td><td class="num pos">＋1,123</td></tr>
+      <tr><td>その他</td><td class="num pos">＋123</td></tr>
+      <tr class="sum"><td>税引前利益</td><td class="num">19,638</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:14.5px;color:var(--ink2);margin:2px 0 16px;">→ 営業利益は<b>減った</b>のに、税引前利益は前年同期1兆2,521億円から1兆9,638億円へ。<b>差の9,004億円は「本業の外」で生まれている。</b></p>
+
+  <table class="calc">
+    <thead><tr><th>トヨタ：営業利益の増減要因（前年同期比）</th><th>金額（億円）</th></tr></thead>
+    <tbody>
+      <tr><td>為替変動の影響</td><td class="num pos">＋3,450</td></tr>
+      <tr><td>営業面の努力</td><td class="num pos">＋700</td></tr>
+      <tr><td>工場・物流部門の改善</td><td class="num pos">＋50</td></tr>
+      <tr><td>原価改善の努力</td><td class="num neg">−850</td></tr>
+      <tr><td>設計面の改善</td><td class="num neg">−900</td></tr>
+      <tr><td>諸経費の増減・低減努力</td><td class="num neg">−1,900</td></tr>
+      <tr><td>その他（中東情勢の影響 約−1,050 を含む）</td><td class="num neg">−2,426</td></tr>
+      <tr class="sum"><td>営業利益 増減</td><td class="num neg">−1,026</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:14.5px;color:var(--ink2);margin:2px 0 16px;">→ <b>為替の＋3,450億円を除くと、実力ベースの営業利益は約4,500億円の減益</b>。「過去最高益」の見出しの下でこれが起きている。</p>
+
+  <ul class="struct">
+    <li><b>SBGは「営業利益」でなく「投資損益」がPLの本体。</b> 1兆8,594億円の投資利益を計上しながら税引前は5,891億円（−14.6%）。<b>差の1兆2,700億円分は販管費（1兆2,869億円）・デリバティブ損・為替差損・財務費用が食っている。</b> つまりSBGのPLは「投資で稼ぎ、コストと金融収支で削られる」構造。<b>粉飾決算の見抜き方の回</b>でやった「利益の質」——どの段で稼いだ利益なのか——がそのまま効く。</li>
+    <li><b>「為替差損」は現金が出ていく損か？</b> 多くは<b>評価替えによる未実現の損益</b>で、キャッシュフロー計算書では調整項目として戻される。<b>PLとCFのズレの回</b>の格好の実例。トヨタの為替差益＋1,123億円も同様に、現金が増えたわけではない。</li>
+    <li><b>市場は「利益の額」でなく「利益の中身」を見た。</b> 8/7、SBG株は一時6.5%安。1.86兆円の投資利益は評価されず、AI投資の回収道筋への疑念が優先された。TOPIXは続伸しているのに日経平均が下げた——<b>指数構成のウエイト（SBGは日経平均の値がさ株）</b>という論点も拾える。</li>
+  </ul>
+
+  <h3>見方が割れている論点</h3>
+  <div class="views">
+    <div class="view b"><div class="who">「円安は日本企業に追い風」派</div><p>自動車7社だけで為替の営業増益効果は約5,700億円。トヨタは通期見通しも上方修正した。円安は輸出企業の利益を確実に押し上げている。</p></div>
+    <div class="view"><div class="who">「見かけの利益」派</div><p>トヨタの営業利益は為替を除けば約4,500億円の減益。中東情勢で−1,050億円、諸経費で−1,900億円。円安が実力の劣化を覆い隠しているだけ、との見方。</p></div>
+    <div class="view c"><div class="who">SBGをどう評価するか</div><p>①1.86兆円の投資利益とOpenAIの含み益（投資446億ドル → 公正価値896億ドル）を評価する見方と、②AI投資の回収道筋が示されず、コストと金融収支が膨らむ構造を懸念する見方が対立。株価は当日②で反応した。</p></div>
+  </div>
+
+  <div class="qbox">
+    <h3>学生に投げる問い</h3>
+    <ol class="q">
+      <li>
+        <div class="qt">トヨタは営業利益が8.8%「減った」のに、最終利益は75.6%「増えた」。この2つは矛盾していないか？ 君が新聞の見出しを1本だけ書くとしたら、どちらの数字を使う？ そしてそれは誰にとって公正な見出しか？</div>
+        <div class="hint">→ <b>段階損益の回</b>の総復習。営業利益＝本業、税引前＝本業＋金融・持分法、当期純＝そこから税。差の9,004億円は「その他の金融収益＋8,506億円」などが主因で、車を売って稼いだ金ではない。見出しの選び方が<b>ステークホルダーによって変わる</b>（株主は最終利益、事業評価は営業利益）ところまで。</div>
+      </li>
+      <li>
+        <div class="qt">同じ「1ドル＝160円の円安」なのに、トヨタは為替差益＋1,123億円、ソフトバンクGは為替差損−1,461億円。両社のBSに何が入っていれば、この符号の違いが説明できる？</div>
+        <div class="hint">→ <b>BSからPLを推理させる</b>のがねらい。外貨建ての「持ち高」がネットで資産側か負債側かで符号が反転する。ドル建ての債権・海外貸付が多ければ円安で益、ドル建て社債などの負債が多ければ円安で損。<b>財務三表の基礎（BSとPLの連動）</b>に着地。ここで「BSは残高、PLは変化」という原則を再確認する。</div>
+      </li>
+      <li>
+        <div class="qt">ソフトバンクGはこの3カ月で1兆8,594億円の投資利益を出した。それでも最終利益は3,473億円で、前年より18%減った。1兆5,000億円はどこへ消えた？ そして、この会社の「本業」とは何だと思う？</div>
+        <div class="hint">→ 販管費1兆2,869億円（前年比＋5,287億円）、デリバティブ損3,916億円、為替差損1,461億円、財務費用3,287億円を積み上げさせる。さらに<b>「本業の定義」</b>を議論に。メルカリ回でやった「フィンテック収益 vs マーケットプレイス収益」と同型の問い。SBGは投資会社なのか事業会社なのか——ROICを計算しようとすると定義に困る、という体験までいけると理想。</div>
+      </li>
+      <li>
+        <div class="qt">SBGの「為替差損1,461億円」を計上したこの3カ月間で、この会社の銀行口座からは実際に1,461億円が出ていったと思う？</div>
+        <div class="hint">→ <b>PLとCFのズレの回</b>に直結。多くは期末レートでの評価替えによる<b>未実現損</b>で、営業CFでは非資金項目として加算調整される。「損失＝現金流出」ではない。ここから<b>減価償却・引当金</b>など他の非資金項目に話を広げ、「なぜCF計算書が必要か」に着地させる。</div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="rel">
+    <b>関連講義回</b>　財務三表の基礎（PL・BSの読み方／段階損益）／キャッシュフロー分析（PLとCFのズレ）／粉飾決算の見抜き方（利益の質）／ROE・ROIC／個別企業ケース分析（メルカリ・freee・出前館）／為替
+  </div>
+</section>
+
+<!-- ============ TOPIC 3 ============ -->
+<section class="topic">
+  <span class="badge bridge">橋渡しネタ｜短編</span>
+  <h2 class="thead">「想定為替レート」は、経営者が公表する唯一の予想数字</h2>
+  <p class="sub">トヨタ160円、大手20社平均153円、実勢157〜158円。同じ相場を見ながら、置いている前提が7円ずれている。</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">トヨタ 想定レート（通期）</div><div class="v">160<small>円</small></div><div class="d down">期初150円から円安方向に修正</div></div>
+    <div class="kpi"><div class="k">時価総額上位20社 平均</div><div class="v">約153<small>円</small></div><div class="d flat">トヨタは7円 保守的</div></div>
+    <div class="kpi"><div class="k">実勢レート（8/4時点）</div><div class="v">157<small>円台</small></div><div class="d flat">8/7には158.55円</div></div>
+    <div class="kpi"><div class="k">トヨタ 1円円高の営業利益影響</div><div class="v">約−500<small>億円</small></div><div class="d down">感応度（会社開示）</div></div>
+  </div>
+
+  <h3>ファクトと構造</h3>
+  <ul class="struct">
+    <li>想定為替レートは、企業が通期業績予想を作るときに置く<b>前提</b>。保守的に置けば実勢との差が「利益の貯金」になり、楽観的に置けば下方修正リスクになる。<b>予想は事実ではなく、経営者の選択である。</b></li>
+    <li>トヨタは160円（実勢より円安＝保守的）、キオクシアHDは7〜9月期162円、信越化学は7月以降160円程度。一方で大手20社平均は153円。<b>同じ相場を見て、各社が違う数字を置いている。</b></li>
+    <li>ここに<b>トピック①が跳ね返る</b>。日米が「更なる協調介入を躊躇しない」と明言し、日銀の9月利上げ予想が6割超まで高まっている以上、円高方向への振れは十分ありうる。トヨタの感応度（1円で約500億円）を使えば、160円 → 150円なら営業利益で約5,000億円の押し下げ。<b>介入・利上げというマクロの話が、そのまま個社の通期予想の当たり外れに変換できる。</b></li>
+  </ul>
+
+  <div class="qbox">
+    <h3>学生に投げる問い</h3>
+    <ol class="q">
+      <li>
+        <div class="qt">君がトヨタのCFOなら、想定レートを何円に置く？ 実勢158円のとき、160円（保守的）と153円（他社平均並み）で、置いた瞬間に何が変わる？</div>
+        <div class="hint">→ 保守的な前提＝上振れ余地＝「サプライズで上方修正」を作れる。楽観的な前提＝目標は高く見えるが下方修正リスク。<b>予想数字は経営者のメッセージであり、期待値のコントロールである</b>ことに気づかせる。PER・EPSの回に接続（EPSの前提が動けば株価も動く）。</div>
+      </li>
+      <li>
+        <div class="qt">日銀が9月に利上げして、ドル円が150円になったとする。トヨタの営業利益はいくら減る？ その計算をするために必要な情報は何？</div>
+        <div class="hint">→ 感応度（1円＝約500億円）× 10円 ＝ 約5,000億円。<b>手を動かして計算させる</b>のが目的。同時に「この感応度は誰が出した数字か」「他の条件が一定という仮定が入っている」と検証させ、<b>単位経済（ユニットエコノミクス）の回</b>で扱った感応度分析の考え方を思い出させる。</div>
+      </li>
+      <li>
+        <div class="qt">今期のトヨタの「過去最高益」のうち、円安がなければ消えていた部分はいくらか。それでもこれは「実力」と呼んでいい？</div>
+        <div class="hint">→ 為替＋3,450億円を控除すると実力ベースは約4,500億円の減益。ただし「海外で作って海外で売る」体制を築いたこと自体が経営判断の結果でもある、という反論も出させる。<b>ROIC・ROEの回</b>につなげ、「一時的要因を除いた正常収益力（normalized earnings）」という概念を導入する好機。</div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="rel">
+    <b>関連講義回</b>　PBR・PER・EPS／ROE・ROIC／原価率と単位経済（感応度分析）／為替／株式投資
+  </div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section class="src">
+  <h2>出典URL</h2>
+  <p class="srcnote"><span class="pri">一次</span> は決算資料・官庁発表などの一次情報。それ以外は報道・調査機関レポート。</p>
+  <ol class="srclist">
+    <li><span class="pri">一次</span><span class="m">財務省</span>「片山財務大臣談話（令和8年8月3日）」<br><a href="https://www.mof.go.jp/public_relations/statement/other/20260803072806.html">https://www.mof.go.jp/public_relations/statement/other/20260803072806.html</a></li>
+    <li><span class="pri">一次</span><span class="m">財務省</span>「外貨準備等の状況（令和8年7月末現在）」<br><a href="https://www.mof.go.jp/policy/international_policy/reference/official_reserve_assets/data/0807.html">https://www.mof.go.jp/policy/international_policy/reference/official_reserve_assets/data/0807.html</a></li>
+    <li><span class="pri">一次</span><span class="m">財務省</span>「外国為替平衡操作の実施状況（月次ベース）」<br><a href="https://www.mof.go.jp/policy/international_policy/reference/feio/data/monthly/index.html">https://www.mof.go.jp/policy/international_policy/reference/feio/data/monthly/index.html</a></li>
+    <li><span class="pri">一次</span><span class="m">トヨタ自動車</span>「2027年3月期 第1四半期 決算要旨」（PDF）<br><a href="https://global.toyota/pages/global_toyota/ir/financial-results/2027_1q_summary_jp.pdf">https://global.toyota/pages/global_toyota/ir/financial-results/2027_1q_summary_jp.pdf</a></li>
+    <li><span class="pri">一次</span><span class="m">ソフトバンクグループ</span>「2027年3月期 第1四半期 決算説明会」<br><a href="https://group.softbank/news/webcast/20260806_01">https://group.softbank/news/webcast/20260806_01</a></li>
+    <li><span class="pri">一次</span><span class="m">TDnet（適時開示）</span>「ソフトバンクグループ 2027年3月期 第1四半期決算短信〔IFRS〕」<br><a href="https://finance.biggo.jp/news/jpx_tdnet_140120260805510515">https://finance.biggo.jp/news/jpx_tdnet_140120260805510515</a></li>
+    <li><span class="pri">一次</span><span class="m">日本銀行</span>「金融政策決定会合の運営・スケジュール」<br><a href="https://www.boj.or.jp/mopo/mpmsche_minu/index.htm">https://www.boj.or.jp/mopo/mpmsche_minu/index.htm</a></li>
+    <li><span class="m">日本経済新聞</span>「日米が15年ぶり協調介入、円安阻止で思惑一致 3日に共同声明で調整」<br><a href="https://www.nikkei.com/article/DGXZQOUA020KQ0S6A800C2000000/">https://www.nikkei.com/article/DGXZQOUA020KQ0S6A800C2000000/</a></li>
+    <li><span class="m">日本経済新聞</span>「危機モードの円安阻止、日米が協調介入発表 金利上昇の連鎖を懸念」<br><a href="https://www.nikkei.com/article/DGXZQOUA032NG0T00C26A8000000/">https://www.nikkei.com/article/DGXZQOUA032NG0T00C26A8000000/</a></li>
+    <li><span class="m">日本経済新聞</span>「日銀9月利上げ予想、6割超える 円安阻止へベッセント氏が援護」（8/5）<br><a href="https://www.nikkei.com/article/DGXZQOFL050XS0V00C26A8000000/">https://www.nikkei.com/article/DGXZQOFL050XS0V00C26A8000000/</a></li>
+    <li><span class="m">日本経済新聞</span>「日銀の早期利上げ観測高まる 日米協調介入が後押し」<br><a href="https://www.nikkei.com/article/DGXZQOFL030RJTT00C26A8000000/">https://www.nikkei.com/article/DGXZQOFL030RJTT00C26A8000000/</a></li>
+    <li><span class="m">日本経済新聞</span>「日銀、政策金利1.0%に据え置き決定 成長率見通しは上方修正」（7/31）<br><a href="https://www.nikkei.com/article/DGXZQOUB310PN0R30C26A7000000/">https://www.nikkei.com/article/DGXZQOUB310PN0R30C26A7000000/</a></li>
+    <li><span class="m">日本経済新聞</span>「円買い為替介入、過去最大の11.7兆円 財務省が4〜5月実績公表」<br><a href="https://www.nikkei.com/article/DGXZQOUA296KV0Z20C26A5000000/">https://www.nikkei.com/article/DGXZQOUA296KV0Z20C26A5000000/</a></li>
+    <li><span class="m">日本経済新聞</span>「トヨタの26年4〜6月期、純利益75.6%増 通期予想を上方修正」<br><a href="https://www.nikkei.com/article/DGXZRST0503849Q6A730C2000000/">https://www.nikkei.com/article/DGXZRST0503849Q6A730C2000000/</a></li>
+    <li><span class="m">日本経済新聞</span>「トヨタ純利益16％減に上方修正 27年3月期、想定為替レート円安見直し」<br><a href="https://www.nikkei.com/article/DGXZQOFD031AG0T00C26A8000000/">https://www.nikkei.com/article/DGXZQOFD031AG0T00C26A8000000/</a></li>
+    <li><span class="m">日本経済新聞</span>「ソフトバンクG純利益18％減 4〜6月、オープンAI利益貢献せず」<br><a href="https://www.nikkei.com/article/DGXZQOUB063J00W6A800C2000000/">https://www.nikkei.com/article/DGXZQOUB063J00W6A800C2000000/</a></li>
+    <li><span class="m">日本経済新聞</span>「日経平均株価、終値76円安 ソフトバンクG決算不発で失速」（8/7）<br><a href="https://www.nikkei.com/article/DGXZQOUB070M4TX00C26A8000000/">https://www.nikkei.com/article/DGXZQOUB070M4TX00C26A8000000/</a></li>
+    <li><span class="m">日本経済新聞</span>「ウォーシュFRBが金利据え置き 利上げ予想に転換、議長は予測示さず」<br><a href="https://www.nikkei.com/article/DGXZQOGN12CEU0S6A610C2000000/">https://www.nikkei.com/article/DGXZQOGN12CEU0S6A610C2000000/</a></li>
+    <li><span class="m">時事ドットコム</span>「円安是正で協調介入 日米財務相が声明、さらなる実施『ちゅうちょせず』」<br><a href="https://www.jiji.com/jc/article?k=2026080300142&amp;g=eco">https://www.jiji.com/jc/article?k=2026080300142&amp;g=eco</a></li>
+    <li><span class="m">NHK</span>「円安是正へ日米が異例の協調介入 3日に日米共同の声明発表へ」<br><a href="https://news.web.nhk/newsweb/na/na-k10015194291000">https://news.web.nhk/newsweb/na/na-k10015194291000</a></li>
+    <li><span class="m">ニッキンONLINE</span>「日米で円買い協調介入、1998年以来28年ぶり 政府発表」<br><a href="https://www.nikkinonline.com/article/412362">https://www.nikkinonline.com/article/412362</a></li>
+    <li><span class="m">Bloomberg</span>「トヨタの想定為替は160円、介入で円高リスク浮上－大手20社平均は153円」（8/4）<br><a href="https://www.bloomberg.com/jp/news/articles/2026-08-04/TJ84XIT96OSH00">https://www.bloomberg.com/jp/news/articles/2026-08-04/TJ84XIT96OSH00</a></li>
+    <li><span class="m">Bloomberg</span>「7月末外貨準備高は前月比横ばい、介入反映されていない可能性－財務省」（8/6）<br><a href="https://www.bloomberg.com/jp/news/articles/2026-08-06/TJ7WR3KK3NY800">https://www.bloomberg.com/jp/news/articles/2026-08-06/TJ7WR3KK3NY800</a></li>
+    <li><span class="m">Bloomberg</span>「日銀追加利上げ予想は9月視野に前倒し進む、円安阻止の日米介入受け」<br><a href="https://www.bloomberg.com/jp/news/articles/2026-08-03/TJ62GHKK3NYA00">https://www.bloomberg.com/jp/news/articles/2026-08-03/TJ62GHKK3NYA00</a></li>
+    <li><span class="m">Bloomberg</span>「ソフトバンクG、第1四半期の純利益は18%減－AI投資回収への道筋が焦点」（8/6）<br><a href="https://www.bloomberg.com/jp/news/articles/2026-08-06/TJ0NGAT9NJLU00">https://www.bloomberg.com/jp/news/articles/2026-08-06/TJ0NGAT9NJLU00</a></li>
+    <li><span class="m">Bloomberg</span>「米雇用者数が予想外の減少、失業率4.1%に低下－労働市場に減速感」（8/7）<br><a href="https://www.bloomberg.com/jp/news/articles/2026-08-07/TJEG7DKK3NYB00">https://www.bloomberg.com/jp/news/articles/2026-08-07/TJEG7DKK3NYB00</a></li>
+    <li><span class="m">ロイター（Yahoo!ファイナンス配信）</span>「ソフトバンクＧ、4－6月期は17.7％減益 デリバティブ関連損やコスト増」<br><a href="https://finance.yahoo.co.jp/news/detail/52981bc0188e9770b8fb82b4ba1643ec48dfabbc">https://finance.yahoo.co.jp/news/detail/52981bc0188e9770b8fb82b4ba1643ec48dfabbc</a></li>
+    <li><span class="m">時事通信（Yahoo!ニュース配信）</span>「円安が利益押し上げ トヨタ1．4兆円、ホンダは2．3倍 自動車大手7社の4〜6月期」<br><a href="https://news.yahoo.co.jp/articles/61d3ccacad147097a0e623af16efea1bef62a90e">https://news.yahoo.co.jp/articles/61d3ccacad147097a0e623af16efea1bef62a90e</a></li>
+    <li><span class="m">レスポンス</span>「自動車7社4〜6月期決算、トヨタ、ホンダ、スズキ3社最高益、スバルは最終減益」（8/6）<br><a href="https://response.jp/article/2026/08/06/414978.html">https://response.jp/article/2026/08/06/414978.html</a></li>
+    <li><span class="m">レスポンス</span>「トヨタの営業利益が8.8％減、1兆634億円に 第1四半期決算」（8/4）<br><a href="https://response.jp/article/2026/08/04/414902.html">https://response.jp/article/2026/08/04/414902.html</a></li>
+    <li><span class="m">Car Watch</span>「トヨタ 2027年3月期第1四半期決算、営業利益は前期比1026億円減ながら通期見通しは4000億円増」<br><a href="https://car.watch.impress.co.jp/docs/news/2130421.html">https://car.watch.impress.co.jp/docs/news/2130421.html</a></li>
+    <li><span class="m">株探ニュース</span>「７月の米雇用統計 非農業部門雇用者数は２．３万人減 予想外の減少」（8/7）<br><a href="https://kabutan.jp/news/marketnews/?b=n202608071776">https://kabutan.jp/news/marketnews/?b=n202608071776</a></li>
+    <li><span class="m">株探ニュース（Yahoo!ファイナンス配信）</span>「＜マーケット日報＞ 2026年8月7日」<br><a href="https://finance.yahoo.co.jp/news/detail/b372829782bc2cdfaff886b4e9370d3cda9154c6">https://finance.yahoo.co.jp/news/detail/b372829782bc2cdfaff886b4e9370d3cda9154c6</a></li>
+    <li><span class="m">ニッセイ基礎研究所</span>「中国の貿易統計（26年7月）〜輸出入ともに減速、半導体関連は高い伸びを維持」<br><a href="https://www.nli-research.co.jp/report/detail/id=86495?site=nli">https://www.nli-research.co.jp/report/detail/id=86495?site=nli</a></li>
+    <li><span class="m">ニッセイ基礎研究所</span>「米ＦＯＭＣ（26年7月）－市場予想通り、政策金利据え置き。3名の地区連銀総裁が利上げに投票」<br><a href="https://www.nli-research.co.jp/report/detail/id=86405?site=nli">https://www.nli-research.co.jp/report/detail/id=86405?site=nli</a></li>
+    <li><span class="m">野村證券（ウェルスタイル）</span>「日米協調為替介入で円安是正は新局面入り 日銀利上げ圧力が高まる可能性（後藤祐二朗）」<br><a href="https://www.nomura.co.jp/wealthstyle/article/0821/">https://www.nomura.co.jp/wealthstyle/article/0821/</a></li>
+    <li><span class="m">浜銀総合研究所（HRI）</span>「日銀、物価上振れへの警戒感を強める ドル・円レートが再び円安方向に振れれば9月利上げの可能性も」（2026年8月3日・PDF）<br><a href="https://www.yokohama-ri.co.jp/html/report/pdf/column260803_kitada.pdf">https://www.yokohama-ri.co.jp/html/report/pdf/column260803_kitada.pdf</a></li>
+    <li><span class="m">外為どっとコム マネ育チャンネル</span>「2026年8月10日〜14日のドル円見通し。協調介入後の反発、米CPIと米債入札の注目点」（8/8）<br><a href="https://www.gaitame.com/media/entry/2026/08/08/060400">https://www.gaitame.com/media/entry/2026/08/08/060400</a></li>
+    <li><span class="m">みんかぶFX</span>「円買い優勢、日銀9月利上げ確率高まる 実質賃金6カ月連続プラス」（8/5）<br><a href="https://fx.minkabu.jp/news/375286">https://fx.minkabu.jp/news/375286</a></li>
+    <li><span class="m">ダイヤモンドZAi</span>「2026年08月07日(金)のFXトレード戦略 － ドル円158円半ば」<br><a href="https://zai.diamond.jp/articles/-/493580">https://zai.diamond.jp/articles/-/493580</a></li>
+  </ol>
+</section>
+
+<footer>
+  <h2>数字の注記</h2>
+  <ul>
+    <li><b>【推計・未確定】7月30日の単独介入</b>：ドル円が約50分で163円台後半から157円台へ約5円急落した事実は確認できるが、<b>財務省は同日の介入実施を公式には確認していない</b>。市場推計として扱うこと。</li>
+    <li><b>【未確定】介入額</b>：7月30日〜8月上旬の介入額は未公表。7月末の外貨準備高（8/6発表）にも反映されていないとみられ、<b>確定は8月末公表の「外国為替平衡操作の実施状況」を待つ必要がある</b>。比較対象として挙げたGW期の11兆7,349億円は財務省公表の確定値（5/29発表）。</li>
+    <li><b>【市場推計】日銀9月利上げ予想「6割超」</b>：金利先物・OISから逆算された市場の織り込み度合いであり、日銀の意思表示ではない。日付により変動する。</li>
+    <li><b>【一般則による説明】為替差損益の符号</b>：トヨタ（＋1,123億円）とSBG（−1,461億円）の符号が逆になる理由として本紙では「外貨建て資産・負債のネット持ち高の向き」を挙げたが、各社が開示しているのは差損益の金額であり、内訳の詳細は開示範囲外。授業では<b>「こう考えれば説明がつく」という仮説として提示し、検証可能性を学生に問う</b>形が望ましい。</li>
+    <li><b>【概算】為替を除いた実力ベースの営業利益</b>：トヨタの「約4,500億円の減益」は、開示された増減要因（為替＋3,450億円、合計−1,026億円）からの単純差し引きによる概算。他要因との相互作用は考慮していない。</li>
+    <li><b>【単位・基準】</b>　トヨタ・SBGともIFRS基準。SBGの「純利益」は親会社の所有者に帰属する純利益。前年同期比はすべて2025年4〜6月期との比較。ドル円の水準は取引時間中の値であり、指値・終値の定義によって数銭〜数十銭の差が生じる。</li>
+    <li><b>【通番】</b>　本号は自動生成の第1号としてVol.1を付番。配信履歴に合わせて番号を調整してください。</li>
+  </ul>
+  <div class="next">
+    <b>次回配信：2026年8月11日（火）</b>　対象期間 8月9日（日）〜8月11日（火）。<br>
+    ウォッチ項目：①8月11日〜14日の米CPIと米国債入札（ドル円の次の材料）／②追加の協調介入の有無と155円のライン／③日銀9月会合に向けた地ならし発言／④主要企業の4〜6月期決算の残り分と想定為替レートの修正動向。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
