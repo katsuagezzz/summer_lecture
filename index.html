@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>講義ネタ速報 ｜ iU 志村ゼミ</title>
 <style>
-:root{--bg:#f6f7f9;--panel:#fff;--ink:#14181f;--ink2:#3f4855;--ink3:#6b7686;--line:#dfe3ea;--accent:#1c6fd4;--accent-bg:#e8f1fd;--corp:#b8480f;--corp-bg:#fdeee6;}
-@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--panel:#161b23;--ink:#e8ecf2;--ink2:#b6c0cd;--ink3:#8a95a4;--line:#2a323d;--accent:#6fb2ff;--accent-bg:#132539;--corp:#ff9c66;--corp-bg:#331e12;}}
+:root{--bg:#f6f7f9;--panel:#fff;--ink:#14181f;--ink2:#3f4855;--ink3:#6b7686;--line:#dfe3ea;--accent:#1c6fd4;--accent-bg:#e8f1fd;--corp:#b8480f;--corp-bg:#fdeee6;--rev:#6b3fb5;--rev-bg:#f0eafb;}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--panel:#161b23;--ink:#e8ecf2;--ink2:#b6c0cd;--ink3:#8a95a4;--line:#2a323d;--accent:#6fb2ff;--accent-bg:#132539;--corp:#ff9c66;--corp-bg:#331e12;--rev:#c3a6f5;--rev-bg:#241a36;}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
 .wrap{max-width:860px;margin:0 auto;padding:34px 22px 80px}
@@ -23,6 +23,9 @@ h2{font-size:17px;margin:30px 0 12px;padding-left:11px;border-left:4px solid var
 .tag{font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px}
 .tag.m{background:var(--accent-bg);color:var(--accent)}
 .tag.c{background:var(--corp-bg);color:var(--corp)}
+.tag.r{background:var(--rev-bg);color:var(--rev)}
+.vol.r{background:var(--rev);color:var(--bg)}
+.issue.r:hover{border-color:var(--rev)}
 .ttl{font-size:18.5px;font-weight:800;line-height:1.55;margin:2px 0 5px}
 .desc{font-size:14.5px;color:var(--ink2);margin:0}
 footer{margin-top:34px;font-size:13px;color:var(--ink3);border-top:1px solid var(--line);padding-top:16px}
@@ -34,10 +37,22 @@ footer{margin-top:34px;font-size:13px;color:var(--ink3);border-top:1px solid var
 <header>
   <div class="kicker">LECTURE NEWS BRIEF</div>
   <h1>講義ネタ速報</h1>
-  <p>iU 情報経営イノベーション専門職大学／志村ゼミ（財務・経済の基礎・ソクラテス式）<br>直近の政治経済ニュースから、授業で使えるトピックを週2回（火・土）配信。</p>
+  <p>iU 情報経営イノベーション専門職大学／志村ゼミ（財務・経済の基礎・ソクラテス式）<br>直近の政治経済ニュースから、授業で使えるトピックを週2回（火・土）配信。あわせて各回の復習ページを公開。</p>
 </header>
 
-<h2>バックナンバー</h2>
+<h2>復習ページ</h2>
+
+<a class="issue r" href="reviews/lecture_review_20260811.html">
+  <div class="row">
+    <span class="vol r">夏期 第2回</span>
+    <span class="date">2026年8月11日（火）講義</span>
+    <span class="tag r">要点まとめ</span><span class="tag r">用語集</span>
+  </div>
+  <div class="ttl">介入は「流れ」を変えられるか — 為替・金利・減価償却・原価率、4つのレンズで同じ1日を見る</div>
+  <p class="desc">日米為替介入と出前館、ハイパースケーラーの1Q決算。ポンド危機と空売り／日銀のジレンマ（金利↑→国債価格↓→含み損→貸し渋り→連鎖倒産）／CFは赤字でもPLは黒字になる減価償却／原価率104%とLINEヤフーの資本業務提携。用語集つき。</p>
+</a>
+
+<h2>バックナンバー（講義ネタ速報）</h2>
 
 <a class="issue" href="news_briefs/lecture_news_20260809.html">
   <div class="row">
@@ -50,7 +65,7 @@ footer{margin-top:34px;font-size:13px;color:var(--ink3);border-top:1px solid var
 </a>
 
 <footer>
-  各号は外部依存のない単一HTMLファイルです。数字は決算短信・官庁発表などの一次情報で裏取りし、推計値・未確定値は各号のフッターに明記しています。
+  各ページは外部依存のない単一HTMLファイルです。数字は決算短信・官庁発表などの一次情報で裏取りし、推計値・未確定値は各号のフッターに明記しています。
 </footer>
 </div>
 </body>
