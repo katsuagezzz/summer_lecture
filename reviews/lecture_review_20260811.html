@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>復習ページ 第2回｜2026年8月11日 日米為替介入と出前館、ハイパースケーラーの1Q決算</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e6d9a8;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:28px 22px 80px;}
+
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:12px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px;
+  border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{
+  margin-top:18px; padding:16px 18px; background:var(--note-bg);
+  border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);
+}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+/* ---------- table of contents ---------- */
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+/* ---------- topic ---------- */
+section.topic{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px 28px; margin-bottom:22px;
+}
+.badge{
+  display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em;
+  padding:4px 12px; border-radius:999px; margin-bottom:10px;
+}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+
+h3{
+  font-size:16px; margin:26px 0 12px; padding-left:11px;
+  border-left:4px solid var(--accent); line-height:1.5;
+}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+
+/* ---------- 要点カード ---------- */
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.facts li, .struct li{margin-bottom:9px;}
+ul{padding-left:1.25em;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+.struct b{font-weight:800;}
+
+/* ---------- 連鎖チェーン ---------- */
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{
+  counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px;
+  background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;
+}
+.chain li::before{
+  content:counter(ch); position:absolute; left:13px; top:11px;
+  width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg);
+  font-size:12px; font-weight:800; text-align:center; line-height:22px;
+}
+.chain li::after{
+  content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;
+}
+.chain li:last-child::after{content:"";}
+.chain li b{font-weight:800;}
+
+/* ---------- 数式ボックス ---------- */
+.formula{
+  background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0;
+  padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;
+}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+
+/* ---------- 見方が割れた論点 ---------- */
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+/* ---------- 用語集 ---------- */
+.gloss{margin:10px 0 0;}
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{
+  font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);
+}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px; letter-spacing:.02em;}
+.gloss dd{
+  margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2);
+  font-size:14.5px; line-height:1.75; color:var(--ink2);
+}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gcat{
+  display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.08em;
+  color:var(--word); background:var(--word-bg); padding:3px 10px; border-radius:999px; margin:24px 0 2px;
+}
+.gcat:first-of-type{margin-top:8px;}
+
+/* 短い定義を2カラムで */
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dt{padding-top:11px;}
+.gloss.compact dd{font-size:14px;}
+
+.sideline{border:1px dashed var(--line); border-radius:10px; padding:14px 17px; margin-top:18px; font-size:14.5px;}
+.sideline .h{font-size:12.5px; font-weight:800; letter-spacing:.08em; color:var(--ink3); margin-bottom:7px;}
+.sideline ul{margin:0; padding-left:1.2em;}
+.sideline li{margin-bottom:5px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+.next b{font-weight:800;}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; box-shadow:none; page-break-inside:avoid; margin-bottom:12px;}
+  .gloss dd{page-break-inside:avoid;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;}
+  .wrap{padding:16px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../index.html">← 一覧へ戻る</a>
+
+<header class="masthead">
+  <div class="vol">LECTURE REVIEW ／ 復習ページ　夏期集中講座 第2回</div>
+  <h1 class="title">介入は「流れ」を変えられるか<br>― 為替・金利・減価償却・原価率、4つのレンズで同じ1日を見る</h1>
+  <div class="meta">
+    <span><b>講義日</b>　2026年8月11日（火）</span>
+    <span><b>形式</b>　オンライン（Zoom）</span>
+    <span><b>テーマ</b>　日米為替介入と出前館、ハイパースケーラーの1Q決算</span>
+    <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
+  </div>
+  <div class="lede">
+    この夏の全体テーマは<strong>「大きな事変が自分の資産にどう影響するか」を体感すること</strong>。メディアが言う「円安は困る／嬉しい」ではなく、<strong>自分の財産と立場から善し悪しを判断できるようになる</strong>のがゴールだ。第2回は、この1点を4つの入り口から確かめた。①為替介入は市場の流れを変えられるのか（ポンド危機 → 日米協調介入）、②日銀が金利を上げると何が壊れるのか（国債価格 → 含み損 → 貸出 → 倒産）、③データセンターに巨額のキャッシュを払ったアルファベットが、なぜPLでは黒字なのか（減価償却）、④出前館のPLはなぜ「お金を稼ぐ箱」として機能していないのか（原価率104%）。<strong>マクロの話も会計の話も、最後は同じ「誰の得が誰の損か」に着地する</strong>。
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>このページの構成</h2>
+  <ol>
+    <li><a href="#s1">為替介入は「流れ」を変えられない</a> <span class="s">― ポンド危機・協調介入・160円の新常態</span></li>
+    <li><a href="#s2">日銀のジレンマ</a> <span class="s">― 金利を上げると、なぜ倒産が連鎖するのか</span></li>
+    <li><a href="#s3">ハイパースケーラーの1Q決算</a> <span class="s">― キャッシュは赤字、PLは黒字。その正体</span></li>
+    <li><a href="#s4">出前館とLINEヤフー</a> <span class="s">― 原価率104%の箱と、資本業務提携の裏側</span></li>
+    <li><a href="#s5">分析の作法</a> <span class="s">― 数式で分解して話す／自分ごとで判断する</span></li>
+    <li><a href="#g1">用語集①　今日の講義に出てきた用語</a></li>
+    <li><a href="#g2">用語集②　自習リスト（Biz単語・投資の基礎）</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 1 ============ -->
+<section class="topic" id="s1">
+  <span class="badge macro">要点①｜為替・マクロ</span>
+  <h2 class="thead">為替介入は「流れ」を変えられない<br>― 1992年のポンド危機が、2026年の日米協調介入を説明する</h2>
+  <p class="sub">当局は一時的に価格を押し戻せる。しかし市場の大きな流れは、当局の資金より大きい。</p>
+
+  <div class="points">
+    <div class="point"><div class="h">POINT 1</div><p>ソロスは<b>ポンドを空売り</b>し、英政府はポンドを買い支えて資金が尽きた。個人（ファンド）が一国の当局に勝った事例。</p></div>
+    <div class="point"><div class="h">POINT 2</div><p>日米は<b>円を買った</b>＝円の価値を上げる方向の介入。買えば高くなる、売れば安くなる、が出発点。</p></div>
+    <div class="point"><div class="h">POINT 3</div><p>過去の介入は<b>約3週間で効果が消えた</b>（ロビン・ブルックス）。今回も一時的に円高、その後は戻り基調。</p></div>
+    <div class="point"><div class="h">POINT 4</div><p>160円台は行き過ぎではなく<b>「新しいマクロ環境の適正水準」</b>という見方（みずほ系リサーチ）。年末予想は162円〜200円まで割れた。</p></div>
+  </div>
+
+  <h3>1-1　ポンド危機（1992年）— 空売りと先物の基礎</h3>
+  <ul class="facts">
+    <li><b>何が起きたか</b>：ジョージ・ソロス（ソロス・ファンド・マネジメント）が、ポンドは実態に対して高すぎると判断し、莫大な量のポンドを売った。イギリス政府は自国通貨の価値を守るためポンドを買い支えたが、用意した資金が尽き、ポンドは急落。ソロスは巨額の利益を得た。</li>
+    <li><b>使った道具＝空売り（ショート）</b>：手元にない資産を先に売り、後で買い戻す取引。「先に売って現金が入る → 値下がりしたところで安く買い戻す → 差額が利益」。値下がりで儲かる仕組み。</li>
+    <li><b>先物</b>：将来の期日に、あらかじめ決めた価格で売買する契約。いま手元にある株を売買する「現物」の対概念。1カ月後にポンドが暴落していれば、先に高値で売る契約を積み上げたぶんだけ利益になる。</li>
+    <li><b>今回への接続</b>：日本もイギリスと同じ立場に立っている。<b>通貨の価値を守るために当局が買い支える</b>という構図はまったく同じで、当局の弾（外貨準備）には限りがある。</li>
+  </ul>
+
+  <h3>1-2　日米協調介入と、その後の戻り</h3>
+  <ul class="facts">
+    <li>今回の介入は<b>円買い</b>。円を買う＝円高方向。日本の財務省（片山さつき財務大臣）と、米財務長官ベッセントが対峙・協調する構図。</li>
+    <li><b>ベッセントとは誰か</b>：米国財務長官。もともと金融・投資運用業界の人物で、<b>ソロス・ファンド・マネジメント出身</b>。つまり「かつて通貨を売り崩す側にいたプロ」が、いまは通貨を守る側の当局トップにいる。</li>
+    <li><b>ロビン・ブルックスの指摘</b>：過去の介入をチャートで並べると、いずれも介入直後に通貨は一時的に強くなるが、<b>そのインパクトが消える（erase）のに約3週間</b>しかかからない。今回（黒）も過去2回（青・赤）と同じ形をたどりつつある。</li>
+    <li><b>結論</b>：介入は需給を一時的に押し戻せるが、市場の大きな流れそのものは変えられない。だから焦点は「介入をもう一度やるか」ではなく、<b>日銀が金利を上げるのか、いつか</b>という攻防に移る。そしてそれはそのまま株価に効く。</li>
+  </ul>
+
+  <h3>1-3　なぜ米財務長官が「円の価値」を気にするのか</h3>
+  <div class="struct">
+    <ul>
+      <li><b>“Japan is bleeding”（日本が血を流している）</b>：ベッセントが使った表現。円の暴落が続けば、輸入物価の上昇を通じて日本の生活は非常に厳しくなる、という強い危機認識。</li>
+      <li><b>円安は誰にとって嬉しいか</b>：外貨で稼ぐ企業には追い風。輸入に依存する家計・中小企業には逆風。<b>同じニュースが、立場によって正反対の意味を持つ</b>。</li>
+      <li><b>アメリカ側の事情</b>：ドル高（＝相手国通貨安）は米国の輸出やテック企業の海外売上に効く。ドル安方向への調整＝円高介入は、米テック業界にとって歓迎できる面がある。また、国際金融の安定という観点からも、円の暴落は放置しにくい。</li>
+      <li><b>アジア通貨は円と別の動きをしていた</b>：人民元をはじめアジア通貨は、円につられているのではなく、対ドルで独自に下落していた。「円安 → アジア通貨も連れ安」という単純な図式ではない、という確認。</li>
+    </ul>
+  </div>
+
+  <h3>1-4　予測は誰がやっているのか — 個人の分析 vs 集合知</h3>
+  <ul class="facts">
+    <li><b>個別アナリストの予測</b>：みずほ系研究所・内閣府の資料・JPモルガンなど。多くが円安基調、160円台を新常態とみる。年末のドル円予想は162円〜200円まで幅がある。</li>
+    <li><b>集合知＝ポリマーケット</b>：「12月時点で円は8月より円高か円安か」といった問いに、参加者が5ドル・10ドルと賭ける予測市場。個人の分析ではなく、多数の判断の集約で当てにいく。<b>poly- は「多数」を意味する接頭辞</b>（policy・politics と同語源）。</li>
+    <li><b>ブックメーカー文化</b>：賭けの胴元。イギリスなどでは街中に店舗があり合法。選挙・スポーツ・アカデミー賞から為替まで、何でも賭けの対象にして倍率を出す。日本では禁止されている。ポリマーケットはこれをデジタルでやっている。</li>
+  </ul>
+
+  <div class="rel"><b>前回（Vol.1速報）との接続</b>　介入＝フロー、金利差＝ストック。介入は需給のフローを一時的に相殺するが、日米の政策金利差という構造は変えない。<a href="../news_briefs/lecture_news_20260809.html">→ 講義ネタ速報 Vol.1</a></div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="topic" id="s2">
+  <span class="badge macro">要点②｜金融政策</span>
+  <h2 class="thead">日銀のジレンマ<br>― 金利を上げると、なぜ倒産が連鎖するのか</h2>
+  <p class="sub">「円を守るために利上げ」は正しい。しかしその一手が、金融システムの側から壊しにいく。</p>
+
+  <h3>2-1　出発点：金利が上がると国債の値段は下がる</h3>
+  <div class="formula">
+    <code>金利　↑　　⇔　　債券（国債）の市場価格　↓</code>
+    <span class="n">新しく発行される国債の利回りが高くなると、いま持っている低い利回りの国債は相対的に魅力が落ちる。だから中古品としての値段（市場価格）が下がる。これは暗記ではなく、必ずこの理屈で導けるようにしておく。</span>
+  </div>
+
+  <h3>2-2　波及の連鎖 — ここを口で説明できるようにする</h3>
+  <ol class="chain">
+    <li>日銀が<b>利上げ</b>する。</li>
+    <li><b>国債の市場価格が下がる</b>。BSの左側（資産）に国債を大量に積んでいる主体の資産価値が目減りする。</li>
+    <li>銀行・生保・損保に<b>含み損</b>が発生・拡大する。損保生保は株式市場・債券市場の巨大な買い手であり、国債保有も大きい。</li>
+    <li>自社の資産が傷むと、金融機関は<b>貸し出しを絞る</b>。</li>
+    <li>実業をやっている企業が<b>お金を借りられなくなる</b>。投資の前に、まず「1カ月後の支払いが払えない」が起きる。</li>
+    <li>支払いが止まると、その先の取引先も払えなくなる。<b>連鎖倒産</b>。</li>
+    <li>たとえば車のドアの部品が作れなくなる＝<b>サプライチェーンの寸断</b>。完成車が作れず、トヨタの売上もディーラーの売上も落ちる。</li>
+    <li>ある日ドカンと<b>不況に突入</b>する。</li>
+  </ol>
+  <p style="font-size:14.5px; color:var(--ink2); margin-top:4px;">だから当局は「金融システムは守らなければならない」を大前提に置く。リーマンショックのときも、銀行はなかなか倒産させなかった。</p>
+
+  <h3>2-3　救えば救ったで批判される — 政治とのジレンマ</h3>
+  <div class="views">
+    <div class="view"><div class="who">金融システム防衛の側</div><p>倒産の連鎖を止めるには、税金を投入してでも金融機関を支えるしかない。放置すれば実体経済ごと沈む。</p></div>
+    <div class="view b"><div class="who">批判の側</div><p>「散々融資でいい思いをしてきたのに、いざとなれば税金で救われるのか」。ウォール街への反発と同じ構図で、強いバッシングを受ける。</p></div>
+    <div class="view c"><div class="who">政治と中央銀行</div><p>国はいつの時代も金を使いたい側で、国債をどんどん発行したい。それを抑えるのが中央銀行の役割。だから<b>政府と日銀は分離</b>されている。</p></div>
+  </div>
+
+  <h3>2-4　国債は「誰が発行して、誰が買っているのか」</h3>
+  <div class="struct">
+    <ul>
+      <li><b>発行するのは国</b>（債務者）。買っているのは<b>金融機関・投資家、そして日銀自身</b>（債権者）。</li>
+      <li>日銀は国債を大量に買っている。つまり<b>自分で金利を上げると、自分の持っている資産の価値も下がる</b>。ここが上田総裁の立たされている位置。</li>
+      <li>近年はポピュリズム的な政権が増え、国債の発行拡大を志向する声が強い。だからこそ「政治と中央銀行の分離」が効いてくる。</li>
+      <li>直近では、日本の保険会社の<b>含み損が急増</b>したことが話題になった。銀行だけの話ではない。</li>
+    </ul>
+  </div>
+
+  <div class="rel"><b>まとめ方</b>　「円を守るには利上げ」「利上げをすると金融システムが傷む」——この2つは同時に正しい。ジレンマとは、どちらかが間違っている状態ではなく、<b>両方正しいのに同時には選べない状態</b>のこと。</div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="topic" id="s3">
+  <span class="badge corp">要点③｜会計・決算</span>
+  <h2 class="thead">ハイパースケーラーの1Q決算<br>― キャッシュフローは赤字、PLは黒字。その正体は減価償却</h2>
+  <p class="sub">アルファベットは巨額のデータセンター投資を行った。払ったキャッシュは、どこへ消えたのか。</p>
+
+  <h3>3-1　払ったキャッシュは、BSの左側に「資産」として残る</h3>
+  <ol class="chain">
+    <li>データセンターに<b>キャッシュをドカンと払う</b>。→ フリーキャッシュフローは赤字になる。</li>
+    <li>払った先は消えたわけではなく、<b>BSの左側（資産）にデータセンターとして計上</b>される。</li>
+    <li>PL上では、使ったキャッシュが全額その期の費用になるわけではない。<b>耐用年数にわたって少しずつ費用配分</b>される。</li>
+    <li>この仕組みが<b>減価償却（Depreciation）</b>。だから<b>CFは赤字なのにPLは黒字</b>という状態が普通に起きる。</li>
+  </ol>
+  <div class="formula">
+    <code>キャッシュ支出　≠　PL上の費用</code>
+    <span class="n">「使ったキャッシュは全部PLに乗るのか？」→ 乗らない。ここを口で説明できるかが、財務三表を読めているかどうかの分かれ目。逆に、減価償却費はPLに乗るがキャッシュは出ていかない（非資金費用）。</span>
+  </div>
+
+  <h3>3-2　次の問い：この資産から、どうやって回収するのか</h3>
+  <ul class="facts">
+    <li>BSの左側に積んだ資産は、これから<b>PL上で売上を立てて回収</b>していかなければならない。データセンターを建てた時点では、まだ何も回収していない。</li>
+    <li>回収の原資は、クラウドとAIサービスが将来生み出すキャッシュ。<b>その需要は誰が出すのか</b>が論点になった。</li>
+    <li>講義での問い：<b>「Geminiがあまり使われなくなっても、アルファベットは生き残れるか」</b>。答えの方向は「自社のAIサービスが勝たなくても、他社のAIが動く土台（インフラ）を提供している限り収益は立つ」。ただしその顧客は主に<b>米国のAI企業</b>であり、中国のAI企業は顧客になりにくい。つまり<b>回収シナリオは米国AI産業の成長に依存している</b>。</li>
+  </ul>
+
+  <h3>3-3　テック側から見ると、為替は話題にすらなっていない</h3>
+  <div class="struct">
+    <ul>
+      <li>日本のニュースでは日米協調介入は大ニュースだが、<b>ハイパースケーラーの決算やテック業界の議論では、ドル円はほとんど話題に上がらない</b>。</li>
+      <li>ここから読み取れる推論：彼らにとって<b>国境や為替の影響は相対的に小さい</b>。「通貨の価値を政治家が上げ下げして勝手に歪めている」くらいの距離感で見ている可能性がある。</li>
+      <li><b>復習の視点</b>：「大ニュースかどうか」は、誰の視点に立つかで変わる。マクロの話がどの企業にも同じ強さで効くわけではない。効き方の強弱そのものが分析対象になる。</li>
+    </ul>
+  </div>
+
+  <div class="rel"><b>関連講義回</b>　財務三表の基礎（BSとPLの連動）／キャッシュフロー分析（PLとCFのズレ）／設備投資と減価償却</div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section class="topic" id="s4">
+  <span class="badge corp">要点④｜個別企業分析</span>
+  <h2 class="thead">出前館とLINEヤフー<br>― 原価率104%の箱と、資本業務提携という「戻ってくるお金」</h2>
+  <p class="sub">PLとして成立していない会社を、なぜ親会社は手放さないのか。ここに大人の会計がある。</p>
+
+  <h3>4-1　まず数式に分解する</h3>
+  <div class="formula">
+    <code>売上高　＝　顧客数　×　単価</code><br>
+    <code>原　価　＝　加盟店へ支払う手数料　＋　配達員への報酬　＋　その他</code>
+    <span class="n">「どこが問題か」を指摘するときは、必ずこの形に分解してから話す。分解して喋ると、どの変数を動かす提案なのかが一目でわかる。</span>
+  </div>
+
+  <h3>4-2　出前館の状況</h3>
+  <ul class="facts">
+    <li><b>2022年の原価率は104%</b>。売っただけ赤字が増える状態。原因は、外部に出ていく2つの支払い——加盟店手数料と配達員報酬——が、単価で賄えていないこと。</li>
+    <li><b>直近（2025年6月期）</b>：営業損失はかなり改善した。ただし主因は<b>広告宣伝費の大幅削減</b>であり、売上は2022年より落ちている。<b>コストを削って赤字を縮めたが、売上は減った</b>という形。</li>
+    <li>大量に宣伝しても、ゼミの中で出前館を使っている学生はいなかった（Uber Eatsは使っている）。<b>宣伝は効かず、やめれば売上が落ちる</b>という板挟み。</li>
+    <li><b>黒字化にはあと12%程度のコスト削減が必要</b>。しかし削れる先はもう配達員報酬くらいしかない。</li>
+    <li>継続的な赤字で、株主に配当できる状態ではない。</li>
+  </ul>
+
+  <h4>削りにいくと何が起きるか</h4>
+  <div class="views">
+    <div class="view b"><div class="who">配達員報酬を下げる</div><p>配達員がUber Eatsに流出する。供給が減れば配達が回らず、顧客体験が落ちて売上がさらに減る。</p></div>
+    <div class="view b"><div class="who">加盟店手数料を上げる／単価を上げる</div><p>成長が鈍化した市場では、値上げは離反を招きやすい。そもそも「単価を上げる」のは出前館の仕事なのか、加盟店の仕事なのかという線引きの問題も出る。</p></div>
+    <div class="view b"><div class="who">ポイント施策を打つ</div><p>ポイントは、付与時点で将来の負担として<b>BSの負債</b>に立ち、<b>PLでは費用</b>として出ていく。実質的に広告宣伝費と同じ構造で、削ったコストをまた積み増すことになる。</p></div>
+  </div>
+
+  <h3>4-3　市場が縮んだのか、シェアを取られたのか</h3>
+  <div class="struct">
+    <ul>
+      <li>売上減の原因は2通りある。<b>①出前市場そのものが縮小した</b>のか、<b>②市場は伸びたのに伸びた分をUber Eatsに全部持っていかれた</b>のか。<b>この切り分けをせずに打ち手は決まらない</b>。</li>
+      <li>講義での見立ては「出前市場の成長は鈍化した」。成長鈍化局面でPL上できる戦い方は限られる（単価を上げる／手数料を上げる／原価を削る）——しかしどれも上のトレードオフに突き当たる。</li>
+      <li><b>結論</b>：出前館のPLは「お金を稼ぐ箱」として体をなしていない。経済合理性の観点では、株主としては<b>畳む、あるいは売却</b>が選択肢に入る。</li>
+    </ul>
+  </div>
+
+  <h3>4-4　売るとしたら、いくらで売るのか</h3>
+  <ul class="facts">
+    <li>売却額の物差しは、<b>その事業が将来生むキャッシュの現在価値</b>。講義では簡便法として「これから得られる損益をゼロとみなし、<b>売上の5年分を現在価値に割り引いた額</b>」と、出前館側の提示額を比べる、という考え方が示された。</li>
+    <li><b>買い手（例：Uber Eats）から見た価値</b>は違う。市場シェア1割を丸ごと取り込める、出前館のファンがいるかもしれない——そうした事業上の価値が、PLの数字を超えて乗る。<b>「誰にとっての価値か」で値段は変わる</b>。</li>
+    <li>買うときのリスクは「想定した利益が出ないこと」。だから買収前に、<b>何がその利益の前提になっているのかを最初に見抜く</b>必要がある。</li>
+  </ul>
+
+  <h3>4-5　なぜLINEヤフーは出資を引き上げないのか</h3>
+  <ol class="chain">
+    <li>LINEヤフーは出前館に出資している。ずっと赤字なので、投じたお金は<b>実質的に寝ている</b>。</li>
+    <li>本来なら「その金で国債を買っておけば利息がついた」と、<b>LINEヤフーの株主から責められる立場</b>になる。</li>
+    <li>それでも出資を引き上げない。理由の一つが<b>資本業務提携</b>の構造：出資したキャッシュの一部を、<b>出前館からLINEヤフーへの広告費として支払わせる</b>。仮に300億円出資し、うち100億円が広告費として戻ってくれば、正味の負担はその分小さくなる。<span class="tag">金額は講義中の例示</span></li>
+    <li>加えて、配達コスト最適化のための<b>データ活用</b>、ヤフーIDユーザーへのメニュー追加による顧客満足度・売上の向上といった<b>シナジー</b>もある。</li>
+    <li>結果、LINEヤフーにとって出前館の赤字は「痛いが、そこまで痛くない」。<b>連結の外側から見た損益と、グループ内での資金の循環は別物</b>。</li>
+  </ol>
+  <p style="font-size:14.5px; color:var(--ink2);">この回の締めくくりの一言：<b>「大人はこういうグロいことを考えている、というのを学びましょう」</b>。数字の背後には、必ず誰かの利害の設計がある。</p>
+
+  <div class="rel"><b>関連講義回</b>　個別企業ケース分析（メルカリ・freee・出前館）／原価率と単位経済／PLとCFのズレ／M&amp;Aとバリュエーション</div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section class="topic" id="s5">
+  <span class="badge bridge">要点⑤｜作法</span>
+  <h2 class="thead">分析の作法 — 数式で分解する、自分ごとで判断する</h2>
+  <p class="sub">この2つは、今日の全トピックに共通して繰り返し出てきた「型」。</p>
+
+  <div class="points">
+    <div class="point c"><div class="h">作法 1｜足し算・掛け算で喋る</div><p>「売上が伸び悩んでいる」ではなく「売上＝顧客数×単価のうち、単価が動いていない」と言う。<b>分解して話すと、提案がどの変数に効くのかが明確になり、説得力が段違いになる</b>。働き始めてからも効く。</p></div>
+    <div class="point c"><div class="h">作法 2｜自分の財産から判断する</div><p>メディアは「円安は悲しい」と全体像で語る。だが<b>自分の資産構成から見れば全然ありかもしれない</b>。誰かの悲しみを自分の判断にすり替えない。</p></div>
+    <div class="point c"><div class="h">作法 3｜一次情報と原典</div><p>決算短信・有価証券報告書（EDINET）・官庁発表・中期経営計画に当たる。人の要約ではなく、数字そのものを見る。</p></div>
+    <div class="point c"><div class="h">作法 4｜英語で読む</div><p>速報性のある情報はX（英語）で流れてくる。collapse・drag down・erase・bleeding といった語彙は、そのままマクロの温度感を伝えている。</p></div>
+  </div>
+
+  <div class="sideline">
+    <div class="h">余談として出た論点（次回以降の種）</div>
+    <ul>
+      <li><b>AI × 電力</b>：データセンターの電力不足が制約になり、原発関連の受注が数年先まで積み上がっているという見方。ここがAI拡大のボトルネックになりうる。</li>
+      <li><b>AIの加速度</b>：技術の進化スピードは相変わらず極めて速い、という共通認識。</li>
+      <li><b>ポートフォリオ運用</b>：目標は<b>2027年1月末までに+20%のリターン</b>。為替基調と日本の金融政策が株価に与える影響を、連結して分析することが今後の課題として挙げられた。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 用語集① ============ -->
+<section class="topic" id="g1">
+  <span class="badge word">用語集①</span>
+  <h2 class="thead">今日の講義に出てきた用語</h2>
+  <p class="sub">講義中に出た文脈つきで整理。定義を言えるだけでなく、「どの話でなぜ出てきたか」まで再現できると理想。</p>
+
+  <div class="gloss">
+    <span class="gcat">為替・市場</span>
+    <dl>
+      <dt>為替介入<span class="en">foreign exchange intervention</span></dt>
+      <dd>通貨当局が市場で自国通貨を売買し、為替レートに影響を与える取引。<b>買えば高く、売れば安くなる</b>。今回の日米協調介入は<b>円買い</b>＝円高方向。需給のフローを一時的に押し戻すが、金利差などの構造は変えられない。</dd>
+
+      <dt>協調介入<span class="en">coordinated intervention</span></dt>
+      <dd>複数国の通貨当局が同時に同じ方向で行う介入。単独介入より市場へのメッセージが強い。今回は日本の財務省と米財務省が円買いで協調した。</dd>
+
+      <dt>ポンド危機（1992年）<span class="en">Black Wednesday</span></dt>
+      <dd>ジョージ・ソロスがポンドを大量に空売りし、買い支えたイギリス政府の資金が尽きてポンドが急落した事件。<b>市場の流れに当局が力で逆らうことの限界</b>を示した歴史的事例として、今回の介入の話の導入に使われた。</dd>
+
+      <dt>空売り（ショート）<span class="en">short selling</span></dt>
+      <dd>手元にない資産を借りて先に売り、後で買い戻す取引。<b>先に売った代金が入り、値下がりしたところで安く買い戻せば差額が利益</b>。値下がりで儲かるポジション。</dd>
+
+      <dt>先物<span class="en">futures</span></dt>
+      <dd>将来の決められた期日に、あらかじめ決めた価格で売買する契約。いま手元にあるものを売買する「現物」の対概念。オプションと並ぶデリバティブの基本形。</dd>
+
+      <dt>ベッセント<span class="en">Bessent</span></dt>
+      <dd>米国財務長官。<b>ソロス・ファンド・マネジメント出身</b>の金融プロ。為替に極めて詳しく、日本側のカウンターパートは片山さつき財務大臣。“Japan is bleeding” という表現で円安の深刻さを指摘した。</dd>
+
+      <dt>ロビン・ブルックス<span class="en">Robin Brooks</span></dt>
+      <dd>日本関連の発信も多いアナリスト。過去の介入事例を並べ、<b>介入のインパクトが消えるのに約3週間</b>しかかからないことをチャートで示した。フォロー推奨として紹介。</dd>
+
+      <dt>ポリマーケット<span class="en">Polymarket</span></dt>
+      <dd>デジタルの<b>予測市場</b>。「12月に円は8月より円高か円安か」といった問いに参加者が実際に賭ける。個別アナリストの分析ではなく<b>集合知</b>で当てにいく仕組みで、精度が高いことで知られる。<b>poly-＝多数</b>（policy／politicsと同語源）。</dd>
+
+      <dt>ブックメーカー<span class="en">bookmaker</span></dt>
+      <dd>賭けの<b>胴元</b>。イギリスなどでは街中に店舗があり合法で、選挙・スポーツ・アカデミー賞まで何でも賭けの対象にして倍率を出す。日本では禁止。ポリマーケットはこの文化のデジタル版。</dd>
+
+      <dt>適正水準（新しいマクロ環境の）</dt>
+      <dd>みずほ系リサーチの見方として紹介された概念。<b>160円台は一時的な行き過ぎではなく、新しいマクロ環境における妥当な水準</b>だという解釈。これを受け入れると「円は放っておけば戻る」という前提自体が崩れる。</dd>
+    </dl>
+
+    <span class="gcat">金融政策・債券</span>
+    <dl>
+      <dt>金利と債券価格の逆相関</dt>
+      <dd><b>金利が上がると、既発の債券（国債）の市場価格は下がる</b>。新発債の利回りが高くなり、低い利回りの既発債の魅力が相対的に落ちるため。今日の連鎖の出発点。</dd>
+
+      <dt>含み損</dt>
+      <dd>保有資産の時価が取得価格を下回っている状態の、まだ売却していない損失。売っていないので現金は出ていないが、<b>BS上の資産価値は毀損している</b>。利上げ局面で、国債を大量保有する銀行・生保・損保に発生する。</dd>
+
+      <dt>貸し渋り／信用収縮<span class="en">credit crunch</span></dt>
+      <dd>金融機関が自社の資産悪化を受けて貸出を絞ること。企業は投資以前に<b>目先の支払い資金が回らなくなり</b>、連鎖倒産 → サプライチェーン寸断 → 不況へつながる。</dd>
+
+      <dt>中央銀行の独立性</dt>
+      <dd>政府と中央銀行を分離しておく原則。<b>国はいつの時代も金を使いたい側</b>で国債を発行したがるため、それを抑える主体が必要になる。ポピュリズム的政権が増えるほど、この分離の重要性が上がる。</dd>
+
+      <dt>ポピュリズム</dt>
+      <dd>大衆の支持を直接的に動員する政治手法。財政面では<b>国債の発行拡大を志向しやすい</b>ため、中央銀行との緊張が生まれる。</dd>
+
+      <dt>国債の発行体と保有者</dt>
+      <dd>発行するのは<b>国（債務者）</b>、買うのは<b>金融機関・投資家、そして日銀自身</b>。日銀が国債を大量保有しているため、<b>自ら利上げすると自らの保有資産価値も下がる</b>という構造がある。</dd>
+
+      <dt>ジレンマ（日銀の）</dt>
+      <dd>「円の価値を守るには利上げが要る」と「利上げすると金融システムが傷む」が<b>同時に正しい</b>状態。どちらかが誤りなのではなく、両立できないところがジレンマ。</dd>
+    </dl>
+
+    <span class="gcat">会計・財務</span>
+    <dl>
+      <dt>減価償却<span class="en">Depreciation</span></dt>
+      <dd>設備などの支出を、購入した期に全額費用にせず、<b>耐用年数にわたって少しずつPLに費用配分</b>する仕組み。だから<b>キャッシュフローは赤字でもPLは黒字</b>という状態が起きる。今日の会計パートの中核。</dd>
+
+      <dt>フリーキャッシュフロー<span class="en">Free Cash Flow / FCF</span></dt>
+      <dd>本業で稼いだキャッシュから投資支出を差し引いた、自由に使えるキャッシュ。データセンターのような巨額投資をした期は大きくマイナスになるが、それ自体は「儲かっていない」ことを意味しない。</dd>
+
+      <dt>BSの左側／右側</dt>
+      <dd>左側＝<b>資産</b>（何を持っているか）、右側＝<b>負債と純資産</b>（そのお金をどこから調達したか）。キャッシュで設備を買う取引は、左側の中身が現金から設備に入れ替わるだけ。</dd>
+
+      <dt>トップライン<span class="en">top line</span></dt>
+      <dd>PLの一番上の行＝<b>売上高</b>。「トップラインは伸びた」＝売上は伸びた、の意。対してボトムラインは最終利益。</dd>
+
+      <dt>原価率</dt>
+      <dd>売上に対する売上原価の比率。<b>100%を超えると、売れば売るほど赤字が増える</b>。出前館の2022年は104%だった。</dd>
+
+      <dt>広告宣伝費</dt>
+      <dd>販管費の一項目。出前館の直近の営業損失改善は、主にここを大幅に削ったことによる。<b>ただし削ると売上も落ちる</b>という関係にあり、単純な改善策ではない。</dd>
+
+      <dt>ポイント施策の会計処理</dt>
+      <dd>付与したポイントは将来の値引き義務なので<b>BSでは負債</b>に立ち、<b>PLでは費用</b>として計上される。実質的に販促費と同じ構造で、削ったコストを積み直すことになる。</dd>
+
+      <dt>現在価値／DCF<span class="en">Discounted Cash Flow</span></dt>
+      <dd>将来のキャッシュを、時間の分だけ割り引いて今の価値に直す考え方。事業の売却額を見積もるときの物差し。<b>いくらで売るかは、将来いくら稼ぐかで決まる</b>。</dd>
+    </dl>
+
+    <span class="gcat">事業・企業</span>
+    <dl>
+      <dt>ハイパースケーラー<span class="en">hyperscaler</span></dt>
+      <dd>超大規模なデータセンターとクラウド基盤を自前で持つ巨大テック企業（Alphabet・Microsoft・Amazon など）。<b>国境や為替の影響を相対的に受けにくい</b>のが特徴として挙げられた。</dd>
+
+      <dt>資本業務提携</dt>
+      <dd>出資（資本）と事業上の協力（業務）をセットで結ぶ提携。<b>出資したキャッシュの一部が、広告費などの取引を通じて出資元に還流する</b>設計が組まれることがある。LINEヤフーと出前館の関係を読むときの鍵。</dd>
+
+      <dt>シナジー<span class="en">synergy</span></dt>
+      <dd>組み合わせることで単独の合計を上回る効果。LINEヤフー側なら、ヤフーIDユーザーへのメニュー追加、配達データの活用によるコスト最適化など。</dd>
+
+      <dt>スイッチングコスト</dt>
+      <dd>ユーザーが別サービスに乗り換えるときに生じる負担。<b>これが低いと、広告を打っても定着せずシェアが守れない</b>。出前館とUber Eatsの関係で論点になった。</dd>
+
+      <dt>経済合理性</dt>
+      <dd>その活動を続けることが経済的に見合うかどうか。<b>PLが「お金を稼ぐ箱」として機能していない</b>と判断されれば、株主にとっては撤退・売却が合理的な選択肢になる。</dd>
+    </dl>
+
+    <span class="gcat">英語表現（記事・Xを読むために）</span>
+    <dl>
+      <dt>Japan is bleeding.</dt>
+      <dd>「日本は血を流している」。blood（名詞・血）／bleed（動詞・出血する）。円の暴落による生活の圧迫・物価上昇の深刻さを表した、ベッセントの表現。</dd>
+      <dt>collapse</dt>
+      <dd>崩壊・暴落（する）。通貨や市場が急激に崩れる状況を指す。</dd>
+      <dt>drag down</dt>
+      <dd>引きずり下ろす・下落させる。ある資産の下落が、他の資産まで巻き添えにするときに使う。</dd>
+      <dt>erase the intervention</dt>
+      <dd>介入（の効果）を消す。“It takes about three weeks for the market to erase the intervention.” ＝ 市場が介入の効果を消し去るのに約3週間かかる。</dd>
+      <dt>resume / weakening</dt>
+      <dd>resume＝再開する。weakening＝（通貨が）弱含むこと。「介入以来、円安が再開した（元に戻った）」という形で使われる。</dd>
+      <dt>intervention</dt>
+      <dd>介入。為替の文脈では通貨当局による市場介入を指す。</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ 用語集② ============ -->
+<section class="topic" id="g2">
+  <span class="badge word">用語集②</span>
+  <h2 class="thead">自習リスト — Biz単語と投資の基礎</h2>
+  <p class="sub">講義資料で「やっておくこと」として挙げられた語彙。ここは暗記ではなく、<b>それぞれ人に説明できる状態</b>を目標にする。</p>
+
+  <h3>経営学部生に必須の Biz 単語</h3>
+  <div class="gloss compact">
+    <dl>
+      <dt>WACC</dt><dd>加重平均資本コスト。借入と株主資本のコストを調達比率で加重平均した「会社がお金を使うときの最低ライン」。</dd>
+      <dt>ROIC</dt><dd>投下資本利益率。税引後営業利益 ÷ 投下資本。WACCを上回っていれば価値を生んでいる。</dd>
+      <dt>ROE</dt><dd>自己資本利益率。当期純利益 ÷ 自己資本。株主の出したお金でどれだけ稼いだか。</dd>
+      <dt>ROA</dt><dd>総資産利益率。利益 ÷ 総資産。資産全体をどれだけ効率よく使えているか。</dd>
+      <dt>ROI</dt><dd>投資利益率。個別の投資案件に対するリターンの割合。</dd>
+      <dt>Run Rate</dt><dd>直近の実績を年換算した数値。「この調子が1年続いたらいくらか」を示す。</dd>
+      <dt>ARR</dt><dd>年間経常収益。サブスクリプション事業で、継続的に入る収益の年換算額。</dd>
+      <dt>CAGR</dt><dd>年平均成長率。複数年の成長を、毎年一定率で伸びたとみなして均した率。</dd>
+      <dt>時価総額</dt><dd>株価 × 発行済株式数。市場がその会社全体につけている値段。</dd>
+      <dt>Valuation</dt><dd>企業価値評価。DCF・類似企業比較・PER倍率などで「いくらの会社か」を出す作業。</dd>
+      <dt>DCF</dt><dd>割引キャッシュフロー法。将来のキャッシュフローを現在価値に割り引いて企業価値を算出する。</dd>
+      <dt>EBITDA</dt><dd>利払い・税金・減価償却前利益。設備投資の重い業種や国際比較で使われる、キャッシュ創出力の近似。</dd>
+      <dt>Depreciation</dt><dd>減価償却（有形固定資産）。無形資産の場合は Amortization。</dd>
+      <dt>CAPEX</dt><dd>設備投資。資産としてBSに計上され、減価償却でPLに配分される支出。</dd>
+      <dt>OPEX</dt><dd>事業運営費。発生した期にそのまま費用になる支出。</dd>
+      <dt>Working Capital</dt><dd>運転資本。売上債権＋在庫−仕入債務。事業を回すために寝かせておく必要のあるお金。</dd>
+      <dt>バーンレート</dt><dd>現金燃焼率。スタートアップが毎月いくら現金を減らしているか。残高 ÷ バーンレート＝生存期間。</dd>
+      <dt>減損処理</dt><dd>資産の収益力が落ち、帳簿価額を回収できないときに帳簿価額を切り下げる会計処理。一括で大きな損失が出る。</dd>
+      <dt>債務超過</dt><dd>負債が資産を上回り、純資産がマイナスになった状態。</dd>
+      <dt>ネットキャッシュ比率</dt><dd>（現金等 − 有利子負債）を時価総額で割った値。手元資金の厚さを測る指標。</dd>
+      <dt>レバレッジ</dt><dd>てこ。借入で自己資金以上の規模を動かすこと。リターンも損失も増幅する。</dd>
+      <dt>サンクコスト</dt><dd>埋没費用。すでに支出済みで回収できない費用。<b>意思決定では無視すべき</b>なのに、人は引きずられる。</dd>
+      <dt>スタグフレーション</dt><dd>景気停滞（stagnation）と物価上昇（inflation）の同時進行。金融政策が最も効きにくい状態。</dd>
+      <dt>コモディティ</dt><dd>差別化が効かず、価格だけで選ばれるようになった商品・市場。</dd>
+      <dt>イノベーションのジレンマ</dt><dd>優良企業が既存顧客の声に忠実であるがゆえに、破壊的技術への転換に遅れる現象（クリステンセン）。</dd>
+      <dt>サプライチェーン</dt><dd>原材料から最終製品が顧客に届くまでの供給網。1カ所の寸断が全体を止める。</dd>
+      <dt>リードタイム</dt><dd>発注から納品までに要する時間。</dd>
+      <dt>イニシャルコスト</dt><dd>導入時に一度だけかかる初期費用。対義はランニングコスト。</dd>
+      <dt>Down Payment</dt><dd>頭金。購入時に先に支払う一部金額。</dd>
+      <dt>Income Statement</dt><dd>損益計算書（PL）。一定期間の収益と費用、そして段階損益を示す。</dd>
+      <dt>IFRS</dt><dd>国際財務報告基準。日本基準とは営業利益の範囲やのれんの扱いなどが異なるため、<b>横比較の際は基準を揃える</b>。</dd>
+      <dt>Operation</dt><dd>事業運営・オペレーション。日々の業務を回す活動全般。</dd>
+      <dt>Board Member</dt><dd>取締役（会のメンバー）。経営の意思決定と監督を担う。</dd>
+      <dt>OAT</dt><dd>フランス国債（Obligations Assimilables du Trésor）。欧州の長期金利を見るときの指標債券。</dd>
+      <dt>EPS</dt><dd>1株当たり利益。当期純利益 ÷ 発行済株式数。</dd>
+      <dt>PER</dt><dd>株価収益率。株価 ÷ EPS。利益の何年分の値段がついているか。</dd>
+      <dt>PBR</dt><dd>株価純資産倍率。株価 ÷ 1株当たり純資産。1倍割れは解散価値未満の評価。</dd>
+    </dl>
+  </div>
+
+  <h3>株の勉強（投資の基礎）</h3>
+  <div class="gloss compact">
+    <dl>
+      <dt>押し目買い</dt><dd>上昇基調のなかで一時的に下げた局面を狙って買う手法。</dd>
+      <dt>ドルコスト平均法</dt><dd>毎回一定「金額」を機械的に買い続ける方法。高いときは少なく、安いときは多く買えるため取得単価が平準化される。</dd>
+      <dt>ファンダメンタル分析</dt><dd>業績・財務・事業内容など企業の実態から価値を判断する分析。</dd>
+      <dt>テクニカル分析</dt><dd>株価チャートや出来高など、価格の動きそのものから判断する分析。</dd>
+      <dt>インデックス投資</dt><dd>日経225やS&amp;P500などの指数に連動する形で、市場全体をまとめて買う投資。</dd>
+      <dt>ETF</dt><dd>上場投資信託。証券取引所で株式と同じように売買できる投資信託。</dd>
+      <dt>キャピタルゲイン</dt><dd>値上がり益。売却して初めて実現する利益。</dd>
+      <dt>インカムゲイン</dt><dd>保有中に受け取る配当・利息などの収益。</dd>
+      <dt>株式収入の税率</dt><dd>日本の上場株式の譲渡益・配当は原則<b>20.315%</b>（所得税15%＋復興特別所得税0.315%＋住民税5%）の申告分離課税。</dd>
+      <dt>配当利回り</dt><dd>1株当たり年間配当 ÷ 株価。株価に対して何%配当が出るか。</dd>
+      <dt>配当性向</dt><dd>配当総額 ÷ 当期純利益。稼いだ利益のうち何%を株主に還元しているか。</dd>
+      <dt>長期金利と株価</dt><dd>金利上昇は、割引率の上昇と債券の相対的魅力の上昇を通じて、一般に株価の逆風になる。</dd>
+      <dt>ドル円と株価</dt><dd>円安は外貨で稼ぐ輸出企業の円換算利益を押し上げる。ただし業種・企業の外貨ポジションによって効き方は逆になる。</dd>
+      <dt>インフレと株価</dt><dd>緩やかなインフレは名目売上を押し上げるが、金融引き締めを招けば株価の重しになる。</dd>
+      <dt>日経225とTOPIXの違い</dt><dd>日経225は<b>株価の単純平均型</b>で値がさ株の影響が大きい225銘柄。TOPIXは<b>時価総額加重</b>で東証の広範な銘柄をカバーする。だから両者が逆方向に動く日がある。</dd>
+      <dt>外国人投資家</dt><dd>日本株の売買代金の過半を占める主体で、相場の方向を左右する。売買動向はJPXが公表している。</dd>
+    </dl>
+  </div>
+
+  <div class="rel"><b>使い方</b>　上のリストは、講義資料で指定されたNotebookLMの「株式投資クイズ」「単語帳」と対応している。まず自分で説明してみて、詰まった語だけクイズで潰すのが速い。</div>
+</section>
+
+<footer>
+  <h2>このページについて</h2>
+  <ul>
+    <li>2026年8月11日（火）の<b>夏期集中講座 第2回</b>「日米為替介入と出前館、ハイパースケーラーの1Q決算」の復習用ページです。講義資料・当日の議事録・逐語記録をもとに構成しています。</li>
+    <li>数値・固有名詞は当日提示された資料と発言に基づきます。講義中に口頭で示された<b>概算・例示</b>（LINEヤフーの出資額と広告費の還流など）は、その旨をタグで明示しています。<b>数字を引用する際は必ず一次情報（決算短信・有価証券報告書・官庁発表）で裏を取ってください。</b></li>
+    <li>ゼミ参加者個人のポートフォリオ・保有銘柄は、本ページには収録していません。</li>
+    <li>外部依存のない単一HTMLファイルです。ブラウザストレージ（localStorage 等）は使用していません。</li>
+  </ul>
+  <div class="next">
+    <b>次回</b>　2026年8月18日（火）ごろを予定。事前課題はSlackで共有されます。<br>
+    <b>あわせて読む</b>　<a href="../news_briefs/lecture_news_20260809.html">講義ネタ速報 Vol.1（2026年8月9日配信）</a>　― 介入・金利差・段階損益を、トヨタとソフトバンクGの決算で追った号。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
