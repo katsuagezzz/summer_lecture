@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講義資料 第3回｜2026年8月18日 答え合わせの日 ― 介入から3週間、金利のある世界、AIに賭けられた1兆ドル</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../index.html">← 一覧へ戻る</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="../reviews/lecture_review_20260804.html">第1回 8/4 復習</a>
+  <a href="../news_briefs/lecture_news_20260809.html">速報 Vol.1 8/9</a>
+  <a href="../reviews/lecture_review_20260811.html">第2回 8/11 復習</a>
+  <span class="cur">第3回 8/18 講義資料</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 講義資料　夏期集中講座 第3回</div>
+  <h1 class="title">答え合わせの日<br>― 介入から3週間、金利のある世界、AIに賭けられた1兆ドル</h1>
+  <div class="meta">
+    <span><b>講義日</b>　2026年8月18日（火）</span>
+    <span><b>形式</b>　オンライン（Zoom）</span>
+    <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
+    <span><b>資料作成</b>　2026年8月12日</span>
+  </div>
+  <div class="lede">
+    第2回（8/11）で、私たちはいくつかの<strong>仮説</strong>を立てた。「為替介入の効果は3週間で消える」「日銀は利上げしたくてもできない」「キャッシュが赤字でもPLが黒字になるのは減価償却のせい」「出前館のPLは箱として機能していない」。<br>
+    第3回はその<strong>答え合わせの回</strong>である。7/30の協調介入から3週間後は8/20 ── つまりこの授業は、期限の<strong>2日前</strong>に開かれる。しかも8/12に米CPI、<strong>8/17に日本の4-6月期GDP1次速報</strong>が出た直後。<strong>仮説が当たったか外れたかを、自分の目で確かめられる稀な日程</strong>だ。<br>
+    そこに、この夏いちばん大きな金額の話を重ねる。ハイパースケーラーの2026年設備投資は合計で<strong>7,000億ドル超</strong>と報じられ、Anthropicは<strong>650億ドルを調達して評価額9,650億ドル</strong>になった。第2回でやった減価償却は、この規模の話を読むための道具だった。
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>この資料の構成</h2>
+  <ol>
+    <li><a href="#s0">この回のねらい</a> <span class="s">― 第1回・第2回とのつながり</span></li>
+    <li><a href="#s1">今回の材料（4つのニュース）</a> <span class="s">― 日本・米国・中国・AI</span></li>
+    <li><a href="#hw1">宿題①　田村チーム</a> <span class="s">― 介入の答え合わせと「金利のある世界」の日本</span></li>
+    <li><a href="#hw2">宿題②　廻チーム</a> <span class="s">― AIに賭けられた金額は、いつ・どうやって回収されるのか</span></li>
+    <li><a href="#hw3">宿題③　両チーム共通</a> <span class="s">― 中国：輸出は絶好調、物価は上がらない</span></li>
+    <li><a href="#hw4">宿題④　ポートフォリオ（継続）</a> <span class="s">― 2027年1月末までに+20%</span></li>
+    <li><a href="#s6">当日の進行</a> <span class="s">― 90分のタイムテーブル</span></li>
+    <li><a href="#g1">今回の用語</a> <span class="s">― 予習しておく言葉</span></li>
+  </ol>
+</nav>
+
+<!-- ============ 0 ============ -->
+<section class="topic" id="s0">
+  <span class="badge bridge">この回のねらい</span>
+  <h2 class="thead">立てた仮説を、自分の目で検算する</h2>
+  <p class="sub">夏期集中講座のゴールは変わらない ──「世の中のニュースに関心を持つ」、そして「大きな事変が自分の資産にどう影響するかを体感する」。</p>
+
+  <div class="points">
+    <div class="point"><div class="h">第1回（8/4）でやったこと</div><p>マクロの<b>登場人物</b>を並べた。政府・日銀・市場・そしてアメリカ。「利上げした通貨の価値は上がるのか」を全員で詰め、後半はメルカリとfreeeのPLを投資家目線で比較した。<a href="../reviews/lecture_review_20260804.html">→ 復習</a></p></div>
+    <div class="point b"><div class="h">第2回（8/11）でやったこと</div><p>介入は流れを変えられるか（ポンド危機）、日銀のジレンマ（金利↑→国債価格↓→含み損→貸し渋り→連鎖倒産）、減価償却、原価率104%。<a href="../reviews/lecture_review_20260811.html">→ 復習</a></p></div>
+    <div class="point c"><div class="h">第3回（8/18）でやること</div><p><b>検算</b>。3週間仮説は当たったか。GDPは何%だったか。ハイパースケーラーが積んだ資産は、どの決算から回収が始まるのか。<b>「たぶんこうなる」を「実際こうだった」に置き換える</b>。</p></div>
+    <div class="point c"><div class="h">今回あえて加える視点</div><p><b>中国</b>。これまでのゼミは日米が中心だった。だが原材料も、部品も、価格競争の相手も中国から来る。<b>3つ目の登場人物</b>を入れて絵を描き直す。</p></div>
+  </div>
+
+  <h3>この回で身につけてほしい「型」</h3>
+  <div class="formula">
+    <code>予想　→　実測　→　差分の説明</code>
+    <span class="n">予想が外れること自体は問題ではない。プロの予想も外れる（第2回で見た年末ドル円予想は162円〜200円まで割れていた）。問われるのは<b>「なぜズレたのかを言葉にできるか」</b>。ズレの理由を1つ言えたら、その回は成功である。</span>
+  </div>
+</section>
+
+<!-- ============ 1 ============ -->
+<section class="topic" id="s1">
+  <span class="badge macro">今回の材料</span>
+  <h2 class="thead">4つのニュースを、同じ枠で読む</h2>
+  <p class="sub">それぞれ独立した事件に見えるが、全部「金利」と「誰がお金を出しているか」でつながっている。</p>
+
+  <h3>材料A｜日本 ― 介入から3週間、そして「金利のある世界」</h3>
+  <div class="kpis">
+    <div class="kpi m"><div class="k">日米協調介入</div><div class="v">7/30-31</div><div class="n">円買い介入。ドル円は164円近辺から157円台へ<span class="tag chk">要確認</span></div></div>
+    <div class="kpi m"><div class="k">その後の水準</div><div class="v">158円台</div><div class="n">8月上旬は156.6〜158.6のもみ合い、8/10に円全面安<span class="tag chk">要確認</span></div></div>
+    <div class="kpi m"><div class="k">10年国債利回り</div><div class="v">2.83%</div><div class="n">1996年10月以来、約30年ぶりの高水準（7/6時点）</div></div>
+    <div class="kpi m"><div class="k">4-6月期GDP</div><div class="v">8/17発表</div><div class="n">民間予測は前期比年率+2.5%程度（大和総研 8/10改訂）</div></div>
+  </div>
+  <ul class="facts">
+    <li><b>介入の規模</b>：今年の円買い介入は累計で<b>11兆円規模</b>と報じられている。第2回で確認した通り、当局の弾には限りがある。<b>11兆円で何が買えたのかを、8/18の為替レートで採点する</b>のが今回の第一の宿題。<span class="tag chk">金額は報道ベース／財務省の実績公表で要確認</span></li>
+    <li><b>「金利のある世界」の到来</b>：長期金利は30年ぶりの水準。背景は日銀の利上げ期待だけではなく、<b>積極財政による国債増発懸念</b>と、日銀のQT（国債買入の減額）による需給の緩みが指摘されている。<b>買い手が減れば値段は下がる＝利回りは上がる</b>。第2回の連鎖の出発点が、すでに現実に起きている。</li>
+    <li><b>ねじれ</b>：日経平均は年初来で3割前後上昇したと報じられる一方、長期金利は30年ぶり高水準。<b>金利が上がると株は逆風</b>のはずなのに、両方が上がっている。第2回の自習リストの最後の問い ──「<b>これはバブルか？</b>」── が、そのまま今回の論点になる。</li>
+  </ul>
+
+  <h3>材料B｜米国 ― 議長が交代し、議論は「利下げ」から「利上げ」へ</h3>
+  <ul class="facts">
+    <li><b>FRB議長がケビン・ウォーシュに交代</b>（パウエル氏の任期満了に伴い、2026年7月のFOMC前後）。<span class="tag chk">要確認</span></li>
+    <li>7月FOMCは政策金利を<b>3.50〜3.75%で据え置き</b>。ただし<b>3人が「利上げすべき」と反対票</b>を投じた。日本のニュースは「アメリカはいつ利下げするか」で語りがちだが、<b>現場の議論はすでに逆方向にも振れている</b>。</li>
+    <li><b>7月CPIは8/12発表</b>。関税の価格転嫁、原油高、AIブームによるハイテク関連価格の上昇が焦点。<b>この数字が日米金利差の絵を描き替える</b>。</li>
+    <li><b>ここが第1回・第2回との接続点</b>：「円安の原因は日米金利差」だとすると、<b>アメリカ側の金利が下がらない（むしろ上がるかもしれない）</b>という状況は、介入や日銀の一手だけでは円安が終わらないことを意味する。</li>
+  </ul>
+
+  <h3>材料C｜AI ― 賭けられている金額の桁</h3>
+  <div class="kpis">
+    <div class="kpi c"><div class="k">ハイパースケーラー設備投資</div><div class="v">7,000億㌦超</div><div class="n">2026年の主要各社合計（各社ガイダンスの積み上げ、推計）<span class="tag chk">要確認</span></div></div>
+    <div class="kpi c"><div class="k">Anthropic Series H</div><div class="v">650億㌦</div><div class="n">2026年5月28日クローズ。うち150億㌦は既往コミット分</div></div>
+    <div class="kpi c"><div class="k">同 ポストマネー評価額</div><div class="v">9,650億㌦</div><div class="n">1社の評価額が日本のGDPの2割前後に相当する規模</div></div>
+    <div class="kpi c"><div class="k">同 ランレート</div><div class="v">約470億㌦</div><div class="n">報道ベース。IPO準備が進むとされる<span class="tag chk">要確認</span></div></div>
+  </div>
+  <p style="font-size:14.5px;color:var(--ink2);margin:6px 0 0;">第2回の最後に「次回以降」として貼られたリンクが、これである。<b>減価償却の話を、いよいよ実際の桁で使う</b>。</p>
+
+  <h3>材料D｜中国 ― 輸出は絶好調、物価は上がらない</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="k">7月 輸出</div><div class="v">+23.9%</div><div class="n">前年同月比。9カ月連続プラス（3,978億㌦）</div></div>
+    <div class="kpi"><div class="k">7月 CPI</div><div class="v">+0.5%</div><div class="n">前年同月比。6月の+1.0%から鈍化</div></div>
+    <div class="kpi"><div class="k">7月 製造業PMI</div><div class="v">49.2</div><div class="n">前月比-1.1pt。50を下回る＝縮小</div></div>
+    <div class="kpi"><div class="k">対日レアアース輸出</div><div class="v">▲5割</div><div class="n">規制対象品目、2026年1-6月の前年同期比</div></div>
+  </div>
+  <ul class="facts">
+    <li><b>外は絶好調、中は冷えている</b>。輸出は9カ月連続で伸び、貿易黒字は膨らむ。一方でCPIは0.5%、製造業PMIは50割れ、不動産大手の販売額は前年同月比で2桁減。<b>この非対称が「デフレ輸出」と呼ばれる現象を生む</b>。</li>
+    <li><b>資源と規制がカードになっている</b>：レアアースの対日輸出は規制対象品目で半減。米国は8/7、半導体・太陽光パネルの材料である<b>ポリシリコン</b>等への追加関税に署名した。他方でNVIDIA H200等の対中輸出規制は2026年1月に緩和され、今度は<b>中国側が輸入を絞る側に回る</b>という報道もある。<span class="tag chk">要確認</span></li>
+  </ul>
+
+  <div class="src">
+    <b>SOURCES</b>
+    <ul>
+      <li>内閣府 四半期別GDP速報 <a href="https://www.esri.cao.go.jp/jp/sna/sokuhou/sokuhou_top.html">esri.cao.go.jp/jp/sna/sokuhou/</a>／大和総研 4-6月期GDP1次速報予測（改訂版, 8/10） <a href="https://www.dir.co.jp/report/research/economics/japan/20260810_025969.html">dir.co.jp</a></li>
+      <li>日本経済新聞「長期金利2.830%、30年ぶり高さ」 <a href="https://www.nikkei.com/article/DGXZQOUB0609N0W6A700C2000000/">nikkei.com</a></li>
+      <li>外為どっとコム 週間ドル円見通し（8/10-14） <a href="https://www.gaitame.com/media/entry/2026/08/08/060400">gaitame.com</a>／楽天証券トウシル「11兆円介入はなぜ『失敗』したのか」 <a href="https://media.rakuten-sec.net/articles/-/52614">media.rakuten-sec.net</a></li>
+      <li>FOMC（2026年7月） <a href="https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html">cnbc.com</a>／米労働省 CPI <a href="https://www.bls.gov/news.release/pdf/cpi.pdf">bls.gov</a></li>
+      <li>Anthropic「Series H」 <a href="https://www.anthropic.com/news/series-h">anthropic.com/news/series-h</a></li>
+      <li>中国国家統計局 <a href="https://www.stats.gov.cn/sj/">stats.gov.cn/sj/</a>／中国7月輸出（東京新聞） <a href="https://www.tokyo-np.co.jp/article/507169">tokyo-np.co.jp</a>／日経「中国、レアアース規制緩めず」 <a href="https://www.nikkei.com/article/DGKKZO98067300Y6A800C2EA2000/">nikkei.com</a>／NHK「半導体や太陽光パネルの材料に追加関税」 <a href="https://news.web.nhk/newsweb/na/na-k10015198941000">nhk</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 宿題① ============ -->
+<section class="topic" id="hw1">
+  <span class="badge macro">宿題①</span>
+  <h2 class="thead">田村チーム ― 介入の答え合わせと、「金利のある世界」の日本</h2>
+  <p class="sub">第2回で田村チームが担当した「円買い協調介入の解説」の続編。今回は解説ではなく<b>採点</b>をしてもらう。</p>
+
+  <div class="hw">
+    <div class="hwhead">
+      <span class="team">田村チーム</span>
+      <span class="hwtime">発表 12分＋質疑 8分</span>
+    </div>
+    <div class="hwttl">「あの介入は、何を買ったのか」を数字で結論づける</div>
+
+    <h4>準備すること（当日スライド1〜2枚で可）</h4>
+    <ul class="facts">
+      <li>7/30の介入直前、介入直後、8/18当日の<b>ドル円の水準を3点だけ</b>チャートから拾い、1枚に並べる。</li>
+      <li>ロビン・ブルックスの「介入の効果が消えるのに約3週間」という指摘に対し、<b>8/18時点で何%まで戻っているか</b>を計算する。</li>
+      <li>8/17に発表された<b>4-6月期GDP1次速報の実績値</b>（前期比・前期比年率）を内閣府の一次資料から拾う。事前の民間予測（年率+2.5%程度）と比べてどうだったか。</li>
+    </ul>
+
+    <h4>答えてもらう問い</h4>
+    <ol class="q">
+      <li><b>3週間仮説は当たったか、外れたか。</b>外れたとしたら、何が想定と違ったのか。
+        <span class="hint">ヒント：介入以外に円を動かす材料が入っていないか（米CPI、GDP、日銀関係者の発言、米金利）。「介入の効果」と「別の材料の効果」を分けて考える。</span></li>
+      <li><b>11兆円で買えたものは何だったのか。</b>「時間」だと言うなら、その時間で日本は何をしたのか。何もしていないなら、それは失敗と呼ぶべきか。
+        <span class="hint">ヒント：介入は「円を高くする」のが目的だったのか、「速度を落とす」のが目的だったのか。目的が違えば採点基準も変わる。</span></li>
+      <li><b>長期金利が30年ぶりの高水準にある。第2回でやった連鎖は、いまどこまで進んでいるか。</b>
+        <span class="hint">連鎖の復習：利上げ（＝金利上昇）→ 国債価格↓ → 銀行・生保の含み損 → 貸し渋り → 資金繰り倒産 → サプライチェーン寸断 → 不況。<b>1〜7のうち、実際に観測できているのはどこまでか。</b>観測できていない段階については「まだ起きていない」と正直に言う。</span></li>
+      <li><b>金利が上がっているのに、株価も上がっている。これはバブルか。</b>
+        <span class="hint">ヒント：株価＝業績（名目）×評価倍率。名目の売上・利益はインフレで膨らむ。一方で金利上昇は評価倍率を押し下げる。どちらが勝っているかを、自分の言葉で。「バブルだ／バブルではない」の断定より、<b>「何が起きたらバブルだと判定するか」の基準</b>を先に決めるほうが強い。</span></li>
+      <li><b>自分ごと化：</b>いま自分が持っている資産（現金・株・外貨・将来の給料）を並べたとき、<b>この1週間の出来事は自分にとってプラスだったかマイナスだったか。</b>
+        <span class="hint">この問いには必ず「自分は◯◯を持っているから」という前提から答えること。前提のない結論は採点できない。</span></li>
+    </ol>
+
+    <div class="deliv">
+      <b>提出物</b>　スライド1〜2枚（ドル円3点比較＋GDP実績値）／口頭で結論1文。<br>
+      <b>使う一次情報</b>　内閣府（GDP）、財務省（外国為替平衡操作の実施状況）、日本銀行、日本相互証券（長期金利）。<b>まとめ記事ではなく発表元のページを開くこと。</b>
+    </div>
+  </div>
+
+  <div class="rel"><b>接続</b>　第1回で田村君が自力で到達した「金利が上がれば、外国に出ていた資金が日本に戻ってくる」という筋道が、今回の出発点になる。<a href="../reviews/lecture_review_20260804.html">→ 第1回 復習ページ</a>／<a href="../reviews/lecture_review_20260811.html">→ 第2回 復習ページ</a></div>
+</section>
+
+<!-- ============ 宿題② ============ -->
+<section class="topic" id="hw2">
+  <span class="badge corp">宿題②</span>
+  <h2 class="thead">廻チーム ― AIに賭けられた金額は、いつ・どうやって回収されるのか</h2>
+  <p class="sub">第2回で廻チームが担当した「出前館・Microsoft・Alphabetの業績を読み解く」の続編。今回は<b>投資の回収</b>に一点集中する。</p>
+
+  <div class="hw t">
+    <div class="hwhead">
+      <span class="team">廻チーム</span>
+      <span class="hwtime">発表 12分＋質疑 8分</span>
+    </div>
+    <div class="hwttl">「9,650億ドルの会社」と「過去最高益で自社株買いを始めた会社」を、同じ物差しで測る</div>
+
+    <h4>ケース1｜ハイパースケーラーの設備投資と減価償却</h4>
+    <ol class="q">
+      <li><b>2026年に主要ハイパースケーラーが積み上げた設備投資は合計7,000億ドル超と報じられる。この支出は、いつPLに出てくるのか。</b>
+        <span class="hint">第2回の復習：キャッシュ支出 ≠ PL上の費用。まずBSの左側に資産として乗り、耐用年数にわたって減価償却費としてPLに配分される。<b>耐用年数を1年延ばすと、その期の利益はどうなるか</b>も考えること。</span></li>
+      <li><b>この投資が「回収できない」と判定されるのは、どういう数字が出たときか。</b>
+        <span class="hint">キーワード：減損処理。第2回の自習リストにあった言葉が、ここで実戦投入される。</span></li>
+    </ol>
+
+    <h4>ケース2｜Anthropic ― PERが計算できない会社をどう評価するか</h4>
+    <ol class="q">
+      <li><b>Anthropicは650億ドルを調達し、ポストマネー評価額は9,650億ドルになった。この会社のPERを計算してみよ。</b>
+        <span class="hint">計算できないはずである。<b>なぜ計算できないのか</b>を説明するのが本問。できないとき、投資家は代わりに何を見ているのか（ランレート、ARR、PSR、成長率、DCF）。第2回の用語集②の言葉で答える。</span></li>
+      <li><b>この評価額は「賭け」として妥当か。9,650億ドルを正当化するには、将来いくら稼ぐ必要があるか。</b>
+        <span class="hint">ヒント：仮にPER30倍で評価される成熟企業になると仮定すると、必要な純利益はいくらか。それは現在のランレート（約470億ドルとされる売上規模）からどれだけの倍率か。<b>ざっくりで良い。桁が合っていれば勝ち。</b></span></li>
+      <li><b>ハイパースケーラーの巨額投資と、AI企業の巨額調達は、同じお金がぐるぐる回っているだけではないのか。</b>
+        <span class="hint">Series Hの出資者にはハイパースケーラーからのコミット分が含まれ、調達した資金の相当部分はクラウド利用料として戻っていく。<b>第2回でやったLINEヤフーと出前館の「資本業務提携」と、構造は同じか、違うか。</b>ここが今回いちばん面白い問いである。</span></li>
+    </ol>
+
+    <h4>ケース3｜メルカリ 2026年6月期（8/5発表）― ゼミの定点観測銘柄</h4>
+    <div class="tblwrap">
+    <table class="calc">
+      <thead><tr><th>項目</th><th>2026年6月期</th><th>前期比</th></tr></thead>
+      <tbody>
+        <tr><td>売上収益</td><td class="num">2,292億円</td><td class="num pos">+19.0%</td></tr>
+        <tr><td>営業利益</td><td class="num">439億円</td><td class="num pos">+57.7%</td></tr>
+        <tr><td>コア営業利益</td><td class="num">441億円</td><td class="num pos">+60%</td></tr>
+        <tr><td>当期純利益</td><td class="num">354億円</td><td class="num pos">+35.6%</td></tr>
+        <tr><td>GMV（マーケットプレイス）</td><td class="num">1兆2,856億円</td><td class="num pos">+15%</td></tr>
+        <tr><td>MAU</td><td class="num">2,419万人</td><td class="num pos">+5%</td></tr>
+        <tr><td>自社株買い（上限）</td><td class="num">100億円</td><td class="num">初実施</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:13px;color:var(--ink3);margin:0 0 6px;">※ 報道ベースの数値。<b>決算短信（EDINET／IR）で必ず自分で確認すること。</b></p>
+    <ol class="q">
+      <li><b>GMVは+15%、MAUは+5%。この2つの差は何を意味するか。</b>
+        <span class="hint">第2回の作法：<code>GMV ＝ 利用者数 × 1人あたり取引額</code> に分解する。どちらの変数が効いているか。</span></li>
+      <li><b>メルカリは初めて自社株買い（上限100億円）を決めた。なぜ「いま」なのか。自分が社長なら、株主総会でどう説明するか。</b>
+        <span class="hint">自社株買いはROEの<b>分母（自己資本）を削る</b>行為。利益を増やさなくてもROEは上がる。一方で、その100億円はAIやUS事業への投資には回らない。<b>「成長投資よりも株主還元を選んだ」と読まれるリスクをどう潰すか</b>が答えの本体。</span></li>
+      <li><b>「全社員のAI利用率100%、開発量7.6倍」と説明されている。これはPLのどこに現れるはずか。現れていないなら、なぜか。</b>
+        <span class="hint">人件費、外注費、開発費（資産計上か費用処理か）、そして売上。<b>効率化の成果は、コスト削減で出るのか、売上増で出るのか。</b>会社がどちらを選んだかは数字に出る。</span></li>
+      <li><b>ついでに：第2回でやった出前館の「あと12%」はどうなったか。</b>直近の開示を1つだけ確認して、1文で報告する。</li>
+    </ol>
+
+    <div class="deliv">
+      <b>提出物</b>　スライド2〜3枚／「Anthropicは買いか、メルカリは買いか」を<b>投資家目線で1文ずつ</b>。<br>
+      <b>使う一次情報</b>　EDINET（有価証券報告書・決算短信）、各社IRページ、Anthropic公式発表。<b>第2回と同じく、まとめ記事から数字を取らない。</b>
+    </div>
+  </div>
+
+  <div class="rel"><b>接続</b>　第1回で見たfreeeは「12年赤字を掘り、黒字化したときには営業利益率2%だった」。同じ「赤字を掘って成長する」でも、メルカリは過去最高益に到達し、Anthropicは上場前に9,650億ドルの値段がついている。<b>何が3社を分けたのか</b>を、当日その場で議論する。</div>
+</section>
+
+<!-- ============ 宿題③ ============ -->
+<section class="topic" id="hw3">
+  <span class="badge bridge">宿題③</span>
+  <h2 class="thead">両チーム共通 ― 中国：輸出は絶好調、物価は上がらない</h2>
+  <p class="sub">各チーム1問ずつ。5分で答えられる分量でよい。<b>このゼミで中国を正面から扱うのは初めて</b>なので、深さより「絵が描けるか」を見る。</p>
+
+  <div class="hw s">
+    <div class="hwhead">
+      <span class="team">田村チーム</span>
+      <span class="hwtime">5分</span>
+    </div>
+    <div class="hwttl">「デフレ輸出」は、日本の物価と金利に効くのか</div>
+    <ol class="q">
+      <li>中国のCPIは+0.5%、製造業PMIは49.2で縮小圏。それでも輸出は前年同月比+23.9%。<b>国内で売れないものを外に出している</b>とすると、輸入する側（日本・EU）の物価はどうなるか。
+        <span class="hint">安いものが入ってくる＝輸入物価が下がる方向。すると日本のインフレ率は？ 日銀が利上げする理由は強まるか、弱まるか。<b>ここが今回のいちばん大事な接続点</b>である。円安は物価を押し上げ、中国からの安値輸入は押し下げる。差し引きどちらが強いか。</span></li>
+    </ol>
+  </div>
+
+  <div class="hw s">
+    <div class="hwhead">
+      <span class="team">廻チーム</span>
+      <span class="hwtime">5分</span>
+    </div>
+    <div class="hwttl">レアアースと関税 ― 自分が調達責任者ならどうするか</div>
+    <ol class="q">
+      <li>規制対象のレアアースの対日輸出は2026年1-6月で前年同期比5割減。米国はポリシリコン等に追加関税を課した。<b>あなたが日本のメーカーの調達責任者なら、来期の計画を何から変えるか。</b>
+        <span class="hint">選択肢：在庫を積む（＝運転資本が増える。BSのどこに効くか）／調達先を分散する（＝原価が上がる。PLのどこに効くか）／設計を変えて使用量を減らす（＝時間がかかる）。<b>どれを選んでも財務三表のどこかが痛む。</b>どこを痛めるかを選ぶのが経営である。</span></li>
+    </ol>
+  </div>
+
+  <div class="rel"><b>ねらい</b>　第2回までは「為替 → 企業業績」という2者の絵だった。ここに<b>供給側（サプライチェーン）</b>を入れると、円安・金利・原価率が1枚の絵につながる。第2回でやった出前館の原価分解が、そのまま製造業でも使える。</div>
+</section>
+
+<!-- ============ 宿題④ ============ -->
+<section class="topic" id="hw4">
+  <span class="badge word">宿題④</span>
+  <h2 class="thead">ポートフォリオ（継続）― 2027年1月末までに+20%</h2>
+  <p class="sub">目標は変わらない。今回から<b>報告の型</b>を1つ足す。</p>
+
+  <div class="hw">
+    <div class="hwhead"><span class="team">全員</span><span class="hwtime">1人3分</span></div>
+    <div class="hwttl">「上がった／下がった」ではなく「なぜ動いたか」を1文で</div>
+    <ul class="facts">
+      <li>今回から、保有銘柄の騰落について<b>「自分の想定していた理由で動いたのか、別の理由で動いたのか」</b>を必ず一言添える。想定どおりに上がったのと、たまたま上がったのは、投資家としてまったく別の出来事である。</li>
+      <li>第2回で挙がった今後の課題 ──<b>「為替の基調と日本の金融政策が株価に与える影響を、連結して分析する」</b>── を、今回は自分のポートフォリオで具体的にやる。円安・金利上昇が、自分の持ち株のどれに、どの向きで効いているか。</li>
+      <li>売却した銘柄がある人は、<b>売った理由</b>を先に言う。利益確定なのか、想定が崩れたのか。</li>
+    </ul>
+    <div class="deliv">
+      <b>提出物</b>　保有一覧のスクリーンショット＋1銘柄について「動いた理由」1文。<br>
+      <b>ポートフォリオのリンクは、これまで通りSlackで共有</b>（個人の保有内容は本ページには掲載しません）。
+    </div>
+  </div>
+</section>
+
+<!-- ============ 進行 ============ -->
+<section class="topic" id="s6">
+  <span class="badge bridge">当日の進行</span>
+  <h2 class="thead">90分のタイムテーブル（目安）</h2>
+  <p class="sub">議論が伸びたところが本題なので、この通りに進まなくてよい。</p>
+  <ul class="tl">
+    <li><span class="t">0-10分</span><span class="c"><b>先週の答え合わせ</b>　8/17のGDP、8/12の米CPI、その日のドル円を全員で見る。数字だけ確認する。</span></li>
+    <li><span class="t">10-30分</span><span class="c"><b>宿題①　田村チーム発表</b>　介入の採点、長期金利、「これはバブルか」</span></li>
+    <li><span class="t">30-55分</span><span class="c"><b>宿題②　廻チーム発表</b>　ハイパースケーラーの減価償却、Anthropicの評価額、メルカリの自社株買い</span></li>
+    <li><span class="t">55-70分</span><span class="c"><b>宿題③　中国パート</b>　両チーム5分ずつ＋討議。デフレ輸出とサプライチェーン。</span></li>
+    <li><span class="t">70-85分</span><span class="c"><b>ポートフォリオ報告</b>　1人3分。「なぜ動いたか」を必ず添える。</span></li>
+    <li><span class="t">85-90分</span><span class="c"><b>次回予告と課題出し</b></span></li>
+  </ul>
+  <div class="rel"><b>提出タイミング</b>　スライドは<b>8/17（月）中</b>にSlackへ。GDPが8/17午前発表なので、それを見てから最終版を上げる想定。間に合わなければ口頭でよい。<span class="tag">予定</span></div>
+</section>
+
+<!-- ============ 用語 ============ -->
+<section class="topic" id="g1">
+  <span class="badge word">今回の用語</span>
+  <h2 class="thead">予習しておく言葉</h2>
+  <p class="sub">第2回の用語集に載っているものは省いた。ここは<b>今回はじめて出てくる言葉</b>だけ。人に説明できる状態を目標にする。</p>
+
+  <div class="gloss compact">
+    <dl>
+      <dt>QT<span class="en">Quantitative Tightening</span></dt><dd>量的引き締め。中央銀行が国債の買入額を減らし、保有残高を縮小していくこと。<b>最大の買い手が引くので、国債の需給は緩み、価格は下がる＝利回りは上がる</b>。日銀は四半期あたり十数兆円規模で買入を減らしているとされる。</dd>
+      <dt>名目GDPと実質GDP</dt><dd>名目はその時点の価格で測った金額、実質は物価変動を除いた数量ベース。<b>インフレ下では名目が実質より大きく伸びる</b>。「景気が良くなった」がどちらの話かで意味が変わる。</dd>
+      <dt>GDPデフレーター</dt><dd>名目GDP ÷ 実質GDP。国内で生み出された付加価値の価格変動を表す。<b>輸入物価の上昇は、この指標を押し下げる方向に働く</b>（輸入は控除項目のため）。</dd>
+      <dt>前期比年率</dt><dd>四半期の変化率を「このペースが1年続いたら」に換算した値。<b>+0.6%（前期比）が +2.5%（年率）になる</b>のはこのため。ニュースの見出しはたいてい年率なので、桁を取り違えない。</dd>
+      <dt>1次速報と2次速報</dt><dd>GDPは1次速報のあと、法人企業統計などを反映して2次速報で改定される。<b>1次速報の数字は動く前提</b>で読む。</dd>
+      <dt>ポストマネー評価額<span class="en">post-money valuation</span></dt><dd>資金調達<b>後</b>の企業価値。調達前の評価額（プレマネー）＋調達額。Anthropicの9,650億ドルはポストマネー。<b>「その値段で買った投資家がいる」という事実であって、市場価格ではない</b>。</dd>
+      <dt>ランレート<span class="en">Run Rate</span></dt><dd>直近実績を年換算した数字（第2回の自習リストにも登場）。成長が速い会社は年度実績が古くなるので、<b>「いまのペースなら年いくら」</b>で語られる。裏を返せば、ペースが落ちた瞬間に数字の意味が消える。</dd>
+      <dt>PSR<span class="en">Price to Sales Ratio</span></dt><dd>時価総額 ÷ 売上高。<b>利益が出ていない会社を評価するときの物差し</b>。PERが使えない場面で登場する。</dd>
+      <dt>自社株買い<span class="en">share buyback</span></dt><dd>会社が自社の株を市場から買い戻すこと。発行済株式数が減るのでEPSが上がり、自己資本が減るのでROEが上がる。<b>利益を増やさずに指標を改善できるため、「成長投資の機会がない」というメッセージにも読まれる</b>。</dd>
+      <dt>減損処理<span class="en">impairment</span></dt><dd>資産の収益力が落ち、帳簿価額を回収できないと判断したときに帳簿価額を切り下げる処理。<b>AI投資の「回収できなかった」が数字になる場所</b>。</dd>
+      <dt>デフレ輸出</dt><dd>国内需要が弱い国が、余った生産能力の分を安値で輸出し、輸入国側の物価を押し下げる現象。<b>輸入する側にとっては物価安、産業にとっては価格競争</b>という二面性がある。</dd>
+      <dt>経済的威圧<span class="en">economic coercion</span></dt><dd>貿易や資源の供給を政治的な圧力の手段として使うこと。レアアースの輸出規制はその典型例として論じられる。</dd>
+      <dt>ポリシリコン</dt><dd>半導体ウエハーと太陽電池の主原料となる高純度シリコン。<b>中国が生産で高いシェアを持つ</b>ため、関税・規制の対象になりやすい。</dd>
+      <dt>運転資本<span class="en">Working Capital</span></dt><dd>売上債権＋在庫−仕入債務（第2回の自習リストにも登場）。<b>在庫を積むと運転資本が増え、PLは黒字でもキャッシュが減る</b>。宿題③の調達戦略で必ず効いてくる。</dd>
+      <dt>リショアリング／フレンドショアリング</dt><dd>生産拠点を自国に戻すこと／同盟国に移すこと。安全保障上のリスクを下げる代わりに<b>原価が上がる</b>。安さと安全のトレードオフ。</dd>
+    </dl>
+  </div>
+
+  <div class="rel"><b>復習リンク</b>　WACC・ROIC・EBITDA・CAPEX/OPEX・DCFなどは <a href="../reviews/lecture_review_20260811.html#g2">第2回 用語集②（自習リスト）</a> にまとめてある。今回の宿題はどれも、そこの言葉を使わないと答えられないように作ってある。</div>
+</section>
+
+<footer>
+  <h2>この資料について</h2>
+  <ul>
+    <li>2026年8月18日（火）<b>夏期集中講座 第3回</b>の事前配布資料です。第1回（8/4）・第2回（8/11）の内容を前提に構成しています。</li>
+    <li><b>本文の数値は、作成時点（2026年8月12日）の報道・公表資料に基づく速報値です。</b><span class="tag chk">要確認</span> のタグが付いた数字はとくに、授業までに一次情報（内閣府・財務省・日本銀行・米労働省・中国国家統計局・EDINET・各社IR）で必ず裏を取ってください。<b>数字を確認する作業そのものが宿題の一部です。</b></li>
+    <li>8/17発表のGDP1次速報、8/12発表の米CPIなど、<b>この資料の作成後に確定する数字</b>が含まれます。実績値は各自で埋めてください。</li>
+    <li>ゼミ参加者個人のポートフォリオ・保有銘柄・外部の共有リンクは、本ページには収録していません。</li>
+    <li>外部依存のない単一HTMLファイルです。ブラウザストレージ（localStorage 等）は使用していません。</li>
+  </ul>
+  <div class="next">
+    <b>前後の回</b>
+    <a href="../reviews/lecture_review_20260804.html">第1回 復習ページ（8/4）</a>　／
+    <a href="../news_briefs/lecture_news_20260809.html">講義ネタ速報 Vol.1（8/9）</a>　／
+    <a href="../reviews/lecture_review_20260811.html">第2回 復習ページ（8/11）</a><br>
+    <b>次回以降の種</b>　AI と電力（データセンターの電力制約と原発関連の受注残）／IPO とは何か（Anthropicの上場準備を題材に）／卒業課題（2027年1月29日提出期限）のテーマ出し。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
