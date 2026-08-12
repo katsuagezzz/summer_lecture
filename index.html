@@ -14,7 +14,7 @@ header{background:var(--panel);border:1px solid var(--line);border-top:6px solid
 .kicker{font-size:12.5px;letter-spacing:.18em;color:var(--ink3);font-weight:700}
 h1{font-size:30px;margin:6px 0 10px;line-height:1.35}
 header p{margin:0;color:var(--ink2);font-size:15px}
-h2{font-size:17px;margin:30px 0 12px;padding-left:11px;border-left:4px solid var(--ink)}
+h2{font-size:17px;margin:26px 0 12px;padding-left:11px;border-left:4px solid var(--ink)}
 .issue{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:19px 22px;margin-bottom:12px;transition:transform .12s ease,border-color .12s ease}
 .issue:hover{transform:translateY(-2px);border-color:var(--accent)}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:7px}
@@ -29,7 +29,18 @@ h2{font-size:17px;margin:30px 0 12px;padding-left:11px;border-left:4px solid var
 .ttl{font-size:18.5px;font-weight:800;line-height:1.55;margin:2px 0 5px}
 .desc{font-size:14.5px;color:var(--ink2);margin:0}
 footer{margin-top:34px;font-size:13px;color:var(--ink3);border-top:1px solid var(--line);padding-top:16px}
-@media(max-width:600px){h1{font-size:23px}.wrap{padding:20px 14px 50px}header{padding:19px 17px}.issue{padding:15px 16px}}
+
+/* tabs */
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:0;border-bottom:1px solid var(--line)}
+.tab{appearance:none;background:transparent;border:1px solid transparent;border-bottom:none;color:var(--ink3);font:inherit;font-weight:700;font-size:14.5px;padding:11px 18px;border-radius:10px 10px 0 0;cursor:pointer;white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--panel);border-color:var(--line);color:var(--ink);position:relative;top:1px}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.panel{background:var(--panel);border:1px solid var(--line);border-top:none;border-radius:0 0 12px 12px;padding:24px 26px 8px}
+.panel[hidden]{display:none}
+.panel h2:first-child{margin-top:2px}
+.round-date{font-size:13.5px;color:var(--ink3);margin:-6px 0 18px}
+@media(max-width:600px){h1{font-size:23px}.wrap{padding:20px 14px 50px}header{padding:19px 17px}.issue{padding:15px 16px}.panel{padding:18px 16px 4px}.tab{padding:9px 13px;font-size:13.5px}}
 </style>
 </head>
 <body>
@@ -37,36 +48,92 @@ footer{margin-top:34px;font-size:13px;color:var(--ink3);border-top:1px solid var
 <header>
   <div class="kicker">LECTURE NEWS BRIEF</div>
   <h1>講義ネタ速報</h1>
-  <p>iU 情報経営イノベーション専門職大学／志村ゼミ（財務・経済の基礎・ソクラテス式）<br>直近の政治経済ニュースから、授業で使えるトピックを週2回（火・土）配信。あわせて各回の復習ページを公開。</p>
+  <p>iU 情報経営イノベーション専門職大学／志村ゼミ（財務・経済の基礎・ソクラテス式）<br>講義回ごとのタブから、その回の復習ページと関連ニュース速報をまとめて確認できます。</p>
 </header>
 
-<h2>復習ページ</h2>
+<div class="tabs" role="tablist" aria-label="講義回">
+  <button class="tab" role="tab" id="tab-kaki2" aria-controls="panel-kaki2" aria-selected="true">夏期 第2回</button>
+  <button class="tab" role="tab" id="tab-backnumbers" aria-controls="panel-backnumbers" aria-selected="false" tabindex="-1">講義ネタ速報 バックナンバー</button>
+</div>
 
-<a class="issue r" href="reviews/lecture_review_20260811.html">
-  <div class="row">
-    <span class="vol r">夏期 第2回</span>
-    <span class="date">2026年8月11日（火）講義</span>
-    <span class="tag r">要点まとめ</span><span class="tag r">用語集</span>
-  </div>
-  <div class="ttl">介入は「流れ」を変えられるか — 為替・金利・減価償却・原価率、4つのレンズで同じ1日を見る</div>
-  <p class="desc">日米為替介入と出前館、ハイパースケーラーの1Q決算。ポンド危機と空売り／日銀のジレンマ（金利↑→国債価格↓→含み損→貸し渋り→連鎖倒産）／CFは赤字でもPLは黒字になる減価償却／原価率104%とLINEヤフーの資本業務提携。用語集つき。</p>
-</a>
+<section id="panel-kaki2" role="tabpanel" aria-labelledby="tab-kaki2" class="panel">
+  <p class="round-date">2026年8月11日（火）講義</p>
 
-<h2>バックナンバー（講義ネタ速報）</h2>
+  <h2>復習ページ</h2>
+  <a class="issue r" href="reviews/lecture_review_20260811.html">
+    <div class="row">
+      <span class="vol r">夏期 第2回</span>
+      <span class="date">2026年8月11日（火）講義</span>
+      <span class="tag r">要点まとめ</span><span class="tag r">用語集</span>
+    </div>
+    <div class="ttl">介入は「流れ」を変えられるか — 為替・金利・減価償却・原価率、4つのレンズで同じ1日を見る</div>
+    <p class="desc">日米為替介入と出前館、ハイパースケーラーの1Q決算。ポンド危機と空売り／日銀のジレンマ（金利↑→国債価格↓→含み損→貸し渋り→連鎖倒産）／CFは赤字でもPLは黒字になる減価償却／原価率104%とLINEヤフーの資本業務提携。用語集つき。</p>
+  </a>
 
-<a class="issue" href="news_briefs/lecture_news_20260809.html">
-  <div class="row">
-    <span class="vol">VOL.1</span>
-    <span class="date">2026年8月9日配信 ／ 対象期間 8/5〜8/9</span>
-    <span class="tag m">マクロ</span><span class="tag c">企業・決算</span>
-  </div>
-  <div class="ttl">介入で買えたのは「時間」だけか — 同じ円安が、片方に＋3,450億円、片方に−1,461億円</div>
-  <p class="desc">28年ぶりの日米円買い協調介入とその後の1週間／トヨタとソフトバンクGで正反対に効いた為替。段階損益・PLとCFのズレ・BSとPLの連動に接続。</p>
-</a>
+  <h2>この回につながった講義ネタ速報</h2>
+  <a class="issue" href="news_briefs/lecture_news_20260809.html">
+    <div class="row">
+      <span class="vol">VOL.1</span>
+      <span class="date">2026年8月9日配信 ／ 対象期間 8/5〜8/9</span>
+      <span class="tag m">マクロ</span><span class="tag c">企業・決算</span>
+    </div>
+    <div class="ttl">介入で買えたのは「時間」だけか — 同じ円安が、片方に＋3,450億円、片方に−1,461億円</div>
+    <p class="desc">28年ぶりの日米円買い協調介入とその後の1週間／トヨタとソフトバンクGで正反対に効いた為替。段階損益・PLとCFのズレ・BSとPLの連動に接続。</p>
+  </a>
+</section>
+
+<section id="panel-backnumbers" role="tabpanel" aria-labelledby="tab-backnumbers" class="panel" hidden>
+  <h2>講義ネタ速報 バックナンバー</h2>
+  <a class="issue" href="news_briefs/lecture_news_20260809.html">
+    <div class="row">
+      <span class="vol">VOL.1</span>
+      <span class="date">2026年8月9日配信 ／ 対象期間 8/5〜8/9</span>
+      <span class="tag m">マクロ</span><span class="tag c">企業・決算</span>
+    </div>
+    <div class="ttl">介入で買えたのは「時間」だけか — 同じ円安が、片方に＋3,450億円、片方に−1,461億円</div>
+    <p class="desc">28年ぶりの日米円買い協調介入とその後の1週間／トヨタとソフトバンクGで正反対に効いた為替。段階損益・PLとCFのズレ・BSとPLの連動に接続。</p>
+  </a>
+</section>
 
 <footer>
   各ページは外部依存のない単一HTMLファイルです。数字は決算短信・官庁発表などの一次情報で裏取りし、推計値・未確定値は各号のフッターに明記しています。
 </footer>
 </div>
+
+<script>
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+
+  function activate(tab, focus){
+    tabs.forEach(function(t){
+      var selected = t === tab;
+      t.setAttribute('aria-selected', selected);
+      t.tabIndex = selected ? 0 : -1;
+    });
+    panels.forEach(function(p){
+      p.hidden = p.id !== tab.getAttribute('aria-controls');
+    });
+    if (focus) tab.focus();
+    var id = tab.id.replace('tab-', '');
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+  }
+
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){ activate(tab, false); });
+    tab.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+        var next = e.key === 'ArrowRight' ? (i + 1) % tabs.length : (i - 1 + tabs.length) % tabs.length;
+        activate(tabs[next], true);
+        e.preventDefault();
+      }
+    });
+  });
+
+  var hash = location.hash.replace('#', '');
+  var initial = (hash && document.getElementById('tab-' + hash)) || tabs[0];
+  activate(initial, false);
+})();
+</script>
 </body>
 </html>

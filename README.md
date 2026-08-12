@@ -32,6 +32,16 @@
 
 公開URL： https://katsuagezzz.github.io/summer_lecture/
 
-`index.html` がバックナンバー一覧のトップページになります。授業ではこのURLを開くだけで投影できます。
+`index.html` はトップページで、**講義回ごとのタブ**（例：「夏期 第2回」）＋「講義ネタ速報 バックナンバー」タブの構成になっています。授業ではこのURLを開くだけで投影できます。
 
 有効化：リポジトリの **Settings → Pages → Build and deployment** で Source を `Deploy from a branch`、Branch を `main` / `/ (root)` に設定して Save。反映まで1〜2分かかります。
+
+### 新しい講義回タブを足すとき
+
+`index.html` を直接編集します（ビルド不要・単一ファイル）。
+
+1. `.tabs` 内に新しいタブボタンを1つ追加する（`id="tab-XXX"` / `aria-controls="panel-XXX"`）。
+2. その下に対応する `<section id="panel-XXX" role="tabpanel" ...>` を1つ追加し、既存の「夏期 第2回」パネルをコピーして、復習ページのカードと、その回につながった講義ネタ速報のカードを差し替える。
+3. 「講義ネタ速報 バックナンバー」パネルにも同じ講義ネタ速報のカードを追記する（回に厳密に紐づかない号もここに並ぶ）。
+4. 新しいタブをデフォルト表示にしたい場合は、そのタブの `aria-selected="true"`／`tabindex` 省略、他タブを `aria-selected="false"`／`tabindex="-1"` にする。
+5. README冒頭の表にも1行追加しておく。
