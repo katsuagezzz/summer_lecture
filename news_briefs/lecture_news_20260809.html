@@ -161,10 +161,24 @@ footer ul{margin:0 0 14px; padding-left:1.25em;}
 footer li{margin-bottom:6px;}
 .next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
 .next b{font-weight:800;}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+/* ---------- シリーズナビ ---------- */
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2); white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
 
 @media print{
   body{background:#fff; font-size:11pt;}
   .wrap{max-width:100%; padding:0;}
+  .snav, .backlink{display:none;}
   header.masthead, section.topic, section.src, footer{border:1px solid #ccc; box-shadow:none; page-break-inside:avoid; margin-bottom:12px;}
   section.topic{page-break-after:auto;}
   .qbox{page-break-inside:avoid;}
@@ -181,6 +195,16 @@ footer li{margin-bottom:6px;}
 </head>
 <body>
 <div class="wrap">
+
+<a class="backlink" href="../index.html">← 一覧へ戻る</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="../reviews/lecture_review_20260804.html">第1回 8/4 復習</a>
+  <span class="cur">速報 Vol.1 8/9</span>
+  <a href="../reviews/lecture_review_20260811.html">第2回 8/11 復習</a>
+  <a href="../lectures/lecture_20260818.html">第3回 8/18 講義資料</a>
+</div>
 
 <header class="masthead">
   <div class="vol">LECTURE NEWS BRIEF ／ 講義ネタ速報　VOL.1</div>
@@ -481,7 +505,8 @@ footer li{margin-bottom:6px;}
   </ul>
   <div class="next">
     <b>次回配信：2026年8月11日（火）</b>　対象期間 8月9日（日）〜8月11日（火）。<br>
-    ウォッチ項目：①8月11日〜14日の米CPIと米国債入札（ドル円の次の材料）／②追加の協調介入の有無と155円のライン／③日銀9月会合に向けた地ならし発言／④主要企業の4〜6月期決算の残り分と想定為替レートの修正動向。
+    ウォッチ項目：①8月11日〜14日の米CPIと米国債入札（ドル円の次の材料）／②追加の協調介入の有無と155円のライン／③日銀9月会合に向けた地ならし発言／④主要企業の4〜6月期決算の残り分と想定為替レートの修正動向。<br><br>
+    <b>関連ページ</b>　<a href="../reviews/lecture_review_20260804.html">第1回 復習（8/4）</a>　／　<a href="../reviews/lecture_review_20260811.html">第2回 復習（8/11）</a>　／　<a href="../lectures/lecture_20260818.html">第3回 講義資料（8/18）</a>
   </div>
 </footer>
 

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>復習ページ 第1回｜2026年8月4日 為替・金利・株式投資と企業財務分析</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2); white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+header.masthead{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.qbox{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:14px 0; font-size:15px; line-height:1.8;}
+.qbox .h{font-size:11.5px; font-weight:800; letter-spacing:.1em; color:var(--ink3); margin-bottom:6px;}
+.qbox b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+.tblwrap{overflow-x:auto;}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../index.html">← 一覧へ戻る</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <span class="cur">第1回 8/4 復習</span>
+  <a href="../news_briefs/lecture_news_20260809.html">速報 Vol.1 8/9</a>
+  <a href="lecture_review_20260811.html">第2回 8/11 復習</a>
+  <a href="../lectures/lecture_20260818.html">第3回 8/18 講義資料</a>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE REVIEW ／ 復習ページ　夏期集中講座 第1回</div>
+  <h1 class="title">登場人物を並べる<br>― 政府・日銀・市場・アメリカ。そして最後は1枚のPLに戻ってくる</h1>
+  <div class="meta">
+    <span><b>講義日</b>　2026年8月4日（火）</span>
+    <span><b>形式</b>　オンライン（Zoom）</span>
+    <span><b>テーマ</b>　為替・金利・株式投資と企業財務分析</span>
+    <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
+  </div>
+  <div class="lede">
+    夏期集中講座の初回。日米協調介入の直後というタイミングで、まず<strong>「日本株は上がるか、下がるか」</strong>を全員に答えさせるところから始まった。正解を配る回ではない。<strong>自分の直感を言葉にして、前提を1つずつ揺さぶられる</strong>回である。<br>
+    前半はマクロ。<strong>為替と金利の登場人物を並べ、誰が何を望んでいるのかを整理した</strong> ── 通貨の価値を守りたい日銀、金を借りたい政府と経営者、需給で動く市場、そして自国の国債を売られたくないアメリカ。後半はミクロ。<strong>メルカリとfreeeのPLを投資家目線で並べ、「これは買いか」を判断させた</strong>。<br>
+    マクロからミクロへ降りてくるこの順番が、この夏3回の設計そのものになっている。
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>このページの構成</h2>
+  <ol>
+    <li><a href="#s1">最初の問い ― 日本株は上がるか、下がるか</a> <span class="s">― 3人の直感と、詰められ方</span></li>
+    <li><a href="#s2">登場人物を並べる</a> <span class="s">― 日銀・政府・市場、それぞれの言い分</span></li>
+    <li><a href="#s3">なぜアメリカも協調したのか</a> <span class="s">― 米国債を売られると、何が困るのか</span></li>
+    <li><a href="#s4">円高・利上げで、どの業種が動くか</a> <span class="s">― 2段階で考える</span></li>
+    <li><a href="#s5">後半：メルカリとfreeeのPL</a> <span class="s">― 12年赤字を掘った先に何があったか</span></li>
+    <li><a href="#g1">この回の用語</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 1 ============ -->
+<section class="topic" id="s1">
+  <span class="badge macro">要点①｜導入</span>
+  <h2 class="thead">最初の問い ― 日本株は上がるか、下がるか</h2>
+  <p class="sub">介入のニュースを「見た」で終わらせない。<b>自分の資産にとってどうか</b>を先に言わせる。</p>
+
+  <p style="font-size:15px;">冒頭、「ドル円の介入は知っているか」という問いに、ある学生は「タイムラインで流していた」「自分としては円安のほうがありがたいので、介入してほしくなかった」と答えた。<b>ここがこのゼミの入口である</b> ── ニュースの善悪ではなく、<b>自分の立場から見た損得</b>を先に言う。</p>
+
+  <div class="views">
+    <div class="view"><div class="who">田村（上がる）</div><p>円高になったのだから、外国のものに投資すると取引時に損をする。<b>相対的に日本のものに投資したほうがいい</b>から、日本株は上がる。</p></div>
+    <div class="view b"><div class="who">廻（下がる）</div><p>銀行から借りるときの<b>金利が高くなる</b>ので、返済負担が増え、設備投資や事業拡大が控えられる。投資家の期待も落ちて株価は下がる。</p></div>
+    <div class="view c"><div class="who">山本（円高になる）</div><p>円安の要因のひとつは<b>日米の金利差</b>。日本が利上げすれば差が縮まるので円高方向になるはずだ。</p></div>
+  </div>
+
+  <h3>詰め方 ― いきなり正解を問わない</h3>
+  <ol class="chain">
+    <li>まず直感を言わせる。<b>「上がる／下がる」だけでなく、必ず理由を言葉にさせる</b>。</li>
+    <li>次に前提を1つ揺さぶる。「<b>利上げした通貨の価値は、上がるのか下がるのか</b>」。</li>
+    <li>さらに揺さぶる。「<b>円安のまま金利を上げたらどうなるのか</b>」。</li>
+    <li>ここで田村が自力で到達する ──「円安だからみんなで外国に投資していたものが、<b>金利が上がったので日本に戻ってくる</b>」。</li>
+    <li>先生が返す。「そうすると、より円高になるね。<b>だったら、わざわざ国が介入しなくても、日銀が金利を上げればいいのでは？</b>」</li>
+  </ol>
+  <p style="font-size:14.5px;color:var(--ink2);">この最後の問いが、第2回の「日銀のジレンマ」につながっていく。<b>できるのにやらない理由があるはずだ</b>、という筋である。</p>
+
+  <div class="rel"><b>この型を覚える</b>　直感 → 前提の確認 → 反例の提示 → 自力で到達。<b>答えを教わった記憶は残らないが、自分で言えた一言は残る</b>。</div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="topic" id="s2">
+  <span class="badge macro">要点②｜マクロの構造</span>
+  <h2 class="thead">登場人物を並べる ― 誰が、何を望んでいるのか</h2>
+  <p class="sub">マクロの話がややこしく見えるのは、立場の違う主体が同時に動いているから。まず並べる。</p>
+
+  <div class="points">
+    <div class="point"><div class="h">日銀</div><p>通貨の価値を守りたい。<b>自分が担保している紙幣がゴミくずになったら存在意義がなくなる</b>。だから量を無闇に増やしたくない。動かせる軸は政策金利だけ。</p></div>
+    <div class="point"><div class="h">政府・経営者</div><p>不景気だから借金をしたい。<b>金利は下げろ、金を刷れ</b>と言い続ける。政治は国民の声を背負う側にいる。</p></div>
+    <div class="point"><div class="h">市場</div><p>需要と供給だけで動く。誰かの意図では動かない。<b>量が増えれば価値は下がる</b>、それだけ。</p></div>
+    <div class="point"><div class="h">アメリカ</div><p>為替の話になると登場する4人目。ドルと米国債の値段を守りたい。<b>日本の金融政策は、アメリカの事情と無関係ではない</b>。</p></div>
+  </div>
+
+  <h3>2-1　この10年の日本 ― 低金利政策の帰結</h3>
+  <ul class="facts">
+    <li>「10年間でインフレを起こせ」という方針のもと、長く低金利（一時はマイナス金利）が続いた。<b>金利を下げると借りやすくなり、お金が回りやすくなる</b>。</li>
+    <li>その結果、ようやく物価は上がった。だが<b>物価が上がるということは、貨幣の価値が下がるということ</b>でもある。<b>経営者から見れば売上が膨らんで見栄えは良いが、日銀の立場では嬉しくない</b>。同じ現象の評価が、立場によって反転する。</li>
+    <li>ここまでは国内だけの話。<b>そこにドル円が加わると、見なければならない変数が1つ増える</b>。ここ数年の円安は、①国内の低金利で円の量が増えたこと、②日米の金利差、の両方で説明される。</li>
+  </ul>
+
+  <div class="formula">
+    <code>金利を下げる　→　お金が借りやすくなる　→　量が増える　→　通貨の価値は下がる</code>
+    <span class="n">「金利が低い通貨は、持っていても利回りが悪いので選ばれにくい」という需要側の説明と、「量が増えれば価値が下がる」という供給側の説明。<b>どちらからでも同じ結論に行けるようにしておく</b>。</span>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="topic" id="s3">
+  <span class="badge macro">要点③｜日米の利害</span>
+  <h2 class="thead">なぜアメリカも協調したのか ― 米国債を売られると、何が困るのか</h2>
+  <p class="sub">ここがこの回でいちばん歯ごたえのあったパート。学生3人で1つの連鎖を組み立てた。</p>
+
+  <ol class="chain">
+    <li>円安が進み、日本の物価が上がる。</li>
+    <li>物価上昇に対応するため、<b>日銀が利上げする</b>という観測が強まる。</li>
+    <li>日本の金利が上がると、日本の投資家は<b>わざわざ米国債を持っている必要がなくなる</b>。売って、国内の債券に資金を戻す。</li>
+    <li>米国債の保有者（＝債権者）が売る／償還を求めると、発行体である<b>アメリカ政府は返す資金を用意しなければならない</b>。</li>
+    <li>用意する手段は、結局のところ<b>ドルを新たに発行する</b>か、新しい国債を出すか。量が増えれば<b>ドルの価値は下がる</b>。売り圧力が強ければ<b>米金利は上がる</b>。</li>
+    <li>だからアメリカにとっても、円安の放置は他人事ではない。<b>日米は一蓮托生の構造にある</b>。</li>
+  </ol>
+
+  <div class="struct">
+    <ul>
+      <li><b>日本は米国債の大きな買い手である</b>。歴史的な経緯もあって、アメリカの財政を支える側に回ってきた。だからアメリカの経済政策と日本の経済政策は切り離せない。</li>
+      <li><b>アービトラージの視点</b>：日本の債権者にとっては、米国債の金利が多少下がっても、それ以上に円安が進めば為替差益で儲かる。金利と為替を組み合わせて利ざやを取る動きがある。<b>逆に言えば、これ以上円安が進むと、日本からのドル供給が止まるかもしれない</b>という思惑も働く。</li>
+      <li>そうした複数の思惑が積み重なって、<b>「とりあえず介入した」</b>というのが今回の構図である。</li>
+    </ul>
+  </div>
+
+  <div class="qbox">
+    <div class="h">この回で出た問い</div>
+    「アメリカ政府は、自国の国債を売られたら本当に困るのか。困らないとしたら、なぜか」<br>
+    <b>債券は、発行者＝債務者、買い手＝債権者。</b>この一言に戻れば、途中で迷子にならない。
+  </div>
+
+  <div class="rel"><b>第2回への接続</b>　この「国債を売られると発行体が困る」という構造を、日本側に置き換えたのが第2回の<b>日銀のジレンマ</b>である。<a href="lecture_review_20260811.html#s2">→ 第2回 要点②</a></div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section class="topic" id="s4">
+  <span class="badge macro">要点④｜業種への波及</span>
+  <h2 class="thead">円高・利上げで、どの業種が動くか ― 2段階に分けて考える</h2>
+  <p class="sub">「株価がどうなるか」を一発で当てにいかない。<b>①為替が動く段階</b>と<b>②金利が動く段階</b>を分ける。</p>
+
+  <h3>段階1｜円高になったとき</h3>
+  <ul class="facts">
+    <li><b>恩恵を受けるのは輸入業</b>。海外から仕入れて国内で売る商売は、仕入れが安くなる。挙がった例：商社、飲食、アパレル、そして典型例としてニトリやダイソーのような<b>「安いところで作って日本で売る」業態</b>。円安局面でこれらの株価が下がったのは、その裏返しである。</li>
+    <li>逆に、外貨で稼ぐ輸出企業には逆風になる。<b>同じニュースの評価が業種で反転する</b>。</li>
+  </ul>
+
+  <h3>段階2｜金利が上がったとき</h3>
+  <div class="views">
+    <div class="view"><div class="who">上がりやすい：銀行・保険</div><p>貸出金利が上がって<b>利ざやが拡大</b>する。保険は運用利回りが改善する。</p></div>
+    <div class="view b"><div class="who">下がりやすい：不動産・建設</div><p>多額の借入を前提とするビジネスは、<b>借入コストの増加</b>が直撃する。住宅ローン関連も同様。</p></div>
+    <div class="view c"><div class="who">注意点</div><p>第2回で見るとおり、<b>銀行は国債を大量に保有している</b>ので、金利上昇は含み損という逆向きの効果も持つ。「銀行は利上げで得をする」は一面にすぎない。</p></div>
+  </div>
+
+  <div class="rel"><b>まとめ方</b>　「円高になった → 次に金利が動く → その順に業種が反応する」。<b>ステップを分けて話すと、どの段階の話をしているのかが相手に伝わる</b>。</div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section class="topic" id="s5">
+  <span class="badge corp">要点⑤｜ミクロ</span>
+  <h2 class="thead">後半：メルカリとfreeeのPL ― 12年赤字を掘った先に何があったか</h2>
+  <p class="sub">マクロから降りてきて、最後は1枚のPLを投資家目線で読む。</p>
+
+  <h3>5-1　freeeという題材</h3>
+  <ul class="facts">
+    <li><b>約12年にわたって赤字を掘り続けた</b>。それでも潰れなかったのは、上場を含めて<b>巨額の資金調達ができたから</b>。赤字が続いてもキャッシュ残高を維持できたことが生存の条件だった。</li>
+    <li><b>なぜ投資家は張ったのか</b>：SaaSは「最初に赤字を掘り、ストック型の売上が積み上がってJカーブを描き、黒字化したあとは固く儲かる」というモデルで説明される。投資家はその将来を買っている。</li>
+    <li><b>しかし12年である</b>。学生からは「そこまで待てるのか」「どのラインが適正な評価額なのか分からないので、怖くて手が出せない」という率直な反応が出た。<b>この違和感を持てることが第一歩</b>。</li>
+    <li><b>黒字化したときの中身</b>：営業利益率は数%にとどまった。しかも<b>研究開発費を削って</b>の黒字化。「もう研究開発は完了した」と言えるビジネスなのか、という問いが立つ。</li>
+  </ul>
+
+  <h3>5-2　売上が伸びた理由と、伸びが止まる理由</h3>
+  <ol class="chain">
+    <li>ある年に<b>広告宣伝費を大幅に投下</b>した。</li>
+    <li>翌年、その効果で<b>売上が伸びた</b>。</li>
+    <li>次の年、<b>広告費を削減</b>した。利益は出るが、<b>売上の成長率は落ちる</b>と予想される。</li>
+    <li>つまり<b>「削れば利益、使えば成長」のシーソー</b>に乗っている。これ自体は第2回の出前館とまったく同じ構造である。</li>
+  </ol>
+
+  <div class="formula">
+    <code>売上　＝　顧客数　×　単価</code>
+    <span class="n">削る余地がもう無いなら、伸ばすしかない。<b>顧客数を増やすのか、単価を上げるのか</b>。どちらも動かせないなら、その事業は「成り行きのオペレーション」になってしまっている、という判断になる。第2回で出前館に対して使ったのと同じ道具である。</span>
+  </div>
+
+  <h3>5-3　投資家目線で「買いか」を決める</h3>
+  <div class="views">
+    <div class="view b"><div class="who">経営者への突っ込み</div><p>営業利益率が数%なのは狙い通りなのか、それとも結果的にそうなったのか。<b>狙い通りでないなら言い訳が要る</b>、というのが学生から出た厳しい指摘。</p></div>
+    <div class="view b"><div class="who">外部環境</div><p>この12年、法人向けSaaSの選択肢が限られていたから資金が集まった面がある。<b>そこにAIが来た</b>。同じ機能をAIが担い始めると、前提が崩れる。</p></div>
+    <div class="view b"><div class="who">出口</div><p>投資した側は塩漬けにするか、次の手を探すことになる。<b>身売り、あるいは同業との統合</b>といったシナリオを織り込んで「買いかどうか」を見極める。</p></div>
+  </div>
+
+  <div class="rel"><b>第3回への接続</b>　「赤字を掘って成長する」は3社3様である。メルカリは2026年6月期に過去最高益に到達し、初の自社株買いを決めた。Anthropicは上場前に9,650億ドルの評価額がついた。<b>何がこの差を生んだのか</b>を第3回で扱う。<a href="../lectures/lecture_20260818.html#hw2">→ 第3回 宿題②</a></div>
+</section>
+
+<!-- ============ 用語 ============ -->
+<section class="topic" id="g1">
+  <span class="badge word">用語集</span>
+  <h2 class="thead">この回の用語</h2>
+  <p class="sub">定義を言えるだけでなく、「どの話でなぜ出てきたか」まで再現できると理想。</p>
+
+  <div class="gloss compact">
+    <dl>
+      <dt>政策金利</dt><dd>中央銀行が操作する短期の金利。<b>日銀が意図的に動かせる、ほぼ唯一の軸</b>。ここを上下させることで、市中の金利・お金の量・通貨の価値に影響を与える。</dd>
+      <dt>マイナス金利政策</dt><dd>金融機関が日銀に預ける資金の一部に対してマイナスの金利を課す政策。お金を貸し出すよう促す狙い。日本が長く続けた低金利政策の極端な形。</dd>
+      <dt>日米金利差</dt><dd>アメリカと日本の金利の差。<b>金利の高い通貨に資金が向かう</b>ため、差が広がると円安が進みやすい。ここ数年の円安を説明する代表的な理屈。</dd>
+      <dt>マネーサプライ（通貨供給量）</dt><dd>世の中に出回っているお金の量。<b>増えれば1単位あたりの価値は下がる</b>。低金利政策とインフレをつなぐ変数。</dd>
+      <dt>インフレと貨幣価値</dt><dd>物価が上がる＝同じ金額で買えるものが減る＝<b>貨幣の価値が下がる</b>。同じ現象を、値段の側から見るか、お金の側から見るかの違い。</dd>
+      <dt>債務者と債権者</dt><dd>お金を借りている側が債務者（国債なら国、社債なら会社）、貸している側が債権者。<b>「誰が発行して、誰が持っているか」を先に確認する</b>と、債券の話は迷子にならない。</dd>
+      <dt>国債と社債</dt><dd>国の借金が国債、会社の借金が社債。どちらも満期前に市場で売買される。</dd>
+      <dt>アービトラージ<span class="en">arbitrage</span></dt><dd>裁定取引。金利差や価格差を組み合わせて、リスクを抑えつつ利ざやを取る手法。<b>米国債の金利と為替の動きを組み合わせる</b>形で、この回に登場した。</dd>
+      <dt>協調介入</dt><dd>複数国の通貨当局が同時に同じ方向で行う為替介入。単独より市場へのメッセージが強い。<b>「どちらの国にとっても都合が良い」という利害の一致が前提になる</b>。</dd>
+      <dt>輸入業／輸出業</dt><dd>仕入れが海外・売上が国内なら円高が追い風、逆なら円安が追い風。<b>業態を見れば、為替の効き方の向きが分かる</b>。</dd>
+      <dt>利ざや</dt><dd>銀行が貸出で受け取る金利と、預金などで支払う金利の差。<b>金利上昇局面では拡大しやすい</b>。</dd>
+      <dt>SaaS<span class="en">Software as a Service</span></dt><dd>ソフトウェアをサービスとして継続課金で提供するモデル。<b>初期は赤字、契約が積み上がると利益が出る</b>ストック型。</dd>
+      <dt>Jカーブ</dt><dd>先行投資でいったん深く沈み、その後に急回復する曲線。SaaSの成長モデルを説明するときの定番の図。</dd>
+      <dt>ストック型収益／フロー型収益</dt><dd>継続的に積み上がる収益がストック型、都度発生するのがフロー型。<b>ストック型は積み上がるほど予測が立てやすい</b>。</dd>
+      <dt>研究開発費</dt><dd>販管費の一項目。<b>削れば当期の利益は増えるが、将来の稼ぐ力を削っている可能性がある</b>。「黒字化した」と言われたときに、その中身を見に行くべき場所のひとつ。</dd>
+      <dt>営業利益率</dt><dd>営業利益 ÷ 売上高。<b>本業でどれだけ効率よく稼げているか</b>。同じ「黒字」でも、率を見ると評価が変わる。</dd>
+      <dt>塩漬け</dt><dd>含み損を抱えた資産を、売るに売れず保有し続けている状態。</dd>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <h2>このページについて</h2>
+  <ul>
+    <li>2026年8月4日（火）の<b>夏期集中講座 第1回</b>「為替・金利・株式投資と企業財務分析」の復習用ページです。当日の逐語記録をもとに、2026年8月12日に作成しました。</li>
+    <li>学生の発言は要旨を整理して掲載しています。<b>発言の当否そのものより、そこからどう詰められたかが重要</b>なので、途中の間違いも含めて残しています。</li>
+    <li>企業名・数値は当日の議論で挙がったものです。<b>引用する際は必ず一次情報（決算短信・有価証券報告書・官庁発表）で裏を取ってください。</b></li>
+    <li>ゼミ参加者個人のポートフォリオ・保有銘柄は、本ページには収録していません。</li>
+    <li>外部依存のない単一HTMLファイルです。ブラウザストレージ（localStorage 等）は使用していません。</li>
+  </ul>
+  <div class="next">
+    <b>次の回へ</b>
+    <a href="../news_briefs/lecture_news_20260809.html">講義ネタ速報 Vol.1（8/9）</a>　／
+    <a href="lecture_review_20260811.html">第2回 復習ページ（8/11）</a>　／
+    <a href="../lectures/lecture_20260818.html">第3回 講義資料（8/18）</a>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
