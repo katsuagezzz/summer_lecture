@@ -225,6 +225,41 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 .callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
 @media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
 .unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
 </style>
 </head>
 <body>
@@ -244,25 +279,33 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <div class="vol">LECTURE HANDOUT ／ 講義資料　夏期集中講座 第3回</div>
   <h1 class="title">上場が答え合わせをする夏<br>― SpaceX、Anthropic、そして「電力」という首</h1>
   <div class="meta">
-    <span><b>講義日</b>　2026年8月18日（火）</span>
+    <span><b>配布</b>　2026年8月14日（金）13:00</span>
+    <span><b>講義</b>　2026年8月18日（火）16:20 開始・90分</span>
     <span><b>形式</b>　オンライン（Zoom）</span>
     <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
-    <span><b>資料作成</b>　2026年8月13日</span>
   </div>
   <div class="lede">
     6月9日の補講で、先生はこう言った。<strong>「スペースXは今週の金曜日に上場する」</strong>。そして「なぜマスクは宇宙に行くのか。AIの首（ボトルネック）は電力だからだ」と。<br>
-    ──　その金曜日、6月12日にSpaceXはNASDAQに上場した。公開価格135ドル、初値150ドル、終値160.95ドル。時価総額<strong>2.1兆ドル</strong>。史上最大級のIPOである。そして8月5日時点の時価総額は<strong>1.88兆ドル</strong>。<strong>上場したのに、1割下がっている。</strong><br>
+    ──　その金曜日、6月12日にSpaceXはNASDAQに上場した。公開価格135ドル、初値150ドル、終値160.95ドル。時価総額<strong>2.1兆ドル</strong>。史上最大級のIPOである。そして8月5日時点の時価総額は<strong>1.88兆ドル</strong>。<strong>上場から2か月で、時価総額は約1割減っている。</strong>ただし ──<strong>それで損をした人と、得をした人がいる。</strong>誰と誰かは §2 で確かめる。<br>
     10月にはAnthropicが来る。評価額はおよそ<strong>1兆ドル</strong>。年内から来年にかけてOpenAIも続くとみられる。この夏に立てた仮説は、次々と実測値に置き換わっていく。<br>
     第3回は、<strong>日米の外側まで見る回</strong>にする。宇宙、中国、そして軍事。ここまで積み上げてきたPL・BS・原価率・現在価値は、そのまま持っていく道具だ。
   </div>
 </header>
 
+<div class="callout" style="margin:0 0 22px">
+  <span class="lbl">自習の進め方 ── 配布 8/14（金）13:00 → 授業 8/18（火）16:20</span>
+  使える時間は<b>実質4日</b>である。全部やろうとすると全部が浅くなるので、宿題には<b><span class="tagm">必答</span></b>と<b><span class="tago">余力</span></b>を付けた。<br>
+  <b>必答は各チーム2問だけ。まずそこを埋め切ること。</b>余力に手をつけるのは、必答が終わってからでいい。<br>
+  <b>この資料には答えが書いていない。</b>§1の採点表の判定欄も空にしてある。<b>埋めるのは君たちである。</b>授業の最初の15分は、その突き合わせから始める。<br>
+  <b>締切</b>　Slackへの提出は <b>8/18（火）12:00</b> まで。間に合わなかった分は「間に合わなかった」と書いて出すこと。<b>空欄で出すのと、黙って出さないのは違う。</b>
+</div>
+
 <nav class="toc">
   <h2>この資料の構成</h2>
   <ol>
     <li><a href="#s0">この回のねらい</a> <span class="s">― 予想 → 実測 → 差分の説明</span></li>
-    <li><a href="#s1">答え合わせ①　マクロ</a> <span class="s">― 介入から3週間、8/20が判定日</span></li>
-    <li><a href="#s2">答え合わせ②　SpaceX上場</a> <span class="s">― 上場は「必ず上がる場」ではない</span></li>
+    <li><a href="#s1">答え合わせ①　マクロ</a> <span class="s">― 採点表を自分で埋めてくる</span></li>
+    <li><a href="#s2">答え合わせ②　SpaceX上場</a> <span class="s">― 「1割下落」は誰にとっての話か</span></li>
     <li><a href="#s3">材料A　Anthropic と OpenAI</a> <span class="s">― 赤字と黒字が逆転した</span></li>
     <li><a href="#s4">材料B　Tesla × SpaceX</a> <span class="s">― 営業利益率1.4%の会社が、なぜ買われるのか</span></li>
     <li><a href="#s5">材料C　「首」は電力だった</a> <span class="s">― 6/9の伏線を回収する</span></li>
@@ -270,8 +313,9 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <li><a href="#hw1">宿題①　田村チーム</a> <span class="s">― 介入の採点と、積み残しのトヨタ問題</span></li>
     <li><a href="#hw2">宿題②　廻チーム</a> <span class="s">― PERが計算できない会社を、どう値付けするか</span></li>
     <li><a href="#hw3">宿題③　秋山パイセン</a> <span class="s">― 電力とフィジカルAI、勝ちを理論で説明する</span></li>
+    <li><a href="#roles">当日の役割</a> <span class="s">― 山本君・河野君・中村君がやること</span></li>
     <li><a href="#hw4">宿題④　全員共通</a> <span class="s">― 「これはバブルか？」に答える</span></li>
-    <li><a href="#s7">当日の進行</a> <span class="s">― 90分のタイムテーブル</span></li>
+    <li><a href="#s7">当日の進行</a> <span class="s">― 16:20開始・90分のタイムテーブル</span></li>
     <li><a href="#s8">9〜10月のカレンダー</a> <span class="s">― これから答えが出る日</span></li>
     <li><a href="#s9">今回の用語</a> <span class="s">― 予習しておく言葉</span></li>
   </ol>
@@ -305,8 +349,8 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 <!-- ============ §1 ============ -->
 <section class="topic" id="s1">
   <span class="badge macro">答え合わせ①　マクロ</span>
-  <h2 class="thead">介入から3週間 ── 判定日は8月20日、授業はその2日前にある</h2>
-  <p class="sub">第2回で紹介したロビン・ブルックスの指摘「協調介入のインパクトが消えるのに約3週間」。7/30の介入から3週間後は8/20。つまり我々は判定の直前にいる。</p>
+  <h2 class="thead">介入から3週間 ── 判定日は8月20日。授業（8/18）は、その2日前にある</h2>
+  <p class="sub">第2回で紹介したロビン・ブルックスの指摘「協調介入のインパクトが消えるのに約3週間」。7/30の介入から3週間後は8/20。<b>つまり授業の日には、まだ答えが出ていない。</b>だからこの回でやるのは「予想」までである。実測との突き合わせは第4回にやる。</p>
 
   <div class="kpis">
     <div class="kpi m"><div class="k">7/30 協調介入</div><div class="v">6〜7兆円</div><div class="n">15年ぶりの日米協調。同日、韓国当局もウォン買い介入と伝えられた <span class="unsure">規模は市場推計</span></div></div>
@@ -317,32 +361,35 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <div class="kpi c"><div class="k">日銀9月利上げ予想</div><div class="v">6割超</div><div class="n">介入を受けて前倒しが進んだ</div></div>
   </div>
 
-  <h3>第2回で立てた仮説の採点表（8/13時点）</h3>
+  <h3>第2回で立てた仮説の採点表 ── <b>判定欄は空けてある。授業までに自分で埋めてくること</b></h3>
+  <p class="sub">左は第2回（8/11）に我々が立てた仮説。真ん中は8/13時点で<b>確認できた事実だけ</b>を並べた（解釈は入れていない）。<b>右の判定は、事実から自分で導く。</b></p>
   <div class="tblwrap">
   <table class="scorecard">
-    <thead><tr><th>第2回で立てた仮説</th><th>8/13時点で分かっていること</th><th>判定</th></tr></thead>
+    <thead><tr><th>第2回で立てた仮説</th><th>8/13時点で確認できた事実</th><th>判定（記入する）</th></tr></thead>
     <tbody>
-      <tr><td class="h">介入の効果は約3週間で消える</td><td>介入翌日の7/31にはすでに160円台後半へ戻し、その後155〜158円台のもみ合い。<b>完全には戻っていないが、下方向にも定着していない</b>。判定日は8/20。</td><td><span class="mark p">8/20判定</span></td></tr>
-      <tr><td class="h">160円台は「異常」ではなく新しい適正水準かもしれない</td><td>介入から2週間経っても158円前後。<b>介入前の水準に戻りつつある</b>。「異常だから戻る」なら、もっと下にいるはず。</td><td><span class="mark o">支持</span></td></tr>
-      <tr><td class="h">日銀は利上げしたくてもできない（国債含み損のジレンマ）</td><td>市場の9月利上げ予想は<b>6割超</b>に上昇。ジレンマは消えていないが、円安圧力の方が勝ちつつある。9/17-18が決定会合。</td><td><span class="mark x">要修正</span></td></tr>
-      <tr><td class="h">アメリカはそのうち利下げする（日本側の一般的な前提）</td><td>7月FOMCは3.50〜3.75%据え置きだが、<b>3名が「利上げすべき」と反対票</b>。ウォーシュ議長は「インフレが高止まりすれば利上げも選択肢」。9月FOMCで利上げに票を投じる用意があるとの報道。</td><td><span class="mark x">前提が逆</span></td></tr>
-      <tr><td class="h">キャッシュが赤字でもPLが黒字になるのは減価償却のせい</td><td>ハイパースケーラーの2026年設備投資は合計<b>約7,250億ドル（前年比+76%）</b>と報じられる。この巨額がBS左側に積まれ、PLには何年かに分けて乗る。<b>構造は変わっていない、桁が上がっただけ</b>。</td><td><span class="mark o">支持</span></td></tr>
+      <tr><td class="h">① 介入の効果は約3週間で消える</td><td>7/30の介入で162円台後半 → 一時157円台後半。翌7/31には160円台後半へ戻した。8/3に155.21円の安値。8/13時点は158.55円前後。介入から3週間は8/20。</td><td class="j"><span class="fill">記入</span></td></tr>
+      <tr><td class="h">② 160円台は「異常」ではなく新しい適正水準かもしれない</td><td>介入から2週間経過時点で158円前後。介入前の水準は162円台後半。年末予想はプロの間で162円〜200円に割れている（第2回で確認）。</td><td class="j"><span class="fill">記入</span></td></tr>
+      <tr><td class="h">③ 日銀は利上げしたくてもできない（国債含み損のジレンマ）</td><td>市場の9月利上げ予想は<b>6割超</b>。10年国債利回りは7/8に2.87%（1996年9月以来）。決定会合は9/17-18。</td><td class="j"><span class="fill">記入</span></td></tr>
+      <tr><td class="h">④ アメリカはそのうち利下げする（日本側の一般的な前提）</td><td>7月FOMCは3.50〜3.75%で据え置き。ただし<b>3名が「利上げすべき」と反対票</b>。ウォーシュ議長は「インフレが高止まりすれば利上げも選択肢」と発言。7月米CPIは前年比+3.4%、コア+2.5%（8/12発表）。</td><td class="j"><span class="fill">記入</span></td></tr>
+      <tr><td class="h">⑤ キャッシュが赤字でもPLが黒字になるのは減価償却のせい</td><td>ハイパースケーラーの2026年設備投資は合計<b>約7,250億ドル（前年比+76%）</b>と報じられる。</td><td class="j"><span class="fill">記入</span></td></tr>
     </tbody>
   </table>
   </div>
 
   <div class="callout">
-    <span class="lbl">授業で最初に聞くこと</span>
-    上の表の「要修正」2行について。<b>なぜ我々の予想はズレたのか。</b>「日銀は利上げできない」と考えた時、我々は何を見落としていたのか。ヒントは、第2回では<b>国内の金融システムの話しかしていなかった</b>ことにある。
+    <span class="lbl">埋め方（この形式で書く）</span>
+    判定は <b>支持／要修正／前提が逆／まだ判定できない</b> の4つから選ぶ。そして<b>必ず「なぜそう判定したか」を1文つける。</b><br>
+    判定だけ書いて理由がないものは、<b>0点</b>とする。逆に、判定を間違えていても理由が筋の通ったものなら点は出る。<br>
+    <b>いちばん考えてほしいのは③と④である。</b>第2回で我々が全員で納得した2つが、いま素直には支持しにくくなっている。<b>ズレたとしたら、我々は何を見ていなかったのか。</b>
   </div>
 
   <div class="src"><b>SOURCES</b>
     <ul>
-      <li>SMBC信託銀行「円相場：7月30日のドル円急落を巡る状況について」／第一生命経済研究所「今局面二度目の円買い介入実施」／野村総合研究所・木内登英「円安阻止に向けた日米協調の新たな局面」</li>
-      <li>外為どっとコム 週間ドル円見通し（2026/8/10-14）</li>
-      <li>日本経済新聞「長期金利一時2.87%に上昇、30年ぶり」（2026/7/8）／同「日銀9月利上げ予想、6割超える」（2026/8/5）</li>
-      <li>Bloomberg「米CPI、7月は前月比0.1%上昇－前年比では3.4%上昇」（2026/8/12）</li>
-      <li>Pictet「ウォーシュ議長が7月FOMCで語ったこと」／第一生命経済研究所「ウォーシュFRB議長、初の議会証言で物価抑制へ不退転の決意」</li>
+      <li><span class="st p3">解説</span>SMBC信託銀行「円相場：7月30日のドル円急落を巡る状況について」／第一生命経済研究所「今局面二度目の円買い介入実施」／野村総合研究所・木内登英「円安阻止に向けた日米協調の新たな局面」</li>
+      <li><span class="st p3">解説</span>外為どっとコム 週間ドル円見通し（2026/8/10-14）</li>
+      <li><span class="st p2">報道</span>日本経済新聞「長期金利一時2.87%に上昇、30年ぶり」（2026/7/8）／同「日銀9月利上げ予想、6割超える」（2026/8/5）</li>
+      <li><span class="st p2">報道</span>Bloomberg「米CPI、7月は前月比0.1%上昇－前年比では3.4%上昇」（2026/8/12）</li>
+      <li><span class="st p3">解説</span>Pictet「ウォーシュ議長が7月FOMCで語ったこと」／第一生命経済研究所「ウォーシュFRB議長、初の議会証言で物価抑制へ不退転の決意」</li>
     </ul>
   </div>
 </section>
@@ -350,7 +397,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 <!-- ============ §2 ============ -->
 <section class="topic" id="s2">
   <span class="badge corp">答え合わせ②　SpaceX上場</span>
-  <h2 class="thead">6月9日の補講で予告した会社が、本当に上場した。そして下がった。</h2>
+  <h2 class="thead">6月9日の補講で予告した会社が、本当に上場した。そのあと、どうなったか。</h2>
   <p class="sub">「上場とは何か」を6/9に扱ったとき、教材にしたのがSpaceXだった。実測値が出たので、あの日の説明を検算する。</p>
 
   <div class="kpis">
@@ -365,8 +412,29 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <ul class="facts">
     <li><b>「上場とは、限られた人しか持てなかった株を、不特定多数が買えるようにすること」</b> ── その通りに起きた。日本の証券会社経由でも申し込めた。</li>
     <li><b>「上場は買う側の言葉ではなく、供給者側の言葉。高く<u>売る</u>場という意味合いが近い」</b> ── SpaceXは750億ドルを調達した。これがまさに「売った」側の成果である。</li>
-    <li><b>「いっぱい買いたい人がいれば株価は上がるし、頼りないと思われれば下がる」</b> ── 初日は+19%。しかし約2か月で1割下げた。<b>上場＝必ず儲かる、ではない。</b></li>
+    <li><b>「いっぱい買いたい人がいれば株価は上がるし、頼りないと思われれば下がる」</b> ── 初日は+19%。そこから約2か月で、時価総額は1.88兆ドルまで下がった。</li>
   </ul>
+
+  <h3>「1割下がった」は、誰にとっての話か</h3>
+  <p>上の数字だけで計算できる。<b>時価総額2.1兆ドル ÷ 終値160.95ドル ≒ 130億株</b>。この株数で8/5の時価総額1.88兆ドルを割ると、<b>1株はおよそ144ドル</b>。そこから、買った時期ごとにこうなる。</p>
+  <div class="tblwrap">
+  <table class="scorecard">
+    <thead><tr><th>いつ買ったか</th><th>買値</th><th>8/5時点（≒144㌦）でどうなっているか</th></tr></thead>
+    <tbody>
+      <tr><td class="h">公開価格で割り当てを受けた人</td><td>135㌦</td><td class="num"><b>およそ +7%</b>　── 勝っている</td></tr>
+      <tr><td class="h">初値で買った人</td><td>150㌦</td><td class="num">およそ −4%</td></tr>
+      <tr><td class="h">初日の終値で買った人</td><td>160.95㌦</td><td class="num"><b>およそ −10%</b>　── 負けている</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">この夏ずっとやってきた「自分ごと」が、ここに出る</span>
+    同じ会社の、同じ2か月である。<b>それなのに、+7%の人と−10%の人がいる。</b><br>
+    <b>問い：この3人のうち、誰が「上場は儲かる」と言い、誰が「上場は儲からない」と言うか。そして、それぞれの言い分はどちらも正しいのか。</b><br>
+    ニュースの見出しは「上場から1割下落」と書く。<b>その見出しは、3人のうち誰の立場で書かれているのか。</b><br>
+    ── <b>数字を見たら「誰から見た数字か」を必ず言う。</b>これが今回いちばん持ち帰ってほしい作法である。
+  </div>
 
   <div class="callout">
     <span class="lbl">ここが今回いちばん大事な一撃</span>
@@ -377,9 +445,9 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
   <div class="src"><b>SOURCES</b>
     <ul>
-      <li>日本経済新聞「スペースX上場、時価総額2.1兆ドル 公開価格比19%高」（2026/6/12）</li>
-      <li>moomoo証券「スペースX IPO完全ガイド」／IPO情報サイト各社の上場実績ページ</li>
-      <li>野村證券「スペースXの上場規模は過去最大級 大型IPO後のS&amp;P500は上昇傾向」</li>
+      <li><span class="st p2">報道</span>日本経済新聞「スペースX上場、時価総額2.1兆ドル 公開価格比19%高」（2026/6/12）</li>
+      <li><span class="st p4">二次・要確認</span>moomoo証券「スペースX IPO完全ガイド」／IPO情報サイト各社の上場実績ページ　── <b>株数・時価総額はSpaceXのIRか目論見書で取り直すこと</b></li>
+      <li><span class="st p3">解説</span>野村證券「スペースXの上場規模は過去最大級 大型IPO後のS&amp;P500は上昇傾向」</li>
     </ul>
   </div>
 </section>
@@ -395,7 +463,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <thead><tr><th>　</th><th>Anthropic</th><th>OpenAI</th></tr></thead>
     <tbody>
       <tr><td>直近の資金調達</td><td class="num">Series H 650億㌦（5/28クローズ）</td><td class="num">上場前ラウンドを準備中 <span class="unsure">評価額8,300億㌦規模と報道</span></td></tr>
-      <tr><td>評価額</td><td class="num">ポストマネー 約9,650億㌦</td><td class="num">1兆㌦近辺の観測</td></tr>
+      <tr><td>評価額</td><td class="num">ポストマネー 約9,650億㌦<br><span class="unsure">5/28のSeries H時点</span></td><td class="num">1兆㌦近辺の観測<br><span class="unsure">上場観測に伴う報道。上の8,300億㌦とは時点も出所も違う。<b>どちらの数字を使ったか明記すること</b></span></td></tr>
       <tr><td>ARR（年換算売上）</td><td class="num">約470億㌦</td><td class="num">月次20億㌦規模 ＝ 年換算240億㌦前後</td></tr>
       <tr><td>四半期の損益</td><td class="num"><span class="pos">Q2 2026 売上109億㌦／調整後営業利益5.59億㌦</span><br>創業以来はじめての四半期黒字</td><td class="num"><span class="neg">2026年通期で約140億㌦の赤字見込み</span><br>黒字化は2030年頃との観測</td></tr>
       <tr><td>S-1（上場申請書）の提出</td><td class="num">2026/6/1 SECへ機密提出</td><td class="num">2026/5/22 SECへ機密提出</td></tr>
@@ -434,10 +502,10 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
   <div class="src"><b>SOURCES</b>
     <ul>
-      <li>Anthropic「Series H」 anthropic.com/news/series-h</li>
-      <li>AI革命「Anthropic IPO・S-1機密提出（2026年6月）完全解説」／同「Anthropic Q2 2026 初の営業黒字」</li>
-      <li>ThinkMarkets「OpenAI IPO 2026: Date, Valuation and How to Trade」／CMC Markets「OpenAI IPO: what investors need to know in 2026」／MarketScreener「OpenAI lays groundwork for juggernaut IPO at up to $1 trillion valuation」</li>
-      <li>SemiAnalysis レポート（TradingKey 要約）</li>
+      <li><span class="st p1">一次</span>Anthropic「Series H」 anthropic.com/news/series-h</li>
+      <li><span class="st p4">二次・要確認</span>AI革命「Anthropic IPO・S-1機密提出（2026年6月）完全解説」／同「Anthropic Q2 2026 初の営業黒字」　── <b>この回でいちばん荷重のかかっている数字（Q2 売上109億㌦・調整後営業利益5.59億㌦）が、この二次情報に乗っている。anthropic.com か主要報道で必ず取り直すこと。</b></li>
+      <li><span class="st p3">解説</span>ThinkMarkets「OpenAI IPO 2026: Date, Valuation and How to Trade」／CMC Markets「OpenAI IPO: what investors need to know in 2026」／MarketScreener「OpenAI lays groundwork for juggernaut IPO at up to $1 trillion valuation」</li>
+      <li><span class="st p3">解説</span>SemiAnalysis レポート（TradingKey 要約）</li>
     </ul>
   </div>
 </section>
@@ -486,10 +554,10 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
   <div class="src"><b>SOURCES</b>
     <ul>
-      <li>CNBC「Tesla (TSLA) Q2 2026 earnings report」（2026/7/22）／Electrek「Elon Musk hints at Tesla-SpaceX merger on earnings call」（2026/7/22）</li>
-      <li>Bloomberg「Are SpaceX and Tesla Hurtling Toward a Merger?」（2026/7/6）／CNN Business「Will SpaceX buy Tesla?」（2026/7/22）</li>
-      <li>Fortune「Tesla reveals $2 billion investment in Elon Musk's xAI」（2026/1/28）／Morningstar「What Happens If Tesla and SpaceX Merge?」</li>
-      <li>The Motley Fool「SpaceX and Tesla Merger Talks Are Heating Up」（2026/8/6）</li>
+      <li><span class="st p2">報道</span>CNBC「Tesla (TSLA) Q2 2026 earnings report」（2026/7/22）／Electrek「Elon Musk hints at Tesla-SpaceX merger on earnings call」（2026/7/22）</li>
+      <li><span class="st p2">報道</span>Bloomberg「Are SpaceX and Tesla Hurtling Toward a Merger?」（2026/7/6）／CNN Business「Will SpaceX buy Tesla?」（2026/7/22）</li>
+      <li><span class="st p2">報道</span>Fortune「Tesla reveals $2 billion investment in Elon Musk's xAI」（2026/1/28）／Morningstar「What Happens If Tesla and SpaceX Merge?」</li>
+      <li><span class="st p4">二次・要確認</span>The Motley Fool「SpaceX and Tesla Merger Talks Are Heating Up」（2026/8/6）</li>
     </ul>
   </div>
 </section>
@@ -521,17 +589,24 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <span class="lbl">6/9に先生が言ったこと（原文に近い形で）</span>
     「AIももうどんどん拡大したいけど、データセンターのサーバーの電気がつかなかったらAIは使えないからニーズに応えられない。それが今いちばんのネガティブ要因。それを<b>ボトルネック</b>という。<br>
     ……マスク先生が考えてるのは、もう地球の外に出て、大気圏を通さないで太陽光をそのまま受けて発電する。データセンターも宇宙に作っちゃう、という話」<br>
-    ── <b>この通りのことが、GoogleとStarcloudによって実際に進んでいる。</b>秋山パイセンのGE（5年で4倍）と三菱重工が上がっているのも、偶然ではなく、この首の話である。
+    ── <b>問い：この2か月前の話に対して、上に並べた6社の動きは「当たり」なのか、それとも「まだ何とも言えない」のか。</b>どれか1社を選んで、根拠つきで答えること。
+  </div>
+
+  <div class="callout">
+    <span class="lbl">首は、さらに細いところがある</span>
+    上に並んでいるのは、発電する側の会社ばかりである。だが<b>データセンターに電気を届けるには、発電所だけでは足りない</b>。
+    受変電設備、変圧器、送電線、電源工事、そして冷却。<b>発電から先の、細くなっているところを遡っていくと、そこには中小型の日本企業がいる。</b><br>
+    ── 秋山パイセンのテンバガー課題（宿題③B②）は、<b>ここを探しにいく</b>ための課題である。大型株の名前は全部この資料に書いてあるので、探すのはその先である。
   </div>
 
   <div class="src"><b>SOURCES</b>
     <ul>
-      <li>NVIDIA公式ブログ「2026年会計年度第3四半期の業績」／マイナビ「NVIDIAの2027会計年度第1四半期の売上高は過去最高の816億ドル」（2026/5/25）</li>
-      <li>Zenn「AIのボトルネックは電力 ── 日本のデータセンター電力需要と電源確保を一次資料で総整理【2026年版】」</li>
-      <li>SDGs JAPAN「AIの爆発的な電力需要をどう賄うか ── SMRと日本の技術力」／ClimateTech Japan「AIに電力が追いつかない」</li>
-      <li>Business Insider Japan「グーグル、宇宙にデータセンターを建設へ」／日経クロステック「Googleも宇宙データセンター、独自半導体で衛星を編隊飛行 27年実証」</li>
-      <li>アドバンスドテクノロジーX「宇宙データセンターを開発するStarcloudが1.7億ドルを調達」</li>
-      <li>日本経済新聞「GEと日立、次世代原子炉SMR建設開始 カナダの州政府から認可」／同「小型モジュール炉 量産でコスト・期間抑制」</li>
+      <li><span class="st p1">一次</span>NVIDIA公式IR（四半期業績）／<span class="st p2">報道</span>マイナビ「NVIDIAの<b>2027会計年度第1四半期</b>の売上高は過去最高の816億ドル」（2026/5/25）　── <b>本資料は「FY2027 Q1」で統一している。NVIDIAは会計年度が暦年とずれるので、期の呼び方を混ぜないこと。</b></li>
+      <li><span class="st p4">二次・要確認</span>Zenn「AIのボトルネックは電力 ── 日本のデータセンター電力需要と電源確保を一次資料で総整理【2026年版】」　── <b>印西市の「40件・2.5GW・10年待ち」はここが出所である。個人記事なので、電力会社の接続契約申込状況・経産省資料で裏を取ること。</b></li>
+      <li><span class="st p4">二次・要確認</span>SDGs JAPAN「AIの爆発的な電力需要をどう賄うか ── SMRと日本の技術力」／ClimateTech Japan「AIに電力が追いつかない」</li>
+      <li><span class="st p2">報道</span>Business Insider Japan「グーグル、宇宙にデータセンターを建設へ」／日経クロステック「Googleも宇宙データセンター、独自半導体で衛星を編隊飛行 27年実証」</li>
+      <li><span class="st p4">二次・要確認</span>アドバンスドテクノロジーX「宇宙データセンターを開発するStarcloudが1.7億ドルを調達」</li>
+      <li><span class="st p2">報道</span>日本経済新聞「GEと日立、次世代原子炉SMR建設開始 カナダの州政府から認可」／同「小型モジュール炉 量産でコスト・期間抑制」</li>
     </ul>
   </div>
 </section>
@@ -539,14 +614,14 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 <!-- ============ §6 ============ -->
 <section class="topic" id="s6">
   <span class="badge macro">材料D｜軍事と地政学</span>
-  <h2 class="thead">なぜ三菱重工は、電力の話でも防衛の話でも出てくるのか</h2>
-  <p class="sub">今回はじめて「軍事」を正面から扱う。理由は2つ。ひとつは、ゼミの誰かがすでにこの銘柄を持っているから。もうひとつは、AIの首（電力）の話と、防衛の話が、同じ1社に集まっているから。</p>
+  <h2 class="thead">三菱重工は、電力の話でも防衛の話でも出てくる</h2>
+  <p class="sub">今回はじめて「軍事」を正面から扱う。理由は2つ。ひとつは、ゼミの誰かがすでにこの銘柄を持っているから。もうひとつは、材料Cの電力の話と、これから並べる防衛の話が、同じ1社に当たっているから。<b>この節は事実だけを並べる。意味づけは授業でやる。</b></p>
 
   <div class="kpis">
     <div class="kpi m"><div class="k">日本の防衛費</div><div class="v">GDP比 2%</div><div class="n">総額約11兆円。2025年度補正で、当初の2027年度目標を<b>2年前倒し</b>で達成</div></div>
     <div class="kpi m"><div class="k">高市政権が視野に入れる水準</div><div class="v">3%</div><div class="n"><span class="unsure">報道ベース。決定事項ではない</span></div></div>
     <div class="kpi c"><div class="k">三菱重工の防衛装備品契約</div><div class="v">1兆4,567億円</div><div class="n">2024年度実績。2位の川崎重工に<b>2倍以上の差</b>をつけて首位</div></div>
-    <div class="kpi c"><div class="k">三菱重工 受注高見通し</div><div class="v">6兆7,000億円</div><div class="n">2026年3月期。2026/2/4に上方修正</div></div>
+    <div class="kpi c"><div class="k">三菱重工 受注高</div><div class="v">6兆7,000億円</div><div class="n">2026年3月期の<b>期中見通し</b>（2026/2/4に上方修正）。<span class="unsure">この期はすでに終了しており、実績は2026年5月に発表済み。見通しではなく実績を各社IRで取り直すこと</span></div></div>
   </div>
 
   <h3>中国側のカードは「資源」である</h3>
@@ -557,19 +632,25 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   </ul>
 
   <div class="callout">
-    <span class="lbl">ここで気づいてほしい構造</span>
-    <b>三菱重工は「AIの電力不足」でも「防衛費増額」でも買われている。</b>2つの追い風が1社に当たっているので、株価は強い。<br>
-    だが同時に、<b>その部材の一部は中国から来る</b>。レアアースが止まれば作れない。つまり ──<br>
-    <b>「中国との対立が激しくなるほど防衛費は増える（追い風）。だが同時に部材が止まる（逆風）」。</b>同じニュースが、同じ銘柄に対して両方向に効く。<br>
-    <b>これを1本の式で説明できるか？</b>それが今回の、いちばん難しい問いである。
+    <span class="lbl">今回いちばん難しい問い ── 式の左半分だけ書いておく</span>
+    ここまでに出てきた事実は、<b>材料C（三菱重工はガスタービンに1,000億円超を投資し生産能力を倍増）</b>と、
+    <b>材料D（防衛装備品契約1兆4,567億円で首位／中国が対日デュアルユース輸出管理を強化）</b>である。<br>
+    この3つは、三菱重工の利益に<b>同じ向きに効くのか、違う向きに効くのか。</b><br><br>
+    「なんとなくプラス」で終わらせないために、<b>式にして答えること。</b>左半分はこちらで書いた。<b>右半分を埋めてくること。</b>
+    <div class="formula" style="margin-top:10px">
+      <code>三菱重工の利益の変化　＝　（防衛費の増加分　×　三菱重工のシェア　×　利益率）　−　（<span class="blank">？</span>　×　<span class="blank">？</span>）</code>
+      <span class="n">左のかっこは<b>追い風</b>を金額にしたもの。右のかっこには<b>逆風</b>が入る。<b>掛け算2つで書くこと</b>（8/11にやった「売上＝顧客数×単価」「原価＝店手数料＋配達員報酬」と同じ作法）。<br>
+      ヒント：逆風は「起きるかどうか分からないこと」である。<b>起きるかどうか分からないものを金額にするには、何を掛ければいいか。</b></span>
+    </div>
+    答えが1つに決まる問いではない。<b>掛け算の形になっていて、それぞれの項が何なのかを説明できれば正解とする。</b>
   </div>
 
   <div class="src"><b>SOURCES</b>
     <ul>
-      <li>日本経済新聞「三菱重工など防衛関連株が上昇 トランプ氏が国防予算5割増を要求」／東洋経済オンライン「国策が追い風の防衛産業、2026年は『輸出拡大』の分水嶺」</li>
-      <li>日本経済新聞「中国、軍民両用物資の対日輸出規制を強化 レアアース含むとの指摘も」／NHK「中国 軍民両用の品目 日本向け輸出規制強化 レアアースも対象か」</li>
-      <li>ジェトロ「中国のレアアース輸出管理（1）日本への磁石輸出に大きな影響」／地経学研究所（IOG）「レアアースの地経学」</li>
-      <li>三井住友DSアセットマネジメント「中国の対日輸出規制をどう考えるか」</li>
+      <li><span class="st p2">報道</span>日本経済新聞「三菱重工など防衛関連株が上昇 トランプ氏が国防予算5割増を要求」／東洋経済オンライン「国策が追い風の防衛産業、2026年は『輸出拡大』の分水嶺」</li>
+      <li><span class="st p2">報道</span>日本経済新聞「中国、軍民両用物資の対日輸出規制を強化 レアアース含むとの指摘も」／NHK「中国 軍民両用の品目 日本向け輸出規制強化 レアアースも対象か」</li>
+      <li><span class="st p1">一次</span>ジェトロ「中国のレアアース輸出管理（1）日本への磁石輸出に大きな影響」／地経学研究所（IOG）「レアアースの地経学」</li>
+      <li><span class="st p3">解説</span>三井住友DSアセットマネジメント「中国の対日輸出規制をどう考えるか」</li>
     </ul>
   </div>
 </section>
@@ -580,27 +661,27 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <p class="sub">第2回は「円買い協調介入の解説」だった。今回は解説ではなく<b>採点</b>をしてもらう。そして、8/4に田村君自身が出した質問を、今度こそ閉じる。</p>
 
   <div class="hw">
-    <div class="hwhead"><span class="team">田村チーム</span><span class="hwtime">担当：マクロ　／　目安 12分</span></div>
-    <div class="hwttl">A. 11兆円は、何を買ったのか</div>
+    <div class="hwhead"><span class="team">田村チーム</span><span class="hwtime">担当：マクロ　／　目安 15分</span></div>
+    <div class="hwttl">A. 6〜7兆円は、何を買ったのか</div>
     <ol class="q">
-      <li>7/30の介入は<b>6〜7兆円規模</b>と推計されている。今年の円買い介入は累計でさらに大きい。<b>その資金で、8/18時点のレートは何円動いたことになるか。</b>1円動かすのに何兆円かかった計算になるか、割り算して出してくること。
-        <span class="hint">財務省の外国為替平衡操作の実施状況は月次で公表される。一次情報を必ず当たること。推計しか無い部分は「推計」と明示する。</span></li>
-      <li>ロビン・ブルックスの<b>「3週間で消える」</b>仮説の判定日は8/20。授業の2日前だ。<b>8/18時点でどちらに転びそうか、根拠を1つ挙げて予想せよ。</b>
-        <span class="hint">当たり外れは評価しない。<b>「なぜそう思うか」の1文</b>だけを評価する。</span></li>
-      <li>8/17に4-6月期GDP1次速報が出る。民間予測は年率<b>+1.6%〜+2.9%</b>（大和総研+2.5%、ニッセイ+2.4%、第一生命+1.6%）と割れている。<b>実測値はどこに着地したか。予測と何%ズレたか。</b>
-        <span class="hint">予測が割れているということは、プロでも読めていないということ。<b>何が読めなかったのか</b>を1行で。</span></li>
+      <li><span class="tagm">必答</span>7/30の介入は<b>6〜7兆円規模</b>と推計されている。今年の円買い介入は累計でさらに大きい。<b>その資金で、8/18時点のレートは何円動いたことになるか。</b>1円動かすのに何兆円かかった計算になるか、割り算して出してくること。
+        <span class="hint">財務省の外国為替平衡操作の実施状況は月次で公表される。一次情報を必ず当たること。推計しか無い部分は「推計」と明示する。<b>「6〜7兆円」自体が市場推計であることを、まず書くこと。</b></span></li>
+      <li><span class="tago">余力</span>ロビン・ブルックスの<b>「3週間で消える」</b>仮説の判定日は8/20。<b>授業の2日後である。つまり授業の日には、まだ答えが出ていない。</b><b>8/18時点でどちらに転びそうか、根拠を1つ挙げて予想せよ。</b>
+        <span class="hint">当たり外れは評価しない。<b>「なぜそう思うか」の1文</b>だけを評価する。<b>書いたものは消さずに残しておくこと。</b>第4回の頭で、8/20の実測と突き合わせる。この夏3回目の「予想→実測→差分」になる。</span></li>
+      <li><span class="tago">余力</span>4-6月期GDP1次速報は<b>8/17（月）</b>発表。授業の前日である。<b>事前に持ってくるのは「民間予測のレンジと、その内訳」だけでいい</b>（年率+1.6%〜+2.9%。大和総研+2.5%、ニッセイ+2.4%、第一生命+1.6%）。<b>実測値との突き合わせは、授業の中でその場でやる。</b>
+        <span class="hint">プロの予測が1.3ポイントも割れている。<b>なぜ割れているのか</b>を1行だけ考えてくること。当日は「何が読めなかったのか」を答えてもらう。</span></li>
     </ol>
 
     <h4 style="margin-top:24px">B. 「金利のある世界」の日本</h4>
     <ol class="q">
-      <li>10年国債利回りは7/8に<b>2.87%</b>をつけた。1996年9月以来、約30年ぶりである。ところが<b>株価も上がっている</b>。第2回では「金利↑→国債価格↓→金融機関の含み損→貸し渋り→連鎖倒産」と習った。<b>なぜ株は下がっていないのか。</b>
+      <li><span class="tago">余力</span>10年国債利回りは7/8に<b>2.87%</b>をつけた。1996年9月以来、約30年ぶりである。ところが<b>株価も上がっている</b>。第2回では「金利↑→国債価格↓→金融機関の含み損→貸し渋り→連鎖倒産」と習った。<b>なぜ株は下がっていないのか。</b>
         <span class="hint">連鎖のどこかで話が止まっている。<b>どの矢印が、まだ発火していないのか</b>を特定すること。</span></li>
-      <li>9/17-18が日銀の金融政策決定会合（9/18 15:30に総裁会見）。市場の利上げ予想は<b>6割超</b>。<b>もし9月に利上げされたら、自分のポートフォリオはどう動くか。</b>銘柄名を挙げて、上がる・下がるとその理由を書くこと。
+      <li><span class="tago">余力</span>9/17-18が日銀の金融政策決定会合（9/18 15:30に総裁会見）。市場の利上げ予想は<b>6割超</b>。<b>もし9月に利上げされたら、自分のポートフォリオはどう動くか。</b>銘柄名を挙げて、上がる・下がるとその理由を書くこと。
         <span class="hint">8/4に廻君が答えた「銀行・保険は利ざや拡大で上がる／不動産・建設は借入コスト増で下がる」の型で。</span></li>
     </ol>
 
     <div class="callout" style="margin-top:22px">
-      <span class="lbl">C. 積み残しの回収 ── 8/4に田村君が出した質問</span>
+      <span class="lbl"><span class="tagm">必答</span>C. 積み残しの回収 ── 8/4に田村君が出した質問</span>
       あの日の最後に、田村君はこう聞いた。<b>「円高になったら輸出企業は弱くなるはずなのに、なぜ今トヨタが時価総額1位なんですか」</b><br>
       先生の答えは「もう一段深く調べたほうがいい」だった。<b>北米で売る車は北米で作り、ドル建ての賃金を払い、ドル建てで部品を買って、ドルで売っている</b>。さらに企業は1年分くらいの為替を<b>予約</b>している。だから業績にすぐには反映しない、と。<br>
       <b>今回、それをEDINETで実際に確かめてくること。</b>調べるのは2つ。<br>
@@ -620,35 +701,44 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <p class="sub">第2回は「出前館・Microsoft・Alphabetの業績」だった。今回は上場前の2社を、投資家目線で並べる。使う型は7/31の「メルカリ vs freee」とまったく同じでいい。</p>
 
   <div class="hw t">
-    <div class="hwhead"><span class="team">廻チーム</span><span class="hwtime">担当：企業・決算　／　目安 12分</span></div>
+    <div class="hwhead"><span class="team">廻チーム</span><span class="hwtime">担当：企業・決算　／　目安 15分</span></div>
     <div class="hwttl">A. Anthropic と OpenAI を、1枚のPLで比べる</div>
     <ol class="q">
-      <li>2社の<b>売上・営業損益・成長率</b>を並べた表を作ること。Anthropicは Q2 2026 に売上109億ドル・調整後営業利益5.59億ドルで初の四半期黒字。OpenAIは2026年通期で約140億ドルの赤字見込み。<b>営業利益率を計算して並べよ。</b>
+      <li><span class="tagm">必答</span>2社の<b>売上・営業損益・成長率</b>を並べた表を作ること。Anthropicは Q2 2026 に売上109億ドル・調整後営業利益5.59億ドルで初の四半期黒字。OpenAIは2026年通期で約140億ドルの赤字見込み。<b>営業利益率を計算して並べよ。</b>
         <span class="hint">7/31の罠に注意。<b>率と絶対額を混ぜないこと。</b>「シェア65%」と「月次20億ドル」は比較できない。</span></li>
-      <li><b>なぜ Anthropic は先に黒字化できたのか。</b>「企業向けが強いから」で止めないこと。それはメディアの言葉である。<b>PLのどの項目が、どう違うのか</b>で説明すること。
+      <li><span class="tagm">必答</span>Anthropicの数字は「<b>調整後</b>営業利益 5.59億ドル」と発表されている。<b>「調整後」とは、何を調整した後という意味か。</b>出典で確かめてくること。調整<b>前</b>の数字が見つかったら、それも並べる。
+        <span class="hint">7/7に粉飾決算をやったときと同じ目で見る。<b>調整の中身が分からないまま「黒字化した」と言うのは、メディアの言葉である。</b><br>
+        <b>見つからなかったら「見つからなかった」と書いて出すこと。</b>無い情報を「無い」と言えるのも、一次情報の作法である。</span></li>
+      <li><span class="tago">余力</span><b>なぜ Anthropic は先に黒字化できたのか。</b>「企業向けが強いから」で止めないこと。それはメディアの言葉である。<b>PLのどの項目が、どう違うのか</b>で説明すること。
         <span class="hint">7/27に先生が言ったこと ──「メディアに書いてあることにとどまらず、<b>会計の知識を駆使して</b>説明してほしい。そうすればお金の流れが頭に入っているということだから、そのまま経営者になれる」。</span></li>
-      <li>OpenAIは純利益がマイナスなので<b>PERが計算できない</b>。ではPSR（時価総額÷売上高）を両社について計算せよ。<b>そのうえで、PSRという指標が隠してしまうものは何かを1行で書け。</b></li>
-      <li>Anthropicの<b>ARR 470億ドル</b>はランレートである。「直近の売上を年換算した」数字だ。<b>ランレートを鵜呑みにすると、どういう時に間違えるか。</b>
-        <span class="hint">freeeの広告宣伝費の話を思い出すこと。「24年に打った広告が25年に効いた」ように、<b>数字には時間差がある</b>。</span></li>
+      <li><span class="tago">余力</span>OpenAIは純利益がマイナスなので<b>PERが計算できない</b>。ではPSR（時価総額÷売上高）を両社について計算せよ。<b>そのうえで、PSRという指標が隠してしまうものは何かを1行で書け。</b></li>
+      <li><span class="tago">余力</span>Anthropicの<b>Q2売上は109億ドル</b>。単純に4倍すれば<b>436億ドル</b>である。ところが<b>ARRは470億ドル</b>と発表されている。<b>34億ドル、8%も合わない。なぜか。</b>そして<b>このズレは、伸びている会社と失速した会社の、どちらに大きく出るか。</b>
+        <span class="hint">ARR＝ランレート＝「直近の<b>月次</b>を12倍したもの」である。四半期の実績を4倍したものではない。<b>この2つは何が違うのかを、式の形で書くこと。</b><br>
+        freeeの広告宣伝費の話も思い出すこと。「24年に打った広告が25年に効いた」ように、<b>数字には時間差がある</b>。</span></li>
     </ol>
 
     <h4 style="margin-top:24px">B. 上場したのに下がった会社</h4>
     <ol class="q">
-      <li>SpaceXは6/12に時価総額2.1兆ドルで上場し、8/5には1.88兆ドルになっている。<b>約1割の下落を、DCF（7/1でやった現在価値）の言葉で説明せよ。</b>
-        <span class="hint">式は <code>現在価値 ＝ 将来のキャッシュ ÷ (1＋金利)^年数</code>。<b>分母が動いたのか、分子が動いたのか。</b>どちらの可能性が高いか、根拠つきで。</span></li>
-      <li>10月にAnthropicが上場するとして、<b>自分は初値で買うか、買わないか。</b>買うなら何を根拠に、買わないなら何が確認できたら買うか。
+      <li><span class="tagm">必答</span>SpaceXは6/12に時価総額2.1兆ドルで上場し、8/5には1.88兆ドルになっている。<b>この下落を、DCF（7/1でやった現在価値）の言葉で説明せよ。</b>
+        <span class="hint">式は <code>現在価値 ＝ 将来のキャッシュ ÷ (1＋金利)^年数</code>。<b>分母が動いたのか、分子が動いたのか。</b>どちらの可能性が高いか、根拠つきで。<br>
+        <b>そのうえで §2 の3人の表を使うこと。</b>「下がった」と言えるのは誰で、言えないのは誰か。<b>立場を書かずに「1割下落」とだけ書いた答案は減点する。</b></span></li>
+      <li><span class="tago">余力</span>10月にAnthropicが上場するとして、<b>自分は初値で買うか、買わないか。</b>買うなら何を根拠に、買わないなら何が確認できたら買うか。
         <span class="hint">「なんとなく上がりそう」は0点。8/4に山本君が広告宣伝費の質問で100点を取ったときのように、<b>因果を1本の線で言うこと。</b></span></li>
     </ol>
 
     <h4 style="margin-top:24px">C. Tesla × SpaceX を、会計と地政学の両方で読む</h4>
     <ol class="q">
-      <li>Teslaの Q2 2026 営業利益率は<b>1.4%</b>（前年同期4.1%）。8/3の出前館では、この水準を「PLがお金を稼ぐ箱として機能していない」と判定した。<b>Teslaにも同じ判定を下すか。下さないなら、出前館と何が違うのか。</b></li>
-      <li>Teslaが払った<b>20億ドル</b>は、xAI株を経てSpaceX株18,990,195株（1%未満）になった。<b>この一連の動きを、BSとPLの言葉だけで説明せよ。</b>
-        <span class="hint">7/7の型。「融資11億円は<b>BSに載るがPLには一切載らない</b>」。今回も、動いたのはBSの中だけか、それともPLに何か乗るのか。</span></li>
-      <li>合併の障害は<b>安全保障審査</b>だと言われている。SpaceXは米軍の主要契約者、Teslaは中国に工場を持つ。<b>もし合併が「政治で止まった」場合、両社の株価はどう動くと思うか。</b></li>
+      <li><span class="tago">余力</span>Teslaの Q2 2026 営業利益率は<b>1.4%</b>（前年同期4.1%）。8/3の出前館では、この水準を「PLがお金を稼ぐ箱として機能していない」と判定した。<b>Teslaにも同じ判定を下すか。下さないなら、出前館と何が違うのか。</b></li>
+      <li><span class="tago">余力</span>Teslaが払った<b>20億ドル</b>は、xAI株を経てSpaceX株18,990,195株（1%未満）になった。<b>この一連の動きを、BSとPLの言葉だけで説明せよ。</b>
+        <span class="hint">7/7で「融資11億円は<b>BSに載るがPLには一切載らない</b>」をやった。<b>その型が、今回もそのまま当てはまるか確かめること。当てはまらないなら、どこが違うのか。</b><br>
+        考える手がかり ── 貸したお金（融資）は、返ってくる金額が最初から決まっている。<b>株は決まっていない。</b>そこから何が変わるか。</span></li>
+      <li><span class="tago">余力</span>合併の障害は<b>安全保障審査</b>だと言われている。SpaceXは米軍の主要契約者、Teslaは中国に工場を持つ。<b>もし合併が「政治で止まった」場合、両社の株価はどう動くと思うか。</b></li>
     </ol>
 
-    <div class="deliv"><b>提出物</b>　<b>PL比較表1枚</b>（Anthropic／OpenAI）＋<b>Slackに箇条書き15行以内</b>。EDINETは使えないので、S-1関連報道・各社発表を必ず出典として明記すること。</div>
+    <div class="deliv"><b>提出物</b>　<b>PL比較表1枚</b>（Anthropic／OpenAI）＋<b>Slackに箇条書き15行以内</b>。EDINETは使えない（米国企業なので）。<br>
+    <b>出典の当たり方</b>　まず <b>SEC EDGAR</b>（sec.gov/edgar、社名で検索）と<b>各社の公式発表</b>（anthropic.com/news、openai.com/blog）。ここが一次情報である。<br>
+    英語で詰まったら、<b>日経・Bloomberg日本語版・ロイター日本語版</b>を使ってよい。<b>ただし「日本語のまとめブログ」は出典にしないこと。</b>
+    どうしてもそれしか無い数字は、<b>「二次情報しか見つからなかった」と書いて出す。</b>その正直さは減点しない。</div>
   </div>
 </section>
 
@@ -659,14 +749,14 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <p class="sub">第2回のポートフォリオ報告で、秋山パイセンはGE（5年で4倍）と三菱重工を挙げ、「原発建設のボトルネック解消と電力不足がテーマ」と説明した。<b>その説明を、今回きちんと理論にする。</b></p>
 
   <div class="hw s">
-    <div class="hwhead"><span class="team">秋山パイセン</span><span class="hwtime">担当：AI・エネルギー・Biz単語　／　目安 10分</span></div>
+    <div class="hwhead"><span class="team">秋山パイセン</span><span class="hwtime">担当：AI・エネルギー・Biz単語　／　目安 12分</span></div>
     <div class="hwttl">A. 「首」の理論で、自分の持ち株を説明する</div>
     <ol class="q">
-      <li>ハイパースケーラーの2026年設備投資は<b>約7,250億ドル（前年比+76%）</b>。この金額が積まれたとき、<b>電力の需要は何によって決まるか</b>を式にせよ。
+      <li><span class="tagm">必答</span>ハイパースケーラーの2026年設備投資は<b>約7,250億ドル（前年比+76%）</b>。この金額が積まれたとき、<b>電力の需要は何によって決まるか</b>を式にせよ。
         <span class="hint">売上＝顧客数×単価、と同じ発想でよい。<b>必要電力 ＝ ？ × ？</b> と分解してみること。</span></li>
-      <li>Microsoftはスリーマイル島1号機の再稼働を支援して<b>20年間のPPA</b>を結んだ。GoogleはKairos PowerとSMRのPPA。<b>PPA（電力購入契約）は、電力会社のPLとBSにとって何を意味するか。</b>
+      <li><span class="tago">余力</span>Microsoftはスリーマイル島1号機の再稼働を支援して<b>20年間のPPA</b>を結んだ。GoogleはKairos PowerとSMRのPPA。<b>PPA（電力購入契約）は、電力会社のPLとBSにとって何を意味するか。</b>
         <span class="hint">8/7にメルカリの「債権残高の成長」でやったこと ──<b>期日と回数が決まっている将来の収入は、まだ来ていなくても価値がある</b>。20年契約はまさにそれ。</span></li>
-      <li>自分のGE・三菱重工の含み益を、<b>「なんとなく当たった」ではなく、上の①②の理論で説明せよ。</b>説明できたら、次に<b>この理論が崩れる条件を1つ挙げよ。</b>
+      <li><span class="tagm">必答</span>自分のGE・三菱重工の含み益を、<b>「なんとなく当たった」ではなく、上の①②の理論で説明せよ。</b>説明できたら、次に<b>この理論が崩れる条件を1つ挙げよ。</b>
         <span class="hint">崩れる条件を言えない投資判断は、売り時が分からない。</span></li>
     </ol>
 
@@ -677,12 +767,52 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
       <li><b>市場の立ち上がり</b> ── ヒューマノイドは2025〜2026年に試作から商用生産へ移行し、2025年に約13,000〜16,000台が出荷され、工場で実際の収益が生まれ始めた段階。</li>
     </ul>
     <ol class="q">
-      <li>Optimus の目標価格<b>2万ドル未満</b>に対して、Unitree R1 はすでに<b>5,900ドル</b>である。<b>これは何が起きている状態か。</b>7/20のサイゼリヤ（原価率42%でも過去最高益）を思い出して、価格差を原価と販管費に分けて考えてみること。</li>
-      <li>第2回で配られた<b>テンバガー用プロンプト</b>（時価総額300億円以下／フィジカルAI・エネルギー安全保障・労働力不足DX・成長投資17分野／売上成長率20%以上／PSR）を、実際に走らせて<b>1〜2銘柄</b>持ってくること。
+      <li><span class="tago">余力</span>Optimus の目標価格<b>2万ドル未満</b>に対して、Unitree R1 はすでに<b>5,900ドル</b>である。<b>これは何が起きている状態か。</b>7/20のサイゼリヤ（原価率42%でも過去最高益）を思い出して、価格差を原価と販管費に分けて考えてみること。</li>
+      <li><span class="tago">余力</span>第2回で配られた<b>テンバガー用プロンプト</b>（時価総額300億円以下／フィジカルAI・エネルギー安全保障・労働力不足DX・成長投資17分野／売上成長率20%以上／PSR）を、実際に走らせて<b>1〜2銘柄</b>持ってくること。
         <span class="hint">出てきた銘柄を鵜呑みにしないこと。<b>Step 4のリスク分析（10倍になる前に詰む可能性）</b>を自分の言葉で書けたものだけを提出する。</span></li>
     </ol>
 
     <div class="deliv"><b>提出物</b>　<b>Biz単語の追加分</b>（PPA、SMR、コンステレーション、デュアルユース、TAM、Moat）をNotebookLMの単語帳に足す。＋テンバガー銘柄1〜2件をSlackへ。</div>
+  </div>
+</section>
+
+<!-- ============ 役割 ============ -->
+<section class="topic" id="roles">
+  <span class="badge bridge">当日の役割</span>
+  <h2 class="thead">山本君・河野君・中村君 ── 発表を「聞く側」に回さない</h2>
+  <p class="sub">チーム発表は3枠しかない。だが参加者は6人である。<b>残りの3人には、発表を聞きながらやってもらう仕事がある。</b>持ち帰る宿題はない。<b>当日その場でやる。</b>ただし、何をやるかは今のうちに読んでおくこと。</p>
+
+  <div class="roles">
+    <div class="role">
+      <div class="rl">審判①</div>
+      <div class="nm">山本君 ── 「率と絶対額」監査役</div>
+      <p>他のチームの発表を聞いて、<b>率（%）と絶対額（円・ドル）を並べて比べた瞬間に止める。</b>
+      「いまの65%は、何に対する65%ですか」と聞く。それだけでいい。<br>
+      ── 8/4に広告宣伝費とシェアの話で<b>2回100点</b>を出した本人にやってもらう。<b>できる人が審判をやると、全員の精度が上がる。</b></p>
+    </div>
+    <div class="role">
+      <div class="rl">審判②</div>
+      <div class="nm">河野君 ── 「確定／未確定」仕分け係</div>
+      <p>その日に出てきた数字を、<b>①一次情報 ②報道ベース ③推計 ④予想</b>の4つに仕分けて、
+      授業の最後に読み上げる。<br>
+      ── 出発点はこの資料にある。<span class="unsure">この書体</span>にした箇所（介入規模、OpenAIの評価額、Anthropicの10/23説、Tesla合併の80〜90%、防衛費3%、Optimusの計画値、三菱重工の受注高）が、すでに「未確定」の側である。<b>発表で誰かがこれを断定形で言ったら、その場で指摘してよい。</b></p>
+    </div>
+    <div class="role">
+      <div class="rl">実務</div>
+      <div class="nm">中村君 ── 「一次情報の在り処」係</div>
+      <p>その場で聞かれたら<b>一次情報のページを開いて画面共有する。</b>下の4つだけ、事前にブックマークしておくこと。<br>
+      ① 財務省「外国為替平衡操作の実施状況」<br>
+      ② 内閣府「四半期別GDP速報」<br>
+      ③ SEC EDGAR（sec.gov/edgar）<br>
+      ④ EDINET（金融庁）<br>
+      ── <b>開くだけでいい。</b>次回から自分で引けるようになるのが目的である。</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">この3つは、次回から回す</span>
+    審判役は固定ではない。<b>第4回では担当を入れ替える。</b>発表する側と、発表を採点する側の両方をやると、
+    自分が発表するときに何を聞かれるかが先に分かるようになる。
   </div>
 </section>
 
@@ -703,7 +833,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <span class="lbl">この夏ずっと言ってきたこと</span>
     「メディアで全体像として円安が悲しいとか、そういうんじゃなくて、<b>自分ごとにして考えた方がいい</b>。その人は悲しいって言ってるかもしれないけど、<b>自分の財産から見たら全然あり</b>みたいな、そういう考えになった方がいい」（8/11）<br><br>
     だから今回も、<b>「日本経済にとってバブルか」ではなく「自分のポートフォリオにとってどうか」</b>を答えること。<br>
-    <b>問い：</b>もしこれがバブルだとして、<b>自分は今から何を売り、何を持ち続けるか。</b>そして<b>何が起きたら「弾けた」と判断するか。</b>判断の引き金を、事前に1つ決めておくこと。
+    <span class="tagm">必答（全員）</span><b>問い：</b>もしこれがバブルだとして、<b>自分は今から何を売り、何を持ち続けるか。</b>そして<b>何が起きたら「弾けた」と判断するか。</b>判断の引き金を、事前に1つ決めておくこと。
   </div>
 
   <div class="rel"><b>関連</b>　目標は変わらず<b>2027年1月末までに+20%</b>。そして<b>卒業課題の提出期限は2027年1月29日（金）</b>── 奇しくも同じ締切である。この夏に立てた仮説と検算の記録は、そのまま卒業課題の下敷きになる。<b>Slackのログを消さないこと。</b></div>
@@ -712,17 +842,26 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 <!-- ============ 進行 ============ -->
 <section class="topic" id="s7">
   <span class="badge bridge">当日の進行</span>
-  <h2 class="thead">90分のタイムテーブル</h2>
+  <h2 class="thead">16:20 開始・90分のタイムテーブル</h2>
+  <p class="sub">左が時計の時刻。<b>この表のとおりには進まない</b>（前回は1時間43分かかった）。だから<b>どこを落とすかを先に決めてある</b> ── 下の「落とす順番」を見ること。</p>
   <ul class="tl">
-    <li><span class="t">0-10分</span><span class="c"><b>採点表を全員で埋める。</b>第2回の5つの仮説に○×をつける。外れた2つについて「なぜズレたか」を1人1文で。</span></li>
-    <li><span class="t">10-25分</span><span class="c"><b>宿題① 田村チーム。</b>介入の採点／GDPの実測値／9月の日銀。最後にトヨタ問題（1円の円高で営業利益は何億円変わるか）。</span></li>
-    <li><span class="t">25-40分</span><span class="c"><b>宿題② 廻チーム。</b>Anthropic vs OpenAI のPL比較。PSR・ランレート・DCF。上場したのに下がったSpaceXをどう説明するか。</span></li>
-    <li><span class="t">40-50分</span><span class="c"><b>Tesla × SpaceX を全員で。</b>営業利益率1.4%の会社が買われる理由。20億ドルがBSの中でどう動いたか。そして安全保障審査。</span></li>
-    <li><span class="t">50-62分</span><span class="c"><b>宿題③ 秋山パイセン。</b>電力という首。PPA。フィジカルAIの価格競争。テンバガー銘柄の発表とリスク分析。</span></li>
-    <li><span class="t">62-72分</span><span class="c"><b>地政学。</b>なぜ三菱重工は電力でも防衛でも出てくるのか。中国のレアアースは、同じ銘柄に追い風と逆風の両方をもたらす。これを1本の式にできるか。</span></li>
-    <li><span class="t">72-85分</span><span class="c"><b>ポートフォリオ報告。</b>田村チーム／廻チーム／秋山パイセン。前回比の増減と、その理由を今日の材料で説明する。</span></li>
-    <li><span class="t">85-90分</span><span class="c"><b>「これはバブルか？」</b>1人1文で答えて終わる。答えは「自分の財産から見て」の形で。</span></li>
+    <li><span class="t">16:20-35</span><span class="c"><b>採点表の突き合わせ。</b>各自が埋めてきた①〜⑤の判定を並べる。<b>割れた行だけを取り上げて、なぜ割れたかを詰める。</b>とくに③と④。</span></li>
+    <li><span class="t">16:35-50</span><span class="c"><b>宿題① 田村チーム。</b>1円動かすのに何兆円か。そして<b>トヨタ問題</b>（1円の円高で営業利益は何億円変わるか）。<b>8/17に出たGDPの実測値は、ここでその場で開く。</b></span></li>
+    <li><span class="t">16:50-17:05</span><span class="c"><b>宿題② 廻チーム。</b>Anthropic vs OpenAI のPL比較と営業利益率。「調整後」とは何を調整したのか。SpaceXの下落をDCFと<b>3人の立場</b>で説明する。</span></li>
+    <li><span class="t">17:05-07</span><span class="c"><b>英文を1文だけ読む。</b>S-1の "Risk Factors" から1行。<b>短くて、意味が重いものを選ぶ。</b></span></li>
+    <li><span class="t">17:07-19</span><span class="c"><b>宿題③ 秋山パイセン。</b>必要電力の式。PPAはPLとBSに何を意味するか。<b>そして「この理論が崩れる条件」。</b></span></li>
+    <li><span class="t">17:19-31</span><span class="c"><b>地政学 ── 今日いちばん難しいところ。</b>三菱重工に、材料Cの追い風と材料Dの逆風が同時に当たっている。<b>式の右半分を全員で埋める。</b></span></li>
+    <li><span class="t">17:31-45</span><span class="c"><b>ポートフォリオ報告。</b>田村チーム／廻チーム／秋山パイセン。前回比の増減と、その理由を<b>今日の材料の言葉で</b>説明する。</span></li>
+    <li><span class="t">17:45-50</span><span class="c"><b>「これはバブルか？」</b>1人1文で答えて終わる。答えは<b>「自分の財産から見て」</b>の形で。<b>河野君の「確定／未確定」の読み上げもここ。</b></span></li>
   </ul>
+
+  <div class="callout">
+    <span class="lbl">時間が足りなくなったら、この順番で落とす</span>
+    <b>1番目に落とす</b>　宿題③B フィジカルAIの価格競争とテンバガー銘柄 → <b>第4回へ。</b>8月下旬のNVIDIA決算と一緒にやったほうが筋が通る。<br>
+    <b>2番目に落とす</b>　宿題② C の Tesla × SpaceX → <b>第4回へ。</b>合併観測は2027年前半の話なので、急がない。<br>
+    <b>3番目に落とす</b>　宿題① B「金利のある世界」→ 9/17-18の日銀会合の前にやれば足りる。<br><br>
+    <b>逆に、絶対に落とさないもの</b>　── ①<b>採点表の突き合わせ</b>（この回の存在理由）、②<b>トヨタ問題</b>（8/4からの積み残し）、③<b>地政学の式</b>（今回いちばん新しく、いちばん難しい）。<b>この3つが終われば、この回は成功である。</b>
+  </div>
 </section>
 
 <!-- ============ カレンダー ============ -->
@@ -732,7 +871,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <p class="sub">この夏に立てた仮説は、以下の日程で順番に採点される。手帳に入れておくこと。</p>
   <ul class="cal">
     <li class="hot"><span class="d">8/17（月）</span><span class="c"><b>4-6月期GDP 1次速報</b>（内閣府）。民間予測は年率+1.6%〜+2.9%と割れている</span></li>
-    <li class="hot"><span class="d">8/20（木）</span><span class="c"><b>7/30の介入から3週間</b>。「3週間で効果が消える」仮説の判定日</span></li>
+    <li class="hot"><span class="d">8/20（木）</span><span class="c"><b>7/30の介入から3週間</b>。「3週間で効果が消える」仮説の判定日。<b>授業（8/18）の2日後なので、この回では答えが出ない。</b>各自の予想を書き残しておき、第4回の頭で突き合わせる</span></li>
     <li><span class="d">8月下旬</span><span class="c">NVIDIA 決算。次四半期売上ガイダンスは910億ドル。AI投資が続いているかの最重要指標</span></li>
     <li><span class="d">9/4（金）</span><span class="c">米雇用統計（8月分）</span></li>
     <li><span class="d">9/10（木）</span><span class="c">米CPI（8月分）／ECB理事会</span></li>
@@ -756,13 +895,13 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
       <dt>S-1 <span class="en">Form S-1</span></dt>
       <dd>米国で株式を公開するときにSECへ出す<b>登録届出書</b>。売上・損益・リスクが全部載る。「<b>機密提出</b>（confidential filing）」は、内容を伏せたまま審査を先に進める制度。AnthropicもOpenAIもこの段階にいる。</dd>
       <dt>ランレート <span class="en">Run Rate</span></dt>
-      <dd>直近の売上を<b>年換算</b>した数字。ARR（年間経常収益）もこの一種。<b>「この勢いが12か月続いたら」という仮定</b>であって、実績ではない。第2回のBiz単語リストにも入っていた。</dd>
+      <dd>直近の売上を<b>年換算</b>した数字。ARR（年間経常収益）もこの一種。<b>「この勢いが12か月続いたら」という仮定</b>であって、実績ではない。<b>ふつうは直近の“月次”を12倍する</b>ので、四半期の実績を4倍した数字とは一致しない（宿題②A⑤で、この差を実際に計算してもらう）。第2回のBiz単語リストにも入っていた。</dd>
       <dt>PSR <span class="en">Price to Sales Ratio</span></dt>
       <dd><code>時価総額 ÷ 売上高</code>。純利益が赤字でPERが計算できない会社に使う。<b>儲かっていないという事実を分母から消してしまう</b>指標でもある。</dd>
       <dt>DCF <span class="en">Discounted Cash Flow</span>　<span class="tag">復習</span></dt>
       <dd>将来のキャッシュを金利で割り引いて今の価値にする。7/1に生涯年収でやった。<b>金利が上がると現在価値は下がる</b> ── AI企業が金利に弱い理由がこれ。</dd>
       <dt>株式交換／持分の希薄化</dt>
-      <dd>現金ではなく<b>自社株を対価にして会社を買う</b>方法。TeslaのxAI出資がSpaceX株に置き換わったのがこの形。買われた側の株主は、より大きな会社の<b>小さい持分</b>を持つことになる。</dd>
+      <dd>現金ではなく<b>自社株を対価にして会社を買う</b>方法。今回の例では、<b>買った側はSpaceX</b>（自社株を対価にxAIを買収した）。Teslaは買った側ではなく、<b>xAIの株主として、対価のSpaceX株を受け取った側</b>である。買われた会社の株主は、こうして<b>より大きな会社の、小さい持分</b>を持つことになる（18,990,195株＝1%未満）。<b>誰が買って誰が受け取ったのかを、混ぜないこと。</b></dd>
       <dt>安全保障審査</dt>
       <dd>国防・重要インフラに関わる企業のM&amp;Aを、政府が国家安全保障の観点から審査する仕組み。<b>PLがいくら良くても、これで止まることがある。</b></dd>
       <dt>PPA <span class="en">Power Purchase Agreement</span></dt>
@@ -788,8 +927,15 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 <footer>
   <h2>この資料の使い方と、数字の扱いについて</h2>
   <ul>
-    <li>この資料は<b>答えを配るためのものではない</b>。問いに答えるための材料と、その材料の在り処（出典）を配るためのものである。書いてある数字を読み上げるだけの発表は0点とする。</li>
-    <li><b>「予想」「推計」「報道ベース」「一次情報」を区別すること。</b>本文中で <span class="unsure">この書体</span> にした箇所は、確定していない数字である。介入規模、Anthropicの上場日（10/23説）、防衛費3%、Optimusの計画値などが該当する。<b>発表でこれらを断定形で言った時点で減点する。</b></li>
+    <li>この資料は<b>答えを配るためのものではない</b>。問いに答えるための材料と、その材料の在り処（出典）を配るためのものである。<b>だから §1 の採点表の判定欄も、§6 の式の右半分も、空けてある。</b>書いてある数字を読み上げるだけの発表は0点とする。</li>
+    <li><b>宿題には <span class="tagm">必答</span> と <span class="tago">余力</span> を付けた。</b>配布から授業まで実質4日しかない。<b>必答は各チーム2問だけ。</b>まずそこを埋め切ること。<b>必答が空欄なのに余力が埋まっている提出は、順番を間違えている。</b></li>
+    <li><b>「予想」「推計」「報道ベース」「一次情報」を区別すること。</b>本文中で <span class="unsure">この書体</span> にした箇所は、確定していない数字である。介入規模、OpenAIの評価額、Anthropicの上場日（10/23説）、Tesla合併の80〜90%、防衛費3%、Optimusの計画値、三菱重工の受注高などが該当する。<b>発表でこれらを断定形で言った時点で減点する。</b></li>
+    <li><b>出典にも格付けを付けた。</b>各節末の SOURCES を見ること ──
+      <span class="st p1">一次</span>発行体そのものが出した情報（各社IR・SEC・官庁）／
+      <span class="st p2">報道</span>報道機関／
+      <span class="st p3">解説</span>証券会社・シンクタンクの解説／
+      <span class="st p4">二次・要確認</span>個人記事・まとめ。<br>
+      <b>この資料自身、いくつかの数字が「二次・要確認」に乗っている。</b>そこには何を取り直すべきかを書いてある。<b>資料に書いてあるからといって、そのまま信じないこと。</b>それが今回いちばんの練習である。</li>
     <li>一次情報の在り処 ── 財務省（外国為替平衡操作の実施状況）、内閣府（四半期別GDP速報）、日本銀行（公表予定）、SEC（EDGAR）、各社IR。EDINETはClaudeから直接引ける。<b>使えるものは使うこと。</b></li>
     <li>この夏の記録（第1回・第2回の復習ページ、速報Vol.1、この資料）は、そのまま<b>2027年1月29日締切の卒業課題</b>の材料になる。仮説を立て、実測で検算し、ズレを説明した記録は、それ自体が研究の形をしている。</li>
   </ul>
