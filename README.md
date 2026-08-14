@@ -9,6 +9,15 @@
 |---|---|---|---|---|
 | 1 | 2026-08-09 | 2026-08-05 〜 08-09 | 日米協調介入のその後／同じ円安が正反対に効いた4〜6月期決算 | [HTML](news_briefs/lecture_news_20260809.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/news_briefs/lecture_news_20260809.html) |
 
+## 講義資料（事前課題）
+
+各回の講義前に配布する資料。**答えは載せず、空欄と問いだけを配る**方針で作っている。
+
+| 回 | 講義日 | テーマ | ファイル |
+|---|---|---|---|
+| 夏期 第3回 | 2026-08-18 | 上場が答え合わせをする夏 ― SpaceX、Anthropic、そして「電力」という首 | [HTML](lectures/lecture_20260818.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260818.html) |
+| 個別 | 2026-08-21 | 在庫を持たない会社が、世界でいちばん重い買い物を始めた（BS・固定資産・減価償却） | [HTML](lectures/lecture_toyonaga_20260821.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260821.html) |
+
 ## 復習ページ
 
 各回の講義後に公開する、受講生向けの復習用ページ（要点まとめ＋用語集）。
@@ -21,6 +30,7 @@
 
 - `news_briefs/lecture_news_YYYYMMDD.html` — 速報 各号の本体（単一HTML・CSSインライン・ダークモード対応・印刷可）
 - `reviews/lecture_review_YYYYMMDD.html` — 各回の復習ページ（同上）
+- `lectures/lecture_YYYYMMDD.html` — 各回の講義資料（同上）。個別指導回は `lecture_<名字ローマ字>_YYYYMMDD.html`
 
 ## 注記
 
