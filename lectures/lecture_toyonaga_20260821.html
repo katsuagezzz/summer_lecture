@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個別講義資料｜2026年8月21日 在庫を持たない会社が、世界でいちばん重い買い物を始めた</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 個別回で追加したパーツ ---------- */
+/* 過去の回で本人が言ったことの引き戻し */
+.recall{border:1px solid var(--line); border-left:4px solid var(--word); border-radius:0 10px 10px 0;
+        background:var(--word-bg); padding:14px 17px; margin:14px 0 6px;}
+.recall .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:var(--word); margin-bottom:6px;}
+.recall p{margin:0 0 6px; font-size:14.8px; line-height:1.75;}
+.recall p:last-child{margin-bottom:0;}
+.recall .me{font-weight:800;}
+
+/* 二者対比 */
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0 6px;}
+.vs>div{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.vs .hd{font-size:13px; font-weight:800; letter-spacing:.05em; margin-bottom:7px;}
+.vs .a .hd{color:var(--bridge);} .vs .b .hd{color:var(--corp);}
+.vs p{margin:0 0 7px; font-size:14.3px; line-height:1.7;}
+.vs p:last-child{margin-bottom:0;}
+@media(max-width:640px){ .vs{grid-template-columns:1fr;} }
+
+/* 用語ドリル */
+.drill{list-style:none; margin:10px 0 0; padding:0; counter-reset:dr;
+       display:grid; grid-template-columns:repeat(auto-fit,minmax(266px,1fr)); gap:9px;}
+.drill li{counter-increment:dr; background:var(--q-bg); border:1px solid var(--q-line);
+          border-radius:9px; padding:11px 14px; font-size:14.4px; line-height:1.65;}
+.drill li b{font-weight:800;}
+.drill li .s{display:block; font-size:12.8px; color:var(--ink2); margin-top:4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../index.html">← 一覧へ戻る</a>
+
+<div class="snav">
+  <span class="lbl">個別講義</span>
+  <span>6/9 補講　自由主義・AIサプライチェーン・上場</span>
+  <span>8/4　メルカリのビジネスモデル</span>
+  <span>8/7　フィンテック・与信・GMV</span>
+  <span class="cur">8/21 講義資料</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 個別講義資料</div>
+  <h1 class="title">在庫を持たない会社が、<br>世界でいちばん重い買い物を始めた</h1>
+  <div class="meta">
+    <span><b>講義</b>　2026年8月21日（金）15:00 開始・30分</span>
+    <span><b>形式</b>　オンライン（Zoom）</span>
+    <span><b>前提</b>　6/9・8/4・8/7 の内容を全部使う</span>
+  </div>
+  <div class="lede">
+    8月4日、君はメルカリの強さをこう説明した。<strong>「仕入れがないから、売れ残りもない。リスクがない」</strong>。正しい。あの日いちばん良かったのは、そのあと「なぜ広告費を減らせるのか」と聞かれて<strong>「市場を独占してるとか」</strong>と自力で出したところである。<br>
+    ところがいま、世界でいちばん注目されているネット企業たちは、<strong>その逆をやっている。</strong>史上最大規模の設備を、借金と増資をしてまで買い込んでいる。6月に上場したSpaceXが調達した約750億ドルの使い道も、<strong>データセンターと衛星網</strong>である。<br>
+    <strong>君の結論が正しいなら、彼らは間違っている。彼らが正しいなら、君の結論には条件が抜けている。</strong>今日はここを30分でやる。<br>
+    使う道具は新しく買わない。6/9にやった<strong>BS</strong>と<strong>上場</strong>、8/4の<strong>手数料ビジネス</strong>、8/7の<strong>債権</strong>。全部もう持っている。
+  </div>
+</header>
+
+<div class="callout" style="margin:0 0 22px">
+  <span class="lbl">この30分の進め方</span>
+  <b>この資料に答えは書いていない。</b>空欄と問いだけがある。<b>埋めるのは君である。</b><br>
+  <b>先に §0 の用語ドリルだけ、授業の前に一人でやっておくこと。</b>10個ある。ここで詰まると残りの25分が全部止まる。<b>分からなかったものには「分からなかった」と印を付けて持ってくればいい。空欄で来るのと、黙って来るのは違う。</b><br>
+  §1〜§4 は授業でその場で考える。<b>読み込んでこなくていい。むしろ答えを調べてこないこと。</b>
+</div>
+
+<nav class="toc">
+  <h2>今日の30分</h2>
+  <ol>
+    <li><a href="#s0">前回までの10語 ── 説明できるか</a> <span class="s">4分／自習してくる</span></li>
+    <li><a href="#s1">「持たないから強い」は、どこまで正しいか</a> <span class="s">8分</span></li>
+    <li><a href="#s2">BSに戻す ── 「持つ」とは、どこに何が乗ることか</a> <span class="s">8分</span></li>
+    <li><a href="#s3">その金はどこから来たのか ── 6/9の答えが、ここで効く</a> <span class="s">6分</span></li>
+    <li><a href="#s4">首を握っているのは誰か ── そして君の口座</a> <span class="s">4分</span></li>
+  </ol>
+</nav>
+
+<!-- ============ §0 ============ -->
+<section class="topic" id="s0">
+  <span class="badge word">§0　自習してくる</span>
+  <h2 class="thead">前回までの10語 ── 声に出して説明できるか</h2>
+  <p class="sub">全部、6/9・8/4・8/7 で実際に出た言葉である。書けるかではなく、<b>人に説明できるか</b>で判定する。授業の最初の4分で、いくつか抜き打ちで聞く。</p>
+
+  <ul class="drill">
+    <li><b>債権</b>と<b>債務</b><span class="s">どっちが貸す側か。そして「債<u>券</u>」との字の違いは何を意味するか。</span></li>
+    <li><b>与信</b><span class="s">誰が誰に与えるのか。主語を言うこと。</span></li>
+    <li><b>GMV</b><span class="s">3語のフルスペル。そして<b>これはメルカリの売上か、売上ではないか</b>。</span></li>
+    <li><b>越境GMV</b><span class="s">何を「越える」のか。</span></li>
+    <li><b>YoY</b><span class="s">読み方と意味。O は何の略か。</span></li>
+    <li><b>フィンテック</b><span class="s">何と何の合成語か。</span></li>
+    <li><b>C2C</b><span class="s">メルカリがC2Cで、セカンドストリートがそうでないのはなぜか。</span></li>
+    <li><b>シェアリングエコノミー</b><span class="s">メルカリ以外で3つ挙げる。</span></li>
+    <li><b>ボトルネック</b><span class="s">6/9にやった。AIのボトルネックは何だったか。</span></li>
+    <li><b>上場（IPO）</b><span class="s">6/9にやった。<b>買う側の言葉か、売る側の言葉か。</b></span></li>
+  </ul>
+
+  <div class="callout">
+    <span class="lbl">この10語のうち、1つだけ性質が違う</span>
+    <b>GMV だけが「所在」を問う言葉である。</b>他の9つは意味を覚えれば済む。GMVは、<b>それがPLのどの行に乗るのか／そもそも乗らないのか</b>を答えないと、意味を言えたことにならない。<br>
+    ── 8/7に先生はこう言った。「メルカリの売上はその1000円じゃないじゃん。手数料じゃん」。<b>ではGMVは、決算書のどこにいるのか。</b>これが今日の§1の入口である。
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section class="topic" id="s1">
+  <span class="badge corp">§1　揺さぶり</span>
+  <h2 class="thead">「持たないから強い」は、どこまで正しいか</h2>
+  <p class="sub">まず、君が8/4に自力で出した結論を、そのまま式にする。そのあとで壊す。</p>
+
+  <div class="recall">
+    <span class="lbl">8月4日に君が言ったこと</span>
+    <p>（同じTシャツを売るとき、誰に売るか、と聞かれて）「メルカリは<span class="me">欲しい人</span>」「セカストは<span class="me">お店</span>」</p>
+    <p>「（メルカリに仕入れは）<span class="me">ないと思います</span>」</p>
+    <p>「（有利なのは）リスク、その<span class="me">需要がある時にしか動かない</span>からリスクがないみたいな」「なんか<span class="me">在庫</span>とか」</p>
+    <p>「（広告費を減らせるのは）<span class="me">市場を独占してる</span>とか」</p>
+  </div>
+
+  <h3>その結論を、式にする</h3>
+  <div class="formula">
+    <code>メルカリの売上 ＝ GMV × 手数料率　＋　（後払いの）金利収入</code>
+    <span class="n">8/7にやった通り。1,000円のTシャツが売れて手数料10%なら売上は100円。そこにメルペイの金利が乗ると、同じ1取引で売上が3倍になる例をやった。</span>
+  </div>
+  <div class="formula">
+    <code>メルカリの原価 ≒ <span class="blank">？</span></code>
+    <span class="n"><b>ここを自分で埋める。</b>仕入れがないなら、売上原価に何が乗るのか。<b>ゼロなのか、ゼロではないのか。</b>ゼロでないなら何が乗るか、1つでいいから挙げること。</span>
+  </div>
+
+  <h3>ところが</h3>
+  <p>いま世界でいちばん注目されているネット企業たちは、<b>そろって「持つ」方向に走っている。</b>持たないどころか、人類史上いちばん重い買い物をしている。</p>
+
+  <div class="kpis">
+    <div class="kpi c"><div class="k">ハイパースケーラー4社の2026年 設備投資</div><div class="v">約7,250億㌦</div><div class="n">前年比 <span class="pos">+76%</span>。データセンターとAI半導体の購入がほとんど</div></div>
+    <div class="kpi c"><div class="k">NVIDIA 直近四半期 売上</div><div class="v">816億㌦</div><div class="n">過去最高。次の四半期は910億㌦見通し。<b>約9割がデータセンター向け</b></div></div>
+    <div class="kpi g"><div class="k">SpaceX が上場で調達した額</div><div class="v">約750億㌦</div><div class="n">使途は<b>AIデータセンターと衛星網の拡張</b></div></div>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">今日いちばんの問い　── ここで15分使ってもいい</span>
+    <b>君の結論が正しいなら、この人たちは間違っている。この人たちが正しいなら、君の結論には条件が抜けている。どっちだ。</b><br>
+    ヒント代わりに言い方を変えておく ──「持たない方が強い」は<b>いつでも</b>成り立つのか、それとも<b>ある条件のときだけ</b>成り立つのか。<b>その条件を1文で書く。</b>
+  </div>
+
+  <ol class="q">
+    <li>メルカリが「持たない」ことで<b>捨てているもの</b>は何か。リスクを捨てたのは分かった。<b>リスクと一緒に、何を捨てたか。</b>
+      <span class="hint">8/4の最後にこう習った ──「競合いなかったら値上げできちゃう」。<b>ではメルカリは、なぜ競合が来ないと言えるのか。</b>誰かが明日、同じアプリを作って手数料を8%にしたら、どうなるか。</span></li>
+    <li>逆に、NVIDIAやハイパースケーラーが<b>あえて重くしている</b>ことで手に入れているものは何か。
+      <span class="hint">君は8/4に自分で「独占」と言った。<b>その言葉を、今日はこっち側で使ってみること。</b></span></li>
+  </ol>
+
+  <div class="src"><b>SOURCES</b>
+    <ul>
+      <li><span class="st p4">二次・要確認</span>ハイパースケーラーの2026年設備投資 約7,250億ドル・前年比+76%　── <b>各社の四半期決算資料（10-Q）でCAPEXの実数を取り直すこと。「4社」が具体的にどの4社かも確認する。</b></li>
+      <li><span class="st p4">二次・要確認</span>NVIDIA 直近四半期売上816億ドル／次四半期見通し910億ドル／データセンター比率約9割　── <b>NVIDIA IR の決算リリースが一次情報。8月下旬に次の決算が出るので、そちらが出たら差し替える。</b></li>
+      <li><span class="st p2">報道</span>SpaceX 調達額約750億ドル・使途（2026/6/12 上場時の各紙報道）</li>
+      <li><span class="st p1">一次</span>メルカリ 決算短信・決算説明資料（8/7に使ったスライドの元データ）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section class="topic" id="s2">
+  <span class="badge bridge">§2　道具に戻す</span>
+  <h2 class="thead">BSに戻す ── 「持つ」とは、どこに何が乗ることか</h2>
+  <p class="sub">感想で答えないための道具が、もう手元にある。6/9にタクシーの話でやったやつである。</p>
+
+  <div class="recall">
+    <span class="lbl">6月9日にやったこと（先生の説明）</span>
+    <p>「タクシーもお客さん乗ってない時は一銭も稼がないね。でもタクシー、人件費はかかってるし、<span class="me">車もタクシー会社のものだから、まあ在庫というか資産になっていて</span>、それはだから<span class="me">減価償却</span>……費用化されてるから、赤字リスクなのね」</p>
+    <p>「ホテルとかも部屋、<span class="me">空き室のことを在庫って言う</span>んだけど」</p>
+  </div>
+
+  <p>データセンターは、この話の<b>けた違いに大きい版</b>である。GPUを買う。建物を建てる。変電設備を入れる。<b>これは全部、BSのどちら側に、何として乗るか。</b></p>
+
+  <div class="vs">
+    <div class="a">
+      <div class="hd">メルカリ型（持たない）</div>
+      <p>BSの左（資産）は<b><span class="blank">軽い／重い</span></b></p>
+      <p>売上 −（ほぼ<span class="blank">？</span>の原価）＝ 利益</p>
+      <p>お客が来なかった日の費用は <b><span class="blank">？</span></b></p>
+    </div>
+    <div class="b">
+      <div class="hd">データセンター型（持つ）</div>
+      <p>BSの左（資産）は<b><span class="blank">軽い／重い</span></b></p>
+      <p>売上 −<span class="blank">？</span>− 電気代 ＝ 利益</p>
+      <p>お客が来なかった日の費用は <b><span class="blank">？</span></b></p>
+    </div>
+  </div>
+
+  <ol class="q">
+    <li>7,250億ドルのGPUと建物を買った会社のBSは、買う前と買った後で<b>どこがどう変わるか</b>。6/9にやった「増資したら純資産と現金が両方増える」と<b>同じ書き方で</b>言うこと。
+      <span class="hint">現金で買ったのなら、増えるものと減るものがある。<b>合計額は変わるのか、変わらないのか。</b></span></li>
+    <li>買った瞬間、その年のPLの利益は<b>減るか、減らないか。</b>
+      <span class="hint">ここが会計のいちばん面白いところである。<b>「お金は出ていったのに費用にならない」</b>ということが起きる。なぜか。ではいつ費用になるのか。その費用の名前は6/9に出ている。</span></li>
+    <li><b>では、なぜわざわざ重くするのか。</b>§1のQ2で出した答えを、ここでBSの言葉に翻訳する。
+      <span class="hint">「7,250億ドルを注ぎ込んだ会社」と「注ぎ込んでいない会社」が同じ商売で競争するとき、<b>後から来る人にとって7,250億ドルは何になるか。</b>それを一語で言う言葉が、今日の新出語にある（用語集を見ること）。</span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">締めの一撃 ── 意思決定で答える</span>
+    <b>君が2026年のメルカリの社長だとする。</b>手元に現金がある。AI向けのデータセンターを建てて、その計算能力を貸す商売を始めるか、始めないか。<br>
+    <b>「やる」でも「やらない」でもいい。ただし理由を、BSとPLの言葉だけで言うこと。</b>「流行ってるから」「危なそうだから」は0点である。
+  </div>
+
+  <div class="src"><b>SOURCES</b>
+    <ul>
+      <li><span class="st p1">一次</span>各社の有価証券報告書・決算短信（固定資産・減価償却費の実数）。日本企業はEDINETで引ける。</li>
+      <li><span class="st p1">一次</span>米国企業は SEC EDGAR の 10-K／10-Q。CAPEX はキャッシュフロー計算書の投資活動の区分にある。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section class="topic" id="s3">
+  <span class="badge macro">§3　伏線回収</span>
+  <h2 class="thead">その金はどこから来たのか ── 6/9の答えが、ここで効く</h2>
+  <p class="sub">6/9に、先生が「株式会社豊長に5億円入る」という例で聞いた。君は答えた。今日、その答えが1兆ドル規模で実演される。</p>
+
+  <div class="recall">
+    <span class="lbl">6月9日のやりとり</span>
+    <p>先生「株式会社豊長、百株5億円になりますと。5億円が会社に入るじゃん。BSの右下と、現金はどこでしょう」</p>
+    <p>君「<span class="me">純資産</span>」</p>
+    <p>先生「そう、純資産が増えるでしょう、株を発行するから。<span class="me">こっちが増えるんで、左側も増えなきゃいけない</span>でしょう。……<span class="me">なぜなら現金が会社に入るから</span>」</p>
+  </div>
+
+  <h3>同じことが、6月12日に起きた</h3>
+  <div class="kpis">
+    <div class="kpi c"><div class="k">上場日</div><div class="v">6/12</div><div class="n">NASDAQ、ティッカー SPCX。6/9に先生が「今週の金曜」と言った、その金曜である</div></div>
+    <div class="kpi c"><div class="k">公開価格 → 初値 → 終値</div><div class="v">135→150→160.95㌦</div><div class="n">初日の終値は公開価格比 <span class="pos">+19%</span></div></div>
+    <div class="kpi c"><div class="k">上場時 時価総額</div><div class="v">2.1兆㌦</div><div class="n">約336兆円</div></div>
+    <div class="kpi g"><div class="k">調達額</div><div class="v">約750億㌦</div><div class="n">5億5,555万株の<b>新株発行</b></div></div>
+    <div class="kpi"><div class="k">8/5時点 時価総額</div><div class="v">1.88兆㌦</div><div class="n">上場時から<span class="neg">約1割の下落</span></div></div>
+  </div>
+
+  <ol class="q">
+    <li>SpaceXのBSは、6月12日に<b>どこがいくら増えたか。</b>6/9の「株式会社豊長」とまったく同じ形で、金額を入れて言うこと。
+      <span class="hint">増えたのは2か所である。左と右に1つずつ。</span></li>
+    <li>そのあと、その現金でデータセンターと衛星を買う。<b>BSの左側の中で、何が何に変わるか。</b>
+      <span class="hint">§2でやった話とつながる。<b>純資産は、このとき増えるか、増えないか。</b></span></li>
+    <li><b>なぜ上場したのか。</b>6/9には「上場とは、限られた人しか持てなかった株を、不特定多数が買えるようにすること」と習った。今日は<b>目的の方</b>を答える。
+      <span class="hint">7,250億ドル級の買い物をする世界で、上場していない会社は何が困るのか。</span></li>
+  </ol>
+
+  <h3>「1割下がった」は、誰にとっての話か</h3>
+  <p>上の数字だけで割り算ができる。<b>時価総額2.1兆ドル ÷ 終値160.95ドル ≒ 130億株。</b>この株数で8/5の1.88兆ドルを割ると、<b>1株はおよそ144ドル</b>。すると、買った時期でこうなる。</p>
+  <div class="tblwrap">
+  <table class="scorecard">
+    <thead><tr><th>いつ買ったか</th><th>買値</th><th>8/5時点（≒144㌦）でどうなっているか</th><th class="j">勝ち／負け</th></tr></thead>
+    <tbody>
+      <tr><td class="h">公開価格で割り当てを受けた人</td><td>135㌦</td><td class="num">およそ <span class="pos">+7%</span></td><td class="j"><span class="fill">自分で書く</span></td></tr>
+      <tr><td class="h">初値で買った人</td><td>150㌦</td><td class="num">およそ −4%</td><td class="j"><span class="fill">自分で書く</span></td></tr>
+      <tr><td class="h">初日の終値で買った人</td><td>160.95㌦</td><td class="num">およそ <span class="neg">−10%</span></td><td class="j"><span class="fill">自分で書く</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">6/9に君が言ったことの、答え合わせ</span>
+    6/9に「上場とは何か」と聞かれて、君はこう答えた ──<b>「なんかすごい高く売れる、っていうか、買われるみたいな」。</b><br>
+    先生は「高く<u>売る</u>場、というニュアンスの方が近い」と直した。<b>その違いが、上の表にそのまま出ている。</b><br>
+    <b>問い：新聞の見出しは「SpaceX、上場から1割下落」と書く。その見出しは、上の3人のうち誰の立場で書かれているか。そして、SpaceXという会社自身にとって、この2か月は成功だったのか失敗だったのか。</b>
+  </div>
+
+  <div class="src"><b>SOURCES</b>
+    <ul>
+      <li><span class="st p2">報道</span>日本経済新聞「スペースX上場、時価総額2.1兆ドル 公開価格比19%高」（2026/6/12）</li>
+      <li><span class="st p4">二次・要確認</span>株数・調達額・8/5時点の時価総額　── <b>SpaceXのIR／目論見書（S-1）で取り直すこと。上の「130億株」も、時価総額から逆算した概算にすぎない。</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section class="topic" id="s4">
+  <span class="badge bridge">§4　自分ごと</span>
+  <h2 class="thead">首を握っているのは誰か ── そして、君の口座</h2>
+  <p class="sub">6/9に「AIのボトルネックは何か」と聞かれて、君は自分で「電気」と答えた。あれから2か月、世界はその答えの通りに動いている。</p>
+
+  <ul class="facts">
+    <li><b>Microsoft</b> はスリーマイル島1号機の再稼働を支援し、<b>20年のPPA（電力購入契約）</b>を結んだ。</li>
+    <li><b>Google</b> は Kairos Power と<b>SMR（小型モジュール炉）</b>のPPAを結んだ。さらに <b>Project Suncatcher</b> ── TPUと太陽電池を積んだ衛星を打ち上げ、<b>宇宙にデータセンターを置く</b>構想で、2027年に試験機を予定している。</li>
+    <li><b>Starcloud</b> は2025年11月、NVIDIA H100を積んだ機体を打ち上げた。2026年3月にシリーズA 1.7億ドル、評価額11億ドル。</li>
+    <li><b>GE Vernova と日立</b>（60/40）がSMRを手がけ、<b>三菱重工</b>はガスタービンに1,000億円超を投資して生産能力を倍にしようとしている。</li>
+    <li>日本国内では、<b>印西市で40件・計2.5GW分の系統接続が順番待ち</b>になっており、10年待ちのケースもあると報じられている。<span class="unsure">（この数字は二次情報。取り直しが必要）</span></li>
+  </ul>
+
+  <div class="callout">
+    <span class="lbl">6/9に先生が言った「そこまで行ってほしい」の、そこ</span>
+    「スペースエックスが上場するってことでいろいろ調べていくと、<b>あ、こんな日本メーカーが部品を納入してるんだ、ということは儲かるな、というんで、じゃあ株買ってみるか</b>みたいな感じになるわけ。そこまで行ったら、いろんな知識が自分の資産形成につながるじゃん」<br>
+    ── <b>今日はその「そこ」に行く。</b>電力がAIの首なら、<b>その首を握って利益を得るのは誰か。</b>会社の名前を1つ挙げて、<b>なぜそこが儲かるのかを式で言う。</b>
+  </div>
+
+  <div class="formula">
+    <code>その会社の売上 ＝ <span class="blank">？</span> × <span class="blank">？</span></code>
+    <span class="n">先生がゼミで繰り返し言っている作法がある ──「計算式みたいに分解して喋ると、それっぽく聞こえて頭良さそうに見えていい」。<b>これは冗談ではなく、本当に効く。</b>「AIが伸びるから電力会社が儲かる」は評論家の言い方で、0点である。<b>何が何倍になるから売上が増えるのかを、掛け算で言うこと。</b></span>
+  </div>
+</section>
+
+<!-- ============ 宿題 ============ -->
+<section class="topic" id="hw">
+  <span class="badge corp">次回まで</span>
+  <h2 class="thead">宿題</h2>
+  <p class="sub">次回は8月28日（金）15:00。<b>必答は2問。</b>余力の2問は、必答が終わってから手を付けること。<b>必答が空欄で余力が埋まっている提出は、順番を間違えている。</b></p>
+
+  <div class="hw">
+    <div class="hwhead"><span class="team">必答</span><span class="hwtime">提出：8/28（金）12:00まで</span></div>
+    <div class="hwttl">宿題1　原価率を、2社ぶん自分の手で計算する</div>
+    <ol class="q">
+      <li><span class="tagm">必答</span><b>NVIDIA</b> の直近四半期の決算資料から、<b>売上高</b>と<b>売上原価</b>を取り、<b>原価率</b>を計算する。
+        <span class="hint">原価率 ＝ 売上原価 ÷ 売上高。<b>数字は必ず一次情報（NVIDIAのIRページの決算リリース）から取ること。</b>まとめサイトの数字を写して持ってきたら0点にする。英語だが、Revenue と Cost of revenue の2行を探すだけである。</span></li>
+      <li><span class="tagm">必答</span>同じことを<b>メルカリ</b>でやる。決算短信でよい。<b>2社を並べて、どちらが「持たない会社」かを数字で言う。</b>
+        <span class="hint">そのうえで ── <b>NVIDIAは「持たない会社」だろうか、「持つ会社」だろうか。</b>原価率だけを見て決めつけないこと。§2でやったBSの話を思い出すと、答えは1行では済まなくなるはずである。<b>そこで詰まったら、詰まったと書いて持ってくればいい。</b></span></li>
+    </ol>
+    <div class="deliv"><b>成果物</b>　2社×3つの数字（売上・売上原価・原価率）と、<b>「どちらが持たない会社か」に対する1文の答え</b>。紙でもメモでも画面共有でもよい。</div>
+  </div>
+
+  <div class="hw t">
+    <div class="hwhead"><span class="team">必答</span><span class="hwtime">6/9からの持ち越し</span></div>
+    <div class="hwttl">宿題2　証券口座 ── そして「1株買うなら何か」を式で言う</div>
+    <ol class="q">
+      <li><span class="tagm">必答</span><b>まだ開いていなければ、開く。</b>6/9に話した通り、ネット証券（SBI・楽天・松井など）は誰でも申し込める。<b>口座を開くだけでは1円も損をしない。</b>開くと各社のレポートが読めるようになる、というのがいちばんの理由である。
+        <span class="hint">すでに開いてあるなら、この問いは飛ばしてよい。<b>ただし「開いた」と口頭で言うこと。</b></span></li>
+      <li><span class="tagm">必答</span><b>いま1株だけ買うとしたら、どれを買うか。</b>銘柄を1つ挙げ、理由を<b>掛け算の式</b>で説明する。
+        <span class="hint">「AIが伸びそうだから」は0点。「この会社の売上＝（　）×（　）で、このうち（　）がこれから増えるから」という形にする。<b>買わなくていい。買うならどれか、を言えることが今回の課題である。</b></span></li>
+    </ol>
+    <div class="deliv"><b>成果物</b>　銘柄名1つと、それを説明する掛け算の式1本。<b>式の各項が何を指しているかも言えるようにしておくこと。</b></div>
+  </div>
+
+  <div class="hw s">
+    <div class="hwhead"><span class="team">余力</span><span class="hwtime">できたらでよい</span></div>
+    <div class="hwttl">宿題3・4</div>
+    <ol class="q">
+      <li><span class="tago">余力</span><b>身近な飲食店の原価率</b>を、聞ける人がいれば聞いてみる。バイト先でも、家族でも、知り合いの店でもよい。
+        <span class="hint">そして<b>メルカリ・NVIDIA・その店の3つを並べる。</b>ここでいちばん大事なのは順位ではない。<b>「原価に何が入っているか」が3社でまるで違う</b>ことである。たとえば出前館という会社は、配達員への支払いが原価に乗るせいで原価率が高い。<b>その店の原価には、何が入っていて、何が入っていないか。</b></span></li>
+      <li><span class="tago">余力</span><b>「電力がボトルネック」なら、日本の会社で誰が部品を納めているか。</b>1社見つけて、社名と、その根拠になったページを持ってくる。
+        <span class="hint">§4に何社か名前が出ている。そこから始めてもいいし、まったく別の会社を見つけてきてもいい。<b>「その会社が納めている」と言える根拠がどこにあるかまで示すこと。</b>会社のニュースリリースが一番強い。</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 用語集 ============ -->
+<section class="topic gloss">
+  <span class="badge word">今日の新出語</span>
+  <h2 class="thead">用語集</h2>
+  <p class="sub">意味を覚えるためではなく、<b>使うために</b>載せている。§1〜§4の問いに答えるとき、この言葉で答えると答えが締まる。</p>
+  <dl>
+    <dt>固定資産 <span class="en">fixed assets / non-current assets</span></dt>
+    <dd>BSの<b>左側</b>にあり、1年以上使い続けるもの。建物、機械、車、サーバー、GPU。<b>買った瞬間には費用にならない</b>のがポイントで、そこが仕入れとの決定的な違いである。</dd>
+
+    <dt>減価償却 <span class="en">depreciation</span></dt>
+    <dd>固定資産を、使う年数にわけて少しずつ費用にしていく処理。<b>現金は最初に全部出ていくのに、費用は何年もかけて出てくる。</b>だから「PLの利益」と「手元の現金」がズレる。6/9のタクシーの例がこれである。</dd>
+
+    <dt>設備投資（CAPEX） <span class="en">capital expenditure</span></dt>
+    <dd>固定資産を買うために使ったお金。PLには出てこない。<b>キャッシュフロー計算書の「投資活動」の区分</b>を見ると出ている。ハイパースケーラーの7,250億ドルはこれ。</dd>
+
+    <dt>原価率</dt>
+    <dd><b>売上原価 ÷ 売上高</b>。この商売が1円売るのにいくらかかっているか。低いほど「軽い」商売である。<b>ただし原価に何が入っているかは業種でまるで違うので、率だけを比べても意味がないことがある。</b>宿題3はそこを見るためのものである。</dd>
+
+    <dt>参入障壁 <span class="en">barrier to entry</span></dt>
+    <dd>後から同じ商売を始めたい人にとっての、越えられない壁。<b>「独占」がなぜ続くのかを説明する言葉。</b>君が8/4に自力で出した「市場を独占してる」の、その裏側にあるのがこれである。<b>§1のQ2と§2のQ3は、この言葉で答えるとまとまる。</b></dd>
+
+    <dt>PPA <span class="en">Power Purchase Agreement</span></dt>
+    <dd>電力購入契約。<b>「これから何年、この値段で、この量の電気を買います」と先に約束する契約。</b>買う側は電気を確保でき、発電する側は<b>将来の売上が確定する</b>。── 8/7にやった「債権残高の成長」と、構造が同じであることに気づけるかどうか。</dd>
+
+    <dt>SMR <span class="en">Small Modular Reactor</span></dt>
+    <dd>小型モジュール炉。工場で作って運べる小さい原子炉。<b>6/9に「原発は一番効率いいけど、問題があるからなかなか作れない」とやった。</b>その制約を回避しようとしている動きがこれ。</dd>
+
+    <dt>時価総額 <span class="en">market capitalization</span></dt>
+    <dd><b>株価 × 発行済株式数。</b>会社まるごとの値段。§3の「1株およそ144ドル」は、この式を逆向きに使って出した。</dd>
+
+    <dt>公開価格／初値／終値</dt>
+    <dd>公開価格は<b>上場前に割り当てられる値段</b>、初値は<b>市場で最初に付いた値段</b>、終値はその日の最後の値段。<b>この3つが違うから、同じ会社の同じ2か月で勝つ人と負ける人が出る。</b></dd>
+
+    <dt>新株発行（増資）</dt>
+    <dd>株を新しく作って売り、<b>会社にお金を入れる</b>こと。6/9の「株式会社豊長に5億円」がこれ。<b>すでに持っている人から買うのとは、まったく別のこと</b>である ── 前者は会社にお金が入り、後者は入らない。</dd>
+  </dl>
+</section>
+
+<footer>
+  <h2>この資料の使い方と、数字の扱いについて</h2>
+  <ul>
+    <li><b>この資料には答えが書いていない。</b>空欄（<span class="blank">こういうやつ</span>）と問いだけである。<b>調べて埋めてこなくていい。</b>§0の用語ドリルだけ先にやって、あとは授業でその場で考える。</li>
+    <li><b>数字には格付けを付けた。</b>各節末の SOURCES を見ること ──
+      <span class="st p1">一次</span>発行体そのものが出した情報（各社IR・SEC・EDINET・官庁）／
+      <span class="st p2">報道</span>報道機関／
+      <span class="st p3">解説</span>証券会社・シンクタンク／
+      <span class="st p4">二次・要確認</span>個人記事・まとめ。<br>
+      <b>この資料の数字にも「二次・要確認」が混ざっている。</b>NVIDIAの816億ドル、ハイパースケーラーの7,250億ドル、印西市の2.5GW、SpaceXの株数がそれである。<b>資料に書いてあるからといって信じないこと。</b>宿題1で一次情報から取り直すのは、その練習でもある。</li>
+    <li><span class="unsure">この書体</span>にした箇所は、確定していない数字である。<b>断定形で言った時点で減点する。</b></li>
+    <li><b>一次情報の在り処</b>　── 日本企業は EDINET（有価証券報告書・四半期報告書）、米国企業は SEC EDGAR（10-K／10-Q）、あとは各社のIRページ。<b>英語のページでも、探すのは2行か3行だけである。</b>全部読もうとしないこと。</li>
+  </ul>
+  <div class="next"><b>次回予告　8月28日（金）15:00</b>　宿題1で作った原価率の表から始める。そこから<b>PL（損益計算書）の段階損益</b>に入る ── 売上総利益、営業利益、経常利益、当期純利益。<b>「儲かっている」という一言が、決算書では4回に分けて言われる。</b>その4回がそれぞれ何を意味するのかをやる。</div>
+</footer>
+
+</div>
+</body>
+</html>
