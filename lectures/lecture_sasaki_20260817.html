@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="商品取扱高6,660億円がどうやって営業利益694億円になるのか。受託販売とテイクレートから読む30分教材（ケーススタディ 第2回）">
+<title>ZOZOの決算を読む</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #f9f9f7;
+    --surface: #fcfcfb;
+    --surface-raised: #ffffff;
+    --ink: #141413;
+    --ink-2: #52514e;
+    --ink-muted: #898781;
+    --hairline: #e1e0d9;
+    --border: rgba(11, 11, 11, 0.10);
+    --accent: #2a78d6;
+    --accent-ink: #1c5cab;
+    --accent-wash: rgba(42, 120, 214, 0.08);
+    --good: #006300;
+    --s1: #2a78d6;  /* GMV / 受託販売 */
+    --s2: #eb6834;  /* 売上高 / LINEヤフー */
+    --s3: #1baf7a;  /* 営業利益 / LYST */
+    --s4: #eda100;  /* USED */
+    --s-other: #898781;
+    --f1: #86b6ef;  /* funnel ordinal 250 */
+    --f2: #2a78d6;  /* funnel ordinal 450 */
+    --f3: #104281;  /* funnel ordinal 650 */
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-raised: #222220;
+      --ink: #f4f3ef;
+      --ink-2: #c3c2b7;
+      --ink-muted: #898781;
+      --hairline: #2c2c2a;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #3987e5;
+      --accent-ink: #86b6ef;
+      --accent-wash: rgba(57, 135, 229, 0.14);
+      --good: #0ca30c;
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --s4: #c98500;
+      --s-other: #898781;
+      --f1: #6da7ec;
+      --f2: #3987e5;
+      --f3: #184f95;
+      --grid: #2c2c2a;
+      --axis: #383835;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-raised: #222220;
+    --ink: #f4f3ef;
+    --ink-2: #c3c2b7;
+    --ink-muted: #898781;
+    --hairline: #2c2c2a;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #3987e5;
+    --accent-ink: #86b6ef;
+    --accent-wash: rgba(57, 135, 229, 0.14);
+    --good: #0ca30c;
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s-other: #898781;
+    --f1: #6da7ec;
+    --f2: #3987e5;
+    --f3: #184f95;
+    --grid: #2c2c2a;
+    --axis: #383835;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.75;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; }
+
+  /* ---------- header ---------- */
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.14em; color: var(--accent-ink);
+    font-weight: 700; text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(30px, 5.4vw, 44px); font-weight: 800; line-height: 1.25;
+    letter-spacing: 0.01em; margin: 10px 0 14px; text-wrap: balance;
+  }
+  .lede { color: var(--ink-2); max-width: 40em; }
+  .lede strong { color: var(--ink); }
+  .meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+    border: 1px solid var(--hairline); background: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .chip em { font-style: normal; color: var(--accent-ink); }
+
+  /* ---------- series tabs ---------- */
+  .tabs {
+    display: flex; gap: 4px; margin-top: 28px;
+    border-bottom: 1px solid var(--hairline);
+    overflow-x: auto; scrollbar-width: thin;
+  }
+  .tab {
+    flex: 0 0 auto; display: block; text-decoration: none;
+    padding: 10px 16px 9px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 8px 8px 0 0; margin-bottom: -1px;
+    font-size: 13.5px; font-weight: 700; color: var(--ink-muted);
+    white-space: nowrap; transition: color .12s ease, background .12s ease;
+  }
+  .tab small { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-muted); }
+  a.tab { color: var(--accent-ink); }
+  a.tab small { color: var(--ink-2); }
+  a.tab:hover { background: var(--accent-wash); }
+  a.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  a.tab .ext { font-weight: 500; font-size: 11px; }
+  .tab.is-current {
+    color: var(--ink); background: var(--surface);
+    border-color: var(--hairline); border-bottom: 1px solid var(--surface);
+  }
+  .tab.is-past { cursor: default; opacity: .55; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 56px; }
+  .step-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .step-time {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  h2 { font-size: 23px; font-weight: 800; line-height: 1.35; text-wrap: balance; }
+  h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  section > p, .card > p { color: var(--ink-2); max-width: 44em; }
+  section > p strong, .card p strong, li strong { color: var(--ink); }
+  .sec-note { font-size: 13px; color: var(--ink-muted); margin-top: 10px; }
+
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; margin-top: 18px; border-top: 1px solid var(--hairline); }
+  .agenda li {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 14px;
+    align-items: baseline; padding: 11px 4px; border-bottom: 1px solid var(--hairline);
+  }
+  .agenda .t { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13.5px; color: var(--accent-ink); }
+  .agenda .what { font-weight: 600; }
+  .agenda .what small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-muted); }
+  .agenda .min { font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+
+  /* ---------- cards ---------- */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px; margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-wash);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 18px;
+    max-width: 46em;
+  }
+  .callout p { color: var(--ink-2); }
+  .callout .q { font-weight: 700; color: var(--ink); }
+
+  /* ---------- KPI tiles ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .tile .k { font-size: 12px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .tile .v { font-size: 25px; font-weight: 800; line-height: 1.3; margin-top: 2px; }
+  .tile .v small { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .tile .d { font-size: 12.5px; font-weight: 600; margin-top: 1px; color: var(--ink-2); }
+  .tile .d.up { color: var(--good); }
+
+  /* ---------- model diagram ---------- */
+  .flow { display: flex; align-items: stretch; gap: 0; margin-top: 20px; flex-wrap: wrap; }
+  .flow .node {
+    flex: 1 1 140px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px; min-width: 150px;
+  }
+  .flow .node.hub { border-color: var(--accent); border-width: 1.5px; background: var(--accent-wash); }
+  .flow .node .who { font-weight: 800; font-size: 15px; }
+  .flow .node .does { font-size: 12.5px; color: var(--ink-2); line-height: 1.6; margin-top: 4px; }
+  .flow .arrow {
+    align-self: center; padding: 0 10px; color: var(--ink-muted);
+    font-size: 12px; text-align: center; line-height: 1.5; flex: 0 0 auto;
+  }
+  .flow .arrow b { display: block; font-size: 16px; color: var(--accent-ink); }
+  .formula {
+    margin-top: 18px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; font-weight: 700; font-size: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  }
+  .formula .num { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .formula small { font-weight: 500; color: var(--ink-muted); flex-basis: 100%; font-size: 12.5px; }
+
+  /* ---------- charts ---------- */
+  figure { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 14px; }
+  figcaption { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .figsub { font-size: 12.5px; color: var(--ink-muted); margin-bottom: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .chart-scroll { overflow-x: auto; }
+  .chart-scroll svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  svg text { font-family: inherit; }
+  .src { font-size: 11.5px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- exercise ---------- */
+  .ex { margin-top: 18px; }
+  .ex .card { padding: 0; overflow: hidden; }
+  .ex-q { padding: 18px 22px 6px; }
+  .ex-q .no {
+    display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    border-radius: 4px; padding: 2px 8px; margin-bottom: 8px;
+  }
+  .ex-q p { color: var(--ink); font-weight: 600; max-width: 44em; }
+  .ex-q .hint { font-weight: 400; font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+
+  /* ---------- quiz choices ---------- */
+  .qz-choices { list-style: none; counter-reset: qc; margin: 12px 22px 4px; padding: 0; display: grid; gap: 6px; max-width: 46em; }
+  .qz-choices li {
+    counter-increment: qc; position: relative; border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 8px 14px 8px 40px; font-size: 14px; color: var(--ink-2);
+  }
+  .qz-choices li::before {
+    content: counter(qc, upper-alpha); position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    font-weight: 800; font-size: 12.5px; color: var(--accent-ink);
+  }
+  details { border-top: 1px solid var(--hairline); margin-top: 14px; }
+  summary {
+    cursor: pointer; padding: 12px 22px; font-weight: 700; font-size: 13.5px;
+    color: var(--accent-ink); list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "▸ "; }
+  details[open] summary::before { content: "▾ "; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 6px; }
+  .ans { padding: 0 22px 18px; color: var(--ink-2); max-width: 46em; }
+  .ans .calc {
+    font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink);
+    background: var(--accent-wash); border-radius: 8px; padding: 10px 14px; margin: 8px 0 10px;
+    display: inline-block;
+  }
+
+  /* ---------- tables ---------- */
+  .tbl-scroll { overflow-x: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; background: var(--surface); font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--hairline); font-variant-numeric: tabular-nums; }
+  th { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; }
+  th:first-child, td:first-child { text-align: left; }
+  td:first-child { font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td .win { color: var(--good); font-weight: 800; }
+  .tbl-note { font-size: 12px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- discussion / glossary ---------- */
+  .qlist { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+  .qlist li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .qlist .q { font-weight: 700; }
+  .qlist .why { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  dl.gloss { margin-top: 16px; border-top: 1px solid var(--hairline); }
+  dl.gloss > div { display: grid; grid-template-columns: 200px 1fr; gap: 16px; padding: 12px 4px; border-bottom: 1px solid var(--hairline); }
+  @media (max-width: 560px) { dl.gloss > div { grid-template-columns: 1fr; gap: 2px; } }
+  dt { font-weight: 700; font-size: 14px; }
+  dd { color: var(--ink-2); font-size: 14px; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 18px; font-size: 12.5px; color: var(--ink-muted); }
+  footer p { max-width: none; }
+
+  @media print {
+    body { background: #fff; }
+    .tabs { display: none; }
+    details { border-top: none; }
+    summary { display: none; }
+    .ans { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">財務諸表ケーススタディ · 第2回</p>
+    <h1>ZOZOの決算を読む</h1>
+    <p class="lede">商品取扱高<strong> 6,660億円</strong>は、どうやって営業利益<strong> 694億円</strong>になるのか。
+    前回のメルカリと「同じGMVビジネス」なのに、利益の景色がまったく違う理由を、決算説明会資料の数字から解剖する。</p>
+    <div class="meta-chips">
+      <span class="chip">2026年8月17日（月）<em>8:30–9:00</em></span>
+      <span class="chip">30分</span>
+      <span class="chip">題材: ZOZO <em>2026年3月期</em> 決算説明会資料</span>
+      <span class="chip">前回: メルカリ編（GMVと営業損失）</span>
+    </div>
+
+    <nav class="tabs" aria-label="ケーススタディ シリーズ">
+      <span class="tab is-past" title="配布資料リンクなし（講義のみ）">第1回　メルカリ<small>GMVと営業損失</small></span>
+      <span class="tab is-current" aria-current="page">第2回　ZOZOの決算を読む<small>受託販売とテイクレート（このページ）</small></span>
+      <a class="tab" href="lecture_sasaki_20260820.html">第3回　金利・為替・インフレ<small>三角形の一周 <span class="ext">&#8594;</span></small></a>
+    </nav>
+  </header>
+
+  <!-- ═══════════ AGENDA ═══════════ -->
+  <section>
+    <h2>本日の流れ</h2>
+    <ol class="agenda">
+      <li><span class="t">8:30–8:33</span><span class="what">前回の復習と今日の問い<small>メルカリ: GMVが伸びても営業損失になる構造</small></span><span class="min">3分</span></li>
+      <li><span class="t">8:33–8:38</span><span class="what">ZOZOのビジネスモデル<small>「受託販売」— 在庫を持たない手数料商売</small></span><span class="min">5分</span></li>
+      <li><span class="t">8:38–8:48</span><span class="what">数字を読む<small>GMV → 売上高 → 営業利益の3段変換</small></span><span class="min">10分</span></li>
+      <li><span class="t">8:48–8:55</span><span class="what">計算演習<small>テイクレートと客単価を自分で出す</small></span><span class="min">7分</span></li>
+      <li><span class="t">8:55–9:00</span><span class="what">メルカリと比べて議論<small>売上ほぼ同額、営業利益は255億円差</small></span><span class="min">5分</span></li>
+    </ol>
+  </section>
+
+  <!-- ═══════════ STEP 1 ═══════════ -->
+  <section>
+    <div class="step-head"><span class="step-time">8:30–8:33</span><h2>前回の復習と、今日の問い</h2></div>
+    <p>前回はメルカリの決算から、<strong>GMV（流通取引総額）が伸びていても、営業損失になりうる</strong>ことをUS事業の数字で確認した。
+    GMVはあくまで「プラットフォーム上を流れたお金」であって、会社の売上でも利益でもない。</p>
+    <div class="callout">
+      <p class="q">今日の問い：同じ「GMV型」のZOZOは、なぜGMVの約10%を営業利益として残せるのか？</p>
+      <p>答えの鍵は、GMVが売上高に変わる「変換率」＝<strong>テイクレート</strong>と、そのあとのコスト構造にある。</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ STEP 2 ═══════════ -->
+  <section>
+    <div class="step-head"><span class="step-time">8:33–8:38</span><h2>ZOZOのビジネスモデル — 在庫を持たない「受託販売」</h2></div>
+    <p>ZOZOTOWNは自分で服を仕入れて売っているのではない。<strong>ブランドの在庫を「預かって」代わりに売り、手数料をもらう</strong>のが本業（GMVの約74%）。
+    売れ残りのリスクはブランド側にあり、ZOZOの損益計算書に仕入れはほとんど出てこない。</p>
+    <div class="flow">
+      <div class="node">
+        <p class="who">ブランド（1,689店）</p>
+        <p class="does">在庫を委託で預ける。売れ残りリスクはブランド持ち</p>
+      </div>
+      <div class="arrow"><b>→</b>商品を預ける</div>
+      <div class="node hub">
+        <p class="who">ZOZO</p>
+        <p class="does">撮影・採寸・物流・カスタマーサポートまでECの全業務を代行。対価として<strong>受託手数料</strong>を得る</p>
+      </div>
+      <div class="arrow"><b>→</b>販売・配送</div>
+      <div class="node">
+        <p class="who">お客さん（年間1,317万人）</p>
+        <p class="does">代金はいったんZOZOを通り、手数料を引いてブランドへ</p>
+      </div>
+    </div>
+    <div class="formula">
+      <span>売上高</span><span>=</span><span>商品取扱高（GMV）</span><span>×</span><span>テイクレート（受託手数料率 ≈ <span class="num">27%</span>）</span>
+      <small>ZOZO自身が決算説明会資料で開示している定義：「売上高 = 各ショップの商品取扱高 × 受託手数料率」。メルカリの販売手数料10%と比べると2.7倍ある — この差の意味は最後に議論する。</small>
+    </div>
+  </section>
+
+  <!-- ═══════════ STEP 3 ═══════════ -->
+  <section>
+    <div class="step-head"><span class="step-time">8:38–8:48</span><h2>数字を読む — 2026年3月期の全体像</h2></div>
+    <p>まず6つの数字だけ頭に入れる。すべて2026年3月期（2025年4月〜2026年3月）の連結実績。</p>
+
+    <div class="tiles">
+      <div class="tile"><p class="k">商品取扱高（GMV）</p><p class="v">6,660<small> 億円</small></p><p class="d up">前期比 +8.4%</p></div>
+      <div class="tile"><p class="k">売上高</p><p class="v">2,284<small> 億円</small></p><p class="d up">前期比 +7.2%</p></div>
+      <div class="tile"><p class="k">営業利益</p><p class="v">694<small> 億円</small></p><p class="d up">前期比 +7.1%</p></div>
+      <div class="tile"><p class="k">営業利益率（対売上高）</p><p class="v">30.4<small> %</small></p><p class="d">小売・ECでは異例の高さ</p></div>
+      <div class="tile"><p class="k">年間購入者数</p><p class="v">1,317<small> 万人</small></p><p class="d up">過去最高を更新</p></div>
+      <div class="tile"><p class="k">受託販売テイクレート</p><p class="v">約27<small> %</small></p><p class="d">演習①で自分で計算する</p></div>
+    </div>
+
+    <figure>
+      <figcaption>6期推移 — GMVと売上高と営業利益は「相似形」で伸びている</figcaption>
+      <p class="figsub">単位: 億円。3本とも毎年増え、比率がほぼ一定 = ビジネスモデルが安定している証拠</p>
+      <div class="legend">
+        <span><i style="background:var(--s1)"></i>商品取扱高（GMV）</span>
+        <span><i style="background:var(--s2)"></i>売上高</span>
+        <span><i style="background:var(--s3)"></i>営業利益</span>
+      </div>
+      <div class="chart-scroll"><svg id="trend" viewBox="0 0 800 320" role="img" aria-label="2021年3月期から2026年3月期のGMV・売上高・営業利益の推移"></svg></div>
+      <p class="src">出典: ZOZO 決算説明会資料・決算短信（各期）</p>
+    </figure>
+
+    <figure>
+      <figcaption>3段変換 — 6,660億円はこうして694億円になる</figcaption>
+      <p class="figsub">GMVの約35%が売上高として会社に入り（受託分は手数料のみ計上）、販管費を引いた残りが営業利益</p>
+      <div class="chart-scroll"><svg id="funnel" viewBox="0 0 800 190" role="img" aria-label="商品取扱高6660億円、売上高2284億円、営業利益694億円のファネル"></svg></div>
+      <p class="src">対GMV利益率は 694 ÷ 6,462（その他商品取扱高を除くGMV）= 10.7%。メルカリ流に言えば「GMVの1割が営業利益」</p>
+    </figure>
+
+    <figure>
+      <figcaption>GMVの中身 — 本業の受託販売が4分の3</figcaption>
+      <p class="figsub">2026年3月期 商品取扱高 6,660億円の構成。LYSTは2025年に買収した英国の海外ファッションEC</p>
+      <div class="legend">
+        <span><i style="background:var(--s1)"></i>受託販売 4,927億円（74%）</span>
+        <span><i style="background:var(--s2)"></i>LINEヤフーコマース 789億円（12%）</span>
+        <span><i style="background:var(--s3)"></i>LYST 422億円（6%）</span>
+        <span><i style="background:var(--s4)"></i>USED 211億円（3%）</span>
+        <span><i style="background:var(--s-other)"></i>その他・BtoB・買取等 311億円（5%）</span>
+      </div>
+      <div class="chart-scroll"><svg id="mix" viewBox="0 0 800 70" role="img" aria-label="商品取扱高の構成比"></svg></div>
+      <p class="src">注目: LYSTはラグジュアリー市況の不調と米国の関税制度変更で計画未達 — 前回のメルカリUS同様、ここでも「海外」が難所になっている</p>
+    </figure>
+  </section>
+
+  <!-- ═══════════ STEP 4 ═══════════ -->
+  <section>
+    <div class="step-head"><span class="step-time">8:48–8:55</span><h2>計算演習 — 電卓を出して</h2></div>
+    <p>決算資料の数字は「読む」だけでなく「割る」と理解が一段深くなる。3問。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">演習 1</span>
+          <p>受託販売のGMVは 4,927億円、受託販売の売上高は 1,347億円。テイクレート（受託手数料率）は何%か？</p>
+          <p class="hint">ヒント: 売上高 = GMV × テイクレート を変形する</p>
+        </div>
+        <details>
+          <summary>答えを開く</summary>
+          <div class="ans">
+            <p class="calc">1,347億円 ÷ 4,927億円 ≒ 27.3%</p>
+            <p>ブランドは売れた金額の約27%をZOZOに払っている。メルカリの販売手数料10%と比べてかなり高いが、
+            撮影・採寸・倉庫・配送・カスタマーサポートという「ECの面倒な仕事全部」の対価が含まれている。単なる場所代ではない。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">演習 2</span>
+          <p>ZOZOTOWN事業のGMVは 5,166億円、年間購入者数は 1,317万人。購入者1人あたりの年間購入額はいくらか？</p>
+          <p class="hint">ヒント: 億円 ÷ 万人 の単位換算に注意（1億円 = 10,000万円）</p>
+        </div>
+        <details>
+          <summary>答えを開く</summary>
+          <div class="ans">
+            <p class="calc">5,166億円 ÷ 1,317万人 ≒ 39,000円/人・年</p>
+            <p>会社開示のアクティブ会員1人あたり年間購入額は約43,000円・年間11点。つまり1点あたり約3,900円 —
+            「月1回弱、4,000円弱の服を買う」のが平均像。売上を<strong>人数 × 単価</strong>に分解すると、成長の源泉が「客を増やしたのか、単価を上げたのか」を切り分けられる。
+            今期の成長は<strong>購入者数の増加</strong>が主導した（単価はセール比率上昇でむしろ微減）。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">演習 3</span>
+          <p>ZOZOの「営業利益率」は30.4%とも10.7%とも言える。それぞれ何を分母にした数字か？　メルカリと比べるときはどちらを使うべきか？</p>
+          <p class="hint">ヒント: 分母の候補は2つ — 売上高 2,284億円と、GMV（その他除く）6,462億円</p>
+        </div>
+        <details>
+          <summary>答えを開く</summary>
+          <div class="ans">
+            <p class="calc">対売上高: 694 ÷ 2,284 = 30.4%　／　対GMV: 694 ÷ 6,462 = 10.7%</p>
+            <p>受託販売は手数料しか売上計上しないので、対売上の利益率は自動的に高く出る。
+            <strong>ビジネスモデルが違う会社を比べるときは、分母を揃える</strong>のが鉄則 — GMV型同士なら「対GMV利益率」が公平なモノサシになる。
+            ZOZO自身もEBITDAマージンを「対商品取扱高」で開示している（11.9%）。決算資料で率を見たら、必ず「分母は何か」を確認するクセをつける。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ STEP 5 ═══════════ -->
+  <section>
+    <div class="step-head"><span class="step-time">8:55–9:00</span><h2>メルカリと並べる — 売上ほぼ同額、営業利益は255億円差</h2></div>
+    <p>偶然だが、直近通期の売上高はほぼ同じ。だからこそ、その先の差がくっきり見える。</p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>指標</th><th>ZOZO<br>2026年3月期</th><th>メルカリ<br>2026年6月期</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>売上高</td><td>2,284億円</td><td>2,293億円</td></tr>
+          <tr><td>営業利益</td><td><span class="win">694億円</span></td><td>439億円</td></tr>
+          <tr><td>営業利益率（対売上高）</td><td><span class="win">30.4%</span></td><td>19.1%</td></tr>
+          <tr><td>基本の手数料率</td><td>受託手数料 約27%</td><td>販売手数料 10%</td></tr>
+          <tr><td>商流</td><td>BtoBtoC（ブランド→個人）</td><td>CtoC（個人→個人）</td></tr>
+          <tr><td>ZOZO/メルカリが担う仕事</td><td>撮影・採寸・物流・CSまで全部</td><td>マッチングと決済が中心</td></tr>
+          <tr><td>在庫リスク</td><td>なし（委託在庫）</td><td>なし（個人間売買）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">決算期が異なる点に注意（ZOZOは3月期、メルカリは6月期）。メルカリは今期、US事業の損失縮小もあって営業利益+57.7%と大幅改善している — 「前回の続き」としてここも一言触れたい。</p>
+
+    <h3 style="margin-top:28px">佐々木くんへの問い（残り時間で1つ選んで議論）</h3>
+    <ul class="qlist">
+      <li>
+        <p class="q">Q1. ブランドはなぜ、売価の約27%も払ってZOZOTOWNに出店し続けるのか？</p>
+        <p class="why">視点: 自社ECを自前でやるコスト／1,317万人の集客力／在庫リスクゼロの価値。「高い手数料 = ぼったくり」ではない理由を説明できるか。</p>
+      </li>
+      <li>
+        <p class="q">Q2. 売上規模が同じメルカリと255億円の営業利益差がつく理由を、テイクレートとコスト構造の両面から説明せよ。</p>
+        <p class="why">視点: 手数料率27% vs 10%はそのまま利益差になるか？　ZOZOは物流を自前で持つ分コストも重いはず。何が効いているのか。</p>
+      </li>
+      <li>
+        <p class="q">Q3. 来期（2027年3月期）会社計画はGMV+5.0%と成長は穏やか。ZOZOの次の成長ドライバーは何か？</p>
+        <p class="why">視点: 海外（LYST買収 — ただし初年度は計画未達）／M&A（香水EC「カラリア」買収）／指標もEBITDAから「調整後EBITA」へ変更。成長の作り方が「自力」から「買収」に変わりつつある兆候をどう評価するか。</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ═══════════ GLOSSARY ═══════════ -->
+  <section>
+    <h2>用語ミニ辞典</h2>
+    <dl class="gloss">
+      <div><dt>商品取扱高（GMV）</dt><dd>プラットフォーム上で売買された商品代金の総額。会社の売上高ではない。ZOZOは「その他商品取扱高を除く」ベースを各種比率の分母に使う。</dd></div>
+      <div><dt>テイクレート</dt><dd>GMVのうち、手数料等として会社の売上高になる割合。ZOZOの受託販売は約27%、メルカリの販売手数料は10%。</dd></div>
+      <div><dt>受託販売</dt><dd>ブランドの在庫を預かって代わりに販売する方式。在庫リスクを負わず、売上高には手数料分のみを計上する。</dd></div>
+      <div><dt>EBITDA</dt><dd>営業利益＋減価償却費＋のれん償却額＋株式報酬費用。設備投資の重い会社の「現金を稼ぐ力」を見る指標。ZOZOは769億円（マージン11.9% 対GMV）。</dd></div>
+      <div><dt>調整後EBITA</dt><dd>ZOZOが来期から採用する新指標。M&A起因の償却費等だけを足し戻し、物流投資の減価償却費は費用として残す。「買収の会計影響は除くが、本業の投資コストは正直に見せる」という設計。</dd></div>
+      <div><dt>販管費</dt><dd>販売費及び一般管理費。ZOZOは1,436億円（対GMV 22.2%）。内訳の最大項目は物流関連費と人件費で、ここの効率化が利益率を左右する。</dd></div>
+    </dl>
+  </section>
+
+  <!-- ═══════════ REVIEW QUIZ ═══════════ -->
+  <section>
+    <div class="step-head"><span class="step-time">補講後・復習</span><h2>復習4択クイズ — 全10問</h2></div>
+    <p>今日の講義内容の理解度チェック。まず自分で選択肢から答えを選んでから「答えを見る」を開くこと。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">Q1</span>
+          <p>ZOZOTOWNの主力事業「受託販売」の説明として正しいものはどれか？</p>
+        </div>
+        <ol class="qz-choices">
+          <li>ZOZOが自ら商品を仕入れて販売し、売れ残りリスクをZOZOが負う</li>
+          <li>ブランドが在庫をZOZOに預け、ZOZOが販売業務を代行して手数料を得る。売れ残りリスクはブランド側にある</li>
+          <li>個人同士が売買し、ZOZOはマッチングのみを行う</li>
+          <li>ZOZOが海外ブランドを買収し、自社ブランドとして販売する</li>
+        </ol>
+        <details>
+          <summary>答えを見る</summary>
+          <div class="ans">
+            <p class="calc">正解: B</p>
+            <p>受託販売は「在庫を持たない手数料商売」。ブランドの在庫を預かって撮影・採寸・物流・CSまで代行し、対価として受託手数料を得る。売れ残りリスクはあくまでブランド側が負う。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">Q2</span>
+          <p>ZOZOが決算説明会資料で開示している「売上高」の計算式はどれか？</p>
+        </div>
+        <ol class="qz-choices">
+          <li>売上高 = 商品取扱高（GMV） − 販管費</li>
+          <li>売上高 = 商品取扱高（GMV） × テイクレート（受託手数料率）</li>
+          <li>売上高 = 商品取扱高（GMV） ÷ 年間購入者数</li>
+          <li>売上高 = 営業利益 + 販管費</li>
+        </ol>
+        <details>
+          <summary>答えを見る</summary>
+          <div class="ans">
+            <p class="calc">正解: B</p>
+            <p>「売上高 = 各ショップの商品取扱高 × 受託手数料率」がZOZO自身の開示定義。GMVがそのまま売上になるのではなく、テイクレートを掛けた分だけが会社の売上高として計上される。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">Q3</span>
+          <p>受託販売のGMV 4,927億円、受託販売の売上高 1,347億円から計算されるテイクレートに最も近いのはどれか？</p>
+          <p class="hint">ヒント: 演習1と同じ計算</p>
+        </div>
+        <ol class="qz-choices">
+          <li>約10%</li>
+          <li>約19%</li>
+          <li>約27%</li>
+          <li>約35%</li>
+        </ol>
+        <details>
+          <summary>答えを見る</summary>
+          <div class="ans">
+            <p class="calc">1,347億円 ÷ 4,927億円 ≒ 27.3% → 正解: C</p>
+            <p>メルカリの販売手数料10%と比べて2.7倍ある。撮影・採寸・物流・CSまでECの全業務を代行する対価が含まれているため、単なる場所代より高い水準になる。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">Q4</span>
+          <p>ZOZOTOWN事業のGMV 5,166億円、年間購入者数1,317万人から計算される、購入者1人あたりの年間購入額（GMVベース）に最も近いのはどれか？</p>
+          <p class="hint">ヒント: 演習2と同じ計算。億円 ÷ 万人 の単位換算に注意</p>
+        </div>
+        <ol class="qz-choices">
+          <li>約4,000円</li>
+          <li>約13,000円</li>
+          <li>約39,000円</li>
+          <li>約90,000円</li>
+        </ol>
+        <details>
+          <summary>答えを見る</summary>
+          <div class="ans">
+            <p class="calc">5,166億円 ÷ 1,317万人 ≒ 39,000円/人・年 → 正解: C</p>
+            <p>会社開示のアクティブ会員1人あたり年間購入額（約43,000円）とはやや算出ベースが異なるが、桁感は一致する。売上を「人数 × 単価」に分解すると成長の源泉を切り分けられる。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">Q5</span>
+          <p>営業利益694億円を「その他商品取扱高を除くGMV」6,462億円で割った「対GMV営業利益率」に最も近いのはどれか？</p>
+        </div>
+        <ol class="qz-choices">
+          <li>約5%</li>
+          <li>約10.7%</li>
+          <li>約19%</li>
+          <li>約30.4%</li>
+        </ol>
+        <details>
+          <summary>答えを見る</summary>
+          <div class="ans">
+            <p class="calc">694億円 ÷ 6,462億円 ≒ 10.7% → 正解: B</p>
+            <p>30.4%は「対売上高」の営業利益率。同じ会社でも分母を変えると数字の印象が大きく変わる。GMV型のメルカリと比べるときは分母を揃えた「対GMV」の方が公平になる（演習3参照）。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">Q6</span>
+          <p>ZOZO（2026年3月期）とメルカリ（2026年6月期）の直近通期を比較した記述として正しいものはどれか？</p>
+        </div>
+        <ol class="qz-choices">
+          <li>売上高はほぼ同水準だが、ZOZOの方が営業利益・営業利益率ともに高い</li>
+          <li>売上高・営業利益ともにメルカリの方が大きい</li>
+          <li>両社とも受託・販売の手数料率は同じ約10%である</li>
+          <li>ZOZOはCtoC、メルカリはBtoBtoCの商流である</li>
+        </ol>
+        <details>
+          <summary>答えを見る</summary>
+          <div class="ans">
+            <p class="calc">売上高 ZOZO 2,284億円／メルカリ 2,293億円（ほぼ同額）、営業利益 ZOZO 694億円／メルカリ 439億円 → 正解: A</p>
+            <p>手数料率はZOZO約27%・メルカリ10%で異なり、商流もZOZOがBtoBtoC（ブランド→個人）、メルカリがCtoC（個人間）と逆。売上がほぼ同じでも営業利益は255億円差がつく。次の3問は、この差がどこから来るのかを掘り下げる。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">Q7</span>
+          <p>ZOZOにはあって、メルカリには必要ない機能はどれか？</p>
+          <p class="hint">ヒント: ZOZOは撮影・採寸・物流・CSまでECの全業務を代行するが、メルカリは個人間の出品者が自分で梱包・発送する</p>
+        </div>
+        <ol class="qz-choices">
+          <li>決済システム</li>
+          <li>倉庫・物流（在庫の保管・梱包・配送機能）</li>
+          <li>カスタマーサポート窓口</li>
+          <li>スマートフォンアプリのUI</li>
+        </ol>
+        <details>
+          <summary>答えを見る</summary>
+          <div class="ans">
+            <p class="calc">正解: B（倉庫・物流）</p>
+            <p>ZOZOは受託販売のためブランドの在庫を預かり、自社の倉庫で保管・撮影・採寸したうえで梱包・配送まで担う。メルカリはCtoCのマッチングと決済が中心で、商品の保管・発送は出品者本人が行うため、ZOZOのような大規模な倉庫・物流機能を自社で持つ必要がない。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">Q8</span>
+          <p>Q7の「倉庫・物流を自社で持たなくてよい」ことのおかげで、メルカリはPLのどの科目を軽くできるか？</p>
+        </div>
+        <ol class="qz-choices">
+          <li>売上原価</li>
+          <li>営業外費用</li>
+          <li>販管費（物流関連費）</li>
+          <li>法人税等</li>
+        </ol>
+        <details>
+          <summary>答えを見る</summary>
+          <div class="ans">
+            <p class="calc">正解: C（販管費）</p>
+            <p>用語ミニ辞典の「販管費」項目のとおり、ZOZOの販管費（1,436億円、対GMV 22.2%）の内訳の最大項目は物流関連費と人件費。メルカリは倉庫・物流を自前で持たない分、この物流関連費が構造的に軽く、対売上高の営業利益率19.1%につながっている。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">Q9</span>
+          <p>ビジネスモデルはBtoBtoCとCtoCで異なるが、ZOZOとメルカリが顧客に提供している共通の価値（財）は何か？</p>
+        </div>
+        <ol class="qz-choices">
+          <li>好きなアパレル商品を手に入れられること</li>
+          <li>実店舗と同じ接客体験</li>
+          <li>海外ブランドの正規輸入品を独占的に扱えること</li>
+          <li>月額制で服を借りられるレンタルサービス</li>
+        </ol>
+        <details>
+          <summary>答えを見る</summary>
+          <div class="ans">
+            <p class="calc">正解: A（好きなアパレル商品）</p>
+            <p>ZOZOは新品をブランドから、メルカリは個人の手持ち品を、それぞれ別の商流で届けているが、利用者にとっての価値は同じ「欲しいアパレル商品に出会えて手に入る」こと。仕入れ方・在庫の持ち方・手数料構造は違っても、提供している財（欲求の充足）は共通している。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">Q10</span>
+          <p>決算資料に出てくる「利益率」のような比率を会社間で比較するとき、本文が強調している注意点はどれか？</p>
+        </div>
+        <ol class="qz-choices">
+          <li>比率は必ず対売上高で統一して比較すべきである</li>
+          <li>ビジネスモデルが異なる会社を比べるときは、分母（対売上高か対GMVか等）を揃える必要がある</li>
+          <li>GMV型の会社同士は、そもそも比率を比較する意味がない</li>
+          <li>営業利益率は会社の開示資料に頼らず、自分で仮定した数値を使うべきである</li>
+        </ol>
+        <details>
+          <summary>答えを見る</summary>
+          <div class="ans">
+            <p class="calc">正解: B</p>
+            <p>受託販売は手数料しか売上計上しないため、対売上高の利益率は自動的に高く出る（演習3）。分母を揃えるのが鉄則で、GMV型同士なら「対GMV利益率」が公平なモノサシになる。決算資料で率を見たら「分母は何か」を必ず確認する。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>出典: 株式会社ZOZO「2026年3月期 決算説明会資料」「2026年3月期 決算短信」（2026年4月30日発表）、株式会社メルカリ「2026年6月期 決算短信」（2026年8月5日発表）。金額は連結ベース、億円未満は四捨五入。本資料は講義用の教材であり、投資勧誘を目的とするものではありません。</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  // Colors are kept as var(--token) references (applied via style) so the
+  // charts follow theme changes live instead of freezing load-time values.
+  function tok(name) { return "var(" + name + ")"; }
+  var NS = "http://www.w3.org/2000/svg";
+  function el(name, attrs, parent) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) {
+      if (k === "fill" || k === "stroke") e.style[k] = attrs[k];
+      else e.setAttribute(k, attrs[k]);
+    }
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function txt(parent, x, y, str, attrs) {
+    var t = el("text", Object.assign({ x: x, y: y, "font-size": 12, fill: tok("--ink-2") }, attrs || {}), parent);
+    t.textContent = str;
+    return t;
+  }
+  // rounded-top bar anchored to baseline
+  function bar(parent, x, yTop, w, yBase, fill, label) {
+    var r = Math.min(4, w / 2, Math.max(0, yBase - yTop));
+    var d = "M" + x + "," + yBase +
+            " L" + x + "," + (yTop + r) +
+            " Q" + x + "," + yTop + " " + (x + r) + "," + yTop +
+            " L" + (x + w - r) + "," + yTop +
+            " Q" + (x + w) + "," + yTop + " " + (x + w) + "," + (yTop + r) +
+            " L" + (x + w) + "," + yBase + " Z";
+    var p = el("path", { d: d, fill: fill }, parent);
+    if (label) { var t = el("title", {}, p); t.textContent = label; }
+    return p;
+  }
+
+  /* ---- Chart 1: grouped bars, 6 years x 3 series (億円) ---- */
+  (function () {
+    var svg = document.getElementById("trend");
+    if (!svg) return;
+    var years = ["21/3期", "22/3期", "23/3期", "24/3期", "25/3期", "26/3期"];
+    var series = [
+      { name: "商品取扱高", vals: [4194, 5089, 5443, 5744, 6144, 6660], color: tok("--s1") },
+      { name: "売上高",     vals: [1474, 1662, 1834, 1970, 2131, 2284], color: tok("--s2") },
+      { name: "営業利益",   vals: [441, 497, 564, 601, 648, 694],       color: tok("--s3") }
+    ];
+    var L = 56, R = 16, T = 26, B = 40, W = 800, H = 320;
+    var plotW = W - L - R, plotH = H - T - B, base = T + plotH;
+    var maxV = 7000;
+    function y(v) { return base - (v / maxV) * plotH; }
+    // grid + y labels
+    [0, 2000, 4000, 6000].forEach(function (g) {
+      el("line", { x1: L, x2: W - R, y1: y(g), y2: y(g), stroke: g === 0 ? tok("--axis") : tok("--grid"), "stroke-width": 1 }, svg);
+      txt(svg, L - 8, y(g) + 4, g.toLocaleString(), { "text-anchor": "end", fill: tok("--ink-muted"), "font-size": 11 });
+    });
+    var groupW = plotW / years.length, bw = 24, gap = 4;
+    years.forEach(function (yr, i) {
+      var gx = L + groupW * i + (groupW - (bw * 3 + gap * 2)) / 2;
+      series.forEach(function (s, j) {
+        var v = s.vals[i];
+        bar(svg, gx + j * (bw + gap), y(v), bw, base, s.color, yr + " " + s.name + " " + v.toLocaleString() + "億円");
+        if (i === years.length - 1) {
+          txt(svg, gx + j * (bw + gap) + bw / 2, y(v) - 7, v.toLocaleString(),
+            { "text-anchor": "middle", "font-weight": 700, "font-size": 11.5, fill: tok("--ink") });
+        }
+      });
+      txt(svg, L + groupW * i + groupW / 2, base + 20, yr, { "text-anchor": "middle", fill: tok("--ink-muted"), "font-size": 11.5 });
+    });
+  })();
+
+  /* ---- Chart 2: funnel GMV -> revenue -> operating income ---- */
+  (function () {
+    var svg = document.getElementById("funnel");
+    if (!svg) return;
+    var rows = [
+      { name: "商品取扱高（GMV）", v: 6660, color: tok("--f1"), note: "" },
+      { name: "売上高",            v: 2284, color: tok("--f2"), note: "テイクレート等で約35%が売上に" },
+      { name: "営業利益",          v: 694,  color: tok("--f3"), note: "販管費・原価を引いた残り" }
+    ];
+    var L = 150, R = 170, W = 800, rowH = 34, gapY = 22, T = 16;
+    var plotW = W - L - R, maxV = 6660;
+    rows.forEach(function (r, i) {
+      var yTop = T + i * (rowH + gapY);
+      var w = Math.max((r.v / maxV) * plotW, 8);
+      txt(svg, L - 10, yTop + rowH / 2 + 4, r.name, { "text-anchor": "end", "font-weight": 700, "font-size": 12.5, fill: tok("--ink") });
+      var rect = el("rect", { x: L, y: yTop, width: w, height: rowH, rx: 4, fill: r.color }, svg);
+      var t = el("title", {}, rect); t.textContent = r.name + " " + r.v.toLocaleString() + "億円";
+      txt(svg, L + w + 10, yTop + rowH / 2 + 4, r.v.toLocaleString() + "億円",
+        { "font-weight": 800, "font-size": 13.5, fill: tok("--ink") });
+      if (r.note) txt(svg, L + w + 10, yTop + rowH / 2 + 20, r.note, { "font-size": 10.5, fill: tok("--ink-muted") });
+    });
+  })();
+
+  /* ---- Chart 3: 100% stacked composition ---- */
+  (function () {
+    var svg = document.getElementById("mix");
+    if (!svg) return;
+    var parts = [
+      { name: "受託販売", v: 4927, color: tok("--s1") },
+      { name: "LINEヤフーコマース", v: 789, color: tok("--s2") },
+      { name: "LYST", v: 422, color: tok("--s3") },
+      { name: "USED", v: 211, color: tok("--s4") },
+      { name: "その他・BtoB・買取等", v: 311, color: tok("--s-other") }
+    ];
+    var total = 6660, L = 8, R = 8, W = 800, T = 8, H = 40;
+    var plotW = W - L - R, x = L;
+    parts.forEach(function (p, i) {
+      var w = (p.v / total) * plotW;
+      var rect = el("rect", { x: x + 1, y: T, width: Math.max(w - 2, 2), height: H, rx: 4, fill: p.color }, svg);
+      var t = el("title", {}, rect);
+      t.textContent = p.name + " " + p.v.toLocaleString() + "億円（" + Math.round((p.v / total) * 100) + "%）";
+      if (w > 90) {
+        txt(svg, x + w / 2, T + H / 2 + 4, Math.round((p.v / total) * 100) + "%",
+          { "text-anchor": "middle", "font-weight": 800, "font-size": 13, fill: "#ffffff" });
+      }
+      x += w;
+    });
+  })();
+})();
+</script>
+</body>
+</html>
