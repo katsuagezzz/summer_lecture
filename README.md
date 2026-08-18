@@ -17,7 +17,7 @@
 |---|---|---|---|
 | 夏期 第3回 | 2026-08-18 | 上場が答え合わせをする夏 ― SpaceX、Anthropic、そして「電力」という首 | [HTML](lectures/lecture_20260818.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260818.html) |
 | 個別 | 2026-08-21 | 在庫を持たない会社が、世界でいちばん重い買い物を始めた（BS・固定資産・減価償却） | [HTML](lectures/lecture_toyonaga_20260821.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260821.html) |
-| 個別 | 2026-08-24 | 日本の物価を読む ― 輸入物価+29.1%は、どこで+1.6%になったのか（為替・金利・インフレ） | [HTML](lectures/lecture_sasaki_20260824.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260824.html) |
+| 個別 | 2026-08-20 | 日本の物価を読む ― 輸入物価+29.1%は、どこで+1.6%になったのか（為替・金利・インフレ） | [HTML](lectures/lecture_sasaki_20260820.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260820.html) |
 
 ## 復習ページ
 
