@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>金利・為替・インフレの関係性</title>
+<meta name="description" content="金利・為替・インフレが1本の輪としてどうつながっているかを、矢印3本と電卓3問で理解する30分教材（ケーススタディ 第3回・マクロ編）">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #f9f9f7;
+    --surface: #fcfcfb;
+    --surface-raised: #ffffff;
+    --ink: #141413;
+    --ink-2: #52514e;
+    --ink-muted: #898781;
+    --hairline: #e1e0d9;
+    --border: rgba(11, 11, 11, 0.10);
+    --accent: #2a78d6;
+    --accent-ink: #1c5cab;
+    --accent-wash: rgba(42, 120, 214, 0.08);
+    --good: #006300;
+    /* 三角形の3つの角 — この3色はページ全体で意味を固定する */
+    --fx: #2a78d6;      /* 為替 */
+    --price: #eb6834;   /* 物価 */
+    --rate: #1baf7a;    /* 金利 */
+    --fx-wash: rgba(42, 120, 214, 0.10);
+    --price-wash: rgba(235, 104, 52, 0.10);
+    --rate-wash: rgba(27, 175, 122, 0.10);
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --s4: #eda100;
+    --s-other: #898781;
+    --f1: #86b6ef;
+    --f2: #2a78d6;
+    --f3: #104281;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-raised: #222220;
+      --ink: #f4f3ef;
+      --ink-2: #c3c2b7;
+      --ink-muted: #898781;
+      --hairline: #2c2c2a;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #3987e5;
+      --accent-ink: #86b6ef;
+      --accent-wash: rgba(57, 135, 229, 0.14);
+      --good: #0ca30c;
+      --fx: #3987e5;
+      --price: #f07a44;
+      --rate: #199e70;
+      --fx-wash: rgba(57, 135, 229, 0.16);
+      --price-wash: rgba(240, 122, 68, 0.16);
+      --rate-wash: rgba(25, 158, 112, 0.16);
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --s4: #c98500;
+      --s-other: #898781;
+      --f1: #6da7ec;
+      --f2: #3987e5;
+      --f3: #184f95;
+      --grid: #2c2c2a;
+      --axis: #383835;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-raised: #222220;
+    --ink: #f4f3ef;
+    --ink-2: #c3c2b7;
+    --ink-muted: #898781;
+    --hairline: #2c2c2a;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #3987e5;
+    --accent-ink: #86b6ef;
+    --accent-wash: rgba(57, 135, 229, 0.14);
+    --good: #0ca30c;
+    --fx: #3987e5;
+    --price: #f07a44;
+    --rate: #199e70;
+    --fx-wash: rgba(57, 135, 229, 0.16);
+    --price-wash: rgba(240, 122, 68, 0.16);
+    --rate-wash: rgba(25, 158, 112, 0.16);
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s-other: #898781;
+    --f1: #6da7ec;
+    --f2: #3987e5;
+    --f3: #184f95;
+    --grid: #2c2c2a;
+    --axis: #383835;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.75;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; }
+
+  /* ---------- header ---------- */
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.14em; color: var(--accent-ink);
+    font-weight: 700; text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(30px, 5.4vw, 44px); font-weight: 800; line-height: 1.25;
+    letter-spacing: 0.01em; margin: 10px 0 14px; text-wrap: balance;
+  }
+  .lede { color: var(--ink-2); max-width: 40em; }
+  .lede strong { color: var(--ink); }
+  .meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+    border: 1px solid var(--hairline); background: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .chip em { font-style: normal; color: var(--accent-ink); }
+
+  /* ---------- series tabs ---------- */
+  .tabs {
+    display: flex; gap: 4px; margin-top: 28px;
+    border-bottom: 1px solid var(--hairline);
+    overflow-x: auto; scrollbar-width: thin;
+  }
+  .tab {
+    flex: 0 0 auto; display: block; text-decoration: none;
+    padding: 10px 16px 9px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 8px 8px 0 0; margin-bottom: -1px;
+    font-size: 13.5px; font-weight: 700; color: var(--ink-muted);
+    white-space: nowrap; transition: color .12s ease, background .12s ease;
+  }
+  .tab small { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-muted); }
+  a.tab { color: var(--accent-ink); }
+  a.tab small { color: var(--ink-2); }
+  a.tab:hover { background: var(--accent-wash); }
+  a.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  a.tab .ext { font-weight: 500; font-size: 11px; }
+  .tab.is-current {
+    color: var(--ink); background: var(--surface);
+    border-color: var(--hairline); border-bottom: 1px solid var(--surface);
+  }
+  .tab.is-past { cursor: default; opacity: .55; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 56px; }
+  .step-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .step-time {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  h2 { font-size: 23px; font-weight: 800; line-height: 1.35; text-wrap: balance; }
+  h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  section > p, .card > p { color: var(--ink-2); max-width: 44em; }
+  section > p strong, .card p strong, li strong { color: var(--ink); }
+  .sec-note { font-size: 13px; color: var(--ink-muted); margin-top: 10px; }
+
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; margin-top: 18px; border-top: 1px solid var(--hairline); }
+  .agenda li {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 14px;
+    align-items: baseline; padding: 11px 4px; border-bottom: 1px solid var(--hairline);
+  }
+  .agenda .t { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13.5px; color: var(--accent-ink); }
+  .agenda .what { font-weight: 600; }
+  .agenda .what small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-muted); }
+  .agenda .min { font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+
+  /* ---------- cards / callout / recall ---------- */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px; margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-wash);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 18px;
+    max-width: 46em;
+  }
+  .callout p { color: var(--ink-2); }
+  .callout .q { font-weight: 700; color: var(--ink); }
+  .recalls { display: grid; gap: 10px; margin-top: 18px; }
+  .recall {
+    border: 1px dashed var(--axis); background: var(--surface);
+    border-radius: 10px; padding: 14px 18px; max-width: 46em;
+  }
+  .recall .who { font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; color: var(--ink-muted); }
+  .recall .said { font-weight: 700; color: var(--ink); margin-top: 2px; }
+  .recall .note { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+
+  /* ---------- KPI tiles ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; border-top: 3px solid var(--border);
+  }
+  .tile.fx { border-top-color: var(--fx); }
+  .tile.rate { border-top-color: var(--rate); }
+  .tile.price { border-top-color: var(--price); }
+  .tile .k { font-size: 12px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .tile .v { font-size: 25px; font-weight: 800; line-height: 1.3; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .tile .v small { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .tile .d { font-size: 12.5px; font-weight: 600; margin-top: 1px; color: var(--ink-2); }
+  .tile .d.up { color: var(--good); }
+  .unsure { color: var(--s2); font-weight: 700; }
+
+  /* ---------- formula ---------- */
+  .formula {
+    margin-top: 18px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; font-weight: 700; font-size: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  }
+  .formula .num { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .formula small { font-weight: 500; color: var(--ink-muted); flex-basis: 100%; font-size: 12.5px; }
+
+  /* ---------- charts / diagram ---------- */
+  figure { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 14px; }
+  figcaption { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .figsub { font-size: 12.5px; color: var(--ink-muted); margin-bottom: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .chart-scroll { overflow-x: auto; }
+  .chart-scroll svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  svg text { font-family: inherit; }
+  .diagram { color: var(--ink-muted); }
+  .src { font-size: 11.5px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- exercise ---------- */
+  .ex { margin-top: 18px; }
+  .ex .card { padding: 0; overflow: hidden; }
+  .ex-q { padding: 18px 22px 6px; }
+  .ex-q .no {
+    display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    border-radius: 4px; padding: 2px 8px; margin-bottom: 8px;
+  }
+  .ex-q p { color: var(--ink); font-weight: 600; max-width: 44em; }
+  .ex-q .hint { font-weight: 400; font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+  .qz-choices { list-style: none; counter-reset: qc; margin: 12px 22px 4px; padding: 0; display: grid; gap: 6px; max-width: 46em; }
+  .qz-choices li {
+    counter-increment: qc; position: relative; border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 8px 14px 8px 40px; font-size: 14px; color: var(--ink-2);
+  }
+  .qz-choices li::before {
+    content: counter(qc, upper-alpha); position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    font-weight: 800; font-size: 12.5px; color: var(--accent-ink);
+  }
+  details { border-top: 1px solid var(--hairline); margin-top: 14px; }
+  summary {
+    cursor: pointer; padding: 12px 22px; font-weight: 700; font-size: 13.5px;
+    color: var(--accent-ink); list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "\25B8  "; }
+  details[open] summary::before { content: "\25BE  "; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 6px; }
+  .ans { padding: 0 22px 18px; color: var(--ink-2); max-width: 46em; }
+  .ans .calc {
+    font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink);
+    background: var(--accent-wash); border-radius: 8px; padding: 10px 14px; margin: 8px 0 10px;
+    display: inline-block;
+  }
+
+  /* ---------- tables ---------- */
+  .tbl-scroll { overflow-x: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; background: var(--surface); font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td:first-child { font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td small { display: block; color: var(--ink-muted); font-size: 12px; }
+  .tbl-note { font-size: 12px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- discussion / glossary ---------- */
+  .qlist { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+  .qlist li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .qlist .q { font-weight: 700; }
+  .qlist .why { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  dl.gloss { margin-top: 16px; border-top: 1px solid var(--hairline); }
+  dl.gloss > div { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 12px 4px; border-bottom: 1px solid var(--hairline); }
+  @media (max-width: 560px) { dl.gloss > div { grid-template-columns: 1fr; gap: 2px; } }
+  dt { font-weight: 700; font-size: 14px; }
+  dt small { display: block; font-weight: 400; font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  dd { color: var(--ink-2); font-size: 14px; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 18px; font-size: 12.5px; color: var(--ink-muted); }
+  footer p { max-width: none; }
+  footer p + p { margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print {
+    body { background: #fff; }
+    .tabs { display: none; }
+    details { border-top: none; }
+    summary { display: none; }
+    .ans { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">ケーススタディ · 第3回（マクロ編）</p>
+    <h1>金利・為替・インフレの関係性</h1>
+    <p class="lede">日本に入ってくるモノの値段（輸入物価）は、前年比<strong> +29.1%</strong>。
+    ところが君がコンビニで払う値段（消費者物価）は<strong> +1.6%</strong> しか上がっていない。
+    <strong>27.5ポイントは、どこへ消えたのか。</strong>
+    前回のZOZOで手に入れた「分母を確認する」を、会社ではなく<strong>日本ぜんぶ</strong>に当てる回。</p>
+    <div class="meta-chips">
+      <span class="chip">2026年8月20日（木）<em>9:00–9:30</em></span>
+      <span class="chip">30分</span>
+      <span class="chip">題材: <em>為替・金利・インフレ</em>（2026年8月時点）</span>
+      <span class="chip">前回: ZOZO編（受託販売とテイクレート）</span>
+    </div>
+
+    <nav class="tabs" aria-label="ケーススタディ シリーズ">
+      <span class="tab is-past" title="配布資料リンクなし（講義のみ）">第1回　メルカリ<small>GMVと営業損失</small></span>
+      <a class="tab" href="lecture_sasaki_20260817.html">第2回　ZOZOの決算を読む<small>受託販売とテイクレート <span class="ext">&#8594;</span></small></a>
+      <span class="tab is-current" aria-current="page">第3回　金利・為替・インフレ<small>三角形の一周（今回）</small></span>
+    </nav>
+  </header>
+
+  <!-- AGENDA -->
+  <section>
+    <h2>本日の流れ</h2>
+    <ol class="agenda">
+      <li><span class="t">9:00–9:03</span><span class="what">前回の復習と今日の問い<small>ZOZOで手に入れた3つの道具を、国の数字に持ち込む</small></span><span class="min">3分</span></li>
+      <li><span class="t">9:03–9:10</span><span class="what">三角形を一周する<small>為替 → 物価 → 金利 → 為替。3つは輪になってつながっている</small></span><span class="min">7分</span></li>
+      <li><span class="t">9:10–9:18</span><span class="what">数字で見る「いま」<small>川上の+29.1%が、川下で+1.6%になるまで</small></span><span class="min">8分</span></li>
+      <li><span class="t">9:18–9:25</span><span class="what">計算演習<small>円安がいくら値段を押し上げたのかを、自分で出す</small></span><span class="min">7分</span></li>
+      <li><span class="t">9:25–9:30</span><span class="what">2つのズレを議論<small>薄まった27.5ポイントの行き先／利上げしたのに止まらない円安</small></span><span class="min">5分</span></li>
+    </ol>
+  </section>
+
+  <!-- STEP 1 -->
+  <section>
+    <div class="step-head"><span class="step-time">9:00–9:03</span><h2>前回の復習と、今日の問い</h2></div>
+    <p>前回のZOZOで、道具が3つ手に入った。今日は会社の決算をやらない。<strong>日本という国ぜんぶ</strong>を1枚のPLだと思って読む。
+    使う道具は同じで、数字の桁と登場人物が変わるだけだ。</p>
+    <div class="recalls">
+      <div class="recall">
+        <p class="who">前回の道具 &#9312;</p>
+        <p class="said">率を見たら、まず「分母は何か」を確認する</p>
+        <p class="note">ZOZOの営業利益率は30.4%とも10.7%とも言えた。分母が売上高かGMVかで景色が変わる。今日は<strong>「何%上がった」の分母は誰の値段なのか</strong>を、川上・川中・川下で3回聞く。</p>
+      </div>
+      <div class="recall">
+        <p class="who">前回の道具 &#9313;</p>
+        <p class="said">GMV → 売上高 → 営業利益の「3段変換」</p>
+        <p class="note">上の段の大きな数字が、段を下るたびに削られて小さくなる形。今日はまったく同じ形が出てくる ── <strong>輸入物価 → 企業物価 → 消費者物価</strong>。図を見た瞬間に「あ、前回のやつだ」と言えたら勝ち。</p>
+      </div>
+      <div class="recall">
+        <p class="who">前回の道具 &#9314;</p>
+        <p class="said">受託手数料は「ECの面倒な仕事ぜんぶ」の対価</p>
+        <p class="note">高い・安いではなく、<strong>誰が何を負担しているか</strong>で読む。今日の主役も同じ問いだ ── 上がったコストを、<strong>ブランド・小売・消費者・政府のうち誰が飲んだのか</strong>。</p>
+      </div>
+    </div>
+    <div class="callout">
+      <p class="q">今日の問い：円安・金利・物価は、それぞれ別のニュースではなく<strong>1本の輪</strong>である。どの向きに、どうつながっているか？</p>
+      <p>ゴールは暗記ではない。<strong>「円が安くなると、なぜ物価が上がって、なぜ日銀が金利を上げるのか」を、矢印3本で口で言えること。</strong>細かい例外は今日は全部捨ててよい。</p>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section>
+    <div class="step-head"><span class="step-time">9:03–9:10</span><h2>三角形を一周する</h2></div>
+    <p>為替・物価・金利。ニュースでは別々の記事として出てくるが、実際には<strong>この3つは順番に押し合っている</strong>。
+    まず輪を1周させて、そのあと「いま、輪のどこが詰まっているか」を見る。</p>
+
+    <figure>
+      <figcaption>為替 &rarr; 物価 &rarr; 金利 &rarr; 為替 ── 押し合いは輪になっている</figcaption>
+      <p class="figsub">前の2本（実線）はいま実際に効いている。最後の1本（破線）が、いま効きの弱いところ</p>
+      <div class="chart-scroll">
+        <svg class="diagram" viewBox="0 0 900 300" role="img" aria-label="円安が輸入品の円建て価格を押し上げて物価が上がり、物価上昇に対して日銀が利上げをし、本来は金利の高い通貨が買われて円高に戻るという循環。ただし日本の金利1.00%に対し米国は3.50から3.75%で、最後の戻りの矢印は効きが弱い">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"></path>
+            </marker>
+          </defs>
+
+          <!-- node 1: 円安 -->
+          <rect x="15" y="34" width="170" height="74" rx="10" style="fill:var(--fx-wash);stroke:var(--fx)" stroke-width="1.5"></rect>
+          <text x="100" y="66" text-anchor="middle" font-size="16" font-weight="800" style="fill:var(--ink)">円安</text>
+          <text x="100" y="90" text-anchor="middle" font-size="11.5" style="fill:var(--ink-2)">1ドル＝158〜160円台</text>
+
+          <!-- node 2: 物価 -->
+          <rect x="365" y="34" width="170" height="74" rx="10" style="fill:var(--price-wash);stroke:var(--price)" stroke-width="1.5"></rect>
+          <text x="450" y="66" text-anchor="middle" font-size="16" font-weight="800" style="fill:var(--ink)">物価が上がる</text>
+          <text x="450" y="90" text-anchor="middle" font-size="11.5" style="fill:var(--ink-2)">インフレ</text>
+
+          <!-- node 3: 金利 -->
+          <rect x="715" y="34" width="170" height="74" rx="10" style="fill:var(--rate-wash);stroke:var(--rate)" stroke-width="1.5"></rect>
+          <text x="800" y="66" text-anchor="middle" font-size="16" font-weight="800" style="fill:var(--ink)">金利が上がる</text>
+          <text x="800" y="90" text-anchor="middle" font-size="11.5" style="fill:var(--ink-2)">日銀が利上げ</text>
+
+          <!-- arrow 1 -->
+          <line x1="193" y1="71" x2="355" y2="71" stroke="currentColor" stroke-width="1.6" marker-end="url(#ar)"></line>
+          <text x="274" y="50" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--ink)">輸入品が円で高くなる</text>
+          <text x="274" y="96" text-anchor="middle" font-size="11" style="fill:var(--ink-muted)">輸入物価 +29.1%</text>
+
+          <!-- arrow 2 -->
+          <line x1="543" y1="71" x2="705" y2="71" stroke="currentColor" stroke-width="1.6" marker-end="url(#ar)"></line>
+          <text x="624" y="50" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--ink)">熱を冷ましにいく</text>
+          <text x="624" y="96" text-anchor="middle" font-size="11" style="fill:var(--ink-muted)">政策金利 1.00%へ</text>
+
+          <!-- return path -->
+          <path d="M 800 116 L 800 196 L 100 196 L 100 120" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#ar)"></path>
+          <text x="450" y="220" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--ink)">金利の高い通貨が買われる &rarr; 本来はここで円高に戻る</text>
+          <text x="450" y="244" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">いま効きが弱い ── 日本 1.00% に対して 米国 3.50〜3.75%。差が 2.6ポイント 開いたまま</text>
+          <text x="450" y="268" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">＝ 円安が続く &rarr; 輪の1本目に戻ってしまう</text>
+        </svg>
+      </div>
+      <p class="src">政策金利は日本銀行・FRBの公表値（2026年8月18日時点）。輸入物価は日本銀行「企業物価指数（2026年7月速報）」円ベース前年比</p>
+    </figure>
+
+    <p>矢印は3本しかない。順に日本語で言ってみる。</p>
+    <div class="formula">
+      <span>&#9312;</span><span>円が安くなる</span><span>&rarr;</span><span>輸入するモノが<strong>円では</strong>高くなる</span><span>&rarr;</span><span>物価が上がる</span>
+      <small>石油・小麦・半導体・服。日本は使うものの多くを外から買っている。ドルでの値段が同じでも、円が安ければ日本での値段は上がる ── 演習1でこれを電卓で確かめる。</small>
+    </div>
+    <div class="formula">
+      <span>&#9313;</span><span>物価が上がる</span><span>&rarr;</span><span>中央銀行（日銀）が金利を上げる</span>
+      <small>金利は「お金を借りる値段」。上げると借りにくくなり、世の中に出回るお金が減り、物価の上がり方が鈍る。冷房のスイッチだと思っておく。</small>
+    </div>
+    <div class="formula">
+      <span>&#9314;</span><span>金利が上がる</span><span>&rarr;</span><span>その国の通貨が買われる</span><span>&rarr;</span><span>通貨高（円高）</span>
+      <small>金利が高い国にお金を置いた方が多く儲かるから、世界のお金がそっちへ動く。動くには<strong>その国の通貨を買う</strong>必要がある。だから「金利が高い通貨は買われる」。</small>
+    </div>
+    <p class="sec-note">この&#9314;が効けば円高に戻り、輸入物価が下がり、インフレが収まる ── 教科書ではここで輪が止まる。ところが実際には止まっていない。理由は次のセクションの数字にある。</p>
+  </section>
+
+  <!-- STEP 3 -->
+  <section>
+    <div class="step-head"><span class="step-time">9:10–9:18</span><h2>数字で見る「いま」 ── 2026年8月18日</h2></div>
+    <p>覚えるのは6つだけ。色は三角形と同じで、<span style="color:var(--fx);font-weight:700">青が為替</span>・
+    <span style="color:var(--rate);font-weight:700">緑が金利</span>・<span style="color:var(--price);font-weight:700">橙が物価</span>。</p>
+
+    <div class="tiles">
+      <div class="tile fx"><p class="k">ドル円</p><p class="v">158〜160<small> 円台</small></p><p class="d">7月末に日米で協調介入<span class="unsure"> ・報道ベース</span></p></div>
+      <div class="tile rate"><p class="k">日銀 政策金利</p><p class="v">1.00<small> %</small></p><p class="d">2026年6月に +0.25%</p></div>
+      <div class="tile rate"><p class="k">米 FF金利（誘導目標）</p><p class="v">3.50–3.75<small> %</small></p><p class="d">5会合連続の据え置き</p></div>
+      <div class="tile price"><p class="k">輸入物価（円ベース）</p><p class="v">+29.1<small> %</small></p><p class="d">2026年7月・前年比</p></div>
+      <div class="tile price"><p class="k">日本 消費者物価（コア）</p><p class="v">+1.6<small> %</small></p><p class="d">2026年6月・前年比</p></div>
+      <div class="tile price"><p class="k">米 消費者物価</p><p class="v">+3.4<small> %</small></p><p class="d">2026年7月・前年比</p></div>
+    </div>
+
+    <h3 style="margin-top:36px">ズレ&#9312; ── 川上の +29.1% は、川下で +1.6% になっている</h3>
+    <p>物価の統計は1つではない。<strong>誰が誰に売るときの値段か</strong>で3つに分かれていて、川上から川下へ順に並ぶ。
+    そして下るたびに、上がり方がどんどん小さくなる。</p>
+
+    <figure>
+      <figcaption>3段変換 ── 前回のGMV &rarr; 売上高 &rarr; 営業利益と、まったく同じ形</figcaption>
+      <p class="figsub">すべて前年比の上昇率（%）。棒の長さは上昇率そのもの</p>
+      <div class="chart-scroll"><svg id="funnel" viewBox="0 0 800 210" role="img" aria-label="輸入物価プラス29.1%、国内企業物価プラス7.2%、消費者物価コアプラス1.6%と、川上から川下へ上昇率が小さくなるファネル図"></svg></div>
+      <p class="src">出典: 日本銀行「企業物価指数（2026年7月速報）」2026年8月13日公表／総務省統計局「消費者物価指数 全国 2026年6月分」2026年7月24日公表</p>
+    </figure>
+
+    <div class="callout">
+      <p class="q">仕入れ値が +29.1% 上がっているのに、店頭価格は +1.6% しか上がっていない。差の <strong>27.5ポイント</strong> は、誰が飲んだのか？</p>
+      <p>ここが今日いちばん大事なところ。ヒントは<strong>前回のZOZOでやった原価率</strong>にある ── 仕入れが上がったのに売値を上げられなければ、削られるのは<strong>会社の利益</strong>だ。議論Q1で正面からやる。</p>
+    </div>
+
+    <h3 style="margin-top:36px">ズレ&#9313; ── 日銀は利上げした。それでも円安は止まらない</h3>
+    <p>日銀は2024年3月にマイナス金利をやめてから、2年あまりかけて<strong>0%台から1.00%まで</strong>金利を上げてきた。
+    「金利を上げれば円高になる」なら、円は高くなっているはずだ。ところが8月のドル円は158〜160円台にいる。</p>
+
+    <figure>
+      <figcaption>日銀の政策金利 ── 動かないものではなく、この2年で動いたもの</figcaption>
+      <p class="figsub">階段の1段が1回の利上げ。左端の起点は2024年3月のマイナス金利解除。次の会合は9月17〜18日</p>
+      <div class="chart-scroll"><svg id="steps" viewBox="0 0 800 250" role="img" aria-label="日銀の政策金利が2024年3月の0.1%から2024年7月0.25%、2025年1月0.5%、2025年12月0.75%、2026年6月1.00%へと段階的に引き上げられた推移"></svg></div>
+      <p class="src">出典: 日本銀行 金融政策決定会合の公表資料。9月会合（9/17–18）での追加利上げ予想は市場で6割超<span class="unsure">（報道ベース・二次情報）</span></p>
+    </figure>
+
+    <p>理由は「日本の金利が上がったかどうか」ではない。<strong>相手（アメリカ）との差がいくつ開いているか</strong>だ。
+    お金は「上がった国」ではなく「<strong>いま置いておくと得な国</strong>」へ動く。</p>
+
+    <figure>
+      <figcaption>日米を並べる ── 金利も物価も、アメリカの方が高い</figcaption>
+      <p class="figsub">単位は%。政策金利は中央銀行が決める短い金利、10年国債利回りは市場が決める長い金利</p>
+      <div class="legend">
+        <span><i style="background:var(--rate)"></i>政策金利</span>
+        <span><i style="background:var(--price)"></i>消費者物価（前年比）</span>
+        <span><i style="background:var(--fx)"></i>10年国債利回り</span>
+      </div>
+      <div class="chart-scroll"><svg id="jpus" viewBox="0 0 800 290" role="img" aria-label="日本は政策金利1.00%、消費者物価1.6%、10年国債利回り2.86%。米国は政策金利3.625%、消費者物価3.4%、10年国債利回り4.68%"></svg></div>
+      <p class="src">日本: 日銀政策金利1.00%／コアCPI +1.6%（2026年6月）／10年国債利回り約2.86%（2026年8月上旬）。米国: FF金利誘導目標3.50–3.75%の中央値／CPI +3.4%（2026年7月）／10年国債利回り4.68%（2026年8月14日時点）<span class="unsure">。市場金利は報道ベース</span></p>
+    </figure>
+
+    <div class="formula">
+      <span>日米の政策金利差</span><span>=</span><span class="num">3.625%</span><span>&minus;</span><span class="num">1.00%</span><span>=</span><span class="num">約 2.6 ポイント</span>
+      <small>1年前より差は縮んだ。それでも「ドルで持っている方が年2.6%ぶん得」という状態は続いている。日銀が1回（0.25%）利上げしても、差は 約2.4ポイント に縮むだけ ── <strong>方向ではなく水準で見る</strong>のが今日の型。</small>
+    </div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section>
+    <div class="step-head"><span class="step-time">9:18–9:25</span><h2>計算演習 ── 電卓を出して</h2></div>
+    <p>「円安だと物価が上がる」は、聞けば当たり前に聞こえる。<strong>自分で割ると、当たり前ではなくなる。</strong>3問。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">演習 1</span>
+          <p>原油の値段が1バレル80ドルだとする。1ドル＝150円のとき、日本円ではいくらか？　1ドル＝160円になったら？　円建てでは何%の値上がりか？</p>
+          <p class="hint">ヒント: 原油のドル建て価格は<strong>1ドルも動いていない</strong>。動いたのは為替だけ</p>
+        </div>
+        <details>
+          <summary>答えを開く</summary>
+          <div class="ans">
+            <p class="calc">80ドル × 150円 = 12,000円　／　80ドル × 160円 = 12,800円　／　800 ÷ 12,000 ≒ +6.7%</p>
+            <p>産油国は値上げしていない。世界の需給も変わっていない。<strong>円が10円安くなっただけで、日本のガソリンの原料は6.7%値上がりする。</strong>
+            これが「円安 &rarr; 物価」の矢印の正体で、日本が石油・小麦・肉・半導体を外から買っている限り必ず起きる。
+            ここで一度、自分ごとに引き寄せておく ── 君がバイト代で入れるガソリンも、コンビニのパンも、同じ経路で上がっている。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">演習 2</span>
+          <p>2026年7月の輸入物価は、<strong>契約通貨ベースで +17.7%</strong>、<strong>円ベースで +29.1%</strong>だった。
+          このうち「円安のせい」はどれくらいか？</p>
+          <p class="hint">ヒント: 契約通貨ベース＝ドルなど「売り手が請求した通貨のままの値段」。円ベース＝それを円に直した値段。差が為替の効果</p>
+        </div>
+        <details>
+          <summary>答えを開く</summary>
+          <div class="ans">
+            <p class="calc">ざっくり（引き算）: 29.1 &minus; 17.7 = <strong>11.4ポイント</strong>　／　正確に（割り算）: 1.291 ÷ 1.177 &minus; 1 ≒ <strong>+9.7%</strong></p>
+            <p>モノそのものの値上がりが +17.7%。<strong>そこに円安が約10%ぶん上乗せして、日本に着いたときには +29.1% になっている。</strong>
+            日本が輸入で払っている追加の値上がりのうち、3〜4割は「為替のぶん」だということ。</p>
+            <p style="margin-top:10px">なお、率どうしを<strong>引き算</strong>すると「ポイント」、<strong>割り算</strong>すると「%」になる。
+            ニュースは引き算で書くことが多いが、正確には割り算だ ── 前回の「分母は何か」と同じ話で、
+            <strong>率を足し引きした瞬間に、それは近似になる。</strong>大枠をつかむには引き算でよい。使い分けられることが大事。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">演習 3</span>
+          <p>金利が1.00%の国と3.625%の国。ただし物価は前者が +1.6%、後者が +3.4% 上がっている。
+          <strong>100万円を1年置いたとき、買えるモノの量が増えるのはどちらか？</strong></p>
+          <p class="hint">ヒント: 実質金利 ＝ 名目金利 &minus; インフレ率。「増えたお金」から「値上がりぶん」を引くと、本当に増えた量が出る</p>
+        </div>
+        <details>
+          <summary>答えを開く</summary>
+          <div class="ans">
+            <p class="calc">日本: 1.00 &minus; 1.6 = <strong>&minus;0.6%</strong>　／　米国: 3.625 &minus; 3.4 = <strong>+0.2%</strong></p>
+            <p>日本に置くと、利息はつくのに<strong>買えるモノは0.6%減る</strong>。アメリカに置くとかろうじて0.2%増える。
+            世界のお金がドルへ向かう理由はここにある ── そして<strong>ドルを買うには円を売る</strong>から、円安になる。
+            三角形の&#9314;の矢印は「日本の金利が上がったか」ではなく、<strong>「相手より得か」</strong>で決まる。</p>
+            <p style="margin-top:10px">この <strong>実質金利＝名目金利 &minus; インフレ率</strong> は、今日いちばん持ち帰ってほしい式。
+            銀行の金利が1%でも物価が2%上がっていれば、預金は<strong>減っている</strong>。君の貯金にそのまま効く話だ。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 5 -->
+  <section>
+    <div class="step-head"><span class="step-time">9:25–9:30</span><h2>2つのズレを議論する</h2></div>
+    <p>今日出てきた「物価」は3種類あった。まず1枚に整理してから、議論に入る。</p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>統計</th><th>誰が誰に売るときの値段か</th><th>直近</th><th>公表元・公表日</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>輸入物価指数<small>円ベース</small></td><td>外国の売り手 &rarr; 日本の会社<small>川上。石油・穀物・金属・部品</small></td><td class="num">+29.1%</td><td>日本銀行<small>2026年7月速報・8/13公表</small></td></tr>
+          <tr><td>国内企業物価指数<small>PPI</small></td><td>日本の会社 &rarr; 日本の会社<small>川中。工場から問屋へ</small></td><td class="num">+7.2%</td><td>日本銀行<small>2026年7月速報・8/13公表</small></td></tr>
+          <tr><td>消費者物価指数<small>CPI・コア</small></td><td>お店 &rarr; 君<small>川下。レジで払う値段</small></td><td class="num">+1.6%</td><td>総務省統計局<small>2026年6月分・7/24公表</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">日銀が金利を決めるときに見ているのは、いちばん下の<strong>消費者物価</strong>（目標は2%）。上の2つがどれだけ熱くても、下に降りてこなければ「まだ利上げしなくていい」という理屈が立つ ── ここがQ2の入口。</p>
+
+    <h3 style="margin-top:28px">佐々木くんへの問い（残り時間で1つ選んで議論）</h3>
+    <ul class="qlist">
+      <li>
+        <p class="q">Q1. 仕入れが +29.1%、店頭が +1.6%。差の27.5ポイントは誰が飲んだのか？　自分がその会社の社長なら、値上げするか？</p>
+        <p class="why">視点: 前回のZOZOでやった<strong>原価率</strong>を思い出す ── 仕入れが上がって売値が据え置きなら、原価率は上がり、売上総利益は削れる。飲んでいる候補は「会社の利益」「政府の補助金」「まだ値上げしていないだけ（これから上がる）」の3つ。どれがいちばん効いていると思うか。そして値上げしたら客が減る、しなければ利益が消える ── <strong>社長ならどちらを選ぶか</strong>を、理由つきで。</p>
+      </li>
+      <li>
+        <p class="q">Q2. 日銀は2年半かけて1.00%まで利上げした。それでも円安が止まらないのはなぜか？</p>
+        <p class="why">視点: 三角形の&#9314;の矢印は「上げたかどうか」ではなく<strong>「相手との差」</strong>で効く（政策金利差 約2.6ポイント）。ではもう1回0.25%上げれば止まるか？　7月末の協調介入で一時155円台まで戻ったのに158〜160円台へ戻ったのはなぜか。<strong>国の力で流れは変えられるのか</strong>、それとも時間を買っただけなのか。</p>
+      </li>
+      <li>
+        <p class="q">Q3. 自分ごと ── 円安と物価高は、君にとって得か損か。立場を1つ決めて答えよ。</p>
+        <p class="why">視点: 「日本経済にとって」ではなく<strong>「自分の財布から見て」</strong>答える。バイトの時給は上がったか？　物価が+1.6%上がって時給が同じなら、実質では減っている（演習3の式がそのまま使える）。一方で、円安で儲かる会社の株を持っていたら？　海外へ行くなら？　<strong>同じ円安が、立場によって逆の意味になる</strong>ことを自分の言葉で。</p>
+      </li>
+    </ul>
+
+    <div class="callout">
+      <p class="q">授業までの宿題（5分でできる）</p>
+      <p>&#9312; <strong>この授業の翌日、8月21日（金）に、総務省から7月分の消費者物価指数が出る。</strong>コア（生鮮食品を除く総合）の前年比は、6月の +1.6% から<strong>上がるか・下がるか</strong>を予想して、理由を1行で書いてくること。授業で全員ぶんを並べてから、翌日に答え合わせをする ── <strong>予想を出す前に答えを見ないこと</strong>が今回いちばん大事な作法。<br>
+      &#9313; 自分の銀行の<strong>普通預金金利</strong>を調べる。日銀の政策金利が1.00%になったいま、君の口座は何%か？　演習3の式に入れると、実質では増えているか減っているか。</p>
+    </div>
+  </section>
+
+  <!-- GLOSSARY -->
+  <section>
+    <h2>用語ミニ辞典</h2>
+    <dl class="gloss">
+      <div><dt>政策金利<small>中央銀行が決める、いちばん短い金利</small></dt><dd>日銀が上げ下げできる金利。世の中のあらゆる金利（住宅ローン・預金・企業の借入）の出発点になる。日本はいま1.00%、アメリカのFF金利は3.50〜3.75%。</dd></div>
+      <div><dt>長期金利<small>市場が決める。代表は10年国債利回り</small></dt><dd>10年物の国債を買った人が受け取る利回り。中央銀行ではなく市場の売買で決まるので、「これから物価と金利がどうなるか」の予想がそのまま出る。日本は約2.86%、米国は4.68%。</dd></div>
+      <div><dt>実質金利<small>名目金利 &minus; インフレ率</small></dt><dd>利息から値上がりぶんを引いた、本当に増えた分。日本は 1.00 &minus; 1.6 = &minus;0.6%、米国は 3.625 &minus; 3.4 = +0.2%。お金はここが高い方へ動く。今日の最重要の式。</dd></div>
+      <div><dt>輸入物価指数<small>円ベース／契約通貨ベースの2本立て</small></dt><dd>日本が外国から買うモノの値段。<strong>契約通貨ベース</strong>は請求された通貨のままの値段、<strong>円ベース</strong>はそれを円に直した値段。2つの差が、そのまま為替の効果になる（2026年7月は +17.7% と +29.1%）。</dd></div>
+      <div><dt>国内企業物価指数<small>PPI。会社どうしの取引価格</small></dt><dd>日本の会社が日本の会社に売るときの値段。川中の温度計。2026年7月は前年比 +7.2%。</dd></div>
+      <div><dt>消費者物価指数（CPI）・コアCPI<small>コア＝生鮮食品を除く総合</small></dt><dd>お店が消費者に売る値段＝レジで払う値段。天候で乱高下する野菜・魚を除いたものを「コア」と呼び、日銀の2%目標はこれを見ている。2026年6月は +1.6%。</dd></div>
+      <div><dt>金利差<small>キャリートレードの燃料</small></dt><dd>2国の金利の開き。金利の低い通貨（円）を借りて、高い通貨（ドル）で運用すれば差額が儲かる ── この動きが円売り・ドル買いになり、円安を押す。差が縮まらない限り、方向は変わりにくい。</dd></div>
+      <div><dt>為替介入<small>政府・日銀が自分で市場に注文を出すこと</small></dt><dd>円安を止めたいとき、政府がドルを売って円を買う。複数の国が同時にやるのが協調介入。2026年7月末に日米で実施され、一時155円台まで円高に振れたあと158〜160円台へ戻った。</dd></div>
+      <div><dt>ポイント と %<small>率どうしを引くか、割るか</small></dt><dd>率と率の引き算は「ポイント」、割り算は「%」。29.1% と 17.7% の差は 11.4<strong>ポイント</strong>で、割り算で出すと +9.7<strong>%</strong>。ニュースは引き算で書くことが多い。<strong>大枠は引き算、正確には割り算</strong>と覚える。</dd></div>
+    </dl>
+  </section>
+
+  <!-- REVIEW QUIZ -->
+  <section>
+    <div class="step-head"><span class="step-time">講義後・復習</span><h2>復習4択クイズ ── 全8問</h2></div>
+    <p>今日の内容の理解度チェック。まず自分で選んでから「答えを見る」を開くこと。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q1</span><p>今日の「三角形」の矢印の向きとして正しいものはどれか？</p></div>
+        <ol class="qz-choices">
+          <li>円安 &rarr; 物価が下がる &rarr; 金利が下がる</li>
+          <li>円安 &rarr; 物価が上がる &rarr; 金利が上がる &rarr;（本来は）円高に戻る</li>
+          <li>金利が上がる &rarr; 物価が上がる &rarr; 円安になる</li>
+          <li>物価が上がる &rarr; 円安になる &rarr; 金利が下がる</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+          <p>円が安くなると輸入品が円建てで高くなって物価が上がり、中央銀行は熱を冷ますために金利を上げる。金利が上がればその通貨が買われて通貨高に戻る ── これで輪が閉じる。いまの日本は最後の1本が弱く、輪が閉じきっていない。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q2</span><p>1バレル80ドルの原油。為替が1ドル＝150円から160円になったとき、円建て価格の値上がり率に最も近いのはどれか？</p>
+        <p class="hint">ヒント: 演習1と同じ計算。ドル建て価格は動いていない</p></div>
+        <ol class="qz-choices"><li>約 0%（ドル建てが同じなので変わらない）</li><li>約 6.7%</li><li>約 10%</li><li>約 16%</li></ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">12,000円 &rarr; 12,800円　800 ÷ 12,000 ≒ +6.7% → 正解: B</p>
+          <p>産油国は1ドルも値上げしていないのに、日本での値段は6.7%上がる。「円安 &rarr; 物価」の矢印は、この計算そのもの。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q3</span><p>2026年7月の輸入物価は契約通貨ベース +17.7%、円ベース +29.1% だった。この2つの差が意味するものはどれか？</p></div>
+        <ol class="qz-choices">
+          <li>統計の集計ミスの範囲</li>
+          <li>輸入した数量が増えたぶん</li>
+          <li>円安によって上乗せされた値上がりぶん</li>
+          <li>関税が引き上げられたぶん</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: C（引き算で11.4ポイント、割り算で約+9.7%）</p>
+          <p>契約通貨ベースは「請求された通貨のままの値段」、円ベースは「円に直した値段」。同じモノの同じ値段を、通貨だけ変えて見ているので、差はまるごと為替の効果になる。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q4</span><p>「君がコンビニのレジで払う値段」に最も近い統計はどれか？</p></div>
+        <ol class="qz-choices"><li>輸入物価指数</li><li>国内企業物価指数（PPI）</li><li>消費者物価指数（CPI）</li><li>10年国債利回り</li></ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: C</p>
+          <p>川上（輸入物価 +29.1%）&rarr; 川中（企業物価 +7.2%）&rarr; 川下（消費者物価 +1.6%）。下るほど上がり方が小さくなる。日銀が2%目標で見ているのはいちばん下のCPI（コア）。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q5</span><p>政策金利1.00%、消費者物価の上昇率+1.6%の国。100万円を1年預けたとき、買えるモノの量はどうなるか？</p>
+        <p class="hint">ヒント: 実質金利 ＝ 名目金利 &minus; インフレ率</p></div>
+        <ol class="qz-choices"><li>1.0%ぶん増える</li><li>2.6%ぶん増える</li><li>変わらない</li><li>0.6%ぶん減る</li></ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">1.00 &minus; 1.6 = &minus;0.6% → 正解: D</p>
+          <p>利息はついているのに、値段の方がそれ以上に上がるので、買える量は減る。「金利がつくから預金は安全」が、いつも正しいとは限らない ── というのが実質金利の教え。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q6</span><p>日銀は2024年3月から2026年6月にかけて政策金利を1.00%まで引き上げた。それでも円安が続いている理由の説明として、本文に沿うものはどれか？</p></div>
+        <ol class="qz-choices">
+          <li>日本の金利が下がり続けているから</li>
+          <li>米国の金利が3.50〜3.75%と高く、差が約2.6ポイント開いたままだから</li>
+          <li>為替は金利とはまったく関係がないから</li>
+          <li>日本の輸入物価が下がっているから</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+          <p>為替は「上げたかどうか（方向）」ではなく「相手といくつ違うか（水準）」で動く。日本が0.25%上げても差は約2.4ポイント残る。<strong>方向ではなく水準で見る</strong>のが今日の型。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q7</span><p>コアCPI（コア消費者物価指数）の「コア」とは、何を除いた指数か？</p></div>
+        <ol class="qz-choices"><li>生鮮食品</li><li>住居費</li><li>輸入品すべて</li><li>サービス</li></ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: A（生鮮食品を除く総合）</p>
+          <p>野菜や魚は天候で乱高下するので、物価の基調を見るには邪魔になる。そこを除いたのがコア。さらにエネルギーも除くと「コアコア」。日銀の2%目標が見ているのはコア。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q8</span><p>「29.1% と 17.7% の差は 11.4ポイント」という言い方について、本文が強調している注意点はどれか？</p></div>
+        <ol class="qz-choices">
+          <li>率どうしの引き算は「ポイント」、割り算は「%」。引き算は大枠をつかむための近似である</li>
+          <li>率どうしは足しても引いても常に正確である</li>
+          <li>率は必ず引き算で比べなければならない</li>
+          <li>ポイントと%はまったく同じ意味である</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: A</p>
+          <p>正確に出すなら 1.291 ÷ 1.177 &minus; 1 ≒ +9.7%。前回ZOZOでやった「率を見たら分母を確認する」と同じ筋の話で、<strong>率を足し引きした瞬間にそれは近似になる</strong>。大枠は引き算、正確には割り算。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>出典（一次情報）:</strong> 日本銀行「企業物価指数（2026年7月速報）」2026年8月13日公表 ── 国内企業物価 前年比 +7.2%、輸入物価 円ベース +29.1%／契約通貨ベース +17.7%。
+    総務省統計局「消費者物価指数 全国 2026年6月分」2026年7月24日公表 ── 総合 +1.7%、生鮮食品を除く総合（コア）+1.6%、生鮮食品及びエネルギーを除く総合 +1.7%。
+    日本銀行 金融政策決定会合 ── 2026年6月に政策金利を0.75%から1.00%へ引き上げ。次回会合は9月17〜18日。
+    FRB 2026年7月FOMC ── FF金利誘導目標 3.50〜3.75% を据え置き。米労働省 消費者物価指数 2026年7月分（8月12日公表）── 前年比 +3.4%、前月比 +0.1%、コア +2.5%。</p>
+    <p><strong>報道ベース（二次情報・講義当日に取り直す）:</strong> ドル円の水準（8月中旬 158〜160円台）、日本10年国債利回り 約2.86%、米10年国債利回り 4.68%（8月14日時点）、2026年7月末の日米協調介入とその後の値動き、日銀9月会合での追加利上げ予想6割超。</p>
+    <p>全国の消費者物価指数7月分は<strong>2026年8月21日（金）公表予定</strong>＝この講義の翌日。授業時点では6月分が最新の確定値。比率は四捨五入。前回のZOZO編の数字・用語は2026年8月17日の講義に基づく。本資料は個別指導用の教材であり、投資勧誘を目的とするものではありません。</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  // Colors stay as var(--token) references (applied via style) so the charts
+  // follow theme changes live instead of freezing load-time values.
+  function tok(name) { return "var(" + name + ")"; }
+  var NS = "http://www.w3.org/2000/svg";
+  function el(name, attrs, parent) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) {
+      if (k === "fill" || k === "stroke") e.style[k] = attrs[k];
+      else e.setAttribute(k, attrs[k]);
+    }
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function txt(parent, x, y, str, attrs) {
+    var t = el("text", Object.assign({ x: x, y: y, "font-size": 12, fill: tok("--ink-2") }, attrs || {}), parent);
+    t.textContent = str;
+    return t;
+  }
+  function bar(parent, x, yTop, w, yBase, fill, label) {
+    var r = Math.min(4, w / 2, Math.max(0, yBase - yTop));
+    var d = "M" + x + "," + yBase +
+            " L" + x + "," + (yTop + r) +
+            " Q" + x + "," + yTop + " " + (x + r) + "," + yTop +
+            " L" + (x + w - r) + "," + yTop +
+            " Q" + (x + w) + "," + yTop + " " + (x + w) + "," + (yTop + r) +
+            " L" + (x + w) + "," + yBase + " Z";
+    var p = el("path", { d: d, fill: fill }, parent);
+    if (label) { var t = el("title", {}, p); t.textContent = label; }
+    return p;
+  }
+
+  /* ---- Chart 1: funnel 輸入物価 -> 企業物価 -> 消費者物価 (前年比%) ---- */
+  (function () {
+    var svg = document.getElementById("funnel");
+    if (!svg) return;
+    var rows = [
+      { name: "輸入物価（円ベース）", v: 29.1, color: tok("--f1"), note: "外国 → 日本の会社（川上）" },
+      { name: "国内企業物価",         v: 7.2,  color: tok("--f2"), note: "日本の会社 → 日本の会社（川中）" },
+      { name: "消費者物価（コア）",   v: 1.6,  color: tok("--f3"), note: "お店 → 君（川下）" }
+    ];
+    var L = 175, R = 205, W = 800, rowH = 34, gapY = 26, T = 16;
+    var plotW = W - L - R, maxV = 29.1;
+    rows.forEach(function (r, i) {
+      var yTop = T + i * (rowH + gapY);
+      var w = Math.max((r.v / maxV) * plotW, 8);
+      txt(svg, L - 10, yTop + rowH / 2 + 4, r.name,
+        { "text-anchor": "end", "font-weight": 700, "font-size": 12.5, fill: tok("--ink") });
+      var rect = el("rect", { x: L, y: yTop, width: w, height: rowH, rx: 4, fill: r.color }, svg);
+      var ttl = el("title", {}, rect); ttl.textContent = r.name + " 前年比 +" + r.v + "%";
+      txt(svg, L + w + 10, yTop + rowH / 2 - 1, "+" + r.v.toFixed(1) + "%",
+        { "font-weight": 800, "font-size": 14, fill: tok("--ink") });
+      txt(svg, L + w + 10, yTop + rowH / 2 + 15, r.note, { "font-size": 10.5, fill: tok("--ink-muted") });
+    });
+    txt(svg, L, 200, "同じモノの値上がりが、川を下るあいだに 29.1% → 7.2% → 1.6% と薄まっていく",
+      { "font-size": 11.5, fill: tok("--ink-muted") });
+  })();
+
+  /* ---- Chart 2: BOJ policy rate step chart ---- */
+  (function () {
+    var svg = document.getElementById("steps");
+    if (!svg) return;
+    // x軸は 2024年1月 を 0 とした月数
+    var segs = [
+      { from: 2,  to: 6,  v: 0.10, tag: "24/3  0.10%" },
+      { from: 6,  to: 12, v: 0.25, tag: "24/7  0.25%" },
+      { from: 12, to: 23, v: 0.50, tag: "25/1  0.50%" },
+      { from: 23, to: 29, v: 0.75, tag: "25/12  0.75%" },
+      { from: 29, to: 31, v: 1.00, tag: "26/6  1.00%" }
+    ];
+    var L = 56, R = 24, T = 30, B = 46, W = 800, H = 250, MAXM = 35, maxV = 1.25;
+    var plotW = W - L - R, plotH = H - T - B, base = T + plotH;
+    function x(m) { return L + (m / MAXM) * plotW; }
+    function y(v) { return base - (v / maxV) * plotH; }
+
+    [0, 0.25, 0.5, 0.75, 1.0, 1.25].forEach(function (g) {
+      el("line", { x1: L, x2: W - R, y1: y(g), y2: y(g),
+        stroke: g === 0 ? tok("--axis") : tok("--grid"), "stroke-width": 1 }, svg);
+      txt(svg, L - 8, y(g) + 4, g.toFixed(2) + "%",
+        { "text-anchor": "end", fill: tok("--ink-muted"), "font-size": 10.5 });
+    });
+    [[0, "24/1"], [6, "24/7"], [12, "25/1"], [18, "25/7"], [24, "26/1"], [30, "26/7"]].forEach(function (t) {
+      txt(svg, x(t[0]), base + 20, t[1], { "text-anchor": "middle", fill: tok("--ink-muted"), "font-size": 11 });
+    });
+
+    segs.forEach(function (s, i) {
+      el("line", { x1: x(s.from), x2: x(s.to), y1: y(s.v), y2: y(s.v),
+        stroke: tok("--rate"), "stroke-width": 3, "stroke-linecap": "round" }, svg);
+      if (i > 0) {
+        el("line", { x1: x(s.from), x2: x(s.from), y1: y(segs[i - 1].v), y2: y(s.v),
+          stroke: tok("--rate"), "stroke-width": 3 }, svg);
+      }
+      txt(svg, x(s.from) + 3, y(s.v) - 9, s.tag,
+        { "font-size": 10.5, "font-weight": 700, fill: tok("--ink") });
+    });
+    // マイナス金利解除の起点
+    el("circle", { cx: x(2), cy: y(0.10), r: 4, fill: tok("--rate") }, svg);
+    // これから：9月会合
+    el("line", { x1: x(31), x2: x(MAXM), y1: y(1.0), y2: y(1.0),
+      stroke: tok("--axis"), "stroke-width": 2, "stroke-dasharray": "5 4" }, svg);
+    el("line", { x1: x(32.5), x2: x(32.5), y1: y(1.25), y2: base,
+      stroke: tok("--axis"), "stroke-width": 1, "stroke-dasharray": "3 4" }, svg);
+    txt(svg, x(32.5), T - 10, "9/17–18 会合", { "text-anchor": "middle", "font-size": 10.5, fill: tok("--ink-muted") });
+  })();
+
+  /* ---- Chart 3: Japan vs US, 3 series ---- */
+  (function () {
+    var svg = document.getElementById("jpus");
+    if (!svg) return;
+    var groups = [
+      { name: "日本", vals: [1.00, 1.6, 2.86] },
+      { name: "米国", vals: [3.625, 3.4, 4.68] }
+    ];
+    var series = [
+      { name: "政策金利", color: tok("--rate") },
+      { name: "消費者物価", color: tok("--price") },
+      { name: "10年国債利回り", color: tok("--fx") }
+    ];
+    var L = 56, R = 16, T = 26, B = 52, W = 800, H = 290, maxV = 5.0;
+    var plotW = W - L - R, plotH = H - T - B, base = T + plotH;
+    function y(v) { return base - (v / maxV) * plotH; }
+    [0, 1, 2, 3, 4, 5].forEach(function (g) {
+      el("line", { x1: L, x2: W - R, y1: y(g), y2: y(g),
+        stroke: g === 0 ? tok("--axis") : tok("--grid"), "stroke-width": 1 }, svg);
+      txt(svg, L - 8, y(g) + 4, g + "%", { "text-anchor": "end", fill: tok("--ink-muted"), "font-size": 11 });
+    });
+    var groupW = plotW / groups.length, bw = 56, gap = 18;
+    var block = bw * 3 + gap * 2;
+    groups.forEach(function (grp, i) {
+      var gx = L + groupW * i + (groupW - block) / 2;
+      grp.vals.forEach(function (v, j) {
+        var bx = gx + j * (bw + gap);
+        bar(svg, bx, y(v), bw, base, series[j].color, grp.name + " " + series[j].name + " " + v + "%");
+        txt(svg, bx + bw / 2, y(v) - 7, v.toFixed(2) + "%",
+          { "text-anchor": "middle", "font-weight": 700, "font-size": 11.5, fill: tok("--ink") });
+        txt(svg, bx + bw / 2, base + 18, series[j].name,
+          { "text-anchor": "middle", "font-size": 10, fill: tok("--ink-muted") });
+      });
+      txt(svg, gx + block / 2, base + 40, grp.name,
+        { "text-anchor": "middle", "font-weight": 800, "font-size": 14, fill: tok("--ink") });
+    });
+  })();
+})();
+</script>
+
+</body>
+</html>
