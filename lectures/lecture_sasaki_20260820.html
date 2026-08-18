@@ -133,6 +133,11 @@
   }
   .chip em { font-style: normal; color: var(--accent-ink); }
 
+  .backlink { display: inline-block; font-size: 13px; font-weight: 700; color: var(--ink-muted);
+    text-decoration: none; margin-bottom: 16px; }
+  .backlink:hover { color: var(--accent-ink); }
+  @media print { .backlink { display: none; } }
+
   /* ---------- series tabs ---------- */
   .tabs {
     display: flex; gap: 4px; margin-top: 28px;
@@ -323,6 +328,7 @@
 <body>
 
 <div class="wrap">
+  <a class="backlink" href="../sasaki.html">&larr; 講義資料の一覧へ</a>
   <header>
     <p class="eyebrow">ケーススタディ · 第3回（マクロ編）</p>
     <h1>金利・為替・インフレの関係性</h1>
