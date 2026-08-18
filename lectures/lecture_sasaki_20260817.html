@@ -114,6 +114,11 @@
   }
   .chip em { font-style: normal; color: var(--accent-ink); }
 
+  .backlink { display: inline-block; font-size: 13px; font-weight: 700; color: var(--ink-muted);
+    text-decoration: none; margin-bottom: 16px; }
+  .backlink:hover { color: var(--accent-ink); }
+  @media print { .backlink { display: none; } }
+
   /* ---------- series tabs ---------- */
   .tabs {
     display: flex; gap: 4px; margin-top: 28px;
@@ -303,6 +308,7 @@
 </head>
 <body>
 <div class="wrap">
+  <a class="backlink" href="../sasaki.html">&larr; 講義資料の一覧へ</a>
   <header>
     <p class="eyebrow">財務諸表ケーススタディ · 第2回</p>
     <h1>ZOZOの決算を読む</h1>
