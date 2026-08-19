@@ -10,9 +10,9 @@
 
 | トラック | 対象 | ポータル |
 |---|---|---|
-| 夏期集中講座（グループ） | 田村・廻・山本・河野・秋山・中村 | [seminar.html](seminar.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/seminar.html) |
-| 個別指導 — 佐々木さん | 佐々木 | [sasaki.html](sasaki.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/sasaki.html) |
-| 個別指導 — 豊長さん | 豊長 | [toyonaga.html](toyonaga.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/toyonaga.html) |
+| 夏期集中講座（グループ） | T・M・Y・K・A・N | [seminar.html](seminar.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/seminar.html) |
+| 個別指導 — Sさん | S | [sasaki.html](sasaki.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/sasaki.html) |
+| 個別指導 — Tさん | T | [toyonaga.html](toyonaga.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/toyonaga.html) |
 
 `index.html` は3トラックへの振り分けだけを行うハブ。各資料の「一覧へ」は、所属するトラックのポータルに戻る。
 
@@ -38,7 +38,7 @@
 |---|---|---|---|---|
 | 1 | 2026-08-09 | 2026-08-05 〜 08-09 | 日米協調介入のその後／同じ円安が正反対に効いた4〜6月期決算 | [HTML](news_briefs/lecture_news_20260809.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/news_briefs/lecture_news_20260809.html) |
 
-## 個別指導 — 佐々木さん
+## 個別指導 — Sさん
 
 決算ケーススタディ。各資料の上部のタブで前後の回に行き来できる。
 
@@ -47,7 +47,7 @@
 | 第3回 | 2026-08-20 | 金利・為替・インフレの関係性 ― 輸入物価+29.1%は、どこで+1.6%になったのか | [HTML](lectures/lecture_sasaki_20260820.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260820.html) |
 | 第2回 | 2026-08-17 | ZOZOの決算を読む ― 受託販売とテイクレート | [HTML](lectures/lecture_sasaki_20260817.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260817.html) |
 
-## 個別指導 — 豊長さん
+## 個別指導 — Tさん
 
 **答えは載せず、空欄と問いだけを配る**方針で作っている。
 
