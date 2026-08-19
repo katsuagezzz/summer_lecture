@@ -22,7 +22,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
-| 夏期 第4回 | 2026-08-25 | 100万円が積まれている車を、50万円で買う ― バリュー投資とは何か | [HTML](lectures/lecture_20260825.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260825.html) |
+| 夏期 第4回 | 2026-08-25 | シケモク投資家とリンチ・チャート ― 橘玲『プアジャパン』で読む金利と為替 | [HTML](lectures/lecture_20260825.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260825.html) |
 | 夏期 第3回 | 2026-08-18 | 上場が答え合わせをする夏 ― SpaceX、Anthropic、そして「電力」という首 | [HTML](lectures/lecture_20260818.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260818.html) |
 
 ### 復習ページ
