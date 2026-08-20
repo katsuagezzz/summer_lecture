@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利払いが国防費を超えた国</title>
+<meta name="description" content="ベッセント米財務長官の米長期国債買い戻し増額（2026年8月19日）を題材に、金利・為替・物価の三角形と、日本経済への3つの経路を電卓で読む30分教材（ケーススタディ 第4回・マクロ編2）">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #f9f9f7;
+    --surface: #fcfcfb;
+    --surface-raised: #ffffff;
+    --ink: #141413;
+    --ink-2: #52514e;
+    --ink-muted: #898781;
+    --hairline: #e1e0d9;
+    --border: rgba(11, 11, 11, 0.10);
+    --accent: #2a78d6;
+    --accent-ink: #1c5cab;
+    --accent-wash: rgba(42, 120, 214, 0.08);
+    --good: #006300;
+    /* 三角形の3つの角 — この3色はページ全体で意味を固定する */
+    --fx: #2a78d6;      /* 為替 */
+    --price: #eb6834;   /* 物価 */
+    --rate: #1baf7a;    /* 金利 */
+    --fx-wash: rgba(42, 120, 214, 0.10);
+    --price-wash: rgba(235, 104, 52, 0.10);
+    --rate-wash: rgba(27, 175, 122, 0.10);
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --s4: #eda100;
+    --s-other: #898781;
+    --f1: #86b6ef;
+    --f2: #2a78d6;
+    --f3: #104281;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-raised: #222220;
+      --ink: #f4f3ef;
+      --ink-2: #c3c2b7;
+      --ink-muted: #898781;
+      --hairline: #2c2c2a;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #3987e5;
+      --accent-ink: #86b6ef;
+      --accent-wash: rgba(57, 135, 229, 0.14);
+      --good: #0ca30c;
+      --fx: #3987e5;
+      --price: #f07a44;
+      --rate: #199e70;
+      --fx-wash: rgba(57, 135, 229, 0.16);
+      --price-wash: rgba(240, 122, 68, 0.16);
+      --rate-wash: rgba(25, 158, 112, 0.16);
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --s4: #c98500;
+      --s-other: #898781;
+      --f1: #6da7ec;
+      --f2: #3987e5;
+      --f3: #184f95;
+      --grid: #2c2c2a;
+      --axis: #383835;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-raised: #222220;
+    --ink: #f4f3ef;
+    --ink-2: #c3c2b7;
+    --ink-muted: #898781;
+    --hairline: #2c2c2a;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #3987e5;
+    --accent-ink: #86b6ef;
+    --accent-wash: rgba(57, 135, 229, 0.14);
+    --good: #0ca30c;
+    --fx: #3987e5;
+    --price: #f07a44;
+    --rate: #199e70;
+    --fx-wash: rgba(57, 135, 229, 0.16);
+    --price-wash: rgba(240, 122, 68, 0.16);
+    --rate-wash: rgba(25, 158, 112, 0.16);
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s-other: #898781;
+    --f1: #6da7ec;
+    --f2: #3987e5;
+    --f3: #184f95;
+    --grid: #2c2c2a;
+    --axis: #383835;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.75;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; }
+
+  /* ---------- header ---------- */
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.14em; color: var(--accent-ink);
+    font-weight: 700; text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(30px, 5.4vw, 44px); font-weight: 800; line-height: 1.25;
+    letter-spacing: 0.01em; margin: 10px 0 14px; text-wrap: balance;
+  }
+  .lede { color: var(--ink-2); max-width: 40em; }
+  .lede strong { color: var(--ink); }
+  .meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+    border: 1px solid var(--hairline); background: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .chip em { font-style: normal; color: var(--accent-ink); }
+
+  .backlink { display: inline-block; font-size: 13px; font-weight: 700; color: var(--ink-muted);
+    text-decoration: none; margin-bottom: 16px; }
+  .backlink:hover { color: var(--accent-ink); }
+  @media print { .backlink { display: none; } }
+
+  /* ---------- series tabs ---------- */
+  .tabs {
+    display: flex; gap: 4px; margin-top: 28px;
+    border-bottom: 1px solid var(--hairline);
+    overflow-x: auto; scrollbar-width: thin;
+  }
+  .tab {
+    flex: 0 0 auto; display: block; text-decoration: none;
+    padding: 10px 16px 9px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 8px 8px 0 0; margin-bottom: -1px;
+    font-size: 13.5px; font-weight: 700; color: var(--ink-muted);
+    white-space: nowrap; transition: color .12s ease, background .12s ease;
+  }
+  .tab small { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-muted); }
+  a.tab { color: var(--accent-ink); }
+  a.tab small { color: var(--ink-2); }
+  a.tab:hover { background: var(--accent-wash); }
+  a.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  a.tab .ext { font-weight: 500; font-size: 11px; }
+  .tab.is-current {
+    color: var(--ink); background: var(--surface);
+    border-color: var(--hairline); border-bottom: 1px solid var(--surface);
+  }
+  .tab.is-past { cursor: default; opacity: .55; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 56px; }
+  .step-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .step-time {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  h2 { font-size: 23px; font-weight: 800; line-height: 1.35; text-wrap: balance; }
+  h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  section > p, .card > p { color: var(--ink-2); max-width: 44em; }
+  section > p strong, .card p strong, li strong { color: var(--ink); }
+  .sec-note { font-size: 13px; color: var(--ink-muted); margin-top: 10px; }
+
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; margin-top: 18px; border-top: 1px solid var(--hairline); }
+  .agenda li {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 14px;
+    align-items: baseline; padding: 11px 4px; border-bottom: 1px solid var(--hairline);
+  }
+  .agenda .t { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13.5px; color: var(--accent-ink); }
+  .agenda .what { font-weight: 600; }
+  .agenda .what small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-muted); }
+  .agenda .min { font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+
+  /* ---------- cards / callout / recall ---------- */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px; margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-wash);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 18px;
+    max-width: 46em;
+  }
+  .callout p { color: var(--ink-2); }
+  .callout .q { font-weight: 700; color: var(--ink); }
+  .recalls { display: grid; gap: 10px; margin-top: 18px; }
+  .recall {
+    border: 1px dashed var(--axis); background: var(--surface);
+    border-radius: 10px; padding: 14px 18px; max-width: 46em;
+  }
+  .recall .who { font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; color: var(--ink-muted); }
+  .recall .said { font-weight: 700; color: var(--ink); margin-top: 2px; }
+  .recall .note { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+
+  /* ---------- KPI tiles ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; border-top: 3px solid var(--border);
+  }
+  .tile.fx { border-top-color: var(--fx); }
+  .tile.rate { border-top-color: var(--rate); }
+  .tile.price { border-top-color: var(--price); }
+  .tile .k { font-size: 12px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .tile .v { font-size: 25px; font-weight: 800; line-height: 1.3; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .tile .v small { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .tile .d { font-size: 12.5px; font-weight: 600; margin-top: 1px; color: var(--ink-2); }
+  .tile .d.up { color: var(--good); }
+  .unsure { color: var(--s2); font-weight: 700; }
+
+  /* ---------- formula ---------- */
+  .formula {
+    margin-top: 18px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; font-weight: 700; font-size: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  }
+  .formula .num { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .formula small { font-weight: 500; color: var(--ink-muted); flex-basis: 100%; font-size: 12.5px; }
+
+  /* ---------- charts / diagram ---------- */
+  figure { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 14px; }
+  figcaption { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .figsub { font-size: 12.5px; color: var(--ink-muted); margin-bottom: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .chart-scroll { overflow-x: auto; }
+  .chart-scroll svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  svg text { font-family: inherit; }
+  .diagram { color: var(--ink-muted); }
+  .src { font-size: 11.5px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- exercise ---------- */
+  .ex { margin-top: 18px; }
+  .ex .card { padding: 0; overflow: hidden; }
+  .ex-q { padding: 18px 22px 6px; }
+  .ex-q .no {
+    display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    border-radius: 4px; padding: 2px 8px; margin-bottom: 8px;
+  }
+  .ex-q p { color: var(--ink); font-weight: 600; max-width: 44em; }
+  .ex-q .hint { font-weight: 400; font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+  .qz-choices { list-style: none; counter-reset: qc; margin: 12px 22px 4px; padding: 0; display: grid; gap: 6px; max-width: 46em; }
+  .qz-choices li {
+    counter-increment: qc; position: relative; border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 8px 14px 8px 40px; font-size: 14px; color: var(--ink-2);
+  }
+  .qz-choices li::before {
+    content: counter(qc, upper-alpha); position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    font-weight: 800; font-size: 12.5px; color: var(--accent-ink);
+  }
+  details { border-top: 1px solid var(--hairline); margin-top: 14px; }
+  summary {
+    cursor: pointer; padding: 12px 22px; font-weight: 700; font-size: 13.5px;
+    color: var(--accent-ink); list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "\25B8  "; }
+  details[open] summary::before { content: "\25BE  "; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 6px; }
+  .ans { padding: 0 22px 18px; color: var(--ink-2); max-width: 46em; }
+  .ans .calc {
+    font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink);
+    background: var(--accent-wash); border-radius: 8px; padding: 10px 14px; margin: 8px 0 10px;
+    display: inline-block;
+  }
+
+  /* ---------- tables ---------- */
+  .tbl-scroll { overflow-x: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; background: var(--surface); font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td:first-child { font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td small { display: block; color: var(--ink-muted); font-size: 12px; }
+  .tbl-note { font-size: 12px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- discussion / glossary ---------- */
+  .qlist { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+  .qlist li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .qlist .q { font-weight: 700; }
+  .qlist .why { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  dl.gloss { margin-top: 16px; border-top: 1px solid var(--hairline); }
+  dl.gloss > div { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 12px 4px; border-bottom: 1px solid var(--hairline); }
+  @media (max-width: 560px) { dl.gloss > div { grid-template-columns: 1fr; gap: 2px; } }
+  dt { font-weight: 700; font-size: 14px; }
+  dt small { display: block; font-weight: 400; font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  dd { color: var(--ink-2); font-size: 14px; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 18px; font-size: 12.5px; color: var(--ink-muted); }
+  footer p { max-width: none; }
+  footer p + p { margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print {
+    body { background: #fff; }
+    .tabs { display: none; }
+    details { border-top: none; }
+    summary { display: none; }
+    .ans { padding-top: 0; }
+  }
+
+  /* ---------- 第4回で追加 ---------- */
+  .tile.debt { border-top-color: var(--s4); }
+  .device {
+    margin-top: 20px; border: 2px solid var(--accent); border-radius: 12px;
+    background: var(--accent-wash); padding: 18px 22px; max-width: 46em;
+  }
+  .device h3 { margin-top: 0; color: var(--accent-ink); }
+  .device .rule {
+    font-size: 19px; font-weight: 800; color: var(--ink); margin: 10px 0 6px;
+    letter-spacing: 0.01em;
+  }
+  .steps2 { list-style: none; counter-reset: st; display: grid; gap: 8px; margin-top: 12px; }
+  .steps2 li {
+    counter-increment: st; position: relative; padding-left: 34px; font-size: 14.5px; color: var(--ink-2);
+  }
+  .steps2 li::before {
+    content: counter(st); position: absolute; left: 0; top: 1px;
+    width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff;
+    font-size: 12.5px; font-weight: 800; display: grid; place-items: center;
+  }
+  .routes { display: grid; gap: 14px; margin-top: 20px; }
+  .route {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 22px; border-left: 4px solid var(--accent);
+  }
+  .route.r1 { border-left-color: var(--fx); }
+  .route.r2 { border-left-color: var(--rate); }
+  .route.r3 { border-left-color: var(--price); }
+  .route .rk {
+    font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; color: var(--ink-muted);
+  }
+  .route h3 { margin: 2px 0 8px; font-size: 17.5px; }
+  .chain {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px;
+    font-size: 13.5px; font-weight: 700; margin: 12px 0;
+  }
+  .chain span {
+    background: var(--surface-raised); border: 1px solid var(--hairline);
+    border-radius: 6px; padding: 4px 10px; white-space: nowrap;
+  }
+  .chain b { color: var(--ink-muted); font-weight: 800; }
+  .aims { display: grid; gap: 10px; margin-top: 18px; counter-reset: aim; }
+  .aim {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 15px 20px 15px 54px; position: relative; counter-increment: aim;
+  }
+  .aim::before {
+    content: "\7B56 " counter(aim); position: absolute; left: 14px; top: 15px;
+    font-size: 11px; font-weight: 800; color: var(--accent-ink);
+    background: var(--accent-wash); border-radius: 4px; padding: 3px 6px; line-height: 1.2;
+    writing-mode: horizontal-tb;
+  }
+  .aim .at { font-weight: 800; font-size: 15.5px; }
+  .aim p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .crit { border-left-color: var(--s2); }
+  .crits { display: grid; gap: 10px; margin-top: 16px; }
+  .crits .c2 {
+    background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--s2);
+    border-radius: 0 10px 10px 0; padding: 15px 20px;
+  }
+  .crits .c2 .ct { font-weight: 800; font-size: 15px; }
+  .crits .c2 p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .crits .c2 .who2 { font-size: 12.5px; color: var(--ink-muted); margin-top: 6px; font-weight: 600; }
+  .hw { margin-top: 18px; display: grid; gap: 12px; }
+  .hw .h1x {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;
+  }
+  .hw .h1x.must { border-color: var(--accent); border-left: 4px solid var(--accent); }
+  .hw .badge {
+    display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
+    border-radius: 4px; padding: 2px 8px; margin-right: 8px;
+  }
+  .hw .badge.m { background: var(--accent-wash); color: var(--accent-ink); }
+  .hw .badge.o { background: var(--hairline); color: var(--ink-muted); }
+  .hw ol.form { margin: 10px 0 0 20px; font-size: 14px; color: var(--ink-2); }
+  .hw ol.form li { margin-bottom: 4px; }
+  .hw ol.form li b { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="backlink" href="../sasaki.html">&larr; 講義資料の一覧へ</a>
+  <header>
+    <p class="eyebrow">ケーススタディ · 第4回（マクロ編2）</p>
+    <h1>利払いが国防費を超えた国</h1>
+    <p class="lede">アメリカが払う<strong>借金の利息</strong>は、2026年度の最初の9か月だけで <strong>8,570億ドル</strong>。
+    同じ9か月の<strong>国防費より多い</strong>。
+    だから8月19日、ベッセント財務長官は<strong>自分の国の国債を買い戻す</strong>と発表した。
+    前回の「費用が増えたら、売上を増やすか単価を上げるしかない」── あの式を、会社ではなく<strong>アメリカ合衆国</strong>に当てる回。
+    そしてその一手が、<strong>翌朝1円の円高</strong>という形で君の財布に届いている。</p>
+    <div class="meta-chips">
+      <span class="chip">2026年8月24日（月）<em>30分</em></span>
+      <span class="chip">開始時刻は <em>Slack</em> で確定</span>
+      <span class="chip">題材: <em>米財務省の国債買い戻し</em>（2026年8月19日発表）</span>
+      <span class="chip">前回: 金利・為替・インフレの関係性</span>
+    </div>
+
+    <nav class="tabs" aria-label="ケーススタディ シリーズ">
+      <span class="tab is-past" title="配布資料リンクなし（講義のみ）">第1回　メルカリ<small>GMVと営業損失</small></span>
+      <a class="tab" href="lecture_sasaki_20260817.html">第2回　ZOZOの決算を読む<small>受託販売とテイクレート <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260820.html">第3回　金利・為替・インフレ<small>三角形の一周 <span class="ext">&#8594;</span></small></a>
+      <span class="tab is-current" aria-current="page">第4回　ベッセントの一手<small>国のPLと日本の財布（今回）</small></span>
+    </nav>
+  </header>
+
+  <!-- AGENDA -->
+  <section>
+    <h2>本日の流れ</h2>
+    <ol class="agenda">
+      <li><span class="t">00:00–00:05</span><span class="what">前回の答え合わせ<small>円高・円安を二度と間違えないための「装置」を1つ持つ</small></span><span class="min">5分</span></li>
+      <li><span class="t">00:05–00:11</span><span class="what">三角形の残り1辺<small>国債の値段と金利はシーソー。前回言い残した矢印を埋める</small></span><span class="min">6分</span></li>
+      <li><span class="t">00:11–00:17</span><span class="what">8月19日に何が起きたか<small>ベッセントの買い戻し増額。事実だけを時系列で</small></span><span class="min">6分</span></li>
+      <li><span class="t">00:17–00:23</span><span class="what">アメリカは何を狙っているのか<small>国のPLとBSに、前回の式をそのまま当てる</small></span><span class="min">6分</span></li>
+      <li><span class="t">00:23–00:29</span><span class="what">日本の財布に何が起きるか<small>為替・金利・財政の3経路。日本は世界最大の米国債保有国</small></span><span class="min">6分</span></li>
+      <li><span class="t">00:29–00:30</span><span class="what">宿題の確認<small>ニュース1本を、4行のPLに直す型を渡す</small></span><span class="min">1分</span></li>
+    </ol>
+    <p class="sec-note">開始時刻はSlackで確定する。所要は30分。電卓（スマホで可）を必ず手元に置くこと。</p>
+  </section>
+
+  <!-- 0. 前回の答え合わせ -->
+  <section>
+    <div class="step-head"><span class="step-time">00:00–00:05</span><h2>前回の答え合わせ ── 「考える」のをやめて「装置」を持つ</h2></div>
+    <p>前回、同じ質問に4回答えて、4回とも答えが変わった。これは恥ずかしいことではない。
+    <strong>その場で毎回考え直しているから、毎回ちがう答えが出る。</strong>
+    直し方は「もっとよく考える」ではない。<strong>考えなくても出る装置を1つ持つ</strong>ことだ。</p>
+
+    <div class="recalls">
+      <div class="recall">
+        <p class="who">佐々木くん · 2026年8月20日</p>
+        <p class="said">「輸入する時に円安だと、日本側の円の価値が上がることなので……」</p>
+        <p class="note">ここが出発点の取り違え。<strong>円安なのに「円の価値が上がる」と言っている。</strong>言葉が逆さまになった瞬間、そのあとの推論は全部ひっくり返る。</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 同じ回の終盤</p>
+        <p class="said">「輸入する時のコストが円安になることによって上がるので、損になります」</p>
+        <p class="note"><strong>これは完全に正しい。</strong>同じ30分の中で、間違いから正解まで自力で来ている。足りないのは知識ではなく、<strong>毎回同じ答えを出す手順</strong>。</p>
+      </div>
+    </div>
+
+    <div class="device">
+      <h3>装置：「1ドル＝158円」は<u>ドルの値札</u>だと読む</h3>
+      <p>混乱の原因はひとつ。日本語は「<strong>円</strong>安・<strong>円</strong>高」と円を主語にしているのに、
+      画面に出ている数字は<strong>ドルの値段</strong>を書いている。主語がズレている。だから、こう読み替える。</p>
+      <p class="rule">158 は「ドル1個 ＝ 158円です」という値札である</p>
+      <ol class="steps2">
+        <li>数字が <strong>150 → 160</strong> に上がった ＝ <strong>ドルが値上がりした</strong>（りんごが150円→160円になったのと同じ読み方）</li>
+        <li>ドルが値上がりした ＝ 相対的に <strong>円が値下がりした</strong> ＝ <strong>円安</strong></li>
+      </ol>
+      <p style="margin-top:12px"><strong>覚えるのは「数字が大きい＝円安」だけ。</strong>
+      理由を思い出そうとすると必ず間違える。理由は装置を使ったあとで付ければいい。</p>
+    </div>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>表示</th><th>ドルの値札</th><th>ドルは</th><th>円は</th><th>呼び方</th></tr></thead>
+        <tbody>
+          <tr><td>1ドル＝50円</td><td class="num">50円</td><td>とても安い</td><td>とても高い</td><td>強い円高</td></tr>
+          <tr><td>1ドル＝100円</td><td class="num">100円</td><td>安い</td><td>高い</td><td>円高</td></tr>
+          <tr><td>1ドル＝158円<small>いまここ</small></td><td class="num">158円</td><td>高い</td><td>安い</td><td>円安</td></tr>
+          <tr><td>1ドル＝200円</td><td class="num">200円</td><td>もっと高い</td><td>もっと安い</td><td>強い円安</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">数字が上に行くほど「円安」。<strong>見かけの数字が大きいほど円は弱い</strong>という、日常の感覚と逆になるところだけ気をつける。</p>
+
+    <h3 style="margin-top:32px">そして企業は「ドルを買う側か、売る側か」で並べる</h3>
+    <p>業種名（輸入・輸出）で覚えると裏返る。<strong>お金の向きで覚えると裏返らない。</strong></p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>立場</th><th>ドルとの関係</th><th>PLのどこに乗るか</th><th>円安（＝ドル高）だと</th></tr></thead>
+        <tbody>
+          <tr><td>輸入企業<small>ダイソー・ニトリ</small></td><td>円を払って<strong>ドルを買う</strong></td><td><strong>費用</strong></td><td>費用が増える → <strong>利益が減る</strong></td></tr>
+          <tr><td>輸出企業<small>トヨタ・任天堂</small></td><td>稼いだ<strong>ドルを売って</strong>円にする</td><td><strong>売上</strong></td><td>売上が増える → <strong>利益が増える</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">前回たどり着いた「輸入は費用、輸出は売上」。今日はこの<strong>まったく同じ式を、会社ではなく国に当てる</strong>。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">ウォームアップ · 30秒</span>
+          <p>ダイソーが、現地で500ドルの椅子を仕入れる。1ドル＝150円のとき、用意する円はいくらか。
+          1ドル＝160円になったら？　費用は何%増えるか。</p>
+          <p class="hint">ヒント: 椅子のドル建て価格は<strong>1ドルも動いていない</strong>。動いたのは為替だけ</p>
+        </div>
+        <details>
+          <summary>答えを開く</summary>
+          <div class="ans">
+            <p class="calc">500 × 150 = 75,000円　／　500 × 160 = 80,000円　／　5,000 ÷ 75,000 ≒ <strong>+6.7%</strong></p>
+            <p>椅子そのものの値段は1ドルも動いていないのに、<strong>費用だけが6.7%増えた</strong>。
+            日本での売値を据え置けば、この増えたぶんはまるごと<strong>利益から引かれる</strong>。前回ここまでは自力で言えた。今日はここから先に進む。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. 三角形の残り1辺 -->
+  <section>
+    <div class="step-head"><span class="step-time">00:05–00:11</span><h2>三角形の残り1辺 ── 国債の値段と金利は、シーソーである</h2></div>
+    <p>前回の資料に三角形を描いた。<strong>為替 → 物価 → 金利 → 為替</strong>。
+    このうち3本目の <strong>金利 → 為替</strong> は、時間切れで口に出していない。今日はここから始める。
+    そしてその前に、<strong>今日いちばん大事な定理</strong>を1つ入れる。</p>
+
+    <div class="callout">
+      <p class="q">定理：国債の<u>値段</u>が下がる ＝ 国債の<u>利回り（金利）</u>が上がる。この2つは同じ現象の裏と表である。</p>
+      <p>ニュースが「米国債が売られた」と書いても「米長期金利が上昇した」と書いても、<strong>起きていることは1つ</strong>。
+      言い方が2つあるだけ。これを知らないと、今日のニュースは1行も読めない。</p>
+    </div>
+
+    <figure>
+      <figcaption>なぜ裏表なのか ── もらえる金額は変わらない。買う値段だけが動く</figcaption>
+      <p class="figsub">額面100万円・毎年3万円の利息がつく国債で考える。利息の3万円は<strong>契約で決まっていて動かない</strong></p>
+      <div class="chart-scroll">
+        <svg viewBox="0 0 800 260" role="img" aria-label="国債価格が下がると利回りが上がることを示すシーソー図">
+          <!-- left case -->
+          <rect x="30" y="30" width="330" height="200" rx="12" style="fill:var(--surface-raised);stroke:var(--hairline)" stroke-width="1"/>
+          <text x="195" y="58" text-anchor="middle" font-size="14" font-weight="800" style="fill:var(--ink)">100万円で買った場合</text>
+          <rect x="70" y="78" width="250" height="42" rx="8" style="fill:var(--fx-wash);stroke:var(--fx)" stroke-width="1.5"/>
+          <text x="195" y="105" text-anchor="middle" font-size="15" font-weight="800" style="fill:var(--fx)">払う値段　100万円</text>
+          <text x="195" y="146" text-anchor="middle" font-size="13.5" style="fill:var(--ink-2)">もらう利息　3万円／年（動かない）</text>
+          <line x1="70" y1="162" x2="320" y2="162" style="stroke:var(--hairline)" stroke-width="1"/>
+          <text x="195" y="190" text-anchor="middle" font-size="13" style="fill:var(--ink-muted)">3 ÷ 100 =</text>
+          <text x="195" y="216" text-anchor="middle" font-size="24" font-weight="800" style="fill:var(--rate)">利回り 3.00%</text>
+
+          <!-- arrow -->
+          <path d="M372 130 L428 130" style="stroke:var(--ink-muted);fill:none" stroke-width="2"/>
+          <path d="M428 130 l-9 -6 l0 12 z" style="fill:var(--ink-muted)"/>
+          <text x="400" y="116" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--ink-muted)">値段が</text>
+          <text x="400" y="156" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--ink-muted)">下がると</text>
+
+          <!-- right case -->
+          <rect x="440" y="30" width="330" height="200" rx="12" style="fill:var(--surface-raised);stroke:var(--hairline)" stroke-width="1"/>
+          <text x="605" y="58" text-anchor="middle" font-size="14" font-weight="800" style="fill:var(--ink)">80万円で買えた場合</text>
+          <rect x="480" y="78" width="250" height="42" rx="8" style="fill:var(--price-wash);stroke:var(--price)" stroke-width="1.5"/>
+          <text x="605" y="105" text-anchor="middle" font-size="15" font-weight="800" style="fill:var(--price)">払う値段　80万円 &#9660;</text>
+          <text x="605" y="146" text-anchor="middle" font-size="13.5" style="fill:var(--ink-2)">もらう利息　3万円／年（動かない）</text>
+          <line x1="480" y1="162" x2="730" y2="162" style="stroke:var(--hairline)" stroke-width="1"/>
+          <text x="605" y="190" text-anchor="middle" font-size="13" style="fill:var(--ink-muted)">3 ÷ 80 =</text>
+          <text x="605" y="216" text-anchor="middle" font-size="24" font-weight="800" style="fill:var(--rate)">利回り 3.75% &#9650;</text>
+        </svg>
+      </div>
+      <p class="src">分母（払う値段）が小さくなれば、同じ分子（利息）でも率は上がる ── 前回やった「<strong>率を見たら分母を確認する</strong>」がそのまま効く場面。</p>
+    </figure>
+
+    <p>だから、こういう言い換えが全部できるようになる。</p>
+    <div class="chain">
+      <span>国債が売られた</span><b>＝</b><span>国債の値段が下がった</span><b>＝</b><span>利回りが上がった</span><b>＝</b><span>長期金利が上がった</span><b>＝</b><span>国の借金の利息が高くなった</span>
+    </div>
+
+    <h3 style="margin-top:32px">金利には2種類ある ── ここを分けないと今日の話が読めない</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>種類</th><th>誰が決めるか</th><th>いまの水準</th><th>効くところ</th></tr></thead>
+        <tbody>
+          <tr><td>政策金利<small>いちばん短い金利</small></td><td><strong>中央銀行</strong>が会議で決める<small>日銀・FRB</small></td><td>日本 1.00%<br>米国 3.50–3.75%</td><td>普通預金、住宅ローンの<strong>変動</strong>、企業の短期借入</td></tr>
+          <tr><td>長期金利<small>代表は10年国債利回り</small></td><td><strong>市場</strong>が売買で決める<small>中央銀行は直接決められない</small></td><td>日本 約2.94%<br>米国 約4.65%</td><td>住宅ローンの<strong>固定</strong>、社債、国の借換えコスト、株価の割引率</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">今回のニュースで暴れているのは<strong>下の段（長期金利）</strong>。政策金利は動いていない。ここを混ぜると「なぜ財務長官が出てくるのか」が分からなくなる。</p>
+
+    <h3 style="margin-top:32px">残り1辺 ── 金利 → 為替</h3>
+    <p>お金は「金利を上げた国」ではなく、<strong>いま置いておくと得な国</strong>へ動く。
+    アメリカに置けば年3.625%、日本に置けば1.00%。だからドルを買う。
+    そして<strong>ドルを買うには円を売る</strong>。それが円安の正体だった。</p>
+    <div class="formula">
+      実質金利 <span class="num">=</span> 名目金利 <span class="num">&minus;</span> インフレ率
+      <small>日本: 1.00 &minus; 1.6 = <strong>&minus;0.6%</strong>　／　米国: 3.625 &minus; 3.4 = <strong>+0.2%</strong>　── 前回の最重要式。今日もそのまま使う</small>
+    </div>
+    <p style="margin-top:16px"><strong>逆に読むと、今日のニュースの意味が出る。</strong>
+    もしアメリカの金利が下がれば、日米の差は縮む。差が縮めば、ドルを持つ得が減る。得が減れば、ドルが売られて<strong>円高</strong>に振れる。
+    ── 8月19日の夜から20日の朝にかけて、実際にそれが起きた。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">演習 1</span>
+          <p>額面100万円、毎年3万円の利息をくれる国債がある。
+          (a) 100万円で買ったときの利回りは？　(b) 値段が下がって80万円で買えたときは？
+          (c) では「金利が上がった」と「国債が売られた」は、同じことか・別のことか。</p>
+          <p class="hint">ヒント: 動かないのは分子（利息3万円）。動くのは分母（買う値段）だけ</p>
+        </div>
+        <details>
+          <summary>答えを開く</summary>
+          <div class="ans">
+            <p class="calc">(a) 3 ÷ 100 = 3.00%　／　(b) 3 ÷ 80 = 3.75%　／　(c) <strong>同じこと</strong></p>
+            <p>国債を売る人が増える → 買い手をつけるには値段を下げるしかない → 値段が下がる → 同じ利息でも利回りは上がる。
+            <strong>「売られる」と「金利が上がる」は、同じ現象を売り手側から見たか買い手側から見たかの違いでしかない。</strong></p>
+            <p style="margin-top:8px">ここで一段深く。この国債を<strong>すでに持っていた人</strong>はどうなるか。
+            100万円で買ったものが80万円になっている＝<strong>20万円の含み損</strong>。
+            日本の銀行や生命保険会社は国債を大量に持っているので、<strong>金利が上がると彼らの資産が痛む</strong>。
+            これが「日銀は利上げしたくてもしにくい」と言われる理由のひとつ。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 8月19日に何が起きたか -->
+  <section>
+    <div class="step-head"><span class="step-time">00:11–00:17</span><h2>8月19日に何が起きたか ── 事実だけを時系列で</h2></div>
+    <p>解釈の前に事実を置く。<strong>意見と事実を分けて並べる</strong>のは、この夏いちばん練習してほしい作法だ。</p>
+
+    <div class="tiles">
+      <div class="tile rate"><div class="k">米30年国債利回り（8/18・火）</div><div class="v">5.34<small> %</small></div><div class="d">2007年以来 <strong>19年ぶり</strong>の高さ</div></div>
+      <div class="tile rate"><div class="k">米30年国債利回り（8/19・水 終値）</div><div class="v">5.196<small> %</small></div><div class="d">発表を受けて <strong>&minus;0.09%</strong>（6月下旬以来の下げ幅）</div></div>
+      <div class="tile rate"><div class="k">米10年国債利回り（8/19・水 終値）</div><div class="v">4.647<small> %</small></div><div class="d">同 <strong>&minus;0.057%</strong></div></div>
+      <div class="tile debt"><div class="k">買い戻し 1回あたりの枠</div><div class="v">20 → 40<small> 億㌦以上</small></div><div class="d">9月9日から。回数も四半期 2回 → <strong>4回</strong></div></div>
+      <div class="tile debt"><div class="k">8/18の買い戻しに集まった応札</div><div class="v">約200<small> 億㌦</small></div><div class="d">買える枠は20億㌦。<strong>売りたい人が10倍</strong>いた</div></div>
+      <div class="tile fx"><div class="k">ドル円（8/19午後 → 8/20朝）</div><div class="v">159.16 → 158.19</div><div class="d">約 <strong>1円の円高</strong>（一時 158.04円）</div></div>
+    </div>
+
+    <figure>
+      <figcaption>米30年国債利回り ── 19年ぶりの高値をつけた翌日に、財務省が動いた</figcaption>
+      <p class="figsub">単位は%。8月19日の縦線が、買い戻し増額の発表</p>
+      <div class="chart-scroll">
+        <svg viewBox="0 0 800 300" role="img" aria-label="2026年8月14日から19日までの米30年国債利回りの推移">
+          <!-- gridlines -->
+          <line x1="70" y1="60" x2="760" y2="60" style="stroke:var(--grid)" stroke-width="1"/>
+          <line x1="70" y1="120" x2="760" y2="120" style="stroke:var(--grid)" stroke-width="1"/>
+          <line x1="70" y1="180" x2="760" y2="180" style="stroke:var(--grid)" stroke-width="1"/>
+          <line x1="70" y1="240" x2="760" y2="240" style="stroke:var(--axis)" stroke-width="1"/>
+          <text x="62" y="64" text-anchor="end" font-size="11" style="fill:var(--ink-muted)">5.35</text>
+          <text x="62" y="124" text-anchor="end" font-size="11" style="fill:var(--ink-muted)">5.30</text>
+          <text x="62" y="184" text-anchor="end" font-size="11" style="fill:var(--ink-muted)">5.25</text>
+          <text x="62" y="244" text-anchor="end" font-size="11" style="fill:var(--ink-muted)">5.20</text>
+
+          <!-- announcement marker -->
+          <line x1="640" y1="46" x2="640" y2="252" style="stroke:var(--s2)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="632" y="42" text-anchor="end" font-size="11.5" font-weight="800" style="fill:var(--s2)">8/19 買い戻し増額を発表</text>
+
+          <!-- line: 8/14 5.26 (y=192) 8/17 5.31 (y=108) 8/18 5.34 (y=72) 8/19 5.196 (y=245) -->
+          <polyline points="150,192 313,108 476,72 640,245" fill="none" style="stroke:var(--rate)" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="150" cy="192" r="5.5" style="fill:var(--rate)"/>
+          <circle cx="313" cy="108" r="5.5" style="fill:var(--rate)"/>
+          <circle cx="476" cy="72" r="7" style="fill:var(--rate)"/>
+          <circle cx="640" cy="245" r="7" style="fill:var(--s2)"/>
+
+          <text x="150" y="212" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--ink)">5.26%</text>
+          <text x="313" y="98" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--ink)">5.31%</text>
+          <text x="476" y="62" text-anchor="middle" font-size="13" font-weight="800" style="fill:var(--ink)">5.34%</text>
+          <text x="640" y="268" text-anchor="middle" font-size="13" font-weight="800" style="fill:var(--ink)">5.196%</text>
+
+          <text x="150" y="285" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">8/14（金）</text>
+          <text x="313" y="285" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">8/17（月）</text>
+          <text x="476" y="285" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">8/18（火）</text>
+          <text x="640" y="285" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">8/19（水）</text>
+        </svg>
+      </div>
+      <p class="src">出典: 報道ベース（Bloomberg／日本経済新聞／CNBC、2026年8月17〜20日）。日中の高値と終値が混在するので、<strong>水準の話であって小数第3位の話ではない</strong>。</p>
+    </figure>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>日付</th><th>起きたこと</th><th>数字</th></tr></thead>
+        <tbody>
+          <tr><td>8/17（月）</td><td>米30年債の利回りが19年ぶりの高水準。20年債も5.3%台（2023年10月以来）。日経は「<strong>日本の金利上昇が波及した</strong>」と書いた</td><td class="num">5.31%</td></tr>
+          <tr><td>8/18（火）</td><td>さらに上昇。この日、<strong>予定通りの20億ドルの買い戻しは実施していた</strong>が、金利上昇は止まらなかった。応札は約200億ドル</td><td class="num">5.34%</td></tr>
+          <tr><td>8/19（水）</td><td><strong>米財務省が発表</strong>。9/9〜11/4、残存10〜20年と20〜30年ゾーンの買い戻しを1回<strong>20億ドル上限 → 40億ドル以上</strong>へ。長期ゾーンの実施回数も四半期2回 → 4回</td><td class="num">四半期<br>約320億㌦</td></tr>
+          <tr><td>8/19（水）夜</td><td>30年債利回りが低下、10年債も低下。ドル円は円高方向へ</td><td class="num">5.196%<br>4.647%</td></tr>
+          <tr><td>8/20（木）</td><td>日本市場も反応。日本の超長期債の利回りが低下し、日経平均先物はシカゴで<strong>480円高</strong>。ドル円は158円台前半</td><td class="num">158.19円</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">四半期320億ドル ≒ <strong>約5兆円</strong>（1ドル158円で換算）。日本の一般会計予算の規模と並べてみると桁の感覚が取れる。</p>
+
+    <div class="callout">
+      <p class="q">用語：バイバック（買い戻し）とは何か</p>
+      <p>国が、<strong>すでに発行して市場に出回っている自分の国債を、市場から買い戻すこと</strong>。借金の途中返済にあたる。
+      ただし<strong>ここが肝心</strong> ── 買い戻す代金は、<strong>短期国債（Bills）を新しく発行して</strong>用意する。
+      つまり借金は減っていない。<strong>長い借金を、短い借金に組み替えている</strong>だけだ。</p>
+    </div>
+
+    <p class="sec-note">なお、これは中央銀行がやる量的緩和（QE）ではない。QEは「新しく作ったお金」で買う。今回は「新しく借りたお金」で買う。
+    <strong>お金を刷っていないので、教科書的には金融緩和ではない</strong> ── だが市場に与える効果は似ている。ここが議論になっている。</p>
+  </section>
+
+  <!-- 3. アメリカは何を狙っているのか -->
+  <section>
+    <div class="step-head"><span class="step-time">00:17–00:23</span><h2>アメリカは何を狙っているのか ── 国のPLに、前回の式を当てる</h2></div>
+    <p>ここが今日の中心。<strong>前回の式をそのまま持ってくる</strong>だけでいい。</p>
+
+    <div class="formula">
+      利益 <span class="num">=</span> 売上 <span class="num">&minus;</span> 費用
+      <small>会社の話に見えるが、国も同じ形をしている。売上＝<strong>税収</strong>、費用＝<strong>歳出</strong>、利益＝<strong>財政収支</strong>。そして費用の中に「借金の利息」が入っている</small>
+    </div>
+
+    <figure>
+      <figcaption>アメリカ合衆国という会社の、費用と負債</figcaption>
+      <p class="figsub">左がPL（1年の流れ）、右がBS（ある時点の残高）。前回ZOZOでやった読み分けが、そのまま国に使える</p>
+      <div class="chart-scroll">
+        <svg viewBox="0 0 800 250" role="img" aria-label="米国の利払い費と連邦債務の規模">
+          <rect x="24" y="24" width="360" height="200" rx="12" style="fill:var(--surface-raised);stroke:var(--hairline)" stroke-width="1"/>
+          <text x="46" y="52" font-size="12" font-weight="800" letter-spacing="0.1em" style="fill:var(--price)">PL・費用の側</text>
+          <text x="46" y="76" font-size="13.5" style="fill:var(--ink-2)">国債の利払い費（2026年度の最初の9か月）</text>
+          <text x="46" y="118" font-size="34" font-weight="800" style="fill:var(--ink)">8,570<tspan font-size="16">億ドル</tspan></text>
+          <text x="46" y="146" font-size="14" font-weight="700" style="fill:var(--price)">前年同期比 +13%</text>
+          <line x1="46" y1="160" x2="362" y2="160" style="stroke:var(--hairline)" stroke-width="1"/>
+          <text x="46" y="184" font-size="13.5" font-weight="700" style="fill:var(--ink)">同じ9か月の <tspan font-weight="800">国防費より多い</tspan>。</text>
+          <text x="46" y="206" font-size="13.5" font-weight="700" style="fill:var(--ink)">メディケア（高齢者医療）より多い。</text>
+
+          <rect x="416" y="24" width="360" height="200" rx="12" style="fill:var(--surface-raised);stroke:var(--hairline)" stroke-width="1"/>
+          <text x="438" y="52" font-size="12" font-weight="800" letter-spacing="0.1em" style="fill:var(--s4)">BS・負債の側</text>
+          <text x="438" y="76" font-size="13.5" style="fill:var(--ink-2)">連邦政府の債務残高（2026年7月末）</text>
+          <text x="438" y="118" font-size="34" font-weight="800" style="fill:var(--ink)">39.8<tspan font-size="16">兆ドル</tspan></text>
+          <line x1="438" y1="136" x2="754" y2="136" style="stroke:var(--hairline)" stroke-width="1"/>
+          <text x="438" y="162" font-size="13.5" style="fill:var(--ink-2)">うち、市場（＝民間）が持っている分</text>
+          <text x="438" y="198" font-size="28" font-weight="800" style="fill:var(--s4)">32.2<tspan font-size="15">兆ドル</tspan></text>
+          <text x="438" y="218" font-size="12" style="fill:var(--ink-muted)">＝ 金利が上がるとコストが効いてくる範囲</text>
+        </svg>
+      </div>
+      <p class="src">出典: 報道ベース（2026年度の最初の9か月の利払い実績、2026年7月末時点の債務残高）。<strong>講義当日に一次情報（米財務省 Monthly Treasury Statement / Debt to the Penny）で取り直すこと。</strong></p>
+    </figure>
+
+    <p><strong>ここで前回の問いがそのまま来る。</strong>費用（利払い）が勝手に増えていく。
+    利益（財政収支）を守るには、売上を増やすか、他の費用を減らすしかない。国が使える手は4つある。</p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>会社なら</th><th>国だと</th><th>できるか</th></tr></thead>
+        <tbody>
+          <tr><td>単価を上げる</td><td>増税する</td><td>11月に<strong>中間選挙</strong>がある。まず無理</td></tr>
+          <tr><td>客数を増やす</td><td>経済を成長させて税収を増やす</td><td>正しいが<strong>時間がかかる</strong>。今年の利払いには間に合わない</td></tr>
+          <tr><td>他の費用を削る</td><td>歳出削減</td><td>削る相手に全部支持者がいる。政治的に難しい</td></tr>
+          <tr><td>仕入れ値を下げる</td><td><strong>借りる値段（金利）そのものを下げる</strong></td><td>&#9666; <strong>ベッセントが選んだのはこれ</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:32px">狙いは、少なくとも4つ重なっている</h3>
+    <div class="aims">
+      <div class="aim">
+        <p class="at">借換えコストを止める</p>
+        <p>借金には満期が来る。古い低金利の国債が満期になるたび、いまの5%台で借り直すことになる。
+        長期金利を下げれば、<strong>これから借り換わる分の利息が安くなる</strong>。32.2兆ドルという分母に対しては、0.1%でも金額は大きい。</p>
+      </div>
+      <div class="aim">
+        <p class="at">住宅ローンと社債に効かせる</p>
+        <p>米国の30年固定住宅ローン金利は、10年国債利回りに連動する（8/8時点 <strong>6.69%</strong>、5週連続の上昇。8/13に6.67%へ）。
+        さらに、いまAI関連企業が<strong>大量の社債</strong>を出してデータセンターに投資している。長期金利は、その<strong>調達コストそのもの</strong>だ。
+        ── ゼミで扱った「AI投資の回収」の話は、ここで金利とつながる。</p>
+      </div>
+      <div class="aim">
+        <p class="at">FRBがやらないなら、財務省がやる</p>
+        <p>金利を下げるのは中央銀行（FRB・ウォーシュ議長）の仕事で、政府は命令できない建前になっている。
+        だが<strong>国債をどう発行し、どう買い戻すかは財務省の権限</strong>。だから金融政策ではなく<strong>発行の技術</strong>で長期金利を押しにいった。
+        市場はこれを「<strong>ベッセント・プット</strong>」「<strong>ツイストオペの再来</strong>」と呼んだ。</p>
+      </div>
+      <div class="aim">
+        <p class="at">時間を買う</p>
+        <p>公式には出てこない狙い。長期金利の上昇は、住宅・株・企業の投資を同時に冷やす。
+        11月の中間選挙まで、それを止めておきたい ── という読み方をする市場参加者は多い。<strong>これは事実ではなく解釈である</strong>と分けて扱うこと。</p>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">演習 2 · これが今日いちばん大事な割り算</span>
+          <p>買い戻しは四半期あたり <strong>約320億ドル</strong>。市場が持っている米国債は <strong>32.2兆ドル</strong>。
+          買い戻しは、市場に出回っている米国債全体の<strong>何%</strong>にあたるか。</p>
+          <p class="hint">ヒント: 単位をそろえる。32.2兆ドル ＝ 322,000億ドル</p>
+        </div>
+        <details>
+          <summary>答えを開く</summary>
+          <div class="ans">
+            <p class="calc">320 ÷ 322,000 ≒ <strong>0.10%</strong></p>
+            <p>1,000分の1である。<strong>この1つの割り算が、そのまま批判の中身になっている。</strong>
+            エコノミストのモハメド・エラリアン（アリアンツ）は「今回の買い戻しは<strong>絶対額でも、新規発行額と比べても小さすぎる</strong>」と書いた。
+            サコネット・リサーチのアダム・ジョセフソンはもっと直接的だ ──
+            「長期金利の上昇を抑えるために、彼らはあらゆる手を試してきた。<strong>何ひとつ効いていない。</strong>なぜこれが効くと思えるのか。効くには小さすぎる。」</p>
+            <p style="margin-top:8px"><strong>それでも金利は下がった。</strong>ここが面白いところで、
+            0.1%の買いが値段を動かしたのではなく、<strong>「財務省は見ているぞ」というメッセージ</strong>が動かした、という説明になる。
+            前回やった為替介入とまったく同じ構造 ── <strong>金額より、姿勢が効く。ただし効き目は続くとは限らない。</strong></p>
+          </div>
+        </details>
+      </div>
+      <div class="card">
+        <div class="ex-q">
+          <span class="no">演習 3</span>
+          <p>市場が持つ米国債 32.2兆ドルのうち、<strong>毎年2割が満期を迎えて借り換わる</strong>と仮定する。
+          借換え時の金利が 5.3% から 4.3% に下がったら、利払い費は年いくら減るか。</p>
+          <p class="hint">ヒント: 借り換わるのは全体ではなく2割だけ。金利の差は1.0%（100ベーシスポイント）</p>
+        </div>
+        <details>
+          <summary>答えを開く</summary>
+          <div class="ans">
+            <p class="calc">32.2兆 × 0.2 = 6.44兆ドル　／　6.44兆 × 1.0% = <strong>644億ドル／年</strong></p>
+            <p>日本円で<strong>約10兆円</strong>（1ドル158円）。日本の防衛費（年約11兆円）に近い金額が、
+            <strong>金利が1%動くだけで</strong>毎年出たり消えたりする。<strong>これがベッセントが必死になる理由。</strong></p>
+            <p style="margin-top:8px"><strong>注意</strong>：「毎年2割が借り換わる」は説明のための仮定で、実際の数字ではない。
+            桁の感覚をつかむための計算であって、これを人前で言うなら<strong>実際の償還スケジュールを取り直してから言うこと</strong>。
+            ── 仮定を置いたら、仮定だと明示する。これも今日の作法のひとつ。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <h3 style="margin-top:32px">では、これはうまくいくのか ── 反対側の話を3つ</h3>
+    <div class="crits">
+      <div class="c2">
+        <p class="ct">批判1 ── 規模が小さすぎる</p>
+        <p>演習2で出した通り、市中残高の0.1%。新規発行額と比べればもっと小さい。「効くには小さすぎる」。</p>
+        <p class="who2">モハメド・エラリアン（アリアンツ）／アダム・ジョセフソン（サコネット・リサーチ）</p>
+      </div>
+      <div class="c2">
+        <p class="ct">批判2 ── 借金が「変動金利」に寄っていく</p>
+        <p>長い国債を買い戻して、<strong>短期国債（Bills）で穴を埋める</strong>。
+        これは<strong>住宅ローンを35年固定から変動に借り換えるのと同じこと</strong>だ。
+        いまの返済額は減る。だが金利が上がった瞬間、32.2兆ドルの<strong>借り換えが一気に効く</strong>。将来の金利上昇に対して、国の財政が脆くなる。</p>
+        <p class="who2">ドイツ銀行のストラテジストほか</p>
+      </div>
+      <div class="c2">
+        <p class="ct">批判3 ── ベッセント自身が2024年に、これを批判していた</p>
+        <p>前任のイエレン財務長官が同じこと（短期国債を多めに出す）をやったとき、ベッセントは
+        「<strong>市場に指を突っ込んで、使いすぎのコストを隠している</strong>」という趣旨の批判をしていた。
+        いま自分が同じ手を使っている。</p>
+        <p class="who2">2024年のベッセント氏の発言（報道ベース）</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="q">日本を先に歩いた国として見る ── エラリアンのもう一言</p>
+      <p>エラリアンは「今回の動きは、買い戻しそのものより <strong>イールドカーブ・コントロール（YCC）をもっと広く展開する可能性</strong>を示している」とも言った。
+      YCCとは、<strong>中央銀行が長期金利の水準そのものを目標にして、そこに張り付くまで無制限に国債を買う</strong>政策のこと。
+      <strong>日本銀行が2016年から2024年までやっていた。</strong>
+      ── アメリカが日本の後を追い始めている、という読み方ができる。この見立てが正しいかどうかは、今日の議論の題材にする。</p>
+    </div>
+  </section>
+
+  <!-- 4. 日本への影響 -->
+  <section>
+    <div class="step-head"><span class="step-time">00:23–00:29</span><h2>日本の財布に何が起きるか ── 経路は3本ある</h2></div>
+    <p>「アメリカの話」で終わらせない。<strong>どの経路を通って、誰の売上と誰の費用に効くのか</strong>を1本ずつ辿る。</p>
+
+    <div class="routes">
+      <div class="route r1">
+        <p class="rk">経路 1 · 為替</p>
+        <h3>いちばん速い。<u>もう起きた</u></h3>
+        <div class="chain">
+          <span>米長期金利 &#9660;</span><b>&rarr;</b><span>日米の金利差 &#9660;</span><b>&rarr;</b><span>ドルを持つ得が減る</span><b>&rarr;</b><span>ドル売り・円買い</span><b>&rarr;</b><span>円高</span>
+        </div>
+        <p>実際、8月19日午後の <strong>159.16円</strong> から、20日朝には <strong>158.19円</strong>。約1円の円高が、発表の<strong>翌朝</strong>に届いた。
+        前回の式にそのまま入れられる。</p>
+        <div class="tbl-scroll" style="margin-top:14px">
+          <table>
+            <thead><tr><th>誰が</th><th>PLのどこ</th><th>円高だと</th></tr></thead>
+            <tbody>
+              <tr><td>ダイソー・ニトリ<small>輸入</small></td><td>費用</td><td>仕入れコストが<strong>下がる</strong> → 利益が増える</td></tr>
+              <tr><td>トヨタ・任天堂<small>輸出</small></td><td>売上</td><td>円に直した売上が<strong>減る</strong> → 利益が減る</td></tr>
+              <tr><td>君<small>消費者</small></td><td>生活費</td><td>輸入物価が下がり、やがてレジの値段の上がり方が<strong>鈍る</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tbl-note"><strong>ただし方向ではなく水準で見る。</strong>1円動いても、日米の政策金利差は 3.625% &minus; 1.00% ＝ <strong>約2.6ポイント</strong>開いたまま。前回の結論はまだ生きている。</p>
+      </div>
+
+      <div class="route r2">
+        <p class="rk">経路 2 · 金利</p>
+        <h3>日本とアメリカは、<u>互いに</u>引っぱり合っている</h3>
+        <p>今日いちばん面白いところ。<strong>因果はアメリカ → 日本の一方通行ではない。</strong>
+        8月17日の日経は、米30年債が19年ぶりの高さになった理由をこう書いた ── 「<strong>日本の金利上昇が波及した</strong>」。</p>
+        <p style="margin-top:10px"><strong>なぜ日本の金利が、アメリカの金利を押し上げるのか。</strong></p>
+        <ol class="steps2" style="margin-top:12px">
+          <li>日本は<strong>世界最大の米国債保有国</strong>。保有額は約 <strong>1兆2,930億ドル</strong>（過去最高。2位の中国は約1兆734億ドル）。</li>
+          <li>買っているのは主に<strong>生命保険会社と銀行</strong>。彼らは30年・40年という<strong>長い運用先</strong>を必要としている（保険金の支払いが数十年先だから）。</li>
+          <li>ところが日本国内には長い運用先がなかった。だから<strong>円を売ってドルを買い、アメリカの30年債を買っていた</strong>。</li>
+          <li><strong>いま、それが変わった。</strong>日本の30年国債利回りが <strong>4%</strong> を超えた（2026年5月18日に4.000%）。40年債も4%台。10年債は8月17〜18日に <strong>2.945%</strong> ＝ 1996年9月以来<strong>30年ぶり</strong>の高さ。</li>
+          <li>すると生保・銀行はこう考える ── 「<strong>為替リスクを取ってアメリカの5.3%を買うより、為替リスクゼロで日本の4%でいいのでは？</strong>」実際、8月上旬にメガバンクが異例の買い検討に入り、大手生保にも同じ動きが出た。</li>
+        </ol>
+        <div class="chain" style="margin-top:14px">
+          <span>日本の金利 &#9650;</span><b>&rarr;</b><span>日本のお金が国内に残る</span><b>&rarr;</b><span>米国債の買い手が減る</span><b>&rarr;</b><span>米国債の値段 &#9660;</span><b>&rarr;</b><span>米長期金利 &#9650;</span><b>&rarr;</b><span>ベッセントが買い戻す</span>
+        </div>
+        <p><strong>ベッセントが見ている相手の一部は、日本の生命保険会社と銀行である。</strong>
+        ニュースでは「アメリカの財政不安」と一言で書かれるが、その買い手側には日本の顔がある。</p>
+      </div>
+
+      <div class="route r3">
+        <p class="rk">経路 3 · 日本の財政</p>
+        <h3>アメリカで起きていることの<u>日本語版</u>が、同時に日本でも起きている</h3>
+        <div class="tbl-scroll">
+          <table>
+            <thead><tr><th>項目</th><th>いまの水準</th><th>意味</th></tr></thead>
+            <tbody>
+              <tr><td>日本の10年国債利回り</td><td class="num">約 2.94%</td><td>1996年9月以来、<strong>30年ぶり</strong>の高さ（8/17–18）</td></tr>
+              <tr><td>日本の30年国債利回り</td><td class="num">4%台</td><td>2026年5月18日に<strong>初めて4.000%</strong>に到達</td></tr>
+              <tr><td>日銀の政策金利</td><td class="num">1.00%</td><td>次回会合は <strong>9月17〜18日</strong>。追加利上げ予想は市場で6割超</td></tr>
+              <tr><td>日銀のQT（買い入れ減額）</td><td class="num">年 約48兆円</td><td>四半期12兆円ぶんの国債が市場に戻ってくる</td></tr>
+              <tr><td>市場が消化する国債</td><td class="num">年 70〜80兆円</td><td>QT分＋政府のネット発行。<strong>国内だけでは吸収しきれず海外投資家頼み</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tbl-note">財政拡張的な高市政権のもとで国債の増発が警戒され、需給の脆さが表面化している ── という構図。
+        <strong>アメリカの「財政不安 → 長期金利上昇」と、まったく同じ形をしている。</strong></p>
+        <p style="margin-top:12px"><strong>自分ごとへの落とし方。</strong>住宅ローンの<strong>変動</strong>金利は政策金利に、<strong>固定</strong>金利（フラット35など）は長期金利に連動する。
+        企業の借入コストも上がる。そして君の普通預金は ──</p>
+        <div class="formula">
+          実質金利 <span class="num">=</span> 1.00% <span class="num">&minus;</span> 1.6% <span class="num">=</span> <span class="num">&minus;0.6%</span>
+          <small>金利がついても、物価の上がり方のほうが速い。<strong>預けているだけで、買えるモノは年0.6%ずつ減っている。</strong></small>
+        </div>
+      </div>
+    </div>
+
+    <figure>
+      <figcaption>日米の長期金利 ── 日本の「4%」が、アメリカの「5.3%」の魅力を削っている</figcaption>
+      <p class="figsub">単位は%。日本の生保・銀行にとって、右の2本は<strong>為替リスクなし</strong>、左の2本は<strong>為替リスクあり</strong>で見える</p>
+      <div class="legend">
+        <span><i style="background:var(--f3)"></i>米国</span>
+        <span><i style="background:var(--f1)"></i>日本</span>
+      </div>
+      <div class="chart-scroll">
+        <svg viewBox="0 0 800 280" role="img" aria-label="日米の10年債と30年債の利回り比較">
+          <line x1="70" y1="220" x2="770" y2="220" style="stroke:var(--axis)" stroke-width="1"/>
+          <line x1="70" y1="182" x2="770" y2="182" style="stroke:var(--grid)" stroke-width="1"/>
+          <line x1="70" y1="144" x2="770" y2="144" style="stroke:var(--grid)" stroke-width="1"/>
+          <line x1="70" y1="106" x2="770" y2="106" style="stroke:var(--grid)" stroke-width="1"/>
+          <line x1="70" y1="68" x2="770" y2="68" style="stroke:var(--grid)" stroke-width="1"/>
+          <text x="62" y="224" text-anchor="end" font-size="11" style="fill:var(--ink-muted)">0</text>
+          <text x="62" y="186" text-anchor="end" font-size="11" style="fill:var(--ink-muted)">1</text>
+          <text x="62" y="148" text-anchor="end" font-size="11" style="fill:var(--ink-muted)">2</text>
+          <text x="62" y="110" text-anchor="end" font-size="11" style="fill:var(--ink-muted)">3</text>
+          <text x="62" y="72" text-anchor="end" font-size="11" style="fill:var(--ink-muted)">4</text>
+
+          <!-- 米30年 5.196 -> h=5.196*38=197.4 ; y=220-197=23 -->
+          <rect x="120" y="23" width="90" height="197" rx="4" style="fill:var(--f3)"/>
+          <text x="165" y="15" text-anchor="middle" font-size="14" font-weight="800" style="fill:var(--ink)">5.20%</text>
+          <text x="165" y="242" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink)">米 30年</text>
+          <text x="165" y="260" text-anchor="middle" font-size="11" style="fill:var(--ink-muted)">為替リスクあり</text>
+
+          <!-- 米10年 4.647 -> h=176.6 ; y=43 -->
+          <rect x="290" y="44" width="90" height="176" rx="4" style="fill:var(--f3)"/>
+          <text x="335" y="36" text-anchor="middle" font-size="14" font-weight="800" style="fill:var(--ink)">4.65%</text>
+          <text x="335" y="242" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink)">米 10年</text>
+          <text x="335" y="260" text-anchor="middle" font-size="11" style="fill:var(--ink-muted)">為替リスクあり</text>
+
+          <!-- 日30年 4.0 -> h=152 ; y=68 -->
+          <rect x="460" y="68" width="90" height="152" rx="4" style="fill:var(--f1)"/>
+          <text x="505" y="60" text-anchor="middle" font-size="14" font-weight="800" style="fill:var(--ink)">4.0%</text>
+          <text x="505" y="242" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink)">日 30年</text>
+          <text x="505" y="260" text-anchor="middle" font-size="11" style="fill:var(--rate)">為替リスクなし</text>
+
+          <!-- 日10年 2.94 -> h=111.7 ; y=108 -->
+          <rect x="630" y="108" width="90" height="112" rx="4" style="fill:var(--f1)"/>
+          <text x="675" y="100" text-anchor="middle" font-size="14" font-weight="800" style="fill:var(--ink)">2.94%</text>
+          <text x="675" y="242" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink)">日 10年</text>
+          <text x="675" y="260" text-anchor="middle" font-size="11" style="fill:var(--rate)">為替リスクなし</text>
+        </svg>
+      </div>
+      <p class="src">日本の30年債は2026年5月に4.000%へ到達した水準（節目としての4%）。米国は2026年8月19日終値。<strong>いずれも報道ベース ── 当日に取り直すこと。</strong></p>
+    </figure>
+
+    <div class="callout">
+      <p class="q">問い：日本の生保にとって、米30年債5.20% と 日本30年債4.0%。差は1.2ポイントしかない。この1.2ポイントで、為替リスクを取る価値はあるか？</p>
+      <p>ドル円が158円から150円になれば、円に戻したときに<strong>約5%</strong>の目減りになる。1.2ポイントの金利差は、<strong>4年分ためてやっと5%</strong>。
+      ── <strong>この計算をした瞬間、日本のお金はアメリカから引き揚げる。</strong>そしてそれがアメリカの長期金利を押し上げる。輪はここでも回っている。</p>
+    </div>
+  </section>
+
+  <!-- 5. 議論と宿題 -->
+  <section>
+    <div class="step-head"><span class="step-time">00:29–00:30</span><h2>議論の問いと、宿題</h2></div>
+
+    <h3>佐々木くんへの問い（時間の残りで1つ選ぶ）</h3>
+    <ul class="qlist">
+      <li>
+        <p class="q">Q1. ベッセントの買い戻しは、効くのか。効かないのか。<strong>どちらかに決めて</strong>から理由を言え。</p>
+        <p class="why">視点: 演習2で出した <strong>0.10%</strong> を必ず使う。「小さいから効かない」派と「メッセージだから効く」派、どちらも成り立つ。
+        効くと言うなら <strong>何がいくつになったら成功なのか</strong> を数字で決めること。決めていない主張は評論であって判断ではない。</p>
+      </li>
+      <li>
+        <p class="q">Q2. 長い借金を短い借金に組み替えるのは、住宅ローンを固定から変動に変えるのと同じである。<strong>自分がアメリカの財務長官なら</strong>、それをやるか。</p>
+        <p class="why">視点: いまの返済額は下がる。将来の金利上昇にはむき出しになる。<strong>会社で同じことをしたら、株主は何と言うか。</strong>
+        前回やった「利益を守るために売上を増やす」と同じで、<strong>短期を取るか長期を取るかの選択</strong>になっている。</p>
+      </li>
+      <li>
+        <p class="q">Q3. 自分ごと ── 円高が進んだら、君にとって得か損か。<strong>立場を1つ決めて</strong>答えよ。</p>
+        <p class="why">視点: 「日本経済にとって」ではなく<strong>君の財布から見て</strong>。輸入品は安くなる。海外旅行は行きやすくなる。
+        一方で、円安で稼いでいた会社の株を持っていたら？　バイト先が輸出企業の下請けだったら？　<strong>同じ1円が、立場によって逆の意味になる。</strong></p>
+      </li>
+    </ul>
+
+    <h3 style="margin-top:36px">宿題</h3>
+    <div class="hw">
+      <div class="h1x must">
+        <p><span class="badge m">必答</span><strong>A. 前回の宿題の答え合わせ（3分）</strong></p>
+        <p style="margin-top:8px">前回、<strong>7月分の消費者物価指数（8月21日・金 公表）</strong>のコア前年比が、6月の +1.6% から上がるか下がるかを予想した。
+        実際の数字を総務省統計局のサイトで確認し、<strong>1行だけ</strong>書いてくること ── 「予想は◯◯、実際は◯◯、外れた理由は◯◯」。
+        <strong>当たったかどうかは採点しない。外れた理由を1行で言えるかどうかを採点する。</strong></p>
+      </div>
+
+      <div class="h1x must">
+        <p><span class="badge m">必答</span><strong>B. ニュース1本を、PLの4行に直す（10分）</strong></p>
+        <p style="margin-top:8px">前回こう言った ── 「<strong>ロイターは毎日ずらっと見るようにしている。でも、それをPLの言葉に自分で直すのがまだ苦戦している</strong>」。
+        だから型を渡す。ロイターかブルームバーグから記事を<strong>1本</strong>選び、次の4行を書く。</p>
+        <ol class="form">
+          <li><b>何が動いた？</b> ── 1行。<strong>必ず数字を入れる</strong>（「◯◯が◯%上がった」）</li>
+          <li><b>誰の売上に効くか？</b> ── 会社名を<strong>1つ</strong>挙げて1行</li>
+          <li><b>誰の費用に効くか？</b> ── 会社名を<strong>1つ</strong>挙げて1行</li>
+          <li><b>その会社の社長なら、明日なにをするか？</b> ── 1行</li>
+        </ol>
+        <p style="margin-top:10px"><strong>4行以上は書かない。</strong>長く書くことが目的ではない。
+        <strong>どんなニュースでもこの4行に入る</strong>という体を作るのが目的で、そのためには短く速く回すほうがいい。
+        当日その場で点数をつける。</p>
+      </div>
+
+      <div class="h1x">
+        <p><span class="badge o">余力</span><strong>C. 日本の30年国債の利回りを、自分の目で見る（5分）</strong></p>
+        <p style="margin-top:8px">財務省の「国債金利情報」（<span style="word-break:break-all">mof.go.jp/jgbs/reference/interest_rate/</span>）を開き、
+        <strong>10年・30年・40年</strong>の直近の利回りを書き写してくること。この資料に書いた数字と合っているか。
+        ── <strong>資料の数字を疑うのは失礼ではなく、作法である。</strong>報道ベースの数字は動くし、間違っていることもある。</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="q">今日、持ち帰るもの</p>
+      <p>&#9312; <strong>「数字が大きい＝円安」</strong>。理由を考えずに、まずこれで判定する。<br>
+      &#9313; <strong>国債の値段が下がる ＝ 金利が上がる。</strong>同じ現象の裏表。<br>
+      &#9314; <strong>国にもPLがある。</strong>利払いは費用で、費用が増えたら売上（税収）を増やすか、仕入れ値（金利）を下げるしかない。<br>
+      &#9315; <strong>ニュースは4行に直す。</strong>何が動いた／誰の売上／誰の費用／社長なら何をするか。</p>
+    </div>
+  </section>
+
+  <!-- 用語 -->
+  <section>
+    <h2>用語ミニ辞典</h2>
+    <dl class="gloss">
+      <div><dt>バイバック<small>買い戻し・買い入れ消却</small></dt><dd>国が、すでに発行して市場に出回っている自分の国債を買い戻すこと。今回は買い戻す代金を<strong>短期国債の新規発行</strong>でまかなうので、借金の総額は減らない。<strong>年限を短くしているだけ</strong>。</dd></div>
+      <div><dt>国債の利回り<small>価格と逆に動く</small></dt><dd>もらえる利息 ÷ 払った値段。利息は契約で決まっていて動かないので、<strong>値段が下がれば利回りは上がる</strong>。「国債が売られた」＝「金利が上がった」。</dd></div>
+      <div><dt>ベーシスポイント<small>bp・ベーシス</small></dt><dd>0.01%のこと。「30年債が9bp下がった」＝0.09%下がった。金利の世界は小数点以下の勝負なので、この単位を使う。</dd></div>
+      <div><dt>年限・デュレーション<small>借金の「長さ」</small></dt><dd>何年後に返す借金か。長いほど貸し手はリスクを取るので、ふつう金利は高い。長い国債を買い戻して短い国債を出すのは、<strong>国全体の借金を「変動金利寄り」にする</strong>行為にあたる。</dd></div>
+      <div><dt>短期国債（Bills）／長期国債（Notes・Bonds）</dt><dd>Billsは1年以内、Notesは2〜10年、Bondsは20〜30年。今回買い戻すのはNotesの長い部分とBonds、埋めるのはBills。</dd></div>
+      <div><dt>ツイストオペ<small>Operation Twist</small></dt><dd>長い債券を買って短い債券を売り、金利の「曲線（イールドカーブ）」の形をひねる操作。FRBが2011年にやった。今回は中央銀行ではなく<strong>財務省</strong>が似たことをしている点が異例。</dd></div>
+      <div><dt>YCC（イールドカーブ・コントロール）</dt><dd>中央銀行が長期金利の<strong>水準そのもの</strong>を目標にして、達するまで無制限に国債を買う政策。<strong>日本銀行が2016〜2024年に実施</strong>。エラリアンは今回の動きを「YCCへの入口かもしれない」と読んだ。</dd></div>
+      <div><dt>ベッセント・プット</dt><dd>「金利が上がりすぎたら財務長官が助けに来てくれる」という市場の期待を指す言い方。もとは「グリーンスパン・プット」「FRBプット」から。<strong>期待そのものが値段を動かす</strong>という点が肝。</dd></div>
+      <div><dt>QE（量的緩和）との違い</dt><dd>QEは中央銀行が<strong>新しく作ったお金</strong>で国債を買う。今回は財務省が<strong>新しく借りたお金</strong>で買う。お金の総量は増えないので、教科書的には金融緩和ではない。<strong>ただし市場に与える効果は似る</strong>ので議論になっている。</dd></div>
+      <div><dt>政策金利／長期金利</dt><dd>政策金利は中央銀行が会議で決めるいちばん短い金利（日本1.00%、米国3.50〜3.75%）。長期金利は市場の売買で決まる（日本の10年 約2.94%、米国の10年 約4.65%）。<strong>今回暴れているのは長期金利のほう</strong>。</dd></div>
+      <div><dt>実質金利</dt><dd>名目金利 &minus; インフレ率。日本は 1.00 &minus; 1.6 ＝ <strong>&minus;0.6%</strong>。前回の最重要式で、今回も生きている。</dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <p><strong>一次情報として確認できるもの:</strong> 米財務省 2026年8月19日発表 ── 残存10〜20年および20〜30年の名目クーポン債を対象とする流動性支援バイバックの1回あたり上限を20億ドルから<strong>40億ドル以上</strong>へ拡大。適用は<strong>2026年9月9日から11月4日まで</strong>。次回の四半期定例入札（Quarterly Refunding）は11月4日。
+    日本銀行「企業物価指数（2026年7月速報）」2026年8月13日公表 ── 輸入物価 円ベース +29.1%／契約通貨ベース +17.7%、国内企業物価 +7.2%。
+    総務省統計局「消費者物価指数 全国 2026年6月分」2026年7月24日公表 ── コア +1.6%。日本銀行 金融政策決定会合 ── 政策金利1.00%、次回会合 9月17〜18日。FRB ── FF金利誘導目標 3.50〜3.75%。財務省「国債金利情報」。</p>
+    <p><strong>報道ベース（二次情報・講義当日に取り直すこと）:</strong> 米30年国債利回り 8/17 5.31%・8/18 5.34%（2007年以来の高水準）・8/19終値 5.196%、米10年国債利回り 8/19終値 4.647%、8/18の買い戻しへの応札 約200億ドル、四半期あたりの買い戻し規模 約320億ドル、
+    米連邦政府債務 約39.8兆ドル（2026年7月末）・市中保有 32.2兆ドル、2026年度9か月の利払い費 8,570億ドル（前年同期比+13%）、
+    米30年固定住宅ローン金利 6.69%（8/8）→6.67%（8/13）、
+    ドル円 159.16円（8/19午後）→158.19円（8/20朝）、日本10年国債利回り 2.945%（8/17〜18）、日本30年国債利回りの4%到達（2026年5月18日）、
+    日本の米国債保有額 約1兆2,930億ドル（中国 約1兆734億ドル）、日銀のQT規模（四半期12兆円・年48兆円）と市場消化額（年70〜80兆円）、日銀9月会合での追加利上げ予想6割超。
+    エラリアン氏・ジョセフソン氏の発言、および2024年のベッセント氏によるイエレン前長官への批判は、いずれも報道からの引用。</p>
+    <p>金額の円換算は1ドル＝158円。演習3の「毎年2割が借り換わる」は<strong>桁の感覚をつかむための仮定</strong>であり、実際の償還スケジュールではない。比率は四捨五入。
+    「中間選挙まで時間を買う」は市場参加者の<strong>解釈</strong>であって、財務省の公式説明ではない。
+    前回（第3回・8月20日）の数字と用語は当日の講義に基づく。本資料は個別指導用の教材であり、投資勧誘を目的とするものではありません。</p>
+  </footer>
+</div>
+
+</body>
+</html>
