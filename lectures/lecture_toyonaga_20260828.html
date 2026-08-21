@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個別講義資料｜2026年8月28日 「儲かっている」は4回に分けて言われる</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 個別回で追加したパーツ ---------- */
+/* 過去の回で本人が言ったことの引き戻し */
+.recall{border:1px solid var(--line); border-left:4px solid var(--word); border-radius:0 10px 10px 0;
+        background:var(--word-bg); padding:14px 17px; margin:14px 0 6px;}
+.recall .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:var(--word); margin-bottom:6px;}
+.recall p{margin:0 0 6px; font-size:14.8px; line-height:1.75;}
+.recall p:last-child{margin-bottom:0;}
+.recall .me{font-weight:800;}
+
+/* 二者対比 */
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0 6px;}
+.vs>div{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.vs .hd{font-size:13px; font-weight:800; letter-spacing:.05em; margin-bottom:7px;}
+.vs .a .hd{color:var(--bridge);} .vs .b .hd{color:var(--corp);}
+.vs p{margin:0 0 7px; font-size:14.3px; line-height:1.7;}
+.vs p:last-child{margin-bottom:0;}
+@media(max-width:640px){ .vs{grid-template-columns:1fr;} }
+
+/* 用語ドリル */
+.drill{list-style:none; margin:10px 0 0; padding:0; counter-reset:dr;
+       display:grid; grid-template-columns:repeat(auto-fit,minmax(266px,1fr)); gap:9px;}
+.drill li{counter-increment:dr; background:var(--q-bg); border:1px solid var(--q-line);
+          border-radius:9px; padding:11px 14px; font-size:14.4px; line-height:1.65;}
+.drill li b{font-weight:800;}
+.drill li .s{display:block; font-size:12.8px; color:var(--ink2); margin-top:4px;}
+</style>
+<style>
+/* ---------- 第2回（8/28）で追加したパーツ ---------- */
+/* 段階損益のはしご */
+.steps{list-style:none; margin:16px 0 6px; padding:0; counter-reset:st;}
+.steps li{counter-increment:st; position:relative; padding:13px 16px 13px 52px; margin-bottom:10px;
+          background:var(--bg); border:1px solid var(--line); border-radius:10px; font-size:15px; line-height:1.7;}
+.steps li::before{content:"第" counter(st) "段"; position:absolute; left:10px; top:13px; width:34px;
+          font-size:10px; font-weight:800; color:var(--ink3); text-align:center; line-height:1.3; letter-spacing:0;}
+.steps li .nm{font-size:16.5px; font-weight:800; display:block; margin-bottom:3px;}
+.steps li .eq{display:block; font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+          font-size:13.5px; font-weight:700; color:var(--ink2); margin:5px 0 4px; line-height:1.9;}
+.steps li .as{display:block; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+.steps li.miss{border-style:dashed; border-color:var(--q-line); background:var(--q-bg);}
+/* 引かれるものの帯 */
+.minus{display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.05em;
+       background:var(--corp-bg); color:var(--corp); padding:1px 8px; border-radius:5px; margin:0 3px;}
+/* 二つの意味 */
+.dual{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0 6px;}
+.dual>div{border:1px solid var(--line); border-top:4px solid var(--word); border-radius:0 0 10px 10px;
+          padding:14px 16px; background:var(--bg);}
+.dual .hd{font-size:13px; font-weight:800; color:var(--word); margin-bottom:6px; letter-spacing:.04em;}
+.dual p{margin:0; font-size:14.3px; line-height:1.7;}
+@media(max-width:640px){ .dual{grid-template-columns:1fr;} .steps li{padding-left:16px; padding-top:30px;} .steps li::before{top:8px; left:14px; text-align:left;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../toyonaga.html">← 講義資料の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">個別講義</span>
+  <span>6/9 補講　自由主義・AIサプライチェーン・上場</span>
+  <span>8/4　メルカリのビジネスモデル</span>
+  <span>8/7　フィンテック・与信・GMV</span>
+  <a href="lecture_toyonaga_20260821.html">8/21　為替・金利・ベッセント</a>
+  <span class="cur">8/28 講義資料</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 個別講義資料 ── 第2回</div>
+  <h1 class="title">「儲かっている」は、4回に分けて言われる ──<br>ところが、メルカリのPLには、そのうち1つが無い</h1>
+  <div class="meta">
+    <span><b>講義</b>　2026年8月28日（金）15:00 開始・30分</span>
+    <span><b>形式</b>　オンライン（Zoom）</span>
+    <span><b>前提</b>　8/21でやった為替・金利を、そのまま会社の決算書に持ち込む</span>
+  </div>
+  <div class="lede">
+    先週（8/21）は30分まるごと<strong>マクロ</strong>だった。ベッセント、為替介入、円キャリートレード、国債の値段と金利。<strong>資料の§2から先には、一度も入っていない。</strong>だから今日は、先週やり残したところからではなく、<strong>先週の最後に君が言った一言から</strong>始める。<br>
+    先生が「日本が持っている100ドルの米国債は、1ドル150円のときに売れば150円にしかならない。円安で200円になったら？」と聞いたとき、君はこう答えた ── <strong>「儲かる」。</strong>正しい。<br>
+    では今日の問いである。<strong>その200円を、会社の決算書に書くとしたら、どの行に書くのか。</strong>それは<strong>「本業で稼いだ金」なのか。</strong><br>
+    ── ここが、<strong>PL（損益計算書）に「儲け」が4回も出てくる理由</strong>そのものである。売上総利益、営業利益、経常利益、当期純利益。<strong>同じ会社の同じ1年について、「儲かった額」が4つ並んでいる。</strong>なぜ1つではいけないのか。今日はそこを30分でやる。<br>
+    そして最後にもう一つ。<strong>その4つを、メルカリの決算書で実際に探すと、1つ見つからない。</strong>誤植ではない。<strong>載せていないのである。</strong>なぜか。
+  </div>
+</header>
+
+<div class="callout" style="margin:0 0 22px">
+  <span class="lbl">この30分の進め方</span>
+  <b>この資料に答えは書いていない。</b>空欄と問いだけがある。<b>先週と同じ方針である。</b><br>
+  <b>授業の前にやってくることは、3つだけ。</b><br>
+  <b>① §0 の5語。</b>全部、先週の30分で実際に出た言葉である。<b>分からなかったものには「分からなかった」と印を付けて持ってくる。</b><br>
+  <b>② §0 の最後にある「紙に書く」。</b>60秒で終わる。ただし<b>9月18日の回で使うので、必ずやってくること。</b><br>
+  <b>③ §1 の4段のはしご。</b>4つの名前と、それぞれ<b>何を引いた後か</b>を、埋めてくる。<b>調べてよい。ここだけは調べてくる課題である。</b><br>
+  §2・§3 は授業でその場で考える。<b>調べてこないこと。</b>§4 は<b>読み物</b>なので、目を通すだけでよい。
+</div>
+
+<nav class="toc">
+  <h2>今日の30分</h2>
+  <ol>
+    <li><a href="#s0">先週の5語と、紙に書いておくこと</a> <span class="s">3分／自習してくる</span></li>
+    <li><a href="#s1"><b>その200円は、どの段の儲けか ── 「儲け」が4つある理由</b></a> <span class="s"><b>13分／今日の中心</b></span></li>
+    <li><a href="#s2">メルカリで4段を探す ── 1つ、見つからない</a> <span class="s">9分</span></li>
+    <li><a href="#s3">depreciation は、どの段に乗るのか ── そして意思決定</a> <span class="s">5分／締め</span></li>
+    <li><a href="#s4">先週やり残したところ ── 「持つ／持たない」と、来週のCF</a> <span class="s">読み物</span></li>
+  </ol>
+</nav>
+
+<!-- ============ §0 ============ -->
+<section class="topic" id="s0">
+  <span class="badge word">§0　自習してくる</span>
+  <h2 class="thead">先週の5語 ── 声に出して説明できるか</h2>
+  <p class="sub">全部、8/21の30分で実際に出た言葉である。<b>書けるかではなく、人に説明できるか</b>で判定する。授業の最初の3分で、いくつか抜き打ちで聞く。</p>
+
+  <ul class="drill">
+    <li><b>債権</b>と<b>債務</b><span class="s">どっちが<b>貸す側</b>で、どっちが<b>借りる側</b>か。── <b>先週ここでつまずいた。</b>「アメリカの国債を日本が持っていると、金利が上がったとき日本はどうなるか」と聞かれて、君は「<b>負債が増える</b>」と答えた。<b>持っている側は、債権者か債務者か。</b>ここをもう一度。</span></li>
+    <li><b>円キャリートレード</b><span class="s">先週は「円安だったらドルを持ってた方が価値があるから交換して儲ける」と答えた。<b>為替の部分は合っている。</b>では<b>もう一つの儲けの源</b>は何だったか。── ①（　）で円を借りる → ②ドルに替える → ③（　）の高い国の資産を買う。<b>この「（　）」に入る同じ言葉が言えたら合格。</b></span></li>
+    <li><b>イールド</b> <span class="en">yield</span><span class="s">「収穫」と訳したところから始まった。<b>ファイナンスの文脈では何のことか。</b>そして ── <b>国債の値段が上がると、イールドは上がるか下がるか。</b>先週の最後に自力で当てたところである。</span></li>
+    <li><b>アービトラージ</b> <span class="en">arbitrage</span><span class="s">日本語で一語なら何か。<b>そして「誰が」「何と何の差」で儲けているのか</b>まで言うこと。</span></li>
+    <li><b>ディプレシエーション</b> <span class="en">depreciation</span><span class="s"><b>先週いちばん重要だったのはこの単語である。</b>円の話で1回、会計の話で1回、<b>同じ30分に2回出てきた。</b>日本語で2つ言えるか。── <b>そして、なぜ同じ単語なのか。§3でやる。</b></span></li>
+  </ul>
+
+  <div class="callout">
+    <span class="lbl">授業の前に、紙に書いておくこと ── 60秒で終わる。ただし必ずやる</span>
+    <b>今後、円安になるか。</b>YESかNOを先に書き、<b>「いつまでに、何円で」</b>まで付ける。<b>「たぶん円安」は0点。</b><br>
+    8/21の資料にも同じことを書いたが、当日はここまで行かなかった。<b>だから今日あらためて出す。</b><br>
+    <b>外れてよい。外れた理由を説明できるかだけを見る。</b>書いた紙は捨てずに取っておくこと ── <b>9月18日の回で開いて、答え合わせをする。</b>いま書いておかないと、その回が成立しない。
+  </div>
+</section>
+
+<!-- ============ §1（今日の中心） ============ -->
+<section class="topic" id="s1">
+  <span class="badge corp">§1　今日の中心</span>
+  <h2 class="thead">その200円は、どの段の儲けか</h2>
+  <p class="sub">先週の最後の1分を、そのまま今日の入口にする。<b>マクロの話が、そのまま会計の話になる瞬間である。</b></p>
+
+  <div class="recall">
+    <span class="lbl">8月21日、この会話で終わった</span>
+    <p>先生「（日本が持っている米国債）100ドル。円安で150円から200円になったら、<span class="me">儲かると思わない</span>、自分たちは。どう思う？」</p>
+    <p>君「<span class="me">儲かる</span>」</p>
+    <p>先生「儲かる。<span class="me">名目上ね。</span>今まで100、もし売ったとしても150円にしかならなかったのが、円安で200円になりますと。そしたら自分の日本円での売り上げは<span class="me">200円って計上できん</span>じゃん」</p>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">今日いちばんの問い ── ここで長く考えてよい</span>
+    <b>その50円は、どこから来たのか。</b><br>
+    その会社（あるいは国）は、<b>何かを作ったか。何かを売ったか。誰かにサービスをしたか。</b>── <b>何もしていない。</b>ただ持っていただけである。<br>
+    <b>それでも「儲け」ではある。</b>ならば、<b>働いて稼いだ100円と、持っていただけで増えた50円を、決算書は同じ行に書いてよいのか。</b><br>
+    ── <b>書いてはいけない、というのが会計の答えである。だから「儲け」は4回に分けて書かれる。</b>
+  </div>
+
+  <h3>4段のはしご ── ここは調べて埋めてくる</h3>
+  <p>日本の会計基準のPLは、上から下へ<b>4回</b>「儲け」を出す。<b>それぞれ、直前で何を引いた（足した）後の数字なのか。</b>名前だけ覚えても意味がない。<b>「何を引いた後か」が言えて、はじめて覚えたことになる。</b></p>
+
+  <ol class="steps">
+    <li>
+      <span class="nm">売上総利益（粗利）</span>
+      <span class="eq">売上高 − <span class="blank">？</span> ＝ 売上総利益</span>
+      <span class="as"><b>何の儲けか：</b><span class="blank">？</span>　── 8/7にやった「1,000円のTシャツが売れて手数料10%なら売上は100円」の、その100円から何を引くのか。</span>
+    </li>
+    <li>
+      <span class="nm">営業利益</span>
+      <span class="eq">売上総利益 − <span class="blank">？</span> ＝ 営業利益</span>
+      <span class="as"><b>何の儲けか：</b><span class="blank">？</span>　── <b>ここに「広告宣伝費」と「社員の給料」が入る。</b>8/4に「メルカリはなぜ広告費を減らせるのか」とやった、あの広告費である。</span>
+    </li>
+    <li>
+      <span class="nm">経常利益</span>
+      <span class="eq">営業利益 ＋ <span class="blank">？</span> − <span class="blank">？</span> ＝ 経常利益</span>
+      <span class="as"><b>何の儲けか：</b><span class="blank">？</span>　── <b>この段が、今日の主役である。</b>先週の200円は、ここに来る可能性が高い。<b>なぜ「本業ではないのに、毎年くり返す」ものが、わざわざ1段を与えられているのか。</b></span>
+    </li>
+    <li>
+      <span class="nm">当期純利益</span>
+      <span class="eq">経常利益 ± <span class="blank">？</span> − <span class="blank">？</span> ＝ 当期純利益</span>
+      <span class="as"><b>何の儲けか：</b><span class="blank">？</span>　── <b>今年たまたま1回だけ起きたこと</b>（本社の土地を売った、工場が火事になった）は、ここまで下りてこないと出てこない。<b>そして最後に、あるものを引く。</b>会社が必ず払わされるものである。</span>
+    </li>
+  </ol>
+
+  <div class="formula">
+    <code>「儲かっている」＝ <span class="blank">どの段？</span></code>
+    <span class="n"><b>これが今日の到達目標である。</b>誰かが「あの会社は儲かっている」と言ったとき、<b>4つのうちどれの話をしているのかを必ず聞き返せるようになること。</b>聞き返せない限り、その会話は成立していない。</span>
+  </div>
+
+  <ol class="q">
+    <li><b>なぜ4回も分けるのか。</b>最後の1つ（当期純利益）だけ書けば足りるのではないか。
+      <span class="hint"><b>この問いを先に考えること。4つの名前を覚えるのは、そのあとでよい。</b><br>
+      ヒントは先週の200円である。<b>「本業で稼いだ100円」と「持っていただけで増えた50円」と「土地を売って出た1億円」を、区別したいのはなぜか。</b>── <b>君が来年もこの会社の株を持ち続けるかどうかを決めるとき、どれが役に立って、どれが役に立たないか。</b></span></li>
+    <li><b>先週の200円 ── 為替で増えた50円は、どの段に乗るか。</b>
+      <span class="hint">第1段から順に当てていくこと。<b>売上か。違うなら、なぜ売上ではないのか。</b><br>
+      そのうえで ── <b>もしその会社が「外貨を売り買いすること自体が商売」だったら、答えは変わるか。</b>（先週出てきた<b>アービトラージのトレーダー</b>は、まさにそれで食べている）<b>同じ50円でも、会社によって乗る段が違う。</b>ここが分かれば、この問いは満点である。</span></li>
+    <li><b>「今期は過去最高益でした」と社長が言った。君は何を聞き返すか。</b>
+      <span class="hint"><b>一言でよい。</b>この一言が出るようになることが、今日の30分の全部である。<br>
+      ついでに ── <b>「最高益だが、本業は赤字」という会社はありうるか。</b>ありうるなら、どういう1年を過ごした会社か。<b>4段のはしごを、上から下まで一度に見ないと答えられない。</b></span></li>
+    <li><b>8月4日にやった「メルカリが広告宣伝費を減らした」は、どの段に効いたか。</b>指で1か所を指せること。
+      <span class="hint">あの日、君は「なぜ広告費を減らせるのか」と聞かれて<b>「市場を独占してるとか」</b>と自力で答えた。<b>あれは正しかった。今日はその続きである ── で、それは決算書のどこに現れたのか。</b><br>
+      そして<b>広告費を減らすと、上の3段のうち、どれが増えてどれが変わらないか。</b>変わらない段があることに気づけたら、それが今日いちばんの収穫である。</span></li>
+  </ol>
+
+  <div class="src"><b>SOURCES</b>
+    <ul>
+      <li><span class="st p1">一次</span>金融庁「財務諸表等規則」／日本公認会計士協会の実務指針 ── <b>4段の並びと、それぞれに何を入れるかは、法令で決まっている。</b>「だいたいこう」ではない。</li>
+      <li><span class="st p1">一次</span>各社の決算短信・有価証券報告書（EDINET）。<b>4段が実際に並んでいるのを、自分の目で見ること。</b></li>
+      <li><span class="st p3">解説</span>8/21の会話（先生の発言）── 100ドルの米国債と150円／200円の例。<b>これは授業内の例え話であって、実際の外為特会の会計処理そのものではない。</b>§2でやる通り、政府の会計と会社の会計は同じではない。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section class="topic" id="s2">
+  <span class="badge bridge">§2　実物で確かめる</span>
+  <h2 class="thead">メルカリで4段を探す ── 1つ、見つからない</h2>
+  <p class="sub">§1で並べた4段を、<b>実在の会社の決算書で1つずつ指さす。</b>ここは授業で一緒に画面を開く。<b>調べてこないこと。</b></p>
+
+  <p>使うのは<b>メルカリの最新の決算短信</b>である。8/7に見たスライドの、元になっている書類のほうを開く。<b>4段のはしごを、上から順に指で追う。</b></p>
+
+  <div class="tblwrap">
+  <table class="scorecard">
+    <thead><tr><th>§1で並べた段</th><th>メルカリの決算書での呼び名</th><th class="j">見つかったか</th></tr></thead>
+    <tbody>
+      <tr><td class="h">売上高</td><td><span class="blank">？</span>　── <b>「売上高」とは書かれていない。</b>では何と書いてあるか</td><td class="j"><span class="fill">記入</span></td></tr>
+      <tr><td class="h">売上総利益</td><td><span class="blank">？</span></td><td class="j"><span class="fill">記入</span></td></tr>
+      <tr><td class="h">営業利益</td><td><span class="blank">？</span></td><td class="j"><span class="fill">記入</span></td></tr>
+      <tr><td class="h"><b>経常利益</b></td><td><span class="blank">？</span></td><td class="j"><span class="fill">記入</span></td></tr>
+      <tr><td class="h">当期純利益</td><td><span class="blank">？</span>　── <b>ここも呼び名が違う。</b>そして<b>2行に分かれている</b>はずである。なぜ2行あるのか</td><td class="j"><span class="fill">記入</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">起きること ── 先に言っておく</span>
+    <b>4つのうち1つが、どこにも無い。</b>探し方が悪いのではない。<b>メルカリは、その1つを載せていない。</b><br>
+    ── ここで「じゃあ覚えなくていいのか」と思ったら、それが今日いちばんの落とし穴である。<b>載せていないのには理由があり、その理由が分かると、決算書の読み方が一段変わる。</b>
+  </div>
+
+  <ol class="q">
+    <li><b>まず、実際に確かめる。</b>4段のうち、どれが無いか。<b>「無い」と言い切るには、どこまで探せば十分か。</b>
+      <span class="hint">短信の1ページ目（サマリー）だけを見て「無い」と言うのは早い。<b>連結損益計算書の本表まで開いて確かめること。</b>── これは先週やった「1つの投稿を丸ごと信じるか丸ごと捨てるかしかできない人は、情報を扱えていない」の、実物版である。</span></li>
+    <li><b>なぜ無いのか。</b>
+      <span class="hint">ヒントは<b>決算短信の表紙</b>にある。会社名や決算期と一緒に、<b>「どのルールで作った書類か」が書いてある。</b>そこを見る。<br>
+      ── 世界には、決算書の作り方のルールが<b>複数ある。</b>メルカリは<b>2024年6月期に、そのルールを乗り換えている。</b>乗り換えた先のルールには、<b>その1段が存在しない。</b><b>では、なぜ存在しないのか。</b>その段は何のためにあったのかを、§1のQ1に戻って考えること。</span></li>
+    <li><b>用語の所在 ── 「経常利益」はBSの言葉か、PLの言葉か。</b>
+      <span class="hint">これは7月から先生が繰り返している問いである。<b>ただし今日は、答えが一段深くなる。</b><br>
+      <b>言葉には「所在」（BSかPLか）だけでなく、「国籍」がある。</b>── 「経常利益」は<span class="blank">？</span>の言葉であって、世界共通ではない。<b>では、この言葉が無い国の投資家は、本業の儲けと持っていただけの儲けを、どうやって区別しているのか。</b><br>
+      <b>ここまで来たら、この問いは120点である。</b></span></li>
+    <li><b>ではメルカリは「儲かっている」のか。</b>4段のうち<b>使える段だけ</b>で答えること。
+      <span class="hint">1つ足りない状態で判断しなければならない。<b>足りないぶんを、どこで補うか。</b>── メルペイの後払いで受け取っている<b>金利</b>（8/4・8/7でやった）は、メルカリのPLでは<b>「売上」の中にいるのか、それとも本業の外にいるのか。</b><b>これは決めつけずに、短信の中で確かめること。</b>ここが分かると、8/4にやった「1取引で売上3倍」の意味が変わってくる。</span></li>
+  </ol>
+
+  <div class="src"><b>SOURCES</b>
+    <ul>
+      <li><span class="st p1">一次</span>メルカリ IRサイト「決算短信」── <b>最新は2026年6月期（2026年8月上旬に開示）。</b>当日はこれを開く。<a href="https://about.mercari.com/ir/">https://about.mercari.com/ir/</a></li>
+      <li><span class="st p1">一次</span>EDINET（有価証券報告書）── メルカリは<b>2025年6月期・2024年6月期ともIFRS</b>で提出しており、<b>2023年6月期までは日本基準</b>だった。<b>3年ぶんを並べると、乗り換えた瞬間が見える。</b><a href="https://disclosure2.edinet-fsa.go.jp/">https://disclosure2.edinet-fsa.go.jp/</a></li>
+      <li><span class="st p2">報道</span>NVIDIA の次の四半期決算 ── 8/21の資料で「8月下旬」と書いたもの。<span class="unsure">出ていれば当日の材料に使う。出ていなければ使わない。</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section class="topic" id="s3">
+  <span class="badge word">§3　締め</span>
+  <h2 class="thead">depreciation は、どの段に乗るのか</h2>
+  <p class="sub">先週、同じ英単語が30分のあいだに2回出てきた。<b>1回目は円の話、2回目は会計の話だった。</b>今日はそこを回収して終わる。</p>
+
+  <div class="recall">
+    <span class="lbl">8月21日、先生はこう言った</span>
+    <p>（円の <span class="me">depreciation</span> を訳させたあとで）「ディプレシエーションは<span class="me">減価償却</span>を覚えてる。PLの時の。それの英語訳はディプレシエーションね。<span class="me">だから覚えといた方がいいよ</span>」</p>
+  </div>
+
+  <div class="dual">
+    <div>
+      <div class="hd">円の depreciation</div>
+      <p>円の値段が下がること（＝円安）。<b>持っていた円の、他国から見た価値が目減りする。</b></p>
+    </div>
+    <div>
+      <div class="hd">機械の depreciation</div>
+      <p>減価償却。<b>買った機械や建物の価値が、使ううちに目減りしていく</b>ぶんを、少しずつ費用にする処理。</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">なぜ同じ単語なのか</span>
+    <b>どちらも「持っているものの価値が、時間とともに目減りする」ことを言っている。</b>違うのは、<b>目減りする相手が「通貨」か「設備」か</b>だけである。<br>
+    ── そして<b>ここが今日と先週をつなぐ結び目である。</b>先週は<b>通貨の目減り</b>を見た。今日はそれを<b>PLのどの行の話か</b>に変換した。<b>来週（9/4）は、設備の目減りのほうを、現金の動きと突き合わせる。</b>
+  </div>
+
+  <ol class="q">
+    <li><b>減価償却費は、4段のどこで引かれるか。</b>
+      <span class="hint"><b>ひっかけである。</b>答えは1か所とは限らない。<br>
+      ヒント ── 6/9にやったタクシーの車は、<b>お客を運ぶために使う。</b>では、その車の減価償却は<b>「商品を作る／サービスを提供するための費用」なのか、「本社の事務所を回すための費用」なのか。</b><br>
+      では、<b>本社ビルのエレベーター</b>の減価償却は、どちらか。<b>同じ「減価償却費」でも、何に使う資産かで乗る場所が変わる。</b></span></li>
+    <li><b>だから、こういうことが起きる。</b>データセンターを持っている会社と、メルカリのように持たない会社を並べたとき、<b>第1段（粗利）の見え方はどう違うか。</b>
+      <span class="hint">8/21の資料の§2・§3は、授業では扱えなかった。<b>だが結論の入口だけは、ここで拾える。</b><br>
+      GPUと建物の減価償却が<b>第1段より上</b>で引かれる会社と、<b>そもそも引くものが無い</b>会社。<b>粗利率だけを並べて「こっちが軽い会社だ」と言えるだろうか。</b>── <b>言えない、というのが答えである。理由を1文で言うこと。</b></span></li>
+    <li><span class="tagm">締め</span><b>君が株主だとする。</b>4つの段のうち、<b>1つだけ</b>を見てその会社を持ち続けるか決めるとしたら、どれを選ぶか。
+      <span class="hint"><b>1つに絞ること。</b>「全部見ます」は0点である。<b>選んだ理由を、1本の線で言う。</b><br>
+      そのうえで ── <b>その段だけを見ていると、どういう会社に騙されるか。</b>自分が選んだ段の<b>弱点</b>まで言えたら、今日は100点でよい。<br>
+      （8/11に先生はこう言っている ──「PLはお金を稼ぐ箱として、もう全然体をなしてない。そういう会社は<b>経済合理性がない</b>という判断で、株主的にはもう潰すとか、売却対象に持っていく」。<b>その判断を、今日は君がやる。</b>）</span></li>
+  </ol>
+
+  <div class="src"><b>SOURCES</b>
+    <ul>
+      <li><span class="st p1">一次</span>各社の有価証券報告書 ── <b>減価償却費の総額は、キャッシュフロー計算書の営業活動の区分に1行で出ている。</b>PLのどこに入っているかは、注記を見る。</li>
+      <li><span class="st p3">解説</span>8/11のゼミ（出前館の議論）── 「株主なら社長に何を指摘するか」。<b>締めの問いは、その個別版である。</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section class="topic" id="s4">
+  <span class="badge macro">§4　読み物（先週やり残したところ）</span>
+  <h2 class="thead">「持つ／持たない」と、来週のCF</h2>
+  <p class="sub">8/21の資料の§2以降は、当日1分も扱えなかった。<b>捨てたわけではない。置いてあるだけである。</b>目を通しておくこと。</p>
+
+  <p>先週の資料には、こう書いてあった ── 8月4日に君は<b>「メルカリは仕入れがないから、売れ残りもない。リスクがない」</b>と結論を出した。ところがいま世界でいちばん注目されているネット企業たちは、<b>そろってその逆</b>をやっている。ハイパースケーラー4社の2026年の設備投資は<b>約7,250億ドル</b>、SpaceXが上場で調達した<b>約750億ドル</b>の使途もデータセンターと衛星網である。<span class="unsure">（どちらも二次・要確認の数字。8/21の資料のフッター参照）</span></p>
+
+  <div class="callout">
+    <span class="lbl">なぜ今日それを扱わなかったか ── 順番の話である</span>
+    <b>「持つ／持たない」は、BSの話である。</b>ところが<b>持ったものが、どうやって費用になるか</b>を説明する言葉が、今日やった<b>減価償却</b>と<b>段階損益</b>だった。<b>道具のほうを先に配った</b>、というだけである。<br>
+    <b>そして来週（9/4）、3つ目の書類が出てくる。</b>── 買った瞬間に<b>現金は全部出ていく</b>のに、<b>費用は何年もかけて出てくる。</b>この<b>ズレ</b>を記録している書類がある。<b>「黒字なのに、金がない」という状態が、そこで初めて見える。</b><br>
+    ── 8月4日、君はメルペイの後払いについてこう言いかけた。「すぐ買っても<b>メルカリ側にお金が入らないから、キャッシュフローはマイナスになってる</b>けど、後から入ってくるやつがあるから営業を保ってる」。<b>あの日は流したが、あれはほぼ正解である。来週、正面から扱う。</b>
+  </div>
+
+  <p><b>先週の資料はここにある：</b> <a href="lecture_toyonaga_20260821.html">8/21「在庫を持たない会社が、世界でいちばん重い買い物を始めた」</a>　── <b>§2・§3・§4・§5 が丸ごと残っている。</b>読み物として目を通しておくと、9/4と9/11が速くなる。</p>
+</section>
+
+<!-- ============ 宿題 ============ -->
+<section class="topic" id="hw">
+  <span class="badge corp">次回まで</span>
+  <h2 class="thead">宿題</h2>
+  <p class="sub">次回は<b>9月4日（金）15:00</b>。<b>必答は3問。</b>うち1つは3分で終わる。<b>余力の2問は、必答が終わってから手を付けること。</b><br>
+  <b>それとは別に、§0の「円安の予想」は紙に書いて取っておくこと。</b>9月18日の回で開く。</p>
+
+  <div class="hw">
+    <div class="hwhead"><span class="team">必答</span><span class="hwtime">提出：9/4（金）12:00まで</span></div>
+    <div class="hwttl">宿題1　メルカリの4段を、自分の手で書き出す</div>
+    <ol class="q">
+      <li><span class="tagm">必答</span><b>最新の決算短信</b>（メルカリIRサイト）から、§1で並べた4段にあたる数字を<b>全部書き写す。</b>金額と、決算書での正式な行の名前を、両方書くこと。
+        <span class="hint"><b>数字は必ず一次情報から取ること。</b>ニュース記事やまとめサイトの数字を写して持ってきたら0点にする。<b>探すのは連結損益計算書の数行だけである。全部読もうとしないこと。</b></span></li>
+      <li><span class="tagm">必答</span><b>見つからなかった段は、「見つからなかった」と書く。</b>そのうえで、<b>なぜ無いのかを1行で書く。</b>
+        <span class="hint">授業でやった通りである。<b>空欄のまま持ってくるのと、「探したが無かった。理由はこれだ」と書いて持ってくるのは、まったく違う。</b></span></li>
+      <li><span class="tagm">必答</span><b>同じことを、2023年6月期のメルカリでやる。</b>（EDINETで有価証券報告書が引ける）
+        <span class="hint"><b>同じ会社である。</b>それなのに、<b>3年前には有って、今は無い。</b>── <b>会社が変わったのか、それともルールが変わったのか。</b>どちらか。<b>ここが今回いちばんの問いである。</b></span></li>
+    </ol>
+    <div class="deliv"><b>成果物</b>　2つの決算期ぶんの段階損益（行の名前＋金額）と、<b>「なぜ1つ無いのか」への1行の答え。</b>紙でもメモでも画面共有でもよい。</div>
+  </div>
+
+  <div class="hw t">
+    <div class="hwhead"><span class="team">必答</span><span class="hwtime">3分で終わる</span></div>
+    <div class="hwttl">宿題2　ベッセントのインタビュー動画を、最後まで見る</div>
+    <ol class="q">
+      <li><span class="tagm">必答</span>8/21に「文章しか見ていない」と言った、あの動画である。<b>先生が「後で見ときな」と言ったまま、まだ見ていないはずである。</b>
+        <span class="hint">インタビュアーは日本人（NHK）で、話しているのは政治家なので、<b>わざと分かりやすく喋っている。</b>だから聞き取りの練習にちょうどいい、というのが先生の理由である。<br>
+        <b>見たうえで、1つだけ持ってくること ── 文章の要約に書いてあったのに、本人が実際には言っていないことはあったか。</b>1つも無ければ「無かった」でよい。<b>8/21にやった「その投稿は正確なのか、雑なのか」の答え合わせである。</b></span></li>
+    </ol>
+    <div class="deliv"><b>成果物</b>　「見た」の一言と、上の1点。</div>
+  </div>
+
+  <div class="hw s">
+    <div class="hwhead"><span class="team">余力</span><span class="hwtime">できたらでよい</span></div>
+    <div class="hwttl">宿題3・4　── 8/21から持ち越しているもの</div>
+    <ol class="q">
+      <li><span class="tago">余力</span><b>証券口座。</b>まだ開いていなければ開く。開いてあるなら「開いた」と言うだけでよい。
+        <span class="hint">6/9から持ち越している。<b>口座を開くだけでは1円も損をしない。</b>開くと各社のレポートが読めるようになる、というのがいちばんの理由である。<b>9月25日の回は、君が3銘柄を持ってきて話す回になる。</b>そこから逆算すると、そろそろ開いておきたい。</span></li>
+      <li><span class="tago">余力</span><b>NVIDIAの原価率</b>を、決算リリースから計算する。<b>原価率 ＝ 売上原価 ÷ 売上高。</b>
+        <span class="hint">8/21の宿題1の持ち越しである。英語だが、探すのは <b>Revenue</b> と <b>Cost of revenue</b> の2行だけ。<br>
+        <b>そして、今日やったことを使って考える ── 原価率が低いということは、第（　）段の利益率が高いということである。</b>では<b>その下の段</b>はどうか。<b>NVIDIAが持っている巨大な設備の減価償却は、どの段で引かれているのか。</b>── <b>「原価率が低い＝軽い会社」と言い切れるかどうか</b>が、ここで決まる。</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 用語集 ============ -->
+<section class="topic gloss">
+  <span class="badge word">今日の新出語</span>
+  <h2 class="thead">用語集</h2>
+  <p class="sub">意味を覚えるためではなく、<b>使うために</b>載せている。§1〜§3の問いに答えるとき、この言葉で答えると答えが締まる。<b>ただし、答えそのものは書いていない。</b></p>
+  <dl>
+    <dt>段階損益</dt>
+    <dd>PL（損益計算書）が、上から下へ<b>何段階かに分けて「儲け」を出していく</b>構造のこと。<b>1つの会社の1つの年について、「儲かった額」が複数並ぶ。</b>並んでいる理由は、<b>儲けの出どころが違うから</b>である。§1のQ1がそこを聞いている。</dd>
+
+    <dt>売上総利益（粗利） <span class="en">gross profit</span></dt>
+    <dd>PLの<b>いちばん上の儲け</b>。売上高から売上原価を引いたもの。8/21の宿題で出した<b>原価率</b>は、この段の裏返しである（原価率が低い ＝ 粗利率が高い）。<b>ただし「原価に何が入っているか」は業種でまるで違う。</b>§3のQ2はそこを聞いている。</dd>
+
+    <dt>販売費及び一般管理費（販管費） <span class="en">SG&amp;A</span></dt>
+    <dd><b>売るための費用と、会社を回すための費用。</b>広告宣伝費、社員の給料、家賃、本社の費用。<b>粗利からこれを引くと、第2段になる。</b>── 8/4にやった「メルカリが広告宣伝費を減らした」は、ここの話である。</dd>
+
+    <dt>営業利益 <span class="en">operating income / operating profit</span></dt>
+    <dd><b>本業でいくら稼いだか。</b>4段のうち、<b>いちばん「その会社の実力」に近いと言われる</b>段。ただし<b>借金の利息はまだ引かれていない</b>ので、これだけを見ていると見落とすものがある。<b>何を見落とすか。</b></dd>
+
+    <dt>営業外収益／営業外費用</dt>
+    <dd><b>本業ではないが、毎年くり返し起きる</b>収益と費用。受取利息、支払利息、そして<b>為替差益・為替差損</b>。── <b>先週の「200円」は、ふつうの会社ならここに来る。</b>ただし<b>為替の売り買いが本業の会社なら、話は別である。</b>§1のQ2はそこを聞いている。</dd>
+
+    <dt>経常利益</dt>
+    <dd><b>営業利益に、営業外の収益と費用を足し引きした段。</b>「本業＋毎年くり返す本業以外」の儲け。<b>日本の会計基準にしかない段である。</b>英語に定訳がなく、`ordinary income` などと訳されるが、そのまま通じる言葉ではない。<b>§2は、この一段だけを見つけにいく節である。</b></dd>
+
+    <dt>特別利益／特別損失</dt>
+    <dd><b>今年たまたま1回だけ起きたこと。</b>本社の土地を売った益、工場が火事になった損、事業をまるごと売った益。<b>来年もあるとは限らない</b>ので、経常利益より下に置かれている。<b>「最高益だが、本業は赤字」という会社は、ここで作れる。</b></dd>
+
+    <dt>当期純利益 <span class="en">net income</span></dt>
+    <dd><b>最後に残った儲け。</b>ここから配当が出る。<b>連結の決算書では2行に分かれている</b>ことがあり、<b>「親会社の株主のもの」と「そうでない人のもの」</b>を分けている。<b>君が株を買うと、どちらの側に立つのか。</b></dd>
+
+    <dt>会計基準（日本基準／IFRS／米国基準）</dt>
+    <dd><b>決算書の作り方のルール。</b>世界で1つではない。日本の会社は、日本基準・IFRS・米国基準のどれかを選んで使っている。<b>基準が違うと、段の数も、行の名前も、そもそも存在する段も違う。</b>だから<b>2社を並べるときは、まず「同じルールで作られた書類か」を確かめる。</b>── <b>これは、8/21にやった「その投稿は一次情報か」と同じ作法である。数字を比べる前に、出どころの規格を見る。</b></dd>
+
+    <dt>IFRS <span class="en">International Financial Reporting Standards</span></dt>
+    <dd>国際財務報告基準。<b>世界で広く使われている決算書のルール。</b>海外の投資家に読ませたい会社が乗り換えることが多い。<b>メルカリは2024年6月期からこれを使っている。</b><b>そして、このルールには「経常利益」という段が無い。</b>無いということは、<b>その段が無くても判断できる、という立場である</b>ということ。<b>ではどうやって判断するのか。</b>§2のQ3がそこを聞いている。</dd>
+
+    <dt>減価償却 <span class="en">depreciation</span></dt>
+    <dd>（8/21の用語集にも載せた。<b>今日は所在を問う。</b>）固定資産を、使う年数にわけて少しずつ費用にしていく処理。<b>現金は最初に全部出ていくのに、費用は何年もかけて出てくる。</b><b>そして今日の論点 ── この費用は、4段のどこで引かれるのか。</b>1か所とは限らない。</dd>
+
+    <dt>為替差益／為替差損</dt>
+    <dd>外貨で持っている資産や負債を円に直したときに出る、<b>為替が動いたぶんの損益。</b>何も売っていないのに出る。<b>先週の「150円が200円になった」がこれである。</b>先生が<b>「名目上ね」</b>と付け足したのは、<b>その円を実際には受け取っていないから</b>である ── <b>この一言が、来週のCFの回の入口になる。</b></dd>
+  </dl>
+</section>
+
+<footer>
+  <h2>この資料の使い方と、数字の扱いについて</h2>
+  <ul>
+    <li><b>この資料には答えが書いていない。</b>空欄（<span class="blank">こういうやつ</span>）と問いだけである。<b>先にやってくるのは3つだけ</b> ── §0の5語、§0の「紙に書く」、§1の4段のはしご。<b>§1のはしごは調べてよい。むしろ調べてくること。</b>§2・§3は授業でその場で考えるので、<b>調べてこないこと。</b></li>
+    <li><b>今日の資料には、こちらから配った数字がほとんど無い。</b>それは意図的である。<b>4段の実数は、君が短信から取ってくる。</b>先週の資料は数字を先に置いたが、今日は<b>取りに行かせる回</b>である。</li>
+    <li><b>数字には格付けを付けた。</b>各節末の SOURCES を見ること ──
+      <span class="st p1">一次</span>発行体そのものが出した情報（各社IR・SEC・EDINET・官庁）／
+      <span class="st p2">報道</span>報道機関／
+      <span class="st p3">解説</span>証券会社・シンクタンク・授業内の説明／
+      <span class="st p4">二次・要確認</span>個人記事・まとめ。<br>
+      <b>§4に出てくる7,250億ドルと750億ドルは、8/21の資料から引き継いだ「二次・要確認」の数字である。</b>断定形で言わないこと。</li>
+    <li><span class="unsure">この書体</span>にした箇所は、確定していない数字・未確認の事実である。</li>
+    <li><b>一次情報の在り処</b>　── メルカリは<b>IRサイトの決算短信</b>と<b>EDINET</b>（有価証券報告書）。米国企業は <b>SEC EDGAR</b> の 10-K／10-Q と各社IR。<b>探すのは数行だけである。</b></li>
+  </ul>
+  <div class="next"><b>次回予告　9月4日（金）15:00</b>　<b>CF（キャッシュ・フロー計算書）。</b>今日やった減価償却の、ちょうど裏側をやる ── <b>現金は出ていったのに費用にならない</b>のが減価償却だとすれば、その逆に<b>費用は出ていないのに現金が減る</b>ことも起きる。<b>「黒字なのに、金がない」</b>という状態を、自分の言葉で1分説明できるようにして帰ってもらう。<b>材料は8月4日に君が言いかけた、メルペイ後払いのキャッシュフローである。</b></div>
+</footer>
+
+</div>
+</body>
+</html>
