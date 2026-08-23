@@ -10,7 +10,7 @@
 
 | トラック | 対象 | ポータル |
 |---|---|---|
-| 夏期集中講座（グループ） | 田村・廻・山本・河野・秋山・中村 | [seminar.html](seminar.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/seminar.html) |
+| 夏期集中講座（グループ） | 6名のグループ | [seminar.html](seminar.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/seminar.html) |
 | 個別指導 — 佐々木さん | 佐々木 | [sasaki.html](sasaki.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/sasaki.html) |
 | 個別指導 — 豊長さん | 豊長 | [toyonaga.html](toyonaga.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/toyonaga.html) |
 
