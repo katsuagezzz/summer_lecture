@@ -29,6 +29,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
+| 夏期 第3回 | 2026-08-18 | 復習クイズ（5問4択）― Anthropic・為替・金利 | [HTML](reviews/lecture_quiz_20260818.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_quiz_20260818.html) |
 | 夏期 第2回 | 2026-08-11 | 介入は「流れ」を変えられるか ― 為替・金利・減価償却・原価率 | [HTML](reviews/lecture_review_20260811.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20260811.html) |
 | 夏期 第1回 | 2026-08-04 | 登場人物を並べる ― 政府・日銀・市場・アメリカ | [HTML](reviews/lecture_review_20260804.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20260804.html) |
 
@@ -45,6 +46,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
+| 第4回 | 2026-08-24 | 利払いが国防費を超えた国 ― ベッセントの米国債買い戻しと、日本の財布 | [HTML](lectures/lecture_sasaki_20260824.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260824.html) |
 | 第3回 | 2026-08-20 | 金利・為替・インフレの関係性 ― 輸入物価+29.1%は、どこで+1.6%になったのか | [HTML](lectures/lecture_sasaki_20260820.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260820.html) |
 | 第2回 | 2026-08-17 | ZOZOの決算を読む ― 受託販売とテイクレート | [HTML](lectures/lecture_sasaki_20260817.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260817.html) |
 

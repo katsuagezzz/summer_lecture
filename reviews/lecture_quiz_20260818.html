@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>復習クイズ 第3回｜2026年8月18日 Anthropic・為替・金利</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --note-bg:#f1f3f7;
+  --choice-bg:#ffffff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --note-bg:#1b212a;
+    --choice-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:900px; margin:0 auto; padding:28px 22px 80px;}
+
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2); white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--word);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:30px; line-height:1.35; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{
+  margin-top:18px; padding:16px 18px; background:var(--note-bg);
+  border-radius:10px; font-size:16px; line-height:1.85; color:var(--ink);
+}
+.lede strong{border-bottom:2px solid var(--word); padding-bottom:1px;}
+
+/* ---------- スコアバー ---------- */
+.scorebar{
+  position:sticky; top:0; z-index:5; display:flex; align-items:center; justify-content:space-between;
+  gap:12px; background:var(--panel); border:1px solid var(--line); border-radius:12px;
+  padding:12px 18px; margin-bottom:22px; font-size:14px; font-weight:700; color:var(--ink2);
+  box-shadow:0 2px 10px rgba(0,0,0,.04);
+}
+.scorebar .sc{color:var(--word); font-size:16px;}
+.progress{flex:1; height:8px; background:var(--note-bg); border-radius:99px; overflow:hidden; margin:0 4px;}
+.progress-fill{height:100%; width:0%; background:var(--word); transition:width .25s ease;}
+
+/* ---------- 問題カード ---------- */
+.qcard{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:24px 26px 26px; margin-bottom:18px;
+}
+.qhead{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+.qnum{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border-radius:50%; background:var(--word-bg); color:var(--word);
+  font-weight:800; font-size:15px; flex:0 0 auto;
+}
+.qtag{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3);}
+.qtext{font-size:17px; font-weight:700; line-height:1.7; margin:0 0 16px; color:var(--ink);}
+
+.choices{display:flex; flex-direction:column; gap:9px;}
+.choice{
+  display:flex; gap:11px; align-items:flex-start; text-align:left;
+  border:1.5px solid var(--line); border-radius:10px; background:var(--choice-bg);
+  padding:12px 15px; font-size:15px; line-height:1.6; color:var(--ink);
+  cursor:pointer; font-family:inherit; width:100%;
+  transition:border-color .12s ease, background .12s ease;
+}
+.choice:hover:not(:disabled){border-color:var(--word);}
+.choice:disabled{cursor:default;}
+.choice .lab{
+  flex:0 0 auto; width:24px; height:24px; border-radius:50%; border:1.5px solid var(--line);
+  display:flex; align-items:center; justify-content:center; font-size:12.5px; font-weight:800; color:var(--ink3);
+}
+.choice.correct{border-color:var(--up); background:var(--bridge-bg);}
+.choice.correct .lab{background:var(--up); border-color:var(--up); color:#fff;}
+.choice.wrong{border-color:var(--down); background:var(--corp-bg);}
+.choice.wrong .lab{background:var(--down); border-color:var(--down); color:#fff;}
+.choice.dim{opacity:.55;}
+
+.explain{
+  display:none; margin-top:14px; padding:14px 16px; background:var(--note-bg);
+  border-left:4px solid var(--word); border-radius:0 9px 9px 0; font-size:14.5px; line-height:1.8; color:var(--ink2);
+}
+.explain.show{display:block;}
+.explain b{color:var(--ink); font-weight:800;}
+.explain .src{display:block; margin-top:8px; font-size:12.5px; color:var(--ink3);}
+
+.result-badge{display:none; font-size:13px; font-weight:800; padding:3px 10px; border-radius:999px; margin-left:auto;}
+.result-badge.ok{display:inline-block; background:var(--bridge-bg); color:var(--up);}
+.result-badge.ng{display:inline-block; background:var(--corp-bg); color:var(--down);}
+
+/* ---------- 結果まとめ ---------- */
+.finalcard{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:28px; margin:8px 0 22px; text-align:center; display:none;
+}
+.finalcard.show{display:block;}
+.finalcard .big{font-size:40px; font-weight:800; color:var(--word); margin:6px 0 4px;}
+.finalcard p{margin:6px 0 0; color:var(--ink2); font-size:15px;}
+.resetbtn{
+  margin-top:16px; border:1.5px solid var(--line); background:var(--panel); color:var(--ink);
+  font-weight:700; font-size:14px; padding:9px 20px; border-radius:999px; cursor:pointer;
+}
+.resetbtn:hover{border-color:var(--word); color:var(--word);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+.next b{font-weight:800;}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media (max-width:640px){
+  h1.title{font-size:23px;}
+  .wrap{padding:16px 13px 50px;}
+  header.masthead, footer{padding:18px 16px;}
+  .qcard{padding:18px 16px 20px;}
+  .qtext{font-size:16px;}
+  .scorebar{flex-wrap:wrap;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../index.html">← 一覧へ戻る</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="lecture_review_20260804.html">第1回 8/4 復習</a>
+  <a href="../news_briefs/lecture_news_20260809.html">速報 Vol.1 8/9</a>
+  <a href="lecture_review_20260811.html">第2回 8/11 復習</a>
+  <a href="../lectures/lecture_20260818.html">第3回 8/18 講義資料</a>
+  <span class="cur">第3回 8/18 復習クイズ</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">REVIEW QUIZ ／ 復習クイズ　夏期集中講座 第3回</div>
+  <h1 class="title">Anthropic・為替・金利 ― 5問4択</h1>
+  <div class="meta">
+    <span><b>講義日</b>　2026年8月18日（火）16:20〜</span>
+    <span><b>出題範囲</b>　当日の議事録・逐語記録（文字起こし）</span>
+    <span><b>形式</b>　その場で答え合わせ（採点は保存されません）</span>
+  </div>
+  <div class="lede">
+    このクイズは<strong>配布資料そのものではなく、当日ゼミで実際に交わされたやり取り</strong>から出題している。
+    学生A・学生Bが議論した日銀の利上げ圧力、学生Cが説明したAnthropicの評価倍率、学生Dが解いた電力ボトルネックの連鎖など、
+    <strong>その場で誰かが説明できた内容</strong>を中心に選んだ。選択肢をクリックすると、その場で正誤と解説が出る。
+  </div>
+</header>
+
+<div class="scorebar">
+  <span>進捗 <span id="doneCount">0</span>/5</span>
+  <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+  <span>正解 <span class="sc" id="scoreCount">0</span>/5</span>
+</div>
+
+<!-- ============ Q1 ============ -->
+<div class="qcard" data-qid="1">
+  <div class="qhead">
+    <span class="qnum">1</span>
+    <span class="qtag">インフレと国の借金</span>
+    <span class="result-badge" id="badge1"></span>
+  </div>
+  <p class="qtext">志村先生とのやり取りで、「インフレが進むと、借金をしている人の中でも一番得をする」と確認されたのは誰か。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>国（政府）── 名目上の税収は増えるが、既発の借金の額面は変わらないため</span></button>
+    <button class="choice" data-idx="1">B. <span>銀行 ── インフレ時は貸出金利を自由に引き上げられるため</span></button>
+    <button class="choice" data-idx="2">C. <span>一般家庭 ── 賃金の上昇が物価の上昇より速いため</span></button>
+    <button class="choice" data-idx="3">D. <span>外国人投資家 ── 円建て資産が相対的に割安になるため</span></button>
+  </div>
+  <div class="explain" id="explain1">
+    <b>正解：A（国）。</b>学生Dの「国」という答えに対し、先生は「インフレになるとみんなの生活は苦しくなるけど、今までの国の借金はどんどん返せる」と説明した。物価も給料も名目上は上がるので税収（名目額）は増えるが、既発の国債の元本は変わらない。<b>実質的な負担が目減りする＝借金が棒引きされていく</b>というのが、政府がインフレを起こしたがる典型的な理由として紹介された。
+    <span class="src">出典：当日 第3回の議論</span>
+  </div>
+</div>
+
+<!-- ============ Q2 ============ -->
+<div class="qcard" data-qid="2">
+  <div class="qhead">
+    <span class="qnum">2</span>
+    <span class="qtag">日銀の利上げ圧力</span>
+    <span class="result-badge" id="badge2"></span>
+  </div>
+  <p class="qtext">「日銀は利上げしたくてもできない」という第2回の仮説について、学生Aと学生Bは「前提が逆」だと判定した。その根拠として2人が挙げたのはどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>実際にはむしろ政府（内閣）の側が、対米関係や国民生活の逼迫を理由に日銀へ利上げを望む圧力をかけている</span></button>
+    <button class="choice" data-idx="1">B. <span>日銀にはそもそも政策金利を動かす法的権限がないと分かったため</span></button>
+    <button class="choice" data-idx="2">C. <span>円安はすでに止まっており、利上げの議論自体が不要になったため</span></button>
+    <button class="choice" data-idx="3">D. <span>アメリカが日本に利下げを要求しているため</span></button>
+  </div>
+  <div class="explain" id="explain2">
+    <b>正解：A。</b>学生Aは「利上げできないというよりは、利上げをしろっていう圧力をかけられてる」と発言し、理由として<b>アメリカとの関係（米国債の価値が下がると困る）</b>と<b>国民生活の逼迫を改善する必要</b>の2つを挙げた。学生Bも同じ結論に同意している。第2回の「日銀は利上げできない（ジレンマ）」という仮説は、政府と日銀のどちらが利上げを望んでいるかという主語が逆だった、という指摘。
+    <span class="src">出典：当日 第3回の議論（学生A・学生B）</span>
+  </div>
+</div>
+
+<!-- ============ Q3 ============ -->
+<div class="qcard" data-qid="3">
+  <div class="qhead">
+    <span class="qnum">3</span>
+    <span class="qtag">減価償却</span>
+    <span class="result-badge" id="badge3"></span>
+  </div>
+  <p class="qtext">「キャッシュが赤字でもPLが黒字になるのは減価償却のせい」という設問に対し、学生Bが説明した内容として正しいのはどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>設備投資のキャッシュは購入した年に大きく出ていくが、PL上の費用は複数年に分けて少しずつ計上されるため</span></button>
+    <button class="choice" data-idx="1">B. <span>減価償却費は将来キャッシュとして手元に戻ってくるため</span></button>
+    <button class="choice" data-idx="2">C. <span>PLの数字はキャッシュフローの数字と常に一致するよう会計基準で定められているため</span></button>
+    <button class="choice" data-idx="3">D. <span>減価償却は税務上ゼロ円として扱われるため、費用計上自体が発生しないため</span></button>
+  </div>
+  <div class="explain" id="explain3">
+    <b>正解：A。</b>学生Bは「買った年にキャッシュは大きく減るが、PL上は減価償却で毎年ちょっとずつ減らすので、その年の減価償却費だけ計上すればよく、キャッシュ自体は赤字でもPL上は黒字に出ちゃう」と説明した。先生はこれを「グーグルなどハイパースケーラーがデータセンターに巨額投資しても、キャッシュは赤字・PLは黒字になる」という話に接続している。
+    <span class="src">出典：当日 第3回の議論（学生A・学生B）</span>
+  </div>
+</div>
+
+<!-- ============ Q4 ============ -->
+<div class="qcard" data-qid="4">
+  <div class="qhead">
+    <span class="qnum">4</span>
+    <span class="qtag">Anthropicの評価倍率</span>
+    <span class="result-badge" id="badge4"></span>
+  </div>
+  <p class="qtext">学生Cは、上場前のAnthropicの評価額が「割高かどうか」をどんな指標で判断したか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>時価総額 ÷ ARR（年間経常収益）で見るPS倍率（PSR）── ARR650億ドルに対し、時価総額1兆ドルなら約15倍、2兆ドルなら約30倍になるという計算</span></button>
+    <button class="choice" data-idx="1">B. <span>PER（株価収益率）── 発表済みの純利益を使って算出</span></button>
+    <button class="choice" data-idx="2">C. <span>ROE（自己資本利益率）── 自己資本に対する当期純利益の比率</span></button>
+    <button class="choice" data-idx="3">D. <span>PBR（株価純資産倍率）── 純資産に対する株価の倍率</span></button>
+  </div>
+  <div class="explain" id="explain4">
+    <b>正解：A。</b>学生Cは「営業利益は非公表なのでPERは使えない」としたうえで、<b>時価総額をARR（650億ドル）で割ったPS倍率</b>を物差しにした。パランティア55倍・スノーフレイク15倍・エヌビディア35倍などの同業他社と比較し、「10〜20倍なら買い、30倍だと割高、50倍は落ち始める水準」という基準を示した。時価総額1兆ドルなら約15倍で「買っていい」水準、2兆ドルまで上がると約30倍で「割高」という判定だった。
+    <span class="src">出典：当日 第3回の議論（学生C）</span>
+  </div>
+</div>
+
+<!-- ============ Q5 ============ -->
+<div class="qcard" data-qid="5">
+  <div class="qhead">
+    <span class="qnum">5</span>
+    <span class="qtag">電力ボトルネックと株価</span>
+    <span class="result-badge" id="badge5"></span>
+  </div>
+  <p class="qtext">学生Dが説明した、データセンター向けの電力不足がGE・三菱重工の株価上昇につながる連鎖として正しいのはどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>ハイパースケーラーが電力会社と20年分の長期契約を結ぶ → 電力会社は将来の売上が確約され投資判断がしやすくなる → タービンメーカーなどへの発注（受注残高）が増える → 株価が上がる</span></button>
+    <button class="choice" data-idx="1">B. <span>データセンターの電力不足で稼働停止が相次ぎ、代替インフラとしてGE・三菱重工の製品が緊急発注されるようになった</span></button>
+    <button class="choice" data-idx="2">C. <span>GE・三菱重工が自社でデータセンター事業に参入し、直接の売上が増えたため</span></button>
+    <button class="choice" data-idx="3">D. <span>印西市への移転補助金を両社が受け取ったため</span></button>
+  </div>
+  <div class="explain" id="explain5">
+    <b>正解：A。</b>学生Dは「ハイパースケーラーがデータセンターに投資 → ボトルネックが電力 → 電力会社と20年分の契約を結ぶ → 電力会社の売上が確約され投資しやすくなる → タービンなどを作る三菱重工などに発注が入る → 受注残高が増えて株価が上がる、と説明できる」と述べた。実例として、千葉県印西市でデータセンターの電力接続待ちが40件・合計2.5ギガワットに達しているという記事も紹介された。
+    <span class="src">出典：当日 第3回の議論（学生D）</span>
+  </div>
+</div>
+
+<div class="finalcard" id="finalCard">
+  <div style="font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--ink3)">RESULT</div>
+  <div class="big"><span id="finalScore">0</span> / 5</div>
+  <p id="finalMsg"></p>
+  <button class="resetbtn" id="resetBtn">もう一度解く</button>
+</div>
+
+<footer>
+  <h2>このページについて</h2>
+  <ul>
+    <li>2026年8月18日（火）の<b>夏期集中講座 第3回</b>の復習クイズです。出題は配布資料ではなく、<b>当日の議事録・逐語記録（文字起こし）</b>の中で実際に交わされた発言に基づいています。</li>
+    <li>採点はブラウザ上でその場限りです。ページを閉じたり再読み込みすると記録は残りません（サーバー送信・保存は行っていません）。</li>
+    <li>外部依存のない単一HTMLファイルです。</li>
+  </ul>
+  <div class="next">
+    <b>講義資料</b>　<a href="../lectures/lecture_20260818.html">第3回 講義資料（2026年8月18日）</a>　── 「上場が答え合わせをする夏」。SpaceX上場の検算、Anthropic・OpenAI比較、電力ボトルネック、軍事と地政学。<br>
+    <b>前回</b>　<a href="lecture_review_20260811.html">第2回 復習ページ（2026年8月11日）</a>　── 為替介入・日銀のジレンマ・減価償却・原価率104%。<br>
+    <b>前々回</b>　<a href="lecture_review_20260804.html">第1回 復習ページ（2026年8月4日）</a>　── 為替と金利の登場人物、メルカリとfreeeのPL比較。<br>
+    <b>あわせて読む</b>　<a href="../news_briefs/lecture_news_20260809.html">講義ネタ速報 Vol.1（2026年8月9日配信）</a>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var TOTAL = 5;
+  var answered = {};
+  var correctIdx = {1:0, 2:0, 3:0, 4:0, 5:0};
+
+  var doneCountEl = document.getElementById('doneCount');
+  var scoreCountEl = document.getElementById('scoreCount');
+  var progressFill = document.getElementById('progressFill');
+  var finalCard = document.getElementById('finalCard');
+  var finalScore = document.getElementById('finalScore');
+  var finalMsg = document.getElementById('finalMsg');
+
+  function updateBar(){
+    var doneN = Object.keys(answered).length;
+    var scoreN = 0;
+    for (var k in answered){ if (answered[k]) scoreN++; }
+    doneCountEl.textContent = doneN;
+    scoreCountEl.textContent = scoreN;
+    progressFill.style.width = (doneN/TOTAL*100) + '%';
+    if (doneN === TOTAL){
+      finalCard.classList.add('show');
+      finalScore.textContent = scoreN;
+      var msg;
+      if (scoreN === 5) msg = '満点。当日の議論をよく聞けている。';
+      else if (scoreN >= 3) msg = 'まずまず。解説を読み返して、聞き逃したやり取りを確認しよう。';
+      else msg = '文字起こしをもう一度読み返してから、もう一度挑戦してみよう。';
+      finalMsg.textContent = msg;
+      finalCard.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+  }
+
+  document.querySelectorAll('.qcard').forEach(function(card){
+    var qid = card.getAttribute('data-qid');
+    var choices = card.querySelectorAll('.choice');
+    var explain = document.getElementById('explain'+qid);
+    var badge = document.getElementById('badge'+qid);
+
+    choices.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if (answered.hasOwnProperty(qid)) return; // already answered
+        var idx = parseInt(btn.getAttribute('data-idx'), 10);
+        var isCorrect = (idx === correctIdx[qid]);
+        answered[qid] = isCorrect;
+
+        choices.forEach(function(b){
+          var bIdx = parseInt(b.getAttribute('data-idx'), 10);
+          b.disabled = true;
+          if (bIdx === correctIdx[qid]){
+            b.classList.add('correct');
+          } else if (b === btn){
+            b.classList.add('wrong');
+          } else {
+            b.classList.add('dim');
+          }
+        });
+
+        badge.textContent = isCorrect ? '正解' : '不正解';
+        badge.className = 'result-badge ' + (isCorrect ? 'ok' : 'ng');
+        explain.classList.add('show');
+
+        updateBar();
+      });
+    });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    location.reload();
+  });
+})();
+</script>
+
+</body>
+</html>
