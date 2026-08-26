@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>講義ネタ速報 Vol.2｜2026年8月25日</title>
+<style>
+:root{
+  color-scheme: light;
+  --surface-0:#f4f4f1;
+  --surface-1:#fcfcfb;
+  --surface-2:#eceae4;
+  --line:#dcd9d1;
+  --line-soft:#e7e4dc;
+  --text-primary:#0b0b0b;
+  --text-secondary:#52514e;
+  --text-muted:#77756e;
+  --accent:#2a78d6;
+  --macro:#2a78d6;
+  --accent2:#eb6834;
+  --corp:#1baf7a;
+  --bridge:#4a3aa7;
+  --down:#e34948;
+  --up:#008300;
+  --warn:#eda100;
+}
+@media (prefers-color-scheme: dark){
+  :root:where(:not([data-theme="light"])){
+    color-scheme: dark;
+    --surface-0:#121211;
+    --surface-1:#1a1a19;
+    --surface-2:#232322;
+    --line:#3a3a37;
+    --line-soft:#2c2c2a;
+    --text-primary:#ffffff;
+    --text-secondary:#c3c2b7;
+    --text-muted:#9b9a90;
+    --accent:#3987e5;
+    --macro:#3987e5;
+    --accent2:#d95926;
+    --corp:#199e70;
+    --bridge:#9085e9;
+    --down:#e66767;
+    --up:#3fae54;
+    --warn:#c98500;
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--surface-0);
+  color:var(--text-primary);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
+  line-height:1.75;
+  font-feature-settings:"palt" 1;
+}
+.wrap{max-width:940px;margin:0 auto;padding:36px 22px 80px}
+
+/* ---------- header ---------- */
+.masthead{border-bottom:2px solid var(--text-primary);padding-bottom:16px;margin-bottom:8px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--accent);font-weight:700;margin:0 0 6px}
+.masthead h1{font-size:30px;line-height:1.3;margin:0 0 10px;font-weight:800;letter-spacing:-.01em}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--text-secondary);margin:0}
+.meta b{color:var(--text-primary);font-weight:600}
+
+.lede{
+  background:var(--surface-1);border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;margin:22px 0 34px;font-size:15px;color:var(--text-secondary);
+}
+.lede strong{color:var(--text-primary)}
+
+/* ---------- topic ---------- */
+.topic{
+  background:var(--surface-1);border:1px solid var(--line);border-radius:14px;
+  padding:26px 24px 24px;margin-bottom:30px;
+}
+.topic-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:4px}
+.badge{
+  flex:none;font-size:11px;font-weight:700;letter-spacing:.1em;
+  padding:5px 10px;border-radius:999px;margin-top:5px;
+  border:1px solid currentColor;
+}
+.badge.macro{color:var(--macro)}
+.badge.corp{color:var(--corp)}
+.badge.mini{color:var(--bridge)}
+.topic h2{font-size:22px;line-height:1.45;margin:0;font-weight:800;letter-spacing:-.01em}
+.subtitle{font-size:14px;color:var(--text-secondary);margin:6px 0 20px}
+
+/* ---------- stat tiles ---------- */
+.tiles{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;background:var(--line-soft);border:1px solid var(--line-soft);
+  border-radius:10px;overflow:hidden;margin:18px 0 22px;
+}
+.tiles.n6{grid-template-columns:repeat(3,1fr)}
+@media(max-width:760px){
+  .tiles,.tiles.n6{grid-template-columns:repeat(2,1fr)}
+}
+.tile{background:var(--surface-1);padding:14px 15px 15px}
+.tile .label{font-size:11.5px;color:var(--text-muted);margin:0 0 5px;line-height:1.4}
+.tile .value{font-size:25px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0}
+.tile .value .u{font-size:14px;font-weight:600;color:var(--text-secondary);margin-left:2px}
+.tile .delta{font-size:12px;font-weight:600;margin:5px 0 0;color:var(--text-secondary)}
+.tile .delta.up{color:var(--up)}
+.tile .delta.down{color:var(--down)}
+
+/* ---------- timeline ---------- */
+.timeline{list-style:none;padding:0;margin:0 0 20px;border-left:2px solid var(--line);}
+.timeline li{position:relative;padding:0 0 14px 20px;font-size:14.5px}
+.timeline li::before{
+  content:"";position:absolute;left:-6px;top:11px;width:10px;height:10px;
+  border-radius:50%;background:var(--accent);border:2px solid var(--surface-1);
+}
+.timeline .d{font-weight:700;margin-right:8px;font-variant-numeric:tabular-nums}
+
+h3.sec{font-size:14px;font-weight:700;letter-spacing:.04em;color:var(--text-secondary);
+  margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line-soft)}
+.topic p{font-size:15px;margin:0 0 12px}
+.topic ul.pts{margin:0 0 14px;padding-left:1.25em;font-size:15px}
+.topic ul.pts li{margin-bottom:8px}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 18px}
+@media(max-width:680px){.split{grid-template-columns:1fr}}
+.view{border:1px solid var(--line);border-radius:10px;padding:14px 15px;background:var(--surface-2)}
+.view .who{font-size:12px;font-weight:700;color:var(--text-muted);margin:0 0 5px}
+.view p{font-size:14px;margin:0}
+
+/* ---------- questions ---------- */
+.ask{
+  border:1px solid var(--accent);border-radius:12px;padding:18px 20px;margin:22px 0 0;
+  background:color-mix(in srgb, var(--accent) 6%, var(--surface-1));
+}
+.ask h4{margin:0 0 12px;font-size:14px;font-weight:800;color:var(--accent);letter-spacing:.04em}
+.ask ol{margin:0;padding-left:1.35em;font-size:15px}
+.ask ol li{margin-bottom:11px}
+.ask ol li:last-child{margin-bottom:0}
+.ask .hint{display:block;font-size:12.5px;color:var(--text-muted);margin-top:3px}
+
+.linkback{
+  margin-top:16px;font-size:12.5px;color:var(--text-muted);
+  padding-top:12px;border-top:1px dashed var(--line);
+}
+.linkback b{color:var(--text-secondary)}
+
+/* ---------- sources ---------- */
+.sources{margin-top:14px}
+.sources h3{font-size:13px;font-weight:700;color:var(--text-secondary);margin:0 0 8px}
+.sources ol{margin:0;padding-left:1.3em;font-size:13px;line-height:1.7}
+.sources li{margin-bottom:5px;color:var(--text-muted)}
+.sources a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+.sources a:hover{border-bottom-color:var(--accent)}
+.sources .pub{color:var(--text-muted)}
+
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--text-muted)}
+footer p{margin:0 0 6px}
+
+@media print{
+  body{background:#fff}
+  .topic,.lede{break-inside:avoid;border-color:#ccc}
+  .wrap{max-width:none;padding:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <p class="kicker">SUMMER LECTURE ／ 講義ネタ速報 Vol.2</p>
+  <h1>金利は上がる、株は下がる。それでも円は動かない ― 値段が「材料」でなく需給で決まっている週</h1>
+  <p class="meta">
+    <span><b>配信日</b> 2026年8月25日(火)</span>
+    <span><b>対象期間</b> 2026年8月21日 〜 8月25日</span>
+    <span><b>用途</b> 本日16:20の夏期第4回で使用</span>
+    <span><b>次回</b> 8月28日(金) 08:00</span>
+  </p>
+</header>
+
+<div class="lede">
+  金曜以降の4日間で起きたことは、<strong>本日の講義の題目そのもの</strong>だった。8/21の全国CPIは2カ月連続で伸びが拡大し、9月18日の日銀利上げの織り込みは<strong>82%</strong>まで上がった。ところが円は158円台から動かない。米10年債利回りが4.7%台に戻ってもドルは戻らなかった。<strong>金利で為替を説明する式が、目の前で壊れている。</strong>
+  同じ週、米国では8/26のNVIDIA決算を前に半導体株が売られた。<strong>数字はまだ1つも出ていないのに、値段だけが4%動いた。</strong>為替も株も、動かしているのは材料ではなく需給である ― これが2本に共通する論点で、そのまま『プアジャパン』の「尻尾がイヌの胴体を振り回す」と、グレアムのミスター・マーケットに着地する。
+</div>
+
+<!-- ============ TOPIC 1：マクロ ============ -->
+<section class="topic">
+  <div class="topic-head">
+    <span class="badge macro">マクロ・政治経済</span>
+    <h2>物価は加速、利上げ観測は82%。それでも円は158円台に貼りついた ― 金利差で為替を説明する式は、どこで壊れたのか</h2>
+  </div>
+  <p class="subtitle">日本／全国消費者物価指数（8月21日発表）・ドル円・日銀9月会合</p>
+
+  <div class="tiles n6">
+    <div class="tile">
+      <p class="label">全国CPI 総合（7月・前年比）</p>
+      <p class="value">1.9<span class="u">%</span></p>
+      <p class="delta up">6月 +1.6% から2カ月連続で加速</p>
+    </div>
+    <div class="tile">
+      <p class="label">生鮮除くコア（同）</p>
+      <p class="value">1.8<span class="u">%</span></p>
+      <p class="delta down">7カ月連続で1%台。2%目標に未達</p>
+    </div>
+    <div class="tile">
+      <p class="label">9/18 利上げの織り込み（OIS）</p>
+      <p class="value">82<span class="u">%</span></p>
+      <p class="delta up">8月21日時点／Bloomberg 8月23日報道</p>
+    </div>
+    <div class="tile">
+      <p class="label">ドル円（8月24日朝）</p>
+      <p class="value">158.89<span class="u">円</span></p>
+      <p class="delta">早朝安値 158.50円台／200日線 158.36円</p>
+    </div>
+    <div class="tile">
+      <p class="label">米10年債利回り（前週）</p>
+      <p class="value">4.7<span class="u">%台</span></p>
+      <p class="delta down">金利は戻ったのにドルは戻らず</p>
+    </div>
+    <div class="tile">
+      <p class="label">購買力平価（企業物価ベース）</p>
+      <p class="value">94.20<span class="u">円</span></p>
+      <p class="delta down">消費者物価ベースは106.91円（IIMA・7/24時点）</p>
+    </div>
+  </div>
+
+  <h3 class="sec">何が起きたか（時系列）</h3>
+  <ul class="timeline">
+    <li><span class="d">8/21</span>総務省が7月の全国消費者物価指数を発表。総合 <b>+1.9%</b>、生鮮食品を除くコア <b>+1.8%</b>（いずれも6月は+1.6%）。生鮮・エネルギーを除く日銀版コアは +1.9%（6月+1.7%）。食料（生鮮除く）は +3.0% で12カ月連続の上昇。パンが▲1.3%→+3.1%、家事用消耗品が+6.3%と、<b>コスト増が川下へ波及し始めた</b>兆候が出た。</li>
+    <li><span class="d">8/21</span>にもかかわらず市場は円売りで反応。コアは7カ月連続で1%台にとどまり、9月利上げは「すでに織り込み済み」との受け止め。同日時点のOISが示す9/18利上げ確率は <b>82%</b>。</li>
+    <li><span class="d">8/23</span>Bloombergが「日銀は円が160円近辺にある中で圧力に直面、9月利上げ観測が急騰」と報道。政策金利は2026年6月に <b>1.00%</b> へ引き上げ済みで、次が来れば1.25%となる。</li>
+    <li><span class="d">8/24</span>ドル円は早朝に158.50円台へ下げたあと <b>158.89円</b> へ戻す。予想レンジは157.00〜160.50円。25日線160.10円・75日線160.47円を下回り、200日線158.36円の上で膠着。<b>前週に米10年債利回りが4.7%台まで戻したにもかかわらず、ドルは主要通貨に対して軟調のままだった。</b></li>
+    <li><span class="d">参考</span>長期金利（10年国債利回り）は8月18日に一時 <b>2.945%</b> と1996年9月以来・約30年ぶりの高水準。財政懸念と日銀の早期利上げ観測が背景で、「3%は通過点」との見方も出ている。</li>
+  </ul>
+
+  <h3 class="sec">授業で押さえたい構造</h3>
+  <ul class="pts">
+    <li><b>定理3が目の前で成立していない。</b>本日の§1で扱う『プアジャパン』の定理3（金利平価：金利の高い通貨は将来下落する）と、08-04で山本君が自力で言った「日米金利差が円安の原因なら、日本が利上げすれば円高」は、正面からぶつかる。今週の実データは<b>どちらにも軍配を上げていない</b> ― 利上げ観測が82%まで上がっても円高にならず、米金利が戻ってもドル高にもならなかった。ここが今日の入口として最も使える。</li>
+    <li><b>「織り込み済み」という言葉を式に分解させる。</b>82%という数字は「9月に利上げがある確率」ではなく、<b>市場がすでに値段に入れてしまった量</b>である。だから利上げが実際に来ても円は動かない可能性がある。志村メソッド③（数式に分解して喋らせる）に直結する ― 為替の変化＝(実際の結果−すでに織り込まれた予想)×感応度。</li>
+    <li><b>実需は2〜5%しかない。</b>為替取引は1日約7.5兆ドル（『プアジャパン』が引くBISの2022年4月調査）で、実需はそのうち2〜5%とされる。<b>ただし最新のBIS調査（2025年4月）では9.6兆ドルに増えている</b> ― 本に載っている数字がすでに古い、という一次情報の取り方そのものが教材になる。残りは予想と持ち高の調整である。「尻尾がイヌの胴体を振り回す」という『プアジャパン』の比喩は、今週のドル円の膠着そのもの。<b>ニュース（材料）ではなく需給が値段を決めている</b>という、トピック2と共通の論点。</li>
+    <li><b>率と絶対額（07-31の訓練）をここでも使える。</b>CPI「+1.8%」は率であって、家計が払う絶対額ではない。食料+3.0%・家事用消耗品+6.3%と、率の内訳を開くと痛みの所在が変わる。山本君の「率と絶対額の監査役」役をこの数字で試せる。</li>
+  </ul>
+
+  <h3 class="sec">プロの見方は割れている</h3>
+  <div class="split">
+    <div class="view"><p class="who">利上げは近い派（ロイター取材のエコノミスト／Bloomberg報道）</p><p>7月CPIが2カ月連続で加速し「物価加速の芽」が確認された。円が160円近辺に貼りつく以上、日銀は動かざるを得ない。OISの82%はその追認である。</p></div>
+    <div class="view"><p class="who">利上げでは止まらない派（市場の値動きが示すもの）</p><p>コアは2%目標を7カ月連続で下回り、利上げはすでに値段に入っている。米金利が4.7%台に戻してもドルが上がらなかったのと同じで、<b>金利は為替の主役ではない</b>。購買力平価（企業物価ベース94.20円）との4割超のズレは30年埋まっていない。消費者物価ベースの106.91円で測っても3割超の割安である。</p></div>
+  </div>
+  <p style="font-size:13.5px;color:var(--text-secondary)">
+    分かれ目は「時間軸」と「何を予想と比べるか」の2つ。<b>短期＝すでに織り込まれた分との差、長期＝購買力平価</b>という前提を置けば右、<b>日銀の実際の政策決定が資金移動を起こす</b>という前提を置けば左になる。学生には「どの前提を置いたか」を先に言わせてから結論を言わせる。
+  </p>
+
+  <div class="ask">
+    <h4>学生に投げる問い</h4>
+    <ol>
+      <li>8/21にCPIが加速し、9/18の利上げ織り込みは82%まで上がった。それでも円は158円台から動かない。<b>08-04で山本君が言った「日本が利上げすれば円高」は、間違いだったのか、それとも時間軸が違うだけなのか。</b>
+        <span class="hint">→ 本日§1の定理3（金利平価）へ着地。想定解は「スポットの資金移動と、将来の予想は別の時計で動く。そして長期の方は30年来ていない」。まず学生に直感を言わせてから、82%という数字を出して前提を揺さぶるのが08-04と同じ詰め方。</span></li>
+      <li>米10年債利回りが4.7%台に戻ったのに、ドルは戻らなかった。<b>「金利差＝為替」という式は、どこで壊れたのか。式に何の変数を足せば今週の動きを説明できるか。</b>
+        <span class="hint">→ 志村メソッド③（数式に分解して喋らせる）。1日7.5〜9.6兆ドルのうち実需は2〜5%という数字を出して、「差」ではなく「差の変化と予想のズレ」が効いていることに気づかせる。ここで出た式は、そのままトピック2のNVIDIAに使い回せる。</span></li>
+      <li>購買力平価は企業物価ベースで1ドル94.20円、消費者物価ベースでも106.91円。現実は158.89円で、3〜4割の割安が30年放置されている。<b>株なら3割4割のズレはいつか埋まるのに、通貨のズレは埋まらない。何が違うのか。</b>
+        <span class="hint">→ 本日§2の決め手の問い(b)の予行演習。ついでに「同じ購買力平価でも、企業物価で測れば94円、消費者物価で測れば107円」と出すと、<b>数字には測り方という国籍がある</b>という8/28豊長回の型がそのまま使える。想定解は「株には配当・自社株買い・TOB・東証の是正要請で中身を現金にできる誰かがいる。通貨にはいない」。§2に入る前にこの問いを一度投げておくと、内在価値の話が刺さりやすい。</span></li>
+      <li><b>自分ごと：</b>いま自分の全財産が円建ての預金だとする。9/18に日銀が利上げをした場合と、しなかった場合で、<b>自分の財産はどちらが増えるか。</b>答えが人によって割れるとしたら、何を持っているかの違いか、何を買う予定かの違いか。
+        <span class="hint">→ 08-11で先生が明示した「自分ごとにする」型。円預金・日本株・米国株・外貨で答えが割れるのが狙い。廻さんはUS中心、秋山さんはGE・三菱重工なので、同じ利上げが逆向きに効く。ポートフォリオを持っている3人に先に答えさせると差が出る。</span></li>
+    </ol>
+  </div>
+
+  <div class="linkback">
+    <b>関連講義回：</b>08-04 ゼミ講義（為替・金利・株式投資）／08-11 夏期第2回（為替介入・日銀のジレンマ）／08-18 夏期第3回（介入の採点・金利のある世界）／<b>本日 08-25 §1『プアジャパン』読解</b>
+  </div>
+</section>
+
+<!-- ============ TOPIC 2：企業・決算 ============ -->
+<section class="topic">
+  <div class="topic-head">
+    <span class="badge corp">企業・決算</span>
+    <h2>NVIDIAは13四半期連続で市場予想を上回っている。それなのに決算後の株価は直近4四半期で平均マイナス ― 「良い決算」とは、何と比べて良いのか</h2>
+  </div>
+  <p class="subtitle">米国／NVIDIA 2027年1月期 第2四半期決算（8月26日 米市場引け後発表）・半導体株</p>
+
+  <div class="tiles n6">
+    <div class="tile">
+      <p class="label">市場予想 売上高（Q2）</p>
+      <p class="value">920.7<span class="u">億㌦</span></p>
+      <p class="delta up">会社側の前回ガイダンス910億㌦を上回る水準</p>
+    </div>
+    <div class="tile">
+      <p class="label">市場予想 調整後EPS</p>
+      <p class="value">2.09<span class="u">㌦</span></p>
+      <p class="delta up">前年同期 1.05㌦ の約2倍</p>
+    </div>
+    <div class="tile">
+      <p class="label">予想を上回った幅</p>
+      <p class="value">22.8→5.5<span class="u">%</span></p>
+      <p class="delta down">FY24 Q2→FY27 Q1。比較の基準は注記参照</p>
+    </div>
+    <div class="tile">
+      <p class="label">決算後の株価（直近4四半期平均）</p>
+      <p class="value">▲2<span class="u">%</span></p>
+      <p class="delta down">13期連続で予想超えなのに下落 ← 矛盾</p>
+    </div>
+    <div class="tile">
+      <p class="label">株価（8月24日）</p>
+      <p class="value">214.7<span class="u">㌦</span></p>
+      <p class="delta down">52週高値 236.54㌦ から約▲9%</p>
+    </div>
+    <div class="tile">
+      <p class="label">時価総額</p>
+      <p class="value">5.2<span class="u">兆㌦</span></p>
+      <p class="delta">SpaceXの上場時時価総額 2.1兆㌦の約2.5倍</p>
+    </div>
+  </div>
+
+  <h3 class="sec">何が起きたか（時系列）</h3>
+  <ul class="timeline">
+    <li><span class="d">8/21</span>米メディアが翌週を「PCE・NVIDIA決算・ジャクソンホールが並ぶ大きな週」と位置づけ。</li>
+    <li><span class="d">8/24</span>決算を2営業日後に控え、半導体株が一斉に下落。<b>Intel ▲5%（85.98㌦）、AMD ▲4%（454.36㌦）、TSMC ▲3%（406.40㌦）、半導体ETF（SOXX）▲4%</b>。NVIDIA自身も続落。ナスダック100は序盤0.69%安。</li>
+    <li><span class="d">8/24</span>下落の説明として挙がったのは<b>決算前のポジション調整</b>（数セッション前からエクスポージャーを削減）と、年初来144%上昇していたIntelの利益確定。イラン制裁・米加の関税摩擦も重荷とされた。</li>
+    <li><span class="d">8/26</span>NVIDIAが米市場引け後に決算発表（日本時間8月27日朝）。<b>今日の講義の時点では、数字は1つも出ていない。</b></li>
+  </ul>
+
+  <h3 class="sec">この決算が教材として強い理由</h3>
+  <p>本日の§2で扱うグレアムの<b>ミスター・マーケット</b>（市場は値段を教える装置であって、正解を教える装置ではない）を、これ以上ないほど素直に示す事例が、今まさに進行中である。NVIDIAの業績は13四半期連続で市場予想を上回っている。にもかかわらず、<b>直近4四半期の決算後の株価は平均で約2%下落した。</b>そして今回は、<b>決算が出る前の8月24日に、すでに半導体株が4%動いている。</b>動いた理由は業績ではなく持ち高の調整である。</p>
+  <p>ここで効くのが「勝ち幅の縮小」だ。FY2024 Q2にはガイダンス中値を22.8%上回っていたが、FY2027 Q1では市場予想を5.5%程度上回るにとどまった（前者は会社ガイダンス比、後者は市場予想比で基準が違う。ここを学生に突かせてもよい）。<b>会社は同じように勝っているのに、市場の期待という物差しの方が速く伸びている。</b>「良い決算」とは絶対額の話ではなく、<b>すでに値段に入っている予想との差</b>の話である ― これはトピック1で使った「織り込み済み」の式と、まったく同じ構造をしている。</p>
+  <p>さらに、本日§2の内在価値の式（事業価値＝過去5年平均営業利益×0.7×業界平均PER）をNVIDIAに当てると、Anthropicとは逆向きに壊れる。<b>Anthropicは過去5年の営業利益が赤字だから測れず、NVIDIAは過去5年平均が現在の稼ぐ力に対して低すぎるから測れない。</b>シケモクの式が効く範囲を、両端から見せられる。</p>
+
+  <div class="ask">
+    <h4>学生に投げる問い</h4>
+    <ol>
+      <li>NVIDIAは13四半期連続で市場予想を上回っている。それなのに、直近4四半期の決算後の株価は平均で約2%下がった。<b>「良い決算」なのに株価が下がるのはなぜか。良いというのは、何と比べて良いのか。</b>
+        <span class="hint">→ 本日§2のミスター・マーケットに直行。想定解は「実績と予想を比べているのではなく、実績とすでに値段に入った予想を比べている」。トピック1で作った式（結果−織り込み）をそのまま当てはめさせると、マクロと企業が1本の式でつながる。</span></li>
+      <li>決算は8/26で、今日の時点で数字は1つも出ていない。<b>それなのに8/24に半導体株は4%下がった。この4%は、何の情報を織り込んだのか。</b>
+        <span class="hint">→ 「値段は誰が決めているのか」の実例。想定解は「情報ではなく需給（ポジション調整）」。ここで為替の実需が全体の数%しかないという話に戻せると、2本が完全に閉じる。「0点」を出さず、まず学生に材料を探させてから、材料が無いことに気づかせるのが効く。</span></li>
+      <li>本日の内在価値の式（事業価値＝過去5年平均営業利益×0.7×業界平均PER）を<b>NVIDIAに当てるとどうなるか。</b>出てきた数字と時価総額5.2兆㌦を比べて、この式は「NVIDIAは割高」と言っているのか、それとも「測れない」と言っているのか。
+        <span class="hint">→ §2の決め手の問い(a)（Anthropicには使えない）の裏返し。想定解は「測れない」。式が壊れる理由がAnthropicとNVIDIAで逆向きだと気づけたら100点。資産バリューと収益バリューの分岐点をここで確認させる。</span></li>
+      <li><b>自分ごと：</b>秋山さんはGE・三菱重工を「AIの電力ボトルネック」という理屈で持っている。<b>8/26にNVIDIAが弱いガイダンスを出したら、その持ち株はどう動くと考えるか。</b>「なんとなく下がる」ではなく、どの数字がどの順番で効くのかを式で説明する。
+        <span class="hint">→ 08-18で立てた「秋山さんの含み益を理論で説明させる」狙いの回収。設備投資7,250億㌦（前年比+76%）→ 電力需要 → タービン・SMRという伝達経路を言わせる。廻さん（US中心・半導体/エネルギー）にも同じ問いが刺さる。</span></li>
+    </ol>
+  </div>
+
+  <div class="linkback"><b>関連講義回：</b>08-11 夏期第2回（ハイパースケーラー決算・減価償却）／08-18 夏期第3回（Anthropic vs OpenAI の値付け、電力というボトルネック）／<b>本日 08-25 §2 バリュー投資・内在価値・ミスター・マーケット</b></div>
+</section>
+
+<!-- ============ 橋渡しネタ ============ -->
+<section class="topic">
+  <div class="topic-head">
+    <span class="badge mini">橋渡しネタ</span>
+    <h2>今週から3週間、「答え合わせ」が4つ並ぶ ― 今日の教室で予想を書かせ、9/1の第5回で採点する</h2>
+  </div>
+  <p class="subtitle">日米／8月26日〜9月18日のイベント日程</p>
+
+  <div class="tiles">
+    <div class="tile">
+      <p class="label">NVIDIA決算</p>
+      <p class="value">8/26<span class="u">米引け後</span></p>
+      <p class="delta">予想 売上920.7億㌦・EPS 2.09㌦</p>
+    </div>
+    <div class="tile">
+      <p class="label">ジャクソンホール会議</p>
+      <p class="value">8/27<span class="u">-29</span></p>
+      <p class="delta">米金融政策の方向性</p>
+    </div>
+    <div class="tile">
+      <p class="label">米PCEデフレーター（7月）</p>
+      <p class="value">8/26<span class="u">発表</span></p>
+      <p class="delta">FRBが最も重視する物価指標。決算と同日</p>
+    </div>
+    <div class="tile">
+      <p class="label">日銀 金融政策決定会合</p>
+      <p class="value">9/18</p>
+      <p class="delta up">利上げ織り込み 82%（8/21時点）</p>
+    </div>
+  </div>
+
+  <p>第4回（本日）は<b>ニュースを追わず道具を握り直す回</b>として設計されているので、この日程は「今日やること」ではなく「<b>今日決めた予想を、いつ採点できるか</b>」の表として使える。8/18の第3回で採点表を配ったのと同じやり方で、本日の§1・§2で出た結論を1行ずつ書かせておけば、第5回（9/1）の冒頭がそのまま答え合わせになる。第5回の申し送りには、8/20の介入3週間判定・世界同時の金利上昇・NVIDIA決算・ジャクソンホールをまとめて回収すると書いてある。<b>8/26は米PCEとNVIDIA決算が同じ日に来るので、マクロと企業の反応を同じ1日で見比べられる。</b></p>
+  <p>書かせる予想は3つでよい。<b>(a) 8/26のNVIDIA決算の翌日、株価は上がるか下がるか。(b) 9/18に日銀は利上げするか。(c) 利上げしたとき、円は円高になるか。</b>とくに(b)と(c)を分けて書かせるのが肝心で、<b>「利上げする」と「円高になる」が同じ答えではない</b>ことに、2週間後に自分の紙で気づける。</p>
+
+  <div class="ask">
+    <h4>学生に投げる問い</h4>
+    <ol>
+      <li><b>自分ごと：</b>8/26のNVIDIA決算と米PCE、8/27-29のジャクソンホール、9/18の日銀。<b>この3つのうち、自分の財産にいちばん効くのはどれか。順位をつけて、理由を式で言う。</b>
+        <span class="hint">→ 08-11の「自分ごと」型の締め。持っているものによって順位が変わるのが正解で、順位が全員同じになったら前提を疑わせる。ここで書かせた紙を9/1の第5回まで持たせる。</span></li>
+    </ol>
+  </div>
+
+  <div class="linkback"><b>関連講義回：</b>08-18 夏期第3回（採点表方式）／09-01 夏期第5回（予定・マクロの回収）</div>
+</section>
+
+<!-- ============ 出典 ============ -->
+<section class="topic sources">
+  <h3>出典URL</h3>
+  <ol>
+    <li>第一ライフ資産運用経済研究所「消費者物価指数（全国・2026年7月）～食料・日用品で値上げの動き。コスト増の波及で物価は秋以降上振れへ～」<br>
+      <a href="https://www.dlri.co.jp/report/macro/654416.html">https://www.dlri.co.jp/report/macro/654416.html</a></li>
+    <li>日本経済新聞「消費者物価指数、7月1.8%上昇 エネ価格上昇で6月から伸び拡大」<br>
+      <a href="https://www.nikkei.com/article/DGXZQOUA208GW0Q6A820C2000000/">https://www.nikkei.com/article/DGXZQOUA208GW0Q6A820C2000000/</a></li>
+    <li>ロイター（Yahoo!ニュース）「全国ＣＰＩ、7月は＋1.8％ 加速の「芽」確認で9月利上げ後押しの声」<br>
+      <a href="https://news.yahoo.co.jp/articles/1a708775e773f43fe77f6d362e50ce61ff66eb72">https://news.yahoo.co.jp/articles/1a708775e773f43fe77f6d362e50ce61ff66eb72</a></li>
+    <li>Bloomberg「Bank of Japan Faces Pressure With Yen Near 160, September Hike Bets Surge」（2026年8月23日）<br>
+      <a href="https://www.bloomberg.com/news/articles/2026-08-23/boj-set-to-offer-clues-as-markets-bet-heavily-on-september-hike">https://www.bloomberg.com/news/articles/2026-08-23/boj-set-to-offer-clues-as-markets-bet-heavily-on-september-hike</a></li>
+    <li>bloomingbit「日銀の9月利上げ観測82%に急騰、追加引き締めの示唆が焦点」（OIS 8月21日時点）<br>
+      <a href="https://jp.bloomingbit.io/feed/news/118942">https://jp.bloomingbit.io/feed/news/118942</a></li>
+    <li>外為どっとコム マネ育チャンネル「【ドル円見通し】米金利高でも伸びないドル円 これまでと違う158円台の攻防 FX分析 2026年8月24日」<br>
+      <a href="https://www.gaitame.com/media/entry/2026/08/24/120722">https://www.gaitame.com/media/entry/2026/08/24/120722</a></li>
+    <li>みんかぶFX「朝のドル円はややドル安スタートも続かず＝東京為替」（2026年8月24日 07:14）<br>
+      <a href="https://fx.minkabu.jp/news/376857">https://fx.minkabu.jp/news/376857</a></li>
+    <li>みんかぶFX「円売り継続、CPIは7カ月連続で2%下回る 日銀利上げは織り込み済み」（2026年8月21日 09:40）<br>
+      <a href="https://fx.minkabu.jp/news/376729">https://fx.minkabu.jp/news/376729</a></li>
+    <li>総務省統計局「消費者物価指数（全国）2026年7月分」（一次情報）<br>
+      <a href="https://www.stat.go.jp/data/cpi/sokuhou/tsuki/pdf/zenkoku.pdf">https://www.stat.go.jp/data/cpi/sokuhou/tsuki/pdf/zenkoku.pdf</a></li>
+    <li>ニッセイ基礎研究所「消費者物価（全国26年7月）― コアCPI上昇率は7ヵ月連続の1%台」<br>
+      <a href="https://www.nli-research.co.jp/report/detail/id=86590?site=nli">https://www.nli-research.co.jp/report/detail/id=86590?site=nli</a></li>
+    <li>三井住友DSアセットマネジメント「日本の長期金利は一時2.945%に上昇～その背景と今後の展望」（2026年8月18日の値）<br>
+      <a href="https://www.smd-am.co.jp/market/ichikawa/2026/08/irepo260819/">https://www.smd-am.co.jp/market/ichikawa/2026/08/irepo260819/</a></li>
+    <li>国際通貨研究所（IIMA）「ドル円購買力平価」（2026年7月24日時点：企業物価ベース94.20円／消費者物価ベース106.91円）<br>
+      <a href="https://www.iima.or.jp/docs/ppp/doll_yen.pdf">https://www.iima.or.jp/docs/ppp/doll_yen.pdf</a></li>
+    <li>BIS「Triennial Central Bank Survey ― OTC foreign exchange turnover in April 2025（1日9.6兆ドル）」<br>
+      <a href="https://www.bis.org/statistics/rpfx25_fx.htm">https://www.bis.org/statistics/rpfx25_fx.htm</a></li>
+    <li>米商務省経済分析局（BEA）「Personal Income and Outlays ― Next release: August 26, 2026」<br>
+      <a href="https://www.bea.gov/data/consumer-spending/main">https://www.bea.gov/data/consumer-spending/main</a></li>
+    <li>日本経済新聞「1.0%に利上げ決定へ 国債買い入れ減額は27年春停止の見通し」（2026年6月）<br>
+      <a href="https://www.nikkei.com/article/DGXZQOUB12BSL0S6A610C2000000/">https://www.nikkei.com/article/DGXZQOUB12BSL0S6A610C2000000/</a></li>
+    <li>24/7 Wall St.「Semiconductor Stocks Slide Ahead of NVIDIA Earnings: Intel Falls 5%, AMD Slides 4%, Taiwan Semiconductor Slips 3%」（2026年8月24日）<br>
+      <a href="https://247wallst.com/investing/2026/08/24/semiconductor-stocks-slide-ahead-of-nvidia-earnings-intel-falls-5-amd-slides-4-taiwan-semiconductor-slips-3/">https://247wallst.com/investing/2026/08/24/semiconductor-stocks-slide-ahead-of-nvidia-earnings-intel-falls-5-amd-slides-4-taiwan-semiconductor-slips-3/</a></li>
+    <li>The Motley Fool「Will Nvidia Stock Soar After Aug. 26? Here's What History Shows.」（2026年8月24日）<br>
+      <a href="https://www.fool.com/investing/2026/08/24/will-nvidia-stock-soar-after-aug-26-here-s-what-history-shows/">https://www.fool.com/investing/2026/08/24/will-nvidia-stock-soar-after-aug-26-here-s-what-history-shows/</a></li>
+    <li>CNBC「Big week coming up with PCE, Nvidia earnings and then Jackson Hole. Here's what to expect」（2026年8月21日）<br>
+      <a href="https://www.cnbc.com/2026/08/21/stock-market-next-week-outlook-for-aug-24-28-2026.html">https://www.cnbc.com/2026/08/21/stock-market-next-week-outlook-for-aug-24-28-2026.html</a></li>
+    <li>The Motley Fool「Stock Market Today, Aug. 24: Nvidia Extends Losses as Tech Stocks Retreat」<br>
+      <a href="https://www.fool.com/coverage/stock-market-today/2026/08/24/stock-market-today-aug-24-nvidia-extends-losses-as-tech-stocks-retreat/">https://www.fool.com/coverage/stock-market-today/2026/08/24/stock-market-today-aug-24-nvidia-extends-losses-as-tech-stocks-retreat/</a></li>
+  </ol>
+</section>
+
+<footer>
+  <p>講義ネタ速報 Vol.2 ／ 2026年8月25日(火)作成。対象期間 2026年8月21日〜8月25日。本日16:20の夏期第4回「バリュー投資（シケモク投資家とリンチ・チャート）と金利と為替（『プアジャパン』）」で使用する想定。</p>
+  <p><b>数字の注記（検証済み・サブエージェントで全項目を再確認）：</b>①9/18利上げの織り込み<b>82%</b>は8月21日時点のOIS市場が示す確率で、日々変動する。②ドル円158.89円は8月24日07:14時点の値。③<b>購買力平価は「測り方」で数字が変わる。</b>94.20円は<b>企業物価ベース</b>、106.91円は<b>消費者物価ベース</b>（いずれもIIMA・2026年7月24日時点）。輸出物価ベースでは66.38円。「4割超の割安」は企業物価ベースで測った場合の数字で、消費者物価ベースなら約3割の割安になる。<b>どの基準で測ったかを言わずに「購買力平価は94円」と言うのは不正確。</b>④為替の1日の取引高「約7.5兆ドル」は<b>BISの2022年4月調査</b>の値。<b>最新の2025年4月調査では9.6兆ドル（+28%）</b>。実需が全体の2〜5%という比率は広く使われる通説だが、一次情報での裏付けは取れていない（<b>要確認</b>）。⑤NVIDIAの売上920.7億㌦・調整後EPS 2.09㌦は<b>市場コンセンサス（未確定の予想値）</b>で、実績は8月26日の発表まで確定しない。株価214.7㌦・時価総額5.2兆㌦は8月24日時点。52週安値164.07㌦は未確認。⑥「決算後の株価が平均約▲2%」は<b>直近4四半期</b>の集計（報道ベース）。⑦「予想超過幅22.8%→5.5%」は、<b>前者が会社ガイダンス中値比、後者が市場予想比</b>と基準が異なる。方向感は正しいが、同じ物差しの比較ではない。⑧長期金利2.945%は<b>8月18日</b>の値で、対象期間より前の参考データ。⑨Intel・AMD・TSMCの下落率は8月24日の取引時間中の値で、終値ベースではない。⑩7月米PCEデフレーターの発表日はBEA公表の予定表に基づく（8月26日）。</p>
+  <p>次回配信：2026年8月28日(金) 08:00（対象期間：8月25日〜8月28日）。</p>
+</footer>
+
+</div>
+</body>
+</html>

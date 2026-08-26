@@ -36,6 +36,7 @@
 
 | Vol. | 配信日 | 対象期間 | トピック | ファイル |
 |---|---|---|---|---|
+| 2 | 2026-08-25 | 2026-08-21 〜 08-25 | 利上げ観測82%でも動かない円／NVIDIA決算前に動いた株価 | [HTML](news_briefs/lecture_news_20260825.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/news_briefs/lecture_news_20260825.html) |
 | 1 | 2026-08-09 | 2026-08-05 〜 08-09 | 日米協調介入のその後／同じ円安が正反対に効いた4〜6月期決算 | [HTML](news_briefs/lecture_news_20260809.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/news_briefs/lecture_news_20260809.html) |
 
 ## 個別指導 — 佐々木さん
