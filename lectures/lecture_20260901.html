@@ -311,6 +311,24 @@ table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
 .snap .r.up{color:var(--up);} .snap .r.down{color:var(--down);}
 .snap .z{font-size:12px; color:var(--ink2); margin-top:3px; line-height:1.55;}
 </style>
+<style>
+/* ---------- ポートフォリオ報告・ネットキャッシュ（第5回で追加） ---------- */
+.pf{display:grid; grid-template-columns:repeat(auto-fit,minmax(238px,1fr)); gap:11px; margin:14px 0 6px;}
+.pf a{display:block; border:1px solid var(--line); border-left:4px solid var(--macro);
+      border-radius:0 10px 10px 0; background:var(--bg); padding:13px 15px;
+      text-decoration:none; color:var(--ink);}
+.pf a:hover{border-color:var(--macro);}
+.pf .tm{display:block; font-size:12.5px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:4px;}
+.pf .u{display:block; font-size:12.5px; color:var(--ink3); line-height:1.55; word-break:break-all;}
+.pf a.b{border-left-color:var(--corp);} .pf a.b .tm{color:var(--corp);} .pf a.b:hover{border-color:var(--corp);}
+.pf a.c{border-left-color:var(--bridge);} .pf a.c .tm{color:var(--bridge);} .pf a.c:hover{border-color:var(--bridge);}
+/* ネットキャッシュの記入表 */
+table.nc{width:100%; border-collapse:collapse; font-size:14px; margin:12px 0 4px;}
+table.nc th, table.nc td{border-bottom:1px solid var(--line2); padding:8px 9px; text-align:left; vertical-align:middle;}
+table.nc thead th{border-bottom:2px solid var(--line); font-size:12px; color:var(--ink3); letter-spacing:.04em;}
+table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
+@media print{ .pf a{border:1px solid #ccc;} }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -348,9 +366,11 @@ table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
 <div class="callout" style="margin:0 0 22px">
   <span class="lbl">自習の進め方 ── 配布 8/31（月） → 授業 9/1（火）16:20</span>
   <b>今回は前日配布である。時間がない前提で組んである。</b>読むのは §0 の答え合わせ（5分）だけでよい。<br>
-  <b>手を動かすのは1つだけ</b>　── <a href="#hw0">宿題</a>（自分の持ち株1つの、決算発表翌日の株価）。<b>調べるのは10分で終わる。</b><br>
+  <b>今日までに手を動かすのは1つだけ</b>　── <a href="#hw0">宿題</a>（自分の持ち株1つの、決算発表翌日の株価）。<b>調べるのは10分で終わる。</b><br>
+  <b>チーム宿題は、授業のなかで出す</b>　── <a href="#hw1">ネットキャッシュ比率</a>。<b>今日やる必要はない。</b>次回までのチーム単位の宿題である。<br>
   各セクションの問いに付いた <b>必答</b> は「<b>授業で必ず扱う</b>」という意味である。<b>書いて出すのは宿題の1行だけでよい。</b>ただし必答には、当てられたら答えられるようにしておくこと。<br>
   <b>持ってくるもの</b>　第4回でつくった<b>リンチ・チャート1枚</b>（先週見せた人はそのままでよい）。まだの人は、できていない画面のままでよい。<br>
+  　あわせて<b>自チームの<a href="#pf">TradingViewの画面</a></b>を開いてくること。<b>前回比の数字だけは、授業前にSlackへ1行貼っておく。</b>その場で探し始めると時間が溶ける。<br>
   <b>この資料には答えが書いていない。</b>空欄を埋めるのは君たちである。<b>締切</b>　Slackへの提出は <b>9/1（火）12:00</b>。
 </div>
 
@@ -362,7 +382,9 @@ table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
     <li><a href="#s2">Anthropicの上場</a> <span class="s">― 評価額は変わっていないのに、PSRは下がった</span></li>
     <li><a href="#s3">9月30日、中間決算</a> <span class="s">― 「良い決算」と「上がる株」は別の話である</span></li>
     <li><a href="#s4">前回の続き　リンチ・チャートを読む</a> <span class="s">― 決算発表日で縦線を1本引く</span></li>
+    <li><a href="#pf">チーム別ポートフォリオ報告</a> <span class="s">― TradingViewの3リンク。報告の型は3点固定</span></li>
     <li><a href="#hw0">宿題（全員共通）</a> <span class="s">― 1行。調べるのは10分</span></li>
+    <li><a href="#hw1">チーム宿題（次回まで）</a> <span class="s">― ネットキャッシュ比率を出し、同業の競合と並べる</span></li>
     <li><a href="#s7">当日の進行</a> <span class="s">― 16:20開始・90分のタイムテーブル</span></li>
     <li><a href="#s9">今回の用語</a> <span class="s">― 予習しておく言葉</span></li>
   </ol>
@@ -610,6 +632,39 @@ table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
   <p>同じ銘柄を複数人が選んでいたら、<b>倍率の置き方がどう違うか</b>を並べて見る。<b>同じ会社でも、置いた倍率が違えば「高い」と「安い」が逆になる。</b>それが分かるのが、今日の収穫である。</p>
 </section>
 
+<!-- ============ §5 ポートフォリオ報告 ============ -->
+<section class="topic" id="pf">
+  <span class="badge bridge">毎回やる枠</span>
+  <h2 class="thead">チーム別ポートフォリオ報告 ── 今回から「上がった／下がった」の先に、中身を数える枠を1つ足す</h2>
+  <p class="sub">目標は変わらず<b>2027年1月末までに+20%</b>。進捗は毎回この枠で報告してもらっている。<b>報告の型は第3回で固定した3点。そこは変えない。</b>今回はそこに、今日の式（<b>事実 − 織り込まれていた予想</b>）を当てる問いを1つ足し、そのまま<a href="#hw1">チーム宿題</a>につなぐ。</p>
+
+  <h3>各チームのポートフォリオ（TradingView）</h3>
+  <p><b>授業前に必ず開いてくること。</b>当日その場で開いて探し始めると、時間が溶ける（第2回の報告枠は1時間43分かかった）。</p>
+  <div class="pf">
+    <a href="https://jp.tradingview.com/portfolios/96d42da1b31d4f47b13c34536ff7f36e/" target="_blank" rel="noopener"><span class="tm">Aチーム</span><span class="u">jp.tradingview.com/portfolios/96d42da1…</span></a>
+    <a class="b" href="https://jp.tradingview.com/portfolios/12725df68d9d44b79c1d2e74b1b9eb85/" target="_blank" rel="noopener"><span class="tm">Bチーム</span><span class="u">jp.tradingview.com/portfolios/12725df6…</span></a>
+    <a class="c" href="https://www.tradingview.com/portfolios/2fd709d801b343a2935bca992c72e9ce/" target="_blank" rel="noopener"><span class="tm">Cチーム</span><span class="u">www.tradingview.com/portfolios/2fd709d8…</span></a>
+  </div>
+
+  <h3>報告の型 ── 第3回で固定した3点。ここは変えない</h3>
+  <ol class="q">
+    <li><b>前回比 ±何%か。</b>まず1つの数字で言う。<b>いつからいつまでの比較かを添えること</b>（この枠でいちばん抜けやすい）。</li>
+    <li><b>いちばん効いた銘柄はどれか。</b>上に効いた1つと、下に効いた1つ。<b>率と絶対額を混ぜないこと。</b>
+      <span class="hint">「30%上がった」と「10万円増えた」は違う話である。<b>率で言うなら分母を、絶対額で言うなら時点を言う。</b></span></li>
+    <li><b>その理由を、今日の材料の言葉で1行。</b>織り込み済み／サプライズ／ガイダンス／進捗率 ── この資料のどの話と、自分の銘柄の動きがつながっているか。</li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">今回だけ足す1問 ── 動かしたのは「事実」か、「予想との差」か</span>
+    上に効いた1銘柄について、こう答える ── <b>その動きは、新しい事実が出たから起きたのか。それとも、事実は前から分かっていて、予想との差が出たから起きたのか。</b><br>
+    <b>この問いは、先週すでに教室で1回答えが出ている。</b>ある学生は、自分の保有株が週を通して下げた理由を<b>「明日NVIDIAの決算があるので、軒並み下がっている（利益確定）」</b>と説明した。<b>これは「織り込み済み」を自分の言葉で言っている。</b>今日はその言葉を、全員ぶん並べる。
+  </div>
+
+  <h3>そして今回から、値動きの外側も1つ数える</h3>
+  <p>ここまでの報告は<b>「値段がどう動いたか」</b>だけを見ている。<b>今日の§1でNVIDIAについてやったのは、その反対側 ── 「中身はいくらか」を数える作業だった。</b>同じことを、自分たちの持ち株でやる。<b>その道具が<a href="#hw1">ネットキャッシュ比率</a>であり、それが次回までのチーム宿題である。</b></p>
+  <div class="rel"><b>関連</b>　第4回で、ある学生は自分のリンチ・チャートから<b>「PBRがずっと右肩下がり。典型的なバリュートラップだから買ってはいけない」</b>に自力で到達した。<b>ネットキャッシュ比率は、その判定をもう一段だけ具体的にする道具である。</b>「安い」と「買っていい」を分けるのが、今回のチーム宿題の目的である。</div>
+</section>
+
 <!-- ============ 宿題 ============ -->
 <section class="topic" id="hw0">
   <span class="badge bridge">宿題・全員共通</span>
@@ -630,6 +685,73 @@ table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
   </div>
 </section>
 
+
+<!-- ============ チーム宿題 ============ -->
+<section class="topic" id="hw1">
+  <span class="badge corp">チーム宿題・次回まで</span>
+  <h2 class="thead">自チームの持ち株のネットキャッシュ比率を出し、同業の競合1社と並べる</h2>
+  <p class="sub">指示はこの1行である。<b>チーム単位で出す。</b>第4回で全員が落としたのは、まさにここだった ──<b>倍率を出したのに、比較対象を調べていなかった。</b>比べる相手がいない倍率は、高いとも安いとも言えない。</p>
+
+  <h3>使う式</h3>
+  <div class="formula">
+    <code>ネットキャッシュ　＝　流動資産　＋　投資有価証券 × 70%　−　負債総額</code>
+    <span class="n">会社が持っている<b>正味の現金</b>。持っているものから、返すべきものを引く。<b>投資有価証券に70%を掛けるのは、いま全部売れば値が下がるし税金も出る、という見込みぶんの割り引きである。</b>会計基準に定義のある数字ではない。</span>
+  </div>
+  <div class="formula">
+    <code>ネットキャッシュ比率　＝　ネットキャッシュ　÷　時価総額</code>
+    <span class="n"><b>分母は時価総額。</b>この比率が<b>1を超える</b>と、市場がその会社につけている値段より、会社の手元にある正味の現金のほうが多いことになる。</span>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">引くのは「負債総額」か「有利子負債」か ── ここが今回いちばん大事な分岐</span>
+    <b>どちらで引くかは、文脈で変わる。決まりはない。</b><br>
+    <b>負債総額</b>で引けば、買掛金や前受金まで全部返す前提になる ──<b>厳しい見方</b>。<br>
+    <b>有利子負債</b>だけで引けば、利息を払っている借金だけを返す前提になる ──<b>事業を続ける前提の見方</b>。<br>
+    <b>どちらを使ってもよい。ただし、どちらを使ったかを必ず書くこと。</b>書いていない比率は、比べられない。<br>
+    ── これは§3でやった<b>「進捗率の分母は誰が決めるのか」とまったく同じ話</b>である。<b>分母を選んだ人が、答えを選んでいる。</b>
+  </div>
+
+  <h3>並べる形（この表を埋めて出す）</h3>
+  <div class="tblwrap">
+  <table class="nc">
+    <thead>
+      <tr><th>銘柄</th><th>ネットキャッシュ</th><th>時価総額</th><th>ネットキャッシュ比率</th><th>BSの時点／株価の時点</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="h">自チームの持ち株</td><td><span class="fill">記入</span></td><td><span class="fill">記入</span></td><td><span class="fill">記入</span></td><td><span class="fill">記入</span></td></tr>
+      <tr><td class="h">同業の競合1社</td><td><span class="fill">記入</span></td><td><span class="fill">記入</span></td><td><span class="fill">記入</span></td><td><span class="fill">記入</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><b>持ち株1つにつき、この2行を1組。</b>競合は<b>同じ業種から1社</b>選ぶ。<b>選んだ理由は要らない。ただし「なぜその会社を競合と見なしたか」は当日聞く。</b></p>
+
+  <div class="deliv">
+    <b>出すもの</b>　上の表（持ち株ぶん）／<b>負債総額と有利子負債のどちらで引いたか</b>／<b>BSの時点と株価の時点</b>／そして<b>1行だけ「この差は何を意味するか」。</b><br>
+    <b>数字の在り処</b>　日本株は <b>EDINET</b>（有価証券報告書・四半期報告書の貸借対照表）と<b>各社IRの決算短信</b>。米国株は <b>SEC EDGAR</b> の 10-K／10-Q。<b>時価総額は証券会社の画面でよいが、いつの終値かを書く。</b>まとめサイトの数字を使うなら、<b>そこは一次情報ではないと書く。</b><br>
+    <b>形式</b>　第4回で決めたとおり<b>HTML1枚</b>。<b>体裁に時間をかけないこと。</b><br>
+    <b>締切</b>　<b>次回の授業の前日 12:00・Slack。</b>発表は次回の報告枠。<b>「調べたが分からなかった」も出すこと。</b>
+  </div>
+
+  <h3>当日ぶつける問い</h3>
+  <ol class="q">
+    <li><span class="tagm">必答</span><b>自チームでネットキャッシュ比率がいちばん高い銘柄はどれか。競合より高いか、低いか。</b>そして<b>高いなら、なぜ市場はその現金を値段に入れていないのか。</b>
+      <span class="hint">第4回でTBSホールディングスを見たとき、ある学生が自力でこう言った ──<b>「7,000億円あっても、売り払ったり還元しないと株主のものにならない」</b>。この一行が、そのまま答えの入口である。<b>現金があることと、それが自分のものになることは、別である。</b></span></li>
+    <li><span class="tagm">必答</span><b>負債総額で引いたときと、有利子負債で引いたときで、チーム内の順位は入れ替わるか。</b>入れ替わった銘柄があれば、<b>それはどういう会社か</b>を1行で。
+      <span class="hint">入れ替わるのは、<b>利息のつかない負債（買掛金・前受金・預り金）が大きい会社</b>である。<b>それは借金なのか、それとも商売の回転そのものなのか。</b>ここで答えが割れるはずである。</span></li>
+    <li><b>投資有価証券に70%を掛ける理由を、1行で言いなさい。</b>そして<b>掛け目を100%にしたら、君たちの結論は変わるか。</b>
+      <span class="hint">変わるなら、それは結論ではなく<b>仮定</b>である。§2でPSRの分母（ランレート）を動かしたときとまったく同じ形 ──<b>動かせる数字の上に立った結論は、その数字ぶんだけ弱い。</b></span></li>
+    <li><span class="tago">余力</span><b>ネットキャッシュ比率が1を超えている会社があったら、それは「買い」か。</b>第4回の<b>安全余裕率</b>の言葉で答えなさい。
+      <span class="hint">「1を超えている＝買い」で止まると、<b>バリュートラップ</b>にそのまま入る。<b>安いのに上がらない株には、安いままである理由がある。</b>その理由を1つ言えたら、この宿題は達成である。</span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">この宿題が今日の式とどうつながるか</span>
+    ネットキャッシュは<b>すでに貸借対照表に載っている事実</b>である。<b>隠されていない。誰でも読める。</b><br>
+    それでも比率が高いまま放置されている会社があるなら、<b>市場はその事実を知ったうえで、値段に入れていない</b>ことになる。<br>
+    <b>今日の式でいえば「事実は出ているのに、予想との差が生まれていない」状態である。</b>なぜか ──<b>その答えを探すのが、この宿題の本体である。</b>比率を出すことではない。
+  </div>
+</section>
+
 <!-- ============ 進行 ============ -->
 <section class="topic" id="s7">
   <span class="badge bridge">当日の進行</span>
@@ -637,16 +759,18 @@ table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
   <ul class="tl">
     <li><span class="t">16:20</span><span class="c"><b>冒頭のひとこと書き取り</b> ── FOMC・日銀のあと、ドル円は円高か円安か。全員1行（5分）</span></li>
     <li><span class="t">16:25</span><span class="c"><b>§0 答え合わせ</b> ── 介入の半減期／ジャクソンホール／織り込み済み／NVIDIAの「2%安」と「8.7%高」（15分）</span></li>
-    <li><span class="t">16:40</span><span class="c"><b>§1 NVIDIA決算、そして買いか</b> ── 予想との差、利益の中身、粗利率の分母、安全余裕率（30分）</span></li>
-    <li><span class="t">17:10</span><span class="c"><b>§2 Anthropicの上場</b> ── PSRの分母が動いた／SpaceXの実測／初値で買うか（20分）</span></li>
-    <li><span class="t">17:30</span><span class="c"><b>§3 9月30日の中間決算</b> ── 進捗率の分母は誰が決めるのか／配当落ちは悪いニュースか（15分）</span></li>
-    <li><span class="t">17:45</span><span class="c"><b>リンチ・チャートに縦線を引く</b>＋<b>次回予告</b>（5分）</span></li>
+    <li><span class="t">16:40</span><span class="c"><b>§1 NVIDIA決算、そして買いか</b> ── 予想との差、利益の中身、粗利率の分母、安全余裕率（25分）</span></li>
+    <li><span class="t">17:05</span><span class="c"><b>§2 Anthropicの上場</b> ── PSRの分母が動いた／SpaceXの実測／初値で買うか（15分）</span></li>
+    <li><span class="t">17:20</span><span class="c"><b>§3 9月30日の中間決算</b> ── 進捗率の分母は誰が決めるのか／配当落ちは悪いニュースか（10分）</span></li>
+    <li><span class="t">17:30</span><span class="c"><b>チーム別ポートフォリオ報告</b>（A→B→C、各4分）＋<b>リンチ・チャートに縦線を引く</b>（15分）</span></li>
+    <li><span class="t">17:45</span><span class="c"><b>チーム宿題を出す</b> ── ネットキャッシュの式と、負債総額／有利子負債の分岐だけ口頭で。＋<b>次回予告</b>（5分）</span></li>
   </ul>
   <div class="callout">
     <span class="lbl">落とす順番（時間が足りないとき、上から捨てる）</span>
-    ① §1の問5・問6（実質的PER、自社株買い）　② §3の問5（配当落ち前後どちらで買うか）　③ §2の問4（S-1を開く）。<br>
-    <b>落とさない3つ</b>　── <b>§0の④（NVIDIAの「2%安」と「8.7%高」）</b>／<b>§1の問4（買うか）</b>／<b>§2の問1（PSRの分母が動いた）</b>。<br>
-    <b>とくに§0の④は最初に必ずやる。</b>ここで式が入らないと、残り全部が意味を失う。
+    ① §1の問5・問6（実質的PER、自社株買い）　② §3の問5（配当落ち前後どちらで買うか）　③ §2の問4（S-1を開く）　④ リンチ・チャートの読み合わせ（<b>ポートフォリオ報告より先に捨てる</b>）。<br>
+    <b>落とさない4つ</b>　── <b>§0の④（NVIDIAの「2%安」と「8.7%高」）</b>／<b>§1の問4（買うか）</b>／<b>§2の問1（PSRの分母が動いた）</b>／<b>ポートフォリオ報告とチーム宿題の言い渡し</b>。<br>
+    <b>とくに§0の④は最初に必ずやる。</b>ここで式が入らないと、残り全部が意味を失う。<br>
+    <b>報告枠が押しても、チーム宿題は必ず最後の5分で出す。</b>出し損ねると、次回の報告枠がまた「上がりました」だけに戻る。
   </div>
 </section>
 
@@ -690,6 +814,16 @@ table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
       <dd>米国で上場するときにSECへ出す申請書類。<b>公開された瞬間に、その会社の数字が報道ベースから一次情報に変わる。</b>在り処は SEC EDGAR。</dd>
       <dt>バリュートラップ<span class="en">value trap</span></dt>
       <dd>指標上は割安に見えるのに、稼ぐ力が落ち続けているせいで<b>いつまでも割安のまま</b>の株。<b>「安い」と「買っていい」は別である。</b>第4回で、ある学生が自分のチャートから自力で当てた読み方。</dd>
+      <dt>ネットキャッシュ<span class="en">net cash</span></dt>
+      <dd>会社が持っている<b>正味の現金</b>。流動資産 ＋ 投資有価証券×70% − 負債総額。<b>会計基準に定義のある言葉ではない。</b>投資家が使う概算の式であり、<b>掛け目も、どの負債を引くかも、使う人によって変わる。</b></dd>
+      <dt>ネットキャッシュ比率</dt>
+      <dd>ネットキャッシュ ÷ 時価総額。<b>分母は時価総額。</b>1を超えると、市場がつけている値段より手元の正味現金のほうが多い、という状態になる。<b>ただし「1超＝買い」ではない。</b></dd>
+      <dt>有利子負債</dt>
+      <dd>利息を払っている借金（借入金・社債・リース債務）。<b>買掛金や前受金は入らない。</b>負債総額との差は、そこである。第4回の<b>純有利子負債＝有利子負債−現金同等物</b>と同じ材料を使う。</dd>
+      <dt>投資有価証券</dt>
+      <dd>すぐ売る目的ではなく持っている他社の株や債券。<b>貸借対照表では固定資産（投資その他の資産）に載る。</b>流動資産には入っていないので、<b>ネットキャッシュでは別に足す。</b></dd>
+      <dt>同業比較<span class="en">peer comparison</span></dt>
+      <dd>同じ業種の会社と並べること。<b>倍率は、比較対象がないと高いも安いも言えない。</b>第4回で全員が落としたのがここ。</dd>
       <dt>公開価格／初値</dt>
       <dd>上場前に決めた売り出し価格／上場初日に最初についた値段。<b>この2つは一致しない。</b>どちらで買ったかで損益が変わる。</dd>
     </dl>
@@ -705,6 +839,9 @@ table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
     <li>SpaceX（SPCX）の株価は<b>報道ベース</b>。8/30時点の141㌦前後は概算である。</li>
     <li>2026年度1Q決算の集計（3分の2が増益／約7割が上振れ／上方修正15社・下方修正1社）は<b>野村證券の解説記事ベース</b>であり、一次集計そのものではない。対象は2月・3月期決算205社、7/15までの発表分。</li>
     <li>配当落ちの試算（日経平均303円・TOPIX 21.8ポイント）は<b>2025年9月末についての試算値</b>で、2026年の数字ではない。<b>2026年の落ち分は本稿執筆時点で未確定。</b></li>
+    <li><b>ネットキャッシュの式は、会計基準ではなく投資家の実務で使われている概算式である。</b>投資有価証券に掛ける<b>70%は慣行値であって、根拠のある定数ではない</b>。負債を<b>負債総額で引くか有利子負債で引くか</b>も、見る人によって違う。<b>チーム宿題では、自分が使った定義を必ず書くこと。</b></li>
+    <li>ネットキャッシュ比率は、<b>分子（貸借対照表＝決算期末時点）と分母（時価総額＝ある日の終値）で時点が違う。</b>割り算そのものが時点をまたいでいる。<b>両方の時点を書けば、それは欠点ではなくなる。</b></li>
+    <li>各チームのTradingViewのポートフォリオは<b>チームが自分で管理している画面</b>であり、集計の時点も基準も揃っていない。<b>チーム間の順位を厳密に競う用途には使わない。</b>使うのは、自チームの前回比と、その理由である。</li>
     <li>率を出した箇所は分母を、絶対額を出した箇所は時点を書いた。<b>書けていない箇所を見つけたら、それは指摘してよい。</b></li>
   </ul>
   <div class="src">
@@ -721,7 +858,7 @@ table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
     </ul>
   </div>
   <div class="next">
-    <b>次回（第6回）</b>　<b>9/15-16 FOMC・9/17-18 日銀の答え合わせ。</b>今日の冒頭に全員が書いたドル円の予想を、そのまま突き合わせる。<b>この夏4回目の「予想 → 実測 → 差分」になる。</b>あわせて、Anthropicの上場（10月目標）が実際に動き出していれば、S-1の数字で第3回の値付けをやり直す。第3回で残したTesla × SpaceX とフィジカルAIも、まだ回収していない。
+    <b>次回（第6回）</b>　<b>チーム宿題（ネットキャッシュ比率）の発表から始める。</b>3チームぶんの表を並べて、<b>同じ業種で比率が割れた理由</b>を突き合わせる。続けて<b>9/15-16 FOMC・9/17-18 日銀の答え合わせ。</b>今日の冒頭に全員が書いたドル円の予想を、そのまま突き合わせる。<b>この夏4回目の「予想 → 実測 → 差分」になる。</b>あわせて、Anthropicの上場（10月目標）が実際に動き出していれば、S-1の数字で第3回の値付けをやり直す。第3回で残したTesla × SpaceX とフィジカルAIも、まだ回収していない。
   </div>
 </footer>
 
