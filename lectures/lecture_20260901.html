@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講義資料 第5回｜2026年9月1日 予想との差だけが値段を動かす ── NVIDIAは買いか／Anthropicの上場／9月の中間決算</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 第4回で追加したパーツ ---------- */
+.promptbox{background:var(--note-bg); border:1px solid var(--line); border-left:4px solid var(--word);
+  border-radius:0 10px 10px 0; padding:15px 17px; margin:12px 0;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px; line-height:1.95; white-space:pre-wrap; word-break:break-word; color:var(--ink);}
+.promptbox .cap{display:block; font-family:inherit; font-size:11.5px; font-weight:800;
+  letter-spacing:.09em; color:var(--word); margin-bottom:8px;}
+.twocol{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; margin:14px 0 4px;}
+.card{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.card .ch{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:6px;}
+.card.b .ch{color:var(--corp);} .card.c .ch{color:var(--bridge);} .card.d .ch{color:var(--word);}
+.card p{margin:0; font-size:14.5px; line-height:1.75;}
+.card p+p{margin-top:8px;}
+.quote{border-left:4px solid var(--word); background:var(--word-bg); border-radius:0 9px 9px 0;
+  padding:13px 17px; margin:13px 0; font-size:15px; line-height:1.9;}
+.quote .src2{display:block; font-size:12.5px; color:var(--ink3); font-weight:700; margin-top:7px;}
+table.cmp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.cmp th, table.cmp td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+table.cmp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+table.cmp td.h{font-weight:700; color:var(--ink); width:22%;}
+@media (max-width:640px){ .promptbox{font-size:12px;} }
+</style>
+<style>
+/* ---------- 第5回で追加したパーツ ---------- */
+/* サプライズ表（実績 − 予想） */
+table.surp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.surp th, table.surp td{border-bottom:1px solid var(--line2); padding:9px 10px; text-align:right; vertical-align:top;}
+table.surp th:first-child, table.surp td:first-child{text-align:left;}
+table.surp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em; text-align:right;}
+table.surp thead th:first-child{text-align:left;}
+table.surp td.num{font-variant-numeric:tabular-nums;}
+table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
+/* 答え合わせカード */
+.ac{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+    background:var(--bg); padding:14px 16px; margin-bottom:10px;}
+.ac .qq{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:5px;}
+.ac .aa{font-size:15px; line-height:1.75; margin:0;}
+.ac .aa b{font-weight:800;}
+.ac.miss{border-left-color:var(--corp);}
+.ac.miss .qq{color:var(--corp);}
+/* 時点ラベル（同じ銘柄・違う時点） */
+.snap{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:2px;
+      background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 6px;}
+.snap div{background:var(--panel); padding:12px 14px;}
+.snap .w{font-size:11.5px; color:var(--ink3); font-weight:800; letter-spacing:.04em; margin-bottom:4px; line-height:1.45;}
+.snap .r{font-size:19px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.3;}
+.snap .r.up{color:var(--up);} .snap .r.down{color:var(--down);}
+.snap .z{font-size:12px; color:var(--ink2); margin-top:3px; line-height:1.55;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="../reviews/lecture_review_20260804.html">第1回 8/4 復習</a>
+  <a href="../news_briefs/lecture_news_20260809.html">速報 Vol.1 8/9</a>
+  <a href="../reviews/lecture_review_20260811.html">第2回 8/11 復習</a>
+  <a href="lecture_20260818.html">第3回 8/18 講義資料</a>
+  <a href="../news_briefs/lecture_news_20260825.html">速報 Vol.2 8/25</a>
+  <a href="lecture_20260825.html">第4回 8/25 講義資料</a>
+  <span class="cur">第5回 9/1 講義資料</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 講義資料　夏期集中講座 第5回</div>
+  <h1 class="title">予想との差だけが値段を動かす<br>── NVIDIAは買いか／Anthropicの上場／9月の中間決算</h1>
+  <div class="meta">
+    <span><b>配布</b>　2026年8月31日（月）</span>
+    <span><b>講義</b>　2026年9月1日（火）16:20 開始・90分</span>
+    <span><b>形式</b>　オンライン（Zoom）</span>
+    <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
+  </div>
+  <div class="lede">
+    先週、NVIDIAは<strong>売上・利益・見通しのすべてで市場予想を上回った</strong>。発表直後、株価は<strong>下がった</strong>。その翌日、同じ株が<strong>8.7%上がった</strong>。<br>
+    どちらも本当に起きたことである。<strong>同じ決算が、切り取る時点によって「悪材料」にも「好材料」にも見える。</strong>これは決算に限らない。日銀の9月利上げは市場が8割方織り込んでいるのに、ドル円は一時<strong>160円台を回復した</strong>。利上げが近づいたのに円安になった。<br>
+    第4回で測ったのは<strong>「値段」と「価値」のズレ</strong>だった。今回測るのは<strong>「値段を動かすもの」</strong>である。結論を先に言えば、動かしているのは事実そのものではない。<strong>事実と、すでに織り込まれていた予想との差</strong>である。<br>
+    この1本の線で、3つを続けて切る ── <strong>① NVIDIAの決算（そして買いか）／② Anthropicの上場／③ 9月30日にやってくる中間決算</strong>。そして<strong>前回つくったリンチ・チャートを、今日は読む。</strong>
+  </div>
+</header>
+
+<div class="callout" style="margin:0 0 22px">
+  <span class="lbl">自習の進め方 ── 配布 8/31（月） → 授業 9/1（火）16:20</span>
+  <b>今回は前日配布である。時間がない前提で組んである。</b>読むのは §0 の答え合わせ（5分）だけでよい。<br>
+  <b>手を動かすのは1つだけ</b>　── <a href="#hw0">宿題</a>（自分の持ち株1つの、決算発表翌日の株価）。<b>調べるのは10分で終わる。</b><br>
+  各セクションの問いに付いた <b>必答</b> は「<b>授業で必ず扱う</b>」という意味である。<b>書いて出すのは宿題の1行だけでよい。</b>ただし必答には、当てられたら答えられるようにしておくこと。<br>
+  <b>持ってくるもの</b>　第4回でつくった<b>リンチ・チャート1枚</b>（先週見せた人はそのままでよい）。まだの人は、できていない画面のままでよい。<br>
+  <b>この資料には答えが書いていない。</b>空欄を埋めるのは君たちである。<b>締切</b>　Slackへの提出は <b>9/1（火）12:00</b>。
+</div>
+
+<nav class="toc">
+  <h2>この資料の構成</h2>
+  <ol>
+    <li><a href="#s0">答え合わせ</a> <span class="s">― 8/18と8/28に立てた予想は、どこまで当たったか</span></li>
+    <li><a href="#s1">NVIDIAの決算、そして買いか</a> <span class="s">― 全部予想を超えた。それでも最初の反応は下げだった</span></li>
+    <li><a href="#s2">Anthropicの上場</a> <span class="s">― 評価額は変わっていないのに、PSRは下がった</span></li>
+    <li><a href="#s3">9月30日、中間決算</a> <span class="s">― 「良い決算」と「上がる株」は別の話である</span></li>
+    <li><a href="#s4">前回の続き　リンチ・チャートを読む</a> <span class="s">― 決算発表日で縦線を1本引く</span></li>
+    <li><a href="#hw0">宿題（全員共通）</a> <span class="s">― 1行。調べるのは10分</span></li>
+    <li><a href="#s7">当日の進行</a> <span class="s">― 16:20開始・90分のタイムテーブル</span></li>
+    <li><a href="#s9">今回の用語</a> <span class="s">― 予習しておく言葉</span></li>
+  </ol>
+</nav>
+
+<!-- ============ §0 答え合わせ ============ -->
+<section class="topic" id="s0">
+  <span class="badge bridge">答え合わせ</span>
+  <h2 class="thead">先に、宿題の答え合わせをする。4つのうち1つは、速報の書き方そのものが間違っていた。</h2>
+  <p class="sub">第3回（8/18）で各自が書いた予想と、8/28の速報が投げた問い。8月31日時点で、答えが出たものから並べる。<b>「当たった／外れた」より、なぜそう判定できるのかを見ること。</b></p>
+
+  <div class="ac">
+    <div class="qq">① 為替介入の効果は「約3週間」で消えるのか（第2回・第3回）</div>
+    <p class="aa">独立系の検証チーム「為替介入研究所」は、<b>判定基準を結果が出る前に公開したうえで</b>、8/13の終値で基準線を上回ったと判定した。結論は<b>「半減期は8営業日」</b>。授業で紹介した「約3週間」より<b>大幅に早い</b>。<br>
+    <b>ここで見るべきは、当たり外れではない。</b>基準線（159.483円）を、結果が判明する前に固定して公開していたことである。<b>あとから基準を動かせば、どんな仮説も当たる。</b></p>
+  </div>
+
+  <div class="ac">
+    <div class="qq">② ウォーシュFRB議長は、タカ派かハト派か（8/28の速報の問い）</div>
+    <p class="aa">8/28のジャクソンホール講演で、議長はこう述べた ──<b>「基調インフレ率が目標に向かっていると確信できなければ、まだやるべきことがある」</b>。金融環境を引き締め的と表現するのは「難しい」とも言った。<b>利上げに含みを持たせた</b>と受け取られている。<br>
+    速報では野村證券の分析を引いて「タカ派材料とハト派材料が同居している」と書いた。<b>結果はタカ派寄りだった。</b></p>
+  </div>
+
+  <div class="ac">
+    <div class="qq">③ 日銀の9月利上げを市場は8割方織り込んだ。ではドル円は円高になったか</div>
+    <p class="aa">ならなかった。8/28、ドル円は<b>一時160円台を回復</b>している。日経新聞の見出しは<b>「円、限られる上値余地　織り込み済みの日銀9月利上げ」</b>だった。<br>
+    <b>利上げが近づいたのに、円安になった。</b>この一文が、今回の資料の全部である。</p>
+  </div>
+
+  <div class="ac miss">
+    <div class="qq">④ NVIDIAは好決算だった。株価はどうなったか　── ここは速報の書き方が間違っていた</div>
+    <p class="aa">8/28に配った速報には、<b>「決算発表後の株価　約▲2%」</b>と書いてある。注記には「報道により幅がある／情報は錯綜している」とも書いた。<br>
+    <b>錯綜していたのではない。時点を書いていなかっただけである。</b>正しくはこうなる。</p>
+    <div class="snap">
+      <div><div class="w">8/26 引け後・時間外<br>（決算リリース直後）</div><div class="r down">一時 ▲5%</div><div class="z">数字は全部予想超え。それでも売られた</div></div>
+      <div><div class="w">8/26 決算説明会のあと<br>（同じ時間外取引の中で）</div><div class="r up">一時 ＋5%</div><div class="z">FY2028の増収率見通しが出た瞬間に反転</div></div>
+      <div><div class="w">8/27 通常取引・終値<br>（翌営業日）</div><div class="r up">＋8.73%</div><div class="z">227.98ドル</div></div>
+    </div>
+    <p class="aa"><b>そして、この予想は先週この教室で出ている。</b>8/25の授業で「明日の決算どうなると思う？」と聞かれて、ある学生は<b>「上がるんじゃないの」「爆上がり」</b>と答えた。<br>
+    <b>結果から言えば、当たっている。</b>8/27の終値は＋8.73%だった。<b>ただし、発表直後の時間外だけを見ていたら「外れた」ことになっていた。</b>同じ予想が、答え合わせをする時点によって当たりにも外れにもなる。<br>
+    同じ決算である。<b>「株価は下がった」も「株価は上がった」も、どちらも本当だった。</b><br>
+    第3回で配った数字のルールに、こう書いてある ──<b>「絶対額を出したら時点を書く」</b>。速報はそのルールを自分で破っていた。<b>今日はこの1点を、3つのニュース全部に当てる。</b></p>
+  </div>
+
+  <h3>今回つなぐ1本の線</h3>
+  <div class="formula">
+    <code>値段が動く幅　＝　出てきた事実　−　すでに織り込まれていた予想</code>
+    <span class="n">右辺の第2項が大きいほど、同じ「良いニュース」でも値段は動かない。ときには下がる。<b>だから「良い決算かどうか」と「株が上がるかどうか」は、別の質問である。</b>§1がその実例（NVIDIA）、§2が上場という一発勝負での同じ話（Anthropic）、§3が日本の中間決算での同じ話。<b>3つとも同じ式で切れる。</b></span>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">今回のゴール</span>
+    授業が終わったとき、<b>「なぜ好決算なのに下がったの？」と聞かれて、1本の式で答えられる</b>こと。<br>
+    そのうえで、<b>自分の持ち株について「次の決算で、何が出たら上がるのか」を、事前に1行で書ける</b>ようになる。
+  </div>
+</section>
+
+<!-- ============ §1 NVIDIA ============ -->
+<section class="topic" id="s1">
+  <span class="badge corp">今回の中心 ①</span>
+  <h2 class="thead">NVIDIAの決算 ── 全部予想を超えた。それでも最初の反応は下げだった。では、買いか。</h2>
+  <p class="sub">米国／2027会計年度 第2四半期（5〜7月）決算。2026年8月26日（米国時間）引け後に発表。<b>1で「予想との差」を並べ、2で利益の中身を分け、3で値付けの材料を置く。買うかどうかは、そのあとの問い4で決める。</b></p>
+
+  <h3>1. まず「予想との差」を並べる</h3>
+  <p>決算の数字は、単体では意味を持たない。<b>市場が事前にいくらだと思っていたか</b>と並べて、はじめて意味が出る。この表の右端の列が、今回の主役である。</p>
+
+  <div class="tblwrap">
+  <table class="surp">
+    <thead><tr><th>項目</th><th>市場予想／会社ガイダンス</th><th>実績</th><th>差</th></tr></thead>
+    <tbody>
+      <tr><td class="h">売上高</td><td class="num">約922億㌦（市場予想）</td><td class="num">962億㌦</td><td class="num pos">上回った（前年同期比 +106%）</td></tr>
+      <tr><td class="h">データセンター売上</td><td class="num">─</td><td class="num">890億㌦</td><td class="num pos">予想を約30億㌦上回った（+117%）</td></tr>
+      <tr><td class="h">調整後EPS</td><td class="num">2.09㌦</td><td class="num">2.22㌦</td><td class="num pos">上回った</td></tr>
+      <tr><td class="h">GAAP純利益</td><td class="num">─</td><td class="num">596.9億㌦</td><td class="num pos">前年同期比 +126%</td></tr>
+      <tr><td class="h">粗利率（GAAP・非GAAP）</td><td class="num">─</td><td class="num">75.0%</td><td class="num">─</td></tr>
+      <tr><td class="h">次の四半期（Q3）売上見通し</td><td class="num">─</td><td class="num">1,080億㌦（±2%）</td><td class="num">中国向けデータセンター売上は含まない</td></tr>
+      <tr><td class="h">2028年1月期の増収率見通し</td><td class="num">44〜45%（アナリスト予想）</td><td class="num">約70%</td><td class="num pos">大幅に上回った（異例の早期開示）</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">この表の読み方 ── 動いたのはどの行か</span>
+    上から6行は<b>決算リリース</b>に載っていた。株価はそれを見て<b>下げた</b>。<br>
+    いちばん下の行だけが、<b>そのあとの決算説明会</b>で出てきた。株価が反転したのはそのタイミングである。<br>
+    <b>「予想を上回った」行がこれだけ並んでいても、株価が動くとは限らない。動いたのは1行だけだった。</b>
+  </div>
+
+  <h3>2. 利益の「中身」を分けておく</h3>
+  <p>GAAP純利益596.9億㌦は、そのまま「GPUを売って稼いだ利益」ではない。<b>第1回からずっとやっている、段階損益の話がここに出てくる。</b></p>
+  <div class="kpis">
+    <div class="kpi c"><div class="k">GAAP純利益</div><div class="v">596.9<span style="font-size:14px">億㌦</span></div><div class="n">前年同期比 +126%</div></div>
+    <div class="kpi"><div class="k">うち 持分証券の評価益</div><div class="v">78<span style="font-size:14px">億㌦</span></div><div class="n">純利益の約13%。SpaceX・Intel・CoreWeave など保有株の値上がり分。<b>非GAAPでは除外される</b></div></div>
+    <div class="kpi m"><div class="k">粗利率</div><div class="v">75.0<span style="font-size:14px">%</span></div><div class="n">GAAP・非GAAPとも同じ</div></div>
+    <div class="kpi g"><div class="k">株主還元（当四半期）</div><div class="v">約260<span style="font-size:14px">億㌦</span></div><div class="n">自社株買い＋配当。自社株買いの承認枠は約990億㌦残っている</div></div>
+  </div>
+  <p class="unsure">※ 78億㌦の内訳（銘柄別）は報道ベース。金額そのものはNVIDIAの開示に基づく。<b>自分で確かめるなら SEC EDGAR の Form 10-Q。</b></p>
+
+  <h3>3. 値付けの材料（判断はしない。材料だけ置く）</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="k">株価（8/27 終値）</div><div class="v">227.98<span style="font-size:14px">㌦</span></div><div class="n">前日比 +8.73%</div></div>
+    <div class="kpi"><div class="k">時価総額（8/28時点）</div><div class="v">約5.27<span style="font-size:14px">兆㌦</span></div><div class="n">報道ベース</div></div>
+    <div class="kpi"><div class="k">PER（実績・8/28時点）</div><div class="v">約44<span style="font-size:14px">倍</span></div><div class="n">過去12か月の実績利益ベース。<b>予想利益ベースではない</b></div></div>
+    <div class="kpi c"><div class="k">警戒されている材料</div><div class="v" style="font-size:16px;line-height:1.5">メモリー価格の<br>高騰</div><div class="n">粗利率を押し下げる方向に効く</div></div>
+  </div>
+
+  <ol class="q">
+    <li><span class="tagm">必答</span><b>売上も、利益も、EPSも、次の四半期の見通しも、全部が市場予想を上回った。それなのに、発表直後の時間外取引では株価が下がった。</b>これはどういうときに起きるか。<b>§0の式を使って1行で説明しなさい。</b>
+      <span class="hint">「投資家が失望したから」では0点である。<b>何に対して失望したのか</b>を書くこと。ヒント ── 決算が出る前、この株はすでにいくらだったのか。</span></li>
+    <li><span class="tagm">必答</span>純利益596.9億㌦のうち<b>78億㌦は、持っている他社株の値上がり分</b>である。<b>この78億㌦は、来年も出るか。</b>
+      <span class="hint">そして所在の問題 ── この78億㌦は<b>営業利益に入っているか、入っていないか。</b>入っていないとしたら、段階損益のどこに乗るのか。<b>用語の所在を先に決めてから答えること。</b></span></li>
+    <li><span class="tagm">必答</span><b>粗利率75.0%</b>。<b>この率の分母は何か。</b>そして、警戒されているとおりメモリー価格が上がったとする。<b>粗利率が下がったとき、粗利の絶対額も必ず減るか。</b>
+      <span class="hint">7月31日の授業でやった、広告宣伝費45%→21%とまったく同じ形の問いである。<b>あのとき何と答えたか思い出すこと。</b></span></li>
+    <li><span class="tagm">必答</span><span style="color:var(--corp);font-weight:800">これが今日いちばん大事な問い。</span><b>いま、NVIDIA株を買うか。</b>買う／買わない／持っているなら売るか持ち続けるか。<b>第4回でやった「安全余裕率」の言葉で答えなさい。</b><br>
+      <b>先週、決算の前に同じ問いが出ている</b> ──「じゃあ今日買っちゃった方がいいの？」。<b>あのとき答えられたか。いま、決算が出たあとなら答えられるか。</b>
+      <span class="hint"><b>安全余裕率は第4回の資料に載せたが、教室では時間切れで扱えなかった。</b>上の用語集に置いてあるので、そこだけ先に読むこと。<br>
+      アナリストの一部は、8.7%上がったあとでも<b>「割安すぎる」</b>と評価している。<b>その人たちは、何と比べて割安と言っているのか。</b>実績PER44倍という数字だけでは、この判断はできない。<b>何が分かれば決められるのかを先に書くこと。</b>それが書けたら、この問いは半分解けている。</span></li>
+    <li><span class="tago">余力</span>第4回でシケモク投資家の式を習った ──<b>実質的PER ＝（時価総額 ＋ 純有利子負債）÷ 純利益</b>。<b>これをNVIDIAに当ててみなさい。</b>
+      <span class="hint">現金と有利子負債は<b>Form 10-Q</b>に載っている。<b>資料には書いていない。自分で取ってくること。</b>そのうえで、通常のPER44倍と比べて上か下か。<b>そして、どうしてそうなるのかを1行で。</b></span></li>
+    <li><span class="tago">余力</span>NVIDIAはこの四半期だけで<b>約260億㌦を自社株買いと配当に使った</b>。第1回でやった<b>「自社株買いは分母を削る行為」</b>を思い出して、<b>この260億㌦がEPSとROEをどう動かすか</b>を式で書きなさい。</li>
+  </ol>
+
+  <div class="rel"><b>この節でつながる回：</b>07-31（率と絶対額・広告宣伝費）／08-18 第3回（PSR・DCF・電力とデータセンター）／08-25 第4回（安全余裕率・実質的PER）</div>
+</section>
+
+<!-- ============ §2 Anthropic ============ -->
+<section class="topic" id="s2">
+  <span class="badge corp">今回の中心 ②</span>
+  <h2 class="thead">Anthropicの上場 ── 評価額は5月から動いていない。それでもPSRは下がった。なぜか。</h2>
+  <p class="sub">米国／2026年6月1日にSEC へ S-1 を機密提出。10月の上場を目指すと報じられている。<b>第3回（8/18）でこの会社に値段をつけた。その前提が、2週間で動いている。</b></p>
+
+  <h3>1. いまの数字（第3回で使った数字と並べる）</h3>
+  <p><b>第3回でPSRを計算したときと、いくつかの数字が変わっている。</b>どこが変わって、どこが変わっていないかを先に見ること。</p>
+
+  <div class="tblwrap">
+  <table class="cmp">
+    <thead><tr><th>項目</th><th>第3回（8/18）で使った数字</th><th>いま（8月末時点）</th></tr></thead>
+    <tbody>
+      <tr><td class="h">評価額（ポストマネー）</td><td>約9,650億㌦<br><span class="unsure">5/28 Series H・650億㌦調達後</span></td><td><b>約9,650億㌦（変わっていない）</b><br><span class="unsure">未上場なので、次の値付けは上場の日</span></td></tr>
+      <tr><td class="h">年換算売上（ランレート）</td><td>約470億㌦</td><td><b>650億㌦を突破</b><br><span class="unsure">2025年末は約90億㌦。7か月で約7倍</span></td></tr>
+      <tr><td class="h">四半期売上（4〜6月）</td><td>109億㌦</td><td><b>115億㌦超</b><br><span class="unsure">前年同期は7.87億㌦＝14倍以上</span></td></tr>
+      <tr><td class="h">四半期の営業損益</td><td>調整後で初の黒字</td><td>調整後で初の黒字（据え置き）</td></tr>
+      <tr><td class="h">上場の段取り</td><td>6/1 に S-1 を機密提出</td><td>主幹事は Morgan Stanley・Goldman Sachs・JPMorgan。<b>8月末にも申請書類が公開されるとの報道。</b>調達額は600億㌦規模との観測もある</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <ol class="q">
+    <li><span class="tagm">必答</span><span style="color:var(--corp);font-weight:800">この節の山。</span>第3回で、<b>PSR ＝ 評価額 ÷ 年換算売上</b> を計算した。あのときの数字（9,650億㌦ ÷ 470億㌦）と、いまの数字（9,650億㌦ ÷ 650億㌦）を<b>両方計算しなさい。</b><br>
+      そのうえで ──<b>PSRは下がった。つまり「割高さ」は減った。これは、分子を下げたからか、分母が上がったからか。</b>
+      <span class="hint">7月31日の広告宣伝費（45%→21%）と、<b>まったく同じ構造の問いである。</b>あのとき「率が下がった＝絶対額を減らした、とは言えない」と結論した。<b>今回はその裏返しになっている。</b>どう裏返っているのかを書くこと。</span></li>
+    <li><span class="tagm">必答</span>第3回で「上場は答え合わせをする」と言った。<b>SpaceXで答えが出ている。</b><br>
+      6/12にNASDAQ上場。<b>公開価格135㌦ → 初値150㌦ → 初日終値160.95㌦。</b>その後8月上旬には<b>108.27㌦</b>まで下げ、8/10にようやく公開価格を回復した。8/30時点で<b>141㌦前後</b>。<br>
+      <b>初日の終値で買った人は、いま損しているか得しているか。%で答えなさい。</b>そして ──<b>上場は、誰にとって、何の日だったのか。</b>
+      <span class="hint">「上場＝おめでとう」で止めないこと。<b>その日、誰が誰に何を売ったのか</b>を主語つきで書く。</span></li>
+    <li><span class="tagm">必答</span><span style="color:var(--corp);font-weight:800">意思決定。</span><b>Anthropicが10月に上場したら、初値で買うか。</b><br>
+      買うなら<b>何を見て決めるのか</b>、買わないなら<b>いくらまで下がったら買うのか</b>を書くこと。<b>第4回の「安全余裕率」を使う。</b>
+      <span class="hint">第4回で、シケモク投資家の式は<b>Anthropicには使えない</b>と結論した（事業価値がほぼ100%、過去5年の営業利益が赤字、業界平均PERが存在しない）。<b>使えない道具の代わりに、何を使うのか。</b>その1つがPSRだった。<b>ではPSR何倍なら買うのか。</b>そこまで書けたら100点。</span></li>
+    <li><span class="tago">余力</span><b>S-1（上場申請書類）が公開されたら、自分の目で開いて、数字を1つだけ取ってくること。</b>
+      <span class="hint">在り処は <b>SEC EDGAR</b>。全部読む必要はない。<b>1つでいい。</b>ここまで、この会社の数字は全部「報道ベース」で扱ってきた。S-1が出た瞬間に、それが<b>一次情報</b>に変わる。<b>その違いを体で分かってほしい。</b></span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">§3へのつなぎ</span>
+    NVIDIAは<b>「四半期ごとに答え合わせされる会社」</b>である。Anthropicは<b>「まだ一度も答え合わせされていない会社」</b>である。<br>
+    <b>では日本の会社はどうか。</b>ちょうど1か月後の9月30日に、<b>その答え合わせの日が来る。</b>
+  </div>
+
+  <div class="rel"><b>この節でつながる回：</b>08-18 第3回（Anthropic vs OpenAI のPSR・ランレート・DCF、SpaceX上場の実測）／08-25 第4回（この式はAnthropicに使えるか）／07-31（率と絶対額）</div>
+</section>
+
+<!-- ============ §3 中間決算 ============ -->
+<section class="topic" id="s3">
+  <span class="badge macro">今回の中心 ③</span>
+  <h2 class="thead">9月30日、中間決算 ── 「良い決算」と「上がる株」は、別の話である</h2>
+  <p class="sub">日本／3月期決算の会社にとって、9月30日（水）が上半期の期末＝<b>中間期末</b>。9月末が権利確定日の銘柄は400を超える。<b>NVIDIAで見た現象が、日本市場では毎年2回、同じ日に一斉に起きる。</b></p>
+
+  <h3>1. 直前の答え合わせ ── 2026年度 第1四半期（4〜6月）はどうだったか</h3>
+  <p>中間決算の前に、その1つ手前の四半期がどうだったかを見ておく。<b>数字はいい。株価の反応はそうでもなかった。</b></p>
+  <div class="kpis">
+    <div class="kpi g"><div class="k">増益だった会社</div><div class="v">約 2/3</div><div class="n">全体のうち。経常利益ベース</div></div>
+    <div class="kpi g"><div class="k">市場予想を上回った会社</div><div class="v">約 7<span style="font-size:14px">割</span></div><div class="n">上振れサプライズ</div></div>
+    <div class="kpi"><div class="k">通期予想の上方修正／下方修正</div><div class="v">15社 / 1社</div><div class="n">205社集計・7/15までの発表分</div></div>
+    <div class="kpi c"><div class="k">株価の反応</div><div class="v" style="font-size:16px;line-height:1.5">悪材料への<br>ネガティブ反応が目立つ</div><div class="n">好材料へのポジティブ反応より</div></div>
+  </div>
+  <p>集計したストラテジストの説明はこうである ──<b>上振れが「当たり前」と見なされるようになった。</b>だから上振れても株価は動かず、下振れたときだけ大きく売られる。<br>
+  <span class="unsure">※ 集計は野村證券（2月・3月期決算205社、7/15までの発表分／売上 +7.1%・経常利益 +25.1%）。<b>解説記事ベースであり、一次集計そのものではない。</b></span></p>
+
+  <h3>2. 9月30日には、決算とは別の理由でも株価が下がる</h3>
+  <p>中間期末には、<b>業績とまったく関係のない下げ</b>が1回、機械的に入る。<b>配当落ち</b>である。</p>
+  <div class="flow">
+    <span class="n">権利付最終日<br><b>この日までに買えば配当がもらえる</b></span>
+    <span class="a">→</span>
+    <span class="n">権利落ち日<br><b>翌日。配当ぶん、値段が下がる</b></span>
+    <span class="a">→</span>
+    <span class="n">権利確定日<br><b>9月30日（水）</b></span>
+  </div>
+  <p>どれくらい下がるのか。<b>1年前（2025年9月末）の試算では、日経平均で303円（0.68%）、TOPIXで21.8ポイント（0.69%）</b>だった。<b>指数が上がり配当額が増えるほど、この落ち分は大きくなる。</b>参考までに、日経平均の8/28終値は<b>66,405円56銭</b>（前日比 +273円58銭）である。</p>
+  <p class="unsure">※ 303円・21.8ポイントは<b>2025年9月末についての試算値</b>であり、2026年の数字ではない。<b>今年の落ち分がいくらになるかは、まだ誰も確定させていない。</b></p>
+
+  <ol class="q">
+    <li><span class="tagm">必答</span>1Qは<b>3分の2が増益、7割が上振れ</b>。それでも株価の反応は悪材料のほうに偏った。<b>なぜか。</b>
+      <span class="hint"><b>§1のNVIDIAとまったく同じ言葉で説明できるはずである。</b>同じ言葉で書けたら、今日の式が手に入っている。</span></li>
+    <li><span class="tagm">必答</span><b>権利落ち日に株価が下がるのは「悪いニュース」か。</b><br>
+      配当落ちで下がるのと、決算が悪くて下がるのは、<b>同じ下げか、違う下げか。</b>違うなら、何が違うのか。
+      <span class="hint">これは<b>用語の所在</b>の問題である。第1回からずっとやっている「黒字はBSかPLか」と同じ種類の問いだと思って答えること。<b>自分の資産は、権利落ちで減ったのか、減っていないのか。</b></span></li>
+    <li><span class="tagm">必答</span><b>2026年9月の権利付最終日は何月何日か。</b>調べて日付を書きなさい。
+      <span class="hint">この資料には書いていない。<b>証券会社のカレンダーか、各社IRで確認すること。</b>ついでに、なぜ権利確定日そのものではなく、その数日前が締切になるのかも1行で。</span></li>
+    <li><span class="tagm">必答</span>中間決算では<b>「進捗率」</b>という言葉が必ず出てくる。上半期の実績が、通期予想に対して何%まで来たか、という数字である。<br>
+      <b>進捗率が50%を超えていたら、その会社は「予想を上回っている」と言えるか。</b>そして<b>この率の分母は何か。</b>
+      <span class="hint">分母は「実績」ではない。<b>会社が自分で出した予想</b>である。<b>ということは、分母のほうを動かせる人がいる。</b>誰か。それが分かると、進捗率という数字の弱点が見える。</span></li>
+    <li><span class="tagm">必答</span><span style="color:var(--macro);font-weight:800">自分ごとにする。</span>ある会社の株を買いたい。<b>権利付最終日までに買って配当をもらうか、権利落ち日まで待って安くなってから買うか。</b>どちらが得か。
+      <span class="hint">「配当がもらえるから前者」で止めないこと。<b>落ちる分と、もらえる配当は、いくら違うのか。</b>そして<b>配当には税金がかかる。</b>ここまで入れて計算すると、答えが変わることがある。</span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">当日その場で書いてもらうもの（宿題ではない。5分で書く）</span>
+    <b>9/15-16 に米FOMC、9/17-18 に日銀の金融政策決定会合がある。</b>どちらもこの授業の2週間後である。<br>
+    <b>「その2つが終わったあと、ドル円は今日より円高か円安か。理由を1行。」</b>を、授業の冒頭に全員が書く。<b>答え合わせは第6回。</b><br>
+    <b>第4回の資料§1に載せた定理3（金利の高い通貨は下落する）は、時間が足りず教室では扱えなかった。</b>ここで回収する ──
+    書いてある結論は「金利の高い通貨は下落する」。<b>直感とは逆である。</b>この2週間が、それを日米の金融政策で実測できるまたとない機会になる。<b>資料を開き直してから書くこと。</b>
+  </div>
+
+  <div class="rel"><b>この節でつながる回：</b>08-04 第1回（利上げと株価）／08-11 第2回（日銀のジレンマ）／08-25 第4回（資料§1の定理3。教室では未実施のため今回回収する）／07-07・07-31（用語の所在、率と絶対額）</div>
+</section>
+
+<!-- ============ リンチ・チャートを読む ============ -->
+<section class="topic" id="s4">
+  <span class="badge bridge">前回の続き</span>
+  <h2 class="thead">前回つくったリンチ・チャートに、今日は縦線を1本引く</h2>
+  <p class="sub">第4回で何人かが実際につくって見せた。第5回は「読む」。<b>全員、1枚だけ画面に出すこと。</b>まだの人は、できていない画面のままでよい。どこで止まったかが、そのままネタになる。</p>
+
+  <div class="callout">
+    <span class="lbl">第4回で決まったこと ── アウトプットはHTMLで出す</span>
+    先週、出てきたチャートを見比べたうえで<b>「このアウトプット、やっぱりHTMLで出すことにしよう」</b>と決まった。<b>今回の宿題からこれを適用する。</b><br>
+    あわせて、先週すでに出ていた読み方を1つ ── ある学生は自分のチャートを見て<b>「PBRがずっと右肩下がり。これは典型的なバリュートラップだから買ってはいけない」</b>と判定した。<b>今日はこの「帯に対する位置」の読み方を、全員ぶん並べて確かめる。</b>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">今日やること</span>
+    自分のチャートに、<b>直近の決算発表日のところで、縦線を1本引く。</b>（引けなければ、その日がどこかを指で示すだけでよい。）<br>
+    そして見る ──<b>その線の前後で、株価の線は、業績の帯に近づいたか、離れたか。</b><br>
+    <b>これが今日の3つのニュース全部と、同じ話である。</b>決算とは、株価の線と業績の帯の距離が、一気に測り直される日のことである。
+  </div>
+  <p>同じ銘柄を複数人が選んでいたら、<b>倍率の置き方がどう違うか</b>を並べて見る。<b>同じ会社でも、置いた倍率が違えば「高い」と「安い」が逆になる。</b>それが分かるのが、今日の収穫である。</p>
+</section>
+
+<!-- ============ 宿題 ============ -->
+<section class="topic" id="hw0">
+  <span class="badge bridge">宿題・全員共通</span>
+  <h2 class="thead">自分の持ち株を1つ選び、直近の決算発表日の翌営業日に、株価が上がったか下がったかを調べる。</h2>
+  <p class="sub">それだけである。<b>調べるのは10分で終わる。</b>持ち株がなければ、気になっている会社を1つ選べばよい。</p>
+
+  <div class="deliv">
+    <b>出すもの</b>　銘柄名／直近の決算発表日／その翌営業日の騰落率（%）／<b>そして1行だけ「なぜそう動いたと思うか」。</b><br>
+    <b>形式は先週決めたとおりHTML1枚で。</b>AIに投げれば作ってくれる。<b>体裁に時間をかけないこと。</b>中身は上の4つだけでよい。<br>
+    <b>締切</b>　9/1（火）12:00 Slack。<b>「調べたけど分からなかった」も出すこと。</b>空欄で出すのと、黙って出さないのは違う。
+  </div>
+
+  <div class="callout">
+    <span class="lbl">1つだけ注意</span>
+    <b>「決算発表日の翌営業日」を選ぶこと。</b>発表日そのものではない。<br>
+    日本の会社の多くは<b>取引時間中か引け後</b>に発表する。<b>発表日の終値には、まだ決算が反映されていないことがある。</b><br>
+    ── これも今日の§0でやったのと同じ、<b>「どの時点を切り取るか」</b>の話である。
+  </div>
+</section>
+
+<!-- ============ 進行 ============ -->
+<section class="topic" id="s7">
+  <span class="badge bridge">当日の進行</span>
+  <h2 class="thead">9月1日（火）16:20 開始・90分</h2>
+  <ul class="tl">
+    <li><span class="t">16:20</span><span class="c"><b>冒頭のひとこと書き取り</b> ── FOMC・日銀のあと、ドル円は円高か円安か。全員1行（5分）</span></li>
+    <li><span class="t">16:25</span><span class="c"><b>§0 答え合わせ</b> ── 介入の半減期／ジャクソンホール／織り込み済み／NVIDIAの「2%安」と「8.7%高」（15分）</span></li>
+    <li><span class="t">16:40</span><span class="c"><b>§1 NVIDIA決算、そして買いか</b> ── 予想との差、利益の中身、粗利率の分母、安全余裕率（30分）</span></li>
+    <li><span class="t">17:10</span><span class="c"><b>§2 Anthropicの上場</b> ── PSRの分母が動いた／SpaceXの実測／初値で買うか（20分）</span></li>
+    <li><span class="t">17:30</span><span class="c"><b>§3 9月30日の中間決算</b> ── 進捗率の分母は誰が決めるのか／配当落ちは悪いニュースか（15分）</span></li>
+    <li><span class="t">17:45</span><span class="c"><b>リンチ・チャートに縦線を引く</b>＋<b>次回予告</b>（5分）</span></li>
+  </ul>
+  <div class="callout">
+    <span class="lbl">落とす順番（時間が足りないとき、上から捨てる）</span>
+    ① §1の問5・問6（実質的PER、自社株買い）　② §3の問5（配当落ち前後どちらで買うか）　③ §2の問4（S-1を開く）。<br>
+    <b>落とさない3つ</b>　── <b>§0の④（NVIDIAの「2%安」と「8.7%高」）</b>／<b>§1の問4（買うか）</b>／<b>§2の問1（PSRの分母が動いた）</b>。<br>
+    <b>とくに§0の④は最初に必ずやる。</b>ここで式が入らないと、残り全部が意味を失う。
+  </div>
+</section>
+
+<!-- ============ 用語 ============ -->
+<section class="topic" id="s9">
+  <span class="badge word">今回の用語</span>
+  <h2 class="thead">予習しておく言葉</h2>
+  <div class="gloss compact">
+    <dl>
+      <dt>ミスター・マーケット<span class="en">第4回の積み残し</span></dt>
+      <dd>グレアムのたとえ話に出てくる情緒不安定な共同経営者。<b>毎日値段を言ってくるが、それに従う義務はない。</b>市場は値段を教える装置であって、正解を教える装置ではない。</dd>
+      <dt>安全余裕率<span class="en">Margin of Safety／第4回の積み残し</span></dt>
+      <dd>自分が計算した価値より、<b>どれだけ安く買えたか</b>の幅。<b>自分の計算が間違っていても損をしないための余白。</b>今日の「買うか」は、この言葉で答える。</dd>
+      <dt>織り込み済み<span class="en">priced in</span></dt>
+      <dd>その情報を、市場がすでに値段に反映し終えている状態。<b>織り込み済みのニュースは、現実になっても値段を動かさない。</b></dd>
+      <dt>サプライズ<span class="en">surprise</span></dt>
+      <dd>実績と、事前の予想との差。<b>値段を動かすのは実績そのものではなく、この差である。</b>上振れサプライズ／下振れサプライズと使う。</dd>
+      <dt>コンセンサス<span class="en">consensus</span></dt>
+      <dd>複数のアナリスト予想の平均。<b>「市場予想」と書いてあったら、たいていこれ。</b>誰か1人の予想ではない。</dd>
+      <dt>ガイダンス<span class="en">guidance</span></dt>
+      <dd>会社自身が出す業績見通し。<b>コンセンサス（外部）とガイダンス（内部）は別物。</b>どちらと比べているかを必ず確かめる。</dd>
+      <dt>中間決算</dt>
+      <dd>上半期（3月期決算なら4〜9月）の決算。<b>期末は9月30日。</b>通期の折り返し地点にあたる。</dd>
+      <dt>進捗率</dt>
+      <dd>上半期の実績 ÷ 通期予想。<b>分母は会社が自分で出した予想である</b>ことに注意。</dd>
+      <dt>権利確定日／権利付最終日／権利落ち日</dt>
+      <dd>配当や優待をもらう権利が決まる日／その権利を得るために買える最後の日／その翌営業日。<b>権利落ち日には、配当ぶん機械的に値段が下がる。</b></dd>
+      <dt>配当落ち</dt>
+      <dd>権利落ち日に起きる、配当額に相当する理論上の下落。<b>業績とは無関係の下げ</b>である。</dd>
+      <dt>持分証券の評価益</dt>
+      <dd>保有している他社株の値上がり分を、利益として計上したもの。<b>本業の利益ではない。</b>非GAAPでは除かれることが多い。</dd>
+      <dt>GAAP／非GAAP</dt>
+      <dd>米国の会計基準にそのまま従った数字／会社が「本業の実力」として調整した数字。<b>同じ決算で2つの利益が出てくる。</b>どちらを見ているかを毎回確かめる。</dd>
+      <dt>粗利率<span class="en">gross margin</span></dt>
+      <dd>売上総利益 ÷ 売上高。<b>分母は売上高。</b>率が下がっても絶対額が増えることはある。</dd>
+      <dt>PSR<span class="en">Price to Sales Ratio</span></dt>
+      <dd>時価総額（評価額）÷ 売上高。<b>利益が出ていない会社の値付けに使う。</b>第3回で使った道具。</dd>
+      <dt>ランレート<span class="en">run rate</span></dt>
+      <dd>直近の売上を1年に換算した数字。<b>「実績1年ぶん」ではないことに注意。</b>伸びている会社ほど実績より大きく出る。</dd>
+      <dt>S-1<span class="en">Form S-1</span></dt>
+      <dd>米国で上場するときにSECへ出す申請書類。<b>公開された瞬間に、その会社の数字が報道ベースから一次情報に変わる。</b>在り処は SEC EDGAR。</dd>
+      <dt>バリュートラップ<span class="en">value trap</span></dt>
+      <dd>指標上は割安に見えるのに、稼ぐ力が落ち続けているせいで<b>いつまでも割安のまま</b>の株。<b>「安い」と「買っていい」は別である。</b>第4回で、ある学生が自分のチャートから自力で当てた読み方。</dd>
+      <dt>公開価格／初値</dt>
+      <dd>上場前に決めた売り出し価格／上場初日に最初についた値段。<b>この2つは一致しない。</b>どちらで買ったかで損益が変わる。</dd>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <h2>数字の扱いについて</h2>
+  <ul>
+    <li><b>市場データはすべて8月末時点である。授業当日には動いている。</b>とくに株価・ドル円・時価総額・PERは、そのつもりで扱うこと。数字を引用するときは<b>必ず時点を添える</b>（§0の④がその実例）。</li>
+    <li>NVIDIAの決算数値は<b>同社の開示に基づく</b>が、市場予想（約922億㌦・調整後EPS 2.09㌦・FY2028増収率44〜45%）と株価・時価総額・PERは<b>報道ベース</b>である。一次情報は <b>SEC EDGAR の Form 10-Q</b>。持分証券78億㌦の銘柄内訳も報道ベース。</li>
+    <li>Anthropicの評価額・売上・ランレート・上場時期・調達額は<b>すべて報道ベースの未確認値</b>である。同社は未上場で、S-1は本稿執筆時点で機密提出のまま。<b>公開されるまで、これらは一次情報ではない。</b></li>
+    <li>SpaceX（SPCX）の株価は<b>報道ベース</b>。8/30時点の141㌦前後は概算である。</li>
+    <li>2026年度1Q決算の集計（3分の2が増益／約7割が上振れ／上方修正15社・下方修正1社）は<b>野村證券の解説記事ベース</b>であり、一次集計そのものではない。対象は2月・3月期決算205社、7/15までの発表分。</li>
+    <li>配当落ちの試算（日経平均303円・TOPIX 21.8ポイント）は<b>2025年9月末についての試算値</b>で、2026年の数字ではない。<b>2026年の落ち分は本稿執筆時点で未確定。</b></li>
+    <li>率を出した箇所は分母を、絶対額を出した箇所は時点を書いた。<b>書けていない箇所を見つけたら、それは指摘してよい。</b></li>
+  </ul>
+  <div class="src">
+    <b>主な出典</b>
+    <ul>
+      <li><span class="st p1">一次</span>NVIDIA 2027会計年度 第2四半期 決算発表（2026年8月26日）／SEC EDGAR（Form 10-Q・Form S-1）</li>
+      <li><span class="st p2">報道</span>日本経済新聞「NVIDIA、株価8.7%高も『割安すぎる』アナリスト評価」（2026年8月27日）／同「NVIDIA、5〜7月売上高2倍 市場予測超えも株価は2%安」（8月26日）／同「NVIDIA決算、『メモリー高騰による利益率悪化に不安』米市場関係者」</li>
+      <li><span class="st p2">報道</span>日本経済新聞「円、限られる上値余地　織り込み済みの日銀9月利上げ」（2026年8月27日）／同「日経平均株価が反発 終値273円高の6万6405円」（8月28日）</li>
+      <li><span class="st p2">報道</span>ロイター／ニューズウィーク日本版「ウォーシュ米FRB議長の『ジャクソンホール会議』講演要旨」（2026年8月28日）／日本経済新聞「FRB議長、インフレ高止まりなら『やるべき仕事ある』利上げに含み」</li>
+      <li><span class="st p2">報道</span>ITmedia NEWS「Anthropic、8月末にもIPO申請書類を公開か 調達額はSpaceXの過去最大に匹敵と米報道」（2026年8月21日）／GIGAZINE「Anthropicの年換算収益が10兆円超で2025年末実績の約7倍に」（8月18日）</li>
+      <li><span class="st p3">解説</span>野村ウェルスタイル「2026年度1Q決算の超速報 全体の3分の2が増益も、株価は悪材料へのネガティブ反応が目立つ」／同「9月末の配当落ちに伴う日経平均株価のインパクトは？」（いずれも野村證券ストラテジスト）</li>
+      <li><span class="st p2">報道</span>CNBC「SpaceX stock rebounds, closing above $135 IPO price for first time in weeks」（2026年8月10日）ほか株価情報サイト</li>
+      <li><span class="st p3">書籍</span>橘玲『プアジャパン』プレジデント社／シケモク投資家『サラリーマンが株で4億円。FIREして今17億円』KADOKAWA（第4回で使用。実質的PERの式）</li>
+    </ul>
+  </div>
+  <div class="next">
+    <b>次回（第6回）</b>　<b>9/15-16 FOMC・9/17-18 日銀の答え合わせ。</b>今日の冒頭に全員が書いたドル円の予想を、そのまま突き合わせる。<b>この夏4回目の「予想 → 実測 → 差分」になる。</b>あわせて、Anthropicの上場（10月目標）が実際に動き出していれば、S-1の数字で第3回の値付けをやり直す。第3回で残したTesla × SpaceX とフィジカルAIも、まだ回収していない。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
