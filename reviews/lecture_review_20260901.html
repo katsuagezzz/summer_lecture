@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>復習ページ＋クイズ 第5回｜2026年9月1日 ネットキャッシュ比率・AIサプライチェーン・買収の実務</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+  --choice-bg:#ffffff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+    --choice-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2); white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+header.masthead{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:30px; line-height:1.35; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:24px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+.qbox{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:14px 0; font-size:15px; line-height:1.8;}
+.qbox .h{font-size:11.5px; font-weight:800; letter-spacing:.1em; color:var(--ink3); margin-bottom:6px;}
+.qbox b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+.tblwrap{overflow-x:auto;}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.est{background:var(--corp-bg); color:var(--corp);}
+
+/* ---------- クイズ（後半） ---------- */
+.scorebar{
+  position:sticky; top:0; z-index:5; display:flex; align-items:center; justify-content:space-between;
+  gap:12px; background:var(--panel); border:1px solid var(--line); border-radius:12px;
+  padding:12px 18px; margin-bottom:18px; font-size:14px; font-weight:700; color:var(--ink2);
+  box-shadow:0 2px 10px rgba(0,0,0,.04);
+}
+.scorebar .sc{color:var(--word); font-size:16px;}
+.progress{flex:1; height:8px; background:var(--note-bg); border-radius:99px; overflow:hidden; margin:0 4px;}
+.progress-fill{height:100%; width:0%; background:var(--word); transition:width .25s ease;}
+
+.qcard{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 24px 24px; margin-bottom:16px;}
+.qhead{display:flex; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;}
+.qnum{display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:var(--word-bg); color:var(--word); font-weight:800; font-size:14.5px; flex:0 0 auto;}
+.qtag{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3);}
+.qtext{font-size:17px; font-weight:700; line-height:1.7; margin:0 0 16px; color:var(--ink);}
+
+.choices{display:flex; flex-direction:column; gap:9px;}
+.choice{
+  display:flex; gap:11px; align-items:flex-start; text-align:left;
+  border:1.5px solid var(--line); border-radius:10px; background:var(--choice-bg);
+  padding:12px 15px; font-size:15px; line-height:1.6; color:var(--ink);
+  cursor:pointer; font-family:inherit; width:100%;
+  transition:border-color .12s ease, background .12s ease;
+}
+.choice:hover:not(:disabled){border-color:var(--word);}
+.choice:disabled{cursor:default;}
+.choice .lab{flex:0 0 auto; width:24px; height:24px; border-radius:50%; border:1.5px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:12.5px; font-weight:800; color:var(--ink3);}
+.choice.correct{border-color:var(--up); background:var(--bridge-bg);}
+.choice.correct .lab{background:var(--up); border-color:var(--up); color:#fff;}
+.choice.wrong{border-color:var(--down); background:var(--corp-bg);}
+.choice.wrong .lab{background:var(--down); border-color:var(--down); color:#fff;}
+.choice.dim{opacity:.55;}
+
+.explain{display:none; margin-top:14px; padding:14px 16px; background:var(--note-bg); border-left:4px solid var(--word); border-radius:0 9px 9px 0; font-size:14.5px; line-height:1.8; color:var(--ink2);}
+.explain.show{display:block;}
+.explain b{color:var(--ink); font-weight:800;}
+.explain .src{display:block; margin-top:8px; font-size:12.5px; color:var(--ink3);}
+
+.result-badge{display:none; font-size:13px; font-weight:800; padding:3px 10px; border-radius:999px; margin-left:auto;}
+.result-badge.ok{display:inline-block; background:var(--bridge-bg); color:var(--up);}
+.result-badge.ng{display:inline-block; background:var(--corp-bg); color:var(--down);}
+
+.finalcard{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:28px; margin:8px 0 22px; text-align:center; display:none;}
+.finalcard.show{display:block;}
+.finalcard .big{font-size:40px; font-weight:800; color:var(--word); margin:6px 0 4px;}
+.finalcard p{margin:6px 0 0; color:var(--ink2); font-size:15px;}
+.resetbtn{margin-top:16px; border:1.5px solid var(--line); background:var(--panel); color:var(--ink); font-weight:700; font-size:14px; padding:9px 20px; border-radius:999px; cursor:pointer;}
+.resetbtn:hover{border-color:var(--word); color:var(--word);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav, .scorebar, .resetbtn{display:none;}
+  header.masthead, section.topic, .qcard, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  .explain{display:block !important;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:23px;} h2.thead{font-size:20px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer, .qcard{padding:18px 16px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="../lectures/lecture_20260825.html">第4回 8/25 講義資料</a>
+  <a href="../lectures/lecture_20260901.html">第5回 9/1 講義資料</a>
+  <span class="cur">第5回 9/1 復習＋クイズ</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE REVIEW + QUIZ ／ 復習ページ＋クイズ　夏期集中講座 第5回</div>
+  <h1 class="title">時価総額の中身を数える<br>― ネットキャッシュ比率、AIサプライチェーン、そして「買収」の実務</h1>
+  <div class="meta">
+    <span><b>講義日</b>　2026年9月1日（火）16:20〜</span>
+    <span><b>出題範囲</b>　当日の議事録・逐語記録</span>
+    <span><b>形式</b>　クイズはその場で答え合わせ（採点は保存されません）</span>
+  </div>
+  <div class="lede">
+    配布資料 <a href="../lectures/lecture_20260901.html">第5回資料</a> は「NVIDIA決算／Anthropicの上場／9月の中間決算」の3本立てだったが、
+    <strong>実際の教室でいちばん長く時間を使ったのは、チームごとの持ち寄り課題「ネットキャッシュ比率」の発表だった。</strong>
+    このページは<strong>配布資料の代わりではなく、当日実際に交わされたやり取りをもとにした復習</strong>である。
+    前半が要点まとめ、後半が4択クイズ（全10問）。配布資料自体は今後も読み直す価値があるので、あわせて参照してほしい。
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>このページの構成</h2>
+  <ol>
+    <li><a href="#s1">NVIDIA決算</a> <span class="s">― 「予想を超えたのに下がった」を自分の言葉で言えるか</span></li>
+    <li><a href="#s2">AIサプライチェーンの4つのレイヤー</a> <span class="s">― どこに金が動き、どの順で株が上がるか</span></li>
+    <li><a href="#s3">ネットキャッシュ比率</a> <span class="s">― 時価総額の中身を数える、前回の続き</span></li>
+    <li><a href="#s4">「買収する」の実務</a> <span class="s">― 株を買い占めた先に何をするのか</span></li>
+    <li><a href="#s5">出前館 ― 原価率99.5%でも株価が上がった理由</a></li>
+    <li><a href="#s6">空売りの仕組み</a></li>
+    <li><a href="#g1">この回の用語</a></li>
+    <li><a href="#quiz">復習クイズ（4択・全10問）</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 1 ============ -->
+<section class="topic" id="s1">
+  <span class="badge corp">要点①｜決算</span>
+  <h2 class="thead">NVIDIA決算 ― 「予想を超えたのに下がった」を自分の言葉で言えるか</h2>
+  <p class="sub">数字そのものは配布資料に載っている。教室では、その数字を<b>どう受け止めるか</b>が話題になった。</p>
+
+  <div class="tblwrap">
+    <table class="calc">
+      <thead><tr><th>指標</th><th>市場予想</th><th>実績（8/26発表）</th></tr></thead>
+      <tbody>
+        <tr><td>売上高</td><td>約922億㌦</td><td>962億㌦（前年同期比 +106%）</td></tr>
+        <tr><td>データセンター売上</td><td>─</td><td>890億㌦（+117%）</td></tr>
+        <tr><td>調整後EPS</td><td>2.09㌦</td><td>2.22㌦</td></tr>
+        <tr><td>粗利率</td><td>─</td><td>75.0%</td></tr>
+        <tr><td>株価（8/27終値）</td><td>─</td><td>227.98㌦（前日比 <b class="pos" style="color:var(--up)">+8.73%</b>）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12.5px;color:var(--ink3)">出典：決算発表資料ベース（一次情報）。詳細は<a href="../lectures/lecture_20260901.html#s1">配布資料 §1</a>を参照。</p>
+
+  <p>教室では、業績の詳細よりも先に<b>「なぜ株価が上がると思うのか」</b>を聞かれた。出てきた理由は「予想を上回ったから」「買っている人たちがまだ先のビジョンを信じているから」。<b>ここまでは配布資料の§0（予想との差の式）と同じ道具で説明できる。</b></p>
+
+  <div class="qbox">
+    <div class="h">教室で出た問い</div>
+    「NVIDIAの本当のお客さんは誰か」。答えは<b>半導体を使いたい側（AI開発企業、ハイパースケーラー）</b>で一致したが、<b>スマートフォンのような手元のデバイスで動くAI（エッジコンピューティング）にはNVIDIAが絡んでいないかもしれない</b>という指摘も出た。<b>「AI＝NVIDIA」で思考停止しない</b>ことが、次の§2につながる。
+  </div>
+
+  <div class="rel"><b>あわせて確認</b>　「良い決算なのに株価が動かない・下がる」という現象は、8/25の教室でも<b>保有株の週間下落を「決算前の利益確定」と自分の言葉で説明できた学生がいた</b>。<b>織り込み済み</b>という考え方は、今日が初出ではない。</div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="topic" id="s2">
+  <span class="badge macro">要点②｜構造</span>
+  <h2 class="thead">AIサプライチェーンの4つのレイヤー ― どこに金が動き、どの順で株が上がるか</h2>
+  <p class="sub">1社だけを見ていると「なぜ上がるのか」が分からない。<b>業界全体を層（レイヤー）に分けて見る</b>と、投資の順番が見えてくる。</p>
+
+  <div class="chain">
+    <li><b>半導体・データセンター</b> ── NVIDIAなど。まず巨額の設備投資が集中する層</li>
+    <li><b>ハイパースケーラー</b> ── AWS・Microsoft・Google など、データセンターを借りて使う側</li>
+    <li><b>AI開発企業</b> ── ハイパースケーラーの計算資源を使ってAIモデルを作る側（OpenAI 等）</li>
+    <li><b>アプリケーション層</b> ── 実際にユーザーが触るサービス（例に挙がったのは Cursor、複数のAIモデルを束ねて出す「アグリゲーター」型のサービスなど）</li>
+  </div>
+
+  <p><b>教室で立てた仮説</b>：投資（と株価の反応）は、まず①②の「巨額投資をしている側」で先に動きやすい。稼働が進んで実際に収益を生み出す段階になると、今度は③④や、冷却・電力といった周辺需要に順番が移っていく、という考え方である。<span class="tag est">教室での仮説・要検証</span></p>
+
+  <div class="struct">
+    <ul>
+      <li>ある半導体大手が、AI開発のオープンソース基盤を提供する企業を買収したという話題も出た。狙いとして挙がったのは<b>「ハードだけでなく、開発者が最初に触る『入口』も押さえることで、AIコミュニティ全体への影響力を確保する」</b>という見方。<span class="tag est">報道ベース・社名や金額は各自一次情報で確認</span></li>
+      <li>決済（Stripeのような会社）と、複数のAIを束ねて安く速く処理を振り分ける「アグリゲーター」が組み合わさると、<b>AIどうしが自動で決済し合う世界</b>が来るのではないか、という発想も学生から出た。裏付けのある予測ではなく、<b>思考実験として面白い</b>という位置づけ。</li>
+    </ul>
+  </div>
+
+  <div class="rel"><b>この型を覚える</b>　1つのニュースを見たら、<b>「このレイヤーのどこの話か」「その前後のレイヤーに何が波及するか」</b>を考える。就職先や投資先を選ぶときにも使える視点として紹介された。</div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="topic" id="s3">
+  <span class="badge bridge">要点③｜バリュー投資の続き</span>
+  <h2 class="thead">ネットキャッシュ比率 ― 時価総額の中身を数える、前回の続き</h2>
+  <p class="sub">第4回で見た「内在価値 ÷ 時価総額」（シケモク投資家の式）の、もっと簡略化したバージョン。各チームが自分たちの持ち株で実際に計算し、発表した。</p>
+
+  <div class="formula">
+    <code>ネットキャッシュ ＝ 流動資産 ＋ 投資有価証券×70% − 負債総額</code><br>
+    <code>ネットキャッシュ比率 ＝ ネットキャッシュ ÷ 時価総額</code>
+    <span class="n">分子（ネットキャッシュ）は「会社が実質的に持っている現金性の資産」。分母（時価総額）は「他人がその会社につけている値段」。<b>この2つの乖離に着目するのがねらい</b>で、清原達郎氏の投資手法として紹介された。</span>
+  </div>
+
+  <h3>設例（数字は説明のための仮の数値）</h3>
+  <div class="tblwrap">
+    <table class="calc">
+      <thead><tr><th>項目</th><th>A社（設例）</th></tr></thead>
+      <tbody>
+        <tr><td>流動資産</td><td>800億円</td></tr>
+        <tr><td>投資有価証券×70%</td><td>140億円</td></tr>
+        <tr><td>負債総額</td><td>500億円</td></tr>
+        <tr><td>ネットキャッシュ</td><td class="pos" style="color:var(--up)">440億円</td></tr>
+        <tr><td>時価総額</td><td>400億円</td></tr>
+        <tr><td><b>ネットキャッシュ比率</b></td><td><b class="pos" style="color:var(--up)">約1.1倍</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>この設例では、<b>時価総額（400億円）よりも会社が実質的に持っている現金性資産（440億円）の方が多い</b>。理論上は「会社を丸ごと買って現金化したほうが得」という状態で、<b>バリュー投資の考え方では「割安」の候補になる</b>。</p>
+
+  <h3>教室での問答 ― 「高い方がいいのか、低い方がいいのか」</h3>
+  <ol class="chain">
+    <li>まず素朴な問い：「ネットキャッシュ比率は高い方がいいのか、低い方がいいのか」</li>
+    <li>最初は「時価総額が高いことを意味するのでは」という逆方向の理解も出た</li>
+    <li>整理し直すと：比率が高い＝<b>時価総額に対して現金性資産が多い＝市場の評価が実態より低いかもしれない</b>という意味</li>
+    <li>ただし比率だけで「買い」とは言えない。<b>現金を貯め込んでいるだけで、それを株主に還元する動きがなければ、市場の評価はいつまでも近づかない</b>（第4回のTBS HDの議論と同じ構造）</li>
+  </ol>
+
+  <div class="qbox">
+    <div class="h">見落としやすい注意点</div>
+    大きな子会社や関連会社の株式を保有している持株会社（コングロマリット）の場合、<b>その保有株式の価値がネットキャッシュ比率にうまく反映されないことがある</b>。そうした会社では、比率だけでなく<b>別の指標（有利子負債と保有株式価値を並べて見るLTVなど）も併用する</b>必要がある、という指摘が出た。
+  </div>
+
+  <div class="rel"><b>第4回との接続</b>　「内在価値÷時価総額」（<a href="../lectures/lecture_20260825.html#s2">第4回 §2</a>）も、今回の「ネットキャッシュ比率」も、<b>本質は同じ問い ── 「他人がつけた値段」と「会社の中身」のどちらを信じるか</b>である。</div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section class="topic" id="s4">
+  <span class="badge word">要点④｜買収の実務</span>
+  <h2 class="thead">「買収する」の実務 ― 株を買い占めた先に何をするのか</h2>
+  <p class="sub">「会社の株を100%買い占めたら何が手に入るか」を、ふわっとした言葉で終わらせずに1段階具体化する。</p>
+
+  <ol class="chain">
+    <li>株を買い占める＝その会社を<b>保有</b>できる。ビジネス上の言葉では<b>買収</b></li>
+    <li>買収した後、何をするのか？　「経営する」で止まらず、もう一段具体化する</li>
+    <li>具体的には、<b>買った会社に取締役を送り込む</b></li>
+    <li>取締役会は<b>多数決</b>で動く。過半数を握れば、<b>現金を配当として出す、資産を売却する、事業を移動させる、といった意思決定を主導できる</b></li>
+  </ol>
+
+  <div class="struct">
+    <ul>
+      <li>ある会社の株式を40%以上保有すると、連結子会社として扱えるようになる（＝その会社の意思決定に強く関与できるようになる）という話も出た。<span class="tag est">一般論・詳細は会社法・会計基準の一次情報で確認</span></li>
+      <li><b>個人の一般投資家</b>は、株価上昇や配当でしか利益を得られない。経営の意思決定そのものには（一人一票ではなく持株数に応じた多数決である以上）ほぼ参加できない。<b>「株を買う」と「会社を買う」の間には、この意思決定権の有無という大きな段差がある</b>。</li>
+    </ul>
+  </div>
+
+  <div class="rel"><b>§3との接続</b>　ネットキャッシュ比率が高い会社が「割安」なのは、<b>理論上は誰かがこの段差を越えて経営権を握り、現金を株主に還元させられるから</b>である。比率の高さそのものではなく、<b>その先に「動かす人」がいるかどうか</b>が本質だ、という点を押さえておきたい。</div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section class="topic" id="s5">
+  <span class="badge corp">要点⑤｜企業分析</span>
+  <h2 class="thead">出前館 ― 原価率99.5%でも株価が上がった理由</h2>
+  <p class="sub">「決算が悪い＝株価が下がる」と単純にひもづけない練習。</p>
+
+  <div class="points">
+    <div class="point">
+      <div class="h">原価率99.5%の意味</div>
+      <p>100円で仕入れても、手元に残るのは1円未満。<b>販管費（広告費など）を削っても、原価そのものが利益を食っている</b>状態で、事業として厳しい水準にあると教室では評価された。<span class="tag est">教室で示された数値・出前館の決算資料で要確認</span></p>
+    </div>
+    <div class="point b">
+      <div class="h">それでも株価は上昇</div>
+      <p>値下げ攻勢を仕掛けていた競合サービスの一つが縮小・撤退したと報じられ、<b>競争環境（モート）が改善したとの見方</b>から株価が上昇した、という話題が出た。<span class="tag est">報道ベース・一次情報で要確認</span></p>
+    </div>
+    <div class="point c">
+      <div class="h">論点</div>
+      <p><b>「業績」と「株価が上がる理由」は必ずしも同じ軸で動かない。</b>今回は競争環境という別の軸が効いた例として扱われた。</p>
+    </div>
+  </div>
+
+  <div class="rel"><b>用語</b>　競合が簡単に真似できない・入り込めない参入障壁のことを<b>モート（堀）</b>と呼ぶ。今回は「競合の撤退によってモートが相対的に強まった」という珍しい形の例だった。</div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section class="topic" id="s6">
+  <span class="badge word">要点⑥｜用語の確認</span>
+  <h2 class="thead">空売りの仕組み</h2>
+  <p class="sub">「株価が下がる」ことでも利益を出せる仕組み。教室での説明を整理する。</p>
+
+  <ol class="chain">
+    <li>今の株価100万円分の株を、<b>持っていなくても</b>「1か月後に100万円で売る」という約束（権利）を結ぶ</li>
+    <li>1か月後、実際の株価が80万円に下がっていたとする</li>
+    <li>そのとき80万円で株を買い、約束どおり100万円で売る</li>
+    <li>差額の<b>20万円が利益</b>になる</li>
+  </ol>
+  <p style="font-size:14.5px;color:var(--ink2)">「上がると思ったら買う」の逆で、<b>「下がると思ったら先に売る約束をしておく」</b>のが空売り（先物の売り）の基本形。教室では「ギャンブラー気質でないと危険」という注意も添えられた。</p>
+</section>
+
+<!-- ============ 用語集 ============ -->
+<section class="topic gloss" id="g1">
+  <span class="badge macro">この回の用語</span>
+  <h2 class="thead">用語集</h2>
+  <dl class="compact">
+    <div>
+      <dt>ネットキャッシュ比率</dt>
+      <dd>（流動資産＋投資有価証券×70%−負債総額）÷時価総額。会社の実質的な現金性資産と、市場がつけた値段の乖離を見る指標。</dd>
+    </div>
+    <div>
+      <dt>一次情報</dt>
+      <dd>メディアの解説を介さない、自分自身で確認したオリジナルの情報。決算短信・有価証券報告書・官庁発表など。</dd>
+    </div>
+    <div>
+      <dt>取締役会</dt>
+      <dd>会社の経営判断を行う機関。多数決で意思決定するため、株式の過半数を握ることが経営権の掌握につながる。</dd>
+    </div>
+    <div>
+      <dt>モート（堀）</dt>
+      <dd>競合が簡単には越えられない参入障壁・競争優位性のこと。</dd>
+    </div>
+    <div>
+      <dt>原価率</dt>
+      <dd>売上高に対する売上原価の割合。100%に近いほど、売っても利益がほとんど残らない状態を意味する。</dd>
+    </div>
+    <div>
+      <dt>空売り（先物の売り）</dt>
+      <dd>将来の価格で売る約束をしておき、実際に値下がりしたところで買い戻して差額を得る手法。</dd>
+    </div>
+  </dl>
+</section>
+
+<!-- ============ クイズ ============ -->
+<section id="quiz">
+<header class="masthead" style="border-top-color:var(--word)">
+  <div class="vol">REVIEW QUIZ ／ 復習クイズ</div>
+  <h1 class="title" style="font-size:24px">上のまとめを踏まえて、10問4択で確認する</h1>
+  <div class="lede">選択肢をクリックすると、その場で正誤と解説が出る。<b>採点はブラウザ内だけで完結し、どこにも送信・保存されない。</b></div>
+</header>
+
+<div class="scorebar">
+  <span>進捗 <span id="doneCount">0</span>/10</span>
+  <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+  <span>正解 <span class="sc" id="scoreCount">0</span>/10</span>
+</div>
+
+<div class="qcard" data-qid="1">
+  <div class="qhead"><span class="qnum">1</span><span class="qtag">NVIDIA決算</span><span class="result-badge" id="badge1"></span></div>
+  <p class="qtext">NVIDIAの決算（2027会計年度Q2、8/26発表）について、正しいのはどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>売上・EPS・データセンター売上のすべてが市場予想を下回った</span></button>
+    <button class="choice" data-idx="1">B. <span>売上962億㌦（市場予想約922億㌦）など、主要指標のほとんどが市場予想を上回った</span></button>
+    <button class="choice" data-idx="2">C. <span>粗利率は前年から半減した</span></button>
+    <button class="choice" data-idx="3">D. <span>この決算で赤字に転落した</span></button>
+  </div>
+  <div class="explain" id="explain1"><b>正解：B。</b>売上962億㌦（予想約922億㌦）、データセンター890億㌦、調整後EPS2.22㌦（予想2.09㌦）など、主要指標が市場予想を上回った。<span class="src">出典：決算発表資料（一次情報）</span></div>
+</div>
+
+<div class="qcard" data-qid="2">
+  <div class="qhead"><span class="qnum">2</span><span class="qtag">予想との差</span><span class="result-badge" id="badge2"></span></div>
+  <p class="qtext">「良い決算なのに、発表直後に株価が下がることがある」理由として、この回の考え方に最も近いのはどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>値段が動く幅は「事実」そのものではなく「事実−すでに織り込まれていた予想」で決まるから</span></button>
+    <button class="choice" data-idx="1">B. <span>決算は株価に一切影響しないから</span></button>
+    <button class="choice" data-idx="2">C. <span>良い決算のときは必ず翌日に株価が下がる規則があるから</span></button>
+    <button class="choice" data-idx="3">D. <span>発表時間が市場が閉まった後だから、株価に反映されないから</span></button>
+  </div>
+  <div class="explain" id="explain2"><b>正解：A。</b>市場がすでに好業績を織り込んでいた場合、実際に「良い決算」が出ても、期待をわずかに超えなければ材料出尽くしとして売られることがある。同じ事実でも、切り取る時点によって「下がった」とも「上がった」とも言える。</div>
+</div>
+
+<div class="qcard" data-qid="3">
+  <div class="qhead"><span class="qnum">3</span><span class="qtag">AIサプライチェーン</span><span class="result-badge" id="badge3"></span></div>
+  <p class="qtext">この回で整理されたAIサプライチェーンのレイヤーの並びとして正しいのはどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>アプリケーション層 → 半導体・データセンター → ハイパースケーラー → AI開発企業</span></button>
+    <button class="choice" data-idx="1">B. <span>半導体・データセンター → ハイパースケーラー（AWS/Microsoft/Google等）→ AI開発企業 → アプリケーション層</span></button>
+    <button class="choice" data-idx="2">C. <span>個人投資家 → 機関投資家 → 中央銀行 → 政府</span></button>
+    <button class="choice" data-idx="3">D. <span>為替 → 金利 → 株価 → GDP</span></button>
+  </div>
+  <div class="explain" id="explain3"><b>正解：B。</b>まず半導体・データセンターに巨額投資が集まり、それをハイパースケーラーが利用し、その上でAI開発企業がモデルを作り、最終的にユーザーが触れるアプリケーション層に届く、という順番で整理された。</div>
+</div>
+
+<div class="qcard" data-qid="4">
+  <div class="qhead"><span class="qnum">4</span><span class="qtag">ネットキャッシュ比率</span><span class="result-badge" id="badge4"></span></div>
+  <p class="qtext">ネットキャッシュ比率の計算式として正しいのはどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>時価総額 ÷（流動資産−負債総額）</span></button>
+    <button class="choice" data-idx="1">B. <span>（流動資産＋投資有価証券×70%−負債総額）÷ 時価総額</span></button>
+    <button class="choice" data-idx="2">C. <span>（流動資産−投資有価証券）÷ 負債総額</span></button>
+    <button class="choice" data-idx="3">D. <span>時価総額 ÷ 現金及び預金</span></button>
+  </div>
+  <div class="explain" id="explain4"><b>正解：B。</b>分子（ネットキャッシュ）が会社の実質的な現金性資産、分母が時価総額。この2つの乖離に着目する指標である。</div>
+</div>
+
+<div class="qcard" data-qid="5">
+  <div class="qhead"><span class="qnum">5</span><span class="qtag">ネットキャッシュ比率</span><span class="result-badge" id="badge5"></span></div>
+  <p class="qtext">ネットキャッシュ比率が高い（例：1倍を超える）とき、理論上どういうことが言えるか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>会社は多額の借金を抱えている</span></button>
+    <button class="choice" data-idx="1">B. <span>時価総額よりも、会社が実質的に持つ現金性資産の方が多い＝市場の評価が実態より低いかもしれない</span></button>
+    <button class="choice" data-idx="2">C. <span>必ず配当が支払われる</span></button>
+    <button class="choice" data-idx="3">D. <span>その会社は上場廃止が近い</span></button>
+  </div>
+  <div class="explain" id="explain5"><b>正解：B。</b>ただし比率が高いだけでは「買い」とは言い切れない。現金を株主還元に回す動きがなければ、市場評価はいつまでも近づかない点に注意（§3参照）。</div>
+</div>
+
+<div class="qcard" data-qid="6">
+  <div class="qhead"><span class="qnum">6</span><span class="qtag">買収の実務</span><span class="result-badge" id="badge6"></span></div>
+  <p class="qtext">会社の株を買い占めた投資家が、その会社の現金を実際に動かすために取る具体的な行動として、この回で説明されたのはどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>株主総会に出席するだけでよい</span></button>
+    <button class="choice" data-idx="1">B. <span>取締役を送り込み、取締役会の多数決で配当や資産売却を決める</span></button>
+    <button class="choice" data-idx="2">C. <span>会社名を変更する</span></button>
+    <button class="choice" data-idx="3">D. <span>発行済株式数を増やす</span></button>
+  </div>
+  <div class="explain" id="explain6"><b>正解：B。</b>「買収する」を具体化すると、取締役を送り込み、多数決で経営判断を主導するということになる。個人投資家は基本的にこの意思決定権を持たない。</div>
+</div>
+
+<div class="qcard" data-qid="7">
+  <div class="qhead"><span class="qnum">7</span><span class="qtag">一次情報</span><span class="result-badge" id="badge7"></span></div>
+  <p class="qtext">この回で確認された「一次情報」の説明として最も適切なのはどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>人から聞いた話をまとめたもの</span></button>
+    <button class="choice" data-idx="1">B. <span>メディアの解説記事</span></button>
+    <button class="choice" data-idx="2">C. <span>自分自身で確認した、メディアを介さないオリジナルの情報</span></button>
+    <button class="choice" data-idx="3">D. <span>SNSで拡散されている噂</span></button>
+  </div>
+  <div class="explain" id="explain7"><b>正解：C。</b>決算短信・官庁発表など、メディアを介さないオリジナルの情報源を指す。日本語・海外の両方を見る習慣も合わせて確認された。</div>
+</div>
+
+<div class="qcard" data-qid="8">
+  <div class="qhead"><span class="qnum">8</span><span class="qtag">空売り</span><span class="result-badge" id="badge8"></span></div>
+  <p class="qtext">空売り（先物の売り）の仕組みとして正しいのはどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>株価が上がったときだけ利益が出る</span></button>
+    <button class="choice" data-idx="1">B. <span>将来の価格で売る約束をし、実際に値下がりしたところで買い戻して差額を得る</span></button>
+    <button class="choice" data-idx="2">C. <span>一度買った株は一生売れない契約になる</span></button>
+    <button class="choice" data-idx="3">D. <span>現物の株を持っていないと絶対に使えない</span></button>
+  </div>
+  <div class="explain" id="explain8"><b>正解：B。</b>100万円で売る約束をしておき、実際に80万円に下がったところで買い戻せば20万円の利益になる。株価が下がる局面でも利益を狙える手法。</div>
+</div>
+
+<div class="qcard" data-qid="9">
+  <div class="qhead"><span class="qnum">9</span><span class="qtag">出前館</span><span class="result-badge" id="badge9"></span></div>
+  <p class="qtext">出前館の「原価率99.5%」が意味することとして、この回で示された解釈はどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>非常に効率的な経営ができている</span></button>
+    <button class="choice" data-idx="1">B. <span>100円で仕入れても手元にはほぼ何も残らず、事業として厳しい水準にある</span></button>
+    <button class="choice" data-idx="2">C. <span>原価が全くかかっていない</span></button>
+    <button class="choice" data-idx="3">D. <span>広告費が異常に高いという意味</span></button>
+  </div>
+  <div class="explain" id="explain9"><b>正解：B。</b>販管費を削っても、原価そのものが利益を食っている状態。数値は教室で示されたもので、正確な値は決算資料で確認されたい。</div>
+</div>
+
+<div class="qcard" data-qid="10">
+  <div class="qhead"><span class="qnum">10</span><span class="qtag">モート</span><span class="result-badge" id="badge10"></span></div>
+  <p class="qtext">出前館の株価が、原価率の悪化にもかかわらず上昇した理由として挙がったのはどれか。</p>
+  <div class="choices">
+    <button class="choice" data-idx="0">A. <span>大幅な増配を発表したから</span></button>
+    <button class="choice" data-idx="1">B. <span>値下げ攻勢を仕掛けていた競合サービスが縮小・撤退し、競争環境（モート）が改善したとみられたため</span></button>
+    <button class="choice" data-idx="2">C. <span>海外進出を発表したから</span></button>
+    <button class="choice" data-idx="3">D. <span>経営者が交代したから</span></button>
+  </div>
+  <div class="explain" id="explain10"><b>正解：B。</b>「業績」と「株価が上がる理由」が必ずしも同じ軸で動かない例として扱われた。競争環境という別の軸が効いたケース。</div>
+</div>
+
+<div class="finalcard" id="finalCard">
+  <div style="font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--ink3)">RESULT</div>
+  <div class="big"><span id="finalScore">0</span> / 10</div>
+  <p id="finalMsg"></p>
+  <button class="resetbtn" id="resetBtn">もう一度解く</button>
+</div>
+</section>
+
+<footer>
+  <h2>このページについて</h2>
+  <ul>
+    <li>2026年9月1日（火）<b>夏期集中講座 第5回</b>の復習ページ＋クイズです。前半のまとめ・後半のクイズとも、配布資料ではなく<b>当日の議事録・逐語記録</b>の中で実際に交わされた内容にもとづいています。</li>
+    <li>配布資料（NVIDIA・Anthropic・9月の中間決算）と、実際の教室の展開（ネットキャッシュ比率のチーム発表が中心）は<b>一致していません。</b>配布資料は別途読み直す価値があります。</li>
+    <li><span class="tag est">教室での仮説・報道ベース・要確認</span>のタグが付いた記述は、一次情報での裏取りが済んでいないものです。</li>
+    <li>ゼミ参加者個人のポートフォリオ・保有銘柄はこのページに収録していません。</li>
+    <li>クイズの採点はブラウザ上でその場限りです。外部への送信・保存は行っていません。</li>
+    <li>外部依存のない単一HTMLファイルです。印刷にも対応しています。</li>
+  </ul>
+  <div class="next">
+    <b>講義資料</b>　<a href="../lectures/lecture_20260901.html">第5回 講義資料（2026年9月1日）</a>　── NVIDIA決算・Anthropicの上場・9月の中間決算<br>
+    <b>前回</b>　<a href="../lectures/lecture_20260825.html">第4回 講義資料（2026年8月25日）</a>　── バリュー投資（シケモク投資家とリンチ・チャート）と金利・為替
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var TOTAL = 10;
+  var answered = {};
+  var correctIdx = {1:1, 2:0, 3:1, 4:1, 5:1, 6:1, 7:2, 8:1, 9:1, 10:1};
+
+  var doneCountEl = document.getElementById('doneCount');
+  var scoreCountEl = document.getElementById('scoreCount');
+  var progressFill = document.getElementById('progressFill');
+  var finalCard = document.getElementById('finalCard');
+  var finalScore = document.getElementById('finalScore');
+  var finalMsg = document.getElementById('finalMsg');
+
+  function updateBar(){
+    var doneN = Object.keys(answered).length;
+    var scoreN = 0;
+    for (var k in answered){ if (answered[k]) scoreN++; }
+    doneCountEl.textContent = doneN;
+    scoreCountEl.textContent = scoreN;
+    progressFill.style.width = (doneN/TOTAL*100) + '%';
+    if (doneN === TOTAL){
+      finalCard.classList.add('show');
+      finalScore.textContent = scoreN;
+      var msg;
+      if (scoreN === 10) msg = '満点。当日の議論をよく聞けている。';
+      else if (scoreN >= 6) msg = 'まずまず。解説を読み返して、聞き逃したやり取りを確認しよう。';
+      else msg = '上のまとめをもう一度読み返してから、もう一度挑戦してみよう。';
+      finalMsg.textContent = msg;
+      finalCard.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+  }
+
+  document.querySelectorAll('.qcard').forEach(function(card){
+    var qid = card.getAttribute('data-qid');
+    var choices = card.querySelectorAll('.choice');
+    var explain = document.getElementById('explain'+qid);
+    var badge = document.getElementById('badge'+qid);
+
+    choices.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if (answered.hasOwnProperty(qid)) return;
+        var idx = parseInt(btn.getAttribute('data-idx'), 10);
+        var isCorrect = (idx === correctIdx[qid]);
+        answered[qid] = isCorrect;
+
+        choices.forEach(function(b){
+          var bIdx = parseInt(b.getAttribute('data-idx'), 10);
+          b.disabled = true;
+          if (bIdx === correctIdx[qid]){
+            b.classList.add('correct');
+          } else if (b === btn){
+            b.classList.add('wrong');
+          } else {
+            b.classList.add('dim');
+          }
+        });
+
+        badge.textContent = isCorrect ? '正解' : '不正解';
+        badge.className = 'result-badge ' + (isCorrect ? 'ok' : 'ng');
+        explain.classList.add('show');
+
+        updateBar();
+      });
+    });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    location.reload();
+  });
+})();
+</script>
+
+</body>
+</html>
