@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個別講義資料｜2026年9月4日 例外のない定理と、成り立たない定理 ──『プアジャパン』読解</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 個別回で追加したパーツ ---------- */
+/* 過去の回で本人が言ったことの引き戻し */
+.recall{border:1px solid var(--line); border-left:4px solid var(--word); border-radius:0 10px 10px 0;
+        background:var(--word-bg); padding:14px 17px; margin:14px 0 6px;}
+.recall .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:var(--word); margin-bottom:6px;}
+.recall p{margin:0 0 6px; font-size:14.8px; line-height:1.75;}
+.recall p:last-child{margin-bottom:0;}
+.recall .me{font-weight:800;}
+
+/* 二者対比 */
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0 6px;}
+.vs>div{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.vs .hd{font-size:13px; font-weight:800; letter-spacing:.05em; margin-bottom:7px;}
+.vs .a .hd{color:var(--bridge);} .vs .b .hd{color:var(--corp);}
+.vs p{margin:0 0 7px; font-size:14.3px; line-height:1.7;}
+.vs p:last-child{margin-bottom:0;}
+@media(max-width:640px){ .vs{grid-template-columns:1fr;} }
+
+/* 用語ドリル */
+.drill{list-style:none; margin:10px 0 0; padding:0; counter-reset:dr;
+       display:grid; grid-template-columns:repeat(auto-fit,minmax(266px,1fr)); gap:9px;}
+.drill li{counter-increment:dr; background:var(--q-bg); border:1px solid var(--q-line);
+          border-radius:9px; padding:11px 14px; font-size:14.4px; line-height:1.65;}
+.drill li b{font-weight:800;}
+.drill li .s{display:block; font-size:12.8px; color:var(--ink2); margin-top:4px;}
+</style>
+<style>
+/* ---------- 第2回（8/28）で追加したパーツ ---------- */
+/* 段階損益のはしご */
+.steps{list-style:none; margin:16px 0 6px; padding:0; counter-reset:st;}
+.steps li{counter-increment:st; position:relative; padding:13px 16px 13px 52px; margin-bottom:10px;
+          background:var(--bg); border:1px solid var(--line); border-radius:10px; font-size:15px; line-height:1.7;}
+.steps li::before{content:"第" counter(st) "段"; position:absolute; left:10px; top:13px; width:34px;
+          font-size:10px; font-weight:800; color:var(--ink3); text-align:center; line-height:1.3; letter-spacing:0;}
+.steps li .nm{font-size:16.5px; font-weight:800; display:block; margin-bottom:3px;}
+.steps li .eq{display:block; font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+          font-size:13.5px; font-weight:700; color:var(--ink2); margin:5px 0 4px; line-height:1.9;}
+.steps li .as{display:block; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+.steps li.miss{border-style:dashed; border-color:var(--q-line); background:var(--q-bg);}
+/* 引かれるものの帯 */
+.minus{display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.05em;
+       background:var(--corp-bg); color:var(--corp); padding:1px 8px; border-radius:5px; margin:0 3px;}
+/* 二つの意味 */
+.dual{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0 6px;}
+.dual>div{border:1px solid var(--line); border-top:4px solid var(--word); border-radius:0 0 10px 10px;
+          padding:14px 16px; background:var(--bg);}
+.dual .hd{font-size:13px; font-weight:800; color:var(--word); margin-bottom:6px; letter-spacing:.04em;}
+.dual p{margin:0; font-size:14.3px; line-height:1.7;}
+@media(max-width:640px){ .dual{grid-template-columns:1fr;} .steps li{padding-left:16px; padding-top:30px;} .steps li::before{top:8px; left:14px; text-align:left;} }
+</style>
+<style>
+/* ---------- 第3回（9/4）で追加したパーツ ---------- */
+/* 読む順の地図 */
+.mapt{width:100%; border-collapse:collapse; font-size:14px; margin:12px 0 4px;}
+.mapt th,.mapt td{border-bottom:1px solid var(--line2); padding:7px 9px; text-align:left; vertical-align:top;}
+.mapt thead th{border-bottom:2px solid var(--line); font-size:12px; color:var(--ink3); letter-spacing:.05em; white-space:nowrap;}
+.mapt td.o{font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; white-space:nowrap; width:64px;}
+.mapt td.p{font-variant-numeric:tabular-nums; color:var(--ink2); white-space:nowrap; width:104px; font-size:13px;}
+.mapt tr.key td{background:var(--q-bg);}
+.mapt tr.key td.o{color:var(--corp);}
+
+/* 数字の拾い出し（空欄つき） */
+.pick{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0 4px;}
+.pick th,.pick td{border-bottom:1px solid var(--line2); padding:9px 10px; text-align:left; vertical-align:top;}
+.pick thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.pick td.w{width:96px; font-size:12.5px; color:var(--ink3); font-weight:700; white-space:nowrap;}
+
+/* 三択 */
+.pick3{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:11px; margin:14px 0 6px;}
+.pick3>div{border:1px solid var(--q-line); background:var(--q-bg); border-radius:10px; padding:14px 16px;}
+.pick3 .n{font-size:12px; font-weight:800; letter-spacing:.06em; color:#8a6d1f; margin-bottom:4px;}
+@media (prefers-color-scheme: dark){ .pick3 .n{color:#d9c07a;} }
+.pick3 .t{font-size:16px; font-weight:800; line-height:1.5;}
+.pick3 .s{display:block; font-size:13px; color:var(--ink2); line-height:1.65; margin-top:5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../toyonaga.html">← 講義資料の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">個別講義</span>
+  <span>6/9 補講　自由主義・AIサプライチェーン・上場</span>
+  <span>8/4　メルカリのビジネスモデル</span>
+  <span>8/7　フィンテック・与信・GMV</span>
+  <a href="lecture_toyonaga_20260821.html">8/21　為替・金利・ベッセント</a>
+  <a href="lecture_toyonaga_20260828.html">8/28　PL・段階損益・会計基準</a>
+  <span>タイミーの決算　テイクレートと分母</span>
+  <span class="cur">9/4 講義資料</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 個別講義資料 ── 事前課題つき</div>
+  <h1 class="title">この本には、例外のない定理が1つだけある ──<br>残る2つは、著者自身が「現実には成り立たない」と書いている</h1>
+  <div class="meta">
+    <span><b>講義</b>　2026年9月4日（金）15:00 開始・30分</span>
+    <span><b>教材</b>　橘玲『プアジャパン ── インフレ世界を生き抜く資本戦略』抜粋16ページ（別途配布のPDF）</span>
+    <span><b>形式</b>　<b>読んできたことを前提に進める。当日は解説をしない</b></span>
+  </div>
+  <div class="lede">
+    今日までにやってきたのは、<strong>ぜんぶ「値段」の話だった。</strong>メルカリの手数料、タイミーのテイクレート、NVIDIAの決算、ベッセント長官の発言。<strong>会社がいくら稼いだか</strong>と、<strong>円がいくらか</strong>。<br>
+    この本は、その両方を貫いている1つの問いを扱う ──<strong>値段は、どうやって決まるのか。</strong>金利は<strong>時間の値段</strong>であり、為替は<strong>通貨の値段</strong>である。<br>
+    そして著者は、この16ページのなかで<strong>3つの「定理」</strong>を出す。<strong>だが3つは同じ扱いを受けていない。</strong>1つには<strong>「絶対で、例外はありません」</strong>と書いてあり、残る2つには<strong>「現実にはほとんど成り立っていません」</strong>と書いてある。<br>
+    <strong>同じ「定理」という名前がついているのに、なぜ片方だけが当たるのか。</strong>── これが今日の30分である。
+  </div>
+</header>
+
+<div class="callout" style="margin:0 0 22px">
+  <span class="lbl">この30分の進め方 ── 前回までと、やり方が1つ変わる</span>
+  <b>今日は「事前に読んでくる」回である。</b>当日、こちらから内容を説明することはしない。<b>読んできた前提で、いきなり問いから始める。</b><br>
+  <b>やってくることは、3つだけ。</b><br>
+  <b>① PDFを読む。</b>16ページ。<b>ただし、並び順に1つ罠がある（§0を先に見ること）。</b><br>
+  <b>② §0 の数字の表を、読みながら埋める。</b>全部この本に書いてある。<b>探しに行く作業そのものが課題である。</b><br>
+  <b>③ 問1・問2・問3 に、それぞれ答えを書いてくる。</b>1問につき数行でよい。<b>ただし、埋めずに来ると当日やることが無くなる。</b><br>
+  <b>この資料に答えは書いていない。空欄と問いだけである。</b>いつもどおり。
+</div>
+
+<nav class="toc">
+  <h2>今日の30分</h2>
+  <ol>
+    <li><a href="#s0">読む前に ── ページの並びと、拾ってくる数字</a> <span class="s">3分／全部、事前にやってくる</span></li>
+    <li><a href="#s1"><b>問1　なぜ1つだけ例外がないのか</b></a> <span class="s">10分</span></li>
+    <li><a href="#s2"><b>問2　日銀は物価を上げたくて、金利を下げた</b></a> <span class="s"><b>12分／今日の中心</b></span></li>
+    <li><a href="#s3">問3　94円と160円。で、君はどうするのか</a> <span class="s">5分／締め</span></li>
+    <li><a href="#s4">言葉が出てくる場所（索引）</a> <span class="s">読みながら引く</span></li>
+  </ol>
+</nav>
+
+<!-- ============ §0 ============ -->
+<section class="topic" id="s0">
+  <span class="badge word">§0　読む前に。全部やってくる</span>
+  <h2 class="thead">ページの並びと、拾ってくる数字</h2>
+  <p class="sub">ここは考える課題ではない。<b>作業である。</b>ただし、これをやらずに来ると問1〜問3は1問も書けない。</p>
+
+  <div class="callout">
+    <span class="lbl">まず、これに気づいてほしい ── PDFは、読む順に並んでいない</span>
+    <b>配布したPDFは、2ページ目から最後まで、本の後ろから前に向かって並んでいる。</b><br>
+    <b>読む順は、1ページ目 → 16ページ目 → 15ページ目 → …… → 2ページ目 である。</b><br>
+    <b>確かめ方は2つある。どちらでもよいので、自分で確かめること。</b><br>
+    ① 各ページの<b>右下に数字（％）がある。</b>1ページ目は26%、2ページ目は47%、最後の16ページ目は28%。<b>％は本のどこまで読んだかを示している。</b><br>
+    ② もっと確実な方法 ── <b>1ページ目の右下は「債」で終わっている。16ページ目の左上は「務」で始まっている。</b>つなぐと<b>「債務」</b>になる。<b>文が途中で切れて、つながる。</b><br>
+    <b>これは今日の内容とは関係ない。</b>だが<b>「配られたものをそのまま信じない」</b>のは、8/21にやった「その投稿は一次情報か」と同じ作法である。<b>並び順すら、確かめれば分かる。</b>
+  </div>
+
+  <h3>読む順の地図</h3>
+  <p>色のついた行が、<b>問1〜問3で直接使うところ</b>である。ほかは通しで読めばよい。</p>
+  <div class="tblwrap">
+  <table class="mapt">
+    <thead><tr><th>読む順</th><th>PDFのページ</th><th>見出し</th><th>使う場所</th></tr></thead>
+    <tbody>
+      <tr><td class="o">1</td><td class="p">1ページ目（26%）</td><td>金利とはなにか／債権は権利、債務は義務</td><td>─</td></tr>
+      <tr><td class="o">2</td><td class="p">16ページ目（28%）</td><td>将来価値と現在価値／金利と現在価値の関係</td><td>─</td></tr>
+      <tr><td class="o">3</td><td class="p">15ページ目（30%）</td><td>図表8・図表9／債券価格が下落すれば金利は上がる</td><td>─</td></tr>
+      <tr class="key"><td class="o">4</td><td class="p">14ページ目（31%）</td><td>図表10・図表11／<b>定理1-1・定理1-2</b></td><td><b>問1</b></td></tr>
+      <tr class="key"><td class="o">5</td><td class="p">13ページ目（32%）</td><td><b>名目金利と実質金利</b>（世界A・世界B）</td><td><b>問2</b></td></tr>
+      <tr class="key"><td class="o">6</td><td class="p">12ページ目（33%）</td><td>日本国債と中央銀行／国はどこまで借金できるか</td><td><b>§0の表</b></td></tr>
+      <tr class="key"><td class="o">7</td><td class="p">11ページ目（35%）</td><td><b>買いオペと売りオペ</b></td><td><b>問2</b></td></tr>
+      <tr><td class="o">8</td><td class="p">10ページ目（36%）</td><td>〔コラム〕信用創造でマネーが増える仕組み／お金とは負債である</td><td>─</td></tr>
+      <tr class="key"><td class="o">9</td><td class="p">9ページ目（37%）</td><td><b>〔コラム〕アベノミクスはなぜ失敗したのか？</b></td><td><b>問2</b></td></tr>
+      <tr class="key"><td class="o">10</td><td class="p">8ページ目（39%）</td><td>（コラムのつづき）「強い日本」を目指した成果が円安</td><td><b>問2</b></td></tr>
+      <tr class="key"><td class="o">11</td><td class="p">7ページ目（39%）</td><td>為替はどう決まるか？／<b>定理2・定理3</b>／図表13</td><td><b>問1・問2</b></td></tr>
+      <tr class="key"><td class="o">12</td><td class="p">6ページ目（41%）</td><td><b>定理2-1・定理2-2</b>／図表14</td><td><b>問2</b></td></tr>
+      <tr class="key"><td class="o">13</td><td class="p">5ページ目（42%）</td><td><b>定理3-1・定理3-2</b></td><td><b>問2</b></td></tr>
+      <tr class="key"><td class="o">14</td><td class="p">4ページ目（42%）</td><td><b>為替市場ではなぜ超常現象が起きるのか？</b>／トレーディング・ゲーム</td><td><b>問1・問3</b></td></tr>
+      <tr><td class="o">15</td><td class="p">3ページ目（44%）</td><td>バカは自分自身だった／金利を予測するゲーム</td><td>─</td></tr>
+      <tr class="key"><td class="o">16</td><td class="p">2ページ目（47%）</td><td><b>購買力平価のまともな世界</b></td><td><b>問3</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>読みながら拾ってくる数字</h3>
+  <p><b>全部この本に書いてある。</b>調べ物ではない。<b>探す作業である。</b>── そして<b>この本の数字は、本に書いてある数字であって、いま現在の市場の数字ではない。</b>そこは当日にやる。</p>
+  <div class="tblwrap">
+  <table class="pick">
+    <thead><tr><th>どこに</th><th>拾ってくるもの</th></tr></thead>
+    <tbody>
+      <tr><td class="w">読む順 4</td><td>額面10万円・毎年1万円の利子がつく債券。金利10%なら価格は10万円。では<b>金利が20%に上がると</b> <span class="blank">　　　</span>円、<b>金利が1%に下がると</b> <span class="blank">　　　</span>円。<span class="tag chk">問1で使う</span></td></tr>
+      <tr><td class="w">読む順 5</td><td>インフレの国「世界A」── 金利 <span class="blank">　　</span>%、インフレ率 <span class="blank">　　</span>%。デフレの国「世界B」── 金利 <span class="blank">　　</span>%、インフレ率 <span class="blank">　　</span>%。<span class="tag chk">問2で使う</span></td></tr>
+      <tr><td class="w">読む順 6</td><td>日本の国債発行残高は約 <span class="blank">　　　</span>兆円。地方や社会保障基金まで足した一般政府部門の総債務残高は <span class="blank">　　　</span>兆円で、<b>対GDP比 <span class="blank">　　</span>%。</b>── ところが<b>資産を差し引いた実質の対GDP比</b>は、IMFの推計値で約 <span class="blank">　　</span>%。<b>同じ国の、同じ借金である。</b></td></tr>
+      <tr><td class="w">読む順 9</td><td>ベースマネーは2013年の約 <span class="blank">　　</span>兆円から2020年の約 <span class="blank">　　　</span>兆円へ。うち <span class="blank">　　　</span>兆円が「ブタ積み」で、<b>実際に経済を動かすお金は約 <span class="blank">　　</span>兆円しかない。</b><span class="tag chk">問2で使う</span></td></tr>
+      <tr><td class="w">読む順 9</td><td>市場に流通するお金（M3）は約 <span class="blank">　　　</span>兆円。ベースマネーを10倍以上にした7年間で、M3は2013年の約1,100兆円から2020年の1,400兆円へ ──<b>伸びは <span class="blank">　　</span>%程度。</b><span class="tag chk">問2で使う</span></td></tr>
+      <tr><td class="w">読む順 10</td><td>アベノミクスが始まった2012年12月は1ドル＝ <span class="blank">　　</span>円。本の執筆時点では1ドル＝ <span class="blank">　　　</span>円前後。<b>円の価値はおよそ <span class="blank">　　</span>になった。</b></td></tr>
+      <tr><td class="w">読む順 14</td><td>為替市場の金融取引は<b>1日あたり</b>約 <span class="blank">　　　</span>兆ドル。それに対して貿易などの実需は<b>1年で</b>数十兆ドルしかない。<b>実需は、すべての為替取引の <span class="blank">　　</span>%から多くても <span class="blank">　　</span>%。</b><span class="tag chk">問1・問3で使う</span></td></tr>
+      <tr><td class="w">読む順 16</td><td>購買力平価で計算した「正しい」ドル円は1ドル＝ <span class="blank">　　</span>円前後。本の執筆時点の現実の市場は1ドル＝ <span class="blank">　　　</span>円前後。<b>日本の通貨は <span class="blank">　　</span>%程度割安。</b><span class="tag chk">問3で使う</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">この表のなかに、1つだけ種類のちがう行がある</span>
+    <b>「読む順 6」の行を見ること。</b>同じ国の同じ借金が、<b>対GDP比240%とも、約136%とも書かれている。</b>片方は「先進国最悪」で、片方はそうでもない。<b>どちらも嘘ではない。</b><br>
+    ── <b>前回タイミーでやったことと、まったく同じ形である。</b>「営業利益率は18%とも5%とも言える。<b>分母は何か</b>」。あれの、国のバージョンである。<br>
+    <b>当日、この行だけは口頭で聞く。</b>240%と136%は、<b>何がちがうから数字がちがうのか。</b>1行で言えるようにしておくこと。
+  </div>
+</section>
+
+<!-- ============ 問1 ============ -->
+<section class="topic" id="s1">
+  <span class="badge macro">問1　10分</span>
+  <h2 class="thead">なぜ、1つだけ例外がないのか</h2>
+  <p class="sub">この本は3つの「定理」を出す。<b>ところが著者は、その3つをまったく同じようには扱っていない。</b></p>
+
+  <h4>(1) 書き写す</h4>
+  <p>本のなかに、<b>「絶対で、例外はありません」</b>とはっきり書かれている定理が<b>1つだけ</b>ある。<b>どれか。本文からそのまま書き写すこと。</b><span class="tag chk">読む順 4</span></p>
+  <div class="formula"><code><span class="blank">　　　　　　　　　　　　　　　　　　　　</span></code></div>
+
+  <h4>(2) もう一度、書き写す</h4>
+  <p>同じ本のなかで、著者は<b>別の2つの定理</b>について<b>「実際にはほとんど成り立っていません」</b>と書いている。<b>その2つは何と何か。</b><span class="tag chk">読む順 14 の冒頭</span></p>
+  <div class="formula">
+    <code>定理2 ＝ <span class="blank">　　　　　　　　　</span>説　── <span class="blank">　　　　　　　　　　　　</span></code>
+    <code>定理3 ＝ <span class="blank">　　　　　　　　　</span>説　── <span class="blank">　　　　　　　　　　　　</span></code>
+  </div>
+
+  <h4>(3) ここが問1の本体 ── 長く考えてよい</h4>
+  <div class="callout">
+    <span class="lbl">同じ「定理」という名前がついているのに、なぜ片方には例外がなく、片方は当たらないのか</span>
+    <b>ヒントは、本が「どうやってそれを示したか」にある。</b>読み比べること。<br><br>
+    <b>手がかりA ── 定理1は、計算で示されている。</b><br>
+    §0で拾ってきた数字を見ること。同じ債券が、金利10%なら10万円、20%なら <span class="blank">　　　</span>円、1%なら <span class="blank">　　　</span>円。<b>これは電卓で確かめられる。</b>著者は「そうなるはずだ」ではなく<b>「計算するとこうなる」</b>と書いている。<br><br>
+    <b>手がかりB ── 定理3は、人の行動で示されている。</b><br>
+    図表14を見ること。<b>アメリカ人のジョンが、5%の金利を捨ててまで、わざわざ低金利の円に両替する。</b>なぜか。著者はこう説明する ──<b>「ジョンがお人よしか間抜けでないとすると、考えられる可能性はひとつしかありません」</b>。つまり<b>ジョンがそう予想したはずだ、という話</b>で定理3を導いている。<br><br>
+    <b>この2つは、同じ種類の主張か。</b><br>
+    <b>この問いに1行で答えること。</b>それが問1の答えである。
+  </div>
+  <div class="formula"><code><span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span></code></div>
+
+  <h4>(4) 最後に、自分のことを説明する</h4>
+  <div class="recall">
+    <span class="lbl">8月21日 ── 教わる前に、自力で当てたところ</span>
+    <p>先生「日銀が国債を買うと、国債の値段はどうなる？」</p>
+    <p>君「<span class="me">買いが増えたら、値段は上がる</span>」</p>
+    <p>先生「じゃあ、値段が上がると利息は？」</p>
+    <p>君「<span class="me">下がる</span>」</p>
+  </div>
+  <p><b>あれは、教わる前だった。それでも当たった。</b>── <b>なぜ当てられたのか。</b><br>
+  そして<b>もっと大事なこと</b>：君はあのとき、<b>同じやり方で「来年の為替がどうなるか」を当てられたか。</b>当てられないとしたら、<b>それはなぜか。</b><br>
+  <b>この2つの答えは、(3) の答えと同じことを言っているはずである。</b>そうなっているか確かめること。</p>
+
+  <div class="src">
+    <b>SOURCES</b>
+    <ul>
+      <li><span class="st p3">書籍</span>橘玲『プアジャパン ── インフレ世界を生き抜く資本戦略』プレジデント社／抜粋16ページ（別途配布）。<b>本文の引用・数字はすべて書籍記載値である。</b></li>
+      <li><span class="st p1">一次</span>債券価格と金利の関係そのものは、財務省・日本銀行の公表する国債利回りデータで確認できる。<b>本を信じるのではなく、確かめられる。</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 問2 ============ -->
+<section class="topic" id="s2">
+  <span class="badge corp">問2　12分 ── 今日の中心</span>
+  <h2 class="thead">日銀は、物価を上げたくて金利を下げた</h2>
+  <p class="sub">ところがこの本の定理は、<b>「金利の低い通貨は上昇する」「通貨が上昇すればデフレになる」</b>と書いている。<b>並べると、向きが合わない。</b></p>
+
+  <h4>(1) まず、失敗の中身を数字で押さえる</h4>
+  <p>著者は<b>「アベノミクスはなぜ失敗したのか？」</b>というコラムを立てている。<b>失敗の中身は、2つの数字の落差である。</b><span class="tag chk">読む順 9・10</span></p>
+  <ul class="chain">
+    <li>日銀は、ベースマネーを2013年の約 <span class="blank">　　</span>兆円から2020年の約 <span class="blank">　　　</span>兆円へ ──<b><span class="blank">　　</span>倍以上に増やした。</b></li>
+    <li>ところが、そのうち <span class="blank">　　　</span>兆円は<b>「ブタ積み」</b>になった。<b>実際に経済を動かしたお金は、約 <span class="blank">　　</span>兆円しかない。</b></li>
+    <li>結果、市場に流通するお金（M3）は約1,100兆円から1,400兆円へ。<b>伸びは <span class="blank">　　</span>%程度にとどまった。</b></li>
+    <li><b>著者はこれを、1行のたとえで書いている。そのたとえを書き写すこと。</b><br><span class="blank">　　　　　　　　　　　　　　　　　　　　　　　</span></li>
+  </ul>
+
+  <h4>(2) 8月21日に、君はこう言った ── 今日、自分で採点する</h4>
+  <div class="recall">
+    <span class="lbl">8月21日</span>
+    <p>君「<span class="me">金利が上がると、デフレになる</span>」</p>
+    <p><b>このとき、これは訂正していない。</b>合っているとも、間違っているとも言われないまま2週間たっている。<b>今日、本を使って自分で採点する。</b></p>
+  </div>
+
+  <p><b>(a)</b> 本の<b>【定理2-2】</b>と<b>【定理3-2】</b>を、そのまま2つ並べて書き写すこと。<span class="tag chk">読む順 12・13</span></p>
+  <div class="formula">
+    <code>【定理2-2】<span class="blank">　　　　　　　　　　　　　　　　</span></code>
+    <code>【定理3-2】<span class="blank">　　　　　　　　　　　　　　　　</span></code>
+    <span class="n"><b>この2つをつなぐと、「金利が高い国」は物価が上がっている国か、下がっている国か。</b>── 君が8/21に言ったことと、<b>同じ向きか、逆か。</b></span>
+  </div>
+
+  <p><b>(b)</b> 数字でも確かめる。§0で拾った<b>世界A（インフレの国）と世界B（デフレの国）の金利</b>を並べること。<span class="tag chk">読む順 5</span></p>
+  <div class="formula">
+    <code>世界A（インフレの国）金利 <span class="blank">　　</span>%　／　世界B（デフレの国）金利 <span class="blank">　　</span>%</code>
+    <span class="n"><b>この2つの数字は、(a) を支持するか。それとも君の言ったほうを支持するか。</b></span>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">(c) ところが ── 同じ本に、こう書いてある</span>
+    <b>日銀は「金利を限界まで引き下げてデフレから脱却する」ことを目的にした。</b>黒田総裁は<b>2%の物価目標を達成するために、大量の国債を買って金利を下げると宣言した。</b><span class="tag chk">読む順 7・9・15</span><br><br>
+    <b>つまり日銀は、物価を上げたくて、金利を下げている。</b><br>
+    <b>これは、君が8/21に言った「金利が上がるとデフレになる」と、向きがぴったり合っている。</b>
+  </div>
+
+  <h4>(d) ここが今日の本体</h4>
+  <div class="callout">
+    <span class="lbl">(a)(b) と (c) は、矛盾しているのか</span>
+    <b>両方とも同じ本に書いてある。</b>著者が間違えているのでなければ、<b>2つは違うことを言っている</b>ということになる。<br>
+    <b>何がちがうのか。</b>── 空欄2つで答えること。<b>入るのは、どちらも「金利」を説明する言葉である。</b><br><br>
+    <div class="formula" style="margin:6px 0 0"><code>(a)(b) の金利は <span class="blank">　　　　　　　</span> であり、<br>(c) の金利は <span class="blank">　　　　　　　</span> である。</code></div>
+    <br>
+    <b>ヒント ── 前回、タイミーで同じ形をやった。</b><br>
+    「営業利益率は18%とも5%とも言える。<b>分母は何か</b>」。あのとき、<b>同じ『営業利益率』という言葉が、2つの違うものを指していた。</b><br>
+    <b>今回は「金利」という同じ言葉が、2つの違うものを指している。</b>片方は<b>誰かが決めるもの</b>で、もう片方は<b>結果としてそうなるもの</b>である ── というところまでは言った。<b>残りは自分で埋めること。</b>
+  </div>
+
+  <p><b>(e) 締め。</b>ここまで来たら、8/21の自分の発言を1行で採点すること。<b>「間違い」「正しい」の2択で書かないこと。</b><b>どういう条件でなら正しいのか</b>まで書いて、はじめて答えになる。</p>
+  <div class="formula"><code><span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span></code></div>
+
+  <div class="src">
+    <b>SOURCES</b>
+    <ul>
+      <li><span class="st p3">書籍</span>橘玲『プアジャパン』抜粋。ベースマネー・マネーストック・ブタ積み・M3、および図表12（日本の債務概要 1970〜2021年）はいずれも<b>書籍記載値</b>。図表12は本文の注記どおり<b>リチャード・ヴェイグ『世界は負債で回っている』（東洋経済新報社）より作成</b>とされており、<b>本にとっても二次情報である。</b></li>
+      <li><span class="st p1">一次</span>ベースマネー・マネーストック（M1／M2／M3）の実数は<b>日本銀行</b>が毎月公表している。<b>本の数字が正しいかどうかは、そこで確かめられる。</b>金融政策の決定内容は日銀の「金融政策決定会合」公表資料。</li>
+      <li><span class="st p1">一次</span>国債発行残高・一般政府部門の債務は<b>財務省</b>。対GDP比の国際比較と<b>資産を差し引いた純債務</b>の推計は<b>IMF</b>（Fiscal Monitor）。<b>240%と136%は、この2つの出どころの違いである。</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 問3 ============ -->
+<section class="topic" id="s3">
+  <span class="badge bridge">問3　5分 ── 締め。意思決定で終わる</span>
+  <h2 class="thead">94円と160円。4割のズレ。── で、君はどうするのか</h2>
+  <p class="sub">この本のいちばん有名な数字を、<b>読み物で終わらせずに、判断まで持っていく。</b></p>
+
+  <h4>(1) 数字を置く</h4>
+  <div class="formula">
+    <code>購買力平価の「正しい」ドル円 ＝ 1ドル <span class="blank">　　</span>円前後</code>
+    <code>本の執筆時点の現実の市場　　 ＝ 1ドル <span class="blank">　　　</span>円前後</code>
+    <code>ズレ ＝ <span class="blank">　　</span>割以上</code>
+    <span class="n"><b>そして、いちばん大事な確認 ── この「4割」は、何を分母にした4割か。</b>160円を分母にした4割と、94円を分母にした4割は、<b>同じ数字ではない。</b><b>前回タイミーでやったとおりである。</b></span>
+  </div>
+
+  <h4>(2) ところが、著者自身がこう書いている</h4>
+  <div class="callout">
+    <span class="lbl">この「94円」を出した説は、著者が「現実には成り立たない」と書いたほうの説である</span>
+    <b>94円は、購買力平価説 ＝ 定理2 から出てきた数字である。</b>そして著者は<b>その定理2について「実際にはほとんど成り立っていません」</b>と書いている。<span class="tag chk">読む順 14 の冒頭</span><br><br>
+    <b>成り立たない説が出した「正しい値段」を、正しいと言ってよいのか。</b><br>
+    <b>この問いに、YESかNOで先に答えること。</b>そのうえで理由を1行。
+  </div>
+
+  <h4>(3) 著者は、ズレが縮まらない理由を数字で書いている</h4>
+  <div class="formula">
+    <code>為替市場の金融取引 ＝ <b>1日</b>あたり約 <span class="blank">　　　</span>兆ドル</code>
+    <code>貿易などの実需　　 ＝ <b>1年</b>で数十兆ドル ＝ 全体の <span class="blank">　　</span>%〜 <span class="blank">　　</span>%</code>
+    <span class="n"><b>この2行は、期間がそろっていない。</b>1日と1年である。<b>そろえてから比べること。</b>── そのうえで：<b>購買力平価は「実需」の話である。その実需が全体の数%しかないなら、94円に戻す力は、どれくらい強いのか。</b></span>
+  </div>
+
+  <h4>(4) 締め ── 3つから1つ選ぶ</h4>
+  <p><b>いま君が円とドルについて取れる立場は、3つしかない。1つ選んで、理由を1行書いてくること。</b></p>
+  <div class="pick3">
+    <div><div class="n">選択 ①</div><div class="t">円を買う</div><span class="s">「4割も安いのだから、いずれ戻る」に賭ける側。</span></div>
+    <div><div class="n">選択 ②</div><div class="t">ドルを買う</div><span class="s">「ズレは当分縮まらない」に賭ける側。</span></div>
+    <div><div class="n">選択 ③</div><div class="t">何もしない</div><span class="s">これも立派な判断である。<b>ただし理由を書くこと。</b></span></div>
+  </div>
+  <div class="callout">
+    <span class="lbl">採点のしかた ── 先に言っておく</span>
+    <b>「わからない」「様子を見る」は0点。</b>③の「何もしない」とは違う。<b>③は理由が書いてあれば満点になりうる。</b><br>
+    <b>①を選ぶなら、1つだけ足すこと ──「いつまでに、何円に戻ると思うか」。</b>これが書けないなら、それは<b>判断ではなく感想である。</b><br>
+    <b>外れてよい。理由の作りだけを見る。</b><br>
+    <b>そして、この紙は捨てないこと。9月18日に開いて、答え合わせをする。</b>
+  </div>
+
+  <div class="src">
+    <b>SOURCES</b>
+    <ul>
+      <li><span class="st p3">書籍</span>橘玲『プアジャパン』抜粋。<b>購買力平価94円・市場160円前後・4割以上割安・1日7.5兆ドル・実需2〜5%は、すべて書籍記載値であり、著者の執筆時点のものである。</b></li>
+      <li><span class="st p4">要確認</span><b>授業当日のドル円は、本に書かれた水準とは違っている。</b>当日その場で見る。<b>「本に160円と書いてあった」を、いまの相場として使わないこと。</b></li>
+      <li><span class="st p1">一次</span>購買力平価の推計は<b>OECD</b>および<b>IMF</b>が公表している（本のPPPレートがどちらの系列かは書かれていない）。為替取引高は<b>BIS（国際決済銀行）</b>の3年ごとの調査。ドル円の現在値は日本銀行・各取引所。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ §4 索引 ============ -->
+<section class="topic gloss" id="s4">
+  <span class="badge word">§4　読みながら引く</span>
+  <h2 class="thead">言葉が出てくる場所（索引）</h2>
+  <p class="sub"><b>ここには意味を書いていない。「本のどこに書いてあるか」だけを書いてある。</b>意味は本人が本から取ること ── <b>8/28に「数字は短信から取りに行く」とやったのと同じ方針である。</b>読む順は §0 の地図のとおり。</p>
+  <dl>
+    <dt>現在価値／将来価値 <span class="en">present value / future value</span></dt>
+    <dd><b>読む順 2〜3（PDF 16・15ページ目）。</b>著者は「小学校高学年のレベルの四則演算だけで計算できる」と書いている。<b>式が2本、太字で出ている。</b>その2本を書き出しておくこと。<b>9月18日の回は、まるごとこの2本の上に立つ。</b></dd>
+
+    <dt>定理1-1／定理1-2 <span class="en">国債価格と金利</span></dt>
+    <dd><b>読む順 4（PDF 14ページ目）。</b>【定理1-1】と【定理1-2】が続けて出てくる。<b>2つは同じことを言っている。</b>ただし<b>因果の向きが逆に書いてある。</b>なぜ2通りに書けるのかが、問1の入口である。</dd>
+
+    <dt>名目金利／実質金利</dt>
+    <dd><b>読む順 5（PDF 13ページ目）。</b>世界A・世界Bという2つの仮想の国で説明されている。<b>「デフレ利息」という言葉が出てくる。</b>── <b>8/21に「金利が上がるとデフレになる」と言ったのは、この節の話とつながっている。</b>問2(b)で使う。</dd>
+
+    <dt>ブタ積み</dt>
+    <dd><b>読む順 9（PDF 9ページ目）。</b>著者は「金融関係者の隠語です」と書いている。<b>何が、どこに、どういう状態で積み上がっているのか</b>を、自分の言葉で1行にしておくこと。</dd>
+
+    <dt>ベースマネー／マネーストック（M1・M2・M3）</dt>
+    <dd><b>読む順 9（PDF 9ページ目）。</b><b>この2つは別のものである。</b>どちらが日銀のつくるお金で、どちらが市場に流通するお金か。<b>問2はこの区別が付いていないと1行も書けない。</b></dd>
+
+    <dt>買いオペ／売りオペ</dt>
+    <dd><b>読む順 7（PDF 11ページ目）。</b>2行にまとめて太字で書いてある。<b>「買いオペ→通貨の発行量が→金利が」</b>の矢印を、そのまま書き写しておくこと。問2(c) で使う。</dd>
+
+    <dt>購買力平価説（＝定理2）</dt>
+    <dd><b>定理そのものは 読む順 11〜12（PDF 7・6ページ目）。「94円」が出てくるのは 読む順 16（PDF 2ページ目）。</b>── <b>離れた2か所を、自分でつなぐ必要がある。</b>問3はそこを聞いている。</dd>
+
+    <dt>金利平価説（＝定理3）</dt>
+    <dd><b>読む順 11 と 13（PDF 7・5ページ目）。</b>図表14（読む順12・PDF 6ページ目）が、この説を「アメリカ人のジョン」で説明した図である。<b>問1(3) の手がかりBは、この図のことである。</b></dd>
+
+    <dt>超常現象</dt>
+    <dd><b>読む順 14（PDF 4ページ目）。</b>著者がこの言葉で呼んでいるのは、<b>定理2・定理3のとおりにならない現実</b>のことである。<b>「尻尾がイヌの胴体を振り回す」</b>という見出しが、その説明そのものになっている。<b>尻尾は何で、胴体は何か。</b></dd>
+
+    <dt>トレーディング・ゲーム／STIRT</dt>
+    <dd><b>読む順 14〜15（PDF 4・3ページ目）。</b>ギャリー・スティーヴンソンという実在のトレーダーの話。<b>STIRT が何の略か</b>は本文に書いてある。<b>為替の取引が、なぜ金利の取引になるのか</b>── その1行が、問1と問3の両方に効く。</dd>
+
+    <dt>デフォルト（債務不履行）</dt>
+    <dd><b>読む順 6（PDF 12ページ目）。</b>「自国通貨建てで国債を発行している国にはデフォルトは起きない」と書いてある。<b>ではアルゼンチンはなぜ何度もデフォルトするのか。</b>本文に理由が1行で書いてある。<b>── そして、デフォルトしなくても損をする道が2つ書いてある。その2つは何か。</b></dd>
+  </dl>
+</section>
+
+<footer>
+  <h2>この資料の使い方と、数字の扱いについて</h2>
+  <ul>
+    <li><b>今日は「読んでくる」回である。</b>当日、本の内容をこちらから説明することはしない。<b>読んできた前提で、問1から始める。</b>読めなかった場合は、当日そう言うこと ── <b>読んでいないのに読んだ顔で座るのが、いちばん時間を無駄にする。</b></li>
+    <li><b>この資料に答えは書いていない。</b>空欄（<span class="blank">こういうやつ</span>）と問いだけである。<b>いつもどおり。</b></li>
+    <li><b>この本の数字は、すべて「書籍記載値」である。</b>一次情報ではない。<b>著者が執筆した時点の数字であり、9月4日の数字ではない。</b>とくに<b>ドル円の「160円前後」と、購買力平価の「94円前後」は、当日の相場とは違っている。</b>各節末の SOURCES に、<b>その数字を一次情報で確かめるならどこを見るか</b>を書いておいた。</li>
+    <li><b>数字には格付けを付けた。</b>各節末の SOURCES を見ること ──
+      <span class="st p1">一次</span>発行体そのものが出した情報（日銀・財務省・IMF・BIS・各社IR）／
+      <span class="st p2">報道</span>報道機関／
+      <span class="st p3">書籍</span>今回の教材そのもの。<b>著者の解釈が入っている</b>／
+      <span class="st p4">要確認</span>執筆時点の数字で、いまは違っているもの。</li>
+    <li><b>率が出てきたら、分母を聞く。</b>今回は<b>3か所</b>にそれが仕込んである ── §0の「240%と136%」、問3の「4割」、問3(3)の「1日と1年」。<b>前回タイミーでやった型を、そのまま使えばよい。</b></li>
+  </ul>
+  <div class="next"><b>授業のあとにやること（1行）</b>　── <b>問3で選んだ①②③と、その理由を書いた紙を、9月18日まで捨てずに取っておくこと。</b></div>
+  <div class="next" style="margin-top:10px"><b>次回予告　9月11日（金）15:00</b>　<b>CF（キャッシュ・フロー計算書）── 黒字なのに、金がない。</b>今日は「値段はどう決まるか」を本1冊で見た。次は会社に戻って、<b>利益と現金がずれる</b>ところをやる。<b>材料は8月4日に君が言いかけた、メルペイ後払いのキャッシュフローである。</b></div>
+</footer>
+
+</div>
+</body>
+</html>
