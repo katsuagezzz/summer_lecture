@@ -58,7 +58,7 @@
 
 | 講義日 | テーマ | ファイル |
 |---|---|---|
-| 2026-09-04 | この本には、例外のない定理が1つだけある ― 残る2つは著者自身が「現実には成り立たない」と書いている（橘玲『プアジャパン』読解・金利・国債・為替・購買力平価／事前課題つき） | [HTML](lectures/lecture_toyonaga_20260904.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260904.html) |
+| 2026-09-04 | 日銀が国債を買うと、世の中のお金は増えるのか ― 買いオペ・売りオペと信用創造（橘玲『プアジャパン』。問い1つを30分議論） | [HTML](lectures/lecture_toyonaga_20260904.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260904.html) |
 | 2026-08-28 | 「儲かっている」は、4回に分けて言われる ― ところが、メルカリのPLには、そのうち1つが無い（PL・段階損益・会計基準） | [HTML](lectures/lecture_toyonaga_20260828.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260828.html) |
 | 2026-08-21 | 在庫を持たない会社が、世界でいちばん重い買い物を始めた（為替・金利・BS・固定資産・減価償却） | [HTML](lectures/lecture_toyonaga_20260821.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260821.html) |
 
