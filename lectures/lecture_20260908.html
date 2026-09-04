@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講義資料 第6回｜2026年9月8日 米中間選挙の現在地／現物買い＋先物売りで配当は残るか</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 第4回で追加したパーツ ---------- */
+.promptbox{background:var(--note-bg); border:1px solid var(--line); border-left:4px solid var(--word);
+  border-radius:0 10px 10px 0; padding:15px 17px; margin:12px 0;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px; line-height:1.95; white-space:pre-wrap; word-break:break-word; color:var(--ink);}
+.promptbox .cap{display:block; font-family:inherit; font-size:11.5px; font-weight:800;
+  letter-spacing:.09em; color:var(--word); margin-bottom:8px;}
+.twocol{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; margin:14px 0 4px;}
+.card{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.card .ch{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:6px;}
+.card.b .ch{color:var(--corp);} .card.c .ch{color:var(--bridge);} .card.d .ch{color:var(--word);}
+.card p{margin:0; font-size:14.5px; line-height:1.75;}
+.card p+p{margin-top:8px;}
+.quote{border-left:4px solid var(--word); background:var(--word-bg); border-radius:0 9px 9px 0;
+  padding:13px 17px; margin:13px 0; font-size:15px; line-height:1.9;}
+.quote .src2{display:block; font-size:12.5px; color:var(--ink3); font-weight:700; margin-top:7px;}
+table.cmp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.cmp th, table.cmp td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+table.cmp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+table.cmp td.h{font-weight:700; color:var(--ink); width:22%;}
+@media (max-width:640px){ .promptbox{font-size:12px;} }
+</style>
+<style>
+/* ---------- 第5回で追加したパーツ ---------- */
+/* サプライズ表（実績 − 予想） */
+table.surp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.surp th, table.surp td{border-bottom:1px solid var(--line2); padding:9px 10px; text-align:right; vertical-align:top;}
+table.surp th:first-child, table.surp td:first-child{text-align:left;}
+table.surp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em; text-align:right;}
+table.surp thead th:first-child{text-align:left;}
+table.surp td.num{font-variant-numeric:tabular-nums;}
+table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
+/* 答え合わせカード */
+.ac{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+    background:var(--bg); padding:14px 16px; margin-bottom:10px;}
+.ac .qq{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:5px;}
+.ac .aa{font-size:15px; line-height:1.75; margin:0;}
+.ac .aa b{font-weight:800;}
+.ac.miss{border-left-color:var(--corp);}
+.ac.miss .qq{color:var(--corp);}
+/* 時点ラベル（同じ銘柄・違う時点） */
+.snap{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:2px;
+      background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 6px;}
+.snap div{background:var(--panel); padding:12px 14px;}
+.snap .w{font-size:11.5px; color:var(--ink3); font-weight:800; letter-spacing:.04em; margin-bottom:4px; line-height:1.45;}
+.snap .r{font-size:19px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.3;}
+.snap .r.up{color:var(--up);} .snap .r.down{color:var(--down);}
+.snap .z{font-size:12px; color:var(--ink2); margin-top:3px; line-height:1.55;}
+</style>
+<style>
+/* ---------- ポートフォリオ報告・ネットキャッシュ（第5回で追加） ---------- */
+.pf{display:grid; grid-template-columns:repeat(auto-fit,minmax(238px,1fr)); gap:11px; margin:14px 0 6px;}
+.pf a{display:block; border:1px solid var(--line); border-left:4px solid var(--macro);
+      border-radius:0 10px 10px 0; background:var(--bg); padding:13px 15px;
+      text-decoration:none; color:var(--ink);}
+.pf a:hover{border-color:var(--macro);}
+.pf .tm{display:block; font-size:12.5px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:4px;}
+.pf .u{display:block; font-size:12.5px; color:var(--ink3); line-height:1.55; word-break:break-all;}
+.pf a.b{border-left-color:var(--corp);} .pf a.b .tm{color:var(--corp);} .pf a.b:hover{border-color:var(--corp);}
+.pf a.c{border-left-color:var(--bridge);} .pf a.c .tm{color:var(--bridge);} .pf a.c:hover{border-color:var(--bridge);}
+/* ネットキャッシュの記入表 */
+table.nc{width:100%; border-collapse:collapse; font-size:14px; margin:12px 0 4px;}
+table.nc th, table.nc td{border-bottom:1px solid var(--line2); padding:8px 9px; text-align:left; vertical-align:middle;}
+table.nc thead th{border-bottom:2px solid var(--line); font-size:12px; color:var(--ink3); letter-spacing:.04em;}
+table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
+@media print{ .pf a{border:1px solid #ccc;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="lecture_20260818.html">第3回 8/18 講義資料</a>
+  <a href="lecture_20260825.html">第4回 8/25 講義資料</a>
+  <a href="lecture_20260901.html">第5回 9/1 講義資料</a>
+  <a href="../reviews/lecture_review_20260901.html">第5回 9/1 復習</a>
+  <span class="cur">第6回 9/8 講義資料</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 講義資料　夏期集中講座 第6回</div>
+  <h1 class="title">米中間選挙の現在地／<br>現物買い＋先物売りで配当は残るか</h1>
+  <div class="meta">
+    <span><b>配布</b>　2026年9月4日（金）</span>
+    <span><b>講義</b>　2026年9月8日（火）16:20 開始・90分</span>
+    <span><b>形式</b>　オンライン（Zoom）</span>
+    <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
+  </div>
+  <div class="lede">
+    今回は3つ。<strong>①9/1の復習クイズ5問</strong>（教室で実際に出たやり取りから）。<strong>②米中間選挙</strong>（投票日11/3まで8週間。世論・予測市場・議会と関税の関係）。<strong>③現物買い＋先物売りで配当を受け取る手法</strong>（設例に数字を入れて損益を出す）。<br>
+    ②と③をつなぐのは第5回の式 <strong>値段が動く幅 ＝ 事実 − 織り込まれていた予想</strong>。選挙結果も配当も、すでに値段に入っている分は動かない。
+  </div>
+</header>
+
+<div class="callout" style="margin:0 0 22px">
+  <span class="lbl">自習の進め方 ── 配布 9/4（金） → 授業 9/8（火）16:20</span>
+  <b>読むのは §0 と §2 の設例</b>。§0 の5問は各自で答えを書いておく（提出不要）。§2 の表は授業で埋める。<br>
+  <b>宿題は1行</b>（<a href="#hw">こちら</a>）。提出は 9/8（火）12:00 Slack、HTML1枚。<br>
+  <b>持ってくるもの</b>　自チームの<a href="#pf">TradingView</a>の画面。前回比の数字は授業前にSlackへ1行。<br>
+  この資料に答えは書いていない。
+</div>
+
+<nav class="toc">
+  <h2>この資料の構成</h2>
+  <ol>
+    <li><a href="#s0">復習クイズ（9/1）</a> <span class="s">― 5問。教室で出た事実から</span></li>
+    <li><a href="#s1">米中間選挙の現在地</a> <span class="s">― 日程・議席・世論・予測市場・関税</span></li>
+    <li><a href="#s2">現物買い＋先物売りで配当は残るか</a> <span class="s">― 設例で損益を出す</span></li>
+    <li><a href="#pf">チーム別ポートフォリオ報告</a> <span class="s">― 3点固定＋競合比較の持ち越し</span></li>
+    <li><a href="#hw">宿題（全員共通）</a> <span class="s">― 1行</span></li>
+    <li><a href="#s7">当日の進行</a> <span class="s">― 16:20開始・90分</span></li>
+    <li><a href="#s9">今回の用語</a></li>
+  </ol>
+</nav>
+
+<!-- ============ §0 復習クイズ ============ -->
+<section class="topic" id="s0">
+  <span class="badge bridge">復習クイズ</span>
+  <h2 class="thead">9/1 の復習 ── 5問</h2>
+  <p class="sub">出題元は 9/1 の教室で実際に出たやり取り（<a href="../reviews/lecture_review_20260901.html">復習ページ</a>）。各1分。答えは授業の冒頭で確認する。</p>
+
+  <ol class="q">
+    <li><b>NVIDIA</b>　売上962億㌦（市場予想 約922億㌦）、調整後EPS 2.22㌦（予想2.09㌦）。発表直後の株価は下げた。理由を、第5回の式の言葉で1行。
+      <span class="hint">着地点：第5回 §0「値段が動く幅 ＝ 事実 − 織り込まれていた予想」</span></li>
+    <li><b>NVIDIAの商品と顧客</b>　何を売っているか。誰に売っているか。それぞれ1語。
+      <span class="hint">着地点：第5回で整理したAIサプライチェーンの4層（半導体・データセンター → ハイパースケーラー → AI開発企業 → アプリケーション）</span></li>
+    <li><b>ネットキャッシュ比率</b>　A社：流動資産800億円、投資有価証券200億円、負債総額500億円、時価総額400億円。比率は何倍か。割安・割高のどちらの候補か。
+      <span class="hint">式：（流動資産 ＋ 投資有価証券×70% − 負債総額）÷ 時価総額。着地点：第5回 チーム宿題。分子は会社の中身、分母は市場がつけた値段</span></li>
+    <li><b>買収の実務</b>　問3のA社の株を100%買った。会社の現金を株主に出させるために取る手順を1つ。
+      <span class="hint">着地点：第5回「株を買う」と「会社を買う」の段差。取締役会は多数決</span></li>
+    <li><b>先物の売り</b>　株価100万円の株を、1か月後に100万円で売る約束をした。1か月後の株価が80万円なら損益はいくらか。120万円ならいくらか。
+      <span class="hint">着地点：第2回の空売り／9/1の説明。今日の §2 はこの約束を配当と組み合わせる</span></li>
+  </ol>
+</section>
+
+<!-- ============ §1 中間選挙 ============ -->
+<section class="topic" id="s1">
+  <span class="badge macro">今回の中心 ①</span>
+  <h2 class="thead">米中間選挙の現在地 ── 投票日まで8週間</h2>
+  <p class="sub">数字は9月上旬時点。世論と予測市場は日々動く。授業当日に取り直す。</p>
+
+  <h3>1. 日程と議席</h3>
+  <div class="tblwrap">
+  <table class="cmp">
+    <thead><tr><th>項目</th><th>事実</th><th>出典</th></tr></thead>
+    <tbody>
+      <tr><td class="h">投票日</td><td>2026年11月3日（火）</td><td><span class="st p1">一次</span>連邦法の定め</td></tr>
+      <tr><td class="h">改選</td><td>下院 435議席すべて／上院 35議席（うち共和党が23。フロリダ・オハイオの補欠選挙を含む）</td><td><span class="st p3">解説</span>Ballotpedia・270toWin</td></tr>
+      <tr><td class="h">現在の議席</td><td>上院 共和53・民主47／下院 共和218・民主212・無所属1・欠員4（8/31時点）</td><td><span class="st p1">一次</span>下院プレスギャラリー</td></tr>
+      <tr><td class="h">多数派が変わる条件</td><td>上院は民主党が純増4／下院は過半数218</td><td><span class="st p3">解説</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>2. 世論と予測市場</h3>
+  <div class="kpis">
+    <div class="kpi m"><div class="k">一般投票（generic ballot）</div><div class="v">民主 49.6 ／ 共和 43.3</div><div class="n">各社平均・9/2時点。差は約6ポイント（Race to the WH）<span class="st p3" style="margin-left:4px">解説</span></div></div>
+    <div class="kpi m"><div class="k">大統領支持率</div><div class="v">33%</div><div class="n">ロイター／イプソス・9月上旬。各社の月次平均は約38%（不支持 約58%）<span class="st p2" style="margin-left:4px">報道</span></div></div>
+    <div class="kpi c"><div class="k">予測市場・下院</div><div class="v">民主 約90%</div><div class="n">Polymarket・9月上旬。上院は共和 約56%<span class="st p4" style="margin-left:4px">予測市場</span></div></div>
+    <div class="kpi c"><div class="k">予測市場・両院の組合せ</div><div class="v">民主両院 45〜51%</div><div class="n">ねじれ（上院共和・下院民主）約42%／共和両院 約13%。日によって動く<span class="st p4" style="margin-left:4px">予測市場</span></div></div>
+  </div>
+  <p>最重要争点は物価（有権者の47%が最優先と回答）。<span class="st p2">報道</span>予測市場は第2回（8/11）で扱ったポリマーケットと同じもの。</p>
+
+  <h3>3. 上院で焦点になっている州</h3>
+  <div class="tblwrap">
+  <table class="cmp">
+    <thead><tr><th>州</th><th>現職</th><th>状況</th></tr></thead>
+    <tbody>
+      <tr><td class="h">ジョージア</td><td>民主</td><td>2024年大統領選はトランプが勝った州。現職は6年前に僅差で当選</td></tr>
+      <tr><td class="h">ミシガン</td><td>民主</td><td>現職が引退。トランプが勝った州で空席</td></tr>
+      <tr><td class="h">メーン</td><td>共和</td><td>2024年はハリスが勝った州で共和党が防衛</td></tr>
+      <tr><td class="h">オハイオ</td><td>共和（補欠）</td><td>任命された現職に、前上院議員（民主）が挑む</td></tr>
+      <tr><td class="h">ノースカロライナ</td><td>共和</td><td>主要予測サイトが接戦に分類</td></tr>
+      <tr><td class="h">アイオワ・テキサス</td><td>共和</td><td>民主党の大勝の場合のみ接戦になる、との見方</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="unsure">上の表は270toWin・Ballotpedia等の分類（解説）。個別の世論調査の数字は載せていない。</p>
+
+  <h3>4. 議会と関税 ── 今年起きた順に</h3>
+  <ul class="cal">
+    <li><span class="d">2/20</span><span class="c">最高裁が IEEPA（国際緊急経済権限法）に基づく関税を違法と判断（6対3）。<span class="st p1">一次</span></span></li>
+    <li><span class="d">同日</span><span class="c">大統領が通商法122条で再課税。上限15%・<b>期限150日</b>。延長には議会の法律が要る。</span></li>
+    <li><span class="d">7/24</span><span class="c">122条の関税が失効。議会は延長しなかった。同じ時刻に通商法301条で60の国・地域に10〜12.5%の関税を発動。<b>301条には期限がない。</b><span class="st p3">解説</span></span></li>
+    <li class="hot"><span class="d">11/3</span><span class="c">中間選挙。関税そのものの権限は大統領側にある。議会が握るのは予算・減税・債務上限、そして122条延長のような法律。</span></li>
+  </ul>
+
+  <h3>5. 過去の平均（将来を保証しない）</h3>
+  <div class="tblwrap">
+  <table class="surp">
+    <thead><tr><th>区間</th><th>S&amp;P500 の平均</th><th>集計</th></tr></thead>
+    <tbody>
+      <tr><td class="h">中間選挙の年・通年</td><td class="num">＋4.7%</td><td class="num">1931年以降。他の年は＋9.5%</td></tr>
+      <tr><td class="h">中間選挙の年・第1〜3四半期</td><td class="num neg">−0.9%</td><td class="num">同</td></tr>
+      <tr><td class="h">中間選挙の年・第4四半期</td><td class="num pos">＋6.4%</td><td class="num">同</td></tr>
+      <tr><td class="h">中間選挙後の12か月</td><td class="num pos">＋15〜16%</td><td class="num">1950年以降19回。19回ともプラス</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="unsure">Capital Group・Chase 等の解説ベース。集計期間と定義は出典ごとに少し違う。</p>
+
+  <h3>問い</h3>
+  <ol class="q">
+    <li><span class="tagm">必答</span>下院の民主党勝利を予測市場は約9割で織り込んでいる。11/3に民主党が下院を取った場合、第5回の式で値段はどれだけ動くか。動くとしたら何の結果か。
+      <span class="hint">着地点：第5回 §0。織り込み済みの事実は、実現しても値段を動かさない</span></li>
+    <li><span class="tagm">必答</span>関税の権限は大統領側にある。それでも11/3の結果が関税に効く経路を、上の年表から1つ書く。
+      <span class="hint">着地点：122条の「150日」。延長を決めるのは誰か</span></li>
+    <li><span class="tagm">必答</span>ねじれ議会（上院共和・下院民主）になった場合、財政赤字 → 米金利 → ドル円の経路を矢印3つで書く。円高・円安のどちらか。
+      <span class="hint">着地点：第1回の登場人物、第2回の日米金利差。9/1に書いたドル円予想（答え合わせは9/18の日銀会合のあと）と向きを比べる</span></li>
+    <li>自分の持ち株1つについて、関税が1つ変わると、売上と原価のどちらに何が起きるか1行。
+      <span class="hint">着地点：型6 自分ごと。「日本経済にとって」ではなく自分の銘柄で</span></li>
+    <li><span class="tago">余力</span>「中間選挙後12か月は19回中19回プラス」を、買う理由にしてよいか。分母（19回）と今年の条件（イラン戦争・関税・支持率33%）を並べて1行。
+      <span class="hint">着地点：数字の作法。率を出したら分母を見る。「なんとなく」は0点</span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">当日の冒頭に全員が1行書く（宿題ではない）</span>
+    <b>11/3の結果：上院＿＿党、下院＿＿党。理由を1行。</b><br>
+    答え合わせは11/10の回。この夏5回目の「予想 → 実測 → 差分」になる。
+  </div>
+</section>
+
+<!-- ============ §2 配当取り ============ -->
+<section class="topic" id="s2">
+  <span class="badge corp">今回の中心 ②</span>
+  <h2 class="thead">現物買い＋先物売りで配当は残るか ── 設例で損益を出す</h2>
+  <p class="sub">「現物を買って同額の先物を売れば、株価がどちらに動いても損益が相殺され、配当だけ受け取れる」と説明される手法。手順を並べ、数字を入れて、何が残るかを確かめる。</p>
+
+  <h3>1. 手順</h3>
+  <ol class="chain">
+    <li>9月末の配当の権利がつく現物を買う（日経225連動ETF、または構成銘柄）</li>
+    <li>同じ金額の日経225先物を売る。<b>使う限月は12月限</b>（9月限のSQは9/11で、権利落ち9/29より前に終わる）</li>
+    <li>権利付最終日 9/28（月）を持ち越す。翌9/29（火）が権利落ち日、9/30（水）が権利確定日</li>
+    <li>配当を受け取る（ETFの分配金は数か月後）</li>
+    <li>12/11（金）のSQ、またはその前に、現物売りと先物買戻しを同時に行う</li>
+  </ol>
+
+  <h3>2. 先物の理論価格</h3>
+  <div class="formula">
+    <code>先物の理論価格　＝　現物価格 × { 1 ＋ （短期金利 − 配当利回り）× 満期までの日数 ÷ 365 }</code>
+    <span class="n">出典：日本取引所グループ（JPX）の解説。<b>満期までに出る配当は、先物価格からあらかじめ引かれている。</b>満期日には日数が0になり、先物価格は現物価格に一致する。</span>
+  </div>
+
+  <h3>3. 設例 ── 数字を入れる</h3>
+  <p>現物100万円。期間は半年。短期金利は年1%（半年で0.5%）。配当は半年で1%（1万円）。数字は説明のための仮の値。</p>
+  <div class="formula">
+    <code>理論先物価格　＝　100万円 × （1 ＋ 0.005 − 0.010）　＝　<span class="blank">99.5万円</span></code>
+    <span class="n">配当の1万円は、先物を売った時点ですでに1万円安く売っている。</span>
+  </div>
+  <div class="tblwrap">
+  <table class="surp">
+    <thead><tr><th>満期の株価</th><th>現物の損益</th><th>先物の損益（99.5万円で売り）</th><th>受け取る配当</th><th>合計</th></tr></thead>
+    <tbody>
+      <tr><td class="h">90万円</td><td class="num neg">−10.0万円</td><td class="num pos">＋9.5万円</td><td class="num">＋1.0万円</td><td class="num"><span class="fill">記入</span></td></tr>
+      <tr><td class="h">100万円</td><td class="num">±0</td><td class="num neg">−0.5万円</td><td class="num">＋1.0万円</td><td class="num"><span class="fill">記入</span></td></tr>
+      <tr><td class="h">110万円</td><td class="num pos">＋10.0万円</td><td class="num neg">−10.5万円</td><td class="num">＋1.0万円</td><td class="num"><span class="fill">記入</span></td></tr>
+      <tr><td class="h">80万円</td><td class="num"><span class="fill">記入</span></td><td class="num"><span class="fill">記入</span></td><td class="num">＋1.0万円</td><td class="num"><span class="fill">記入</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>合計の列は授業で埋める。4行とも同じ数字になるかを確かめる。</p>
+
+  <h3>4. 個別株の場合 ── 現物買い＋信用売り（つなぎ売り）</h3>
+  <p>個別株には先物がほぼ無い。同じ形を作るには現物買いと信用売りを同じ株数で組む。</p>
+  <div class="tblwrap">
+  <table class="cmp">
+    <thead><tr><th>項目</th><th>受け取る／払う</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td class="h">配当（現物）</td><td>受け取る。100に対し税引後 79.685</td><td>源泉徴収 20.315%</td></tr>
+      <tr><td class="h">配当落調整金（信用売り）</td><td>払う。制度信用 84.685／一般信用 100</td><td>証券各社の規定<span class="st p3" style="margin-left:4px">解説</span></td></tr>
+      <tr><td class="h">貸株料</td><td>払う。日割り</td><td>売り建て期間に応じる</td></tr>
+      <tr><td class="h">逆日歩</td><td>払う（制度信用のみ）。上限なし</td><td>売りが集中した銘柄で発生。事前に金額は分からない</td></tr>
+      <tr><td class="h">売買手数料</td><td>払う。4回分</td><td>現物買い・信用売り・現物売り・買戻し</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>配当は受け取る分と払う分がほぼ相殺する。実務でこの形が使われる目的は、配当ではなく株主優待。</p>
+
+  <h3>5. 「ノーリスク」の点検 ── 残るもの</h3>
+  <div class="twocol">
+    <div class="card"><div class="ch">残る利益</div><p>設例では金利分（0.5万円）。年率にすると短期金利とほぼ同じ。</p></div>
+    <div class="card b"><div class="ch">残るリスク①　配当の予想と実績の差</div><p>先物は「予想配当」で値付けされている。実績が予想を上回れば得、下回れば損。</p></div>
+    <div class="card b"><div class="ch">残るリスク②　ベーシス</div><p>先物が理論価格からずれて取引される期間がある。手仕舞いのタイミングで損益が出る。</p></div>
+    <div class="card b"><div class="ch">残るリスク③　限月・証拠金</div><p>9月限では権利落ちを跨げない。先物には証拠金が要り、相場が動くと追加の差し入れ（追証）が出る。</p></div>
+    <div class="card b"><div class="ch">残るリスク④　逆日歩・貸株料（個別株）</div><p>制度信用の逆日歩は上限がない。配当より大きくなる例がある。</p></div>
+    <div class="card b"><div class="ch">残るコスト⑤　税</div><p>配当は受け取り時に課税。配当落調整金の支払いは譲渡損として扱われ、損益通算の可否で手取りが変わる。</p></div>
+  </div>
+
+  <h3>6. 2026年9月の日付</h3>
+  <ul class="cal">
+    <li><span class="d">9/11（金）</span><span class="c">日経225先物 9月限 SQ（メジャーSQ）</span></li>
+    <li><span class="d">9/28（月）</span><span class="c">権利付最終日</span></li>
+    <li class="hot"><span class="d">9/29（火）</span><span class="c">権利落ち日。2025年9月末の配当落ちは日経平均で303円（0.68%）と試算された。<b>2026年分は未確定。</b><span class="st p3">解説</span></span></li>
+    <li><span class="d">9/30（水）</span><span class="c">権利確定日・中間決算期末</span></li>
+    <li><span class="d">12/11（金）</span><span class="c">日経225先物 12月限 SQ</span></li>
+  </ul>
+
+  <h3>問い</h3>
+  <ol class="q">
+    <li><span class="tagm">必答</span>設例の表の合計欄を埋める。満期の株価が80万円のとき、合計はいくらか。
+      <span class="hint">着地点：型3 数式に分解する。4行とも同じ数字になる理由を1行</span></li>
+    <li><span class="tagm">必答</span>先物を99.5万円で買った相手は、何を狙っているか1行。
+      <span class="hint">着地点：第2回 空売り・先物。取引には必ず相手がいる</span></li>
+    <li><span class="tagm">必答</span>「配当をタダで受け取る」を、第5回の式で言い直す。
+      <span class="hint">着地点：第5回 §0。配当は先物価格に織り込まれている。動くのは予想との差だけ</span></li>
+    <li>この取引の年率の利益は何%か。それは第4回で出てきた何の値段か。
+      <span class="hint">着地点：第4回『プアジャパン』金利＝時間の値段</span></li>
+    <li><span class="tagm">必答</span>自分の資金でこれをやるか。やらないなら、同じ利回りを取る代わりの手段を1つ。
+      <span class="hint">着地点：型5 意思決定で締める。「なんとなく」は0点</span></li>
+  </ol>
+</section>
+
+<!-- ============ ポートフォリオ報告 ============ -->
+<section class="topic" id="pf">
+  <span class="badge bridge">毎回やる枠</span>
+  <h2 class="thead">チーム別ポートフォリオ報告 ── 3点固定</h2>
+  <p class="sub">目標は2027年1月末までに＋20%。報告の型は第3回で固定した3点。</p>
+  <div class="pf">
+    <a href="https://jp.tradingview.com/portfolios/96d42da1b31d4f47b13c34536ff7f36e/" target="_blank" rel="noopener"><span class="tm">Aチーム</span><span class="u">jp.tradingview.com/portfolios/96d42da1…</span></a>
+    <a class="b" href="https://jp.tradingview.com/portfolios/12725df68d9d44b79c1d2e74b1b9eb85/" target="_blank" rel="noopener"><span class="tm">Bチーム</span><span class="u">jp.tradingview.com/portfolios/12725df6…</span></a>
+    <a class="c" href="https://www.tradingview.com/portfolios/2fd709d801b343a2935bca992c72e9ce/" target="_blank" rel="noopener"><span class="tm">Cチーム</span><span class="u">www.tradingview.com/portfolios/2fd709d8…</span></a>
+  </div>
+  <ol class="q">
+    <li><b>前回比 ±何%か。</b>いつからいつまでの比較かを添える。</li>
+    <li><b>いちばん効いた銘柄。</b>上に1つ、下に1つ。率と絶対額を混ぜない。</li>
+    <li><b>理由を1行。</b>新しい事実か、予想との差か。</li>
+  </ol>
+  <div class="rel"><b>持ち越し</b>　第5回のチーム宿題のうち、自チームの持ち株のネットキャッシュ比率は9/1に発表済み。<b>同業の競合1社との比較</b>が未提出のチームは、今回この枠で出す。</div>
+</section>
+
+<!-- ============ 宿題 ============ -->
+<section class="topic" id="hw">
+  <span class="badge bridge">宿題・全員共通</span>
+  <h2 class="thead">自分の持ち株を1つ選び、9月末の1株配当（予想）と、権利落ち日に理論上いくら下がるか（円と株価比%）を調べる。</h2>
+  <div class="deliv">
+    <b>出すもの</b>　銘柄名／1株配当（予想）と出所／株価（時点つき）／下げ幅の円と%。HTML1枚。<br>
+    <b>締切</b>　9/8（火）12:00 Slack。持ち株がなければ気になる会社1つでよい。「分からなかった」も出す。<br>
+    <b>数字の在り処</b>　決算短信の配当予想（各社IR・EDINET）。まとめサイトの数字を使うなら、一次情報ではないと書く。
+  </div>
+</section>
+
+<!-- ============ 進行 ============ -->
+<section class="topic" id="s7">
+  <span class="badge bridge">当日の進行</span>
+  <h2 class="thead">9月8日（火）16:20 開始・90分</h2>
+  <ul class="tl">
+    <li><span class="t">16:20</span><span class="c"><b>§0 復習クイズ</b> ── 5問（10分）</span></li>
+    <li><span class="t">16:30</span><span class="c"><b>冒頭のひとこと書き取り</b> ── 11/3の上院・下院の結果予想（5分）</span></li>
+    <li><span class="t">16:35</span><span class="c"><b>§1 米中間選挙</b> ── 議席・世論・予測市場・関税の年表・問1〜3（25分）</span></li>
+    <li><span class="t">17:00</span><span class="c"><b>§2 現物買い＋先物売り</b> ── 手順・理論価格・設例の表を埋める・残るリスク・問1〜3・問5（30分）</span></li>
+    <li><span class="t">17:30</span><span class="c"><b>チーム別ポートフォリオ報告</b>（A→B→C、各4分）＋競合比較の持ち越し（15分）</span></li>
+    <li><span class="t">17:45</span><span class="c"><b>宿題の確認と次回予告</b>（5分）</span></li>
+  </ul>
+  <div class="callout">
+    <span class="lbl">落とす順番（時間が足りないとき、上から捨てる）</span>
+    ① §1の問5（アノマリー）　② §2の問4（年率）　③ §1の問4（自分の銘柄と関税）　④ §1の表3（上院の州）。<br>
+    落とさないもの：§0のクイズ／§1の問1（織り込み）／§2の設例の表と問3／ポートフォリオ報告。
+  </div>
+</section>
+
+<!-- ============ 用語 ============ -->
+<section class="topic" id="s9">
+  <span class="badge word">今回の用語</span>
+  <h2 class="thead">予習しておく言葉</h2>
+  <div class="gloss compact">
+    <dl>
+      <dt>一般投票<span class="en">generic ballot</span></dt>
+      <dd>「下院選で民主・共和のどちらに投票するか」を全国で聞いた世論調査。個別選挙区の予想ではない。</dd>
+      <dt>予測市場<span class="en">prediction market</span></dt>
+      <dd>結果に賭ける市場。価格がそのまま確率として読まれる。第2回で扱ったポリマーケット。</dd>
+      <dt>IEEPA／通商法122条／通商法301条</dt>
+      <dd>大統領が関税をかける根拠になる法律。IEEPAは2/20に最高裁が否定、122条は150日で失効、301条は期限がない。</dd>
+      <dt>ねじれ議会<span class="en">divided government</span></dt>
+      <dd>上院と下院、または議会と大統領で多数派が違う状態。法律と予算が通りにくくなる。</dd>
+      <dt>先物<span class="en">futures</span></dt>
+      <dd>将来の決まった日に、決まった値段で売買する約束。売りから入れる。</dd>
+      <dt>限月／SQ</dt>
+      <dd>先物の満期の月／満期日に決まる清算値。日経225先物は3・6・9・12月の第2金曜がメジャーSQ。</dd>
+      <dt>理論価格<span class="en">fair value</span></dt>
+      <dd>現物価格に、満期までの金利を足し、配当を引いた値。実際の先物価格との差がベーシス。</dd>
+      <dt>権利付最終日／権利落ち日／権利確定日</dt>
+      <dd>配当をもらうために買える最後の日／その翌営業日／株主名簿が確定する日。2026年9月は 9/28・9/29・9/30。</dd>
+      <dt>つなぎ売り<span class="en">クロス取引</span></dt>
+      <dd>現物買いと信用売りを同じ株数で組み、値動きを相殺する取引。</dd>
+      <dt>配当落調整金</dt>
+      <dd>信用売りをしている人が、配当相当額として払う金額。制度信用は配当の84.685%、一般信用は100%。</dd>
+      <dt>逆日歩</dt>
+      <dd>信用売りが集中して株が不足したときに、売り方が払う追加費用。制度信用のみ。上限なし。</dd>
+      <dt>証拠金／追証</dt>
+      <dd>先物取引に必要な担保／相場が動いて担保が不足したときの追加差し入れ。</dd>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <h2>数字の扱いについて</h2>
+  <ul>
+    <li><b>世論調査・予測市場の数字はすべて9月上旬時点。</b>授業当日には動いている。引用するときは時点を添える。</li>
+    <li>一般投票の平均（民主49.6／共和43.3）は集計サイト Race to the WH の9/2時点の値。大統領支持率の33%はロイター／イプソス、約38%は複数社の月次平均。<b>調査会社によって5ポイント以上の幅がある。</b></li>
+    <li>Polymarket の確率（下院民主約90%・上院共和約56%・両院民主45〜51%）は<b>予測市場の価格であり、世論調査ではない。</b>同じ週の中でも数ポイント動いている。</li>
+    <li>上院の焦点州の分類は270toWin・Ballotpedia等の<b>解説ベース</b>。議席数は下院プレスギャラリー（8/31時点）。</li>
+    <li>関税の年表（IEEPA判決2/20・122条失効7/24・301条発動）は最高裁判決と大統領令が一次情報。301条の対象「60の国・地域」「10〜12.5%」は<b>解説ベース</b>。</li>
+    <li>S&amp;P500の中間選挙年の平均は Capital Group・Chase 等の解説ベース。<b>過去の平均であり、集計期間の取り方で数字が変わる。</b></li>
+    <li>§2の設例（100万円・金利年1%・配当半年1%）は<b>説明のための仮の数値。</b>実際の短期金利・配当利回り・先物価格とは違う。理論価格の式は日本取引所グループの解説に従った。</li>
+    <li>配当落調整金の84.685%、逆日歩・貸株料の扱いは証券各社の規定ベース。会社によって細部が違う。</li>
+    <li>配当落ちの試算（日経平均303円・0.68%）は<b>2025年9月末の数字。</b>2026年分は本稿時点で未確定。</li>
+    <li>受講者のポートフォリオ・保有銘柄は載せていない。</li>
+  </ul>
+  <div class="src">
+    <b>主な出典</b>
+    <ul>
+      <li><span class="st p1">一次</span>House Press Gallery「Party Breakdown」（2026年8月31日時点）／最高裁判決（2026年2月20日）／通商法122条・301条に基づく大統領文書</li>
+      <li><span class="st p3">解説</span>Ballotpedia「United States Senate elections, 2026」／270toWin「2026 Senate Election Forecast」／Race to the WH「2026 Generic Ballot Polling Average」</li>
+      <li><span class="st p2">報道</span>Reuters/Ipsos（大統領支持率、2026年9月）／The Hill・Forbes（同）／日本経済新聞「アメリカ中間選挙2026」特集</li>
+      <li><span class="st p4">予測市場</span>Polymarket「Balance of Power: 2026 Midterms」（2026年9月上旬）</li>
+      <li><span class="st p3">解説</span>Capital Group「How U.S. midterm elections may affect markets」／Chase「How Does the Stock Market Perform During Midterm Election Years?」</li>
+      <li><span class="st p1">一次</span>日本取引所グループ「理論価格」「日経225先物 商品概要」「最終清算数値（SQ）」</li>
+      <li><span class="st p3">解説</span>三菱UFJ eスマート証券「信用取引の配当金と優待クロス取引とは？」／楽天証券「つなぎ売り」／GMOクリック証券「つなぎ売りとは？」</li>
+      <li><span class="st p3">解説</span>野村ウェルスタイル「9月末の配当落ちに伴う日経平均株価のインパクトは？」（2025年9月末の試算）</li>
+    </ul>
+  </div>
+  <div class="next">
+    <b>次回（第7回・9/22予定）</b>　9/15-16 FOMC・9/17-18 日銀会合の答え合わせ。9/1の冒頭に全員が書いたドル円の予想を突き合わせる。あわせて今回の宿題（9月末の配当と権利落ち）を、9/29の実際の値動きと並べる。<br>
+    <b>第5回の資料</b>　<a href="lecture_20260901.html">予想との差だけが値段を動かす ── NVIDIAは買いか／Anthropicの上場／9月の中間決算</a>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
