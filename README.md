@@ -23,6 +23,7 @@
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
 | 夏期 第6回 | 2026-09-08 | 米中間選挙の現在地／現物買い＋先物売りで配当は残るか（冒頭に9/1の復習クイズ5問） | [HTML](lectures/lecture_20260908.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260908.html) |
+| 自習資料 | 2026-09-04 配布 | 日銀が国債を買うと、世の中のお金は増えるのか ── 買いオペ・売りオペと信用創造（橘玲『プアジャパン』。問い1つ、答えなし。第6回 9/8 までに1行） | [HTML](lectures/lecture_20260904.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260904.html) |
 | 夏期 第5回 | 2026-09-01 | 予想との差だけが値段を動かす ── NVIDIAは買いか／Anthropicの上場／9月の中間決算 | [HTML](lectures/lecture_20260901.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260901.html) |
 | 夏期 第4回 | 2026-08-25 | バリュー投資（シケモク投資家とリンチ・チャート）と金利と為替（橘玲『プアジャパン』） | [HTML](lectures/lecture_20260825.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260825.html) |
 | 夏期 第3回 | 2026-08-18 | 上場が答え合わせをする夏 ― SpaceX、Anthropic、そして「電力」という首 | [HTML](lectures/lecture_20260818.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260818.html) |
@@ -49,6 +50,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
+| 第5回（復習編） | 2026-09-03 | 予想を超えたのに株が上がらない理由と、1.1倍は割安か ― 9/3実施分の文字起こしから作った復習クイズ13問＋発展1問 | [HTML](lectures/lecture_sasaki_20260903.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260903.html) |
 | 第4回 | 2026-08-24 | 利払いが国防費を超えた国 ― ベッセントの米国債買い戻しと、日本の財布 | [HTML](lectures/lecture_sasaki_20260824.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260824.html) |
 | 第3回 | 2026-08-20 | 金利・為替・インフレの関係性 ― 輸入物価+29.1%は、どこで+1.6%になったのか | [HTML](lectures/lecture_sasaki_20260820.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260820.html) |
 | 第2回 | 2026-08-17 | ZOZOの決算を読む ― 受託販売とテイクレート | [HTML](lectures/lecture_sasaki_20260817.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260817.html) |

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自習資料｜2026年9月4日配布 日銀が国債を買うと、世の中のお金は増えるのか ── 買いオペ・売りオペと信用創造</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 個別回で追加したパーツ ---------- */
+/* 過去の回で本人が言ったことの引き戻し */
+.recall{border:1px solid var(--line); border-left:4px solid var(--word); border-radius:0 10px 10px 0;
+        background:var(--word-bg); padding:14px 17px; margin:14px 0 6px;}
+.recall .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:var(--word); margin-bottom:6px;}
+.recall p{margin:0 0 6px; font-size:14.8px; line-height:1.75;}
+.recall p:last-child{margin-bottom:0;}
+.recall .me{font-weight:800;}
+
+/* 二者対比 */
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0 6px;}
+.vs>div{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.vs .hd{font-size:13px; font-weight:800; letter-spacing:.05em; margin-bottom:7px;}
+.vs .a .hd{color:var(--bridge);} .vs .b .hd{color:var(--corp);}
+.vs p{margin:0 0 7px; font-size:14.3px; line-height:1.7;}
+.vs p:last-child{margin-bottom:0;}
+@media(max-width:640px){ .vs{grid-template-columns:1fr;} }
+
+/* 用語ドリル */
+.drill{list-style:none; margin:10px 0 0; padding:0; counter-reset:dr;
+       display:grid; grid-template-columns:repeat(auto-fit,minmax(266px,1fr)); gap:9px;}
+.drill li{counter-increment:dr; background:var(--q-bg); border:1px solid var(--q-line);
+          border-radius:9px; padding:11px 14px; font-size:14.4px; line-height:1.65;}
+.drill li b{font-weight:800;}
+.drill li .s{display:block; font-size:12.8px; color:var(--ink2); margin-top:4px;}
+</style>
+<style>
+/* ---------- 第2回（8/28）で追加したパーツ ---------- */
+/* 段階損益のはしご */
+.steps{list-style:none; margin:16px 0 6px; padding:0; counter-reset:st;}
+.steps li{counter-increment:st; position:relative; padding:13px 16px 13px 52px; margin-bottom:10px;
+          background:var(--bg); border:1px solid var(--line); border-radius:10px; font-size:15px; line-height:1.7;}
+.steps li::before{content:"第" counter(st) "段"; position:absolute; left:10px; top:13px; width:34px;
+          font-size:10px; font-weight:800; color:var(--ink3); text-align:center; line-height:1.3; letter-spacing:0;}
+.steps li .nm{font-size:16.5px; font-weight:800; display:block; margin-bottom:3px;}
+.steps li .eq{display:block; font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+          font-size:13.5px; font-weight:700; color:var(--ink2); margin:5px 0 4px; line-height:1.9;}
+.steps li .as{display:block; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+.steps li.miss{border-style:dashed; border-color:var(--q-line); background:var(--q-bg);}
+/* 引かれるものの帯 */
+.minus{display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.05em;
+       background:var(--corp-bg); color:var(--corp); padding:1px 8px; border-radius:5px; margin:0 3px;}
+/* 二つの意味 */
+.dual{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0 6px;}
+.dual>div{border:1px solid var(--line); border-top:4px solid var(--word); border-radius:0 0 10px 10px;
+          padding:14px 16px; background:var(--bg);}
+.dual .hd{font-size:13px; font-weight:800; color:var(--word); margin-bottom:6px; letter-spacing:.04em;}
+.dual p{margin:0; font-size:14.3px; line-height:1.7;}
+@media(max-width:640px){ .dual{grid-template-columns:1fr;} .steps li{padding-left:16px; padding-top:30px;} .steps li::before{top:8px; left:14px; text-align:left;} }
+</style>
+<style>
+/* ---------- 第3回（9/4）で追加したパーツ ---------- */
+/* 読む順の地図 */
+.mapt{width:100%; border-collapse:collapse; font-size:14px; margin:12px 0 4px;}
+.mapt th,.mapt td{border-bottom:1px solid var(--line2); padding:7px 9px; text-align:left; vertical-align:top;}
+.mapt thead th{border-bottom:2px solid var(--line); font-size:12px; color:var(--ink3); letter-spacing:.05em; white-space:nowrap;}
+.mapt td.o{font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; white-space:nowrap; width:64px;}
+.mapt td.p{font-variant-numeric:tabular-nums; color:var(--ink2); white-space:nowrap; width:104px; font-size:13px;}
+.mapt tr.key td{background:var(--q-bg);}
+.mapt tr.key td.o{color:var(--corp);}
+
+/* 数字の拾い出し（空欄つき） */
+.pick{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0 4px;}
+.pick th,.pick td{border-bottom:1px solid var(--line2); padding:9px 10px; text-align:left; vertical-align:top;}
+.pick thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.pick td.w{width:96px; font-size:12.5px; color:var(--ink3); font-weight:700; white-space:nowrap;}
+
+/* 三択 */
+.pick3{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:11px; margin:14px 0 6px;}
+.pick3>div{border:1px solid var(--q-line); background:var(--q-bg); border-radius:10px; padding:14px 16px;}
+.pick3 .n{font-size:12px; font-weight:800; letter-spacing:.06em; color:#8a6d1f; margin-bottom:4px;}
+@media (prefers-color-scheme: dark){ .pick3 .n{color:#d9c07a;} }
+.pick3 .t{font-size:16px; font-weight:800; line-height:1.5;}
+.pick3 .s{display:block; font-size:13px; color:var(--ink2); line-height:1.65; margin-top:5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="../reviews/lecture_review_20260804.html">第1回 8/4 復習</a>
+  <a href="../news_briefs/lecture_news_20260809.html">速報 Vol.1 8/9</a>
+  <a href="../reviews/lecture_review_20260811.html">第2回 8/11 復習</a>
+  <a href="lecture_20260818.html">第3回 8/18 講義資料</a>
+  <a href="../news_briefs/lecture_news_20260825.html">速報 Vol.2 8/25</a>
+  <a href="lecture_20260825.html">第4回 8/25 講義資料</a>
+  <a href="lecture_20260901.html">第5回 9/1 講義資料</a>
+  <a href="../reviews/lecture_review_20260901.html">第5回 9/1 復習</a>
+  <span class="cur">9/4 自習資料</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">SELF-STUDY HANDOUT ／ 自習資料　夏期集中講座（第5回と第6回のあいだ）</div>
+  <h1 class="title">日銀が国債を買うと、世の中のお金は増えるのか ──<br>買いオペ・売りオペと信用創造</h1>
+  <div class="meta">
+    <span><b>配布</b>　2026年9月4日（金）</span>
+    <span><b>形式</b>　自習。問いは1つ。<b>次回（第6回・9月8日 火 16:20）までに、1行で答えを書いてくる</b></span>
+    <span><b>教材</b>　橘玲『プアジャパン ── インフレ世界を生き抜く資本戦略』（第4回で読んだ抜粋）</span>
+    <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
+  </div>
+  <div class="lede">
+    第4回（8/25）の§1 問4に、<strong>「水道の元栓を開けても、蛇口を開けなければ水は流れない」</strong>という比喩を置いた。余力問題だったので、教室では扱っていない。<br>
+    この自習資料は、その<strong>次の1歩</strong>だけをやる ── <strong>日銀が国債を買って、国債の値段が上がり、金利が下がった。そのとき、お金は増えたのか。</strong><br>
+    答えは書いていない。
+  </div>
+</header>
+
+<!-- ============ 本題 ============ -->
+<section class="topic" id="s2">
+  <span class="badge macro">自習 ── 問いは1つ</span>
+  <h2 class="thead">日銀が国債を買うと、世の中のお金は増えるのか</h2>
+  <p class="sub">著者は、日銀を<b>水道の元栓</b>にたとえている。<b>元栓を開けても、蛇口が開かなければ水は流れない。</b></p>
+
+  <h4>本に書いてあること ── 空欄は本から拾う</h4>
+  <ul class="cal" style="list-style:none">
+    <li><span class="d">読む順 7</span><span class="c"><b>買いオペ</b>　日銀が国債を <span class="blank">　　</span> → 通貨の発行量が <span class="blank">　　</span> → 金利が <span class="blank">　　</span>。<br><b>売りオペ</b>　その逆。<b>2行とも、本文から書き写すこと。</b></span></li>
+    <li><span class="d">読む順 8</span><span class="c"><b>信用創造</b>　銀行が <span class="blank">　　　　</span> とき、世の中のお金が増える。<br>著者はこう書いている ──<b>「お金とは <span class="blank">　　</span> である」。</b></span></li>
+    <li><span class="d">読む順 9</span><span class="c"><b>ベースマネー</b>（日銀がつくるお金）は 約 <span class="blank">　　</span>兆円 → 約 <span class="blank">　　　</span>兆円。<b>10倍以上。</b><br>ところが、うち <span class="blank">　　　</span>兆円は<b>「ブタ積み」</b>。</span></li>
+    <li><span class="d">読む順 9</span><span class="c"><b>マネーストック</b>（世の中に流れているお金・M3）の伸びは、同じ7年間で <span class="blank">　　</span>%程度。</span></li>
+  </ul>
+
+  <div class="callout" style="margin-top:22px">
+    <span class="lbl">問い ── これ1つ</span>
+    日銀は、国債を大量に買った。日銀がつくるお金は<b>10倍以上</b>になった。<br>
+    それなのに、<b>世の中に流れるお金はほとんど増えなかった。</b><br>
+    <b>── 日銀が国債を買っても増えないなら、世の中のお金は、いつ、誰が増やすのか。</b>
+  </div>
+  <div class="formula"><code><span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span></code></div>
+
+  <p><b>書き方の条件は2つ。</b><br>
+  ① <b>「信用創造」という言葉を使わずに</b>、1行で書くこと。言葉を覚えたかではなく、仕組みを説明できるかを見る。<br>
+  ② 日銀が買った国債の代金は、<b>どこへ行ったのか。</b>消えたわけではない。<b>いま、誰の口座にあるのか。</b></p>
+
+  <div class="src">
+    <b>SOURCES</b>
+    <ul>
+      <li><span class="st p3">書籍</span>橘玲『プアジャパン』プレジデント社。<b>数字はすべて書籍記載値。執筆時点のもの。</b></li>
+      <li><span class="st p1">一次</span>ベースマネー・マネーストック（M1・M2・M3）の実数は<b>日本銀行</b>が毎月公表している。金融政策の中身は日銀「金融政策決定会合」の公表資料。</li>
+      <li><span class="st p4">要確認</span>本の数字は執筆時点のもの。<b>いまの残高は日銀の公表値で自分で確かめる。</b></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="next"><b>宿題は1行</b>　上の空欄に入る1行を書いて、<b>次回（第6回・9月8日 火 16:20）</b>に持ってくること。</div>
+</footer>
+
+</div>
+</body>
+</html>

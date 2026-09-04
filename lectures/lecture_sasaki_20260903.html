@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>予想を超えたのに株が上がらない理由と、1.1倍は割安か</title>
+<meta name="description" content="2026年9月3日の個別指導（NVIDIA決算の読み方・ネットキャッシュ比率）で、自分の口で言えたことをそのまま復習クイズにした資料。コンセンサス・織り込み済み・押し目買い・ネットとグロス・ネットキャッシュ比率の向きを、答えを見る前に声に出して動かす（ケーススタディ 第5回・復習編）">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #f9f9f7;
+    --surface: #fcfcfb;
+    --surface-raised: #ffffff;
+    --ink: #141413;
+    --ink-2: #52514e;
+    --ink-muted: #898781;
+    --hairline: #e1e0d9;
+    --border: rgba(11, 11, 11, 0.10);
+    --accent: #2a78d6;
+    --accent-ink: #1c5cab;
+    --accent-wash: rgba(42, 120, 214, 0.08);
+    --good: #006300;
+    /* 三角形の3つの角 — この3色はページ全体で意味を固定する */
+    --fx: #2a78d6;      /* 為替 */
+    --price: #eb6834;   /* 物価 */
+    --rate: #1baf7a;    /* 金利 */
+    --fx-wash: rgba(42, 120, 214, 0.10);
+    --price-wash: rgba(235, 104, 52, 0.10);
+    --rate-wash: rgba(27, 175, 122, 0.10);
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --s4: #eda100;
+    --s-other: #898781;
+    --f1: #86b6ef;
+    --f2: #2a78d6;
+    --f3: #104281;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-raised: #222220;
+      --ink: #f4f3ef;
+      --ink-2: #c3c2b7;
+      --ink-muted: #898781;
+      --hairline: #2c2c2a;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #3987e5;
+      --accent-ink: #86b6ef;
+      --accent-wash: rgba(57, 135, 229, 0.14);
+      --good: #0ca30c;
+      --fx: #3987e5;
+      --price: #f07a44;
+      --rate: #199e70;
+      --fx-wash: rgba(57, 135, 229, 0.16);
+      --price-wash: rgba(240, 122, 68, 0.16);
+      --rate-wash: rgba(25, 158, 112, 0.16);
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --s4: #c98500;
+      --s-other: #898781;
+      --f1: #6da7ec;
+      --f2: #3987e5;
+      --f3: #184f95;
+      --grid: #2c2c2a;
+      --axis: #383835;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-raised: #222220;
+    --ink: #f4f3ef;
+    --ink-2: #c3c2b7;
+    --ink-muted: #898781;
+    --hairline: #2c2c2a;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #3987e5;
+    --accent-ink: #86b6ef;
+    --accent-wash: rgba(57, 135, 229, 0.14);
+    --good: #0ca30c;
+    --fx: #3987e5;
+    --price: #f07a44;
+    --rate: #199e70;
+    --fx-wash: rgba(57, 135, 229, 0.16);
+    --price-wash: rgba(240, 122, 68, 0.16);
+    --rate-wash: rgba(25, 158, 112, 0.16);
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s-other: #898781;
+    --f1: #6da7ec;
+    --f2: #3987e5;
+    --f3: #184f95;
+    --grid: #2c2c2a;
+    --axis: #383835;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.75;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; }
+
+  /* ---------- header ---------- */
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.14em; color: var(--accent-ink);
+    font-weight: 700; text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(30px, 5.4vw, 44px); font-weight: 800; line-height: 1.25;
+    letter-spacing: 0.01em; margin: 10px 0 14px; text-wrap: balance;
+  }
+  .lede { color: var(--ink-2); max-width: 40em; }
+  .lede strong { color: var(--ink); }
+  .meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+    border: 1px solid var(--hairline); background: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .chip em { font-style: normal; color: var(--accent-ink); }
+
+  .backlink { display: inline-block; font-size: 13px; font-weight: 700; color: var(--ink-muted);
+    text-decoration: none; margin-bottom: 16px; }
+  .backlink:hover { color: var(--accent-ink); }
+  @media print { .backlink { display: none; } }
+
+  /* ---------- series tabs ---------- */
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-top: 28px;
+    border-bottom: 1px solid var(--hairline);
+    overflow-x: auto; scrollbar-width: thin;
+  }
+  .tab {
+    flex: 0 0 auto; display: block; text-decoration: none;
+    padding: 10px 16px 9px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 8px 8px 0 0; margin-bottom: -1px;
+    font-size: 13.5px; font-weight: 700; color: var(--ink-muted);
+    white-space: nowrap; transition: color .12s ease, background .12s ease;
+  }
+  .tab small { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-muted); }
+  a.tab { color: var(--accent-ink); }
+  a.tab small { color: var(--ink-2); }
+  a.tab:hover { background: var(--accent-wash); }
+  a.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  a.tab .ext { font-weight: 500; font-size: 11px; }
+  .tab.is-current {
+    color: var(--ink); background: var(--surface);
+    border-color: var(--hairline); border-bottom: 1px solid var(--surface);
+  }
+  .tab.is-past { cursor: default; opacity: .55; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 56px; }
+  .step-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .step-time {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  h2 { font-size: 23px; font-weight: 800; line-height: 1.35; text-wrap: balance; }
+  h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  section > p, .card > p { color: var(--ink-2); max-width: 44em; }
+  section > p strong, .card p strong, li strong { color: var(--ink); }
+  .sec-note { font-size: 13px; color: var(--ink-muted); margin-top: 10px; }
+
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; margin-top: 18px; border-top: 1px solid var(--hairline); }
+  .agenda li {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 14px;
+    align-items: baseline; padding: 11px 4px; border-bottom: 1px solid var(--hairline);
+  }
+  .agenda .t { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13.5px; color: var(--accent-ink); }
+  .agenda .what { font-weight: 600; }
+  .agenda .what small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-muted); }
+  .agenda .min { font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+
+  /* ---------- cards / callout / recall ---------- */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px; margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-wash);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 18px;
+    max-width: 46em;
+  }
+  .callout p { color: var(--ink-2); }
+  .callout .q { font-weight: 700; color: var(--ink); }
+  .recalls { display: grid; gap: 10px; margin-top: 18px; }
+  .recall {
+    border: 1px dashed var(--axis); background: var(--surface);
+    border-radius: 10px; padding: 14px 18px; max-width: 46em;
+  }
+  .recall .who { font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; color: var(--ink-muted); }
+  .recall .said { font-weight: 700; color: var(--ink); margin-top: 2px; }
+  .recall .note { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+
+  /* ---------- KPI tiles ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; border-top: 3px solid var(--border);
+  }
+  .tile.fx { border-top-color: var(--fx); }
+  .tile.rate { border-top-color: var(--rate); }
+  .tile.price { border-top-color: var(--price); }
+  .tile .k { font-size: 12px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .tile .v { font-size: 25px; font-weight: 800; line-height: 1.3; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .tile .v small { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .tile .d { font-size: 12.5px; font-weight: 600; margin-top: 1px; color: var(--ink-2); }
+  .tile .d.up { color: var(--good); }
+  .unsure { color: var(--s2); font-weight: 700; }
+
+  /* ---------- formula ---------- */
+  .formula {
+    margin-top: 18px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; font-weight: 700; font-size: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  }
+  .formula .num { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .formula small { font-weight: 500; color: var(--ink-muted); flex-basis: 100%; font-size: 12.5px; }
+
+  /* ---------- charts / diagram ---------- */
+  figure { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 14px; }
+  figcaption { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .figsub { font-size: 12.5px; color: var(--ink-muted); margin-bottom: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .chart-scroll { overflow-x: auto; }
+  .chart-scroll svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  svg text { font-family: inherit; }
+  .diagram { color: var(--ink-muted); }
+  .src { font-size: 11.5px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- exercise ---------- */
+  .ex { margin-top: 18px; }
+  .ex .card { padding: 0; overflow: hidden; }
+  .ex-q { padding: 18px 22px 6px; }
+  .ex-q .no {
+    display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    border-radius: 4px; padding: 2px 8px; margin-bottom: 8px;
+  }
+  .ex-q p { color: var(--ink); font-weight: 600; max-width: 44em; }
+  .ex-q .hint { font-weight: 400; font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+  .qz-choices { list-style: none; counter-reset: qc; margin: 12px 22px 4px; padding: 0; display: grid; gap: 6px; max-width: 46em; }
+  .qz-choices li {
+    counter-increment: qc; position: relative; border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 8px 14px 8px 40px; font-size: 14px; color: var(--ink-2);
+  }
+  .qz-choices li::before {
+    content: counter(qc, upper-alpha); position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    font-weight: 800; font-size: 12.5px; color: var(--accent-ink);
+  }
+  details { border-top: 1px solid var(--hairline); margin-top: 14px; }
+  summary {
+    cursor: pointer; padding: 12px 22px; font-weight: 700; font-size: 13.5px;
+    color: var(--accent-ink); list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "\25B8  "; }
+  details[open] summary::before { content: "\25BE  "; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 6px; }
+  .ans { padding: 0 22px 18px; color: var(--ink-2); max-width: 46em; }
+  .ans .calc {
+    font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink);
+    background: var(--accent-wash); border-radius: 8px; padding: 10px 14px; margin: 8px 0 10px;
+    display: inline-block;
+  }
+
+  /* ---------- tables ---------- */
+  .tbl-scroll { overflow-x: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; background: var(--surface); font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td:first-child { font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td small { display: block; color: var(--ink-muted); font-size: 12px; }
+  .tbl-note { font-size: 12px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- discussion / glossary ---------- */
+  .qlist { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+  .qlist li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .qlist .q { font-weight: 700; }
+  .qlist .why { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  dl.gloss { margin-top: 16px; border-top: 1px solid var(--hairline); }
+  dl.gloss > div { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 12px 4px; border-bottom: 1px solid var(--hairline); }
+  @media (max-width: 560px) { dl.gloss > div { grid-template-columns: 1fr; gap: 2px; } }
+  dt { font-weight: 700; font-size: 14px; }
+  dt small { display: block; font-weight: 400; font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  dd { color: var(--ink-2); font-size: 14px; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 18px; font-size: 12.5px; color: var(--ink-muted); }
+  footer p { max-width: none; }
+  footer p + p { margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print {
+    body { background: #fff; }
+    .tabs { display: none; }
+    details { border-top: none; }
+    summary { display: none; }
+    .ans { padding-top: 0; }
+  }
+
+  /* ---------- 第4回で追加 ---------- */
+  .tile.debt { border-top-color: var(--s4); }
+  .device {
+    margin-top: 20px; border: 2px solid var(--accent); border-radius: 12px;
+    background: var(--accent-wash); padding: 18px 22px; max-width: 46em;
+  }
+  .device h3 { margin-top: 0; color: var(--accent-ink); }
+  .device .rule {
+    font-size: 19px; font-weight: 800; color: var(--ink); margin: 10px 0 6px;
+    letter-spacing: 0.01em;
+  }
+  .steps2 { list-style: none; counter-reset: st; display: grid; gap: 8px; margin-top: 12px; }
+  .steps2 li {
+    counter-increment: st; position: relative; padding-left: 34px; font-size: 14.5px; color: var(--ink-2);
+  }
+  .steps2 li::before {
+    content: counter(st); position: absolute; left: 0; top: 1px;
+    width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff;
+    font-size: 12.5px; font-weight: 800; display: grid; place-items: center;
+  }
+  .routes { display: grid; gap: 14px; margin-top: 20px; }
+  .route {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 22px; border-left: 4px solid var(--accent);
+  }
+  .route.r1 { border-left-color: var(--fx); }
+  .route.r2 { border-left-color: var(--rate); }
+  .route.r3 { border-left-color: var(--price); }
+  .route .rk {
+    font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; color: var(--ink-muted);
+  }
+  .route h3 { margin: 2px 0 8px; font-size: 17.5px; }
+  .chain {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px;
+    font-size: 13.5px; font-weight: 700; margin: 12px 0;
+  }
+  .chain span {
+    background: var(--surface-raised); border: 1px solid var(--hairline);
+    border-radius: 6px; padding: 4px 10px; white-space: nowrap;
+  }
+  .chain b { color: var(--ink-muted); font-weight: 800; }
+  .aims { display: grid; gap: 10px; margin-top: 18px; counter-reset: aim; }
+  .aim {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 15px 20px 15px 54px; position: relative; counter-increment: aim;
+  }
+  .aim::before {
+    content: "\7B56 " counter(aim); position: absolute; left: 14px; top: 15px;
+    font-size: 11px; font-weight: 800; color: var(--accent-ink);
+    background: var(--accent-wash); border-radius: 4px; padding: 3px 6px; line-height: 1.2;
+    writing-mode: horizontal-tb;
+  }
+  .aim .at { font-weight: 800; font-size: 15.5px; }
+  .aim p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .crit { border-left-color: var(--s2); }
+  .crits { display: grid; gap: 10px; margin-top: 16px; }
+  .crits .c2 {
+    background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--s2);
+    border-radius: 0 10px 10px 0; padding: 15px 20px;
+  }
+  .crits .c2 .ct { font-weight: 800; font-size: 15px; }
+  .crits .c2 p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .crits .c2 .who2 { font-size: 12.5px; color: var(--ink-muted); margin-top: 6px; font-weight: 600; }
+  .hw { margin-top: 18px; display: grid; gap: 12px; }
+  .hw .h1x {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;
+  }
+  .hw .h1x.must { border-color: var(--accent); border-left: 4px solid var(--accent); }
+  .hw .badge {
+    display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
+    border-radius: 4px; padding: 2px 8px; margin-right: 8px;
+  }
+  .hw .badge.m { background: var(--accent-wash); color: var(--accent-ink); }
+  .hw .badge.o { background: var(--hairline); color: var(--ink-muted); }
+  .hw ol.form { margin: 10px 0 0 20px; font-size: 14px; color: var(--ink-2); }
+  .hw ol.form li { margin-bottom: 4px; }
+  .hw ol.form li b { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="backlink" href="../sasaki.html">&larr; 講義資料の一覧へ</a>
+  <header>
+    <p class="eyebrow">ケーススタディ · 第5回（復習編）</p>
+    <h1>予想を超えたのに株が上がらない理由と、1.1倍は割安か</h1>
+    <p class="lede">9月3日の30分で、君は<strong>自分の口で</strong>ずいぶん多くのことを言えている。
+    NVIDIAの商品、EPSの意味、コンセンサス、押し目買い、負債の置き場所、ネットキャッシュ比率の式。
+    そして最後は、先生に答えを教わらずに<strong>「1.1倍は割安」まで自力で戻した</strong>。
+    このページは、その日に君が言ったことを<strong>そのまま問題にしたもの</strong>。
+    覚えているかを確かめるのではない。<strong>数字を入れても同じ答えが出るか</strong>を確かめる。</p>
+    <div class="meta-chips">
+      <span class="chip">2026年9月3日（木）実施分の復習</span>
+      <span class="chip">次回の冒頭 <em>7分</em> で使う</span>
+      <span class="chip">題材: <em>NVIDIA 2026年8月26日決算</em></span>
+      <span class="chip">全13問＋発展1問</span>
+    </div>
+
+    <nav class="tabs" aria-label="ケーススタディ シリーズ">
+      <span class="tab is-past" title="配布資料リンクなし（講義のみ）">第1回　メルカリ<small>GMVと営業損失</small></span>
+      <a class="tab" href="lecture_sasaki_20260817.html">第2回　ZOZOの決算を読む<small>受託販売とテイクレート <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260820.html">第3回　金利・為替・インフレ<small>三角形の一周 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260824.html">第4回　利払いが国防費を超えた国<small>国のPL <span class="ext">&#8594;</span></small></a>
+      <span class="tab is-current" aria-current="page">第5回　予想との差と1.1倍<small>9/3の復習クイズ（今回）</small></span>
+    </nav>
+  </header>
+
+  <!-- 使い方 -->
+  <section>
+    <h2>このページの使い方</h2>
+    <ol class="agenda">
+      <li><span class="t">まず</span><span class="what">§1を読む<small>9月3日に君が言った言葉を、そのまま並べてある。「もう持っている道具」の一覧</small></span><span class="min">3分</span></li>
+      <li><span class="t">つぎに</span><span class="what">§2〜§4のクイズを解く<small>答えを開く前に、必ず声に出す。4択でも「理由を先に」言ってから選ぶ</small></span><span class="min">15分</span></li>
+      <li><span class="t">次回冒頭</span><span class="what">先生が口頭で同じ問いを出す<small>合格ラインは「言えた」ではなく「動かせた」。数字を入れて同じ答えが出れば合格</small></span><span class="min">7分</span></li>
+    </ol>
+    <p class="sec-note">電卓（スマホで可）を手元に。Q7・Q11は計算がある。</p>
+  </section>
+
+  <!-- 1. 言えたこと -->
+  <section>
+    <div class="step-head"><span class="step-time">§1</span><h2>9月3日に、君が自分で言えたこと</h2></div>
+    <p>文字起こしから、君の発言だけを抜いた。先生が言った言葉ではない。<strong>ここに並んでいるものは、もう君の道具である。</strong>
+    下線は、そのあとのクイズで問い直す箇所。</p>
+
+    <div class="recalls">
+      <div class="recall">
+        <p class="who">佐々木くん · 冒頭</p>
+        <p class="said">「今日送られてきた資料は自分なりにやってみました」</p>
+        <p class="note">予習をしてきた。前回のゼミの復習ページ（10問）を解いたうえで、疑問を1つ持ち込んだ。<strong>「決算がいいからといって、株が絶対に上がるわけではない」</strong>── この自答が、この回の出発点。</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:07</p>
+        <p class="said">「NVIDIAは<u>半導体</u>です」</p>
+        <p class="note">即答。商品は言えた。<strong>ただし「誰に売っているか」は出てこなかった。</strong>→ Q1・Q2</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:10</p>
+        <p class="said">「EPSはアーニングパーシェアです」「<u>一株当たりの当期純利益</u>」</p>
+        <p class="note">略も意味も即答。→ Q7 で数字を入れる。</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:12</p>
+        <p class="said">「コンセンサスは、複数の人や関係者の<u>意見が一致する</u>こと」</p>
+        <p class="note">一般の意味は言えた。決算の世界では<strong>「誰の意見」を「どう集めた」ものか</strong>まで言えると道具になる。→ Q3・Q4</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:16</p>
+        <p class="said">「僕は<u>割高じゃない株</u>を買いたいです」</p>
+        <p class="note">先生「素晴らしい」。バリュー投資家の入口。<strong>割高かどうかを、どの数字で判定するか</strong>が後半のネットキャッシュ比率につながる。→ Q12</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:21</p>
+        <p class="said">「（押し目買い）覚えてます」</p>
+        <p class="note">前回までの語彙が残っている。ただし<strong>自分の言葉で説明はしていない</strong>。→ Q6</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:22</p>
+        <p class="said">「ネットキャッシュ比率は……流動資産足す投資有価証券かける70パー引く、負債。<u>1倍を超えると、市場評価よりも中の現金の方が多い</u>」</p>
+        <p class="note">式をほぼ完全に暗唱できた。<strong>これがこの回の土台。</strong>→ Q10・Q11・Q12 で「動かす」。</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:23〜00:24</p>
+        <p class="said">「（ネットとは）<u>差し引き</u>したということですか」「（グロスとは）手数料など引く前の<u>総額</u>」</p>
+        <p class="note">どちらも調べたうえで、自分の言葉で到達した。先生の例は<strong>消費税込み110円がグロス、税抜き100円がネット</strong>。→ Q8</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:26〜00:27</p>
+        <p class="said">「BSは資産で（左側）」「負債は<u>BSの右側の上</u>です」</p>
+        <p class="note">即答。式の3つの項目がBSのどこにあるかは、もう言える。→ Q9</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:29</p>
+        <p class="said">「（全部の株を買うと）<u>取締役会を置く</u>ことができます」</p>
+        <p class="note">惜しい。先生の直しは「置く」ではなく<strong>「支配する」</strong>。取締役会はもともと置いてあって、そこに自分の味方を送り込める。→ Q13</p>
+      </div>
+    </div>
+
+    <div class="device">
+      <h3>★ この回でいちばん大きかった場面 ── 1.1倍は割安か、割高か</h3>
+      <p>ネットキャッシュ440億円、時価総額400億円。先生の問いに、君の答えはこう動いた。</p>
+      <div class="chain">
+        <span>「割安です」</span><b>&rarr;</b>
+        <span>「1.1は1を割ってない……少し割高です」</span><b>&rarr;</b>
+        <span>「1.1だと会社の中身の方が大きい」</span><b>&rarr;</b>
+        <span>「割安ですか」</span><b>&rarr;</b>
+        <span>「買いですね」</span>
+      </div>
+      <p><strong>先生は「割安」とも「割高」とも言っていない。</strong>したことは「会社に残る現金と時価総額、<strong>どっちが大きい</strong>」と分子と分母を並べ直させただけ。
+      そこから君は、<strong>式の定義（分子＝会社の中身／分母＝市場のつけた値段）に戻って、自分で直した。</strong></p>
+      <p class="rule">式を言えた。次は、式を動かす。</p>
+      <p>一度で入ったのか、その場だけだったのかは、<strong>Q12を同じ数字でもう一度やって確かめる。</strong></p>
+    </div>
+  </section>
+
+  <!-- 2. 予想との差 -->
+  <section>
+    <div class="step-head"><span class="step-time">§2 · Q1–Q6</span><h2>予想との差だけが値段を動かす ── 9/3 の前半</h2></div>
+    <p>「売上予想よりも高くて、なんで株が上がらないのか」── 君の持ち込んだ疑問を、6問に分けた。
+    <strong>まず自分で選び、理由を声に出してから「答えを見る」を開くこと。</strong></p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q1</span><p>NVIDIAは何を売っている会社か。</p></div>
+        <ol class="qz-choices">
+          <li>半導体（AI向けのチップ）</li>
+          <li>スマートフォン</li>
+          <li>検索エンジンの広告枠</li>
+          <li>電力</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: A</p>
+          <p>9/3に即答できた。これはもう持っている。<strong>問題は次のQ2。</strong></p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q2</span><p>そのチップを、<strong>誰に</strong>売っているか。売上の大半を占める「お客さん」はどれか。</p>
+        <p class="hint">ヒント: 9/1のゼミでやった「AIサプライチェーン」の、NVIDIAのひとつ上のレイヤー</p></div>
+        <ol class="qz-choices">
+          <li>ゲームをする一般の消費者</li>
+          <li>ハイパースケーラー（自前の巨大データセンターを持つIT大手。Google・Microsoft・Amazonなど）</li>
+          <li>証券会社</li>
+          <li>各国の政府</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+          <p>9/3で唯一、詰まった問い。「何を売っているか」は言えたのに「誰に」が出なかった。<br>
+          <strong>売上 ＝ 単価 × 顧客数</strong>（8/20に君が自分で言った式）。<strong>顧客が言えないと、売上の予想は作れない。</strong>
+          アナリストは、ハイパースケーラー各社が発表する「データセンターにいくら投資するか」を見て、そのうち何割がNVIDIAに落ちるかを推計している。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q3</span><p>決算前に出回る「売上予想」「株価予想」を作っているのは、主に誰か。</p></div>
+        <ol class="qz-choices">
+          <li>その会社の株主</li>
+          <li>証券会社のアナリスト（調査部門）</li>
+          <li>NVIDIAの社長</li>
+          <li>日本銀行</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+          <p>9/3では「株主です」と答えた。<strong>株主や市場参加者の売買は、リアルタイムで株価そのもの</strong>であって、事前の「予想」ではない。
+          事前の予想を作っているのは、証券会社の中で株を売る部門とは別の<strong>アナリスト</strong>。売買の損得からは切り離されている。<br>
+          ただし先生の言う「大人の事情」── 証券会社は株を買ってもらわないと儲からないので、<strong>アナリストは「下がる」とは言いにくい立場</strong>にある。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q4</span><p>決算の世界で言う「コンセンサス」は、次のどれか。</p></div>
+        <ol class="qz-choices">
+          <li>いちばん強気なアナリスト1人の予想</li>
+          <li>複数の証券会社のアナリスト予想を集めて、平均や中央値にしたもの</li>
+          <li>会社自身が発表した業績目標</li>
+          <li>前の年の実績そのもの</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+          <p>君の言った「複数の人の意見が一致すること」は正しい。決算では<strong>「誰の（＝アナリストの）」「どう集めた（＝平均・中央値）」</strong>まで言えると道具になる。
+          発表直前まで「売上のコンセンサスはこれくらい」「株価のコンセンサスはこれくらい」が出ていて、<strong>実績はそれと比べられる。</strong>
+          8月26日のNVIDIAは、売上高 962億ドル（一次情報）に対して、市場予想は約922億ドル（報道ベース）。予想は上回った。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q5</span><p>予想を上回ったのに、発表当日の株価は約2%下がった。<strong>「織り込み済み」という言葉を使って、1文で説明しなさい。</strong>調べずに、自分の言葉で。</p>
+        <p class="hint">9/3では調べて読み上げた。9/1のゼミ資料で「落とさない4つ」の筆頭に置かれていた言葉</p></div>
+        <details><summary>合格ラインを見る</summary><div class="ans"><p class="calc">「良い決算になることは事前に予想されていて、すでに株価に反映されていた（＝織り込み済み）から、発表そのものにサプライズがなく、当日に新しく買う人が増えなかった」</p>
+          <p>値段を動かすのは<strong>実績ではなく、実績と予想との差</strong>。差が小さければ、どんなに良い数字でも当日の株価は動かない。
+          「予想よりもだいぶ上回らないと、当日の株価は上がらない」── ここまで言えたら合格。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q6</span><p>翌8月27日、株価は一転して約8.7%上がった。このとき買った人の動きを何と呼ぶか。またその人たちは、何を根拠に買ったか。</p></div>
+        <ol class="qz-choices">
+          <li>押し目買い ── 一時的に下がったところを「まだ割安だ」と見て買う。根拠は市場の伸びしろ（ファンダメンタル）</li>
+          <li>追随買い ── 上がり始めたのを見て追いかけて買う。根拠は勢い</li>
+          <li>空売り ── 下がると見て、借りた株を売る</li>
+          <li>自社株買い ── NVIDIA自身が自分の株を買う</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: A</p>
+          <p>9/3で「覚えてます」と言った言葉。説明まで言えるように。<br>
+          株価には<strong>人気投票の部分</strong>と<strong>理論上の価値（ファンダメンタル）の部分</strong>がある。当日の2%安は人気投票側の反応。
+          「AIはまだアーリーアダプターの段階で、市場はまだ伸びる」と見る人が、下がったところを買う。それが押し目買い。時間が経つとまた上がる ── というのが先生の説明したメカニズム。<br>
+          2%安・8.7%高は報道ベースの数字。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 言葉とBS -->
+  <section>
+    <div class="step-head"><span class="step-time">§3 · Q7–Q9</span><h2>言葉の置き場所 ── EPS・ネットとグロス・BSの左右</h2></div>
+    <p>後半の式を動かす前に、部品を3つ確認する。全部、9/3に君が自分で言えたものだ。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q7</span><p>ある会社の当期純利益が100億円、発行している株式数が5億株。EPSはいくらか。</p>
+        <p class="hint">ヒント: 9/3に君が言った「一株当たりの当期純利益」を、そのまま式にする</p></div>
+        <ol class="qz-choices">
+          <li>20円</li>
+          <li>500円</li>
+          <li>0.05円</li>
+          <li>5億円</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">100億円 ÷ 5億株 ＝ 20円 → 正解: A</p>
+          <p>EPS（Earnings Per Share）＝ 当期純利益 ÷ 発行株式数。株数は開示されているファクトなので、<strong>純利益の予想が出ればEPSの予想が出る。</strong>
+          EPSが上がれば配当も増える見込みになるので、買う人が増える → 需要が高まる → 株価が上がる、と予想がつながる。
+          言葉が言えたら、次は<strong>数字を入れる。</strong></p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q8</span><p>消費税込みの値段が110円、税抜きの値段が100円。<strong>ネット</strong>の金額はどちらか。</p></div>
+        <ol class="qz-choices">
+          <li>110円がネット、100円がグロス</li>
+          <li>100円がネット、110円がグロス</li>
+          <li>差額の10円がネット</li>
+          <li>どちらもグロス</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+          <p>君の言葉そのまま ── <strong>ネット＝差し引きしたあと、グロス＝差し引く前の総額。</strong>
+          だから「ネットキャッシュ」は<strong>「差し引きしたあとの現金」</strong>。何から何を差し引くかが、次のQ9・Q10。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q9</span><p>ネットキャッシュ ＝ 流動資産 ＋ 投資有価証券×70% − 負債総額。この3つの項目のうち、<strong>BSの右側</strong>にあるのはどれか。</p></div>
+        <ol class="qz-choices">
+          <li>流動資産</li>
+          <li>投資有価証券</li>
+          <li>負債総額</li>
+          <li>3つとも左側</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: C（右側の上）</p>
+          <p>9/3に即答した「負債はBSの右側の上」。左側の資産のうち、<strong>流動資産</strong>は1年以内に現金化できるもの（現金・売掛金・ふつうの株など）。
+          <strong>投資有価証券</strong>は子会社や未上場の株など、すぐには現金にしにくいもの。だから70%を掛けて割り引く。
+          そこから、1年以内に払わなければならない債務を含む<strong>負債総額</strong>を引く。残りが「会社が持っている現金に近い価値」。<br>
+          70%は清原達郎氏の実務上の掛け目で、根拠のある定数ではない。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 式を動かす -->
+  <section>
+    <div class="step-head"><span class="step-time">§4 · Q10–Q13</span><h2>ネットキャッシュ比率を動かす ── 9/3 の後半</h2></div>
+    <p>ここからが本番。<strong>式は言えた。次は数字を入れて、向きを間違えずに答える。</strong>
+    Q12は9/3と同じ数字で出す。同じ数字で二度目も詰まるなら、覚えているのは結論であって向きではない。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q10</span><p>ネットキャッシュ比率の式を書きなさい。そのうえで、<strong>分子と分母は、それぞれ「何の値段」か。</strong></p>
+        <p class="hint">9/3で君は「時価総額を差し引いて本当の価値を計算する」と言った。先生の直しは「差し引きじゃなくて割り算」</p></div>
+        <details><summary>合格ラインを見る</summary><div class="ans">
+          <p class="calc">ネットキャッシュ比率 ＝ ネットキャッシュ ÷ 時価総額<br>ネットキャッシュ ＝ 流動資産 ＋ 投資有価証券×70% − 負債総額</p>
+          <p><strong>分子（ネットキャッシュ）＝ 会社の中身。</strong>BSから作る。BSは決算期末の時点の数字。<br>
+          <strong>分母（時価総額）＝ 市場がその会社につけた値段。</strong>株価×株式数。ある日の終値の数字。<br>
+          つまり「中身」を「他人のつけた値札」で<strong>割っている</strong>。引き算ではない。
+          時点の違う2つの数字を割っていると言えたら上出来。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q11</span><p>ある会社（設例）。流動資産 800億円、投資有価証券 200億円、負債総額 500億円。ネットキャッシュはいくらか。</p>
+        <p class="hint">ヒント: 投資有価証券には70%を掛ける</p></div>
+        <ol class="qz-choices">
+          <li>440億円</li>
+          <li>500億円</li>
+          <li>640億円</li>
+          <li>300億円</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">800 ＋ 200×0.7 − 500 ＝ 800 ＋ 140 − 500 ＝ 440億円 → 正解: A</p>
+          <p>これが9/3の「ネットキャッシュ440億円」の出どころ（9/1ゼミの復習ページの設例と同じ数字。実在の会社ではない）。
+          式を暗唱できたら、こうやって<strong>自分で数字を入れて出す。</strong></p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q12</span><p>Q11の会社の時価総額が400億円だった。ネットキャッシュ比率は約1.1倍。<strong>割安か、割高か。理由を先に言ってから答えなさい。</strong></p>
+        <p class="hint">9/3と同じ数字。「割安 → 割高 → 割安」と振れた問い</p></div>
+        <ol class="qz-choices">
+          <li>割高。1倍を超えているから</li>
+          <li>割安。会社の中身（440億円）のほうが、市場のつけた値段（400億円）より大きいから</li>
+          <li>割高。時価総額のほうが大きいから</li>
+          <li>比率だけでは何も言えない</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B（理由が先に出れば合格。答えだけ当たっても不合格）</p>
+          <p>「1.1は1を割っているか」で考えると振れる。<strong>分子と分母を並べて「どっちが大きい」で考える。</strong><br>
+          400億円で市場の株を全部集めれば、440億円の現金が手に入る。差し引き40億円のプラス。
+          <strong>市場は、会社の中身より安い値札をつけている</strong>＝割安。
+          9/3で君が自力でたどり着いた道筋そのもの ──「会社の中身の方が大きい」→「割安」→「買い」。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q13</span><p>400億円で、その会社の株を100%買い集めた。株主として何ができるようになるか。</p></div>
+        <ol class="qz-choices">
+          <li>取締役会を新しく置くことができる</li>
+          <li>取締役会を支配できる。自分の味方を取締役として送り込み、会社の現金を配当で出す・会社を解散する、といった決定ができる</li>
+          <li>社員を全員解雇しなければならない</li>
+          <li>株主にできることは配当を受け取ることだけ</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+          <p>9/3の君の答えは「取締役会を置く」。惜しい。<strong>取締役会はもともと置いてある。</strong>
+          100%持てば、そこに<strong>自分の意思に賛同する人を送り込める＝支配できる</strong>。
+          だから「会社の中の現金を全部株主に配当として出そう」と決められて、440億円が手に入る。
+          先生の締めはこうだった ── 労働者はPLの販管費（人件費）から毎年もらう。投資家は<strong>支配権（＝株式）</strong>から入る。
+          ネットキャッシュ比率は、その入口の指標。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">発展</span><p>では、ネットキャッシュ比率が1倍を超えていれば、<strong>必ず買いか。</strong>「いいえ」なら、何が足りないか。</p>
+        <p class="hint">Q12が理由から言えた人だけ。9/1ゼミのチーム宿題 問3と同じ問い。「安全余裕率」の言葉で答える</p></div>
+        <details><summary>考え方を見る</summary><div class="ans">
+          <p class="calc">いいえ。「中身のほうが大きい」は、割安の候補であって、買いの結論ではない</p>
+          <p>現金を貯め込んでいるだけで、それを株主に還元する動き（配当・自社株買い）がなければ、<strong>市場の値札はいつまでも中身に近づかない。</strong>
+          自分の計算した中身と、市場の値札の差（＝安全余裕率）が、<strong>自分の計算が間違っていても損をしない幅</strong>になっているか。
+          そして、その差が縮まる「きっかけ」があるか。ここまで言えたら、9/1のチーム宿題に自分で答えられる。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 宿題 -->
+  <section>
+    <h2>次回までの宿題</h2>
+    <div class="hw">
+      <div class="h1x must"><span class="badge m">必須</span><strong>気になる会社を1社選び、決算短信のBSの数字をQ10の式に入れて、ネットキャッシュ比率を1つ出して持ってくる。</strong></div>
+    </div>
+    <p class="sec-note">数字の出どころは会社のIRページ（決算短信）か EDINET。時価総額は「ある日の終値 × 株式数」なので、その日付も書いておくこと。</p>
+  </section>
+
+  <!-- 用語 -->
+  <section>
+    <h2>用語ミニ辞典 ── 9/3に出た言葉だけ</h2>
+    <dl class="gloss">
+      <div><dt>アナリスト<small>証券会社の調査部門</small></dt><dd>決算前に売上・利益・株価の予想を出す人。株を売るセールス部門とは別。売買の損得は無いが、「下がる」とは言いにくい立場。</dd></div>
+      <div><dt>コンセンサス<small>consensus</small></dt><dd>各社アナリストの予想を集めて平均・中央値にしたもの。「予想との差」というときの「予想」はこれ。自治会や委員会でも「そろそろコンセンサス取らないと」と使える。</dd></div>
+      <div><dt>織り込み済み<small>priced in</small></dt><dd>その情報が、すでに株価に反映され終えている状態。織り込み済みのニュースは、現実になっても値段を動かさない。</dd></div>
+      <div><dt>押し目買い</dt><dd>一時的に下がったところを「まだ割安」と見て買うこと。根拠は市場の伸びしろ（ファンダメンタル）。</dd></div>
+      <div><dt>EPS<small>Earnings Per Share</small></dt><dd>一株当たりの当期純利益 ＝ 当期純利益 ÷ 発行株式数。株主がいちばん気にする指標。</dd></div>
+      <div><dt>ネット／グロス<small>net / gross</small></dt><dd>ネット＝差し引きしたあと。グロス＝差し引く前の総額。税抜き100円がネット、税込み110円がグロス。</dd></div>
+      <div><dt>ネットキャッシュ</dt><dd>流動資産 ＋ 投資有価証券×70% − 負債総額。会社が持っている「現金に近い価値」から、払わなければならない債務を引いた残り。円やドルの金額で出る。</dd></div>
+      <div><dt>ネットキャッシュ比率</dt><dd>ネットキャッシュ ÷ 時価総額。1倍を超えると、市場のつけた値段より会社の中身のほうが大きい。清原達郎氏の投資手法として紹介された。</dd></div>
+      <div><dt>時価総額</dt><dd>株価 × 発行株式数。市場がその会社につけている値段。この金額で株を全部買えば、会社を支配できる。</dd></div>
+      <div><dt>ハイパースケーラー</dt><dd>自前の巨大データセンターを持つIT大手。Google・Microsoft・Amazon など。NVIDIAのチップの主な買い手。</dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <p><strong>一次情報として確認できるもの:</strong> NVIDIA 2027会計年度 第2四半期 決算発表（2026年8月26日）── 売上高 962億ドル（前年同期比 約2倍）。原本は SEC EDGAR の Form 10-Q および同社IRページ。</p>
+    <p><strong>報道ベース（二次情報）:</strong> 市場予想（コンセンサス）約922億ドル、発表当日の株価 約2%安、翌8月27日 約8.7%高 ── いずれも日本経済新聞（2026年8月26日・27日）。</p>
+    <p><strong>授業中の設例:</strong> ネットキャッシュ440億円／時価総額400億円／比率 約1.1倍、およびQ7・Q11の数字は<strong>説明のための仮の数値</strong>で、実在の会社の数字ではない。投資有価証券に掛ける70%は清原達郎氏の実務上の掛け目であり、根拠のある定数ではない。負債総額で引くか有利子負債で引くかは人によって違う。</p>
+    <p>本資料は2026年9月3日の個別指導の文字起こしをもとに作成した復習用教材で、投資勧誘を目的とするものではありません。次回の日程は別途調整。</p>
+  </footer>
+</div>
+
+</body>
+</html>
