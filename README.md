@@ -22,6 +22,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
+| 自習資料 | 2026-09-04 配布 | 日銀が国債を買うと、世の中のお金は増えるのか ── 買いオペ・売りオペと信用創造（橘玲『プアジャパン』。問い1つ、答えなし。第6回 9/8 までに1行） | [HTML](lectures/lecture_20260904.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260904.html) |
 | 夏期 第5回 | 2026-09-01 | 予想との差だけが値段を動かす ── NVIDIAは買いか／Anthropicの上場／9月の中間決算 | [HTML](lectures/lecture_20260901.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260901.html) |
 | 夏期 第4回 | 2026-08-25 | バリュー投資（シケモク投資家とリンチ・チャート）と金利と為替（橘玲『プアジャパン』） | [HTML](lectures/lecture_20260825.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260825.html) |
 | 夏期 第3回 | 2026-08-18 | 上場が答え合わせをする夏 ― SpaceX、Anthropic、そして「電力」という首 | [HTML](lectures/lecture_20260818.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260818.html) |
