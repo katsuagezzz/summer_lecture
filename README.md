@@ -48,6 +48,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
+| 第5回（復習編） | 2026-09-03 | 予想を超えたのに株が上がらない理由と、1.1倍は割安か ― 9/3実施分の文字起こしから作った復習クイズ13問＋発展1問 | [HTML](lectures/lecture_sasaki_20260903.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260903.html) |
 | 第4回 | 2026-08-24 | 利払いが国防費を超えた国 ― ベッセントの米国債買い戻しと、日本の財布 | [HTML](lectures/lecture_sasaki_20260824.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260824.html) |
 | 第3回 | 2026-08-20 | 金利・為替・インフレの関係性 ― 輸入物価+29.1%は、どこで+1.6%になったのか | [HTML](lectures/lecture_sasaki_20260820.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260820.html) |
 | 第2回 | 2026-08-17 | ZOZOの決算を読む ― 受託販売とテイクレート | [HTML](lectures/lecture_sasaki_20260817.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260817.html) |
