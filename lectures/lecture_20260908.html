@@ -354,14 +354,14 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
   </div>
   <div class="lede">
-    今回は3つ。<strong>①9/1の復習クイズ5問</strong>（教室で実際に出たやり取りから）。<strong>②米中間選挙</strong>（投票日11/3まで8週間。世論・予測市場・議会と関税の関係）。<strong>③信用取引</strong>（現物買い＋信用売りのクロスで優待を受け取る手法を通して、仕組みとコストを押さえる）。<br>
-    ②は第5回の式 <strong>値段が動く幅 ＝ 事実 − 織り込まれていた予想</strong> で切る。③は設例に数字を入れて、何が残り、何が残らないかを出す。
+    今回は3つ。<strong>①9/1の復習クイズ5問</strong>（教室で実際に出たやり取りから）。<strong>②米中間選挙</strong>（投票日11/3まで8週間。世論・予測市場・議会と関税の関係）。<strong>③信用取引</strong>（8/31 に実際に組んだ優待クロス、8508 Jトラスト100株を材料に、仕組みとコストを押さえる）。<br>
+    ②は第5回の式 <strong>値段が動く幅 ＝ 事実 − 織り込まれていた予想</strong> で切る。③は実例に数字を入れて、何が残り、何が残らないかを出す。
   </div>
 </header>
 
 <div class="callout" style="margin:0 0 22px">
   <span class="lbl">自習の進め方 ── 配布 9/4（金） → 授業 9/8（火）16:20</span>
-  <b>読むのは §0 と §2 の設例</b>。§0 の5問は各自で答えを書いておく（提出不要）。§2 の表は授業で埋める。<br>
+  <b>読むのは §0 と §2 の実例</b>。§0 の5問は各自で答えを書いておく（提出不要）。§2 の表は授業で埋める。<br>
   <b>宿題は1行</b>（<a href="#hw">こちら</a>）。提出は 9/8（火）12:00 Slack、HTML1枚。<br>
   <b>持ってくるもの</b>　自チームの<a href="#pf">TradingView</a>の画面。前回比の数字は授業前にSlackへ1行。<br>
   <b>9/4配布の<a href="lecture_20260904.html">自習資料</a>の答え（1行）</b>も当日出す。<br>
@@ -373,7 +373,7 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
   <ol>
     <li><a href="#s0">復習クイズ（9/1）</a> <span class="s">― 5問。教室で出た事実から</span></li>
     <li><a href="#s1">米中間選挙の現在地</a> <span class="s">― 日程・議席・世論・予測市場・関税</span></li>
-    <li><a href="#s2">信用取引</a> <span class="s">― 現物買い＋信用売りのクロスで優待は残るか</span></li>
+    <li><a href="#s2">信用取引</a> <span class="s">― 8508 Jトラスト100株の優待クロスで、何が残るか</span></li>
     <li><a href="#pf">チーム別ポートフォリオ報告</a> <span class="s">― 3点固定＋競合比較の持ち越し</span></li>
     <li><a href="#hw">宿題（全員共通）</a> <span class="s">― 1行</span></li>
     <li><a href="#s7">当日の進行</a> <span class="s">― 16:20開始・90分</span></li>
@@ -492,11 +492,11 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
 <section class="topic" id="s2">
   <span class="badge corp">今回の中心 ②</span>
   <h2 class="thead">信用取引 ── 現物買い＋信用売りのクロスで、優待は残るか</h2>
-  <p class="sub">証券会社から株を借りて売る「信用売り」を、現物買いと組み合わせる。株価がどちらに動いても損益は相殺され、株主優待だけが手元に残る、と説明される手法（優待クロス・つなぎ売り）。この手法を通して信用取引の仕組みを押さえる。</p>
+  <p class="sub">実例で学ぶ。<b>8508 Jトラスト、100株。8/31（月）大引けの引け成りクロス。</b>証券会社から株を借りて売る「信用売り」を現物買いと同時に組み、株価がどちらに動いても損益を相殺して、株主優待だけを受け取る手法（優待クロス）。</p>
 
   <div class="quote">
     大引け15時30分に現物買いと信用売りをセットでクロス注文。プラスマイナスゼロ＝株価変動リスクをゼロにして優待をもらう手法。本当は寄付クロスが良いけど、今日は時間的に引け成りクロスしかできなかった。
-    <span class="src2">ある投稿より（要旨）。この1段落に、今日の材料が全部入っている。</span>
+    <span class="src2">8/31 の投稿（要旨）。この1段落に今日の材料が全部入っている。</span>
   </div>
 
   <h3>1. 信用取引とは</h3>
@@ -509,7 +509,7 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
       <tr><td class="h">倍率</td><td>保証金の約3.3倍まで取引できる</td></tr>
       <tr><td class="h">返済の期限</td><td>制度信用は<b>6か月</b>。一般信用は証券会社ごと（無期限のものもある）</td></tr>
       <tr><td class="h">返済の方法</td><td>反対売買（買い戻す・売る）か、<b>現渡し</b>（持っている現物を渡して信用売りを消す）</td></tr>
-      <tr><td class="h">コスト</td><td>買い方：金利。売り方：<b>貸株料</b>、<b>逆日歩</b>（制度信用のみ）、<b>配当落調整金</b>（配当相当額を払う）</td></tr>
+      <tr><td class="h">コスト</td><td>買い方：金利。売り方：<b>貸株料</b>、<b>逆日歩</b>（制度信用のみ）、<b>配当落調整金</b>（配当の権利日をまたぐとき）</td></tr>
     </tbody>
   </table>
   </div>
@@ -521,73 +521,85 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
       <tr><td class="h">ルールを決める人</td><td>取引所</td><td>証券会社</td></tr>
       <tr><td class="h">売れる銘柄</td><td>取引所が選ぶ（貸借銘柄）</td><td>証券会社が在庫を持つ銘柄。<b>先着</b></td></tr>
       <tr><td class="h">期限</td><td>6か月</td><td>証券会社ごと（短期・無期限）</td></tr>
-      <tr><td class="h">逆日歩</td><td><b>あり。上限なし。金額は翌日以降に判明</b></td><td>なし</td></tr>
+      <tr><td class="h">逆日歩</td><td><b>あり。上限は最高料率で決まる。実額は翌営業日以降に判明</b></td><td>なし</td></tr>
       <tr><td class="h">貸株料（年率）</td><td>約1.15%</td><td>約1.1〜3.9%（短期ほど高い）</td></tr>
       <tr><td class="h">配当落調整金（売り方が払う）</td><td>配当の84.685%</td><td>配当の100%</td></tr>
     </tbody>
   </table>
   </div>
-  <p class="unsure">数字は証券各社の公表値。会社によって細部が違う。</p>
+  <p class="unsure">数字は法令と証券各社の公表値。会社によって細部が違う。</p>
 
-  <h3>2. 優待クロスの手順</h3>
-  <ol class="chain">
-    <li><b>権利付最終日（9/28）まで</b>に、同じ銘柄・同じ株数で「現物買い」と「信用売り」を同時に出す。これが<b>クロス注文</b></li>
-    <li>寄付の成行で出せば<b>両方が始値で約定</b>する（寄付クロス）。大引け15:30の引け成りで出せば<b>両方が終値で約定</b>する（引け成りクロス）</li>
-    <li>権利付最終日の大引けを持ち越す。この時点で現物の株主になる</li>
-    <li><b>権利落ち日（9/29）以降</b>に「現渡し」で信用売りを返済する。買った現物を渡すので、売買せずに両建てが消える</li>
-    <li>優待は現物の株主として受け取る（到着は2〜3か月後）</li>
-  </ol>
-
-  <h3>3. 設例 ── 数字を入れる</h3>
-  <p>株価3,000円×100株＝30万円。優待は3,000円相当。配当は1株30円（100株で3,000円）。一般信用の貸株料は年1.1%、持つのは5日。数字は説明のための仮の値。</p>
+  <h3>2. 実例 ── 8508 Jトラスト、100株</h3>
   <div class="tblwrap">
-  <table class="surp">
-    <thead><tr><th>項目</th><th>現物（買い）</th><th>信用（売り）</th><th>合計</th></tr></thead>
+  <table class="cmp">
+    <thead><tr><th>項目</th><th>事実</th><th>出典</th></tr></thead>
     <tbody>
-      <tr><td class="h">株価が 2,700円 に下がった</td><td class="num neg">−30,000円</td><td class="num pos">＋30,000円</td><td class="num">0</td></tr>
-      <tr><td class="h">株価が 3,300円 に上がった</td><td class="num pos">＋30,000円</td><td class="num neg">−30,000円</td><td class="num">0</td></tr>
-      <tr><td class="h">配当（税引後 79.685%）</td><td class="num pos">＋2,391円</td><td class="num">─</td><td class="num">＋2,391円</td></tr>
-      <tr><td class="h">配当落調整金（一般信用 100%）</td><td class="num">─</td><td class="num neg">−3,000円</td><td class="num neg">−3,000円</td></tr>
-      <tr><td class="h">貸株料（年1.1%・5日）</td><td class="num">─</td><td class="num neg">−45円</td><td class="num neg">−45円</td></tr>
-      <tr><td class="h">売買手数料</td><td class="num"><span class="fill">記入</span></td><td class="num"><span class="fill">記入</span></td><td class="num"><span class="fill">記入</span></td></tr>
-      <tr><td class="h">優待</td><td class="num pos">＋3,000円相当</td><td class="num">─</td><td class="num pos">＋3,000円相当</td></tr>
-      <tr><td class="h"><b>手元に残るもの</b></td><td class="num"></td><td class="num"></td><td class="num"><span class="fill">記入</span></td></tr>
+      <tr><td class="h">銘柄</td><td>Jトラスト（8508、東証スタンダード）。信用保証・債権回収、韓国・東南アジアの銀行</td><td><span class="st p1">一次</span>会社IR</td></tr>
+      <tr><td class="h">優待</td><td><b>特別株主優待。基準日 9/2（水）に100株以上で、一律 最大1万円相当のデジタルギフト。今回限り。</b>交換先（ポイント・ギフト券）によって手数料がかかり、その分は減る</td><td><span class="st p1">一次</span>会社IR／<span class="st p2">報道</span>ダイヤモンド・ザイ</td></tr>
+      <tr><td class="h">日程</td><td>権利付最終日 <b>8/31（月）</b>／権利落ち日 9/1（火）／基準日 9/2（水）。変則日程</td><td><span class="st p1">一次</span>会社IR</td></tr>
+      <tr><td class="h">株価</td><td>776円（8月下旬・記事時点）。100株で <b>約77,600円</b>。優待の発表後、夜間取引で急騰した</td><td><span class="st p2">報道</span>ダイヤモンド・ザイ</td></tr>
+      <tr><td class="h">配当</td><td>2026年12月期 年17円（中間0円・期末17円）。<b>配当の権利は12月末。9月のクロスには絡まない</b></td><td><span class="st p1">一次</span>会社IR</td></tr>
     </tbody>
   </table>
   </div>
-  <p>株価の行は上下どちらでも0。配当は受け取る分と払う分がほぼ相殺する（差額の税は口座の種類によって損益通算で戻る）。残るのは<b>優待 − 貸株料 − 手数料</b>。制度信用ならここに<b>逆日歩</b>が加わる。</p>
+
+  <ol class="chain">
+    <li><b>8/31（月）大引け15:30</b>、引け成りで「現物買い100株」と「制度信用売り100株」を同時に出す。両方が<b>同じ終値</b>で約定する（引け成りクロス）</li>
+    <li>そのまま持ち越す。基準日 9/2 の株主名簿に、現物100株の株主として載る</li>
+    <li>権利落ち日 9/1（火）以降に<b>現渡し</b>。買った現物100株を渡して信用売りを消す。売買は起きない</li>
+    <li>デジタルギフト最大1万円相当を受け取る。交換先の手数料分は減る</li>
+  </ol>
+
+  <h3>3. 数字を入れる</h3>
+  <div class="tblwrap">
+  <table class="surp">
+    <thead><tr><th>項目</th><th>金額</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td class="h">投資額（拘束される資金）</td><td class="num">約77,600円</td><td class="num">776円×100株。約定値は8/31の終値</td></tr>
+      <tr><td class="h">株価変動</td><td class="num">0</td><td class="num">現物の損益と信用売りの損益が相殺</td></tr>
+      <tr><td class="h">優待</td><td class="num pos">＋最大10,000円相当</td><td class="num">デジタルギフト。交換手数料の分は減る</td></tr>
+      <tr><td class="h">配当／配当落調整金</td><td class="num">0</td><td class="num">権利日が12月末なので発生しない</td></tr>
+      <tr><td class="h">貸株料</td><td class="num neg">約2円／日</td><td class="num">77,600円×年1.15%÷365</td></tr>
+      <tr><td class="h">逆日歩（制度信用）</td><td class="num neg">0〜1,280円</td><td class="num">上限は実行者が最高料率から計算。実額は後日判明</td></tr>
+      <tr><td class="h">売買手数料</td><td class="num"><span class="fill">記入</span></td><td class="num">証券会社による</td></tr>
+      <tr><td class="h"><b>手元に残るもの</b></td><td class="num"><span class="fill">記入</span></td><td class="num">逆日歩0の場合と、上限の場合の2通り</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>株価の行は上下どちらでも0。今回は配当の権利日をまたがないので、配当落調整金も0。残るのは<b>優待 − 逆日歩 − 貸株料 − 手数料 − ギフト交換手数料</b>。</p>
 
   <h3>4. 「株価変動リスクがゼロ」の点検 ── 残るもの</h3>
   <div class="twocol">
-    <div class="card b"><div class="ch">逆日歩（制度信用）</div><p>売りが集中した銘柄で発生。上限がなく、金額は後から分かる。優待の価値を超える例がある。</p></div>
-    <div class="card b"><div class="ch">在庫切れ（一般信用）</div><p>証券会社の貸せる株は有限。人気の優待銘柄は権利日の数週間前になくなる。</p></div>
-    <div class="card b"><div class="ch">片方だけ約定</div><p>クロスの片側だけが約定すると、ただの買い持ち・売り持ちになる。株価変動リスクが戻る。</p></div>
-    <div class="card b"><div class="ch">日付の間違い</div><p>権利付最終日の翌日に買っても優待はつかない。現渡しを忘れると貸株料が積み上がり、制度信用は6か月で強制返済。</p></div>
-    <div class="card b"><div class="ch">保証金の維持率</div><p>株価が上がると信用売りに評価損が出る。現物の評価益と相殺されるが、保証金の計算上は維持率が下がり、追加の差し入れ（追証）が出ることがある。</p></div>
-    <div class="card"><div class="ch">残る利益</div><p>優待の額面から、貸株料・手数料・逆日歩を引いた分。30万円を5日拘束して数千円。</p></div>
+    <div class="card b"><div class="ch">逆日歩（制度信用）</div><p>優待の権利日に売りが集中すると発生。上限（最高料率×株数×日数）は事前に計算できるが、実額は後から分かる。今回の上限は1,280円。</p></div>
+    <div class="card b"><div class="ch">在庫切れ（一般信用）</div><p>一般信用は証券会社の在庫が先着。無ければ制度信用しか使えず、逆日歩を受ける。</p></div>
+    <div class="card b"><div class="ch">片方だけ約定</div><p>引け成りは注文が引けに集中する。片側だけ通ると、ただの買い持ち・売り持ちになり株価変動リスクが戻る。</p></div>
+    <div class="card b"><div class="ch">日付</div><p>今回は基準日9/2・権利付最終日8/31の変則日程。月末と思い込むと1日ずれる。現渡しを忘れると貸株料が積み上がり、制度信用は6か月で強制返済。</p></div>
+    <div class="card b"><div class="ch">保証金の維持率</div><p>株価が上がると信用売りに評価損が出る。現物の評価益と相殺されるが、保証金の計算では維持率が下がり、追証が出ることがある。</p></div>
+    <div class="card"><div class="ch">残る利益</div><p>優待の額面からコストを引いた分。約8万円を数日拘束して、最大1万円相当から数千円台。<b>今回限り。</b></p></div>
   </div>
 
-  <h3>5. 2026年9月の日付</h3>
+  <h3>5. 日付</h3>
   <ul class="cal">
-    <li><span class="d">9/28（月）</span><span class="c">権利付最終日。<b>この日の大引け15:30まで</b>にクロスが成立していること</span></li>
-    <li class="hot"><span class="d">9/29（火）</span><span class="c">権利落ち日。この日から現渡しできる。2025年9月末の配当落ちは日経平均で303円（0.68%）と試算された。<b>2026年分は未確定。</b><span class="st p3">解説</span></span></li>
-    <li><span class="d">9/30（水）</span><span class="c">権利確定日・中間決算期末。9月は3月に次いで権利確定の多い月</span></li>
+    <li class="hot"><span class="d">8/31（月）</span><span class="c">権利付最終日。<b>大引け15:30の引け成りクロス</b>で現物買い100株・制度信用売り100株</span></li>
+    <li><span class="d">9/1（火）</span><span class="c">権利落ち日。この日から現渡しできる。逆日歩の実額はこの日以降に分かる</span></li>
+    <li><span class="d">9/2（水）</span><span class="c">基準日。株主名簿が確定</span></li>
+    <li><span class="d">9/28〜30</span><span class="c">9月末が権利確定の銘柄は 権利付最終日 9/28（月）・権利落ち 9/29（火）・確定 9/30（水）。9月は3月に次いで多い</span></li>
   </ul>
 
   <h3>問い</h3>
   <ol class="q">
-    <li><span class="tagm">必答</span>設例の「手元に残るもの」を埋める。優待3,000円のうち、いくら残るか。
+    <li><span class="tagm">必答</span>「手元に残るもの」を2通り埋める。逆日歩が0だった場合と、上限1,280円だった場合。
       <span class="hint">着地点：型3 数式に分解する。株価の行がなぜ0になるかを1行</span></li>
-    <li><span class="tagm">必答</span>信用売りで借りた株は、誰が貸しているか。貸す側は何を得ているか。
-      <span class="hint">着地点：取引には必ず相手がいる。証券会社・証券金融会社・貸株料</span></li>
-    <li><span class="tagm">必答</span>優待クロスでは制度信用と一般信用のどちらを使うか。理由を1つ。
-      <span class="hint">着地点：表の「逆日歩」の行。上限のないコストを避ける</span></li>
+    <li><span class="tagm">必答</span>この取引はなぜ制度信用だったか。逆日歩の上限1,280円は、何を掛け合わせた数字か。
+      <span class="hint">着地点：一般信用の在庫。上限＝最高料率（円／株／日）×株数×日数。最高料率は日本証券金融の早見表</span></li>
     <li>寄付クロスの方が良いとされる理由を1つ。
-      <span class="hint">着地点：両方が同じ値段で約定すること。引け間際は注文が集中する</span></li>
+      <span class="hint">着地点：両方が同じ値段で約定すること。引け間際は注文が集中し、片方だけ通るリスクが増える</span></li>
     <li><span class="tagm">必答</span>「株価変動リスクがゼロ」と「リスクがゼロ」は同じか。残るリスクを2つ。
       <span class="hint">着地点：第5回「値段が下がった」と「損した」は別のこと。言葉の所在（型1）</span></li>
-    <li><span class="tagm">必答</span>30万円を5日拘束して優待3,000円相当。年率に直すと何%か。自分の資金でやるか。
-      <span class="hint">着地点：型5 意思決定で締める。第4回「金利＝時間の値段」。「なんとなく」は0点</span></li>
+    <li><span class="tagm">必答</span>優待の発表後、株価は夜間取引で急騰した。発表を見てから買った人と、クロスを組んだ人では、何が違うか。第5回の式で1行。
+      <span class="hint">着地点：第5回 §0「値段が動く幅 ＝ 事実 − 織り込まれていた予想」。クロスは値段の動きを取りにいっていない</span></li>
+    <li><span class="tagm">必答</span>約8万円を数日拘束して、最大1万円相当。利回りに直すと何%か。同じことを来年もできるか。自分の資金でやるか。
+      <span class="hint">着地点：型5 意思決定で締める。「今回限り」と書いてある優待の利回りを、年率にしてよいか</span></li>
   </ol>
 </section>
 
@@ -628,14 +640,14 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <li><span class="t">16:20</span><span class="c"><b>§0 復習クイズ</b> ── 5問（10分）</span></li>
     <li><span class="t">16:30</span><span class="c"><b>冒頭のひとこと書き取り</b> ── 11/3の上院・下院の結果予想。あわせて<a href="lecture_20260904.html">自習資料（9/4）</a>の1行を出す（5分）</span></li>
     <li><span class="t">16:35</span><span class="c"><b>§1 米中間選挙</b> ── 議席・世論・予測市場・関税の年表・問1〜3（25分）</span></li>
-    <li><span class="t">17:00</span><span class="c"><b>§2 信用取引</b> ── 仕組み・制度と一般の違い・クロスの手順・設例の表を埋める・残るリスク・問1〜3・問5・問6（30分）</span></li>
+    <li><span class="t">17:00</span><span class="c"><b>§2 信用取引</b> ── 仕組み・制度と一般の違い・Jトラストの実例・表を埋める・残るリスク・問1〜2・問4〜6（30分）</span></li>
     <li><span class="t">17:30</span><span class="c"><b>チーム別ポートフォリオ報告</b>（A→B→C、各4分）＋競合比較の持ち越し（15分）</span></li>
     <li><span class="t">17:45</span><span class="c"><b>宿題の確認と次回予告</b>（5分）</span></li>
   </ul>
   <div class="callout">
     <span class="lbl">落とす順番（時間が足りないとき、上から捨てる）</span>
-    ① §1の問5（アノマリー）　② §2の問4（寄付クロス）　③ §1の問4（自分の銘柄と関税）　④ §1の表3（上院の州）。<br>
-    落とさないもの：§0のクイズ／§1の問1（織り込み）／§2の設例の表と問6（やるか）／ポートフォリオ報告。
+    ① §1の問5（アノマリー）　② §2の問3（寄付クロス）　③ §1の問4（自分の銘柄と関税）　④ §1の表3（上院の州）。<br>
+    落とさないもの：§0のクイズ／§1の問1（織り込み）／§2の表と問6（やるか）／ポートフォリオ報告。
   </div>
 </section>
 
@@ -686,9 +698,9 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <li>上院の焦点州の分類は270toWin・Ballotpedia等の<b>解説ベース</b>。議席数は下院プレスギャラリー（8/31時点）。</li>
     <li>関税の年表（IEEPA判決2/20・122条失効7/24・301条発動）は最高裁判決と大統領令が一次情報。301条の対象「60の国・地域」「10〜12.5%」は<b>解説ベース</b>。</li>
     <li>S&amp;P500の中間選挙年の平均は Capital Group・Chase 等の解説ベース。<b>過去の平均であり、集計期間の取り方で数字が変わる。</b></li>
-    <li>§2の設例（3,000円×100株・優待3,000円相当・配当30円・貸株料年1.1%・5日）は<b>説明のための仮の数値。</b>実在の銘柄ではない。</li>
+    <li>§2の実例（8508 Jトラスト・100株・8/31 引け成りクロス）は<b>実行者の記録に基づく。</b>株価776円は8月下旬の記事時点で、約定値は8/31の終値。<b>逆日歩の上限1,280円は実行者の計算</b>で、実際の逆日歩・ギフト交換手数料・売買手数料は本稿時点で未確認。優待の内容・基準日・配当は会社IRが一次情報。</li>
     <li>信用取引の数字（保証金30%・最低30万円、制度信用6か月、配当落調整金84.685%、貸株料の年率）は法令と証券各社の公表値ベース。<b>貸株料・在庫・手数料は会社によって違う。</b>逆日歩は事前に分からない。</li>
-    <li>§2冒頭の引用は投稿の要旨で、投稿者は特定していない。</li>
+    <li>§2冒頭の引用は8/31の投稿の要旨で、投稿者は特定していない。</li>
     <li>配当落ちの試算（日経平均303円・0.68%）は<b>2025年9月末の数字。</b>2026年分は本稿時点で未確定。</li>
     <li>受講者のポートフォリオ・保有銘柄は載せていない。</li>
   </ul>
@@ -700,7 +712,8 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
       <li><span class="st p2">報道</span>Reuters/Ipsos（大統領支持率、2026年9月）／The Hill・Forbes（同）／日本経済新聞「アメリカ中間選挙2026」特集</li>
       <li><span class="st p4">予測市場</span>Polymarket「Balance of Power: 2026 Midterms」（2026年9月上旬）</li>
       <li><span class="st p3">解説</span>Capital Group「How U.S. midterm elections may affect markets」／Chase「How Does the Stock Market Perform During Midterm Election Years?」</li>
-      <li><span class="st p1">一次</span>日本取引所グループ「信用取引の仕組み」「制度信用銘柄・貸借銘柄」／金融商品取引法・同施行令（委託保証金）</li>
+      <li><span class="st p1">一次</span>Jトラスト「特別株主優待に関するお知らせ」「2026年12月期 配当予想」（会社IR）／日本証券金融「最高料率早見表」「品貸料（逆日歩）」／日本取引所グループ「信用取引の仕組み」／金融商品取引法・同施行令（委託保証金）</li>
+      <li><span class="st p2">報道</span>ダイヤモンド・ザイ「Jトラスト、特別株主優待で優待利回り＝12.8％になり、夜間取引で株価急騰」（2026年8月）／トウシル（楽天証券）「Jトラスト（8508）が特別株主優待を実施」</li>
       <li><span class="st p3">解説</span>三菱UFJ eスマート証券「信用取引の配当金と優待クロス取引とは？」／楽天証券「つなぎ売り」／GMOクリック証券「つなぎ売りとは？」／SBIネオトレード証券「9月末決算銘柄の権利確定日にご注意ください」</li>
       <li><span class="st p3">解説</span>野村ウェルスタイル「9月末の配当落ちに伴う日経平均株価のインパクトは？」（2025年9月末の試算）</li>
     </ul>
