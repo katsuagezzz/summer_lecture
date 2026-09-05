@@ -22,7 +22,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
-| 夏期 第6回 | 2026-09-08 | 米中間選挙の現在地／信用取引 ── 現物買い＋信用売りで優待は残るか（冒頭に9/1の復習クイズ5問） | [HTML](lectures/lecture_20260908.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260908.html) |
+| 夏期 第6回 | 2026-09-08 | 米中間選挙の現在地／信用取引 ── 現物買い＋信用売りで優待は残るか（冒頭に9/1の復習クイズ4問） | [HTML](lectures/lecture_20260908.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260908.html) |
 | 自習資料 | 2026-09-04 配布 | 日銀が国債を買うと、世の中のお金は増えるのか ── 買いオペ・売りオペと信用創造（橘玲『プアジャパン』。問い1つ、答えなし。第6回 9/8 までに1行） | [HTML](lectures/lecture_20260904.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260904.html) |
 | 夏期 第5回 | 2026-09-01 | 予想との差だけが値段を動かす ── NVIDIAは買いか／Anthropicの上場／9月の中間決算 | [HTML](lectures/lecture_20260901.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260901.html) |
 | 夏期 第4回 | 2026-08-25 | バリュー投資（シケモク投資家とリンチ・チャート）と金利と為替（橘玲『プアジャパン』） | [HTML](lectures/lecture_20260825.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260825.html) |
