@@ -312,6 +312,15 @@ table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
 .snap .z{font-size:12px; color:var(--ink2); margin-top:3px; line-height:1.55;}
 </style>
 <style>
+/* ---------- 第6回で追加したパーツ ---------- */
+/* リードの3点箇条書き */
+.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
+.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
+.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
+  width:5px; height:5px; border-radius:50%; background:var(--macro);}
+.lede ul.three strong{border-bottom:none; padding-bottom:0;}
+</style>
+<style>
 /* ---------- ポートフォリオ報告・ネットキャッシュ（第5回で追加） ---------- */
 .pf{display:grid; grid-template-columns:repeat(auto-fit,minmax(238px,1fr)); gap:11px; margin:14px 0 6px;}
 .pf a{display:block; border:1px solid var(--line); border-left:4px solid var(--macro);
@@ -354,8 +363,12 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
   </div>
   <div class="lede">
-    今回は3つ。<strong>①9/1の復習クイズ5問</strong>（教室で実際に出たやり取りから）。<strong>②米中間選挙</strong>（投票日11/3まで8週間。世論・予測市場・議会と関税の関係）。<strong>③信用取引</strong>（8/31 に実際に組んだ優待クロス、8508 Jトラスト100株を材料に、仕組みとコストを押さえる）。<br>
-    ②は第5回の式 <strong>値段が動く幅 ＝ 事実 − 織り込まれていた予想</strong> で切る。③は実例に数字を入れて、何が残り、何が残らないかを出す。
+    今回は3つ。
+    <ul class="three">
+      <li><strong>① 9/1の復習クイズ5問</strong></li>
+      <li><strong>② 米中間選挙</strong></li>
+      <li><strong>③ 信用取引</strong></li>
+    </ul>
   </div>
 </header>
 
