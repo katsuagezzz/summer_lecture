@@ -319,6 +319,10 @@ table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
 .lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
   width:5px; height:5px; border-radius:50%; background:var(--macro);}
 .lede ul.three strong{border-bottom:none; padding-bottom:0;}
+/* たとえ話の箱 */
+.ana{background:var(--note-bg); border-radius:9px; padding:11px 15px; margin:11px 0;
+  font-size:14.5px; line-height:1.75;}
+.ana .lb{font-size:11px; font-weight:800; letter-spacing:.08em; color:var(--word); margin-right:9px;}
 </style>
 <style>
 /* ---------- ポートフォリオ報告・ネットキャッシュ（第5回で追加） ---------- */
@@ -501,7 +505,11 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <span class="src2">8/31 の投稿（要旨）。この1段落に今日の材料が全部入っている。</span>
   </div>
 
-  <h3>1. 信用取引とは</h3>
+  <h3>1. まず「空売り」から</h3>
+  <p>ふつうの株取引は、買ってから売る。信用取引では、<b>持っていない株を証券会社から借りて先に売り、あとで買い戻して返す</b>ことができる。これが空売り（信用売り）である。</p>
+  <div class="ana"><span class="lb">たとえると</span>友だちからゲームソフトを借りて、先に中古屋へ売る。値下がりしたころに買い直して友だちに返せば、差額が手元に残る。<b>借りている間はレンタル料がかかる。</b></div>
+  <p>この株のレンタル料が<b>貸株料</b>。逆に、お金を借りて買うのが信用買いで、こちらは<b>金利</b>を払う。</p>
+
   <div class="tblwrap">
   <table class="cmp">
     <thead><tr><th>項目</th><th>事実</th></tr></thead>
@@ -515,6 +523,25 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     </tbody>
   </table>
   </div>
+
+  <h3>2. 逆日歩 ── 借りたい人が多すぎると出る追加料金</h3>
+  <ol class="chain">
+    <li>空売りする人が増える</li>
+    <li>証券会社が貸せる株が足りなくなる</li>
+    <li>証券会社は<b>日本証券金融（日証金）</b>── 株の卸問屋にあたる会社 ── から借りる</li>
+    <li>そこでも足りないと、日証金が<b>入札</b>で大口の投資家から株を集める</li>
+    <li>その調達コストを、空売りしている人が<b>日割りで負担する</b>。これが逆日歩</li>
+  </ol>
+  <p><b>名前の由来。</b>信用取引では、ふつう<b>買った側</b>が金利（日歩）を払う。株が品薄になると<b>売った側</b>が払う立場に逆転する。だから「逆」日歩という。</p>
+  <div class="ana"><span class="lb">たとえると</span>文化祭で、みんなが同じ衣装を借りたがって在庫が切れると、レンタル料が跳ね上がる。</div>
+  <p><b>上限はある。</b>最高料率という上限が、株価と売買単位から決まっている（日証金が公表）。ただし株不足が続くと最高料率そのものが引き上げられる。そして<b>実額は翌営業日以降にしか分からない。</b>人気の優待銘柄では、逆日歩が優待の価値を超えることがある。</p>
+
+  <h3>3. 2つのコース ── 制度信用と一般信用</h3>
+  <div class="twocol">
+    <div class="card"><div class="ch">制度信用</div><p><b>取引所が決めた公式コース。</b>対象銘柄も期限（最長6か月）も統一で、どの証券会社でも同じ。株が足りなければ日証金から借りる。<b>逆日歩が出るのはこちら。</b></p></div>
+    <div class="card b"><div class="ch">一般信用</div><p><b>証券会社が自前で用意するコース。</b>貸す株は証券会社が自分で調達する。ルールは会社ごとで、無期限のものもある。日証金を通さないので<b>逆日歩は出ない。</b>代わりに在庫は有限で、人気銘柄はすぐ切れる。貸株料はやや高め。</p></div>
+  </div>
+  <div class="ana"><span class="lb">たとえると</span>制度信用は<b>公営レンタル</b>。値段は統一で安いが、在庫が切れると追加料金を請求される。一般信用は<b>民間のレンタル店</b>。少し割高だが追加料金はなく、在庫は店ごとに違う。</div>
 
   <div class="tblwrap">
   <table class="cmp">
@@ -531,7 +558,13 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
   </div>
   <p class="unsure">数字は法令と証券各社の公表値。会社によって細部が違う。</p>
 
-  <h3>2. 実例 ── 8508 Jトラスト、100株</h3>
+  <div class="callout">
+    <span class="lbl">優待クロスで一般信用が定番なのは、逆日歩を避けるため</span>
+    制度信用のほうが安く見えても、権利日の前に逆日歩が高くつけば、優待の価値を超える損になりうる。だから在庫を取り合ってでも一般信用を使う人が多い。<br>
+    <b>ところが、次に見る実例は制度信用である。</b>なぜそれで踏み切れたのかを、数字で確かめる。
+  </div>
+
+  <h3>4. 実例 ── 8508 Jトラスト、100株</h3>
   <div class="tblwrap">
   <table class="cmp">
     <thead><tr><th>項目</th><th>事実</th><th>出典</th></tr></thead>
@@ -552,7 +585,7 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <li>デジタルギフト最大1万円相当を受け取る。交換先の手数料分は減る</li>
   </ol>
 
-  <h3>3. 数字を入れる</h3>
+  <h3>5. 数字を入れる</h3>
   <div class="snap">
     <div><div class="w">8/31 終値（権利付最終日）</div><div class="r">711円</div><div class="z">クロスの約定値。現物買い100株・信用売り100株</div></div>
     <div><div class="w">9/1 終値（権利落ち日）</div><div class="r up">771円　＋8.4%</div><div class="z">現物 ＋6,000円／信用売り −6,000円</div></div>
@@ -575,7 +608,7 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
   </div>
   <p>株価の行は上下どちらでも0。今回は配当の権利日をまたがないので、配当落調整金も0。残るのは<b>優待 − 逆日歩 − 貸株料 − 手数料 − ギフト交換手数料</b>。</p>
 
-  <h3>4. 「株価変動リスクがゼロ」の点検 ── 残るもの</h3>
+  <h3>6. 「株価変動リスクがゼロ」の点検 ── 残るもの</h3>
   <div class="twocol">
     <div class="card b"><div class="ch">逆日歩（制度信用）</div><p>優待の権利日に売りが集中すると発生。上限（最高料率×株数×日数）は事前に計算できるが、実額は後から分かる。今回の上限は1,280円。</p></div>
     <div class="card b"><div class="ch">在庫切れ（一般信用）</div><p>一般信用は証券会社の在庫が先着。無ければ制度信用しか使えず、逆日歩を受ける。</p></div>
@@ -585,7 +618,7 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <div class="card"><div class="ch">残る利益</div><p>優待の額面からコストを引いた分。約7万円を数日拘束して、最大1万円相当から数千円台。<b>今回限り。</b></p></div>
   </div>
 
-  <h3>5. 日付</h3>
+  <h3>7. 日付</h3>
   <ul class="cal">
     <li class="hot"><span class="d">8/31（月）</span><span class="c">権利付最終日。<b>大引け15:30の引け成りクロス</b>で現物買い100株・制度信用売り100株。終値 711円</span></li>
     <li><span class="d">9/1（火）</span><span class="c">権利落ち日。終値 771円（＋8.4%）。この日から現渡しできる。逆日歩の実額はこの日以降に分かる</span></li>
@@ -647,7 +680,7 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <li><span class="t">16:20</span><span class="c"><b>§0 復習クイズ</b> ── 4問（10分）</span></li>
     <li><span class="t">16:30</span><span class="c"><b>冒頭のひとこと書き取り</b> ── 11/3の上院・下院の結果予想。あわせて<a href="lecture_20260904.html">自習資料（9/4）</a>の1行を出す（5分）</span></li>
     <li><span class="t">16:35</span><span class="c"><b>§1 米中間選挙</b> ── 議席・世論・予測市場・関税の年表・問1〜3（25分）</span></li>
-    <li><span class="t">17:00</span><span class="c"><b>§2 信用取引</b> ── 仕組み・制度と一般の違い・Jトラストの実例・表を埋める・残るリスク・問1〜2・問4〜6（30分）</span></li>
+    <li><span class="t">17:00</span><span class="c"><b>§2 信用取引</b> ── 空売り・逆日歩・制度と一般の違い・Jトラストの実例・表を埋める・問1〜2・問4〜6（30分）</span></li>
     <li><span class="t">17:30</span><span class="c"><b>チーム別ポートフォリオ報告</b>（A→B→C、各4分）＋競合比較の持ち越し（15分）</span></li>
     <li><span class="t">17:45</span><span class="c"><b>宿題の確認と次回予告</b>（5分）</span></li>
   </ul>
@@ -681,7 +714,9 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
       <dt>貸株料</dt>
       <dd>信用売りで株を借りている間に払う費用。年率で決まり、日割り。</dd>
       <dt>逆日歩</dt>
-      <dd>信用売りが集中して株が不足したときに、売り方が払う追加費用。制度信用のみ。上限なし。</dd>
+      <dd>信用売りが集中して株が足りなくなったときに、売り方が払う追加費用。制度信用のみ。<b>最高料率という上限はあるが、実額は翌営業日以降にしか分からない。</b></dd>
+      <dt>日本証券金融（日証金）</dt>
+      <dd>証券会社に株やお金を貸す会社。株の卸問屋にあたる。足りない株を入札で集め、そのコストが逆日歩になる。</dd>
       <dt>配当落調整金</dt>
       <dd>信用売りをしている人が、配当相当額として払う金額。制度信用は配当の84.685%、一般信用は100%。</dd>
       <dt>クロス注文<span class="en">寄付クロス／引け成りクロス</span></dt>
