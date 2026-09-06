@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money follows ideas ── ビル・アックマンは誰に、何を、いくらで売っているか</title>
+<meta name="description" content="2026年9月7日の個別指導。ビル・アックマンのインタビュー動画を英語のまま聞き取り、そのうえで彼の商売を「誰に・何を・いくらで」の3つに分解する。管理報酬1.5%と成功報酬16%を電卓で動かし、最後に9/3のネットキャッシュ比率と同じ割り算をPSHのNAVと株価でもう一度やる（ケーススタディ 第6回）">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #f9f9f7;
+    --surface: #fcfcfb;
+    --surface-raised: #ffffff;
+    --ink: #141413;
+    --ink-2: #52514e;
+    --ink-muted: #898781;
+    --hairline: #e1e0d9;
+    --border: rgba(11, 11, 11, 0.10);
+    --accent: #2a78d6;
+    --accent-ink: #1c5cab;
+    --accent-wash: rgba(42, 120, 214, 0.08);
+    --good: #006300;
+    /* 三角形の3つの角 — この3色はページ全体で意味を固定する */
+    --fx: #2a78d6;      /* 為替 */
+    --price: #eb6834;   /* 物価 */
+    --rate: #1baf7a;    /* 金利 */
+    --fx-wash: rgba(42, 120, 214, 0.10);
+    --price-wash: rgba(235, 104, 52, 0.10);
+    --rate-wash: rgba(27, 175, 122, 0.10);
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --s4: #eda100;
+    --s-other: #898781;
+    --f1: #86b6ef;
+    --f2: #2a78d6;
+    --f3: #104281;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-raised: #222220;
+      --ink: #f4f3ef;
+      --ink-2: #c3c2b7;
+      --ink-muted: #898781;
+      --hairline: #2c2c2a;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #3987e5;
+      --accent-ink: #86b6ef;
+      --accent-wash: rgba(57, 135, 229, 0.14);
+      --good: #0ca30c;
+      --fx: #3987e5;
+      --price: #f07a44;
+      --rate: #199e70;
+      --fx-wash: rgba(57, 135, 229, 0.16);
+      --price-wash: rgba(240, 122, 68, 0.16);
+      --rate-wash: rgba(25, 158, 112, 0.16);
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --s4: #c98500;
+      --s-other: #898781;
+      --f1: #6da7ec;
+      --f2: #3987e5;
+      --f3: #184f95;
+      --grid: #2c2c2a;
+      --axis: #383835;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-raised: #222220;
+    --ink: #f4f3ef;
+    --ink-2: #c3c2b7;
+    --ink-muted: #898781;
+    --hairline: #2c2c2a;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #3987e5;
+    --accent-ink: #86b6ef;
+    --accent-wash: rgba(57, 135, 229, 0.14);
+    --good: #0ca30c;
+    --fx: #3987e5;
+    --price: #f07a44;
+    --rate: #199e70;
+    --fx-wash: rgba(57, 135, 229, 0.16);
+    --price-wash: rgba(240, 122, 68, 0.16);
+    --rate-wash: rgba(25, 158, 112, 0.16);
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s-other: #898781;
+    --f1: #6da7ec;
+    --f2: #3987e5;
+    --f3: #184f95;
+    --grid: #2c2c2a;
+    --axis: #383835;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.75;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; }
+
+  /* ---------- header ---------- */
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.14em; color: var(--accent-ink);
+    font-weight: 700; text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(30px, 5.4vw, 44px); font-weight: 800; line-height: 1.25;
+    letter-spacing: 0.01em; margin: 10px 0 14px; text-wrap: balance;
+  }
+  .lede { color: var(--ink-2); max-width: 40em; }
+  .lede strong { color: var(--ink); }
+  .meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+    border: 1px solid var(--hairline); background: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .chip em { font-style: normal; color: var(--accent-ink); }
+
+  .backlink { display: inline-block; font-size: 13px; font-weight: 700; color: var(--ink-muted);
+    text-decoration: none; margin-bottom: 16px; }
+  .backlink:hover { color: var(--accent-ink); }
+  @media print { .backlink { display: none; } }
+
+  /* ---------- series tabs ---------- */
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-top: 28px;
+    border-bottom: 1px solid var(--hairline);
+    overflow-x: auto; scrollbar-width: thin;
+  }
+  .tab {
+    flex: 0 0 auto; display: block; text-decoration: none;
+    padding: 10px 16px 9px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 8px 8px 0 0; margin-bottom: -1px;
+    font-size: 13.5px; font-weight: 700; color: var(--ink-muted);
+    white-space: nowrap; transition: color .12s ease, background .12s ease;
+  }
+  .tab small { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-muted); }
+  a.tab { color: var(--accent-ink); }
+  a.tab small { color: var(--ink-2); }
+  a.tab:hover { background: var(--accent-wash); }
+  a.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  a.tab .ext { font-weight: 500; font-size: 11px; }
+  .tab.is-current {
+    color: var(--ink); background: var(--surface);
+    border-color: var(--hairline); border-bottom: 1px solid var(--surface);
+  }
+  .tab.is-past { cursor: default; opacity: .55; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 56px; }
+  .step-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .step-time {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  h2 { font-size: 23px; font-weight: 800; line-height: 1.35; text-wrap: balance; }
+  h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  section > p, .card > p { color: var(--ink-2); max-width: 44em; }
+  section > p strong, .card p strong, li strong { color: var(--ink); }
+  .sec-note { font-size: 13px; color: var(--ink-muted); margin-top: 10px; }
+
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; margin-top: 18px; border-top: 1px solid var(--hairline); }
+  .agenda li {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 14px;
+    align-items: baseline; padding: 11px 4px; border-bottom: 1px solid var(--hairline);
+  }
+  .agenda .t { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13.5px; color: var(--accent-ink); }
+  .agenda .what { font-weight: 600; }
+  .agenda .what small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-muted); }
+  .agenda .min { font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+
+  /* ---------- cards / callout / recall ---------- */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px; margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-wash);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 18px;
+    max-width: 46em;
+  }
+  .callout p { color: var(--ink-2); }
+  .callout .q { font-weight: 700; color: var(--ink); }
+  .recalls { display: grid; gap: 10px; margin-top: 18px; }
+  .recall {
+    border: 1px dashed var(--axis); background: var(--surface);
+    border-radius: 10px; padding: 14px 18px; max-width: 46em;
+  }
+  .recall .who { font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; color: var(--ink-muted); }
+  .recall .said { font-weight: 700; color: var(--ink); margin-top: 2px; }
+  .recall .note { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+
+  /* ---------- KPI tiles ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; border-top: 3px solid var(--border);
+  }
+  .tile.fx { border-top-color: var(--fx); }
+  .tile.rate { border-top-color: var(--rate); }
+  .tile.price { border-top-color: var(--price); }
+  .tile .k { font-size: 12px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .tile .v { font-size: 25px; font-weight: 800; line-height: 1.3; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .tile .v small { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .tile .d { font-size: 12.5px; font-weight: 600; margin-top: 1px; color: var(--ink-2); }
+  .tile .d.up { color: var(--good); }
+  .unsure { color: var(--s2); font-weight: 700; }
+
+  /* ---------- formula ---------- */
+  .formula {
+    margin-top: 18px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; font-weight: 700; font-size: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  }
+  .formula .num { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .formula small { font-weight: 500; color: var(--ink-muted); flex-basis: 100%; font-size: 12.5px; }
+
+  /* ---------- charts / diagram ---------- */
+  figure { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 14px; }
+  figcaption { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .figsub { font-size: 12.5px; color: var(--ink-muted); margin-bottom: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .chart-scroll { overflow-x: auto; }
+  .chart-scroll svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  svg text { font-family: inherit; }
+  .diagram { color: var(--ink-muted); }
+  .src { font-size: 11.5px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- exercise ---------- */
+  .ex { margin-top: 18px; }
+  .ex .card { padding: 0; overflow: hidden; }
+  .ex-q { padding: 18px 22px 6px; }
+  .ex-q .no {
+    display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    border-radius: 4px; padding: 2px 8px; margin-bottom: 8px;
+  }
+  .ex-q p { color: var(--ink); font-weight: 600; max-width: 44em; }
+  .ex-q .hint { font-weight: 400; font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+  .qz-choices { list-style: none; counter-reset: qc; margin: 12px 22px 4px; padding: 0; display: grid; gap: 6px; max-width: 46em; }
+  .qz-choices li {
+    counter-increment: qc; position: relative; border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 8px 14px 8px 40px; font-size: 14px; color: var(--ink-2);
+  }
+  .qz-choices li::before {
+    content: counter(qc, upper-alpha); position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    font-weight: 800; font-size: 12.5px; color: var(--accent-ink);
+  }
+  details { border-top: 1px solid var(--hairline); margin-top: 14px; }
+  summary {
+    cursor: pointer; padding: 12px 22px; font-weight: 700; font-size: 13.5px;
+    color: var(--accent-ink); list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "\25B8  "; }
+  details[open] summary::before { content: "\25BE  "; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 6px; }
+  .ans { padding: 0 22px 18px; color: var(--ink-2); max-width: 46em; }
+  .ans .calc {
+    font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink);
+    background: var(--accent-wash); border-radius: 8px; padding: 10px 14px; margin: 8px 0 10px;
+    display: inline-block;
+  }
+
+  /* ---------- tables ---------- */
+  .tbl-scroll { overflow-x: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; background: var(--surface); font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td:first-child { font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td small { display: block; color: var(--ink-muted); font-size: 12px; }
+  .tbl-note { font-size: 12px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- discussion / glossary ---------- */
+  .qlist { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+  .qlist li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .qlist .q { font-weight: 700; }
+  .qlist .why { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  dl.gloss { margin-top: 16px; border-top: 1px solid var(--hairline); }
+  dl.gloss > div { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 12px 4px; border-bottom: 1px solid var(--hairline); }
+  @media (max-width: 560px) { dl.gloss > div { grid-template-columns: 1fr; gap: 2px; } }
+  dt { font-weight: 700; font-size: 14px; }
+  dt small { display: block; font-weight: 400; font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  dd { color: var(--ink-2); font-size: 14px; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 18px; font-size: 12.5px; color: var(--ink-muted); }
+  footer p { max-width: none; }
+  footer p + p { margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print {
+    body { background: #fff; }
+    .tabs { display: none; }
+    details { border-top: none; }
+    summary { display: none; }
+    .ans { padding-top: 0; }
+  }
+
+  /* ---------- 第4回で追加 ---------- */
+  .tile.debt { border-top-color: var(--s4); }
+  .device {
+    margin-top: 20px; border: 2px solid var(--accent); border-radius: 12px;
+    background: var(--accent-wash); padding: 18px 22px; max-width: 46em;
+  }
+  .device h3 { margin-top: 0; color: var(--accent-ink); }
+  .device .rule {
+    font-size: 19px; font-weight: 800; color: var(--ink); margin: 10px 0 6px;
+    letter-spacing: 0.01em;
+  }
+  .steps2 { list-style: none; counter-reset: st; display: grid; gap: 8px; margin-top: 12px; }
+  .steps2 li {
+    counter-increment: st; position: relative; padding-left: 34px; font-size: 14.5px; color: var(--ink-2);
+  }
+  .steps2 li::before {
+    content: counter(st); position: absolute; left: 0; top: 1px;
+    width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff;
+    font-size: 12.5px; font-weight: 800; display: grid; place-items: center;
+  }
+  .routes { display: grid; gap: 14px; margin-top: 20px; }
+  .route {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 22px; border-left: 4px solid var(--accent);
+  }
+  .route.r1 { border-left-color: var(--fx); }
+  .route.r2 { border-left-color: var(--rate); }
+  .route.r3 { border-left-color: var(--price); }
+  .route .rk {
+    font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; color: var(--ink-muted);
+  }
+  .route h3 { margin: 2px 0 8px; font-size: 17.5px; }
+  .chain {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px;
+    font-size: 13.5px; font-weight: 700; margin: 12px 0;
+  }
+  .chain span {
+    background: var(--surface-raised); border: 1px solid var(--hairline);
+    border-radius: 6px; padding: 4px 10px; white-space: nowrap;
+  }
+  .chain b { color: var(--ink-muted); font-weight: 800; }
+  .aims { display: grid; gap: 10px; margin-top: 18px; counter-reset: aim; }
+  .aim {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 15px 20px 15px 54px; position: relative; counter-increment: aim;
+  }
+  .aim::before {
+    content: "\7B56 " counter(aim); position: absolute; left: 14px; top: 15px;
+    font-size: 11px; font-weight: 800; color: var(--accent-ink);
+    background: var(--accent-wash); border-radius: 4px; padding: 3px 6px; line-height: 1.2;
+    writing-mode: horizontal-tb;
+  }
+  .aim .at { font-weight: 800; font-size: 15.5px; }
+  .aim p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .crit { border-left-color: var(--s2); }
+  .crits { display: grid; gap: 10px; margin-top: 16px; }
+  .crits .c2 {
+    background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--s2);
+    border-radius: 0 10px 10px 0; padding: 15px 20px;
+  }
+  .crits .c2 .ct { font-weight: 800; font-size: 15px; }
+  .crits .c2 p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .crits .c2 .who2 { font-size: 12.5px; color: var(--ink-muted); margin-top: 6px; font-weight: 600; }
+  .hw { margin-top: 18px; display: grid; gap: 12px; }
+  .hw .h1x {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;
+  }
+  .hw .h1x.must { border-color: var(--accent); border-left: 4px solid var(--accent); }
+  .hw .badge {
+    display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
+    border-radius: 4px; padding: 2px 8px; margin-right: 8px;
+  }
+  .hw .badge.m { background: var(--accent-wash); color: var(--accent-ink); }
+  .hw .badge.o { background: var(--hairline); color: var(--ink-muted); }
+  .hw ol.form { margin: 10px 0 0 20px; font-size: 14px; color: var(--ink-2); }
+  .hw ol.form li { margin-bottom: 4px; }
+  .hw ol.form li b { color: var(--ink); }
+
+  /* ---------- 第6回で追加 ---------- */
+  .ana {
+    margin-top: 18px; border-left: 3px solid var(--s4);
+    background: var(--surface); border-radius: 0 10px 10px 0;
+    padding: 15px 20px; max-width: 46em;
+  }
+  .ana .at {
+    font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--s4); display: block; margin-bottom: 4px;
+  }
+  .ana p { font-size: 14.5px; color: var(--ink-2); }
+  .ana p + p { margin-top: 8px; }
+
+  .watch {
+    margin-top: 20px; border: 2px solid var(--accent); border-radius: 12px;
+    background: var(--accent-wash); padding: 18px 22px; max-width: 46em;
+  }
+  .watch .wl { font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; color: var(--accent-ink); }
+  .watch a { font-weight: 700; color: var(--accent-ink); word-break: break-all; }
+  .watch p { font-size: 14px; color: var(--ink-2); margin-top: 6px; }
+
+  .en {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 20px; font-weight: 600; line-height: 1.5; color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .en-jp { font-size: 14px; color: var(--ink-muted); margin-top: 6px; }
+
+  .words { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  @media (max-width: 620px) { .words { grid-template-columns: 1fr; } }
+  .word {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 9px 14px; font-size: 14px;
+  }
+  .word b { font-family: "Georgia", "Times New Roman", serif; font-size: 15.5px; }
+  .word i { font-style: normal; color: var(--ink-muted); font-size: 12.5px; margin-left: 6px; }
+  .word span { display: block; color: var(--ink-2); font-size: 13.5px; }
+
+  .blanks { list-style: none; margin-top: 16px; display: grid; gap: 10px; max-width: 46em; }
+  .blanks li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px; font-size: 14px; color: var(--ink-2);
+  }
+  .blanks .rule2 {
+    display: block; border-bottom: 1px dashed var(--axis); height: 26px; margin-top: 6px;
+  }
+
+  ul.lede-pts { list-style: none; margin-top: 14px; max-width: 42em; display: grid; gap: 8px; }
+  ul.lede-pts li {
+    position: relative; padding-left: 18px; color: var(--ink-2); font-size: 15.5px;
+  }
+  ul.lede-pts li::before {
+    content: ""; position: absolute; left: 0; top: 11px;
+    width: 7px; height: 7px; border-radius: 2px; background: var(--accent);
+  }
+  ul.lede-pts strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="backlink" href="../sasaki.html">&larr; 講義資料の一覧へ</a>
+  <header>
+    <p class="eyebrow">ケーススタディ · 第6回</p>
+    <h1>Money follows ideas ── ビル・アックマンは誰に、何を、いくらで売っているか</h1>
+    <ul class="lede-pts">
+      <li>2026年4月29日、ビル・アックマンの<strong>運用会社そのもの</strong>がニューヨーク証券取引所に上場した。同時に売り出した2銘柄で集めた金額は約50億ドル。</li>
+      <li>彼はインタビューで <strong>Money follows ideas</strong> と言っている。金がアイデアを追う、という向きである。</li>
+      <li>今日は先に英語を聞き取る。そのあとで、その言葉どおりの商売になっているかを数字で確かめる。</li>
+    </ul>
+    <div class="meta-chips">
+      <span class="chip">2026年9月7日（月）<em>9:00</em> · 30分</span>
+      <span class="chip">題材: <em>ビル・アックマンのインタビュー動画</em></span>
+      <span class="chip">英語 &rarr; ビジネスモデル &rarr; 9/3の割り算</span>
+    </div>
+
+    <nav class="tabs" aria-label="ケーススタディ シリーズ">
+      <span class="tab is-past" title="配布資料リンクなし（講義のみ）">第1回　メルカリ<small>GMVと営業損失</small></span>
+      <a class="tab" href="lecture_sasaki_20260817.html">第2回　ZOZOの決算を読む<small>受託販売とテイクレート <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260820.html">第3回　金利・為替・インフレ<small>三角形の一周 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260824.html">第4回　利払いが国防費を超えた国<small>国のPL <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260903.html">第5回　予想との差と1.1倍<small>9/3の復習クイズ <span class="ext">&#8594;</span></small></a>
+      <span class="tab is-current" aria-current="page">第6回　Money follows ideas<small>英語とビジネスモデル（今回）</small></span>
+    </nav>
+  </header>
+
+  <!-- 今日の30分 -->
+  <section>
+    <h2>今日の30分</h2>
+    <ol class="agenda">
+      <li><span class="t">00:00</span><span class="what">前回の復習<small>9月3日に言えたことを、数字を変えてもう一度動かす</small></span><span class="min">7分</span></li>
+      <li><span class="t">07:00</span><span class="what">英語を聞く<small>意味を先に取らない。まず音を文字にして、そのあとで向きを確かめる</small></span><span class="min">8分</span></li>
+      <li><span class="t">15:00</span><span class="what">誰に、何を、いくらで<small>アックマンの商売を3つに分解して、報酬を電卓で出す</small></span><span class="min">10分</span></li>
+      <li><span class="t">25:00</span><span class="what">9月3日の割り算を、もう一度<small>ネットキャッシュ比率と同じ形の割り算が、彼の会社そのものに立っている</small></span><span class="min">5分</span></li>
+    </ol>
+    <p class="sec-note">§1は口頭。答えを開く前に必ず声に出す。§2以降は、動画を1回通しで見てから戻ってくる。</p>
+  </section>
+
+  <!-- §1 復習 -->
+  <section>
+    <div class="step-head"><span class="step-time">00:00 &ndash; 07:00</span><h2>§1　前回の復習 ── 式ではなく、向きを見る</h2></div>
+    <p>9月3日、ネットキャッシュ比率の式はほぼそのまま言えた。詰まったのは式ではなく、<strong>1.1倍が割安か割高か</strong>という向きだった。
+    今日はそこを、同じ数字でもう一度確かめる。<strong>答えより先に理由を言うこと。</strong>答えだけ当たっても合格にしない。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q1</span><p>NVIDIAは<strong>何を、誰に</strong>売っている会社か。</p>
+        <p class="hint">「何を」は9/3に即答できている。今日見るのは「誰に」のほう</p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">半導体（チップ）を、ハイパースケーラーに</p>
+          <p>ハイパースケーラーとは、自前の巨大なデータセンターを持つIT大手のこと。Google・Microsoft・Amazon など。
+          <strong>売上＝単価×顧客数</strong>なので、顧客が言えないと売上の予想は作れない。
+          9/3で君は商品（半導体）を即答したが、売り先が出てこなかった。今日の§3は、この「誰に」を最初に置く。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q2</span><p>決算の「<strong>予想</strong>」を作っているのは誰か。その人は、その株が上がっても下がっても<strong>損得があるか</strong>。</p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">証券会社のアナリスト。売買の損得は無い</p>
+          <p>9/3の君の答えは「株主」だった。株主や市場参加者の売買は<strong>リアルタイムで株価そのもの</strong>であって、事前の「予想」ではない。
+          事前の予想を作っているのは、売買の損得から切り離されたアナリストである。ただし「下がる」とは言いにくい立場ではある。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q3</span><p>「<strong>織り込み済み</strong>」とはどういう状態か。<strong>調べずに、自分の言葉で。</strong></p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">すでに株価に反映されている状態</p>
+          <p>だから、良い決算が出ても当日は上がらないことがある。NVIDIAは8月26日の決算発表当日に約2%安、翌27日に約8.7%高だった。
+          これが<strong>押し目買い</strong>につながる。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q4</span><p>ネットキャッシュ比率の式を書きなさい。<strong>分子と分母は、それぞれ「何の値段」か。</strong></p></div>
+        <details><summary>答えを見る</summary><div class="ans">
+          <div class="formula">ネットキャッシュ比率 ＝ <span class="num">（流動資産 ＋ 投資有価証券×70% − 負債総額）</span> ÷ <span class="num">時価総額</span>
+            <small>分子＝会社の中身。分母＝市場がつけた値段</small></div>
+          <p>分子はBSから取る。<strong>決算期末という一日の姿</strong>である。分母は<strong>ある日の終値</strong>×株式数。
+          つまり<strong>時点が違うものを割っている。</strong>ここが言えたら上出来。この論点は§4でもう一度出てくる。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q5</span><p>ネットキャッシュ440億円、時価総額400億円。割安か割高か。<strong>理由を先に言ってから答える。</strong></p>
+        <p class="hint">9/3とまったく同じ数字。同じ数字で二度目も詰まるなら、覚えているのは結論であって向きではない</p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">割安。中身のほうが大きいから</p>
+          <p>「1.1は1を割っているか」で考えると振れる。<strong>分子と分母を並べて「どっちが大きい」で考える。</strong>
+          400億円で市場の株を全部集めれば、440億円の現金が手に入る。差し引き40億円のプラス。
+          市場は、会社の中身より安い値札をつけている。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- §2 英語 -->
+  <section>
+    <div class="step-head"><span class="step-time">07:00 &ndash; 15:00</span><h2>§2　英語を聞く ── 意味より先に、音を文字にする</h2></div>
+    <p>この動画は英語で話されている。<strong>いきなり「何を言っているか」を取りにいくと、知っている単語だけを拾って全体を作文してしまう。</strong>
+    だから順番を決めておく。<strong>音を文字にする → 単語の意味を当てる → 文の向きを決める</strong>の3段で進む。</p>
+
+    <div class="watch">
+      <span class="wl">見る</span>
+      <p><a href="https://www.instagram.com/reel/DbGYr9VMShv/" target="_blank" rel="noopener">instagram.com/reel/DbGYr9VMShv</a><br>
+      アカウント <b>@hardknoksplus</b>。話しているのは<b>ビル・アックマン</b>（Bill Ackman）。まず<strong>字幕を出さずに1回</strong>、そのあと<strong>字幕を出してもう1回</strong>。</p>
+    </div>
+
+    <h3>見る前に渡す12語</h3>
+    <p>この12語だけ先に持っておく。これ以外の単語は、聞き取れなくてよい。</p>
+    <div class="words">
+      <div class="word"><b>idea</b><i>アイディア</i><span>考え、着想。「こうすれば儲かる」という筋書き</span></div>
+      <div class="word"><b>relationship</b><i>リレーションシップ</i><span>関係。ここでは人脈、コネのこと</span></div>
+      <div class="word"><b>follow</b><i>フォロー</i><span>ついていく、後を追う。<b>追う側が主語</b></span></div>
+      <div class="word"><b>capital</b><i>キャピタル</i><span>資本。商売の元手になる金</span></div>
+      <div class="word"><b>raise</b><i>レイズ</i><span>（金を）集める。raise capital で「資金を集める」</span></div>
+      <div class="word"><b>fund</b><i>ファンド</i><span>人から預かった金をまとめて運用する箱</span></div>
+      <div class="word"><b>investor</b><i>インベスター</i><span>投資家。金を出す側</span></div>
+      <div class="word"><b>stake</b><i>ステイク</i><span>持ち分。その会社の株を何%持っているか</span></div>
+      <div class="word"><b>board</b><i>ボード</i><span><b>取締役会</b>。9/3の最後に出た言葉の英語</span></div>
+      <div class="word"><b>activist</b><i>アクティビスト</i><span>物を言う株主。買って終わりにせず、会社に注文をつける</span></div>
+      <div class="word"><b>deal</b><i>ディール</i><span>取引、案件</span></div>
+      <div class="word"><b>more important than</b><i>モア インポータント ザン</i><span>〜より重要だ。<b>than の後ろが劣るほう</b></span></div>
+    </div>
+
+    <h3>この動画の中心にある2文</h3>
+    <p>先に文字で渡しておく。動画の中でこの2文が聞こえたら、そこで止める。</p>
+
+    <div class="card">
+      <p class="en">The idea is more important than the relationship.</p>
+      <p class="en-jp">アイデアのほうが、人脈より重要だ。</p>
+      <p style="margin-top:12px">than の後ろが<strong>劣るほう</strong>である。ここでは relationship が後ろにある。
+      つまり「<strong>誰を知っているか</strong>」より「<strong>何を思いついたか</strong>」が先だ、と言っている。</p>
+    </div>
+
+    <div class="card">
+      <p class="en">Money follows ideas.</p>
+      <p class="en-jp">金が、アイデアについてくる。</p>
+      <p style="margin-top:12px">主語は <b>Money</b>、追いかけている側である。ideas は追われている側で、<strong>s が付いた複数形</strong>。
+      ひっくり返して <i>Ideas follow money</i> にすると「アイデアが金についてくる」になり、<strong>意味は正反対</strong>になる。</p>
+    </div>
+
+    <div class="ana">
+      <span class="at">たとえ</span>
+      <p>犬の散歩を思い出す。「犬が人を追う」と「人が犬を追う」は、遠目に見える風景はほとんど同じだ。違うのは<strong>リードを引いている側がどちらか</strong>だけである。</p>
+      <p>英語の文でも、リードを引いているのは<strong>主語</strong>のほう。Money follows ideas なら、引かれて動いているのは金である。アックマンは「先にアイデアがあれば、金は後から勝手に寄ってくる」と言っている。</p>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q6</span><p>次のうち、<b>Money follows ideas.</b> と同じ意味なのはどれか。</p></div>
+        <ol class="qz-choices">
+          <li>良いアイデアを思いつくには、まず金がいる</li>
+          <li>良いアイデアさえあれば、金は後から集まってくる</li>
+          <li>金持ちのアイデアほど良いアイデアである</li>
+          <li>アイデアと金は関係がない</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+          <p>Aは <i>Ideas follow money</i> のほう。主語と目的語が入れ替わっている。
+          <strong>向きが逆になる間違いは、君がこれまでも何度かやっている型</strong>である ── 債権と債務、円安で得をするのはどちらか、1.1倍は割安か割高か。
+          英語でも同じところで転ぶ。<strong>迷ったら、追っているのはどっちかを声に出す。</strong></p></div></details>
+      </div>
+    </div>
+
+    <h3>聞き取り欄 ── 授業中に埋める</h3>
+    <p>上の2文以外に聞き取れた語や文を書く。<strong>1語でもよい。意味が分からないまま音だけ書いてよい。</strong></p>
+    <ul class="blanks">
+      <li>聞こえた単語（英語のまま）<span class="rule2"></span><span class="rule2"></span></li>
+      <li>アックマンが「重要でない」と言ったものは何か<span class="rule2"></span></li>
+      <li>この動画を1文の日本語にすると<span class="rule2"></span></li>
+    </ul>
+    <p class="sec-note">着地点 ── ここで手に入れるのは英語力ではなく、<strong>一次情報を英語のまま取りにいく癖</strong>。決算短信も10-Qも、原本は英語で出る。</p>
+  </section>
+
+  <!-- §3 ビジネス -->
+  <section>
+    <div class="step-head"><span class="step-time">15:00 &ndash; 25:00</span><h2>§3　誰に、何を、いくらで売っているか</h2></div>
+
+    <p>2026年4月28日に値段が決まり、翌29日、ニューヨーク証券取引所で2つの株が同時に取引を始めた。
+    ひとつは <b>PSUS</b>、アックマンが運用するファンドそのもの。もうひとつは <b>PS</b>、その<strong>運用会社</strong>である。
+    PSUSは<strong>1株50ドル</strong>で売り出し、PSUS5株につきPS1株が付いた。2つ合わせて集めた金額は<strong>約50億ドル</strong>。</p>
+
+    <div class="tiles">
+      <div class="tile fx"><div class="k">PSUS 売り出し価格</div><div class="v">50<small> ドル／株</small></div><div class="d">2026年4月28日 値決め</div></div>
+      <div class="tile price"><div class="k">初値</div><div class="v">約42<small> ドル</small></div><div class="d">売り出し価格を約16%下回る</div></div>
+      <div class="tile rate"><div class="k">2銘柄で集めた額</div><div class="v">約50<small> 億ドル</small></div><div class="d">2026年4月29日 取引開始</div></div>
+    </div>
+    <p class="sec-note">初値は報道ベース。売り出し価格と調達額は自社発表。</p>
+
+    <p style="margin-top:22px">ここで手が止まる。<strong>50ドルで買ってくれと言った株が、取引が始まった瞬間に約42ドルになった。</strong>
+    Money follows ideas と言う人の会社に、市場は<strong>売り出し価格より約16%低い値札</strong>をつけた。
+    では彼は、いったい<strong>何を売っている</strong>のか。ここを3つに割る。</p>
+
+    <div class="routes">
+      <div class="route r1">
+        <div class="rk">何を</div>
+        <h3>アイデアそのもの ── どの会社の株を、いつ、どれだけ買うかの判断</h3>
+        <p>工場も店舗も在庫も無い。売っているのは<strong>判断</strong>である。
+        彼のやり方は、市場のつけた値札より中身が大きいと見た会社の株を大量に買い、そのうえで<strong>取締役会（board）に人を送り込んで会社を動かす</strong>。
+        これが <b>activist</b>（物を言う株主）と呼ばれる立場。9/3の最後にやった「100%買えば取締役会を支配できる」の、100%まで行かない版だと思えばよい。</p>
+      </div>
+      <div class="route r2">
+        <div class="rk">誰に</div>
+        <h3>金を預ける人 ── 年金基金などの機関投資家と、上場した株を買う個人</h3>
+        <p>9/3で君は、NVIDIAの商品は即答できたのに顧客が出てこなかった。だから今回は<strong>顧客から先に置く</strong>。
+        アックマンの顧客は<strong>金を預ける人</strong>である。PSUSを上場させたのは、この顧客に<strong>個人</strong>を加えるためだった。
+        4月のIPOでは、注文の<strong>8割以上が機関投資家</strong>だったと報じられている。</p>
+      </div>
+      <div class="route r3">
+        <div class="rk">いくらで</div>
+        <h3>預かっている間ずっと年1.5%、増えた分からさらに16%</h3>
+        <p>主力ファンドPSHの取り分は、<strong>管理報酬が年1.5%</strong>、<strong>成功報酬が値上がり分の16%</strong>。
+        管理報酬は<strong>運用成績がゼロでも入る</strong>。成功報酬は増えたときだけ入る。<strong>この2階建てが、アイデアの値段である。</strong></p>
+      </div>
+    </div>
+
+    <div class="ana">
+      <span class="at">たとえ</span>
+      <p>メルカリを思い出す。メルカリは<strong>売れたときだけ</strong>販売価格の10%を取る。売れなければ1円も取らない。出品しっぱなしでも手数料はかからない。</p>
+      <p>アックマンは違う。<strong>預かっている間、増えても減っても毎年1.5%を取る。</strong>そのうえで増えた分の16%を取る。
+      メルカリが成功報酬だけの商売だとすれば、こちらは<strong>基本料金＋成功報酬</strong>である。<strong>どちらが安定するか</strong>を考えると、なぜ運用会社が「預かり額」を増やしたがるかが分かる。</p>
+    </div>
+
+    <h3>電卓を出す</h3>
+    <p>2026年8月12日に発表された4〜6月期の決算で、報酬の対象になっている預かり額は<strong>約230億ドル</strong>、3か月で約46億ドル増えた。この数字を使う。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q7</span><p>預かり額が230億ドルのとき、<strong>運用成績がゼロでも</strong>1年で入ってくる管理報酬はいくらか。</p>
+        <p class="hint">年1.5%。率を出したら分母を書く ── ここでの分母は預かり額</p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">230億ドル × 1.5% ＝ 約3.5億ドル</p>
+          <p>1ドル150円で換算すると<strong>約500億円</strong>。運用が1円も増えなくても、預かっているだけで毎年これが入る。
+          <strong>だから運用会社にとっての最大の関心事は「増やすこと」より先に「預かること」になる。</strong>
+          PSUSを上場させて個人からも集めたのは、ここに直結している。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q8</span><p>同じ230億ドルが、1年で<strong>10%</strong>増えたとする。成功報酬はいくらか。</p>
+        <p class="hint">16%を掛ける相手は230億ドルではない。<b>増えた分</b>である</p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">増えた分 230億 × 10% ＝ 23億ドル　→　23億 × 16% ＝ 約3.7億ドル</p>
+          <p>230億ドルに16%を掛けて36.8億ドルと出したら、<strong>分母を間違えている。</strong>
+          成功報酬の分母は<strong>増えた分</strong>であって、預かり額の全部ではない。
+          管理報酬の約3.5億ドルと合わせて<strong>約7億ドル</strong>。これがアイデア1年ぶんの値段になる。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q9</span><p>君が<strong>100万円</strong>を預けたとする。1年で10%増えて110万円になった。取られるのは合計いくらで、<strong>君の手取りは何%</strong>か。</p>
+        <p class="hint">管理報酬と成功報酬を別々に出してから足す</p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">管理報酬 100万×1.5% ＝ 15,000円　／　成功報酬 10万×16% ＝ 16,000円　／　合計 31,000円</p>
+          <p>手元に残るのは 100万 ＋ 10万 − 3.1万 ＝ <strong>1,069,000円</strong>。
+          運用は10%増えたのに、<strong>君の手取りは約6.9%</strong>になる。
+          <strong>表面の率と、自分の手元に残る率は違う。</strong>ここが今日いちばん自分ごとになる数字である。
+          率を見たら分母を確認する ── 8/17のZOZO編で手に入れた道具が、そのまま効く。</p></div></details>
+      </div>
+    </div>
+    <p class="sec-note">Q7〜Q9は、PSHの料率1.5%／16%を預かり額の全体に当てた<strong>簡略化した概算</strong>。ファンドごとに料率も計算期間も違うので、実際の受取額とは一致しない。着地点は金額ではなく<strong>分母の置き場所</strong>。</p>
+  </section>
+
+  <!-- §4 割り算 -->
+  <section>
+    <div class="step-head"><span class="step-time">25:00 &ndash; 30:00</span><h2>§4　9月3日の割り算が、彼の会社そのものに立っている</h2></div>
+
+    <p>アックマンの主力ファンド <b>PSH</b> は、ロンドンとアムステルダムに上場していて、誰でも株を買える。
+    このファンドには2つの値段がある。<strong>中に入っている株の合計額</strong>と、<strong>市場がPSHの株につけている値段</strong>である。</p>
+
+    <div class="tiles">
+      <div class="tile fx"><div class="k">中身（NAV／1株）</div><div class="v">77.10<small> ドル</small></div><div class="d">2026年7月31日時点</div></div>
+      <div class="tile price"><div class="k">市場の値札（1株）</div><div class="v">52.98<small> ドル</small></div><div class="d">2026年8月10日 自社株買いの平均取得単価</div></div>
+      <div class="tile rate"><div class="k">中身 ÷ 値札</div><div class="v">約1.5<small> 倍</small></div><div class="d">値札は中身の約7割</div></div>
+    </div>
+
+    <div class="formula">中身 <span class="num">77.10ドル</span> ÷ 市場の値札 <span class="num">52.98ドル</span> ＝ <span class="num">約1.5倍</span>
+      <small>9/3のネットキャッシュ比率とまったく同じ形の割り算。名前が違うだけである</small></div>
+
+    <p style="margin-top:18px">9/3にやった 440億 ÷ 400億 ＝ 1.1倍 と、置いてあるものは同じである。
+    <strong>分子は会社の中身、分母は市場のつけた値段。</strong>数字が1.1倍から約1.5倍に変わっただけ。</p>
+
+    <div class="callout">
+      <p class="q">Q4でやった論点が、ここでもう一度出る。</p>
+      <p>NAVは<strong>7月31日時点</strong>、株価は<strong>8月10日</strong>のもの。<strong>分子と分母で時点が10日ずれている。</strong>
+      比率を出すときは、必ず<strong>いつの数字を、いつの数字で割ったか</strong>を書く。</p>
+    </div>
+
+    <div class="ana">
+      <span class="at">たとえ</span>
+      <p>中身が1万円分入っていると外に書いてある福袋が、7千円で売られている。中を開けて中身を1つずつ売れば1万円になるのだから、買えば得なはずである。</p>
+      <p>それでも7千円のままなのは、<strong>その福袋を開けられない</strong>からだ。PSHの株を持っていても、中のUberやAmazonの株を取り出して売ることはできない。<strong>中身と値札の差は、開けられない限り残る。</strong></p>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q10</span><p>中身が約1.5倍なら、PSHは<strong>必ず買いか。</strong>「いいえ」なら、何が足りないか。</p>
+        <p class="hint">9/3の発展問題とまったく同じ問い。「きっかけ」という言葉で答える</p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">いいえ。中身のほうが大きいのは割安の候補であって、買いの結論ではない</p>
+          <p>差が縮まる<strong>きっかけ</strong>が無ければ、値札は中身に近づかないまま何年も置かれる。
+          実際PSHの値札は、<strong>2026年4月30日時点で中身より約31%低かった。</strong>数年にわたって3割前後の差が続いている。
+          <strong>「割安に見える」と「割安が解消される」は別の話である。</strong></p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q11</span><p>アックマン自身は、その<strong>きっかけを作る側の人</strong>である。§3で確認した彼の商売のやり方を、そのまま自分のファンドに使うとしたら何をするか。</p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">中身より安い値札がついている自社の株を、自分で買い戻す</p>
+          <p>実際にやっている。2026年8月10日、PSHは自社の株30,054株を平均52.98ドルで買い戻した。同じ週の前後も連日買っている。
+          <strong>77ドルの中身を53ドルで買っているのだから、買った分だけ残った株主の1株あたりの中身は増える。</strong></p>
+          <p style="margin-top:10px">ここが今日の着地点である。彼は他社に対しては、株を買い、取締役会に人を送り込んで<strong>外から差を縮めにいく</strong>。
+          その同じ手を自分のファンドにも使っている。<strong>それでも3割前後の差は残っている。</strong>
+          アイデアに金はついてきた ── 預かり額は約230億ドルまで増えた。だが<strong>その金が自分の会社につけた値札は、中身より3割低いままである。</strong></p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 宿題 -->
+  <section>
+    <h2>次回までの宿題</h2>
+    <div class="hw">
+      <div class="h1x must"><span class="badge m">必須</span><strong>英語で書かれた会社のページを1つ開き、その会社が「誰に何を売っているか」を1行の日本語にして持ってくる。</strong></div>
+    </div>
+    <p class="sec-note">どの会社でもよい。会社の公式サイトの About か Investors のページでよい。<strong>訳すのではなく、1行にする。</strong></p>
+  </section>
+
+  <!-- 用語 -->
+  <section>
+    <h2>用語ミニ辞典 ── 今日出た言葉だけ</h2>
+    <dl class="gloss">
+      <div><dt>アクティビスト<small>activist</small></dt><dd>物を言う株主。株を買って値上がりを待つだけでなく、取締役会に人を送り込むなどして会社そのものを動かしにいく投資家。</dd></div>
+      <div><dt>ヘッジファンド<small>hedge fund</small></dt><dd>限られた投資家から金を預かって運用する箱。投資信託と違い、預かり手の裁量が広く、報酬も高い。</dd></div>
+      <div><dt>AUM<small>Assets Under Management ／ 預かり資産</small></dt><dd>運用会社が預かっている金の合計。管理報酬の分母になる。「fee-paying AUM」は、そのうち実際に報酬の対象になっている分。</dd></div>
+      <div><dt>管理報酬<small>management fee</small></dt><dd>預かっている間ずっと発生する報酬。運用成績とは無関係に入る。PSHは年1.5%。</dd></div>
+      <div><dt>成功報酬<small>performance fee</small></dt><dd>値上がりした分からだけ取る報酬。PSHは16%。<b>分母は預かり額ではなく増えた分。</b></dd></div>
+      <div><dt>NAV<small>Net Asset Value ／ 純資産価値</small></dt><dd>ファンドの中に入っている資産の合計から負債を引いたもの。1株あたりに直すと「中身の1株分の値段」になる。ネットキャッシュと同じく <b>net＝差し引き後</b>。</dd></div>
+      <div><dt>ディスカウント<small>discount to NAV</small></dt><dd>市場のつけた株価が、NAVより低い状態。低い度合いを%で言う。逆に高ければプレミアム。</dd></div>
+      <div><dt>IPO<small>Initial Public Offering ／ 新規株式公開</small></dt><dd>それまで上場していなかった会社の株を、市場で誰でも売買できるようにすること。</dd></div>
+      <div><dt>初値<small>opening price</small></dt><dd>上場した日に、市場で最初についた値段。売り出し価格とは別。<b>売り出し価格は会社が決め、初値は市場が決める。</b></dd></div>
+      <div><dt>自社株買い<small>share buyback</small></dt><dd>会社が自分の株を市場から買い戻すこと。中身より安い値段で買えば、残った株主の1株あたりの中身が増える。</dd></div>
+      <div><dt>機関投資家<small>institutional investor</small></dt><dd>年金基金・保険会社・運用会社など、他人の金をまとめて運用する組織。個人に対する言葉。</dd></div>
+      <div><dt>取締役会<small>board</small></dt><dd>会社の重要な決定をする会議体。9/3にやったとおり、株を大量に持つと、ここに自分の味方を送り込める。</dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <p><strong>一次情報として確認できるもの:</strong> Pershing Square Inc.（NYSE: PS）── 2026年4月28日に売り出し価格決定、4月29日にPSUSとともにニューヨーク証券取引所で取引開始。PSUSの売り出し価格は1株50ドル、PSUS5株につきPS1株、2銘柄合計の調達額は約50億ドル。2026年8月12日発表の4〜6月期決算で、報酬の対象となる預かり資産は約230億ドル（四半期で約46億ドル増）、売上高 約5,420万ドル、1株当たり利益 0.14ドル。PSHの管理報酬は年1.5%（四半期0.375%）、成功報酬は16%。原本は SEC EDGAR の Form 8-K・10-Q・424B4 および Pershing Square 各社のIRページ。</p>
+    <p><strong>同社開示（PSHのNAVと自社株買い）:</strong> 1株あたりNAV 77.10ドル は<strong>2026年7月31日時点</strong>。自社株買いは<strong>2026年8月10日</strong>に30,054株・平均取得単価52.98ドル。<strong>§4の「約1.5倍」は、この時点の異なる2つの数字を割ったもの。</strong>2026年4月30日時点のNAVに対するディスカウントは約31%。</p>
+    <p><strong>報道ベース（二次情報）:</strong> PSUSの初値 約42ドル（売り出し価格を約16%下回った）、IPOの注文の8割以上が機関投資家だったこと。</p>
+    <p><strong>授業中の設例:</strong> Q7〜Q9の金額は、PSHの料率（1.5%／16%）を預かり資産の全体に当てた<strong>簡略化した概算</strong>で、実際の受取額ではない。ファンドごとに料率も計算期間も異なる。Q7の円換算に使った1ドル150円は計算しやすさのための概数であり、特定時点の相場ではない。Q5の440億円／400億円は9月3日と同じ<strong>仮の数値</strong>で、実在の会社の数字ではない。</p>
+    <p><strong>動画について:</strong> §2に文字で示した2文は、動画から聞き取ったもの。それ以外の発言は授業中に本人が聞き取る。</p>
+    <p>本資料は2026年9月7日の個別指導のための教材で、投資勧誘を目的とするものではありません。</p>
+  </footer>
+</div>
+
+</body>
+</html>
