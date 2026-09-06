@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個別講義 復習｜2026年9月4日 国債は誰と誰の間を動き、お金はどちらに動くか</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16px; line-height:1.9; color:var(--ink);}
+.lede ul{margin:0; padding-left:1.2em;}
+.lede li{margin-bottom:4px;}
+.lede li:last-child{margin-bottom:0;}
+
+/* ---------- セクション ---------- */
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+
+/* ---------- 問い ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+.line{display:block; min-height:30px; border-bottom:2px dashed var(--q-line); margin-top:10px;}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+.next{font-size:14.5px; color:var(--ink);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, footer{padding:18px 16px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../toyonaga.html">← 講義資料の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">個別講義</span>
+  <span>6/9 補講　自由主義・AIサプライチェーン・上場</span>
+  <span>8/4　メルカリのビジネスモデル</span>
+  <span>8/7　フィンテック・与信・GMV</span>
+  <a href="lecture_toyonaga_20260821.html">8/21　為替・金利・ベッセント</a>
+  <a href="lecture_toyonaga_20260828.html">8/28　PL・段階損益・会計基準</a>
+  <a href="lecture_toyonaga_20260904.html">9/4　買いオペ・売りオペと信用創造</a>
+  <span class="cur">9/4 復習クイズ</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">REVIEW ／ 個別講義 復習 ── 第3回</div>
+  <h1 class="title">国債は誰と誰の間を動き、<br>お金はどちらに動くか</h1>
+  <div class="meta">
+    <span><b>元になった回</b>　2026年9月4日（金）15:00・30分　買いオペ・売りオペと信用創造</span>
+    <span><b>形式</b>　全11問。空欄に1行で書く</span>
+  </div>
+  <div class="lede">
+    <ul>
+      <li>下の11問は、9/4 の30分で実際に聞かれたものだけで組んである</li>
+      <li>前半5問は自力で答えたもの、後半6問は答えが出なかったもの</li>
+      <li>答えは書いていない。声に出して言えるところまでにしてくること</li>
+    </ul>
+  </div>
+</header>
+
+<section class="topic">
+  <span class="badge bridge">前回、自力で答えた問い</span>
+  <h2 class="thead">もう一度、同じことを聞く</h2>
+  <p class="sub">5問。前回は即答している。</p>
+
+  <ol class="q">
+    <li>お金の量が減ると、お金の価値は<b>上がりますか、下がりますか</b>。<span class="line"></span></li>
+    <li><b>インフレ</b>とは、お金の量が <span class="blank">　　　</span> ている状態。そのとき、お金の価値は <span class="blank">　　　</span> ている。<span class="line"></span></li>
+    <li>1ドル150円が200円になった。これは<b>円高ですか、円安ですか</b>。<span class="line"></span></li>
+    <li><b>国債は、誰の借金ですか。</b><span class="line"></span></li>
+    <li>その借金は、<b>何で返しますか。</b><span class="line"></span></li>
+  </ol>
+</section>
+
+<section class="topic">
+  <span class="badge macro">前回、答えが出なかった問い</span>
+  <h2 class="thead">ここが 9/4 の穴</h2>
+  <p class="sub">6問。理由を聞かれているものは、理由まで書く。</p>
+
+  <ol class="q">
+    <li>日銀とみずほ銀行は、お金と引き換えに<b>何をやり取りしていますか。1語で。</b><span class="line"></span></li>
+    <li>日銀が銀行に国債を<b>売った</b>。世の中に出回るお金は<b>増えますか、減りますか</b>。<span class="hint">理由も1行で書くこと。</span><span class="line"></span></li>
+    <li>お金の価値が上がった。コーヒー1杯の値段は<b>上がりますか、下がりますか</b>。<span class="hint">理由も1行で書くこと。</span><span class="line"></span></li>
+    <li>日銀がいちばん多く持っている国債は、<b>どこの国の国債ですか。</b><span class="line"></span></li>
+    <li>日銀が国債を<b>売る</b>のは、<b>買いオペですか、売りオペですか。</b><span class="line"></span></li>
+    <li>日銀が国債を買って、銀行にお金が積み上がった。それだけで、<b>君の財布のお金は増えますか。</b>増えるとしたら、<b>いつですか。</b><span class="hint">「信用創造」という言葉を使わずに書くこと。</span><span class="line"></span></li>
+  </ol>
+</section>
+
+<footer>
+  <div class="next"><b>次回　9月11日（金）15:00</b>　CF（キャッシュ・フロー計算書）── 黒字なのに、金がない。</div>
+</footer>
+
+</div>
+</body>
+</html>
