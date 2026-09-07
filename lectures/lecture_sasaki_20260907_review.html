@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>more valuable なのはどちらか ── 9月7日の英語で、向きが逆になった一文</title>
+<meta name="description" content="2026年9月7日の個別指導の復習。ビル・アックマンのインタビューを英語のまま聞いた40分から、自分の口で言えた言葉と、答えが出なかった言葉の両方を抜き出して5問にした。The ideas are more valuable than the relationships. の比較の向き、the capital will find you の主語、interest rate と guaranteed、capital と資本、persistence（ケーススタディ 第6回・復習編）">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #f9f9f7;
+    --surface: #fcfcfb;
+    --surface-raised: #ffffff;
+    --ink: #141413;
+    --ink-2: #52514e;
+    --ink-muted: #898781;
+    --hairline: #e1e0d9;
+    --border: rgba(11, 11, 11, 0.10);
+    --accent: #2a78d6;
+    --accent-ink: #1c5cab;
+    --accent-wash: rgba(42, 120, 214, 0.08);
+    --good: #006300;
+    /* 三角形の3つの角 — この3色はページ全体で意味を固定する */
+    --fx: #2a78d6;      /* 為替 */
+    --price: #eb6834;   /* 物価 */
+    --rate: #1baf7a;    /* 金利 */
+    --fx-wash: rgba(42, 120, 214, 0.10);
+    --price-wash: rgba(235, 104, 52, 0.10);
+    --rate-wash: rgba(27, 175, 122, 0.10);
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --s4: #eda100;
+    --s-other: #898781;
+    --f1: #86b6ef;
+    --f2: #2a78d6;
+    --f3: #104281;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-raised: #222220;
+      --ink: #f4f3ef;
+      --ink-2: #c3c2b7;
+      --ink-muted: #898781;
+      --hairline: #2c2c2a;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #3987e5;
+      --accent-ink: #86b6ef;
+      --accent-wash: rgba(57, 135, 229, 0.14);
+      --good: #0ca30c;
+      --fx: #3987e5;
+      --price: #f07a44;
+      --rate: #199e70;
+      --fx-wash: rgba(57, 135, 229, 0.16);
+      --price-wash: rgba(240, 122, 68, 0.16);
+      --rate-wash: rgba(25, 158, 112, 0.16);
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --s4: #c98500;
+      --s-other: #898781;
+      --f1: #6da7ec;
+      --f2: #3987e5;
+      --f3: #184f95;
+      --grid: #2c2c2a;
+      --axis: #383835;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-raised: #222220;
+    --ink: #f4f3ef;
+    --ink-2: #c3c2b7;
+    --ink-muted: #898781;
+    --hairline: #2c2c2a;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #3987e5;
+    --accent-ink: #86b6ef;
+    --accent-wash: rgba(57, 135, 229, 0.14);
+    --good: #0ca30c;
+    --fx: #3987e5;
+    --price: #f07a44;
+    --rate: #199e70;
+    --fx-wash: rgba(57, 135, 229, 0.16);
+    --price-wash: rgba(240, 122, 68, 0.16);
+    --rate-wash: rgba(25, 158, 112, 0.16);
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s-other: #898781;
+    --f1: #6da7ec;
+    --f2: #3987e5;
+    --f3: #184f95;
+    --grid: #2c2c2a;
+    --axis: #383835;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.75;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; }
+
+  /* ---------- header ---------- */
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.14em; color: var(--accent-ink);
+    font-weight: 700; text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(30px, 5.4vw, 44px); font-weight: 800; line-height: 1.25;
+    letter-spacing: 0.01em; margin: 10px 0 14px; text-wrap: balance;
+  }
+  .lede { color: var(--ink-2); max-width: 40em; }
+  .lede strong { color: var(--ink); }
+  .meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+    border: 1px solid var(--hairline); background: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .chip em { font-style: normal; color: var(--accent-ink); }
+
+  .backlink { display: inline-block; font-size: 13px; font-weight: 700; color: var(--ink-muted);
+    text-decoration: none; margin-bottom: 16px; }
+  .backlink:hover { color: var(--accent-ink); }
+  @media print { .backlink { display: none; } }
+
+  /* ---------- series tabs ---------- */
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-top: 28px;
+    border-bottom: 1px solid var(--hairline);
+    overflow-x: auto; scrollbar-width: thin;
+  }
+  .tab {
+    flex: 0 0 auto; display: block; text-decoration: none;
+    padding: 10px 16px 9px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 8px 8px 0 0; margin-bottom: -1px;
+    font-size: 13.5px; font-weight: 700; color: var(--ink-muted);
+    white-space: nowrap; transition: color .12s ease, background .12s ease;
+  }
+  .tab small { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-muted); }
+  a.tab { color: var(--accent-ink); }
+  a.tab small { color: var(--ink-2); }
+  a.tab:hover { background: var(--accent-wash); }
+  a.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  a.tab .ext { font-weight: 500; font-size: 11px; }
+  .tab.is-current {
+    color: var(--ink); background: var(--surface);
+    border-color: var(--hairline); border-bottom: 1px solid var(--surface);
+  }
+  .tab.is-past { cursor: default; opacity: .55; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 56px; }
+  .step-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .step-time {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  h2 { font-size: 23px; font-weight: 800; line-height: 1.35; text-wrap: balance; }
+  h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  section > p, .card > p { color: var(--ink-2); max-width: 44em; }
+  section > p strong, .card p strong, li strong { color: var(--ink); }
+  .sec-note { font-size: 13px; color: var(--ink-muted); margin-top: 10px; }
+
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; margin-top: 18px; border-top: 1px solid var(--hairline); }
+  .agenda li {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 14px;
+    align-items: baseline; padding: 11px 4px; border-bottom: 1px solid var(--hairline);
+  }
+  .agenda .t { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13.5px; color: var(--accent-ink); }
+  .agenda .what { font-weight: 600; }
+  .agenda .what small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-muted); }
+  .agenda .min { font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+
+  /* ---------- cards / callout / recall ---------- */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px; margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-wash);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 18px;
+    max-width: 46em;
+  }
+  .callout p { color: var(--ink-2); }
+  .callout .q { font-weight: 700; color: var(--ink); }
+  .recalls { display: grid; gap: 10px; margin-top: 18px; }
+  .recall {
+    border: 1px dashed var(--axis); background: var(--surface);
+    border-radius: 10px; padding: 14px 18px; max-width: 46em;
+  }
+  .recall .who { font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; color: var(--ink-muted); }
+  .recall .said { font-weight: 700; color: var(--ink); margin-top: 2px; }
+  .recall .note { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+
+  /* ---------- KPI tiles ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; border-top: 3px solid var(--border);
+  }
+  .tile.fx { border-top-color: var(--fx); }
+  .tile.rate { border-top-color: var(--rate); }
+  .tile.price { border-top-color: var(--price); }
+  .tile .k { font-size: 12px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .tile .v { font-size: 25px; font-weight: 800; line-height: 1.3; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .tile .v small { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .tile .d { font-size: 12.5px; font-weight: 600; margin-top: 1px; color: var(--ink-2); }
+  .tile .d.up { color: var(--good); }
+  .unsure { color: var(--s2); font-weight: 700; }
+
+  /* ---------- formula ---------- */
+  .formula {
+    margin-top: 18px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; font-weight: 700; font-size: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  }
+  .formula .num { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .formula small { font-weight: 500; color: var(--ink-muted); flex-basis: 100%; font-size: 12.5px; }
+
+  /* ---------- charts / diagram ---------- */
+  figure { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 14px; }
+  figcaption { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .figsub { font-size: 12.5px; color: var(--ink-muted); margin-bottom: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .chart-scroll { overflow-x: auto; }
+  .chart-scroll svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  svg text { font-family: inherit; }
+  .diagram { color: var(--ink-muted); }
+  .src { font-size: 11.5px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- exercise ---------- */
+  .ex { margin-top: 18px; }
+  .ex .card { padding: 0; overflow: hidden; }
+  .ex-q { padding: 18px 22px 6px; }
+  .ex-q .no {
+    display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    border-radius: 4px; padding: 2px 8px; margin-bottom: 8px;
+  }
+  .ex-q p { color: var(--ink); font-weight: 600; max-width: 44em; }
+  .ex-q .hint { font-weight: 400; font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+  .qz-choices { list-style: none; counter-reset: qc; margin: 12px 22px 4px; padding: 0; display: grid; gap: 6px; max-width: 46em; }
+  .qz-choices li {
+    counter-increment: qc; position: relative; border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 8px 14px 8px 40px; font-size: 14px; color: var(--ink-2);
+  }
+  .qz-choices li::before {
+    content: counter(qc, upper-alpha); position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    font-weight: 800; font-size: 12.5px; color: var(--accent-ink);
+  }
+  details { border-top: 1px solid var(--hairline); margin-top: 14px; }
+  summary {
+    cursor: pointer; padding: 12px 22px; font-weight: 700; font-size: 13.5px;
+    color: var(--accent-ink); list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "\25B8  "; }
+  details[open] summary::before { content: "\25BE  "; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 6px; }
+  .ans { padding: 0 22px 18px; color: var(--ink-2); max-width: 46em; }
+  .ans .calc {
+    font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink);
+    background: var(--accent-wash); border-radius: 8px; padding: 10px 14px; margin: 8px 0 10px;
+    display: inline-block;
+  }
+
+  /* ---------- tables ---------- */
+  .tbl-scroll { overflow-x: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; background: var(--surface); font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td:first-child { font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td small { display: block; color: var(--ink-muted); font-size: 12px; }
+  .tbl-note { font-size: 12px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- discussion / glossary ---------- */
+  .qlist { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+  .qlist li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .qlist .q { font-weight: 700; }
+  .qlist .why { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  dl.gloss { margin-top: 16px; border-top: 1px solid var(--hairline); }
+  dl.gloss > div { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 12px 4px; border-bottom: 1px solid var(--hairline); }
+  @media (max-width: 560px) { dl.gloss > div { grid-template-columns: 1fr; gap: 2px; } }
+  dt { font-weight: 700; font-size: 14px; }
+  dt small { display: block; font-weight: 400; font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  dd { color: var(--ink-2); font-size: 14px; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 18px; font-size: 12.5px; color: var(--ink-muted); }
+  footer p { max-width: none; }
+  footer p + p { margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print {
+    body { background: #fff; }
+    .tabs { display: none; }
+    details { border-top: none; }
+    summary { display: none; }
+    .ans { padding-top: 0; }
+  }
+
+  /* ---------- 第4回で追加 ---------- */
+  .tile.debt { border-top-color: var(--s4); }
+  .device {
+    margin-top: 20px; border: 2px solid var(--accent); border-radius: 12px;
+    background: var(--accent-wash); padding: 18px 22px; max-width: 46em;
+  }
+  .device h3 { margin-top: 0; color: var(--accent-ink); }
+  .device .rule {
+    font-size: 19px; font-weight: 800; color: var(--ink); margin: 10px 0 6px;
+    letter-spacing: 0.01em;
+  }
+  .steps2 { list-style: none; counter-reset: st; display: grid; gap: 8px; margin-top: 12px; }
+  .steps2 li {
+    counter-increment: st; position: relative; padding-left: 34px; font-size: 14.5px; color: var(--ink-2);
+  }
+  .steps2 li::before {
+    content: counter(st); position: absolute; left: 0; top: 1px;
+    width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff;
+    font-size: 12.5px; font-weight: 800; display: grid; place-items: center;
+  }
+  .routes { display: grid; gap: 14px; margin-top: 20px; }
+  .route {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 22px; border-left: 4px solid var(--accent);
+  }
+  .route.r1 { border-left-color: var(--fx); }
+  .route.r2 { border-left-color: var(--rate); }
+  .route.r3 { border-left-color: var(--price); }
+  .route .rk {
+    font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; color: var(--ink-muted);
+  }
+  .route h3 { margin: 2px 0 8px; font-size: 17.5px; }
+  .chain {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px;
+    font-size: 13.5px; font-weight: 700; margin: 12px 0;
+  }
+  .chain span {
+    background: var(--surface-raised); border: 1px solid var(--hairline);
+    border-radius: 6px; padding: 4px 10px; white-space: nowrap;
+  }
+  .chain b { color: var(--ink-muted); font-weight: 800; }
+  .aims { display: grid; gap: 10px; margin-top: 18px; counter-reset: aim; }
+  .aim {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 15px 20px 15px 54px; position: relative; counter-increment: aim;
+  }
+  .aim::before {
+    content: "\7B56 " counter(aim); position: absolute; left: 14px; top: 15px;
+    font-size: 11px; font-weight: 800; color: var(--accent-ink);
+    background: var(--accent-wash); border-radius: 4px; padding: 3px 6px; line-height: 1.2;
+    writing-mode: horizontal-tb;
+  }
+  .aim .at { font-weight: 800; font-size: 15.5px; }
+  .aim p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .crit { border-left-color: var(--s2); }
+  .crits { display: grid; gap: 10px; margin-top: 16px; }
+  .crits .c2 {
+    background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--s2);
+    border-radius: 0 10px 10px 0; padding: 15px 20px;
+  }
+  .crits .c2 .ct { font-weight: 800; font-size: 15px; }
+  .crits .c2 p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .crits .c2 .who2 { font-size: 12.5px; color: var(--ink-muted); margin-top: 6px; font-weight: 600; }
+  .hw { margin-top: 18px; display: grid; gap: 12px; }
+  .hw .h1x {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;
+  }
+  .hw .h1x.must { border-color: var(--accent); border-left: 4px solid var(--accent); }
+  .hw .badge {
+    display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
+    border-radius: 4px; padding: 2px 8px; margin-right: 8px;
+  }
+  .hw .badge.m { background: var(--accent-wash); color: var(--accent-ink); }
+  .hw .badge.o { background: var(--hairline); color: var(--ink-muted); }
+  .hw ol.form { margin: 10px 0 0 20px; font-size: 14px; color: var(--ink-2); }
+  .hw ol.form li { margin-bottom: 4px; }
+  .hw ol.form li b { color: var(--ink); }
+
+  /* ---------- 第6回で追加 ---------- */
+  .ana {
+    margin-top: 18px; border-left: 3px solid var(--s4);
+    background: var(--surface); border-radius: 0 10px 10px 0;
+    padding: 15px 20px; max-width: 46em;
+  }
+  .ana .at {
+    font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--s4); display: block; margin-bottom: 4px;
+  }
+  .ana p { font-size: 14.5px; color: var(--ink-2); }
+  .ana p + p { margin-top: 8px; }
+
+  .watch {
+    margin-top: 20px; border: 2px solid var(--accent); border-radius: 12px;
+    background: var(--accent-wash); padding: 18px 22px; max-width: 46em;
+  }
+  .watch .wl { font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; color: var(--accent-ink); }
+  .watch a { font-weight: 700; color: var(--accent-ink); word-break: break-all; }
+  .watch p { font-size: 14px; color: var(--ink-2); margin-top: 6px; }
+
+  .en {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 20px; font-weight: 600; line-height: 1.5; color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .en-jp { font-size: 14px; color: var(--ink-muted); margin-top: 6px; }
+
+  .words { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  @media (max-width: 620px) { .words { grid-template-columns: 1fr; } }
+  .word {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 9px 14px; font-size: 14px;
+  }
+  .word b { font-family: "Georgia", "Times New Roman", serif; font-size: 15.5px; }
+  .word i { font-style: normal; color: var(--ink-muted); font-size: 12.5px; margin-left: 6px; }
+  .word span { display: block; color: var(--ink-2); font-size: 13.5px; }
+
+  .blanks { list-style: none; margin-top: 16px; display: grid; gap: 10px; max-width: 46em; }
+  .blanks li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px; font-size: 14px; color: var(--ink-2);
+  }
+  .blanks .rule2 {
+    display: block; border-bottom: 1px dashed var(--axis); height: 26px; margin-top: 6px;
+  }
+
+  ul.lede-pts { list-style: none; margin-top: 14px; max-width: 42em; display: grid; gap: 8px; }
+  ul.lede-pts li {
+    position: relative; padding-left: 18px; color: var(--ink-2); font-size: 15.5px;
+  }
+  ul.lede-pts li::before {
+    content: ""; position: absolute; left: 0; top: 11px;
+    width: 7px; height: 7px; border-radius: 2px; background: var(--accent);
+  }
+  ul.lede-pts strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="backlink" href="../sasaki.html">&larr; 講義資料の一覧へ</a>
+
+  <header>
+    <p class="eyebrow">ケーススタディ 第6回・復習編 ／ 2026年9月7日実施分</p>
+    <h1>more valuable なのは、どちらか</h1>
+    <ul class="lede-pts">
+      <li>9月7日の40分は、最初から最後まで<strong>英語だった</strong>。下の5問は、その40分で実際にやりとりした言葉だけで組んである。</li>
+      <li>第1問と第2問は、どちらも<strong>向き</strong>を問う。9月7日は、片方を逆に答え、もう片方を自力で当てている。</li>
+      <li>答えは各問の下に隠してある。<strong>開く前に、必ず声に出す。</strong></li>
+    </ul>
+    <div class="meta-chips">
+      <span class="chip">元になった回: <em>2026年9月7日（月）9:00</em></span>
+      <span class="chip">題材: <em>ビル・アックマンの路上インタビュー</em></span>
+      <span class="chip">全5問 · 4択と「自分の言葉で」</span>
+    </div>
+
+    <nav class="tabs" aria-label="ケーススタディ シリーズ">
+      <span class="tab is-past" title="配布資料リンクなし（講義のみ）">第1回　メルカリ<small>GMVと営業損失</small></span>
+      <a class="tab" href="lecture_sasaki_20260817.html">第2回　ZOZOの決算を読む<small>受託販売とテイクレート <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260820.html">第3回　金利・為替・インフレ<small>三角形の一周 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260824.html">第4回　利払いが国防費を超えた国<small>国のPL <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260903.html">第5回　予想との差と1.1倍<small>9/3の復習クイズ <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260907.html">第6回　The capital will find you<small>英語とビジネスモデル <span class="ext">&#8594;</span></small></a>
+      <span class="tab is-current" aria-current="page">9/7 復習　英語で出た向き<small>この5問（今回）</small></span>
+    </nav>
+  </header>
+
+  <section>
+    <h2>このページの使い方</h2>
+    <ol class="agenda">
+      <li><span class="t">まず</span><span class="what">§1を読む<small>9月7日に自分の口で言えた英語を、そのまま並べてある</small></span><span class="min">3分</span></li>
+      <li><span class="t">つぎに</span><span class="what">§2の5問を解く<small>答えを開く前に声に出す。4択でも、理由を先に言ってから選ぶ</small></span><span class="min">10分</span></li>
+      <li><span class="t">次回冒頭</span><span class="what">先生が口頭で同じ5問を出す<small>合格ラインは「言えた」ではなく「動かせた」。辞書を見ずに出れば合格</small></span><span class="min">7分</span></li>
+    </ol>
+    <p class="sec-note">辞書もAIも使わずに1周する。詰まったところだけ、あとで調べる。</p>
+  </section>
+
+  <section>
+    <div class="step-head"><span class="step-time">§1</span><h2>9月7日に、自分で言えた英語</h2></div>
+    <p>文字起こしから、自分の発言だけを抜いた。先生が渡した訳ではない。<strong>ここに並んでいる語は、もう手元にある。</strong>
+    下線は、そのあとの5問で問い直す箇所。</p>
+
+    <div class="recalls">
+      <div class="recall">
+        <p class="who">佐々木くん · 00:05</p>
+        <p class="said">「investment management は、<u>投資運用業</u>です」</p>
+        <p class="note">即答。アックマンが何をしている人かは、1語で受け取れている。</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:06</p>
+        <p class="said">「フィロソフィーは<u>哲学</u>」</p>
+        <p class="note">即答。「では君の philosophy は」と聞かれて<strong>「エフォート、努力です」</strong>と自分の言葉で答えている。&rarr; Q5</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:10</p>
+        <p class="said">「若い頃にいろいろやろうとすると、必ず<u>悪い結果が保証される</u>」</p>
+        <p class="note"><b>guaranteed</b> 1語では詰まったが、文全体は自分で組み立てた。&rarr; Q3</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:25</p>
+        <p class="said">「短期のことばかりのところに、長期的な考えがあることが、<u>アドバンテージ</u>になる」</p>
+        <p class="note">時間はかかったが自力で到達。先生はこれを「人が持っていない武器を持つ」と抽象度を上げて言い直した。</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:36</p>
+        <p class="said">「<u>アイディアがあれば、資本が見つけてくれる</u>」</p>
+        <p class="note"><strong>この回の最高点。</strong><b>the capital will find you</b> を、主語を外さずに一度で訳した。&rarr; Q2</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:40</p>
+        <p class="said">「成功した人は誰も、<u>ストレートに成功したわけじゃない</u>」</p>
+        <p class="note"><b>Every successful person was not a straight line up.</b> を自力で訳した。&rarr; Q5</p>
+      </div>
+      <div class="recall">
+        <p class="who">佐々木くん · 00:41</p>
+        <p class="said">「コンセンサスは、複数の人の<u>意見が一致する</u>こと」</p>
+        <p class="note">9月3日にやった語が、4日たっても残っている。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="step-head"><span class="step-time">§2</span><h2>5問</h2></div>
+    <p>第1問と第4問が、9月7日にいちばん深く詰まったところ。<strong>第2問は、当てられた問いをもう一度出す。</strong>
+    二度目も同じ答えが出るなら、覚えているのは結論ではなく向きである。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q1</span><p class="en">The ideas are more valuable than the relationships.</p>
+        <p>アックマンは、どちらのほうが価値があると言っているか。</p>
+        <p class="hint">直前の質問は <b>What's more important in business, what you know or who you know?</b>（ビジネスで大事なのは、何を知っているか、誰を知っているか）。</p></div>
+        <ol class="qz-choices">
+          <li>人脈のほうが、アイデアより価値がある</li>
+          <li>アイデアのほうが、人脈より価値がある</li>
+          <li>アイデアと人脈は、同じくらい価値がある</li>
+          <li>アイデアさえあれば、人脈は要らない</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+        <p>9月7日は<strong>「アイディアよりも人脈の方が」と、逆に出た。</strong>その直前までは
+        「何を知っているかの方が良くて」と合っていたので、崩れたのは比較の文に入った瞬間である。</p>
+        <p style="margin-top:10px"><strong><b>A is more valuable than B</b> は、than の前が上。</strong>
+        テストの点で「AはBより高い」と言えば、高いのはA。英語も同じ順番で並んでいる。
+        訳す前に、<strong>than を指で押さえて、その前に何が来ているかを見る。</strong></p>
+        <p style="margin-top:10px">Dを選んだら行き過ぎ。アックマンは人脈が無価値だとは言っていない。
+        <b>どちらがより</b>、と言っている。<b>ideas</b> も <b>relationships</b> も複数形で、
+        直前の <b>what you know</b> と <b>who you know</b> に1対1で対応している。</p>
+        <p style="margin-top:10px"><b>着地点</b>　9月3日の「1.1倍は割安か割高か」と同じ形の間違いである。
+        <strong>数字でも英語でも、崩れるのは向きのところ。</strong></p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q2</span><p class="en">If you have a great, creative, brilliant idea, the capital will find you.</p>
+        <p>この文で、<strong>動いて探しているのはどちらか。</strong></p></div>
+        <ol class="qz-choices">
+          <li>you ── 君が資本を探しに行く</li>
+          <li>the capital ── 資本のほうが君を見つけに来る</li>
+          <li>idea ── アイデアが資本を探しに行く</li>
+          <li>どちらも動かない</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+        <p>9月7日は<strong>一度で当てている</strong>。「アイディアがあれば、資本が見つけてくれる」と自分の口で言った。
+        この問いは、二度目も同じ向きが出るかを見るために出している。</p>
+        <p style="margin-top:10px">主語は <b>the capital</b>、目的語は <b>you</b>。<strong>you は動いていない。</strong>
+        ひっくり返して <b>you will find the capital</b> と並べると、意味が反対になる。</p>
+        <p style="margin-top:10px">散歩している犬とリードで考える。<strong>動いて先に行くのはどちらか。</strong>
+        この文では、資本のほうが引っぱって君のところへ来る。</p>
+        <p style="margin-top:10px"><b>着地点</b>　Q1では逆になり、Q2では合った。違いは<strong>比較の文かどうか</strong>である。
+        <b>more ... than</b> が出てきたときだけ、指で押さえる手間を1つ増やす。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q3</span><p>「金利」は英語で何というか。<b>guaranteed</b> はどういう意味か。<br>
+        2つ並べた <b>guaranteed interest rate</b> は、日本語で何と呼ぶ金利か。<strong>調べずに、自分の言葉で。</strong></p></div>
+        <details><summary>合格ラインを見る</summary><div class="ans">
+        <p class="calc">interest rate ／ 保証された ／ 固定金利</p>
+        <p>9月7日は <b>guaranteed</b> を「お金ですか」「投資の結果ですかね」と2回振れ、
+        金利は「なんとかレートみたいな」で止まった。<strong>3つとも、その場では出ていない。</strong></p>
+        <p style="margin-top:10px">芸能の世界で言う「ギャラ」は <b>guaranteed pay</b>（保証された出演料）の後ろを落としたもので、
+        <strong>ギャラ＝お金ではない。</strong><b>guaranteed</b> 自体の意味は<strong>保証された</strong>である。
+        だから <b>a guaranteed bad outcome</b> は「悪い結果が保証されている」。</p>
+        <p style="margin-top:10px"><b>interest</b> は「興味」と同じ語。金を貸したときに<strong>後から付いてくるもの</strong>が
+        <b>interest</b>、その率が <b>rate</b>。</p>
+        <p style="margin-top:10px"><b>着地点</b>　9月4日に日銀が国債を売り買いする話をやり、9月1日のゼミでも金利を扱っている。
+        <strong>日本語で言える言葉が、英語では止まる。</strong>ここを埋めておくと、英語の一次情報がそのまま読める。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q4</span><p><b>capital</b> を日本語1語で言いなさい。<br>
+        その言葉は、貸借対照表（BS）のどこに載るか。</p>
+        <p class="hint">9月3日に「負債はBSの右側の上です」と即答している。</p></div>
+        <ol class="qz-choices">
+          <li>左側（資産）</li>
+          <li>右側の上（負債）</li>
+          <li>右側の下（純資産・資本）</li>
+          <li>BSには載らない</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">capital ＝ 資本　／　正解: C</p>
+        <p>9月7日の最後、<b>capital</b> は<strong>「キャピタル、金」で止まった。</strong>
+        先生は「資本です。これもすぐ出るようにしたほうがいい」と置いて終わっている。</p>
+        <p style="margin-top:10px"><strong>「金」と訳すと、BSの左右が入れ替わる。</strong>現金はBSの<b>左側</b>にある資産である。
+        資本は<b>右側の下</b>で、<strong>その金を誰が出したかを書く場所</strong>である。同じ「金」でも、置き場所が違う。</p>
+        <p style="margin-top:10px">文化祭の出し物で考える。手元にある材料費は左側。
+        そのうち<strong>部費から出た分</strong>と<strong>誰かから借りた分</strong>は右側で、しかも別の行に分けて書く。
+        右の上が借りた分（負債）、右の下が自分たちの分（資本）である。</p>
+        <p style="margin-top:10px"><b>言葉の所在に注意。</b>BSの資本は<strong>会社の中に積まれている資本</strong>だが、
+        <b>the capital will find you</b> の capital は<strong>外から出しに来る側の資本</strong>を指す。
+        同じ語で、立っている場所が違う。<strong>どちらの意味で使っているかを、毎回口に出す。</strong></p>
+        <p style="margin-top:10px"><b>着地点</b>　9月3日に「全株を取得したら何ができるか」をやったときの、支配権の話と同じ場所につながる。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q5</span><p>「君の philosophy は」と聞かれて、9月7日は<strong>「エフォート、努力です」</strong>と答えた。<br>
+        アックマンは、疑われた時期をどう乗り越えたかを<strong>1語</strong>で答えている。その語と、その意味を書きなさい。</p>
+        <p class="hint">動画の最後の一文 <b>Every successful person was not a straight line up.</b> と、同じことを言っている。</p></div>
+        <details><summary>合格ラインを見る</summary><div class="ans">
+        <p class="calc">persistence ／ 粘り強さ・やり抜くこと</p>
+        <p><b>philosophy</b>＝哲学 は9月7日に即答している。
+        <b>persistence</b> は<strong>配布資料の語彙表を見てから「しつこい」に到達した。</strong>
+        辞書を閉じて出れば合格。</p>
+        <p style="margin-top:10px">同じ場面で <b>You never took no for an answer.</b>（断られても引き下がらなかった）が続く。
+        最後の一文 <b>Every successful person was not a straight line up.</b> は自力で訳せている。
+        <strong>3つとも、同じことを別の言い方で言っている。</strong></p>
+        <p style="margin-top:10px"><b>着地点</b>　自分が日本語で答えた「努力」と、英語の1語 <b>persistence</b> を結びつける。
+        <strong>自分の言葉に英語を貼れたものは、忘れない。</strong></p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>次回までの宿題</h2>
+    <div class="hw">
+      <div class="h1x must"><span class="badge m">必須</span><strong><b>capital</b>・<b>interest rate</b>・<b>persistence</b> の3語を、辞書を見ずに日本語で言えるようにしてくる。</strong></div>
+    </div>
+    <p class="sec-note">3語とも、9月7日に一度は止まった語である。読む本は先生からSlackで渡す。</p>
+  </section>
+
+  <section>
+    <h2>用語ミニ辞典 ── 9月7日に出た英語だけ</h2>
+    <dl class="gloss">
+      <div><dt>investment management<small>投資運用業</small></dt><dd>他人から金を預かって運用する仕事。アックマンが「何をしている人か」と聞かれて答えた1語。</dd></div>
+      <div><dt>philosophy<small>哲学</small></dt><dd>ここでは「投資哲学」。どういう考え方で金を動かすか、という意味で使われている。</dd></div>
+      <div><dt>guaranteed<small>保証された</small></dt><dd>後ろの名詞を修飾する。<b>ギャラ（芸能の出演料）は guaranteed pay の略で、guaranteed 自体はお金という意味ではない。</b></dd></div>
+      <div><dt>interest rate<small>金利</small></dt><dd>interest は「興味」と同じ語。貸した金に後から付いてくるものが interest、その率が rate。</dd></div>
+      <div><dt>entrepreneur<small>起業家</small></dt><dd>9月7日に即答できた語。<b>entrepreneurship</b> は起業すること、起業家であること。</dd></div>
+      <div><dt>advantage<small>強み・有利さ</small></dt><dd><b>a huge advantage</b>。人が持っていない武器を持っている状態を指す。</dd></div>
+      <div><dt>valuable<small>価値がある</small></dt><dd>value（価値）の形容詞。<b>more valuable than ～</b> の形で使うと、than の前のほうが上になる。</dd></div>
+      <div><dt>capital<small>資本</small></dt><dd>会社の中に積まれている側を指せばBSの右下。外から出しに来る側を指せば、出し手そのもの。<b>どちらの意味かで置き場所が変わる。</b></dd></div>
+      <div><dt>inspire<small>刺激を受けさせる</small></dt><dd><b>be inspired by ～</b> で「～に刺激を受ける」。9月7日はサッカーの言い回しから戻して到達した。</dd></div>
+      <div><dt>make it<small>やり遂げる・間に合う</small></dt><dd>make＋it だが「それを作る」ではない熟語。<b>trying to make it</b> は「成功しようとしている」。</dd></div>
+      <div><dt>persistence<small>粘り強さ</small></dt><dd>断られても続けること。動詞は persist。</dd></div>
+      <div><dt>straight line up<small>まっすぐ上がる線</small></dt><dd>右肩上がりの一直線。<b>was not a straight line up</b> で「一直線ではなかった」。</dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <p><strong>このページの元になったもの:</strong> 2026年9月7日（月）9:00 の個別指導。予定は30分で、実際は約40分。
+    §1の引用は当日の文字起こしから取っており、時刻はその通し時間である。</p>
+    <p><strong>英文の出所:</strong> 引用した英文はすべて、9月7日の教材に使った路上インタビュー1本から取っている。全体で2分半ほど。</p>
+    <p><strong>9月7日に実施できなかったもの:</strong> 配布資料 <a href="lecture_sasaki_20260907.html">第6回</a> の §3（誰に・何を・いくらで）と §4（NAVと株価の割り算）、および冒頭に置いた9月3日の復習5問は、
+    時間が足りず<strong>実施していない</strong>。次回はそこから始める。</p>
+    <p>本資料は個別指導のための教材で、投資勧誘を目的とするものではありません。</p>
+  </footer>
+</div>
+
+</body>
+</html>
