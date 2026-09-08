@@ -50,6 +50,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
+| 第7回 | 2026-09-10 | 先に売って、あとで買い戻す ― Jトラストの優待クロスを、台帳3列で書く | [HTML](lectures/lecture_sasaki_20260910.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260910.html) |
 | 第6回 | 2026-09-07 | The capital will find you ― ビル・アックマンは誰に、何を、いくらで売っているか | [HTML](lectures/lecture_sasaki_20260907.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260907.html) |
 | 第6回（復習編） | 2026-09-07 | more valuable なのはどちらか ― 9/7実施分の文字起こしから作った復習クイズ5問 | [HTML](lectures/lecture_sasaki_20260907_review.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260907_review.html) |
 | 第5回（復習編） | 2026-09-03 | 予想を超えたのに株が上がらない理由と、1.1倍は割安か ― 9/3実施分の文字起こしから作った復習クイズ13問＋発展1問 | [HTML](lectures/lecture_sasaki_20260903.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260903.html) |
