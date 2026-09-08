@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第6回 答えられなかった問い｜2026年9月8日 金利と物価の向き、大統領制と議院内閣制、空売りの時系列</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:900px; margin:0 auto; padding:22px 22px 80px; counter-reset:qq;}
+
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2); white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:29px; line-height:1.4; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px;}
+.lede ul{margin:0; padding-left:1.2em; font-size:15.5px; line-height:1.85;}
+.lede li{margin-bottom:6px;}
+.lede li:last-child{margin-bottom:0;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:14px; margin:0 0 10px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:5px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px 26px 26px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+h2.thead{font-size:23px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 18px;}
+
+/* ---------- 問いのリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0;}
+.q>li{
+  counter-increment:qq; position:relative;
+  padding:14px 16px 14px 48px; margin-bottom:10px;
+  background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px;
+  font-size:15.5px; line-height:1.7;
+}
+.q>li::before{
+  content:"Q" counter(qq); position:absolute; left:12px; top:14px;
+  font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;
+}
+.q>li b{font-weight:800;}
+.said, .hint{display:block; margin-top:8px; font-size:13.5px; line-height:1.7; padding-left:11px;}
+.said{border-left:3px solid var(--q-line); color:var(--ink2);}
+.hint{border-left:3px solid var(--bridge); color:var(--ink2);}
+.said .lb, .hint .lb{font-weight:800; letter-spacing:.04em; margin-right:5px;}
+.said .lb{color:var(--ink3);}
+.hint .lb{color:var(--bridge);}
+
+.callout{
+  background:var(--note-bg); border:1px solid var(--line); border-left:4px solid var(--macro);
+  border-radius:0 10px 10px 0; padding:15px 18px; margin:18px 0 2px; font-size:15px; line-height:1.85;
+}
+.callout b{font-weight:800;}
+
+footer{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px 26px; font-size:14px; color:var(--ink2); line-height:1.8;}
+footer h2{font-size:15px; margin:0 0 10px; letter-spacing:.05em; color:var(--ink3);}
+footer ul{padding-left:1.2em; margin:0 0 18px;}
+footer li{margin-bottom:7px;}
+.hw{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:14px 17px; font-size:15px; color:var(--ink); line-height:1.8; margin-bottom:18px;}
+.hw b{font-weight:800;}
+.next{border-top:1px solid var(--line2); padding-top:14px; font-size:14px; color:var(--ink2);}
+.next a{color:var(--macro);}
+
+@media print{
+  body{background:#fff; font-size:11.5pt;}
+  .snav, .backlink, nav.toc{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  .q>li{page-break-inside:avoid;}
+}
+@media (max-width:640px){
+  .wrap{padding:16px 14px 60px;}
+  h1.title{font-size:23px;}
+  h2.thead{font-size:20px;}
+  section.topic, header.masthead, footer{padding:18px 16px;}
+  .q>li{padding:13px 14px 13px 42px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="../lectures/lecture_20260901.html">第5回 9/1 講義資料</a>
+  <a href="lecture_review_20260901.html">第5回 9/1 復習＋クイズ</a>
+  <a href="../lectures/lecture_20260908.html">第6回 9/8 講義資料</a>
+  <span class="cur">第6回 9/8 答えられなかった問い</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">OPEN QUESTIONS ／ 答えられなかった問い　夏期集中講座 第6回</div>
+  <h1 class="title">答えられなかった問い<br>― 金利と物価の向き、大統領制と議院内閣制、空売りの時系列</h1>
+  <div class="meta">
+    <span><b>講義日</b>　2026年9月8日（火）16:20〜</span>
+    <span><b>出どころ</b>　当日の逐語記録</span>
+    <span><b>問いの数</b>　23問</span>
+  </div>
+  <div class="lede">
+    <ul>
+      <li>9月8日の教室で問われ、その場で答えが出なかった問いだけを並べた。答えられた問いは載せていない。</li>
+      <li>分かれ方は3つ。金利を上げると物の値段はどちらに動くか。大統領と首相は何が違うか。下がると分かっているとき何を売るか。</li>
+      <li>答えは書いていない。教室で出た答えと、着地点だけを置いた。</li>
+    </ul>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#s1">金利と物価 ── 上げると、物の値段はどちらに動くか</a> <span class="s">Q1〜Q4</span></li>
+    <li><a href="#s2">米中間選挙 ── 誰を選ぶ選挙で、なぜ大統領と切り離せるのか</a> <span class="s">Q5〜Q14</span></li>
+    <li><a href="#s3">信用取引 ── 持っていないものを、どう売るのか</a> <span class="s">Q15〜Q23</span></li>
+  </ol>
+</nav>
+
+<!-- ============ §1 金利と物価 ============ -->
+<section class="topic" id="s1">
+  <span class="badge macro">§1</span>
+  <h2 class="thead">金利と物価 ── 上げると、物の値段はどちらに動くか</h2>
+  <p class="sub">冒頭の円高の話から入った4問。3人が答え、3人とも違う向きを答えた。</p>
+
+  <ol class="q">
+    <li><b>金利を上げると、お金は借りやすくなるか、借りにくくなるか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「お金を貸したり借りたりしやすくなる」。問い直されて「金利を上げると金利が低くなる」と言い直し、向きが定まらなかった。</span>
+      <span class="hint"><span class="lb">着地点</span>金利は、お金を借りる側が払う値段。値段が上がったとき、買う量はどちらに動くか。</span></li>
+
+    <li><b>金利を上げると、物の値段は上がりやすいか、下がりやすいか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「上がる」と「下がる」に割れた。理由も「みんながお金を使わない分、一気に取ろうとするので上がる」「使わないから値段を下げていく」と、人によって別の話になった。</span>
+      <span class="hint"><span class="lb">着地点</span>これはQ3と同じ問い。店の値付けからではなく、通貨の量から入ると1本の線になる。</span></li>
+
+    <li><b>世の中に出回るお金の量が減ると、物の値段は上がるか、下がるか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「市場に供給される現金が減る。相対的にお金の量が減ると、物の値段が上がる」。別の学生は逆を答え、教室では向きが1つに決まらなかった。</span>
+      <span class="hint"><span class="lb">着地点</span>量が増えたものは価値が下がる。これは米でも通貨でも同じ。通貨の価値が下がると物の値札はどちらに動くか、を先に決めてから逆をたどる。</span></li>
+
+    <li><b>ネットキャッシュ比率は、何と何を比べているか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「1倍を超えると割安」までは出たが、比べている2つは別の学生が「時価総額と手元資金」と補った。分子の中身は出ていない。</span>
+      <span class="hint"><span class="lb">着地点</span>第5回のチーム宿題。分子は会社の中身、分母は市場がつけた値段。式を口に出して言えるか。</span></li>
+  </ol>
+
+  <div class="callout">
+    <b>この4問がねじれた理由は、教室で名前がついた。</b>マクロとミクロを混ぜたこと。金利と為替が扱っているのはお金そのもので、その発行量を動かせるのは日銀だけ。「みんながお金を使わないから店が値段を上げる」は買い手と売り手の話で、通貨の量の話ではない。混ぜると必ず向きが逆になる。
+  </div>
+</section>
+
+<!-- ============ §2 中間選挙 ============ -->
+<section class="topic" id="s2">
+  <span class="badge macro">§2</span>
+  <h2 class="thead">米中間選挙 ── 誰を選ぶ選挙で、なぜ大統領と切り離せるのか</h2>
+  <p class="sub">10問。仕組みを聞かれた側が全員、途中で調べに行った。</p>
+
+  <ol class="q">
+    <li><b>アメリカの中間選挙とは何の選挙で、なぜビッグイベントなのか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「そう聞かれると説明できない」。</span>
+      <span class="hint"><span class="lb">着地点</span>この節の残り9問は全部ここに戻る。まず、誰を選ぶ選挙かから。</span></li>
+
+    <li><b>中間選挙で選ばれるのは誰か。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「現役の議員」「裁判官の信任投票のようなもの」。別の学生が「下院を組み替える選挙」と答えて近づいた。</span>
+      <span class="hint"><span class="lb">着地点</span>第6回の資料§1に議席の表がある。改選されるのはどこまでか、上院と下院で分けて言えるか。</span></li>
+
+    <li><b>イギリスに大統領はいるか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「聞いたことがある」「女性の方ではなかったか」。その場で調べて「いない」に落ち着いた。</span>
+      <span class="hint"><span class="lb">着地点</span>国家元首と、行政のトップは同じ人か別の人か。イギリス・フランス・韓国・日本を並べて確かめる。</span></li>
+
+    <li><b>大統領と総理大臣は、何が大きく違うのか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「首相は頭が良くないといけない、大統領はリーダーシップさえあれば」「権力の幅」「議会の上にいるか下にいるか」。制度の名前は、調べてから出た。</span>
+      <span class="hint"><span class="lb">着地点</span>違いは選ばれ方から出てくる。誰が誰に投票しているのかを、日本とアメリカで書き分ける。</span></li>
+
+    <li><b>大統領は、なぜ議会から独立して振る舞えるのか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>その場では出ず、調べてからの回答になった。</span>
+      <span class="hint"><span class="lb">着地点</span>「権力があるから」ではなく「なぜ権力があるか」を言えるか。投票の経路をたどると出てくる。</span></li>
+
+    <li><b>midterm の「中間」は、何と何の中間か。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「選挙と選挙の間」。英語（ミッドターム・エレクション）と、選挙・中間という訳までは出た。</span>
+      <span class="hint"><span class="lb">着地点</span>term は任期。誰の任期の、どの時点か。任期が何年かとセットで言う。</span></li>
+
+    <li><b>トランプ大統領の前の大統領は誰で、何党か。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「クリントンか」「メガネの人」。名前がすぐには出なかった。</span>
+      <span class="hint"><span class="lb">着地点</span>前の大統領の時代に選ばれた議員が、今の議会にいる。だから中間選挙の前と後で、大統領の動きやすさが変わる。</span></li>
+
+    <li><b>アメリカの下院は、日本の衆議院と参議院のどちらに近いか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>答えが出なかった。</span>
+      <span class="hint"><span class="lb">着地点</span>任期の長さと、解散があるかないかの2つで分ける。</span></li>
+
+    <li><b>衆議院と参議院は何が違い、その違いから何が生まれるか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「任期に差がある」までは出たが、そこから「参議院は任期が長いので、年を取っても選挙に参加できそう」と別の話になった。別の学生が「解散がないので長い目で見られる」と補った。</span>
+      <span class="hint"><span class="lb">着地点</span>任期の長さと解散の有無が、議員の行動をどちらに寄せるか。ここが上院・下院の性格の違いにそのまま重なる。</span></li>
+
+    <li><b>民主党の地盤はどの州か。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「ジョージア」。上院の改選州を見ながら、アイオワは「存じていない」、ジョージアの位置は調べてフロリダの上、という状態だった。</span>
+      <span class="hint"><span class="lb">着地点</span>人口が多いのは内陸か、両側の海岸か。議席の表は、地図の上に置けて初めて意味を持つ。</span></li>
+  </ol>
+</section>
+
+<!-- ============ §3 信用取引 ============ -->
+<section class="topic" id="s3">
+  <span class="badge corp">§3</span>
+  <h2 class="thead">信用取引 ── 持っていないものを、どう売るのか</h2>
+  <p class="sub">9問。仕組みは、借りたゲーム機を売る話に置き換えてから通った。ただし場面が変わると戻った。</p>
+
+  <ol class="q">
+    <li><b>信用取引とは何か。それをやると、何が得なのか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「証券会社からお金を借りて株を買う」「借りるので信用がある」。制度の名前にある「信用」を、信用度の意味で受け取っていた。</span>
+      <span class="hint"><span class="lb">着地点</span>借りるのはお金か、株か。借りたものを、いつ、何で返すのか。</span></li>
+
+    <li><b>空売りとは何か。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「将来あるタイミングで、その株を売る権利を買う」。これは別の取引（オプション）の説明で、その場で区別された。</span>
+      <span class="hint"><span class="lb">着地点</span>買うのは権利か、借りるのは現物か。この2つは値段の決まり方が別。</span></li>
+
+    <li><b>借りたものを先に売って、どうやったら得をするのか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「得にならないですか」で一度止まった。友達からゲーム機を借りて売る話に置き換えたあと、10万円で売って8万円で買い戻す、差額が残る、と自力で言えた。</span>
+      <span class="hint"><span class="lb">着地点</span>手元に何があるかを、時点ごとに3行で書き出す。借りた直後、売った直後、買い戻した直後。</span></li>
+
+    <li><b>株を貸した側には、何の得があるのか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>出なかった。</span>
+      <span class="hint"><span class="lb">着地点</span>貸株料。誰が誰に、何に対して払っているのかを1行で書く。第6回の資料§2にコストの一覧がある。</span></li>
+
+    <li><b>円高になると、任天堂の業績はどちらに動くか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>最初は「上がる」。言い直して「下がる」に着き、海外での売れ行きから理由も説明できた。</span>
+      <span class="hint"><span class="lb">着地点</span>向きは合った。第1回から繰り返し出ている型なので、次は言い直さずに出す。</span></li>
+
+    <li><b>明日下がると分かっているとき、今日の時点で何をするか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「下がるんだったら買います」。今日売るのか、明日買うのかで順番が入れ替わり、そのあと「空売りします、現物売ります」と両方出た。</span>
+      <span class="hint"><span class="lb">着地点</span>現金が入ってくるのはどの時点か。売りが先か、買いが先か。Q17で書いた3行に戻る。</span></li>
+
+    <li><b>現物買いと信用売りを同時に出すと、何をしていることになるのか。なぜやるのか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「上がっても下がっても損しない」という説明までは出たが、「損しないなら、なぜやるのか」で止まった。</span>
+      <span class="hint"><span class="lb">着地点</span>損益をゼロにしたうえで、手元に1つだけ残るものがある。第6回の資料§2の空欄がそこ。</span></li>
+
+    <li><b>権利落ち日の翌日に下がると分かっているとき、どうやって儲けるか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「下がる前に売る」。これは現物を持っている人の考え方で、Q17でいったん通った道から戻った。</span>
+      <span class="hint"><span class="lb">着地点</span>1回できても、場面が変わると戻る。同じ問いを、ゲーム機・任天堂・権利落ちの3つの場面で解き直す。</span></li>
+
+    <li><b>これから金利はどちらに動き、そのとき株価はどちらに動くか。</b>
+      <span class="said"><span class="lb">教室で出た答え</span>「金利は下がります」と答えてから「上げます、上がります」と訂正。株価は下がる、輸出企業が対象になる、までは到達した。</span>
+      <span class="hint"><span class="lb">着地点</span>§1に戻る。冒頭で円高になった理由を1行で言えれば、金利の向きは自動的に決まる。</span></li>
+  </ol>
+
+  <div class="callout">
+    <b>この節でいちばん効いたのは、株ではない話だった。</b>友達からゲーム機を借りて売り、値下がりしてから買い戻して返す。この置き換えを通したあとは、任天堂の株でも同じ順番を自力で言えた。株の言葉のままでは最後まで通らなかった。分からなくなったら、まず持ち物と時点に置き換える。
+  </div>
+</section>
+
+<footer>
+  <h2>宿題</h2>
+  <div class="hw">
+    この23問のうち<b>自分が答えられなかったものに印をつけ、1問だけ選んで答えを1行で書いてくること。</b>
+  </div>
+
+  <h2>注記</h2>
+  <ul>
+    <li>この一覧は9月8日の逐語記録から、<b>問われて答えが出なかったもの、向きが逆になったもの、調べてから答えたものだけ</b>を拾った。答えられた問いは載せていない。</li>
+    <li>発言は要約であり、逐語ではない。誰の発言かは書いていない。</li>
+    <li>教室で口頭で出た数字（支持率・関税率・株価）は、この一覧には入れていない。数字を確かめるときは<a href="../lectures/lecture_20260908.html">第6回の資料</a>の出典にあたること。<b>口頭の概算と一次情報は別物として扱う。</b></li>
+    <li>配布資料の冒頭にあった<b>9/1の復習3問のうち、ネットキャッシュ比率の計算（比率を数字で出す）と買収の実務は、教室では出ていない。</b>Q4は概念だけを聞かれた形になっている。</li>
+    <li>受講者のポートフォリオ・保有銘柄は載せていない。</li>
+  </ul>
+
+  <div class="next">
+    <b>次回（第7回・9/22予定）</b>　冒頭の復習は、この一覧から出す。<br>
+    <b>第6回の資料</b>　<a href="../lectures/lecture_20260908.html">米中間選挙の現在地／信用取引 ── 現物買い＋信用売りで優待は残るか</a><br>
+    <b>第5回の復習ページ</b>　<a href="lecture_review_20260901.html">時価総額の中身を数える ― ネットキャッシュ比率、AIサプライチェーン、買収の実務</a>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
