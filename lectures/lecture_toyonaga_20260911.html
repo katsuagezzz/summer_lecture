@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>個別講義資料｜2026年9月4日 日銀が国債を買うと、世の中のお金は増えるのか ── 買いオペ・売りオペと信用創造</title>
+<title>個別講義資料｜2026年9月11日 「ロボットが全部つくるなら、お金は要らない」── では、要らなくならないものは何か</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
@@ -337,6 +337,26 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 .pick3 .t{font-size:16px; font-weight:800; line-height:1.5;}
 .pick3 .s{display:block; font-size:13px; color:var(--ink2); line-height:1.65; margin-top:5px;}
 </style>
+<style>
+/* ---------- 第4回（9/11）で追加したパーツ ---------- */
+/* リードの3点箇条書き */
+.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
+.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
+.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
+  width:5px; height:5px; border-radius:50%; background:var(--macro);}
+.lede ul.three strong{border-bottom:none; padding-bottom:0;}
+/* たとえ話の箱 */
+.ana{background:var(--note-bg); border-radius:9px; padding:11px 15px; margin:11px 0;
+  font-size:14.5px; line-height:1.75;}
+.ana .lb{font-size:11px; font-weight:800; letter-spacing:.08em; color:var(--word); margin-right:9px;}
+/* 自分で3つ書く欄 */
+.slots{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; margin:14px 0 4px;}
+.slots>div{border:1px dashed var(--q-line); background:var(--q-bg); border-radius:10px; padding:12px 14px;}
+.slots .n{font-size:11.5px; font-weight:800; letter-spacing:.07em; color:#8a6d1f; margin-bottom:6px;}
+@media (prefers-color-scheme: dark){ .slots .n{color:#d9c07a;} }
+.slots .ln{display:block; border-bottom:2px dashed var(--q-line); height:26px; margin-bottom:8px;}
+.slots .s{font-size:12.5px; color:var(--ink2); line-height:1.6;}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -350,64 +370,188 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <span>8/7　フィンテック・与信・GMV</span>
   <a href="lecture_toyonaga_20260821.html">8/21　為替・金利・ベッセント</a>
   <a href="lecture_toyonaga_20260828.html">8/28　PL・段階損益・会計基準</a>
-  <span class="cur">9/4 講義資料</span>
+  <a href="lecture_toyonaga_20260904.html">9/4　買いオペ・売りオペと信用創造</a>
   <a href="lecture_toyonaga_20260904_review.html">9/4 復習クイズ</a>
-  <a href="lecture_toyonaga_20260911.html">9/11　マスク「お金は要らなくなる」</a>
+  <span class="cur">9/11 講義資料</span>
 </div>
 
 <header class="masthead">
-  <div class="vol">LECTURE HANDOUT ／ 個別講義資料 ── 第3回</div>
-  <h1 class="title">日銀が国債を買うと、世の中のお金は増えるのか ──<br>買いオペ・売りオペと信用創造</h1>
+  <div class="vol">LECTURE HANDOUT ／ 個別講義資料 ── 第4回</div>
+  <h1 class="title">「ロボットが全部つくるなら、お金は要らない」──<br>では、要らなくならないものは何か</h1>
   <div class="meta">
-    <span><b>講義</b>　2026年9月4日（金）15:00 開始・30分</span>
-    <span><b>教材</b>　橘玲『プアジャパン ── インフレ世界を生き抜く資本戦略』抜粋16ページ（配布ずみのPDF）</span>
-    <span><b>形式</b>　問いは1つ。<b>30分、それだけを議論する</b></span>
+    <span><b>講義</b>　2026年9月11日（金）15:00 開始・30分</span>
+    <span><b>教材</b>　配布したリール1本（The Economist によるイーロン・マスクのインタビュー抜粋）</span>
+    <span><b>形式</b>　空欄を埋めてから来る。議論は §5 の1問に使う</span>
   </div>
   <div class="lede">
-    8/21に君は、<strong>「日銀が国債を買うと、国債の値段は上がる。値段が上がると利息は下がる」</strong>を自力で当てた。<br>
-    今日はその<strong>次の1歩</strong>だけをやる ── <strong>そのとき、お金は増えたのか。</strong><br>
-    答えは書いていない。
+    <ul class="three">
+      <li>2026年7月23日、イーロン・マスクは英エコノミスト誌の編集長に<strong>「2036年、お金は重要でなくなる」</strong>と言った</li>
+      <li>理由は1つだけ挙げている。<strong>それをリールから聞き取って §1 に書き写すこと</strong></li>
+      <li>先週やったのは<strong>お金がどこで生まれるか</strong>。今日はその裏返しで、<strong>どこで要らなくなるか</strong></li>
+    </ul>
   </div>
 </header>
 
-<!-- ============ 本題 ============ -->
-<section class="topic" id="s2">
-  <span class="badge macro">今日の30分 ── 議論</span>
-  <h2 class="thead">日銀が国債を買うと、世の中のお金は増えるのか</h2>
-  <p class="sub">著者は、日銀を<b>水道の元栓</b>にたとえている。<b>元栓を開けても、蛇口が開かなければ水は流れない。</b></p>
+<nav class="toc">
+  <h2>今日の順番</h2>
+  <ol>
+    <li><a href="#s1">何が言われたか</a><span class="s">　── 日付・相手・4行だけ</span></li>
+    <li><a href="#s2">お金は、何の引換券か</a><span class="s">　── 主張を3段に分ける</span></li>
+    <li><a href="#s3">安くならないものを3つ</a><span class="s">　── 反論はここから出る</span></li>
+    <li><a href="#s4">「働かなくていい」と「働けない」</a><span class="s">　── 不安の正体</span></li>
+    <li><a href="#s5">今日の1問</a><span class="s">　── YES か NO かを決めて来る</span></li>
+  </ol>
+</nav>
 
-  <h4>本に書いてあること ── 空欄は本から拾う</h4>
+<!-- ============ §1 ============ -->
+<section class="topic" id="s1">
+  <span class="badge macro">§1　事実</span>
+  <h2 class="thead">何が言われたか</h2>
+  <p class="sub">先に実物を置く。誰が、いつ、どこで言ったか。</p>
+
+  <div class="kpis">
+    <div class="kpi m"><div class="k">収録日</div><div class="v">2026/7/23</div><div class="n">テスラの工場。<b>報道ベース</b></div></div>
+    <div class="kpi m"><div class="k">話し手</div><div class="v">E・マスク</div><div class="n">聞き手は英エコノミスト誌の編集長</div></div>
+    <div class="kpi c"><div class="k">彼が挙げた年</div><div class="v">2036年</div><div class="n"><b>予想。</b>本人の見立てであって事実ではない</div></div>
+    <div class="kpi g"><div class="k">君が見たもの</div><div class="v">抜粋</div><div class="n">本編は約85分。<b>リールはその一部</b></div></div>
+  </div>
+
+  <h4>リールを見て、4行だけ埋める</h4>
   <ul class="cal" style="list-style:none">
-    <li><span class="d">読む順 7</span><span class="c"><b>買いオペ</b>　日銀が国債を <span class="blank">　　</span> → 通貨の発行量が <span class="blank">　　</span> → 金利が <span class="blank">　　</span>。<br><b>売りオペ</b>　その逆。<b>2行とも、本文から書き写すこと。</b></span></li>
-    <li><span class="d">読む順 8</span><span class="c"><b>信用創造</b>　銀行が <span class="blank">　　　　</span> とき、世の中のお金が増える。<br>著者はこう書いている ──<b>「お金とは <span class="blank">　　</span> である」。</b></span></li>
-    <li><span class="d">読む順 9</span><span class="c"><b>ベースマネー</b>（日銀がつくるお金）は 約 <span class="blank">　　</span>兆円 → 約 <span class="blank">　　　</span>兆円。<b>10倍以上。</b><br>ところが、うち <span class="blank">　　　</span>兆円は<b>「ブタ積み」</b>。</span></li>
-    <li><span class="d">読む順 9</span><span class="c"><b>マネーストック</b>（世の中に流れているお金・M3）の伸びは、同じ7年間で <span class="blank">　　</span>%程度。</span></li>
+    <li><span class="d">1</span><span class="c">理由 ── ロボットとAIが <span class="blank">　　　　</span> と <span class="blank">　　　　</span> を、人が使いきれないほどつくるから。</span></li>
+    <li><span class="d">2</span><span class="c">だからこれから起きるのは、インフレではなく <b><span class="blank">　　　</span></b> だと言った。</span></li>
+    <li><span class="d">3</span><span class="c">移行期に配るものを、彼は universal <b>basic</b> income ではなく universal <b><span class="blank">　　　</span></b> income と呼んだ。</span></li>
+    <li><span class="d">4</span><span class="c">貯金と老後の備えについて、彼は何と言ったか。<b>1行で。</b><br><span class="blank">　　　　　　　　　　　　　　　　　　　　　　　</span></span></li>
   </ul>
 
-  <div class="callout" style="margin-top:22px">
-    <span class="lbl">今日の問い ── これ1つ</span>
-    日銀は、国債を大量に買った。日銀がつくるお金は<b>10倍以上</b>になった。<br>
-    それなのに、<b>世の中に流れるお金はほとんど増えなかった。</b><br>
-    <b>── 日銀が国債を買っても増えないなら、世の中のお金は、いつ、誰が増やすのか。</b>
+  <div class="callout">
+    <span class="lbl">聞き手の質問を1つだけ書き取る</span>
+    編集長は、この話に対して<b>1つ突っ込んでいる。</b>それを1行で書くこと。<br>
+    <span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
   </div>
-  <div class="formula"><code><span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span></code></div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section class="topic" id="s2">
+  <span class="badge word">§2　構造</span>
+  <h2 class="thead">お金は、何の引換券か</h2>
+  <p class="sub">彼の主張は3段でできている。1段ずつ切って、どこで納得できなくなるかを見る。</p>
+
+  <div class="recall">
+    <span class="lbl">先週（9/4）の空欄</span>
+    <p>橘玲は「<span class="me">お金とは <span class="blank">　　</span> である</span>」と書いていた。<b>この空欄は、先週埋めたものをそのまま持ってくること。</b></p>
+    <p>マスクは、同じ問いに<b>別の答え方</b>をしている。同じことを言っているのか、違うことを言っているのか。<b>それが今日の裏テーマである。</b></p>
+  </div>
+
+  <ol class="chain">
+    <li>人が欲しいのは、お金そのものではない。欲しいのは <span class="blank">　　　　</span> と <span class="blank">　　　　</span> である。</li>
+    <li>それが、誰でも好きなだけ手に入るなら、引換券は <span class="blank">　　　　</span>。</li>
+    <li>引換券が要らないなら、<span class="blank">　　　　</span> も要らない。</li>
+  </ol>
+
+  <div class="ana">
+    <span class="lb">たとえ</span>文化祭の焼きそば。<b>200食しかない日は、引換券に価値がある。</b>
+    券を持っていない人は食べられないからだ。<b>では、焼きそばが無限に出てきて、誰でも好きなだけ食べられる日、券はどうなるか。</b>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">§2 の問い</span>
+    引換券が要らなくなるのは、<b>焼きそばが「たくさんある」とき</b>か、<b>「全員に行き渡る」とき</b>か。<br>
+    <b>この2つは同じか、違うか。</b>違うと思うなら、どこが違うかを1行で。<br>
+    <span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
+  </div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section class="topic" id="s3">
+  <span class="badge corp">§3　反論</span>
+  <h2 class="thead">ロボットが増えても、安くならないものを3つ</h2>
+  <p class="sub">批判の大半はここに集まっている。<b>だが、先に自分で3つ出すこと。</b>読んでから考えると、他人の3つを写すだけになる。</p>
+
+  <div class="slots">
+    <div><div class="n">安くならないもの 1</div><span class="ln"></span><span class="s">なぜ安くならない?</span><span class="ln"></span></div>
+    <div><div class="n">安くならないもの 2</div><span class="ln"></span><span class="s">なぜ安くならない?</span><span class="ln"></span></div>
+    <div><div class="n">安くならないもの 3</div><span class="ln"></span><span class="s">なぜ安くならない?</span><span class="ln"></span></div>
+  </div>
+
+  <div class="ana">
+    <span class="lb">たとえ</span>ロボットが車を10倍つくっても、<b>その車を停める場所は10倍にならない。</b>
+    <b>工場で増やせるものと、増やせないものがある。</b>君の3つは、どちらだったか。
+  </div>
+
+  <div class="callout">
+    <span class="lbl">§3 の問い</span>
+    君が書いた3つに、これからも値段が付き続けるとする。<b>そのとき、お金は何の役に立ち続けるのか。</b><br>
+    <span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
+  </div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section class="topic" id="s4">
+  <span class="badge bridge">§4　不安</span>
+  <h2 class="thead">「働かなくていい」と「働けない」は、同じことか</h2>
+  <p class="sub">同じ未来を、立つ位置を変えて2回書く。<b>両方とも、事実ではなく見立てである。</b></p>
+
+  <div class="vs">
+    <div class="a">
+      <div class="hd">配られる側から見た1日</div>
+      <p>収入は <span class="blank">　　　　</span> から来る。</p>
+      <p>それが止まったとき、自分にできることは <span class="blank">　　　　</span>。</p>
+    </div>
+    <div class="b">
+      <div class="hd">機械を持つ側から見た1日</div>
+      <p>売って得るのではなく、<span class="blank">　　　　</span> を持っていることが力になる。</p>
+      <p>止めると決められるのは <span class="blank">　　　　</span>。</p>
+    </div>
+  </div>
+
+  <div class="ana">
+    <span class="lb">たとえ</span>バイト代と仕送りは、どちらも月末に同じ額が入る。
+    <b>それでも、片方は「辞める」と言えて、もう片方は言えない。</b>違いは金額ではない。
+  </div>
+
+  <div class="callout">
+    <span class="lbl">§4 の問い</span>
+    収入が「稼ぐもの」から「配られるもの」に変わったとき、<b>君が失うのは何で、手に入るのは何か。</b>
+    どちらも1つずつ、名詞で書くこと。<br>
+    失う <span class="blank">　　　　　　　　</span>　／　手に入る <span class="blank">　　　　　　　　</span>
+  </div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section class="topic" id="s5">
+  <span class="badge macro">§5　今日の30分 ── 議論</span>
+  <h2 class="thead">2036年、お金は要らなくなるか</h2>
+  <p class="sub">30分はここに使う。<b>YES か NO を決めて来ること。</b>「どちらとも言えない」は持ち込まない。</p>
+
+  <div class="callout">
+    <span class="lbl">今日の問い ── これ1つ</span>
+    <b>2036年、お金は要らなくなるか。YES か NO か。理由を1行で。</b>
+  </div>
+  <div class="formula"><code>YES ／ NO　<span class="blank">　　　　　　　　　　　　　　　　　　　　　　</span></code></div>
 
   <p><b>書き方の条件は2つ。</b><br>
-  ① <b>「信用創造」という言葉を使わずに</b>、1行で書くこと。言葉を覚えたかではなく、仕組みを説明できるかを見る。<br>
-  ② 日銀が買った国債の代金は、<b>どこへ行ったのか。</b>消えたわけではない。<b>いま、誰の口座にあるのか。</b></p>
+  ① <b>「AIが」「ロボットが」で終わらせない。</b>要らなくなる、あるいは残る、と君が考えるものを<b>1つ名指しで書く</b>こと。<br>
+  ② 先週の「お金とは○○である」と、今日の答えは<b>矛盾するか、しないか。</b>一言だけ添えること。</p>
+
+  <div class="hw">
+    <div class="hwhead"><span class="team">宿題</span><span class="hwtime">9/11 の15:00までに</span></div>
+    <div class="hwttl">§5 の1問に、YES か NO と理由を1行で書いてくること。</div>
+  </div>
 
   <div class="src">
     <b>SOURCES</b>
     <ul>
-      <li><span class="st p3">書籍</span>橘玲『プアジャパン』プレジデント社。<b>数字はすべて書籍記載値。執筆時点のもの。</b></li>
-      <li><span class="st p1">一次</span>ベースマネー・マネーストック（M1・M2・M3）の実数は<b>日本銀行</b>が毎月公表している。金融政策の中身は日銀「金融政策決定会合」の公表資料。</li>
-      <li><span class="st p4">要確認</span>本の数字は執筆時点のもの。<b>いまの残高は当日その場で見る。</b></li>
+      <li><span class="st p1">一次</span>The Economist によるイーロン・マスクのインタビュー本編。<b>発言の最終確認は本編で行う。</b>収録は2026年7月23日、長さは約85分と報じられている。</li>
+      <li><span class="st p2">報道</span>§1 で埋める3点は、いずれも本編を要約した各社報道でも確認できる。<b>ただし年も見通しも本人の予想であって、確定した事実ではない。</b>裏取りするなら、まず本編に当たること。</li>
+      <li><span class="st p3">解説</span>§4 の「豊かさは配分を保証しない」という論点は、投資家ヴィノッド・コースラの反論として報じられたもの。<b>本人の言葉そのままではない。</b></li>
+      <li><span class="st p4">要確認</span>配布したリールは本編の抜粋である。<b>前後の文脈が落ちている可能性があるので、§1 の4行は当日その場で突き合わせる。</b></li>
     </ul>
   </div>
 </section>
 
 <footer>
-  <div class="next"><b>次回予告　9月11日（金）15:00</b>　<b><a href="lecture_toyonaga_20260911.html">「ロボットが全部つくるなら、お金は要らない」── では、要らなくならないものは何か</a>。</b>材料は、エコノミスト誌によるイーロン・マスクのインタビュー抜粋。<b>今日の裏返しをやる</b> ── お金がどこで生まれるかの次に、<b>どこで要らなくなるか。</b>CFは9月18日に移した。</div>
+  <div class="next"><b>次回予告　9月18日（金）15:00</b>　<b>CF（キャッシュ・フロー計算書）── 黒字なのに、金がない。</b>会社に戻って、利益と現金がずれるところをやる。今日の「あるのに動かない」は、そこで裏返る。</div>
 </footer>
 
 </div>
