@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>個別講義資料｜2026年9月11日 「ロボットが全部つくるなら、お金は要らない」── では、要らなくならないものは何か</title>
+<title>個別講義資料｜2026年9月11日 「お金を刷ってもインフレにはならない」と彼は言った ── その理屈は、1本の割り算でできている</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
@@ -356,6 +356,28 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 @media (prefers-color-scheme: dark){ .slots .n{color:#d9c07a;} }
 .slots .ln{display:block; border-bottom:2px dashed var(--q-line); height:26px; margin-bottom:8px;}
 .slots .s{font-size:12.5px; color:var(--ink2); line-height:1.6;}
+/* 英文の引用ブロック */
+.en{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:0 10px 10px 0;
+    background:var(--bg); padding:14px 17px; margin:14px 0 6px;}
+.en .who{font-size:11.5px; font-weight:800; letter-spacing:.08em; color:var(--macro); margin-bottom:7px;}
+.en.q .who{color:var(--corp);} .en.q{border-left-color:var(--corp);}
+.en p{margin:0 0 8px; font-size:15px; line-height:1.85;
+      font-family:"Georgia","Times New Roman",serif; letter-spacing:.005em;}
+.en p:last-child{margin-bottom:0;}
+.en b{font-weight:800; background:var(--q-bg); padding:0 3px; border-radius:3px;}
+@media (prefers-color-scheme: dark){ .en b{background:#2a2416;} }
+.en .ja{display:block; margin-top:9px; padding-top:9px; border-top:1px dashed var(--line);
+        font-family:inherit; font-size:13.5px; color:var(--ink2); line-height:1.7;}
+/* 英語チェック */
+.eng{list-style:none; margin:12px 0 0; padding:0;
+     display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:9px;}
+.eng li{background:var(--word-bg); border:1px solid var(--line); border-radius:9px; padding:11px 14px;
+        font-size:14.2px; line-height:1.65;}
+.eng li code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+        font-size:13.5px; font-weight:700; color:var(--word);}
+.eng li .s{display:block; font-size:12.8px; color:var(--ink2); margin-top:5px;}
+.eng .hd{grid-column:1/-1; font-size:11.5px; font-weight:800; letter-spacing:.09em;
+        color:var(--word); margin-bottom:-2px;}
 </style>
 </head>
 <body>
@@ -377,17 +399,17 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
 <header class="masthead">
   <div class="vol">LECTURE HANDOUT ／ 個別講義資料 ── 第4回</div>
-  <h1 class="title">「ロボットが全部つくるなら、お金は要らない」──<br>では、要らなくならないものは何か</h1>
+  <h1 class="title">「お金を刷ってもインフレにはならない」と彼は言った ──<br>その理屈は、1本の割り算でできている</h1>
   <div class="meta">
     <span><b>講義</b>　2026年9月11日（金）15:00 開始・30分</span>
-    <span><b>教材</b>　配布したリール1本（The Economist によるイーロン・マスクのインタビュー抜粋）</span>
-    <span><b>形式</b>　空欄を埋めてから来る。議論は §5 の1問に使う</span>
+    <span><b>教材</b>　配布したインタビュー抜粋・約3分半。<b>英語のまま</b></span>
+    <span><b>形式</b>　英文を読んでから、主張を<b>割り算1本</b>に落とす</span>
   </div>
   <div class="lede">
     <ul class="three">
-      <li>2026年7月23日、イーロン・マスクは英エコノミスト誌の編集長に<strong>「2036年、お金は重要でなくなる」</strong>と言った</li>
-      <li>理由は1つだけ挙げている。<strong>それをリールから聞き取って §1 に書き写すこと</strong></li>
-      <li>先週やったのは<strong>お金がどこで生まれるか</strong>。今日はその裏返しで、<strong>どこで要らなくなるか</strong></li>
+      <li>イーロン・マスクは英エコノミスト誌の編集長に<strong>「2036年、お金は重要でなくなる」</strong>と言った</li>
+      <li>編集長は<strong>2回押し返している。1回目は財源、2回目は政治。</strong>その2回がこの抜粋の本体である</li>
+      <li>英文はそのまま載せた。<strong>訳と、言い回しの確認から入る</strong></li>
     </ul>
   </div>
 </header>
@@ -395,126 +417,190 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 <nav class="toc">
   <h2>今日の順番</h2>
   <ol>
-    <li><a href="#s1">何が言われたか</a><span class="s">　── 日付・相手・4行だけ</span></li>
-    <li><a href="#s2">お金は、何の引換券か</a><span class="s">　── 主張を3段に分ける</span></li>
-    <li><a href="#s3">安くならないものを3つ</a><span class="s">　── 反論はここから出る</span></li>
-    <li><a href="#s4">「働かなくていい」と「働けない」</a><span class="s">　── 不安の正体</span></li>
+    <li><a href="#s1">何のためにお金が欲しいのか</a><span class="s">　── 使い道を4つ挙げている</span></li>
+    <li><a href="#s2">では、財源はどこから</a><span class="s">　── 「小切手を配ればいい」</span></li>
+    <li><a href="#s3">インフレを1本の割り算にする</a><span class="s">　── 今日の中心</span></li>
+    <li><a href="#s4">最後に怖がったのは、経済ではなかった</a><span class="s">　── 一般の人の不安</span></li>
     <li><a href="#s5">今日の1問</a><span class="s">　── YES か NO かを決めて来る</span></li>
   </ol>
+  <p class="rel"><b>英語の確認は、節ごとに置いてある。</b>紫の箱がそれ。<b>訳せなくてよい。「言えるか」を見る。</b></p>
 </nav>
 
 <!-- ============ §1 ============ -->
 <section class="topic" id="s1">
-  <span class="badge macro">§1　事実</span>
-  <h2 class="thead">何が言われたか</h2>
-  <p class="sub">先に実物を置く。誰が、いつ、どこで言ったか。</p>
+  <span class="badge macro">§1</span>
+  <h2 class="thead">何のためにお金が欲しいのか</h2>
+  <p class="sub">最初の10秒で結論が出ている。<b>そのあと、彼は自分で理由を1つだけ足した。</b></p>
 
-  <div class="kpis">
-    <div class="kpi m"><div class="k">収録日</div><div class="v">2026/7/23</div><div class="n">テスラの工場。<b>報道ベース</b></div></div>
-    <div class="kpi m"><div class="k">話し手</div><div class="v">E・マスク</div><div class="n">聞き手は英エコノミスト誌の編集長</div></div>
-    <div class="kpi c"><div class="k">彼が挙げた年</div><div class="v">2036年</div><div class="n"><b>予想。</b>本人の見立てであって事実ではない</div></div>
-    <div class="kpi g"><div class="k">君が見たもの</div><div class="v">抜粋</div><div class="n">本編は約85分。<b>リールはその一部</b></div></div>
+  <div class="en">
+    <div class="who">ELON MUSK　00:00:04</div>
+    <p>I think that money won't matter in twenty thirty six. <b>What do you want money for?</b></p>
+  </div>
+  <div class="en">
+    <div class="who">ELON MUSK　00:00:34</div>
+    <p>You want money for <b>goods and services</b>, right? You want money for obviously food, housing, transport, entertainment. If that is so <b>abundant</b> that there's more that the robots and AI are providing more goods and services than any human could possibly consume, what do you need money for in that case?</p>
   </div>
 
-  <h4>リールを見て、4行だけ埋める</h4>
-  <ul class="cal" style="list-style:none">
-    <li><span class="d">1</span><span class="c">理由 ── ロボットとAIが <span class="blank">　　　　</span> と <span class="blank">　　　　</span> を、人が使いきれないほどつくるから。</span></li>
-    <li><span class="d">2</span><span class="c">だからこれから起きるのは、インフレではなく <b><span class="blank">　　　</span></b> だと言った。</span></li>
-    <li><span class="d">3</span><span class="c">移行期に配るものを、彼は universal <b>basic</b> income ではなく universal <b><span class="blank">　　　</span></b> income と呼んだ。</span></li>
-    <li><span class="d">4</span><span class="c">貯金と老後の備えについて、彼は何と言ったか。<b>1行で。</b><br><span class="blank">　　　　　　　　　　　　　　　　　　　　　　　</span></span></li>
+  <ul class="eng">
+    <li class="hd">英語の確認 ── 言えるか</li>
+    <li><code>What do you want money for?</code><span class="s">最後の <b>for</b> は何をしているか。<b>for を取ると、文の意味はどう変わるか。</b></span></li>
+    <li><code>goods and services</code><span class="s">日本語で1語ずつ。<b>goods はなぜ複数形なのか。</b></span></li>
+    <li><code>abundant</code><span class="s">名詞形は。<b>この2行のうち、どの日本語がこれに当たるか。</b></span></li>
+    <li><code>any human could possibly consume</code><span class="s">possibly はどこに効いているか。<b>無くても意味は通るのに、なぜ入れたか。</b></span></li>
   </ul>
 
+  <h4>埋める</h4>
+  <p>彼が挙げたお金の使い道は4つ ── <span class="blank">　　　</span>／<span class="blank">　　　</span>／<span class="blank">　　　</span>／<span class="blank">　　　</span>。<br>
+  <b>この4つに共通するのは何か。</b><span class="blank">　　　　　　　　　　　　　　</span></p>
+
+  <div class="ana">
+    <span class="lb">たとえ</span>学食の食券。<b>券が要るのは、定食の数が限られているからである。</b>
+    定食が無限に出てくる日、券売機の前に列はできるか。
+  </div>
+
   <div class="callout">
-    <span class="lbl">聞き手の質問を1つだけ書き取る</span>
-    編集長は、この話に対して<b>1つ突っ込んでいる。</b>それを1行で書くこと。<br>
+    <span class="lbl">§1 の問い</span>
+    「<b>使いきれないほどある</b>」と「<b>全員に行き渡る</b>」は、同じことか。<br>
+    違うと思うなら、どこが違うかを1行で。<br>
     <span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
   </div>
 </section>
 
 <!-- ============ §2 ============ -->
 <section class="topic" id="s2">
-  <span class="badge word">§2　構造</span>
-  <h2 class="thead">お金は、何の引換券か</h2>
-  <p class="sub">彼の主張は3段でできている。1段ずつ切って、どこで納得できなくなるかを見る。</p>
+  <span class="badge corp">§2</span>
+  <h2 class="thead">では、財源はどこから</h2>
+  <p class="sub">編集長の1回目の押し返し。<b>「その理想はいい。そこへ行くまでの道の話をしている」</b>という形で入ってくる。</p>
 
-  <div class="recall">
-    <span class="lbl">先週（9/4）の空欄</span>
-    <p>橘玲は「<span class="me">お金とは <span class="blank">　　</span> である</span>」と書いていた。<b>この空欄は、先週埋めたものをそのまま持ってくること。</b></p>
-    <p>マスクは、同じ問いに<b>別の答え方</b>をしている。同じことを言っているのか、違うことを言っているのか。<b>それが今日の裏テーマである。</b></p>
+  <div class="en q">
+    <div class="who">THE ECONOMIST　00:00:58</div>
+    <p>Let's agree that could be where we end up. <b>I'm concerned about the road</b>, and we live in democracies, and people are very worried about this. Firstly, do you have to have massive <b>redistribution</b> from people like you to the people who are losing their jobs? Do you need to pay more tax? Do you have much higher taxes on <b>capital</b> so that you fund some kind of universal income? Otherwise, <b>what do people live off?</b></p>
+  </div>
+  <div class="en">
+    <div class="who">ELON MUSK　00:01:25</div>
+    <p>I think <b>the treasury</b> should just simply <b>issue</b> people <b>checks</b>.</p>
+  </div>
+  <div class="en q">
+    <div class="who">THE ECONOMIST　00:01:30</div>
+    <p>But <b>where's the revenue coming from?</b> <b>I'm enough of an economist.</b> If you just issue checks, you're going to have inflation.</p>
   </div>
 
-  <ol class="chain">
-    <li>人が欲しいのは、お金そのものではない。欲しいのは <span class="blank">　　　　</span> と <span class="blank">　　　　</span> である。</li>
-    <li>それが、誰でも好きなだけ手に入るなら、引換券は <span class="blank">　　　　</span>。</li>
-    <li>引換券が要らないなら、<span class="blank">　　　　</span> も要らない。</li>
-  </ol>
-
-  <div class="ana">
-    <span class="lb">たとえ</span>文化祭の焼きそば。<b>200食しかない日は、引換券に価値がある。</b>
-    券を持っていない人は食べられないからだ。<b>では、焼きそばが無限に出てきて、誰でも好きなだけ食べられる日、券はどうなるか。</b>
-  </div>
+  <ul class="eng">
+    <li class="hd">英語の確認 ── 言えるか</li>
+    <li><code>issue</code><span class="s"><b>9/4 にこの動詞を1度使っている。</b>「国債を◯◯する」の◯◯である。<b>同じ動詞で、配るものが変わると何が変わるか。</b></span></li>
+    <li><code>the treasury</code><span class="s">日本語で。<b>頭を大文字にすると何を指すか。</b>日本ならどこにあたるか。</span></li>
+    <li><code>check</code><span class="s">ここでの意味。<b>イギリス式の綴りは別にある。</b>何か。</span></li>
+    <li><code>revenue</code><span class="s">日本語で。<b>8/28 にPLの一番上の行としてやった語である。</b>ここでは誰の revenue か。</span></li>
+    <li><code>capital</code><span class="s"><b>taxes on capital</b> とは、何にかかる税か。<b>労働にかかる税と、どこが違うか。</b></span></li>
+    <li><code>I'm enough of an economist.</code><span class="s">直訳と、<b>実際に言いたいこと</b>を分けて書く。ここは皮肉か、そうでないか。</span></li>
+    <li><code>what do people live off?</code><span class="s">最後の <b>off</b> は何をしているか。§1 の <code>for</code> と同じ形である。</span></li>
+  </ul>
 
   <div class="callout">
     <span class="lbl">§2 の問い</span>
-    引換券が要らなくなるのは、<b>焼きそばが「たくさんある」とき</b>か、<b>「全員に行き渡る」とき</b>か。<br>
-    <b>この2つは同じか、違うか。</b>違うと思うなら、どこが違うかを1行で。<br>
+    編集長は<b>「小切手を配ればインフレになる」</b>と言った。<b>なぜそうなるのか。</b><br>
+    <b>9/4 でやった言葉を1つ使って</b>説明すること。<br>
     <span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
   </div>
 </section>
 
 <!-- ============ §3 ============ -->
 <section class="topic" id="s3">
-  <span class="badge corp">§3　反論</span>
-  <h2 class="thead">ロボットが増えても、安くならないものを3つ</h2>
-  <p class="sub">批判の大半はここに集まっている。<b>だが、先に自分で3つ出すこと。</b>読んでから考えると、他人の3つを写すだけになる。</p>
+  <span class="badge bridge">§3　今日の中心</span>
+  <h2 class="thead">インフレを1本の割り算にする</h2>
+  <p class="sub">マスクの答えは、反論ではなく<b>定義の言い換え</b>である。<b>1文で割り算を出してくる。</b></p>
 
-  <div class="slots">
-    <div><div class="n">安くならないもの 1</div><span class="ln"></span><span class="s">なぜ安くならない?</span><span class="ln"></span></div>
-    <div><div class="n">安くならないもの 2</div><span class="ln"></span><span class="s">なぜ安くならない?</span><span class="ln"></span></div>
-    <div><div class="n">安くならないもの 3</div><span class="ln"></span><span class="s">なぜ安くならない?</span><span class="ln"></span></div>
+  <div class="en">
+    <div class="who">ELON MUSK　00:01:36</div>
+    <p>These things were relevant in the past; they will not be relevant in the future. <b>Inflation is simply the ratio of money to goods and services.</b> If the goods and services output increases dramatically, if it increases a thousand percent, you can literally print — or these guys <b>change the database</b> and never print money. You create money in the database. <b>Provided</b> the creation of that money is less than the rate at which goods and services increase, you actually have deflation.</p>
+    <p>So I'll make a prediction: <b>deflation will be the issue, not inflation.</b> If the output of goods and services increases faster than money supply, you will have deflation.</p>
+  </div>
+
+  <ul class="eng">
+    <li class="hd">英語の確認 ── ここが今日いちばん大事</li>
+    <li><code>the ratio of A to B</code><span class="s"><b>割り算に直すと、A と B のどちらが分子で、どちらが分母か。</b>迷ったら、日本語の「AのBに対する比」で確かめる。</span></li>
+    <li><code>Provided (that) ...</code><span class="s">この <b>Provided</b> は「与えられた」ではない。<b>接続詞として何を表すか。</b>言い換えられる語を1つ。</span></li>
+    <li><code>money supply</code><span class="s">日本語で。<b>9/4 に日本語で出てきた語とほぼ同じものである。</b>どれか。</span></li>
+    <li><code>the issue</code><span class="s">ここの issue は §2 の issue と品詞が違う。<b>どう違うか。</b></span></li>
+  </ul>
+
+  <h4>割り算に直す</h4>
+  <div class="formula">
+    <code>インフレ　＝　<span class="blank">　　　　　　　</span>　÷　<span class="blank">　　　　　　　</span></code>
+    <span class="n">分子が速く増えると → <span class="blank">　　　　</span>　／　分母が速く増えると → <span class="blank">　　　　</span></span>
+  </div>
+
+  <div class="recall">
+    <span class="lbl">先週（9/4）の空欄</span>
+    <p>橘玲は「<span class="me">お金とは <span class="blank">　　</span> である</span>」と書いていた。<b>先週埋めたものを、そのまま持ってくること。</b></p>
+    <p>マスクはここで <b>“change the database”</b> と言い直している。<b>9/4 に君が見た「銀行が貸すとお金が増える」も、やっていることは同じである。</b>どこが同じか。</p>
   </div>
 
   <div class="ana">
-    <span class="lb">たとえ</span>ロボットが車を10倍つくっても、<b>その車を停める場所は10倍にならない。</b>
-    <b>工場で増やせるものと、増やせないものがある。</b>君の3つは、どちらだったか。
+    <span class="lb">たとえ</span>文化祭の焼きそば。<b>券を2倍刷っても、焼きそばが3倍出てくるなら、券1枚で買える量は増える。</b>
+    値上がりするのは、券だけが増えたときである。
   </div>
 
   <div class="callout">
     <span class="lbl">§3 の問い</span>
-    君が書いた3つに、これからも値段が付き続けるとする。<b>そのとき、お金は何の役に立ち続けるのか。</b><br>
+    彼の理屈が成り立つには、<b>分母が、分子より速く増え続けなければならない。</b><br>
+    <b>分母が増える速さは、何で決まるのか。</b>1つ挙げること。<br>
     <span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
   </div>
+
+  <p><b>数字の扱い</b>　<b>a thousand percent</b> も <b>2036年</b> も、<b>本人が口頭で挙げた例と予想である。</b>
+  一次情報でも、計算された数字でもない。<b>そのつもりで扱うこと。</b></p>
 </section>
 
 <!-- ============ §4 ============ -->
 <section class="topic" id="s4">
-  <span class="badge bridge">§4　不安</span>
-  <h2 class="thead">「働かなくていい」と「働けない」は、同じことか</h2>
-  <p class="sub">同じ未来を、立つ位置を変えて2回書く。<b>両方とも、事実ではなく見立てである。</b></p>
+  <span class="badge word">§4</span>
+  <h2 class="thead">最後に怖がったのは、経済ではなかった</h2>
+  <p class="sub">編集長は<b>「あなたが正しいかもしれない」と認めたうえで</b>、2回目の押し返しをしている。<b>論点が経済から政治へ移る。</b></p>
 
+  <div class="en q">
+    <div class="who">THE ECONOMIST　00:02:34</div>
+    <p>I'm actually perfectly willing to believe that <b>you may well be right</b>. But I'm really <b>hung up on</b> how we get from the current polarized, angry, fearful policy we have now to <b>this nirvana</b>. I think you can paint a picture where people are so scared by this. They essentially try to stop it. Maybe they can't, but you get <b>nationalised</b>. There's a kind of far left government. There's <b>exorbitant</b> tax increases. The economy <b>crumbles</b> because people are so worried about a future, which does sound quite scary as you describe it. So how do you handle the politics now?</p>
+  </div>
+  <div class="en">
+    <div class="who">ELON MUSK　00:03:14</div>
+    <p>It's <b>exhilarating and terrifying</b>. If you ask me on any given day, I've gone from exhilaration to terror regarding AI.</p>
+  </div>
+
+  <ul class="eng">
+    <li class="hd">英語の確認 ── 言えるか</li>
+    <li><code>you may well be right</code><span class="s"><b>may</b> と <b>may well</b> は、確からしさがどう違うか。</span></li>
+    <li><code>hung up on</code><span class="s">元の <b>hang up</b>（電話を切る／掛ける）から、なぜこの意味になるか。</span></li>
+    <li><code>this nirvana</code><span class="s">元は何語か。<b>ここで編集長は褒めているか、皮肉を言っているか。</b>どちらだと思うか。</span></li>
+    <li><code>nationalised</code><span class="s">日本語で。<b>綴りが nationalized ではない。</b>なぜか。</span></li>
+    <li><code>exorbitant</code>／<code>crumble</code><span class="s">それぞれ日本語で1語。</span></li>
+    <li><code>exhilarating and terrifying</code><span class="s">この2語は、<b>反対の意味なのに and でつないである。</b>なぜ but ではないのか。</span></li>
+  </ul>
+
+  <h4>2つの押し返しを、1行ずつに分ける</h4>
   <div class="vs">
     <div class="a">
-      <div class="hd">配られる側から見た1日</div>
-      <p>収入は <span class="blank">　　　　</span> から来る。</p>
-      <p>それが止まったとき、自分にできることは <span class="blank">　　　　</span>。</p>
+      <div class="hd">1回目（§2）── 経済の質問</div>
+      <p>聞いていること　<span class="blank">　　　　　　</span></p>
+      <p>マスクの答え　<span class="blank">　　　　　　</span></p>
     </div>
     <div class="b">
-      <div class="hd">機械を持つ側から見た1日</div>
-      <p>売って得るのではなく、<span class="blank">　　　　</span> を持っていることが力になる。</p>
-      <p>止めると決められるのは <span class="blank">　　　　</span>。</p>
+      <div class="hd">2回目（§4）── 政治の質問</div>
+      <p>聞いていること　<span class="blank">　　　　　　</span></p>
+      <p>マスクの答え　<span class="blank">　　　　　　</span></p>
     </div>
   </div>
 
   <div class="ana">
-    <span class="lb">たとえ</span>バイト代と仕送りは、どちらも月末に同じ額が入る。
-    <b>それでも、片方は「辞める」と言えて、もう片方は言えない。</b>違いは金額ではない。
+    <span class="lb">たとえ</span>「10年後には全員に部屋が行きわたる」と言われても、
+    <b>今日その部屋に住んでいない人には、10年間をどう過ごすかのほうが問題になる。</b>
   </div>
 
   <div class="callout">
     <span class="lbl">§4 の問い</span>
-    収入が「稼ぐもの」から「配られるもの」に変わったとき、<b>君が失うのは何で、手に入るのは何か。</b>
-    どちらも1つずつ、名詞で書くこと。<br>
-    失う <span class="blank">　　　　　　　　</span>　／　手に入る <span class="blank">　　　　　　　　</span>
+    <b>2回目の質問に、彼は答えているか。</b>YES か NO か。<br>
+    そのうえで ── <b>君の周りで、この話をいちばん怖がるのは誰か。何が怖いのか。</b><br>
+    <span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
   </div>
 </section>
 
@@ -522,7 +608,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 <section class="topic" id="s5">
   <span class="badge macro">§5　今日の30分 ── 議論</span>
   <h2 class="thead">2036年、お金は要らなくなるか</h2>
-  <p class="sub">30分はここに使う。<b>YES か NO を決めて来ること。</b>「どちらとも言えない」は持ち込まない。</p>
+  <p class="sub">議論はここに使う。<b>YES か NO を決めて来ること。</b>「どちらとも言えない」は持ち込まない。</p>
 
   <div class="callout">
     <span class="lbl">今日の問い ── これ1つ</span>
@@ -532,7 +618,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
   <p><b>書き方の条件は2つ。</b><br>
   ① <b>「AIが」「ロボットが」で終わらせない。</b>要らなくなる、あるいは残る、と君が考えるものを<b>1つ名指しで書く</b>こと。<br>
-  ② 先週の「お金とは○○である」と、今日の答えは<b>矛盾するか、しないか。</b>一言だけ添えること。</p>
+  ② その1行が、<b>§3 の割り算の分子と分母のどちらの話をしているのか</b>を、はっきりさせること。</p>
 
   <div class="hw">
     <div class="hwhead"><span class="team">宿題</span><span class="hwtime">9/11 の15:00までに</span></div>
@@ -542,16 +628,16 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <div class="src">
     <b>SOURCES</b>
     <ul>
-      <li><span class="st p1">一次</span>The Economist によるイーロン・マスクのインタビュー本編。<b>発言の最終確認は本編で行う。</b>収録は2026年7月23日、長さは約85分と報じられている。</li>
-      <li><span class="st p2">報道</span>§1 で埋める3点は、いずれも本編を要約した各社報道でも確認できる。<b>ただし年も見通しも本人の予想であって、確定した事実ではない。</b>裏取りするなら、まず本編に当たること。</li>
-      <li><span class="st p3">解説</span>§4 の「豊かさは配分を保証しない」という論点は、投資家ヴィノッド・コースラの反論として報じられたもの。<b>本人の言葉そのままではない。</b></li>
-      <li><span class="st p4">要確認</span>配布したリールは本編の抜粋である。<b>前後の文脈が落ちている可能性があるので、§1 の4行は当日その場で突き合わせる。</b></li>
+      <li><span class="st p1">一次</span><b>この資料の英文は、配布したインタビュー抜粋の文字起こしそのままである。</b>話し手は Elon Musk、聞き手は The Economist の編集長。抜粋は約3分半。<b>タイムコードも文字起こしのもの。</b></li>
+      <li><span class="st p2">報道</span>抜粋の元になった本編は、2026年7月に収録された長いインタビューだと報じられている。<b>収録日と全体の長さは報道ベース。</b>当日その場で確認する。</li>
+      <li><span class="st p4">要確認</span>文字起こしは自動生成で、人手の校正をしていない。<b>`twenty thirty six` のような数字の表記や、途中で切れている文がそのまま残っている。</b>読みにくい箇所は音声で確認すること。</li>
+      <li><span class="st p3">解説</span>この発言には「豊かさが実現しても、配分は保証されない」型の反論が多く出ている。<b>§4 はその論点に当たるが、本資料には反論そのものを載せていない。</b>先に自分で考えること。</li>
     </ul>
   </div>
 </section>
 
 <footer>
-  <div class="next"><b>次回予告　9月18日（金）15:00</b>　<b>CF（キャッシュ・フロー計算書）── 黒字なのに、金がない。</b>会社に戻って、利益と現金がずれるところをやる。今日の「あるのに動かない」は、そこで裏返る。</div>
+  <div class="next"><b>次回予告　9月18日（金）15:00</b>　<b>CF（キャッシュ・フロー計算書）── 黒字なのに、金がない。</b>会社に戻って、利益と現金がずれるところをやる。<b>今日の割り算は、会社1社に縮めても同じ形で出てくる。</b></div>
 </footer>
 
 </div>
