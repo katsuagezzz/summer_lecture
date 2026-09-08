@@ -342,6 +342,30 @@ table.nc thead th{border-bottom:2px solid var(--line); font-size:12px; color:var
 table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
 @media print{ .pf a{border:1px solid #ccc;} }
 </style>
+<style>
+/* ---------- 講義後（9/8）に追加したパーツ ---------- */
+/* 分類タグ。色の意味は既存の変数に合わせる（macro＝マクロの論点／corp＝株と実務） */
+.tag.m{background:var(--macro-bg); color:var(--macro);}
+.tag.c{background:var(--corp-bg); color:var(--corp);}
+.tag.w{background:var(--word-bg); color:var(--word);}
+.qtags{display:inline;}
+.meta a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+/* 教室で出た答え／着地点 */
+#s10 .q .said, #s10 .q .hint{
+  display:block; margin-top:7px; padding-left:11px;
+  font-size:13.5px; line-height:1.7; color:var(--ink2);
+}
+#s10 .q .said{border-left:3px solid var(--q-line);}
+#s10 .q .hint{border-left:3px solid var(--bridge);}
+#s10 .q .lb{font-weight:800; letter-spacing:.04em; margin-right:5px;}
+#s10 .q .said .lb{color:var(--ink3);}
+#s10 .q .hint .lb{color:var(--bridge);}
+/* Q番号を3つのまとまりをまたいで通す */
+#s10{counter-reset:qq;}
+#s10 .q{counter-reset:none;}
+#s10 h3{margin-top:26px;}
+#s10 h3:first-of-type{margin-top:18px;}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -365,6 +389,7 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <span><b>講義</b>　2026年9月8日（火）16:20 開始・90分</span>
     <span><b>形式</b>　オンライン（Zoom）</span>
     <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
+    <span><b>講義後の追記</b>　9/8　<a href="#s10">答えが出なかった問い 23問</a></span>
   </div>
   <div class="lede">
     今回は3つ。
@@ -379,6 +404,7 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
 <nav class="toc">
   <h2>この資料の構成</h2>
   <ol>
+    <li><a href="#s10">答えが出なかった問い</a> <span class="s">― 23問。9/8の講義後に追加</span></li>
     <li><a href="#s0">復習クイズ（9/1）</a> <span class="s">― 3問。教室で出た事実から</span></li>
     <li><a href="#s1">米中間選挙の現在地</a> <span class="s">― 日程・議席・世論・予測市場・関税</span></li>
     <li><a href="#s2">信用取引</a> <span class="s">― 8508 Jトラスト100株の優待クロスから入り、仕組みへ</span></li>
@@ -388,6 +414,128 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <li><a href="#s9">今回の用語</a></li>
   </ol>
 </nav>
+
+<!-- ============ 講義後の追記：答えが出なかった問い ============ -->
+<section class="topic" id="s10">
+  <span class="badge bridge">講義後の追記 ／ 2026年9月8日</span>
+  <h2 class="thead">答えが出なかった問い ── 23問</h2>
+  <p class="sub">9/8の教室で問われ、その場で答えが出なかった問い、向きが逆になった問い、調べてから答えた問いだけを拾った。答えられた問いは載せていない。<b>答えは書いていない。</b>教室で出た答えと着地点だけを置いた。次回の冒頭はここから出す。</p>
+
+  <h3>金利と物価 ── 上げると、物の値段はどちらに動くか</h3>
+  <ol class="q">
+    <li><b>金利を上げると、お金は借りやすくなるか、借りにくくなるか。</b><span class="qtags"><span class="tag m">金利</span><span class="tag m">マクロ</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「お金を貸したり借りたりしやすくなる」。問い直されて「金利を上げると金利が低くなる」と言い直し、向きが定まらなかった。</span>
+      <span class="hint"><span class="lb">着地点</span>金利は、お金を借りる側が払う値段。値段が上がったとき、買う量はどちらに動くか。</span></li>
+
+    <li><b>金利を上げると、物の値段は上がりやすいか、下がりやすいか。</b><span class="qtags"><span class="tag m">金利</span><span class="tag m">物価</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「上がる」と「下がる」に割れた。理由も「みんながお金を使わない分、一気に取ろうとするので上がる」「使わないから値段を下げていく」と、人によって別の話になった。</span>
+      <span class="hint"><span class="lb">着地点</span>これはQ3と同じ問い。店の値付けからではなく、通貨の量から入ると1本の線になる。</span></li>
+
+    <li><b>世の中に出回るお金の量が減ると、物の値段は上がるか、下がるか。</b><span class="qtags"><span class="tag m">通貨の量</span><span class="tag m">物価</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「市場に供給される現金が減る。相対的にお金の量が減ると、物の値段が上がる」。別の学生は逆を答え、教室では向きが1つに決まらなかった。</span>
+      <span class="hint"><span class="lb">着地点</span>量が増えたものは価値が下がる。これは米でも通貨でも同じ。通貨の価値が下がると物の値札はどちらに動くか、を先に決めてから逆をたどる。</span></li>
+
+    <li><b>ネットキャッシュ比率は、何と何を比べているか。</b><span class="qtags"><span class="tag c">ネットキャッシュ比率</span><span class="tag">第5回</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「1倍を超えると割安」までは出たが、比べている2つは別の学生が「時価総額と手元資金」と補った。分子の中身は出ていない。</span>
+      <span class="hint"><span class="lb">着地点</span>この資料の§0 問2に式がある。分子は会社の中身、分母は市場がつけた値段。<b>§0の3問のうち、比率を数字で出す計算と買収の実務は教室では出ていない。</b></span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">この4問がねじれた理由は、教室で名前がついた</span>
+    <b>マクロとミクロを混ぜたこと。</b>金利と為替が扱っているのはお金そのもので、その発行量を動かせるのは日銀だけ。「みんながお金を使わないから店が値段を上げる」は買い手と売り手の話で、通貨の量の話ではない。混ぜると必ず向きが逆になる。
+  </div>
+
+  <h3>米中間選挙 ── 誰を選ぶ選挙で、なぜ大統領と切り離せるのか</h3>
+  <ol class="q">
+    <li><b>アメリカの中間選挙とは何の選挙で、なぜビッグイベントなのか。</b><span class="qtags"><span class="tag m">中間選挙</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「そう聞かれると説明できない」。</span>
+      <span class="hint"><span class="lb">着地点</span>このまとまりの残り9問は全部ここに戻る。まず、誰を選ぶ選挙かから。</span></li>
+
+    <li><b>中間選挙で選ばれるのは誰か。</b><span class="qtags"><span class="tag m">中間選挙</span><span class="tag m">上院・下院</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「現役の議員」「裁判官の信任投票のようなもの」。別の学生が「下院を組み替える選挙」と答えて近づいた。</span>
+      <span class="hint"><span class="lb">着地点</span>この資料の§1に議席の表がある。改選されるのはどこまでか、上院と下院で分けて言えるか。</span></li>
+
+    <li><b>イギリスに大統領はいるか。</b><span class="qtags"><span class="tag m">政治の仕組み</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「聞いたことがある」「女性の方ではなかったか」。その場で調べて「いない」に落ち着いた。</span>
+      <span class="hint"><span class="lb">着地点</span>国家元首と、行政のトップは同じ人か別の人か。イギリス・フランス・韓国・日本を並べて確かめる。</span></li>
+
+    <li><b>大統領と総理大臣は、何が大きく違うのか。</b><span class="qtags"><span class="tag m">政治の仕組み</span><span class="tag m">大統領制</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「首相は頭が良くないといけない、大統領はリーダーシップさえあれば」「権力の幅」「議会の上にいるか下にいるか」。制度の名前は、調べてから出た。</span>
+      <span class="hint"><span class="lb">着地点</span>違いは選ばれ方から出てくる。誰が誰に投票しているのかを、日本とアメリカで書き分ける。</span></li>
+
+    <li><b>大統領は、なぜ議会から独立して振る舞えるのか。</b><span class="qtags"><span class="tag m">大統領制</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>その場では出ず、調べてからの回答になった。</span>
+      <span class="hint"><span class="lb">着地点</span>「権力があるから」ではなく「なぜ権力があるか」を言えるか。投票の経路をたどると出てくる。</span></li>
+
+    <li><b>midterm の「中間」は、何と何の中間か。</b><span class="qtags"><span class="tag m">中間選挙</span><span class="tag">英語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「選挙と選挙の間」。英語（ミッドターム・エレクション）と、選挙・中間という訳までは出た。</span>
+      <span class="hint"><span class="lb">着地点</span>term は任期。誰の任期の、どの時点か。任期が何年かとセットで言う。</span></li>
+
+    <li><b>トランプ大統領の前の大統領は誰で、何党か。</b><span class="qtags"><span class="tag m">中間選挙</span><span class="tag m">二大政党</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「クリントンか」「メガネの人」。名前がすぐには出なかった。</span>
+      <span class="hint"><span class="lb">着地点</span>前の大統領の時代に選ばれた議員が、今の議会にいる。だから中間選挙の前と後で、大統領の動きやすさが変わる。</span></li>
+
+    <li><b>アメリカの下院は、日本の衆議院と参議院のどちらに近いか。</b><span class="qtags"><span class="tag m">上院・下院</span><span class="tag m">日本の国会</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>答えが出なかった。</span>
+      <span class="hint"><span class="lb">着地点</span>任期の長さと、解散があるかないかの2つで分ける。</span></li>
+
+    <li><b>衆議院と参議院は何が違い、その違いから何が生まれるか。</b><span class="qtags"><span class="tag m">日本の国会</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「任期に差がある」までは出たが、そこから「参議院は任期が長いので、年を取っても選挙に参加できそう」と別の話になった。別の学生が「解散がないので長い目で見られる」と補った。</span>
+      <span class="hint"><span class="lb">着地点</span>任期の長さと解散の有無が、議員の行動をどちらに寄せるか。ここが上院・下院の性格の違いにそのまま重なる。</span></li>
+
+    <li><b>民主党の地盤はどの州か。</b><span class="qtags"><span class="tag m">二大政党</span><span class="tag">地図</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「ジョージア」。上院の改選州を見ながら、アイオワは「存じていない」、ジョージアの位置は調べてフロリダの上、という状態だった。</span>
+      <span class="hint"><span class="lb">着地点</span>人口が多いのは内陸か、両側の海岸か。§1の議席の表は、地図の上に置けて初めて意味を持つ。</span></li>
+  </ol>
+
+  <h3>信用取引 ── 持っていないものを、どう売るのか</h3>
+  <ol class="q">
+    <li><b>信用取引とは何か。それをやると、何が得なのか。</b><span class="qtags"><span class="tag c">信用取引</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「証券会社からお金を借りて株を買う」「借りるので信用がある」。制度の名前にある「信用」を、信用度の意味で受け取っていた。</span>
+      <span class="hint"><span class="lb">着地点</span>借りるのはお金か、株か。借りたものを、いつ、何で返すのか。</span></li>
+
+    <li><b>空売りとは何か。</b><span class="qtags"><span class="tag c">空売り</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「将来あるタイミングで、その株を売る権利を買う」。これは別の取引（オプション）の説明で、その場で区別された。</span>
+      <span class="hint"><span class="lb">着地点</span>買うのは権利か、借りるのは現物か。この2つは値段の決まり方が別。</span></li>
+
+    <li><b>借りたものを先に売って、どうやったら得をするのか。</b><span class="qtags"><span class="tag c">空売り</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「得にならないですか」で一度止まった。友達からゲーム機を借りて売る話に置き換えたあと、10万円で売って8万円で買い戻す、差額が残る、と自力で言えた。</span>
+      <span class="hint"><span class="lb">着地点</span>手元に何があるかを、時点ごとに3行で書き出す。借りた直後、売った直後、買い戻した直後。</span></li>
+
+    <li><b>株を貸した側には、何の得があるのか。</b><span class="qtags"><span class="tag c">空売り</span><span class="tag c">貸株料</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>出なかった。</span>
+      <span class="hint"><span class="lb">着地点</span>誰が誰に、何に対して払っているのかを1行で書く。この資料の§2にコストの一覧がある。</span></li>
+
+    <li><b>円高になると、任天堂の業績はどちらに動くか。</b><span class="qtags"><span class="tag m">為替</span><span class="tag c">株価</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>最初は「上がる」。言い直して「下がる」に着き、海外での売れ行きから理由も説明できた。</span>
+      <span class="hint"><span class="lb">着地点</span>向きは合った。第1回から繰り返し出ている型なので、次は言い直さずに出す。</span></li>
+
+    <li><b>明日下がると分かっているとき、今日の時点で何をするか。</b><span class="qtags"><span class="tag c">空売り</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「下がるんだったら買います」。今日売るのか、明日買うのかで順番が入れ替わり、そのあと「空売りします、現物売ります」と両方出た。</span>
+      <span class="hint"><span class="lb">着地点</span>現金が入ってくるのはどの時点か。売りが先か、買いが先か。Q17で書いた3行に戻る。</span></li>
+
+    <li><b>現物買いと信用売りを同時に出すと、何をしていることになるのか。なぜやるのか。</b><span class="qtags"><span class="tag c">クロス注文</span><span class="tag c">優待・配当</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「上がっても下がっても損しない」という説明までは出たが、「損しないなら、なぜやるのか」で止まった。</span>
+      <span class="hint"><span class="lb">着地点</span>損益をゼロにしたうえで、手元に1つだけ残るものがある。この資料の§2の空欄がそこ。</span></li>
+
+    <li><b>権利落ち日の翌日に下がると分かっているとき、どうやって儲けるか。</b><span class="qtags"><span class="tag c">クロス注文</span><span class="tag c">優待・配当</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「下がる前に売る」。これは現物を持っている人の考え方で、Q17でいったん通った道から戻った。</span>
+      <span class="hint"><span class="lb">着地点</span>1回できても、場面が変わると戻る。同じ問いを、ゲーム機・任天堂・権利落ちの3つの場面で解き直す。</span></li>
+
+    <li><b>これから金利はどちらに動き、そのとき株価はどちらに動くか。</b><span class="qtags"><span class="tag m">金利</span><span class="tag c">株価</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「金利は下がります」と答えてから「上げます、上がります」と訂正。株価は下がる、輸出企業が対象になる、までは到達した。</span>
+      <span class="hint"><span class="lb">着地点</span>冒頭の4問に戻る。円高になった理由を1行で言えれば、金利の向きは自動的に決まる。</span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">この節でいちばん効いたのは、株ではない話だった</span>
+    友達からゲーム機を借りて売り、値下がりしてから買い戻して返す。<b>この置き換えを通したあとは、任天堂の株でも同じ順番を自力で言えた。</b>株の言葉のままでは最後まで通らなかった。分からなくなったら、まず持ち物と時点に置き換える。
+  </div>
+
+  <div class="rel">
+    <b>この23問の読み方</b>　発言は要約であり、逐語ではない。誰の発言かは書いていない。教室で口頭で出た数字（支持率・関税率・株価）はここに入れていない。数字を確かめるときは、下の§1・§2の本文と出典にあたること。<b>口頭の概算と一次情報は別物として扱う。</b>
+  </div>
+</section>
 
 <!-- ============ §0 復習クイズ ============ -->
 <section class="topic" id="s0">

@@ -22,7 +22,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
-| 夏期 第6回 | 2026-09-08 | 米中間選挙の現在地／信用取引 ── 現物買い＋信用売りで優待は残るか（冒頭に9/1の復習クイズ3問） | [HTML](lectures/lecture_20260908.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260908.html) |
+| 夏期 第6回 | 2026-09-08 | 米中間選挙の現在地／信用取引 ── 現物買い＋信用売りで優待は残るか（冒頭に9/1の復習クイズ3問。**9/8 講義後に「答えが出なかった問い」23問を追記**） | [HTML](lectures/lecture_20260908.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260908.html) |
 | 自習資料 | 2026-09-04 配布 | 日銀が国債を買うと、世の中のお金は増えるのか ── 買いオペ・売りオペと信用創造（橘玲『プアジャパン』。問い1つ、答えなし。第6回 9/8 までに1行） | [HTML](lectures/lecture_20260904.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260904.html) |
 | 夏期 第5回 | 2026-09-01 | 予想との差だけが値段を動かす ── NVIDIAは買いか／Anthropicの上場／9月の中間決算 | [HTML](lectures/lecture_20260901.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260901.html) |
 | 夏期 第4回 | 2026-08-25 | バリュー投資（シケモク投資家とリンチ・チャート）と金利と為替（橘玲『プアジャパン』） | [HTML](lectures/lecture_20260825.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260825.html) |
@@ -32,7 +32,6 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
-| 夏期 第6回 | 2026-09-08 | 答えられなかった問い ― 金利と物価の向き、大統領制と議院内閣制、空売りの時系列（23問・答えなし） | [HTML](reviews/lecture_review_20260908.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20260908.html) |
 | 夏期 第5回 | 2026-09-01 | 時価総額の中身を数える ― ネットキャッシュ比率、AIサプライチェーン、買収の実務（要点まとめ＋10問4択） | [HTML](reviews/lecture_review_20260901.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20260901.html) |
 | 夏期 第3回 | 2026-08-18 | 復習クイズ（5問4択）― Anthropic・為替・金利 | [HTML](reviews/lecture_quiz_20260818.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_quiz_20260818.html) |
 | 夏期 第2回 | 2026-08-11 | 介入は「流れ」を変えられるか ― 為替・金利・減価償却・原価率 | [HTML](reviews/lecture_review_20260811.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20260811.html) |
