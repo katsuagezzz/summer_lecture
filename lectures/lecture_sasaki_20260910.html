@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>信用取引（空売り）先に売って、あとで買い戻す ── Jトラストの優待クロス（現物買いと空売りの組合せ）</title>
+<meta name="description" content="2026年9月10日の個別指導。空売りを5章・図10枚で追う。ゲーム機を借りて売って買い直して返す話から始め、株に置き換え、明日の為替介入を読んだ2日の空売り、年末まで110日持つ空売り、最後に8508 Jトラスト100株の現物買い＋空売りのクロス取引まで。追いかけるのは現金1本（ケーススタディ 第7回）">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #f9f9f7;
+    --surface: #fcfcfb;
+    --surface-raised: #ffffff;
+    --ink: #141413;
+    --ink-2: #52514e;
+    --ink-muted: #898781;
+    --hairline: #e1e0d9;
+    --border: rgba(11, 11, 11, 0.10);
+    --accent: #2a78d6;
+    --accent-ink: #1c5cab;
+    --accent-wash: rgba(42, 120, 214, 0.08);
+    --good: #006300;
+    /* 三角形の3つの角 — この3色はページ全体で意味を固定する */
+    --fx: #2a78d6;      /* 為替 */
+    --price: #eb6834;   /* 物価 */
+    --rate: #1baf7a;    /* 金利 */
+    --fx-wash: rgba(42, 120, 214, 0.10);
+    --price-wash: rgba(235, 104, 52, 0.10);
+    --rate-wash: rgba(27, 175, 122, 0.10);
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --s4: #eda100;
+    --s-other: #898781;
+    --f1: #86b6ef;
+    --f2: #2a78d6;
+    --f3: #104281;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-raised: #222220;
+      --ink: #f4f3ef;
+      --ink-2: #c3c2b7;
+      --ink-muted: #898781;
+      --hairline: #2c2c2a;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #3987e5;
+      --accent-ink: #86b6ef;
+      --accent-wash: rgba(57, 135, 229, 0.14);
+      --good: #0ca30c;
+      --fx: #3987e5;
+      --price: #f07a44;
+      --rate: #199e70;
+      --fx-wash: rgba(57, 135, 229, 0.16);
+      --price-wash: rgba(240, 122, 68, 0.16);
+      --rate-wash: rgba(25, 158, 112, 0.16);
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --s4: #c98500;
+      --s-other: #898781;
+      --f1: #6da7ec;
+      --f2: #3987e5;
+      --f3: #184f95;
+      --grid: #2c2c2a;
+      --axis: #383835;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-raised: #222220;
+    --ink: #f4f3ef;
+    --ink-2: #c3c2b7;
+    --ink-muted: #898781;
+    --hairline: #2c2c2a;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #3987e5;
+    --accent-ink: #86b6ef;
+    --accent-wash: rgba(57, 135, 229, 0.14);
+    --good: #0ca30c;
+    --fx: #3987e5;
+    --price: #f07a44;
+    --rate: #199e70;
+    --fx-wash: rgba(57, 135, 229, 0.16);
+    --price-wash: rgba(240, 122, 68, 0.16);
+    --rate-wash: rgba(25, 158, 112, 0.16);
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s-other: #898781;
+    --f1: #6da7ec;
+    --f2: #3987e5;
+    --f3: #184f95;
+    --grid: #2c2c2a;
+    --axis: #383835;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.75;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; }
+
+  /* ---------- header ---------- */
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.14em; color: var(--accent-ink);
+    font-weight: 700; text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(30px, 5.4vw, 44px); font-weight: 800; line-height: 1.25;
+    letter-spacing: 0.01em; margin: 10px 0 14px; text-wrap: balance;
+  }
+  .lede { color: var(--ink-2); max-width: 40em; }
+  .lede strong { color: var(--ink); }
+  .meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+    border: 1px solid var(--hairline); background: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .chip em { font-style: normal; color: var(--accent-ink); }
+
+  .backlink { display: inline-block; font-size: 13px; font-weight: 700; color: var(--ink-muted);
+    text-decoration: none; margin-bottom: 16px; }
+  .backlink:hover { color: var(--accent-ink); }
+  @media print { .backlink { display: none; } }
+
+  /* ---------- series tabs ---------- */
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-top: 28px;
+    border-bottom: 1px solid var(--hairline);
+    overflow-x: auto; scrollbar-width: thin;
+  }
+  .tab {
+    flex: 0 0 auto; display: block; text-decoration: none;
+    padding: 10px 16px 9px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 8px 8px 0 0; margin-bottom: -1px;
+    font-size: 13.5px; font-weight: 700; color: var(--ink-muted);
+    white-space: nowrap; transition: color .12s ease, background .12s ease;
+  }
+  .tab small { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-muted); }
+  a.tab { color: var(--accent-ink); }
+  a.tab small { color: var(--ink-2); }
+  a.tab:hover { background: var(--accent-wash); }
+  a.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  a.tab .ext { font-weight: 500; font-size: 11px; }
+  .tab.is-current {
+    color: var(--ink); background: var(--surface);
+    border-color: var(--hairline); border-bottom: 1px solid var(--surface);
+  }
+  .tab.is-past { cursor: default; opacity: .55; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 56px; }
+  .step-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .step-time {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  h2 { font-size: 23px; font-weight: 800; line-height: 1.35; text-wrap: balance; }
+  h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  section > p, .card > p { color: var(--ink-2); max-width: 44em; }
+  section > p strong, .card p strong, li strong { color: var(--ink); }
+  .sec-note { font-size: 13px; color: var(--ink-muted); margin-top: 10px; }
+
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; margin-top: 18px; border-top: 1px solid var(--hairline); }
+  .agenda li {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 14px;
+    align-items: baseline; padding: 11px 4px; border-bottom: 1px solid var(--hairline);
+  }
+  .agenda .t { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13.5px; color: var(--accent-ink); }
+  .agenda .what { font-weight: 600; }
+  .agenda .what small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-muted); }
+  .agenda .min { font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+
+  /* ---------- cards / callout / recall ---------- */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px; margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-wash);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 18px;
+    max-width: 46em;
+  }
+  .callout p { color: var(--ink-2); }
+  .callout .q { font-weight: 700; color: var(--ink); }
+  .recalls { display: grid; gap: 10px; margin-top: 18px; }
+  .recall {
+    border: 1px dashed var(--axis); background: var(--surface);
+    border-radius: 10px; padding: 14px 18px; max-width: 46em;
+  }
+  .recall .who { font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; color: var(--ink-muted); }
+  .recall .said { font-weight: 700; color: var(--ink); margin-top: 2px; }
+  .recall .note { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+
+  /* ---------- KPI tiles ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; border-top: 3px solid var(--border);
+  }
+  .tile.fx { border-top-color: var(--fx); }
+  .tile.rate { border-top-color: var(--rate); }
+  .tile.price { border-top-color: var(--price); }
+  .tile .k { font-size: 12px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .tile .v { font-size: 25px; font-weight: 800; line-height: 1.3; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .tile .v small { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .tile .d { font-size: 12.5px; font-weight: 600; margin-top: 1px; color: var(--ink-2); }
+  .tile .d.up { color: var(--good); }
+  .unsure { color: var(--s2); font-weight: 700; }
+
+  /* ---------- formula ---------- */
+  .formula {
+    margin-top: 18px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; font-weight: 700; font-size: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  }
+  .formula .num { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .formula small { font-weight: 500; color: var(--ink-muted); flex-basis: 100%; font-size: 12.5px; }
+
+  /* ---------- charts / diagram ---------- */
+  figure { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 14px; }
+  figcaption { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .figsub { font-size: 12.5px; color: var(--ink-muted); margin-bottom: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .chart-scroll { overflow-x: auto; }
+  .chart-scroll svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  svg text { font-family: inherit; }
+  .diagram { color: var(--ink-muted); }
+  .src { font-size: 11.5px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- exercise ---------- */
+  .ex { margin-top: 18px; }
+  .ex .card { padding: 0; overflow: hidden; }
+  .ex-q { padding: 18px 22px 6px; }
+  .ex-q .no {
+    display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    border-radius: 4px; padding: 2px 8px; margin-bottom: 8px;
+  }
+  .ex-q p { color: var(--ink); font-weight: 600; max-width: 44em; }
+  .ex-q .hint { font-weight: 400; font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+  .qz-choices { list-style: none; counter-reset: qc; margin: 12px 22px 4px; padding: 0; display: grid; gap: 6px; max-width: 46em; }
+  .qz-choices li {
+    counter-increment: qc; position: relative; border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 8px 14px 8px 40px; font-size: 14px; color: var(--ink-2);
+  }
+  .qz-choices li::before {
+    content: counter(qc, upper-alpha); position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    font-weight: 800; font-size: 12.5px; color: var(--accent-ink);
+  }
+  details { border-top: 1px solid var(--hairline); margin-top: 14px; }
+  summary {
+    cursor: pointer; padding: 12px 22px; font-weight: 700; font-size: 13.5px;
+    color: var(--accent-ink); list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "\25B8  "; }
+  details[open] summary::before { content: "\25BE  "; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 6px; }
+  .ans { padding: 0 22px 18px; color: var(--ink-2); max-width: 46em; }
+  .ans .calc {
+    font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink);
+    background: var(--accent-wash); border-radius: 8px; padding: 10px 14px; margin: 8px 0 10px;
+    display: inline-block;
+  }
+
+  /* ---------- tables ---------- */
+  .tbl-scroll { overflow-x: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; background: var(--surface); font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td:first-child { font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td small { display: block; color: var(--ink-muted); font-size: 12px; }
+  .tbl-note { font-size: 12px; color: var(--ink-muted); margin-top: 8px; }
+
+  /* ---------- discussion / glossary ---------- */
+  .qlist { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+  .qlist li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .qlist .q { font-weight: 700; }
+  .qlist .why { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  dl.gloss { margin-top: 16px; border-top: 1px solid var(--hairline); }
+  dl.gloss > div { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 12px 4px; border-bottom: 1px solid var(--hairline); }
+  @media (max-width: 560px) { dl.gloss > div { grid-template-columns: 1fr; gap: 2px; } }
+  dt { font-weight: 700; font-size: 14px; }
+  dt small { display: block; font-weight: 400; font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  dd { color: var(--ink-2); font-size: 14px; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 18px; font-size: 12.5px; color: var(--ink-muted); }
+  footer p { max-width: none; }
+  footer p + p { margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print {
+    body { background: #fff; }
+    .tabs { display: none; }
+    details { border-top: none; }
+    summary { display: none; }
+    .ans { padding-top: 0; }
+  }
+
+  /* ---------- 第4回で追加 ---------- */
+  .tile.debt { border-top-color: var(--s4); }
+  .device {
+    margin-top: 20px; border: 2px solid var(--accent); border-radius: 12px;
+    background: var(--accent-wash); padding: 18px 22px; max-width: 46em;
+  }
+  .device h3 { margin-top: 0; color: var(--accent-ink); }
+  .device .rule {
+    font-size: 19px; font-weight: 800; color: var(--ink); margin: 10px 0 6px;
+    letter-spacing: 0.01em;
+  }
+  .steps2 { list-style: none; counter-reset: st; display: grid; gap: 8px; margin-top: 12px; }
+  .steps2 li {
+    counter-increment: st; position: relative; padding-left: 34px; font-size: 14.5px; color: var(--ink-2);
+  }
+  .steps2 li::before {
+    content: counter(st); position: absolute; left: 0; top: 1px;
+    width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff;
+    font-size: 12.5px; font-weight: 800; display: grid; place-items: center;
+  }
+  .routes { display: grid; gap: 14px; margin-top: 20px; }
+  .route {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 22px; border-left: 4px solid var(--accent);
+  }
+  .route.r1 { border-left-color: var(--fx); }
+  .route.r2 { border-left-color: var(--rate); }
+  .route.r3 { border-left-color: var(--price); }
+  .route .rk {
+    font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; color: var(--ink-muted);
+  }
+  .route h3 { margin: 2px 0 8px; font-size: 17.5px; }
+  .chain {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px;
+    font-size: 13.5px; font-weight: 700; margin: 12px 0;
+  }
+  .chain span {
+    background: var(--surface-raised); border: 1px solid var(--hairline);
+    border-radius: 6px; padding: 4px 10px; white-space: nowrap;
+  }
+  .chain b { color: var(--ink-muted); font-weight: 800; }
+  .aims { display: grid; gap: 10px; margin-top: 18px; counter-reset: aim; }
+  .aim {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 15px 20px 15px 54px; position: relative; counter-increment: aim;
+  }
+  .aim::before {
+    content: "\7B56 " counter(aim); position: absolute; left: 14px; top: 15px;
+    font-size: 11px; font-weight: 800; color: var(--accent-ink);
+    background: var(--accent-wash); border-radius: 4px; padding: 3px 6px; line-height: 1.2;
+    writing-mode: horizontal-tb;
+  }
+  .aim .at { font-weight: 800; font-size: 15.5px; }
+  .aim p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .crit { border-left-color: var(--s2); }
+  .crits { display: grid; gap: 10px; margin-top: 16px; }
+  .crits .c2 {
+    background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--s2);
+    border-radius: 0 10px 10px 0; padding: 15px 20px;
+  }
+  .crits .c2 .ct { font-weight: 800; font-size: 15px; }
+  .crits .c2 p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .crits .c2 .who2 { font-size: 12.5px; color: var(--ink-muted); margin-top: 6px; font-weight: 600; }
+  .hw { margin-top: 18px; display: grid; gap: 12px; }
+  .hw .h1x {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;
+  }
+  .hw .h1x.must { border-color: var(--accent); border-left: 4px solid var(--accent); }
+  .hw .badge {
+    display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
+    border-radius: 4px; padding: 2px 8px; margin-right: 8px;
+  }
+  .hw .badge.m { background: var(--accent-wash); color: var(--accent-ink); }
+  .hw .badge.o { background: var(--hairline); color: var(--ink-muted); }
+  .hw ol.form { margin: 10px 0 0 20px; font-size: 14px; color: var(--ink-2); }
+  .hw ol.form li { margin-bottom: 4px; }
+  .hw ol.form li b { color: var(--ink); }
+
+  /* ---------- 第6回で追加 ---------- */
+  .ana {
+    margin-top: 18px; border-left: 3px solid var(--s4);
+    background: var(--surface); border-radius: 0 10px 10px 0;
+    padding: 15px 20px; max-width: 46em;
+  }
+  .ana .at {
+    font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--s4); display: block; margin-bottom: 4px;
+  }
+  .ana p { font-size: 14.5px; color: var(--ink-2); }
+  .ana p + p { margin-top: 8px; }
+
+  .watch {
+    margin-top: 20px; border: 2px solid var(--accent); border-radius: 12px;
+    background: var(--accent-wash); padding: 18px 22px; max-width: 46em;
+  }
+  .watch .wl { font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; color: var(--accent-ink); }
+  .watch a { font-weight: 700; color: var(--accent-ink); word-break: break-all; }
+  .watch p { font-size: 14px; color: var(--ink-2); margin-top: 6px; }
+
+  .en {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 20px; font-weight: 600; line-height: 1.5; color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .en-jp { font-size: 14px; color: var(--ink-muted); margin-top: 6px; }
+
+  .words { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  @media (max-width: 620px) { .words { grid-template-columns: 1fr; } }
+  .word {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 9px 14px; font-size: 14px;
+  }
+  .word b { font-family: "Georgia", "Times New Roman", serif; font-size: 15.5px; }
+  .word i { font-style: normal; color: var(--ink-muted); font-size: 12.5px; margin-left: 6px; }
+  .word span { display: block; color: var(--ink-2); font-size: 13.5px; }
+
+  .blanks { list-style: none; margin-top: 16px; display: grid; gap: 10px; max-width: 46em; }
+  .blanks li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px; font-size: 14px; color: var(--ink-2);
+  }
+  .blanks .rule2 {
+    display: block; border-bottom: 1px dashed var(--axis); height: 26px; margin-top: 6px;
+  }
+
+  ul.lede-pts { list-style: none; margin-top: 14px; max-width: 42em; display: grid; gap: 8px; }
+  ul.lede-pts li {
+    position: relative; padding-left: 18px; color: var(--ink-2); font-size: 15.5px;
+  }
+  ul.lede-pts li::before {
+    content: ""; position: absolute; left: 0; top: 11px;
+    width: 7px; height: 7px; border-radius: 2px; background: var(--accent);
+  }
+  ul.lede-pts strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="backlink" href="../sasaki.html">&larr; 講義資料の一覧へ</a>
+  <header>
+    <p class="eyebrow">ケーススタディ · 第7回</p>
+    <h1>信用取引（空売り）先に売って、あとで買い戻す<br>── Jトラストの優待クロス（現物買いと空売りの組合せ）</h1>
+    <ul class="lede-pts">
+      <li>空売りは、<strong>売るのが先で、買うのが後</strong>。この順番だけで全部が決まる。</li>
+      <li>追いかけるのは<strong>現金1本</strong>。売って入り、買い戻して出ていき、残った差が儲けになる。</li>
+      <li>5つの章はすべて同じ形をしている。<strong>ゲーム機 → 株 → 明日の介入 → 年末の下げ → 優待クロス。</strong></li>
+    </ul>
+    <div class="meta-chips">
+      <span class="chip">2026年9月10日（木）<em>30分</em></span>
+      <span class="chip">全5章 · <em>図10枚</em></span>
+      <span class="chip">最後は 8508 Jトラストの実例</span>
+    </div>
+
+    <nav class="tabs" aria-label="ケーススタディ シリーズ">
+      <span class="tab is-past" title="配布資料リンクなし（講義のみ）">第1回　メルカリ<small>GMVと営業損失</small></span>
+      <a class="tab" href="lecture_sasaki_20260817.html">第2回　ZOZOの決算を読む<small>受託販売とテイクレート <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260820.html">第3回　金利・為替・インフレ<small>三角形の一周 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260824.html">第4回　利払いが国防費を超えた国<small>国のPL <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260903.html">第5回　予想との差と1.1倍<small>9/3の復習クイズ <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260907.html">第6回　The capital will find you<small>英語とビジネスモデル <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260907_review.html">9/7 復習　英語で出た向き<small>5問 <span class="ext">&#8594;</span></small></a>
+      <span class="tab is-current" aria-current="page">第7回　先に売って、あとで買い戻す<small>空売りとクロス取引（今回）</small></span>
+    </nav>
+  </header>
+
+  <!-- 今日の30分 -->
+  <section>
+    <h2>今日の30分 ── 5章とも、同じ形をしている</h2>
+    <ol class="agenda">
+      <li><span class="t">00:00</span><span class="what">1　ゲーム機<small>借りて、売って、現金にして、あとで買い直して返す</small></span><span class="min">5分</span></li>
+      <li><span class="t">05:00</span><span class="what">2　株で言うと<small>同じことを株でやる。買い戻す値段だけが儲けを決める</small></span><span class="min">6分</span></li>
+      <li><span class="t">11:00</span><span class="what">3　使い道①　明日の介入<small>明日下がると読めた。今日売る。翌日に買い戻す</small></span><span class="min">6分</span></li>
+      <li><span class="t">17:00</span><span class="what">4　使い道②　年末の下げ<small>同じ読みを110日先に置くと、何が変わるか</small></span><span class="min">6分</span></li>
+      <li><span class="t">23:00</span><span class="what">5　現物買い＋空売りのクロス<small>8508 Jトラスト。値動きを取りに行かない取引</small></span><span class="min">7分</span></li>
+    </ol>
+    <p class="sec-note">9月8日に迷いが出たのは<strong>順番</strong>と、<strong>クロスを何のためにやるか</strong>の2つだった。今日はその2つだけを、図で追う。</p>
+  </section>
+
+  <!-- ============ 1 ゲーム機 ============ -->
+  <section>
+    <div class="step-head"><span class="step-time">00:00 &ndash; 05:00</span><h2>1　ゲーム機 ── 借りて、売って、現金にする</h2></div>
+
+    <div class="ana">
+      <span class="at">たとえると</span>
+      <p>友だちからゲーム機を1台借りる。中古屋に持っていって<strong>4万円</strong>で売る。しばらくして値下がりし、同じゲーム機が<strong>2万円</strong>で買えるようになった。買い直して友だちに返す。</p>
+      <p>返したのは<strong>ゲーム機1台</strong>で、借りたときと同じ。手元には現金だけが残る。</p>
+    </div>
+
+    <figure>
+      <figcaption>現金の動き ── 先に入って、あとで出ていく</figcaption>
+      <p class="figsub">上の3ステップが、下の現金にそのまま出る。この形が、5章とも同じ</p>
+      <div class="chart-scroll">
+        <svg class="diagram" viewBox="0 0 900 400" role="img" aria-label="ゲーム機を借りて4万円で売ると現金が4万円入る。2万円で買い直すと現金が2万円出ていく。返すと手元に2万円が残る。借りの状態は売った時点であり、返した時点でなくなる">
+          <defs>
+            <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"></path>
+            </marker>
+          </defs>
+
+          <rect x="20" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="145" y="64" text-anchor="middle" font-size="15.5" font-weight="800" style="fill:var(--ink)">① 借りて、売る</text>
+          <text x="145" y="88" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">ゲーム機1台を中古屋へ</text>
+          <text x="145" y="109" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">40,000円</text>
+
+          <line x1="280" y1="77" x2="315" y2="77" stroke="currentColor" stroke-width="1.8" marker-end="url(#arw)"></line>
+
+          <rect x="325" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="450" y="64" text-anchor="middle" font-size="15.5" font-weight="800" style="fill:var(--ink)">② 買い直す</text>
+          <text x="450" y="88" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">値下がりしたので安く買える</text>
+          <text x="450" y="109" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">20,000円</text>
+
+          <line x1="585" y1="77" x2="620" y2="77" stroke="currentColor" stroke-width="1.8" marker-end="url(#arw)"></line>
+
+          <rect x="630" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="755" y="64" text-anchor="middle" font-size="15.5" font-weight="800" style="fill:var(--ink)">③ 返す</text>
+          <text x="755" y="88" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">買った1台をそのまま渡す</text>
+          <text x="755" y="109" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">返すのは同じ「1台」</text>
+
+          <line x1="145" y1="122" x2="145" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+          <line x1="450" y1="122" x2="450" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+          <line x1="755" y1="122" x2="755" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+
+          <text x="20" y="161" font-size="11.5" font-weight="800" letter-spacing="0.08em" style="fill:var(--ink-muted)">手元の現金</text>
+
+          <rect x="20" y="174" width="250" height="72" rx="10" style="fill:var(--rate-wash);stroke:var(--rate)" stroke-width="1.6"></rect>
+          <text x="145" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">入ってくる</text>
+          <text x="145" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--rate)">＋40,000円</text>
+
+          <rect x="325" y="174" width="250" height="72" rx="10" style="fill:var(--price-wash);stroke:var(--price)" stroke-width="1.6"></rect>
+          <text x="450" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">出ていく</text>
+          <text x="450" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--price)">−20,000円</text>
+
+          <rect x="630" y="174" width="250" height="72" rx="10" style="fill:var(--rate-wash);stroke:var(--good)" stroke-width="2.4"></rect>
+          <text x="755" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">手元に残る</text>
+          <text x="755" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--good)">20,000円</text>
+
+          <text x="20" y="278" font-size="11.5" font-weight="800" letter-spacing="0.08em" style="fill:var(--ink-muted)">返すもの</text>
+          <rect x="20" y="288" width="250" height="34" rx="8" style="fill:var(--surface);stroke:var(--hairline)"></rect>
+          <text x="145" y="311" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--price)">ゲーム機 1台（未返却）</text>
+          <rect x="325" y="288" width="250" height="34" rx="8" style="fill:var(--surface);stroke:var(--hairline)"></rect>
+          <text x="450" y="311" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--price)">ゲーム機 1台（未返却）</text>
+          <rect x="630" y="288" width="250" height="34" rx="8" style="fill:var(--surface);stroke:var(--hairline)"></rect>
+          <text x="755" y="311" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-muted)">なし（返し終わった）</text>
+
+          <text x="450" y="358" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">儲けを決めるのは ② の値段だけ ── 安く買い直せれば残り、高ければ足りなくなる</text>
+          <text x="450" y="384" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">買い直すのが 5万円だったら　40,000 − 50,000 ＝ <tspan font-weight="800" style="fill:var(--price)">−10,000円</tspan>。これが失敗のかたち</text>
+        </svg>
+      </div>
+      <p class="src">授業中の設例。4万円・2万円・5万円は計算しやすさのために置いた数字で、特定の機種の相場ではない</p>
+    </figure>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q1</span><p>①で売ってしまったのに、なぜ困らないのか。<strong>困るとしたら、いつ困るのか。</strong></p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">返すのは返す日でよい。困るのは、値上がりしていたとき</p>
+          <p>売った瞬間に返す必要はない。<strong>返すのは「ゲーム機1台」であって、4万円ではない。</strong>だから、買い直す値段が安ければ差が残り、高ければ足りなくなる。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 株 ============ -->
+  <section>
+    <div class="step-head"><span class="step-time">05:00 &ndash; 11:00</span><h2>2　株で言うと ── 借りる手続きは、気にしなくてよい</h2></div>
+
+    <p>ゲーム機を株に置き換えるだけである。<strong>証券会社から株を借りて先に売り、あとで買い戻して返す。</strong>これを<strong>空売り</strong>という。<strong>借りる手続きは自動で進むので、意識するのは値段だけでよい。</strong></p>
+
+    <figure>
+      <figcaption>株でも、まったく同じ3ステップ</figcaption>
+      <p class="figsub">売る値段を A、買い戻す値段を B とすると、残るのは A − B</p>
+      <div class="chart-scroll">
+        <svg class="diagram" viewBox="0 0 900 330" role="img" aria-label="株を1000円で売ると現金が1000円入る。600円で買い戻すと600円出ていく。返すと400円が残る。1000引く600イコール400">
+          <rect x="20" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="145" y="64" text-anchor="middle" font-size="15.5" font-weight="800" style="fill:var(--ink)">① 売る</text>
+          <text x="145" y="88" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">借りた株1つを売る</text>
+          <text x="145" y="109" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">A ＝ 1,000円</text>
+
+          <line x1="280" y1="77" x2="315" y2="77" stroke="currentColor" stroke-width="1.8" marker-end="url(#arw)"></line>
+
+          <rect x="325" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="450" y="64" text-anchor="middle" font-size="15.5" font-weight="800" style="fill:var(--ink)">② 買い戻す</text>
+          <text x="450" y="88" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">返す日の株価で買う</text>
+          <text x="450" y="109" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">B ＝ 600円</text>
+
+          <line x1="585" y1="77" x2="620" y2="77" stroke="currentColor" stroke-width="1.8" marker-end="url(#arw)"></line>
+
+          <rect x="630" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="755" y="64" text-anchor="middle" font-size="15.5" font-weight="800" style="fill:var(--ink)">③ 返す</text>
+          <text x="755" y="88" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">買った株をそのまま渡す</text>
+          <text x="755" y="109" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">返すのは同じ「株1つ」</text>
+
+          <line x1="145" y1="122" x2="145" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+          <line x1="450" y1="122" x2="450" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+          <line x1="755" y1="122" x2="755" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+
+          <text x="20" y="161" font-size="11.5" font-weight="800" letter-spacing="0.08em" style="fill:var(--ink-muted)">手元の現金</text>
+
+          <rect x="20" y="174" width="250" height="72" rx="10" style="fill:var(--rate-wash);stroke:var(--rate)" stroke-width="1.6"></rect>
+          <text x="145" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">入ってくる</text>
+          <text x="145" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--rate)">＋1,000円</text>
+
+          <rect x="325" y="174" width="250" height="72" rx="10" style="fill:var(--price-wash);stroke:var(--price)" stroke-width="1.6"></rect>
+          <text x="450" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">出ていく</text>
+          <text x="450" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--price)">−600円</text>
+
+          <rect x="630" y="174" width="250" height="72" rx="10" style="fill:var(--rate-wash);stroke:var(--good)" stroke-width="2.4"></rect>
+          <text x="755" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">手元に残る</text>
+          <text x="755" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--good)">400円</text>
+
+          <text x="450" y="288" text-anchor="middle" font-size="15" font-weight="800" style="fill:var(--ink)">儲け ＝ A − B ＝ 1,000 − 600 ＝ 400円</text>
+          <text x="450" y="314" text-anchor="middle" font-size="12" style="fill:var(--ink-muted)">①で売る株は証券会社から借りている。手続きは自動なので、意識するのは A と B だけ</text>
+        </svg>
+      </div>
+      <p class="src">授業中の設例。1,000円・600円は計算しやすさのために置いた数字で、特定の銘柄の株価ではない</p>
+    </figure>
+
+    <div class="ana">
+      <span class="at">たとえると</span>
+      <p>メルカリで、<strong>まだ手元にない品を先に出品して売る</strong>。売れてから安く仕入れて発送する。<strong>売るのが先で、仕入れるのが後。</strong></p>
+    </div>
+
+    <figure>
+      <figcaption>買い戻す値段が動くと、損益はこう動く</figcaption>
+      <p class="figsub">1,000円で売ったときの損益。横軸は「買い戻す値段」だけ</p>
+      <div class="chart-scroll">
+        <svg class="diagram" viewBox="0 0 900 400" role="img" aria-label="1000円で売った空売りの損益は、買い戻す値段が0円のとき最大プラス1000円、1000円のとき0円、2000円のときマイナス1000円と右下がりの直線になる。株価は0より下がらないので儲けの上限は1000円だが、上がり続けると損に上限がない">
+          <line x1="100" y1="170" x2="860" y2="170" stroke="currentColor" stroke-width="1" style="stroke:var(--grid)"></line>
+          <line x1="100" y1="40" x2="860" y2="40" stroke="currentColor" stroke-width="1" style="stroke:var(--grid)" stroke-dasharray="4 4"></line>
+          <line x1="100" y1="300" x2="860" y2="300" stroke="currentColor" stroke-width="1" style="stroke:var(--grid)" stroke-dasharray="4 4"></line>
+          <text x="92" y="45" text-anchor="end" font-size="11.5" style="fill:var(--ink-muted)">＋1,000円</text>
+          <text x="92" y="175" text-anchor="end" font-size="11.5" font-weight="700" style="fill:var(--ink-2)">0円</text>
+          <text x="92" y="305" text-anchor="end" font-size="11.5" style="fill:var(--ink-muted)">−1,000円</text>
+          <text x="100" y="26" font-size="12" font-weight="700" style="fill:var(--ink-2)">損益</text>
+
+          <line x1="100" y1="322" x2="860" y2="322" stroke="currentColor" stroke-width="1.2" style="stroke:var(--axis)"></line>
+          <text x="100" y="342" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">0円</text>
+          <text x="470" y="342" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--ink-2)">1,000円</text>
+          <text x="840" y="342" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">2,000円</text>
+          <text x="470" y="366" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--ink-muted)">買い戻す値段</text>
+
+          <line x1="470" y1="40" x2="470" y2="322" stroke="currentColor" stroke-width="1.2" style="stroke:var(--grid)" stroke-dasharray="5 4"></line>
+          <text x="478" y="56" font-size="11.5" font-weight="700" style="fill:var(--ink-muted)">売った値段 1,000円 ＝ 損益 0</text>
+
+          <line x1="100" y1="40" x2="840" y2="300" stroke="currentColor" stroke-width="2.6" style="stroke:var(--fx)"></line>
+
+          <circle cx="322" cy="118" r="5" style="fill:var(--rate)"></circle>
+          <text x="332" y="112" font-size="12.5" font-weight="800" style="fill:var(--rate)">600円で買い戻す → ＋400円</text>
+          <circle cx="618" cy="222" r="5" style="fill:var(--price)"></circle>
+          <text x="628" y="240" font-size="12.5" font-weight="800" style="fill:var(--price)">1,400円で買い戻す → −400円</text>
+
+          <line x1="100" y1="34" x2="100" y2="322" stroke="currentColor" stroke-width="2.4" style="stroke:var(--axis)"></line>
+          <text x="108" y="142" font-size="11.5" font-weight="700" style="fill:var(--ink-2)">株価は0より下がらない</text>
+          <text x="108" y="160" font-size="11.5" style="fill:var(--ink-muted)">＝ 儲けの上限は 1,000円</text>
+
+          <line x1="840" y1="300" x2="878" y2="313" stroke="currentColor" stroke-width="2.6" style="stroke:var(--price)" marker-end="url(#arw)" stroke-dasharray="6 4"></line>
+          <text x="860" y="288" text-anchor="end" font-size="11.5" font-weight="800" style="fill:var(--price)">上がり続けると、損に上限がない</text>
+        </svg>
+      </div>
+      <p class="src">授業中の設例。1,000円で売った1株ぶんの損益。手数料・貸株料は含めていない</p>
+    </figure>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q2</span><p>1,000円で売った。返す日に<strong>1,400円</strong>になっていた。損益はいくらか。<strong>そして、この損はどこまで大きくなりうるか。</strong></p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">−400円。損に上限はない</p>
+          <div class="formula">1,000 − 1,400 ＝ <span class="num">−400円</span>
+            <small>入ってきた1,000円では足りず、400円を足して買い戻すことになる</small></div>
+          <p><strong>ふつうに買った場合と、向きが逆である。</strong>買った株は0円までしか下がらないので、損は買った金額が上限になる。<strong>空売りは、株価がどこまでも上がりうるので、損に上限がない。</strong></p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 介入 ============ -->
+  <section>
+    <div class="step-head"><span class="step-time">11:00 &ndash; 17:00</span><h2>3　使い道① ── 明日、政府が介入すると読めたとき</h2></div>
+
+    <p>空売りが役に立つのは、<strong>下がると読めたとき</strong>である。まず1日で決着する例から。</p>
+
+    <figure>
+      <figcaption>介入から株価まで、4つの矢印でつながっている</figcaption>
+      <p class="figsub">為替と株価は別々のニュースではない。第3回でやった三角形の、右の一辺</p>
+      <div class="chart-scroll">
+        <svg class="diagram" viewBox="0 0 900 230" role="img" aria-label="政府と日銀が円を買う介入をすると円高になり、輸出企業の海外での売上が円に直すと減り、利益が減るので株価が下がる、という4段階の連鎖">
+          <rect x="15" y="36" width="180" height="96" rx="10" style="fill:var(--fx-wash);stroke:var(--fx)" stroke-width="1.6"></rect>
+          <text x="105" y="66" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">政府・日銀が</text>
+          <text x="105" y="86" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">円を買う</text>
+          <text x="105" y="112" text-anchor="middle" font-size="11.5" style="fill:var(--ink-2)">為替介入</text>
+
+          <line x1="203" y1="84" x2="237" y2="84" stroke="currentColor" stroke-width="1.8" marker-end="url(#arw)"></line>
+
+          <rect x="245" y="36" width="180" height="96" rx="10" style="fill:var(--fx-wash);stroke:var(--fx)" stroke-width="1.6"></rect>
+          <text x="335" y="66" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">円高になる</text>
+          <text x="335" y="92" text-anchor="middle" font-size="11.5" style="fill:var(--ink-2)">1ドル150円</text>
+          <text x="335" y="112" text-anchor="middle" font-size="11.5" style="fill:var(--ink-2)">&rarr; 140円</text>
+
+          <line x1="433" y1="84" x2="467" y2="84" stroke="currentColor" stroke-width="1.8" marker-end="url(#arw)"></line>
+
+          <rect x="475" y="36" width="180" height="96" rx="10" style="fill:var(--price-wash);stroke:var(--price)" stroke-width="1.6"></rect>
+          <text x="565" y="66" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">輸出企業の</text>
+          <text x="565" y="86" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">利益が減る</text>
+          <text x="565" y="112" text-anchor="middle" font-size="11.5" style="fill:var(--ink-2)">同じ1ドルが、円で少なくなる</text>
+
+          <line x1="663" y1="84" x2="697" y2="84" stroke="currentColor" stroke-width="1.8" marker-end="url(#arw)"></line>
+
+          <rect x="705" y="36" width="180" height="96" rx="10" style="fill:var(--price-wash);stroke:var(--price)" stroke-width="2.2"></rect>
+          <text x="795" y="66" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">株価が下がる</text>
+          <text x="795" y="92" text-anchor="middle" font-size="11.5" style="fill:var(--ink-2)">1万円</text>
+          <text x="795" y="112" text-anchor="middle" font-size="11.5" style="fill:var(--ink-2)">&rarr; 6,000円</text>
+
+          <text x="450" y="176" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">「明日、介入がある」と読めた ── では、今日やるのは 売る か、買う か</text>
+          <text x="450" y="204" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">これは仕組みを見るための設定である。実際に「必ず下がる」と分かることはない</text>
+        </svg>
+      </div>
+      <p class="src">授業中の設例。1ドル150円→140円、株価1万円→6,000円は、仕組みを見るために置いた数字である</p>
+    </figure>
+
+    <div class="ana">
+      <span class="at">たとえると</span>
+      <p>明日から学食の食券が値下げされる、と知っている。<strong>持っていなくても、今日のうちに友だちから食券を借りて、今日の値段で売っておく。</strong>明日、安くなった食券を買って返せば、差が残る。</p>
+    </div>
+
+    <figure>
+      <figcaption>今日売って、明日買い戻す ── 2日で終わる</figcaption>
+      <p class="figsub">1株1万円の株を1株。数字は9月8日のゼミで使ったものと同じ</p>
+      <div class="chart-scroll">
+        <svg class="diagram" viewBox="0 0 900 330" role="img" aria-label="今日1万円で空売りし、翌日介入で6000円に下がったところで買い戻して返すと、手元に4000円が残る">
+          <rect x="20" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="145" y="60" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="0.06em" style="fill:var(--accent-ink)">今日</text>
+          <text x="145" y="84" text-anchor="middle" font-size="15" font-weight="800" style="fill:var(--ink)">① 空売りする</text>
+          <text x="145" y="108" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">10,000円で売る</text>
+
+          <line x1="280" y1="77" x2="315" y2="77" stroke="currentColor" stroke-width="1.8" marker-end="url(#arw)"></line>
+
+          <rect x="325" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="450" y="60" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="0.06em" style="fill:var(--accent-ink)">明日　介入があった</text>
+          <text x="450" y="84" text-anchor="middle" font-size="15" font-weight="800" style="fill:var(--ink)">② 買い戻す</text>
+          <text x="450" y="108" text-anchor="middle" font-size="13.5" font-weight="800" style="fill:var(--ink)">6,000円で買う</text>
+
+          <line x1="585" y1="77" x2="620" y2="77" stroke="currentColor" stroke-width="1.8" marker-end="url(#arw)"></line>
+
+          <rect x="630" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="755" y="60" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="0.06em" style="fill:var(--accent-ink)">同じ日</text>
+          <text x="755" y="84" text-anchor="middle" font-size="15" font-weight="800" style="fill:var(--ink)">③ 返す</text>
+          <text x="755" y="108" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">株1つを返して終わり</text>
+
+          <line x1="145" y1="122" x2="145" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+          <line x1="450" y1="122" x2="450" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+          <line x1="755" y1="122" x2="755" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+
+          <text x="20" y="161" font-size="11.5" font-weight="800" letter-spacing="0.08em" style="fill:var(--ink-muted)">手元の現金</text>
+
+          <rect x="20" y="174" width="250" height="72" rx="10" style="fill:var(--rate-wash);stroke:var(--rate)" stroke-width="1.6"></rect>
+          <text x="145" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">入ってくる</text>
+          <text x="145" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--rate)">＋10,000円</text>
+
+          <rect x="325" y="174" width="250" height="72" rx="10" style="fill:var(--price-wash);stroke:var(--price)" stroke-width="1.6"></rect>
+          <text x="450" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">出ていく</text>
+          <text x="450" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--price)">−6,000円</text>
+
+          <rect x="630" y="174" width="250" height="72" rx="10" style="fill:var(--rate-wash);stroke:var(--good)" stroke-width="2.4"></rect>
+          <text x="755" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">手元に残る</text>
+          <text x="755" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--good)">4,000円</text>
+
+          <text x="450" y="288" text-anchor="middle" font-size="14" font-weight="800" style="fill:var(--ink)">2日しか借りていないので、借りている間の料金はほとんどかからない</text>
+          <text x="450" y="312" text-anchor="middle" font-size="12" style="fill:var(--ink-muted)">この「借りている日数」が、次の章で効いてくる</text>
+        </svg>
+      </div>
+      <p class="src">授業中の設例。1万円・6,000円は9月8日のゼミで使った数字で、特定の銘柄の株価ではない</p>
+    </figure>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q3</span><p>「明日下がる」と読めた。<strong>今日やるのは、売ることか、買うことか。</strong>理由を先に言う。</p>
+        <p class="hint">この株を1株も持っていない、という前提で答える</p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">売る。高いうちに売って、安くなってから買い戻すため</p>
+          <p><strong>「下がるなら買う」は逆である。</strong>買うのは、上がると読んだときにやること。</p>
+          <p>なお「下がる前に売る」という言い方は<strong>現物売り</strong>で、これは<strong>すでに持っている人</strong>にしかできない。しかも1万円が1万円のまま残るだけで、増えない。<strong>持っていない自分にできて、しかも増えるのが空売りである。</strong></p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 年末 ============ -->
+  <section>
+    <div class="step-head"><span class="step-time">17:00 &ndash; 23:00</span><h2>4　使い道② ── 年末にかけて下がる、と読んだとき</h2></div>
+
+    <p>読みは同じ「下がる」でも、<strong>着地が110日先</strong>になると、変わるものが2つある。</p>
+
+    <figure>
+      <figcaption>今日売って、年末に買い戻す ── 100万円ぶんで組む</figcaption>
+      <p class="figsub">1,000円の株を1,000株。9月10日に売り、12月30日に買い戻して返す</p>
+      <div class="chart-scroll">
+        <svg class="diagram" viewBox="0 0 900 330" role="img" aria-label="9月10日に1000円の株を1000株、100万円ぶん空売りし、12月30日に700円まで下がったところで70万円で買い戻すと30万円が残る。ただし110日ぶんの貸株料が引かれる">
+          <rect x="20" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="145" y="60" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="0.06em" style="fill:var(--accent-ink)">9月10日</text>
+          <text x="145" y="84" text-anchor="middle" font-size="15" font-weight="800" style="fill:var(--ink)">① 空売りする</text>
+          <text x="145" y="108" text-anchor="middle" font-size="13" font-weight="800" style="fill:var(--ink)">1,000円 × 1,000株</text>
+
+          <line x1="280" y1="77" x2="315" y2="77" stroke="currentColor" stroke-width="1.8" marker-end="url(#arw)"></line>
+          <text x="297" y="66" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--ink-muted)">110日</text>
+
+          <rect x="325" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="450" y="60" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="0.06em" style="fill:var(--accent-ink)">12月30日</text>
+          <text x="450" y="84" text-anchor="middle" font-size="15" font-weight="800" style="fill:var(--ink)">② 買い戻す</text>
+          <text x="450" y="108" text-anchor="middle" font-size="13" font-weight="800" style="fill:var(--ink)">700円 × 1,000株</text>
+
+          <line x1="585" y1="77" x2="620" y2="77" stroke="currentColor" stroke-width="1.8" marker-end="url(#arw)"></line>
+
+          <rect x="630" y="34" width="250" height="86" rx="10" style="fill:var(--surface-raised);stroke:var(--price)" stroke-width="1.8"></rect>
+          <text x="755" y="60" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="0.06em" style="fill:var(--accent-ink)">同じ日</text>
+          <text x="755" y="84" text-anchor="middle" font-size="15" font-weight="800" style="fill:var(--ink)">③ 返す</text>
+          <text x="755" y="108" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">1,000株を返して終わり</text>
+
+          <line x1="145" y1="122" x2="145" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+          <line x1="450" y1="122" x2="450" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+          <line x1="755" y1="122" x2="755" y2="166" stroke="currentColor" stroke-width="1.4" marker-end="url(#arw)" stroke-dasharray="4 4"></line>
+
+          <text x="20" y="161" font-size="11.5" font-weight="800" letter-spacing="0.08em" style="fill:var(--ink-muted)">手元の現金</text>
+
+          <rect x="20" y="174" width="250" height="72" rx="10" style="fill:var(--rate-wash);stroke:var(--rate)" stroke-width="1.6"></rect>
+          <text x="145" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">入ってくる</text>
+          <text x="145" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--rate)">＋100万円</text>
+
+          <rect x="325" y="174" width="250" height="72" rx="10" style="fill:var(--price-wash);stroke:var(--price)" stroke-width="1.6"></rect>
+          <text x="450" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">出ていく</text>
+          <text x="450" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--price)">−70万円</text>
+
+          <rect x="630" y="174" width="250" height="72" rx="10" style="fill:var(--rate-wash);stroke:var(--good)" stroke-width="2.4"></rect>
+          <text x="755" y="200" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">手元に残る</text>
+          <text x="755" y="230" text-anchor="middle" font-size="20" font-weight="800" style="fill:var(--good)">30万円</text>
+
+          <text x="450" y="290" text-anchor="middle" font-size="14" font-weight="800" style="fill:var(--ink)">ここから、110日ぶんの「借りている間の料金」が引かれる</text>
+          <text x="450" y="314" text-anchor="middle" font-size="12" style="fill:var(--ink-muted)">3章は2日だったので無視できた。110日になると、無視できない</text>
+        </svg>
+      </div>
+      <p class="src">授業中の設例。1,000円→700円と1,000株は、計算しやすさのために置いた数字である</p>
+    </figure>
+
+    <div class="ana">
+      <span class="at">たとえると</span>
+      <p>文化祭の衣装を1日借りればレンタル料は1日ぶん。<strong>3か月借りれば、3か月ぶん請求される。</strong>返すまで、毎日カウントは進んでいる。</p>
+    </div>
+
+    <figure>
+      <figcaption>待つ日数と、借りている間の料金</figcaption>
+      <p class="figsub">100万円ぶんを、年1%の貸株料で借りた場合。日数に比例してまっすぐ増える</p>
+      <div class="chart-scroll">
+        <svg class="diagram" viewBox="0 0 900 330" role="img" aria-label="100万円ぶんを年1パーセントの貸株料で借りると、費用は日数に比例して直線的に増え、2日で約55円、30日で約820円、110日で約3000円になる">
+          <line x1="100" y1="250" x2="860" y2="250" stroke="currentColor" stroke-width="1.2" style="stroke:var(--axis)"></line>
+          <line x1="100" y1="40" x2="100" y2="250" stroke="currentColor" stroke-width="1.2" style="stroke:var(--axis)"></line>
+
+          <line x1="100" y1="110" x2="860" y2="110" stroke="currentColor" stroke-width="1" style="stroke:var(--grid)" stroke-dasharray="4 4"></line>
+          <line x1="100" y1="180" x2="860" y2="180" stroke="currentColor" stroke-width="1" style="stroke:var(--grid)" stroke-dasharray="4 4"></line>
+          <text x="92" y="115" text-anchor="end" font-size="11.5" style="fill:var(--ink-muted)">2,000円</text>
+          <text x="92" y="185" text-anchor="end" font-size="11.5" style="fill:var(--ink-muted)">1,000円</text>
+          <text x="92" y="255" text-anchor="end" font-size="11.5" style="fill:var(--ink-muted)">0円</text>
+          <text x="100" y="26" font-size="12" font-weight="700" style="fill:var(--ink-2)">借りている間の料金</text>
+
+          <text x="100" y="272" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">0日</text>
+          <text x="307" y="272" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">30日</text>
+          <text x="514" y="272" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">60日</text>
+          <text x="790" y="272" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--ink-2)">110日</text>
+          <text x="480" y="296" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--ink-muted)">借りている日数</text>
+
+          <line x1="100" y1="250" x2="790" y2="40" stroke="currentColor" stroke-width="2.6" style="stroke:var(--price)"></line>
+
+          <circle cx="114" cy="246" r="4.5" style="fill:var(--rate)"></circle>
+          <text x="126" y="238" font-size="12" font-weight="700" style="fill:var(--rate)">3章の2日 ＝ 約55円（ほぼ無視できる）</text>
+
+          <circle cx="790" cy="40" r="5.5" style="fill:var(--price)"></circle>
+          <text x="780" y="34" text-anchor="end" font-size="13" font-weight="800" style="fill:var(--price)">110日 ＝ 約3,000円</text>
+
+          <text x="480" y="322" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">読みが当たっても外れても、この料金は日数ぶん必ずかかる</text>
+        </svg>
+      </div>
+      <p class="src">授業中の設例。貸株料の料率は証券会社ごとに違う。ここでは計算しやすさのため「年1%」と置いた概算で、実際の料率ではない</p>
+    </figure>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q4</span><p>3章と4章は、読みも動きも同じ「下がる」である。<strong>変わったものを2つ挙げなさい。</strong></p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">借りている日数ぶんの料金と、外れる危険にさらされる時間</p>
+          <p><strong>1つめ。</strong>2日なら約55円で無視できたものが、110日だと約3,000円になる。<strong>読みが当たっても外れても、必ずかかる。</strong></p>
+          <p><strong>2つめ。</strong>110日のあいだ、株価が上がる場面は何度も来る。2章で見たとおり<strong>空売りの損には上限がない。</strong>長く持つほど、その危険にさらされる時間が長くなる。</p>
+          <p class="sec-note" style="margin-top:10px">「年末に下がる」という読みが正しくても、<strong>途中でいったん大きく上がれば、そこで持ちこたえられないことがある。</strong>向きが合っていることと、最後まで持てることは別である。</p></div></details>
+      </div>
+
+      <div class="card">
+        <div class="ex-q"><span class="no">Q5</span><p>110日ぶんの料金は約3,000円だった。<strong>儲け30万円に対して何%か。</strong></p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">約1%</p>
+          <div class="formula">3,000 ÷ 300,000 ＝ <span class="num">約1%</span>
+            <small>分母は「儲け30万円」。売った金額100万円で割ると 約0.3% になる。<strong>どちらで割ったかを必ず言う</strong></small></div>
+          <p>読みが当たったときは小さく見える。<strong>外れて儲けが0だったときは、この3,000円だけが残る。</strong></p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5 クロス ============ -->
+  <section>
+    <div class="step-head"><span class="step-time">23:00 &ndash; 30:00</span><h2>5　現物買い＋空売りのクロス取引 ── Jトラストの実例</h2></div>
+
+    <p>ここまでは<strong>下がると読んで</strong>空売りをした。最後は<strong>値動きを取りに行かない</strong>使い方である。ここだけは設例ではなく、<strong>実際に起きた取引</strong>を読む。</p>
+
+    <div class="tiles">
+      <div class="tile fx"><div class="k">8/31 終値・クロスの約定値</div><div class="v">711<small>円</small></div><div class="d">100株で 71,100円</div></div>
+      <div class="tile rate"><div class="k">株主優待（今回限り）</div><div class="v">最大1万<small>円相当</small></div><div class="d">100株以上・デジタルギフト</div></div>
+      <div class="tile price"><div class="k">9/1 終値</div><div class="v">771<small>円</small></div><div class="d up">＋60円（約8%）</div></div>
+    </div>
+
+    <p>やったのは、<strong>現物買い100株</strong>と<strong>空売り100株</strong>を、<strong>同じ株数・同じ値段で同時に</strong>出すこと。これをクロス取引という。</p>
+
+    <figure>
+      <figcaption>株価がどこへ動いても、損益は横一直線になる</figcaption>
+      <p class="figsub">100株のときの損益。緑の線が、現物買いと空売りを足したもの</p>
+      <div class="legend">
+        <span><i style="background:var(--fx)"></i>現物買い 100株</span>
+        <span><i style="background:var(--price)"></i>空売り 100株</span>
+        <span><i style="background:var(--rate)"></i>2つの合計</span>
+      </div>
+      <div class="chart-scroll">
+        <svg class="diagram" viewBox="0 0 900 380" role="img" aria-label="株価711円を起点に、現物買い100株の損益は右上がりの直線、空売り100株の損益は右下がりの直線で、2つの合計は株価がどこでも0円の水平線になる。771円のとき現物買いプラス6000円、空売りマイナス6000円、合計0円">
+          <line x1="90" y1="170" x2="850" y2="170" stroke="currentColor" stroke-width="1" style="stroke:var(--grid)"></line>
+          <line x1="90" y1="40" x2="850" y2="40" stroke="currentColor" stroke-width="1" style="stroke:var(--grid)" stroke-dasharray="4 4"></line>
+          <line x1="90" y1="300" x2="850" y2="300" stroke="currentColor" stroke-width="1" style="stroke:var(--grid)" stroke-dasharray="4 4"></line>
+          <text x="82" y="45" text-anchor="end" font-size="11.5" style="fill:var(--ink-muted)">＋10,000円</text>
+          <text x="82" y="175" text-anchor="end" font-size="11.5" font-weight="700" style="fill:var(--ink-2)">0円</text>
+          <text x="82" y="305" text-anchor="end" font-size="11.5" style="fill:var(--ink-muted)">−10,000円</text>
+
+          <line x1="90" y1="320" x2="850" y2="320" stroke="currentColor" stroke-width="1.2" style="stroke:var(--axis)"></line>
+          <text x="90" y="340" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">611円</text>
+          <text x="460" y="340" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--ink-2)">711円</text>
+          <text x="682" y="340" text-anchor="middle" font-size="11.5" font-weight="700" style="fill:var(--price)">771円</text>
+          <text x="850" y="340" text-anchor="middle" font-size="11.5" style="fill:var(--ink-muted)">811円</text>
+          <text x="470" y="364" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--ink-muted)">株価</text>
+
+          <line x1="460" y1="40" x2="460" y2="320" stroke="currentColor" stroke-width="1" style="stroke:var(--grid)"></line>
+          <line x1="682" y1="40" x2="682" y2="320" stroke="currentColor" stroke-width="1.2" style="stroke:var(--price)" stroke-dasharray="5 4"></line>
+
+          <line x1="90" y1="300" x2="850" y2="40" stroke="currentColor" stroke-width="2.4" style="stroke:var(--fx)"></line>
+          <line x1="90" y1="40" x2="850" y2="300" stroke="currentColor" stroke-width="2.4" style="stroke:var(--price)"></line>
+          <line x1="90" y1="170" x2="850" y2="170" stroke="currentColor" stroke-width="4" style="stroke:var(--rate)"></line>
+
+          <circle cx="682" cy="92" r="5" style="fill:var(--fx)"></circle>
+          <circle cx="682" cy="248" r="5" style="fill:var(--price)"></circle>
+          <circle cx="682" cy="170" r="6" style="fill:var(--rate)"></circle>
+          <text x="696" y="88" font-size="12.5" font-weight="800" style="fill:var(--fx)">＋6,000円</text>
+          <text x="696" y="252" font-size="12.5" font-weight="800" style="fill:var(--price)">−6,000円</text>
+          <text x="696" y="164" font-size="12.5" font-weight="800" style="fill:var(--rate)">0円</text>
+
+          <text x="100" y="30" font-size="12" font-weight="700" style="fill:var(--ink-2)">損益（100株）</text>
+        </svg>
+      </div>
+      <p class="src">株価は取引所の日々公表。9/1の＋60円は実際に起きた値動きで、611円・811円は線を引くために置いた両端の目盛り</p>
+    </figure>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q6</span><p><strong>上がっても下がっても0円なら、なぜこの取引をするのか。</strong></p>
+        <p class="hint">9月8日に君が出した問い。グラフの緑の線には乗っていないものがある</p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">株主優待だけを取りに行っているから</p>
+          <p>優待は<strong>現物株を持っている人</strong>にしか配られない。空売りには来ない。だから現物を買う必要がある。ところが現物を買えば値下がりが怖い。<strong>その怖さだけを空売りで消して、優待は残す。</strong></p>
+          <p>取りに行っていないのは<strong>値動き</strong>である。9月1日の＋6,000円は<strong>取り損ねたのではなく、取らないと決めた</strong>ぶんである。</p></div></details>
+      </div>
+    </div>
+
+    <h3>いつ持ち、いつ手放すか</h3>
+    <p>優待をもらえるのは<strong>基準日に株主名簿に名前が載っている人</strong>である。買ってから名簿に載るまで<strong>2営業日</strong>かかるので、条件は「<strong>権利付最終日の大引けの時点で現物を持っていること</strong>」になる。</p>
+
+    <figure>
+      <figcaption>Jトラストの3日間</figcaption>
+      <p class="figsub">基準日が9/2（水）なので、権利付最終日は8/31（月）。月末と思い込むと1日ずれる</p>
+      <div class="chart-scroll">
+        <svg class="diagram" viewBox="0 0 900 210" role="img" aria-label="8月31日月曜の権利付最終日に大引けでクロスを組み夜をまたぐ。9月1日火曜の権利落ち日に現渡しで両方を消す。9月2日水曜の基準日に株主名簿に載り優待が確定する">
+          <rect x="20" y="20" width="250" height="132" rx="10" style="fill:var(--accent-wash);stroke:var(--accent)" stroke-width="1.8"></rect>
+          <text x="145" y="48" text-anchor="middle" font-size="14.5" font-weight="800" style="fill:var(--ink)">8/31（月）</text>
+          <text x="145" y="70" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--accent-ink)">権利付最終日</text>
+          <text x="145" y="96" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">大引け 15:30 にクロス</text>
+          <text x="145" y="116" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">現物買い ＋ 空売り</text>
+          <text x="145" y="138" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink)">両方持ったまま夜をまたぐ</text>
+
+          <line x1="282" y1="86" x2="310" y2="86" stroke="currentColor" stroke-width="1.6" marker-end="url(#arw)"></line>
+
+          <rect x="325" y="20" width="250" height="132" rx="10" style="fill:var(--surface-raised);stroke:var(--hairline)" stroke-width="1.8"></rect>
+          <text x="450" y="48" text-anchor="middle" font-size="14.5" font-weight="800" style="fill:var(--ink)">9/1（火）</text>
+          <text x="450" y="70" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-muted)">権利落ち日</text>
+          <text x="450" y="96" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">現渡しで両方を消す</text>
+          <text x="450" y="116" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">買った現物をそのまま渡す</text>
+          <text x="450" y="138" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink)">売買が起きない ＝ 手数料なし</text>
+
+          <line x1="587" y1="86" x2="615" y2="86" stroke="currentColor" stroke-width="1.6" marker-end="url(#arw)"></line>
+
+          <rect x="630" y="20" width="250" height="132" rx="10" style="fill:var(--rate-wash);stroke:var(--rate)" stroke-width="1.8"></rect>
+          <text x="755" y="48" text-anchor="middle" font-size="14.5" font-weight="800" style="fill:var(--ink)">9/2（水）</text>
+          <text x="755" y="70" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--rate)">基準日</text>
+          <text x="755" y="96" text-anchor="middle" font-size="12.5" style="fill:var(--ink-2)">株主名簿に名前が載る</text>
+          <text x="755" y="122" text-anchor="middle" font-size="13" font-weight="800" style="fill:var(--ink)">優待が確定</text>
+
+          <text x="450" y="192" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">持っている時間は「一瞬」ではない。最短でも一晩をまたぐ</text>
+        </svg>
+      </div>
+      <p class="src">日程・優待の内容は会社IR（一次情報）</p>
+    </figure>
+
+    <div class="ana">
+      <span class="at">たとえると</span>
+      <p>出席は<strong>その日の下校時刻に教室にいた人だけ</strong>を数える。翌朝には出席簿が確定しているので、そのあとは帰ってよい。<strong>ずっと居続ける必要はないが、その一瞬にいなければ数えられない。</strong></p>
+    </div>
+
+    <h3>残るコスト ── 「株価変動リスクがゼロ」と「リスクがゼロ」は別</h3>
+
+    <figure>
+      <figcaption>優待 最大1万円相当から、逆日歩を引く</figcaption>
+      <p class="figsub">逆日歩は、空売りが集中して貸せる株が足りなくなったときの追加料金。今回は制度信用だった</p>
+      <div class="chart-scroll">
+        <svg class="diagram" viewBox="0 0 900 250" role="img" aria-label="優待1万円相当から逆日歩を引くと、逆日歩0円なら1万円相当が残り、逆日歩が上限1280円なら8720円相当が残る">
+          <text x="140" y="42" text-anchor="end" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">逆日歩 0円</text>
+          <rect x="150" y="22" width="690" height="46" rx="6" style="fill:var(--rate-wash);stroke:var(--rate)" stroke-width="1.6"></rect>
+          <text x="495" y="52" text-anchor="middle" font-size="14.5" font-weight="800" style="fill:var(--ink)">残るもの 10,000円相当</text>
+
+          <text x="140" y="122" text-anchor="end" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">逆日歩 上限</text>
+          <text x="140" y="142" text-anchor="end" font-size="12.5" font-weight="700" style="fill:var(--price)">1,280円</text>
+          <rect x="150" y="102" width="602" height="46" rx="6" style="fill:var(--rate-wash);stroke:var(--rate)" stroke-width="1.6"></rect>
+          <text x="451" y="132" text-anchor="middle" font-size="14.5" font-weight="800" style="fill:var(--ink)">残るもの 8,720円相当</text>
+          <rect x="752" y="102" width="88" height="46" rx="6" style="fill:var(--price-wash);stroke:var(--price)" stroke-width="1.6"></rect>
+          <text x="796" y="132" text-anchor="middle" font-size="12" font-weight="800" style="fill:var(--price)">1,280</text>
+
+          <line x1="150" y1="176" x2="840" y2="176" stroke="currentColor" stroke-width="1" style="stroke:var(--axis)" stroke-dasharray="4 4"></line>
+          <text x="495" y="196" text-anchor="middle" font-size="12" style="fill:var(--ink-muted)">棒の長さは 優待の最大額 1万円相当</text>
+          <text x="495" y="228" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--ink-2)">ここからさらに、貸株料・売買手数料・ギフトの交換手数料が引かれる（金額は未確定）</text>
+        </svg>
+      </div>
+      <p class="src">優待は会社IR（一次情報）。逆日歩の上限1,280円は、料率×株数×日数で算出した上限値で、実際にいくらついたかは確認していない</p>
+    </figure>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q7</span><p>71,100円を数日拘束して、残るのが最大1万円相当。<strong>拘束した金額に対して何%か。</strong>逆日歩0円の場合と、上限1,280円の場合の2通りで。</p></div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">約14% ／ 約12%</p>
+          <div class="formula">10,000 ÷ 71,100 ＝ <span class="num">約14%</span>　　　8,720 ÷ 71,100 ＝ <span class="num">約12%</span>
+            <small>分母は「拘束した現物の代金 71,100円」。手数料を引く前の数字</small></div>
+          <p><strong>これを年利に直してはいけない。</strong>この優待は会社が「今回限り」と書いている。1回きりの数字を年率に伸ばすと、見せかけの利回りができる。<strong>言えるのは「数日で約14%」まで。</strong></p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5章の並び -->
+  <section>
+    <h2>5章を並べると</h2>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>章</th><th>売る</th><th>買い戻す</th><th>持つ期間</th><th>狙っているもの</th></tr></thead>
+        <tbody>
+          <tr><td>1　ゲーム機</td><td>40,000円</td><td>20,000円</td><td>しばらく</td><td>値下がり</td></tr>
+          <tr><td>2　株で言うと</td><td>A ＝ 1,000円</td><td>B ＝ 600円</td><td>―</td><td>値下がり（A − B）</td></tr>
+          <tr><td>3　明日の介入</td><td>10,000円</td><td>6,000円</td><td><b>2日</b></td><td>値下がり</td></tr>
+          <tr><td>4　年末の下げ</td><td>100万円ぶん</td><td>70万円ぶん</td><td><b>110日</b></td><td>値下がり<small>料金 約3,000円が引かれる</small></td></tr>
+          <tr><td>5　優待クロス</td><td>711円 × 100株</td><td>現渡しで返す</td><td><b>一晩</b></td><td><b>優待</b><small>値動きは取りに行かない</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">1〜4は<strong>値下がりを取りに行く</strong>。5だけが<strong>値動きを取りに行かない</strong>。空売りの使い方は、この2種類しかない。</p>
+  </section>
+
+  <!-- 宿題 -->
+  <section>
+    <h2>次回までの宿題</h2>
+    <div class="hw">
+      <div class="h1x must"><span class="badge m">必須</span><strong>9月末に権利がもらえる優待銘柄を1つ選び、優待の中身と、クロスを組む日付を1行で書いてくる。</strong></div>
+    </div>
+    <p class="sec-note">2026年9月末が権利確定日の銘柄なら、権利付最終日は<strong>9月28日（月）</strong>である。銘柄はどれでもよい。<strong>調べるのは2つだけ。</strong></p>
+  </section>
+
+  <!-- 用語 -->
+  <section>
+    <h2>用語ミニ辞典 ── 今日出た言葉だけ</h2>
+    <dl class="gloss">
+      <div><dt>現物取引<small>げんぶつ</small></dt><dd>自分の金で株を買い、自分の株を売る。買うのが先で、売るのが後。</dd></div>
+      <div><dt>信用取引<small>しんよう</small></dt><dd>証券会社に担保を預けて、金か株を借りて売買する。名前は制度の呼び名で、得の中身ではない。</dd></div>
+      <div><dt>空売り<small>からうり</small></dt><dd>株を借りて先に売り、あとで買い戻して返す。<b>売るのが先で、買うのが後。</b>持っていなくてもできる。</dd></div>
+      <div><dt>貸株料<small>かしかぶりょう</small></dt><dd>株を借りている間ずっとかかる料金。<b>日割りなので、持つ日数に比例して増える。</b></dd></div>
+      <div><dt>逆日歩<small>ぎゃくひぶ</small></dt><dd>貸せる株が足りなくなったときに、空売りしている側が日割りで払う追加料金。<b>実額は後から分かる。</b></dd></div>
+      <div><dt>為替介入</dt><dd>政府・日銀が市場で円を売り買いして、為替を動かすこと。円を買えば円高に振れる。</dd></div>
+      <div><dt>クロス取引<small>優待クロス</small></dt><dd>現物買いと空売りを、同じ株数・同じ値段で同時に組む。株価がどちらに動いても損益は0になる。</dd></div>
+      <div><dt>引け成り<small>ひけなり</small></dt><dd>「その日の最後の値段でいくらでもいいから成立させて」という注文。買いと売りの両方に出すと、同じ終値でそろう。</dd></div>
+      <div><dt>権利付最終日</dt><dd>この日の大引けに現物を持っていれば、優待や配当の権利がもらえる最後の日。</dd></div>
+      <div><dt>権利落ち日</dt><dd>権利付最終日の翌営業日。権利がもらえなくなる日で、その分だけ株価は下がりやすい。</dd></div>
+      <div><dt>基準日</dt><dd>会社が株主名簿を確定させる日。買ってから名簿に載るまで2営業日かかる。</dd></div>
+      <div><dt>現渡し<small>げんわたし</small></dt><dd>借りて売った株を返すのに、持っている現物をそのまま渡す方法。売買が起きないので手数料がかからない。</dd></div>
+      <div><dt>株主優待</dt><dd>現物株を持っている株主に、会社が配るもの。<b>空売りでは受け取れない。</b></dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <p><strong>一次情報として確認できるもの（5章）:</strong> Jトラスト（8508、東証スタンダード）の特別株主優待 ── 基準日 2026年9月2日（水）、100株以上で一律 最大1万円相当のデジタルギフト、今回限り。権利付最終日 8月31日（月）、権利落ち日 9月1日（火）。配当は2026年12月期 年17円で、権利は12月末のため9月のクロスには絡まない。原本は同社IRの開示資料。株価は 8/31 終値 711円、9/1 終値 771円で、取引所の日々公表による。</p>
+    <p><strong>実行者の記録:</strong> 8月31日の大引け（15:30）に、引け成りで現物買い100株と制度信用売り100株を出し、いずれも終値711円で約定したこと。9月8日のゼミで扱った投稿による。</p>
+    <p><strong>上限値・概算:</strong> 逆日歩の1,280円は「最高料率 × 株数 × 日数」で計算できる<strong>上限</strong>であり、実際にいくらついたかは確認していない。「約14%」「約12%」は、優待の額面を現物の代金 71,100円で割った概算で、貸株料・売買手数料・ギフトの交換手数料を引く前の数字である。</p>
+    <p><strong>授業中の設例（1〜4章）:</strong> 1章のゲーム機（4万円・2万円・5万円）、2章の株価（1,000円・600円・1,400円）、3章の為替と株価（1ドル150円→140円／1万円→6,000円）、4章の株価と株数（1,000円→700円・1,000株）は、いずれも計算しやすさのために置いた数字で、実在の商品・銘柄・相場ではない。3章の1万円・6,000円は、9月8日のゼミで使われた数字を引き継いでいる。<strong>4章の貸株料「年1%」も設例</strong>で、実際の料率は証券会社ごとに違う（110日ぶんは 1,000,000 × 1% × 110 ÷ 365 ≒ 3,000円として計算した）。</p>
+    <p><strong>3章の設定について:</strong> 「明日、介入があると読めた」は<strong>仕組みを見るために置いた設定</strong>である。現実に「必ず下がる」と分かることはない。</p>
+    <p>本資料は2026年9月10日の個別指導のための教材で、投資勧誘を目的とするものではありません。</p>
+  </footer>
+</div>
+
+</body>
+</html>
