@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講義資料 第7回｜2026年9月15日 信用買いの仕組み ── 同じ2か月・同じ銘柄で、損益が2倍になる理由</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 第4回で追加したパーツ ---------- */
+.promptbox{background:var(--note-bg); border:1px solid var(--line); border-left:4px solid var(--word);
+  border-radius:0 10px 10px 0; padding:15px 17px; margin:12px 0;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px; line-height:1.95; white-space:pre-wrap; word-break:break-word; color:var(--ink);}
+.promptbox .cap{display:block; font-family:inherit; font-size:11.5px; font-weight:800;
+  letter-spacing:.09em; color:var(--word); margin-bottom:8px;}
+.twocol{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; margin:14px 0 4px;}
+.card{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.card .ch{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:6px;}
+.card.b .ch{color:var(--corp);} .card.c .ch{color:var(--bridge);} .card.d .ch{color:var(--word);}
+.card p{margin:0; font-size:14.5px; line-height:1.75;}
+.card p+p{margin-top:8px;}
+.quote{border-left:4px solid var(--word); background:var(--word-bg); border-radius:0 9px 9px 0;
+  padding:13px 17px; margin:13px 0; font-size:15px; line-height:1.9;}
+.quote .src2{display:block; font-size:12.5px; color:var(--ink3); font-weight:700; margin-top:7px;}
+table.cmp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.cmp th, table.cmp td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+table.cmp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+table.cmp td.h{font-weight:700; color:var(--ink); width:22%;}
+@media (max-width:640px){ .promptbox{font-size:12px;} }
+</style>
+<style>
+/* ---------- 第5回で追加したパーツ ---------- */
+/* サプライズ表（実績 − 予想） */
+table.surp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.surp th, table.surp td{border-bottom:1px solid var(--line2); padding:9px 10px; text-align:right; vertical-align:top;}
+table.surp th:first-child, table.surp td:first-child{text-align:left;}
+table.surp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em; text-align:right;}
+table.surp thead th:first-child{text-align:left;}
+table.surp td.num{font-variant-numeric:tabular-nums;}
+table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
+/* 答え合わせカード */
+.ac{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+    background:var(--bg); padding:14px 16px; margin-bottom:10px;}
+.ac .qq{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:5px;}
+.ac .aa{font-size:15px; line-height:1.75; margin:0;}
+.ac .aa b{font-weight:800;}
+.ac.miss{border-left-color:var(--corp);}
+.ac.miss .qq{color:var(--corp);}
+/* 時点ラベル（同じ銘柄・違う時点） */
+.snap{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:2px;
+      background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 6px;}
+.snap div{background:var(--panel); padding:12px 14px;}
+.snap .w{font-size:11.5px; color:var(--ink3); font-weight:800; letter-spacing:.04em; margin-bottom:4px; line-height:1.45;}
+.snap .r{font-size:19px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.3;}
+.snap .r.up{color:var(--up);} .snap .r.down{color:var(--down);}
+.snap .z{font-size:12px; color:var(--ink2); margin-top:3px; line-height:1.55;}
+</style>
+<style>
+/* ---------- 第6回で追加したパーツ ---------- */
+/* リードの3点箇条書き */
+.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
+.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
+.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
+  width:5px; height:5px; border-radius:50%; background:var(--macro);}
+.lede ul.three strong{border-bottom:none; padding-bottom:0;}
+/* たとえ話の箱 */
+.ana{background:var(--note-bg); border-radius:9px; padding:11px 15px; margin:11px 0;
+  font-size:14.5px; line-height:1.75;}
+.ana .lb{font-size:11px; font-weight:800; letter-spacing:.08em; color:var(--word); margin-right:9px;}
+</style>
+<style>
+/* ---------- 第7回で追加したパーツ ---------- */
+/* 2人の結果を並べるカード（.twocol ＋ .card の中で使う損益行） */
+.card .num{margin:10px 0 0; padding:0; list-style:none; border-top:1px solid var(--line2);}
+.card .num li{display:flex; justify-content:space-between; gap:12px; padding:6px 0;
+  border-bottom:1px solid var(--line2); font-size:14px; line-height:1.6;}
+.card .num li span:last-child{font-variant-numeric:tabular-nums; font-weight:700; white-space:nowrap;}
+.card .res{margin-top:11px; padding:9px 12px; border-radius:8px; background:var(--panel);
+  border:1px solid var(--line); font-size:15px; font-weight:800; line-height:1.6;}
+.card .res .p{color:var(--up);} .card .res .n{color:var(--down);}
+/* 節と節をつなぐ一言 */
+.bridge-note{border-left:4px solid var(--bridge); background:var(--bridge-bg);
+  border-radius:0 9px 9px 0; padding:12px 16px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.bridge-note b{font-weight:800;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="lecture_20260825.html">第4回 8/25 講義資料</a>
+  <a href="lecture_20260901.html">第5回 9/1 講義資料</a>
+  <a href="../reviews/lecture_review_20260901.html">第5回 9/1 復習</a>
+  <a href="lecture_20260908.html">第6回 9/8 講義資料</a>
+  <span class="cur">第7回 9/15 講義資料</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 講義資料　夏期集中講座 第7回</div>
+  <h1 class="title">信用買いの仕組み ──<br>同じ2か月・同じ銘柄で、損益が2倍になる理由</h1>
+  <div class="meta">
+    <span><b>配布</b>　2026年9月11日（金）</span>
+    <span><b>講義</b>　2026年9月15日（火）16:20 開始・90分</span>
+    <span><b>形式</b>　オンライン（Zoom）</span>
+    <span><b>担当ゼミ</b>　iU 志村ゼミ（財務・経済の基礎）</span>
+    <span><b>前回の続き</b>　<a href="lecture_20260908.html#s2">第6回 §2 信用取引</a></span>
+  </div>
+  <div class="lede">
+    第6回は<b>信用売り</b>を、優待クロスの実例から見た。今回はその裏側、<b>信用買い</b>を見る。材料は実在の1銘柄と、実在の2か月。
+    <ul class="three">
+      <li><strong>① パランティア株を6/30に買って8/31に決済した2人</strong></li>
+      <li><strong>② 1か月早く買っていたら、8月の上昇を見る前に退場していた</strong></li>
+      <li><strong>③ 米国株なので、損益にはもう1つ、為替が乗る</strong></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>この資料の構成</h2>
+  <ol>
+    <li><a href="#s1">同じ2か月、同じ銘柄を、2人が買った</a> <span class="s">― 現物と信用、結果は2倍違った</span></li>
+    <li><a href="#s2">何が違ったのか</a> <span class="s">― 委託保証金とレバレッジ</span></li>
+    <li><a href="#s3">1か月早く買っていたら</a> <span class="s">― 追証と強制決済。読みが当たっても負ける形</span></li>
+    <li><a href="#s4">借りたものを返すまで</a> <span class="s">― 期限・金利・決済の2つの方法</span></li>
+    <li><a href="#s5">現物と何が違い、何のために使うのか</a></li>
+    <li><a href="#s6">為替という、もう一段の変数</a> <span class="s">― 円で始めて円に戻すなら</span></li>
+    <li><a href="#s7">教室で答える問い</a> <span class="s">― 4問</span></li>
+    <li><a href="#hw">宿題（全員共通）</a> <span class="s">― 1行</span></li>
+    <li><a href="#s9">今回の用語</a></li>
+  </ol>
+</nav>
+
+<!-- ============ §1 実例 ============ -->
+<section class="topic" id="s1">
+  <span class="badge corp">今回の中心 ①</span>
+  <h2 class="thead">同じ2か月、同じ銘柄を、2人が買った</h2>
+  <p class="sub">パランティア・テクノロジーズ（PLTR、ナスダック上場）。2026年6月、AIソフト株が売られる局面で急落し、<b>6月25日に52週安値 106.37ドル</b>をつけた。そこから戻り始めたところを、2人が同じ日に買う。</p>
+
+  <div class="kpis">
+    <div class="kpi c"><div class="k">建値（2026/6/30 終値）</div><div class="v">136.32㌦</div><div class="n">6/25 の安値 106.37㌦ から戻したところ</div></div>
+    <div class="kpi c"><div class="k">決済（2026/8/31 終値）</div><div class="v">186.38㌦</div><div class="n">8月の月間騰落は +51.45%</div></div>
+    <div class="kpi g"><div class="k">株価の上昇（62日）</div><div class="v">+約37%</div><div class="n">1株あたり約50㌦</div></div>
+    <div class="kpi m"><div class="k">現物で買った人の利益</div><div class="v">約3,650㌦</div><div class="n">元手1万㌦に対して +約37%</div></div>
+    <div class="kpi c"><div class="k">信用で買った人の利益</div><div class="v">約7,200㌦</div><div class="n">元手1万㌦に対して +約72%</div></div>
+    <div class="kpi"><div class="k">信用の追証ライン</div><div class="v">約109㌦</div><div class="n">建値から約2割下。6/25 の安値より上</div></div>
+  </div>
+
+  <h3>1. 2人の条件は同じ</h3>
+  <ul class="facts">
+    <li><b>手元資金</b>　2人とも1万ドル（6月30日のドル円で約162万円）</li>
+    <li><b>買う日</b>　2026年6月30日（火）。終値 <b>136.32ドル</b></li>
+    <li><b>決済する日</b>　2026年8月31日（月）。終値 <b>186.38ドル</b></li>
+    <li><b>違うのは買い方だけ</b>　一方は現物、一方は信用</li>
+  </ul>
+
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">Ａ ── 現物で買った</div>
+      <p>1万ドルの範囲で買えるだけ買う。<b>73株</b>で9,951ドル。買った瞬間から、この73株はAのものになる。</p>
+      <ul class="num">
+        <li><span>買付（6/30）　73株 × 136.32㌦</span><span>9,951㌦</span></li>
+        <li><span>売却（8/31）　73株 × 186.38㌦</span><span>13,606㌦</span></li>
+        <li><span>持っているあいだの費用</span><span>0㌦</span></li>
+      </ul>
+      <div class="res">利益 <span class="p">約3,650ドル</span>　（元手1万ドルに対して +約37%）</div>
+    </div>
+    <div class="card b">
+      <div class="ch">Ｂ ── 信用で買った</div>
+      <p>1万ドルを<b>委託保証金</b>として預ける。米国株の信用取引では保証金は建玉の50%以上なので、<b>2万ドルまで</b>建てられる。<b>146株</b>、19,903ドルぶんを買う。差額の約9,900ドルは証券会社から借りていて、株は担保として証券会社が預かる。</p>
+      <ul class="num">
+        <li><span>建玉（6/30）　146株 × 136.32㌦</span><span>19,903㌦</span></li>
+        <li><span>うち借入</span><span>9,903㌦</span></li>
+        <li><span>反対売買（8/31）　146株 × 186.38㌦</span><span>27,211㌦</span></li>
+        <li><span>買方金利　年4.5% × 62日</span><span>−76㌦</span></li>
+      </ul>
+      <div class="res">利益 <span class="p">約7,200ドル</span>　（元手1万ドルに対して +約72%）</div>
+    </div>
+  </div>
+
+  <div class="bridge-note">
+    株価の動きは2人とも同じ、1株あたり約50ドル。<b>それでも利益はちょうど2倍違った。</b>この2倍がどこから来たのかを、次で分解する。
+  </div>
+</section>
+
+<!-- ============ §2 レバレッジの正体 ============ -->
+<section class="topic" id="s2">
+  <span class="badge corp">仕組み</span>
+  <h2 class="thead">何が違ったのか ── 委託保証金とレバレッジ</h2>
+  <p class="sub">Aは73株、Bは146株を持っていた。同じ値動きが、Bには2倍の重さで効いた。株数が2倍になったのは、Bが担保を預けて<b>お金を借りた</b>からである。</p>
+
+  <h3>1. 借りたのは「お金」であって、株ではない</h3>
+  <p>第6回で見た<b>信用売り</b>は、証券会社から<b>株</b>を借りて売り、あとで株を返した。今回の<b>信用買い</b>は、<b>お金</b>を借りて株を買い、あとでお金を返す。借りるものが違うので、あとで出てくるコストの中身も変わる。</p>
+
+  <div class="formula">
+    <code>建てられる金額　＝　預けた委託保証金　÷　委託保証金率</code>
+    <span class="n">米国株の信用取引は保証金率が<b>50%以上</b>なので、1万ドル ÷ 0.5 ＝ <b>2万ドルまで</b>。国内株の制度信用は<b>30%以上</b>（かつ最低30万円）なので、同じ1万ドル相当で約3.3倍まで建てられる。</span>
+  </div>
+
+  <p><b>どこかに2倍のお金が湧いたわけではない。</b>担保の下限が5割と決められている、というだけの話である。レバレッジという言葉は「儲けが2倍になる装置」のように聞こえるが、実際に決まっているのは<b>担保の最低ライン</b>のほうで、株数はその結果として決まる。</p>
+
+  <div class="ana">
+    <span class="lb">たとえ</span>友達に3,000円借りて、自分の1,000円と合わせて4,000円のゲームソフトを買う。ソフトは友達に預けたままにしておく。値上がりして売れれば、3,000円を返した残りは全部自分のものになる。だが値下がりして2,000円になると、友達は「これでは3,000円が戻ってこない」と言い出す。<b>担保が借金より小さくなった瞬間に、貸した側の立場が変わる。</b>
+  </div>
+
+  <h3>2. だから、同じ値動きが2倍で効く</h3>
+  <ol class="chain">
+    <li>保証金率が5割と決まっている　→　預けた1万ドルで2万ドルまで建てられる</li>
+    <li>建てられる金額が2倍　→　買える<b>株数</b>が2倍（73株 → 146株）</li>
+    <li>株数が2倍　→　1株50ドルの値上がりが、損益では2倍になる</li>
+    <li><b>上がったときも、下がったときも、同じ2倍で効く</b></li>
+  </ol>
+
+  <div class="bridge-note">
+    ここまでは「うまくいった側」の話である。<b>4行目の後半、下がったときに何が起きるのかを、実際の値動きで見る。</b>
+  </div>
+</section>
+
+<!-- ============ §3 追証 ============ -->
+<section class="topic" id="s3">
+  <span class="badge corp">今回の中心 ②</span>
+  <h2 class="thead">1か月早く買っていたら ── 追証と強制決済</h2>
+  <p class="sub">Bは6月30日に買った。<b>同じことを6月1日にしていたら、どうなっていたか。</b>ここから先の数字は、すべて実際についた株価で計算している。</p>
+
+  <h3>1. まず、Bの建玉にも追証ラインがある</h3>
+  <p>株価が下がると、預けた保証金から評価損が差し引かれ、<b>保証金維持率</b>が下がる。この率が<b>30%</b>を割ると<b>追証</b>が発生し、期日までに追加の担保を入れるか、建玉を決済して減らすかを迫られる。入れられなければ、証券会社が強制的に決済する。</p>
+
+  <div class="formula">
+    <code>保証金維持率　＝　（委託保証金 − 評価損）　÷　新規建約定金額</code>
+    <span class="n">Bの場合　（10,000㌦ − 評価損）÷ 19,903㌦ ＜ 30% になると追証。逆算すると、許容できる評価損は約4,029ドル。146株で割ると1株あたり約27.6ドル。<b>株価が約109ドルまで下げた時点で追証</b>になる。建値136.32ドルから約2割の下落である。</span>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">ここを見る</span>
+    パランティアの<b>6月25日の安値は106.37ドル</b>だった。Bが買ったのはその<b>5営業日後</b>である。<b>買った1週間前の水準に戻るだけで、Bは追証を迫られていた。</b>結果として上がったので何も起きなかったが、Bが引き受けていたのはそういう幅の話である。
+  </div>
+
+  <h3>2. 6月1日に、同じ1万ドルで信用買いしていたら</h3>
+  <p>6月1日の終値は <b>159.60ドル</b>。保証金1万ドル、保証金率50%なので建玉の上限は2万ドル。<b>125株</b>、19,950ドルぶんを建てられる。</p>
+
+  <div class="tblwrap">
+  <table class="calc">
+    <thead><tr><th>日付</th><th>株価</th><th>評価損益（125株）</th><th>保証金維持率</th><th>起きること</th></tr></thead>
+    <tbody>
+      <tr><td class="h">6/1（月）</td><td class="num">159.60㌦</td><td class="num">±0㌦</td><td class="num">50.1%</td><td>建玉。保証金率50%をぎりぎり満たす</td></tr>
+      <tr><td class="h">追証ライン</td><td class="num">約127㌦</td><td class="num neg">−約4,015㌦</td><td class="num">30.0%</td><td>建値から約2割下。ここを割ると追証</td></tr>
+      <tr><td class="h">6/25（木）</td><td class="num">106.37㌦</td><td class="num neg">−約6,654㌦</td><td class="num neg">約17%</td><td><b>追証ラインを大きく割る。入れられなければ強制決済</b></td></tr>
+      <tr><td class="h">8/31（月）</td><td class="num">186.38㌦</td><td class="num pos">＋約3,350㌦</td><td class="num">―</td><td>持ち切れていれば約3,350ドルの利益。<b>その利益は存在しない</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>3. 同じ日に現物で買っていた人はどうなったか</h3>
+  <p>6月1日に1万ドルで現物を買った人は、159.60ドルで<b>62株</b>。6月の急落で含み損は抱えたが、<b>株は自分のものなので、売る必要がない。</b>そのまま8月31日まで持ち、<b>約1,660ドルの利益</b>を得ている。</p>
+
+  <div class="twocol">
+    <div class="card b">
+      <div class="ch">6/1 に信用で買った人</div>
+      <p>125株。6月25日に維持率が約17%まで落ち、追証。追加の資金を入れられなければ、そこで強制決済。</p>
+      <div class="res">8月末の上昇を <span class="n">見られない</span></div>
+    </div>
+    <div class="card">
+      <div class="ch">6/1 に現物で買った人</div>
+      <p>62株。同じ急落を同じだけ食らったが、決済を迫る相手がいない。待つという選択肢が残っている。</p>
+      <div class="res">利益 <span class="p">約1,660ドル</span></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">この回のいちばん重い1行</span>
+    2人とも、<b>会社の見立ては同じで、しかも合っていた。</b>8月31日にはどちらの建値も超えている。それでも<b>信用は退場し、現物は残った。</b>差がついたのは銘柄選びではなく、<b>相場が自分の想定どおりに動くまで、自分が持ちこたえられるかどうか</b>のほうだった。
+  </div>
+</section>
+
+<!-- ============ §4 期限・金利・決済 ============ -->
+<section class="topic" id="s4">
+  <span class="badge corp">仕組み</span>
+  <h2 class="thead">借りたものを返すまで ── 期限・金利・決済の2つの方法</h2>
+  <p class="sub">§3で強制決済されたのは、担保が足りなくなったからだった。担保が足りていても、信用取引には終わりが来る。<b>期限と金利の2つが、時間を味方から敵に変える。</b></p>
+
+  <h3>1. 期限がある</h3>
+  <ul class="facts">
+    <li><b>国内株の制度信用</b>　取引所が定めたルール。返済期限は<b>6か月</b>。金利は低め（年2〜3%台）</li>
+    <li><b>国内株の一般信用・米国株の信用</b>　証券会社が個別に決める。無期限のものもあるが、金利は高め</li>
+  </ul>
+  <p>Bは「8月31日までに決済する」と決めて建てた。<b>建てる前に出口を決めておく</b>のが、この道具の使い方である。決めずに建てると、§3で見たとおり、決める役が相場のほうに移る。</p>
+
+  <div class="ana">
+    <span class="lb">たとえ</span>レンタルショップで借りたものには返却期限があり、借りているあいだ毎日料金がかかる。「もう少し様子を見る」と延ばした日数は、そのまま料金として積み上がる。<b>買ってしまったものには、この時計がない。</b>現物と信用の違いは、まずこの時計の有無である。
+  </div>
+
+  <h3>2. 金利は、日数に比例して増える</h3>
+  <p>信用買いで払う主なコストは<b>買方金利</b>。借りたお金への利息で、米国株の信用取引ではおおむね年4.5%程度（証券会社・キャンペーンにより幅がある）。Bは9,903ドルを62日借りて約76ドルだった。利益7,300ドルに対しては小さい。</p>
+
+  <div class="tblwrap">
+  <table class="calc">
+    <thead><tr><th>持った期間</th><th>金利（9,903㌦・年4.5%）</th><th>建玉19,903㌦に対して</th></tr></thead>
+    <tbody>
+      <tr><td class="h">62日（Bの実際）</td><td class="num">約76㌦</td><td class="num">約0.4%</td></tr>
+      <tr><td class="h">半年</td><td class="num">約220㌦</td><td class="num">約1.1%</td></tr>
+      <tr><td class="h">1年</td><td class="num">約450㌦</td><td class="num">約2.2%</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p><b>株価が動かないまま1年持てば、株価が約2%上がってようやく金利ぶんに追いつく。</b>現物にはこの負けの進行がない。ほかに事務管理費・名義書換料がかかることがある（当面無料としている会社もある）。</p>
+
+  <p>なお第6回で見た<b>逆日歩（品貸料）は、信用買いにとっては受け取る側</b>になることがある。国内株で空売りが増えて貸す株が足りなくなると、売り方が払う品貸料が買い方に配分される。<b>同じ1つの品貸料を、売り方が払い、買い方が受け取る。</b>前回と今回は、同じ取引を反対側から見ている。</p>
+
+  <h3>3. 決済の2つの方法</h3>
+  <ol class="chain">
+    <li><b>反対売買（転売）</b>　買った株を売り、差額だけを受け取る（または払う）。<b>株は手元に残らない。</b>Bが使ったのはこちら</li>
+    <li><b>現引き（品受け）</b>　借りたお金を全額返し、株を引き取って<b>現物株にする。</b>少ない資金でいったん水準を押さえ、あとから資金を用意して現物に振り替える形</li>
+  </ol>
+  <p class="unsure">※ 米国株の信用取引では現引きの取扱いが証券会社により異なる（差金決済のみの場合がある）。国内株では標準的に使える。</p>
+
+  <h3>4. 建玉のままでは、株主ではない</h3>
+  <p>信用買いで保有しているあいだ、株は証券会社の担保になっている。したがって<b>議決権はなく、株主優待ももらえない</b>（国内株の場合）。配当は<b>配当落調整金</b>として、配当金から源泉税相当を差し引いた額が調整される。第6回で見た優待クロスが「現物買い＋信用売り」だったのは、<b>優待を取れるのは現物のほうだけ</b>だからである。</p>
+  <p><b>信用買いは「株価の値動きに乗る権利」を借りているのであって、会社の一部を持っているわけではない。</b>株主総会に出たい、優待が欲しいなら、権利確定日までに現引きして現物にしておく必要がある。（パランティアは無配なので、この2か月では配当の論点は出ていない）</p>
+</section>
+
+<!-- ============ §5 現物との違い／用途 ============ -->
+<section class="topic" id="s5">
+  <span class="badge corp">整理</span>
+  <h2 class="thead">現物と何が違い、何のために使うのか</h2>
+  <p class="sub">ここまでの4つの節を、現物買いと並べて言い直す。<b>違いは「必要な資金」だけではない。</b></p>
+
+  <h3>1. 4つの違い</h3>
+  <p><b>必要な資金</b>は、現物なら全額、信用なら米国株で約5割・国内株で約3割。ここだけを見て「少ない資金で大きく買える」と読むと、残り3つを落とす。</p>
+  <p><b>期限</b>は、現物にはなく、信用にはある。<b>保有コスト</b>も、現物はゼロ、信用は日数に比例して増える。この2つが揃うと、「読みが当たるまで待つ」という選択肢が消える。§3の2人を分けたのはここだった。</p>
+  <p>そして<b>損失の上限</b>が違う。現物の損失は投じた額までだが、信用には上限がない。担保をすべて失ってもなお不足するぶんは、<b>借金として残る。</b>最後に<b>株主の権利</b>が、現物にはあり、信用の建玉にはない。</p>
+
+  <h3>2. 何のために使うのか</h3>
+  <p>信用買いの本質は「少ない金で大きく賭ける」ことではなく、<b>現物では作れない形のポジションを作れる</b>ことにある。</p>
+  <ul class="facts">
+    <li>資金の到着を待たずに、買いたい水準を押さえる（あとで現引きして現物化する）</li>
+    <li>同じ資金を1日のうちに何度も回す（国内株の差金決済規制を受けない）</li>
+    <li><b>信用売りと組み合わせて、値動きを打ち消す形を作る</b>（第6回の優待クロス、つなぎ売り、ペアトレード）</li>
+  </ul>
+  <div class="bridge-note">
+    <b>期限と金利があるということは、「いつ解消するか」を建てる前に決めておかないと、時間がそのまま損失になる</b>ということでもある。これが現物買いとの、いちばん大きな性格の違いになる。
+  </div>
+</section>
+
+<!-- ============ §6 為替 ============ -->
+<section class="topic" id="s6">
+  <span class="badge bridge">橋渡し ── 第2回・第4回の為替へ</span>
+  <h2 class="thead">為替という、もう一段の変数</h2>
+  <p class="sub">§1から§5の損益は、すべてドル建てである。<b>日本の投資家が円で始めて円に戻すなら、損益はもう1つの値段で決まり直す。</b></p>
+
+  <div class="kpis">
+    <div class="kpi m"><div class="k">ドル円（2026/6/30）</div><div class="v">約162円</div><div class="n">Bが1万ドルを用意した日</div></div>
+    <div class="kpi m"><div class="k">ドル円（2026/8/31）</div><div class="v">約160円</div><div class="n">Bが決済した日</div></div>
+    <div class="kpi g"><div class="k">2か月の動き</div><div class="v">約2円の円高</div><div class="n">円で受け取る側には逆風</div></div>
+  </div>
+
+  <h3>1. 利益のほうで削られる</h3>
+  <p>Bのドル建ての利益は約7,200ドル。8月31日に円へ戻すと <b>約116万円</b>。もし為替が6月30日と同じ水準のままなら <b>約117万円</b> だった。<b>約1万円あまりが、株とは関係のないところで削られている。</b></p>
+
+  <h3>2. 元手のほうでも削られる</h3>
+  <p>1万ドルを用意するのに、6月30日は <b>約162万円</b> かかった。8月31日にその元手を円へ戻すと <b>約160万円</b> にしかならない。こちらは <b>約2万円の目減り</b>である。</p>
+
+  <div class="formula">
+    <code>円建ての損益　＝　（ドル建ての損益 × 決済日のレート）　＋　（元手 × レートの変化）</code>
+    <span class="n">前半は株で取った分、後半は<b>ドルを持っていたこと自体の損益</b>。米国株を買うとは、その会社と、その通貨の<b>両方</b>にポジションを持つことである。</span>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">ここを見る</span>
+    利益への逆風が約1万円あまり、元手の目減りが約2万円。<b>合わせて3万円あまり。</b>この2か月は株価が約37%上がったので、この金額は目立たない。<b>だが株価が1ドルも動かなかった2か月なら、Bに残るのは金利76ドル（約1万2千円）の支払いと、元手の目減り約2万円 ── 合わせて約3万円の赤字だけだった。</b>第2回・第4回でやった為替の話は、ここで信用買いと直結する。
+  </div>
+</section>
+
+<!-- ============ §7 問い ============ -->
+<section class="topic" id="s7">
+  <span class="badge bridge">教室で答える</span>
+  <h2 class="thead">教室で答える問い ── 4問</h2>
+  <p class="sub">資料を読んできた前提で、当日はここから始める。数字は§1〜§6のものをそのまま使ってよい。</p>
+
+  <ol class="q">
+    <li><b>Bは2か月で約7,200ドルの利益を出した。Aが現物のまま同じ利益を出すには、6月30日に何ドル用意する必要があったか。</b>
+      <span class="hint">着地点 ── レバレッジは「儲けを増やす道具」ではなく「必要な自己資金を減らす道具」である、という言い換えができるか。§2の式に戻る</span></li>
+    <li><b>§3で、6月1日に信用で買った人は強制決済され、現物で買った人は8月末に利益を出した。2人の判断は、どこが違ったのか。銘柄選びではないとすれば、何か。</b>
+      <span class="hint">着地点 ── 時間軸の設計。道具の期限と、自分の見立てが実現するまでの時間が合っていないと、読みが当たっても負ける。第5回の「値段が動く幅＝事実−織り込まれていた予想」は<b>いつ</b>までは教えてくれない</span></li>
+    <li><b>買方金利は年4.5%。Bがこの建玉を8月31日ではなく1年後まで持ったとすると、金利はいくらになるか。それは株価が何%上がれば取り返せるか。</b>
+      <span class="hint">着地点 ── 保有コストが日数に比例する構造。第6回で扱った貸株料と同じ形で、借りている側が時間に対して払っている</span></li>
+    <li><b>§6で、為替は2か月で約2円動いた。もし株価が1ドルも動かなかったら、Bの円建て損益はいくらになったか。</b>
+      <span class="hint">着地点 ── 外国株を持つとは、その会社と、その通貨の両方にポジションを持つこと。第2回の介入、第4回の購買力平価に戻る</span></li>
+  </ol>
+</section>
+
+<!-- ============ 宿題 ============ -->
+<section class="topic" id="hw">
+  <span class="badge macro">宿題（全員共通）</span>
+  <h2 class="thead">宿題 ── 1行</h2>
+  <div class="hw">
+    <div class="hwhead">
+      <span class="team">全員共通</span>
+      <span class="hwtime">提出は 9/15（火）12:00 まで</span>
+    </div>
+    <div class="hwttl">自分が調べたい米国企業を1社選び、6月30日と8月31日の終値、その日のドル円を調べて、<b>円建てで何%動いたか</b>を1行で書いてくること。</div>
+  </div>
+</section>
+
+<!-- ============ 用語 ============ -->
+<section class="topic" id="s9">
+  <span class="badge word">今回の用語</span>
+  <h2 class="thead">今回の用語</h2>
+  <div class="gloss compact">
+    <dl>
+      <dt>委託保証金 <span class="en">margin deposit</span></dt>
+      <dd>信用取引をするときに証券会社へ預ける担保。<b>米国株は建玉の50%以上、国内株の制度信用は30%以上かつ最低30万円。</b>現金のほか、保有している現物株を差し入れることもできる（代用有価証券。時価の8割程度で評価される）。</dd>
+      <dt>保証金維持率 <span class="en">maintenance margin ratio</span></dt>
+      <dd>（委託保証金 − 評価損）÷ 新規建約定金額。<b>計算式の定義は証券会社によって違う。</b>この率が下限を割ると追証になる。</dd>
+      <dt>追証（おいしょう） <span class="en">margin call</span></dt>
+      <dd>維持率が下限（米国株の例で30%）を割ったときに求められる追加の担保。期日までに入れないと、証券会社が<b>強制的に決済する。</b>§3で6/1に建てた人が受けたのがこれ。</dd>
+      <dt>建玉（たてぎょく） <span class="en">position</span></dt>
+      <dd>決済していない信用取引の持ち高。<b>建玉のままでは株主ではない</b>（議決権・優待がない）。</dd>
+      <dt>買方金利 <span class="en">margin interest</span></dt>
+      <dd>信用買いで借りたお金に払う利息。米国株でおおむね年4.5%程度、国内株の制度信用は年2〜3%台。<b>持っている日数に比例して増える。</b></dd>
+      <dt>反対売買 <span class="en">closing trade</span></dt>
+      <dd>建玉を、買ったものは売って、売ったものは買い戻して解消すること。差額だけが受け渡される（差金決済）。</dd>
+      <dt>現引き（品受け） <span class="en">taking delivery</span></dt>
+      <dd>借りたお金を全額返して、株を現物として引き取ること。ここで初めて株主になる。<b>第6回の「現渡し（品渡し）」の逆の操作。</b></dd>
+      <dt>配当落調整金</dt>
+      <dd>信用買いの建玉に対して、配当のかわりに調整される金額。配当金から源泉税相当を差し引いた額。<b>優待には対応するものがない。</b></dd>
+      <dt>レバレッジ <span class="en">leverage</span></dt>
+      <dd>自己資金に対して何倍の建玉を持てるか。米国株の信用で約2倍、国内株の制度信用で約3.3倍。<b>決まっているのは担保の下限のほうで、倍率はその裏返しにすぎない。</b></dd>
+    </dl>
+  </div>
+  <div class="rel">
+    <b>前回との関係</b>　第6回 §2 では<b>信用売り</b>（8508 Jトラストの優待クロス）を扱った。株を借りて売り、現渡しで返す側である。今回はその反対側、<b>お金を借りて買う</b>側を見た。逆日歩は売り方が払い、買い方が受け取る。<a href="lecture_20260908.html#s2">第6回 §2 を見る</a>
+  </div>
+</section>
+
+<footer>
+  <h2>数字の扱いについて</h2>
+  <ul>
+    <li><b>2026年6月30日の終値 136.32ドル、8月31日の終値 186.38ドルは確認済みの値。</b>一次情報はナスダックの日々公表値。</li>
+    <li>6月1日終値 159.60ドル、6月25日の52週安値 106.37ドル、7月31日終値 123.06ドル、8月3日終値 125.65ドル、8月の月間騰落 +51.45%、2025年11月3日の過去最高終値 207.18ドルは<b>報道ベース。</b>引用するときは時点を添える。</li>
+    <li>ドル円（6月30日 約162円、8月31日 約160円）も<b>報道ベース。</b>一次情報は日本銀行「外国為替市況（日次）」。丸めているので、円建ての金額は概算である。</li>
+    <li>委託保証金率50%以上・維持率30%・最低保証金30万円相当額・買方金利年4.5%は、<b>楽天証券の米国株式信用取引の条件（2026年9月時点）。証券会社によって違う。</b>キャンペーンで年4.0%になる期間がある。国内株の制度信用（30%以上・最低30万円・6か月・年2〜3%台）とは別建て。</li>
+    <li><b>保証金維持率の計算式は証券会社によって定義が違う。</b>本稿は（委託保証金 − 評価損）÷ 新規建約定金額 で計算した。自分の口座の定義を確かめること。</li>
+    <li><b>§3 は実際についた株価に基づく仮定の計算であり、実行した取引ではない。</b>強制決済の判定は、実際には証券会社ごとの時限と手続きによる。</li>
+    <li>株数（73株・146株・125株・62株）と損益はすべて例示。<b>売買手数料・為替スプレッド・税は含めていない。</b></li>
+    <li><b>米国株の信用取引における現引きの可否は、証券会社によって取扱いが異なる。要確認。</b></li>
+    <li>受講者のポートフォリオ・保有銘柄は載せていない。</li>
+  </ul>
+  <div class="src">
+    <b>主な出典</b>
+    <ul>
+      <li><span class="st p1">一次</span>ナスダック（PLTR の日々の株価）／Palantir Technologies 2026年12月期 第2四半期決算・通期見通し（会社IR、2026年8月3日発表）／日本銀行「外国為替市況（日次）」 <a href="https://www.boj.or.jp/statistics/market/forex/fxdaily/fxlist/index.htm">https://www.boj.or.jp/statistics/market/forex/fxdaily/fxlist/index.htm</a></li>
+      <li><span class="st p1">一次</span>楽天証券「米国株式信用取引 ─ 取引ルール／手数料・金利・貸株料」 <a href="https://www.rakuten-sec.co.jp/web/us/margin/commission.html">https://www.rakuten-sec.co.jp/web/us/margin/commission.html</a>　／　金融商品取引法・同施行令（委託保証金）／日本取引所グループ「信用取引の仕組み」</li>
+      <li><span class="st p2">報道</span>Invezz「Why Palantir stock is trading near 52 week low?」（2026年6月25日） <a href="https://invezz.com/in/news/2026/06/25/why-palantir-stock-is-trading-near-52-week-low/">https://invezz.com/in/news/2026/06/25/why-palantir-stock-is-trading-near-52-week-low/</a></li>
+      <li><span class="st p2">報道</span>Yahoo Finance「Palantir Stock Leads August Rally ─ Nvidia, Salesforce and Super Micro Jump」（2026年9月）／Blockonomi「Palantir (PLTR) Stock Skyrockets 51% in August」（2026年9月）</li>
+      <li><span class="st p3">解説</span>OANDA Japan「2026年6月30日のUSD/JPY 為替レート」 <a href="https://www.oanda.jp/lab-education/historical-rate/usdjpy/20260630/">https://www.oanda.jp/lab-education/historical-rate/usdjpy/20260630/</a>　／　トウシル（楽天証券）「初めてでも分かる！米国株式信用取引」</li>
+    </ul>
+  </div>
+  <div class="next">
+    <b>次回（第8回・9/22予定）</b>　9/15-16 FOMC・9/17-18 日銀会合の答え合わせ。9/1の冒頭に全員が書いたドル円の予想を突き合わせる。あわせて第6回の宿題（9月末の配当と権利落ち）を、9/29の実際の値動きと並べる。<br>
+    <b>第6回の資料</b>　<a href="lecture_20260908.html">米中間選挙の現在地／信用取引 ── 現物買い＋信用売りで優待は残るか</a>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
