@@ -122,18 +122,6 @@ p{margin:10px 0;}
 .view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
 .view.d{border-left-color:var(--word);} .view.d .who{color:var(--word);}
 
-/* 検算リスト */
-.chk{list-style:none; margin:12px 0 0; padding:0;}
-.chk li{display:grid; grid-template-columns:110px 1fr; gap:12px; padding:11px 0; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.7;}
-.chk .vd{font-size:12px; font-weight:800; letter-spacing:.05em; padding:3px 8px; border-radius:6px; text-align:center; align-self:start; margin-top:3px;}
-.chk .vd.ok{background:var(--bridge-bg); color:var(--bridge);}
-.chk .vd.ng{background:var(--corp-bg); color:var(--corp);}
-.chk .vd.half{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
-.chk .vd.unk{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
-@media (prefers-color-scheme: dark){ .chk .vd.half{color:#d9c07a;} }
-.chk .cl{font-weight:800; display:block;}
-.chk .ev{color:var(--ink2); font-size:14px;}
-
 /* 図 */
 .fig{margin:14px 0 6px; padding:14px 12px 10px; background:var(--bg); border:1px solid var(--line); border-radius:12px;}
 .fig svg{width:100%; height:auto; display:block; font-family:inherit;}
@@ -162,7 +150,7 @@ nav.toc .pt.first{margin-top:0;}
 .fig .ax{stroke:var(--line); stroke-width:1.5; fill:none;}
 .fig .gl{stroke:var(--line2); stroke-width:1; fill:none;}
 .fig .ln{fill:none; stroke-width:2.8; stroke-linejoin:round;}
-.fig .ln.a{stroke:var(--macro);} .fig .ln.b{stroke:var(--corp);}
+.fig .ln.a{stroke:var(--macro);} .fig .ln.b{stroke:var(--corp);} .fig .ln.c{stroke:var(--bridge);}
 .fig .vl{stroke:var(--down); stroke-width:1.5; stroke-dasharray:5 4; fill:none;}
 .fig .tick{font-size:11.5px; fill:var(--ink3);}
 .fig .bar.g{fill:var(--bridge);} .fig .bar.c{fill:var(--corp);} .fig .bar.n{fill:var(--line);}
@@ -250,8 +238,8 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   </div>
   <div class="lede">
     <ul>
-      <li>Xで「バフェットがドル崩壊を警告」「日本が米国債を投げ売りすれば大惨事」という投稿が回っている。<strong>投稿の7つの主張を1つずつ検算する。</strong>誇張が4つ、事実が2つ、確認できないものが1つ</li>
-      <li>米国債・ドル円・金利・株は<strong>4つの値段が1本の輪でつながっている</strong>。図1の矢印①〜⑤で、2026年夏に実際に起きた順番をたどる</li>
+      <li>2026年の金利は3本とも上がった。米10年債は4%台前半から<strong>4.86%</strong>、日本10年債は2.35%から<strong>3.00%</strong>へ。§1に推移のグラフと、財務省・日銀が打った手の年表を置いた</li>
+      <li>米国債・ドル円・金利・株は<strong>4つの値段が1本の輪でつながっている</strong>。図3の矢印①〜⑤で、2026年夏に実際に起きた順番をたどる</li>
       <li>「日本はいつ米国債を売らざるを得なくなるか」には<strong>3つの入口</strong>がある。1つはこの8月にもう起きた。<strong>円高は売りを止める策ではなく、むしろ売りの原因</strong>になる</li>
       <li>第2部は<strong>信用買い</strong>。第6回で扱った空売りの裏返しで、借りるのは株ではなくお金。手元30万円で100万円分を買うと、<strong>1割下げただけで追証、2割で強制決済</strong>になる</li>
     </ul>
@@ -263,8 +251,8 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <div class="pt first">第1部　米国債・ドル円・金利・株</div>
   <ol>
     <li><a href="#s0">§0 まず実物 ── 9月10日の9つの値段</a></li>
-    <li><a href="#s1">§1 Xの投稿を検算する</a> <span class="s">7つの主張、4つの判定</span></li>
-    <li><a href="#s2">§2 図1 ── 4つの値段は1本の輪でつながっている</a> <span class="s">矢印①〜⑤</span></li>
+    <li><a href="#s1">§1 2026年の金利は、どこからどこへ動いたか</a> <span class="s">推移のグラフと、ベッセント・日銀の年表</span></li>
+    <li><a href="#s2">§2 図3 ── 4つの値段は1本の輪でつながっている</a> <span class="s">矢印①〜⑤</span></li>
     <li><a href="#s3">§3 米国債は「発行しすぎ」なのか</a> <span class="s">40兆ドル・利払い1兆ドル・誰が持っているか</span></li>
     <li><a href="#s4">§4 金利が上がると米国はデフォルトするのか</a> <span class="s">「払えない」と「薄まる」は別物</span></li>
     <li><a href="#s5">§5 日本が米国債を売らざるを得なくなる3つの入口</a> <span class="s">この夏、実際に起きたこと</span></li>
@@ -275,10 +263,10 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   </ol>
   <div class="pt">第2部　信用買い</div>
   <ol start="11">
-    <li><a href="#s10">§10 7兆円は、誰が借りて買った株か</a> <span class="s">信用買いの三者／図3</span></li>
-    <li><a href="#s11">§11 3倍で買うと何が変わるか</a> <span class="s">株数・損益・追証／図4〜図6</span></li>
-    <li><a href="#s12">§12 3か月持ったときの、現金の出入り</a> <span class="s">金利というコスト／図7</span></li>
-    <li><a href="#s13">§13 実際の使い方</a> <span class="s">差金決済・現引き・信用倍率・二階建て／図8〜図10</span></li>
+    <li><a href="#s10">§10 7兆円は、誰が借りて買った株か</a> <span class="s">信用買いの三者／図5</span></li>
+    <li><a href="#s11">§11 3倍で買うと何が変わるか</a> <span class="s">株数・損益・追証／図6〜図8</span></li>
+    <li><a href="#s12">§12 3か月持ったときの、現金の出入り</a> <span class="s">金利というコスト／図9</span></li>
+    <li><a href="#s13">§13 実際の使い方</a> <span class="s">差金決済・現引き・信用倍率・二階建て／図10〜図12</span></li>
     <li><a href="#s14">§14 第2部の問いと宿題</a> <span class="s">Q7〜Q12／当日の流れ</span></li>
   </ol>
 </nav>
@@ -311,28 +299,149 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
 <!-- ===================== §1 ===================== -->
 <section class="topic" id="s1">
-  <span class="badge word">§1 検算</span>
-  <h2 class="thead">Xの投稿を検算する ── 7つの主張、4つの判定</h2>
-  <p class="sub">投稿（2026年9月、英語）は「バフェットがドル崩壊を警告」「日本が米国債を投げ売りすれば大惨事」と書いている。主張を7つに分け、公開情報で1つずつ当てた。判定は <b>事実／誇張／半分事実／未確認</b> の4つ。</p>
+  <span class="badge macro">§1 事実</span>
+  <h2 class="thead">2026年の金利は、どこからどこへ動いたか ── 推移と、財務省・日銀の手</h2>
+  <p class="sub">日付と数字だけを並べる。解釈は §2 以降で行う。<b>確認できた日付の点だけを結んである。</b>日々の高値・安値ではない。</p>
 
-  <ul class="chk">
-    <li><span class="vd ng">誇張</span><div><span class="cl">「バフェットは、ドルが完全崩壊の瀬戸際にあると警告した」</span><span class="ev">5/2 のバークシャー株主総会で言ったのは、株式市場が「<b>教会にカジノがくっついたもの</b>」になった、「これほどギャンブル気分の人が多い時はなかった」、米国も「インフレの暴走と無縁ではない」。<b>ドルが崩壊するとは言っていない。</b>「ドルが安全でない」は見出しの言葉<span class="st p2">報道</span></span></div></li>
-    <li><span class="vd ok">事実</span><div><span class="cl">「3,800億ドルの現金を抱えている」</span><span class="ev">総会でCEOのアベル氏が約3,800億ドルと述べた。ただし「1ドルも投資しない」ではなく、「700〜800億ドルは使いたいが、値段が高すぎる」<span class="st p2">報道</span></span></div></li>
-    <li><span class="vd half">半分事実</span><div><span class="cl">「暴落が来るか聞かれ『見えていたら起きない』と答えた」</span><span class="ev">総会での発言として複数のまとめ記事が引用している。一次情報（CNBCの書き起こし）は本稿の作業環境から確認できていない。<b>意味は「予測できる暴落は先に売られて起きない」</b>で、第5回の「織り込み済み」と同じ<span class="st p4">二次・要確認</span></span></div></li>
-    <li><span class="vd unk">未確認</span><div><span class="cl">「理解できる企業の割合が10年前より減った」</span><span class="ev">この文言を載せた一次・報道の記事が見つからない<span class="st p4">二次・要確認</span></span></div></li>
-    <li><span class="vd unk">未確認</span><div><span class="cl">「米国債の債権者の信認喪失について事実上警告した」</span><span class="ev">バフェットの発言としては見つからない。米国債の信認を正面から警告しているのは<b>ダリオ・ダイモン・ドラッケンミラー</b>（§8）で、投稿はこれを混ぜている可能性がある</span></div></li>
-    <li><span class="vd unk">未確認</span><div><span class="cl">「Yuto氏が、日銀がドルの基軸通貨の地位喪失という最悪シナリオを議論したと明かした」</span><span class="ev">公開情報に該当なし。日銀の議事要旨・講演にもない。<b>X上の伝聞</b>として扱う。なお「介入で日本がFRBのレポ枠を使ったこと自体がドル支配の後退の証拠」という<b>エコノミストの論評</b>は8/9のFortuneにある<span class="st p2">報道</span></span></div></li>
-    <li><span class="vd half">半分事実</span><div><span class="cl">「日本が米国債を投げ売りすれば大惨事が起きる」</span><span class="ev"><b>日本は2026年夏に実際に外貨準備の米国債を減らして介入した</b>（8月の外国証券は▲878億ドル、外貨準備は▲796億ドル。財務省公表）。しかし「投げ売り」ではない。米財務省が先回りして<b>米国債を売らずにドルを借りる枠</b>を用意し、自らユーロを売って円を買った（§5・§6）<span class="st p1">一次</span><span class="st p2">報道</span></span></div></li>
+  <div class="fig">
+  <svg viewBox="0 0 900 420" role="img" aria-label="2026年の米30年債・米10年債・日本10年債の利回りの推移を、確認できた日付の点で結んだ折れ線グラフ">
+    <!-- grid -->
+    <path class="gl" d="M100,99 L850,99 M100,176 L850,176 M100,253 L850,253"/>
+    <path class="ax" d="M100,60 L100,330 M100,330 L850,330"/>
+    <text class="tick" x="92" y="103" text-anchor="end">5%</text>
+    <text class="tick" x="92" y="180" text-anchor="end">4%</text>
+    <text class="tick" x="92" y="257" text-anchor="end">3%</text>
+    <text class="tick" x="92" y="334" text-anchor="end">2%</text>
+    <text class="tick" x="100" y="350" text-anchor="middle">1月</text>
+    <text class="tick" x="275" y="350" text-anchor="middle">3月</text>
+    <text class="tick" x="456" y="350" text-anchor="middle">5月</text>
+    <text class="tick" x="637" y="350" text-anchor="middle">7月</text>
+    <text class="tick" x="820" y="350" text-anchor="middle">9月</text>
+
+    <!-- event markers -->
+    <path class="vl" d="M592,60 L592,330"/>
+    <path class="vl" d="M782,60 L782,330"/>
+    <text class="lab c" x="592" y="50" text-anchor="middle">6/16 日銀 1.00%へ</text>
+    <text class="lab c" x="782" y="50" text-anchor="middle">8/19 買い戻し倍増</text>
+
+    <!-- lines -->
+    <polyline class="ln b" points="521,83 681,97 740,85 844,79"/>
+    <polyline class="ln a" points="453,153 634,142 785,127 847,109"/>
+    <polyline class="ln c" points="156,303 657,263 820,253"/>
+    <!-- dots -->
+    <g fill="var(--corp)"><circle cx="521" cy="83" r="4"/><circle cx="681" cy="97" r="4"/><circle cx="740" cy="85" r="4"/><circle cx="844" cy="79" r="4"/></g>
+    <g fill="var(--macro)"><circle cx="453" cy="153" r="4"/><circle cx="634" cy="142" r="4"/><circle cx="785" cy="127" r="4"/><circle cx="847" cy="109" r="4"/></g>
+    <g fill="var(--bridge)"><circle cx="156" cy="303" r="4"/><circle cx="657" cy="263" r="4"/><circle cx="820" cy="253" r="4"/></g>
+
+    <!-- point labels -->
+    <text class="tick" x="521" y="74" text-anchor="middle">5.20</text>
+    <text class="tick" x="676" y="112" text-anchor="middle">5.02</text>
+    <text class="tick" x="860" y="83" text-anchor="start">5.25</text>
+    <text class="tick" x="449" y="168" text-anchor="middle">4.30</text>
+    <text class="tick" x="630" y="157" text-anchor="middle">4.44</text>
+    <text class="tick" x="762" y="146" text-anchor="middle">4.63</text>
+    <text class="tick" x="860" y="113" text-anchor="start">4.86</text>
+    <text class="tick" x="156" y="318" text-anchor="middle">2.35</text>
+    <text class="tick" x="657" y="280" text-anchor="middle">2.87</text>
+    <text class="tick" x="860" y="257" text-anchor="start">3.00</text>
+
+    <!-- legend -->
+    <path class="ln b" d="M112,74 L142,74"/>
+    <text class="lab" x="150" y="78">米30年債</text>
+    <path class="ln a" d="M112,100 L142,100"/>
+    <text class="lab" x="150" y="104">米10年債</text>
+    <path class="ln c" d="M112,126 L142,126"/>
+    <text class="lab" x="150" y="130">日本10年債</text>
+
+    <text class="sm" x="100" y="382">米30年債　5/23ごろ 5.20 → 7/16 5.02 → 8/5 5.17 → 9/9 5.25　　米10年債　4月末 4.30 → 6月末 4.44 → 8月 4.63 → 9/10 4.86</text>
+    <text class="sm" x="100" y="404">日本10年債　1月 2.35（約27年ぶり）→ 7/8 2.87（1996年9月以来）→ 9/1 入札 2.995（3%目前）</text>
+  </svg>
+  <div class="cap">図1　単位は%。米10年債の8月の値は月内の水準、4月末・6月末は週平均。<b>日次の連続データではなく、日付が確認できた点だけを結んだ線である。</b>日本の30年債は9月に4.18%で過去最高を付けている（グラフには入れていない）。</div>
+  </div>
+
+  <ul class="facts">
+    <li><b>3本とも上がっている。</b>年初から9月までで、米10年債は4%台前半から4.86%へ、日本10年債は2.35%から3.00%へ。</li>
+    <li><b>米30年債は5月に5%を超えたあと、5%より下に長く戻っていない。</b>7月22日時点で「5%超の期間が2007年以来の長さ」と報じられた。8月には5.3%台で約20年ぶりの水準。</li>
+    <li><b>日本の金利が上がった幅の方が大きい。</b>米10年債は年初来で0.5ポイント前後、日本10年債は0.65ポイント。<b>金利差は縮む方向に動いている。</b></li>
+    <li><b>8月19日の買い戻し倍増の発表のあとも、線は下を向いていない。</b>発表直後に長期金利は下がったが、その効果は1日で消えたと複数のメディアが報じている。</li>
   </ul>
 
-  <div class="ana"><span class="lb">たとえ</span>テスト範囲の噂と同じ。「先生が『範囲は広い』と言った」が3人を経ると「全範囲から出る、落とすつもりだ」になる。元の発言に戻ると、言っていたのは1行だけ。</div>
+  <h3>政策金利は、この9か月で日本だけが動いた</h3>
+  <div class="fig">
+  <svg viewBox="0 0 960 320" role="img" aria-label="2026年の米国と日本の政策金利の推移。米国は3.50から3.75パーセントで据え置き、日本は6月16日に0.75から1.00パーセントへ引き上げた">
+    <path class="gl" d="M110,105 L860,105 M110,150 L860,150 M110,195 L860,195"/>
+    <path class="ax" d="M110,60 L110,240 M110,240 L860,240"/>
+    <text class="tick" x="102" y="75" text-anchor="end">4%</text>
+    <text class="tick" x="102" y="109" text-anchor="end">3%</text>
+    <text class="tick" x="102" y="154" text-anchor="end">2%</text>
+    <text class="tick" x="102" y="199" text-anchor="end">1%</text>
+    <text class="tick" x="102" y="244" text-anchor="end">0%</text>
+    <text class="tick" x="110" y="260" text-anchor="middle">1月</text>
+    <text class="tick" x="438" y="260" text-anchor="middle">5月</text>
+    <text class="tick" x="606" y="260" text-anchor="middle">7月</text>
+    <text class="tick" x="775" y="260" text-anchor="middle">9月</text>
 
-  <p><b>検算して残るのは2つ。</b>①バフェットは株が高すぎると見て現金を積んでいる。②日本は介入の原資として本当に米国債に手を付けた。この2つだけで、§2以降の議論には十分である。</p>
+    <!-- US -->
+    <path class="ln a" d="M110,71 L816,71"/>
+    <path class="ln a" d="M816,71 L860,71" stroke-dasharray="6 5"/>
+    <text class="lab" x="120" y="62" style="fill:var(--macro)">米国　3.50〜3.75%　1/28・3月・6/17・7/29 と4回すべて据え置き</text>
+    <!-- JP -->
+    <path class="ln c" d="M110,206 L565,206 L565,195 L822,195"/>
+    <path class="ln c" d="M822,195 L860,195" stroke-dasharray="6 5"/>
+    <text class="lab" x="120" y="224" style="fill:var(--bridge)">日本　0.75%</text>
+    <text class="lab" x="600" y="186" style="fill:var(--bridge)">1.00%（6/16）</text>
+
+    <!-- meeting markers -->
+    <path class="vl" d="M816,60 L816,240"/>
+    <text class="lab c" x="816" y="52" text-anchor="middle">9/16 FOMC</text>
+    <path class="vl" d="M840,120 L840,240"/>
+    <text class="lab c" x="845" y="112" text-anchor="start">9/18 日銀</text>
+
+    <!-- gap -->
+    <path class="ar" d="M330,71 L330,206" style="color:var(--ink3)" stroke-dasharray="4 4"/>
+    <rect class="labbg" x="270" y="128" width="120" height="20" rx="4"/>
+    <text class="lab" x="330" y="142" text-anchor="middle">差 3.00ポイント</text>
+    <path class="ar" d="M700,71 L700,195" style="color:var(--ink3)" stroke-dasharray="4 4"/>
+    <rect class="labbg" x="640" y="123" width="120" height="20" rx="4"/>
+    <text class="lab" x="700" y="137" text-anchor="middle">差 2.75ポイント</text>
+
+    <text class="sm" x="110" y="288">米国は2025年に3回下げて3.50〜3.75%に着き、2026年は一度も動いていない。日本は2025年12月に0.75%、2026年6月16日に1.00%。1%台は約31年ぶり。</text>
+    <text class="sm" x="110" y="308" style="font-weight:800">点線から先は、9/16 のFOMCと 9/18 の日銀会合の結果待ち。</text>
+  </svg>
+  <div class="cap">図2　米国は上限、日本は無担保コールレート翌日物の誘導目標。<b>金利差が縮んだのは、米国が下げたからではなく日本が上げたからである。</b></div>
+  </div>
+
+  <h3>ベッセント財務長官が打った手（日付順）</h3>
+  <ul class="tl">
+    <li><span class="t">7/31</span><span class="c">日米が<b>協調して円買い介入</b>。米財務省は手元の<b>ユーロを売って</b>円を買った。円買いでの日米協調は1998年以来</span></li>
+    <li><span class="t">8/3</span><span class="c">日米が共同声明。ベッセントは「アジアの安定のため」と説明。日本にはFRBの<b>FIMAレポ</b>（米国債を担保にドルを借りる枠）の利用を促す</span></li>
+    <li><span class="t">8/19</span><span class="c">残存10年超の国債の買い戻しを、1回<b>20億ドルから40億ドル</b>へ倍増すると発表。実施は9/9〜11/4</span></li>
+    <li><span class="t">8/20</span><span class="c">「1回40億ドルを超えることもありうる」「市場の<b>熱を冷ます</b>」。自らこの操作を<b>Treasury Twist</b>と呼ぶ。原資は短期国債の増発</span></li>
+    <li><span class="t">8/24</span><span class="c">買い戻しの原資に、財務省の手元資金（TGA・約1兆ドル）を充てうると報じられる</span></li>
+    <li><span class="t">8/28</span><span class="c">上院銀行委員会のウォーレン議員が介入の目的を書面で質す。ベッセントは反論</span></li>
+    <li><span class="t">9/9</span><span class="c">買い戻しを1回<b>60億ドル</b>へ拡大すると発表（11/4まで）。同日の米10年債は4.80%、30年債は5.25%</span></li>
+  </ul>
+  <p>買い戻しの規模は3週間で3倍になった。<b>一方、2026年度の新規発行のもとになる財政赤字は1.9兆ドルである</b>（CBO推計）。</p>
+
+  <h3>日銀が打った手（日付順）</h3>
+  <ul class="tl">
+    <li><span class="t">2025/12</span><span class="c">政策金利を<b>0.75%</b>へ</span></li>
+    <li><span class="t">2026/1</span><span class="c">10年国債の利回りが一時<b>2.350%</b>。約27年ぶりの水準</span></li>
+    <li><span class="t">6/16</span><span class="c">政策金利を<b>1.00%</b>へ。1%台は約31年ぶり。あわせて<b>国債買い入れの減額は2027年4月以降に停止</b>と決定</span></li>
+    <li><span class="t">7/8</span><span class="c">10年国債の利回りが<b>2.87%</b>。1996年9月以来</span></li>
+    <li><span class="t">7/30-31</span><span class="c">据え置き。<b>高田委員が一人だけ反対し、1.25%への利上げを提案</b></span></li>
+    <li><span class="t">8月</span><span class="c">7月会合の「主な意見」に<b>「利上げのペースアップが必要」</b>が載る</span></li>
+    <li><span class="t">9/1</span><span class="c">10年国債の入札利回りが<b>2.995%</b>。3%目前</span></li>
+    <li><span class="t">9/2</span><span class="c">高田委員が札幌で講演。<b>「決まったペースにとらわれず、機動的に利上げを行う新局面」</b>。この日は長期金利が上がり、円・債券・株の三つが同時に下げたと報じられる</span></li>
+    <li><span class="t">9月</span><span class="c">30年国債が<b>4.18%</b>で過去最高</span></li>
+    <li><span class="t">9/17-18</span><span class="c">金融政策決定会合。市場の一部は0.5ポイントの利上げも織り込む</span></li>
+  </ul>
+  <p>日銀は9か月で0.25ポイント上げ、次を9/18に控えている。米国は同じ9か月で一度も動いていない。<b>この2つが、図1の3本の線と、次の§2の矢印①の中身である。</b></p>
 </section>
 
 <!-- ===================== §2 ===================== -->
 <section class="topic" id="s2">
-  <span class="badge bridge">§2 図1</span>
+  <span class="badge bridge">§2 図3</span>
   <h2 class="thead">4つの値段は1本の輪でつながっている ── 矢印①〜⑤</h2>
   <p class="sub">米国債・ドル円・米国株・日本のお金。矢印に番号を振った。実線は普段の向き、点線は<b>信認が揺らいだときだけ</b>出る向き。</p>
 
@@ -421,7 +530,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <!-- C -> A feedback note (bottom-left) -->
     <text class="sm" x="40" y="540">普段は「株↓ → 安全資産の米国債へ逃げる → 金利↓」の戻りがある。2026年9月は株↓と金利↑が同時＝戻りが効いていない。</text>
   </svg>
-  <div class="cap">図1　実線は普段の向き。点線①'は信認が揺らいだときだけ出る向きで、2025年4月の「Sell America」と2026年夏がこれ。矢印③は官（介入）と民（生保）の2本の流れが同じ向きに合流している。</div>
+  <div class="cap">図3　実線は普段の向き。点線①'は信認が揺らいだときだけ出る向きで、2025年4月の「Sell America」と2026年夏がこれ。矢印③は官（介入）と民（生保）の2本の流れが同じ向きに合流している。</div>
   </div>
 
   <h3>矢印を順番にたどる ── 2026年の実例で</h3>
@@ -481,7 +590,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <div class="card"><div class="ch">薄まるデフォルト</div><p>払うが、受け取ったドルの価値が減っている。<b>インフレとドル安</b>で起きる。債権者から見ると「返ってきたが目減りした」。バフェットが「米国もインフレの暴走と無縁ではない」と言ったのはこちら。中国が金に替えているのもこちらへの備え。<b>市場が「米国のデフォルト」と言うときの9割はこれ。</b></p></div>
   </div>
 
-  <h3>金利が上がると借金はどう膨らむか ── 図2</h3>
+  <h3>金利が上がると借金はどう膨らむか ── 図4</h3>
   <div class="fig">
   <svg viewBox="0 0 900 300" role="img" aria-label="利払い増→赤字増→発行増→金利上昇→利払い増の輪と、4つの出口">
     <defs>
@@ -524,7 +633,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <text class="sm" x="782" y="240" text-anchor="middle" style="font-weight:800">Ⅳ 短期で借りて長期を買い戻す</text>
     <text class="sm" x="782" y="260" text-anchor="middle">ベッセントが今やっていること</text>
   </svg>
-  <div class="cap">図2　上の輪は「金利↑→利払い↑→赤字↑→発行↑→金利↑」。下の4つがそこから抜ける出口で、どれを選ぶかで損をする人が変わる。</div>
+  <div class="cap">図4　上の輪は「金利↑→利払い↑→赤字↑→発行↑→金利↑」。下の4つがそこから抜ける出口で、どれを選ぶかで損をする人が変わる。</div>
   </div>
 
   <h3>ベッセント財務長官が選んだ出口Ⅳ ── 「ツイスト」</h3>
@@ -566,7 +675,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <ol class="chain">
     <li><b>入口A（介入）は8月に開いた。</b>ただし米財務省が先回りした。①自らユーロを売って円を買う（ドルを売らない）、②FRBの「FIMAレポ」＝<b>米国債を担保にドルを借りる枠</b>を日本に使わせる。売らずにドルを作れるので、米国債の値段が下がりにくい。<b>米国は「日本に投げ売りさせない」ために協調した</b>（CNBC・Axios・CFRの解説ベース）。</li>
     <li><b>入口B（ヘッジ後の利回り）は進行中。</b>9/18に日銀が利上げすれば、日本国債の利回りが上がり、生保の国内回帰が加速する。これは介入と違って<b>誰も止められない</b>。</li>
-    <li><b>入口C（信認）は兆しの段階。</b>判定の目印は「金利↑とドル安が同時」（図1の点線①'）。9月上旬はドル指数約99、10年債4.9%近く。同時に動いている。</li>
+    <li><b>入口C（信認）は兆しの段階。</b>判定の目印は「金利↑とドル安が同時」（図3の点線①'）。9月上旬はドル指数約99、10年債4.9%近く。同時に動いている。</li>
   </ol>
 
   <div class="ana"><span class="lb">たとえ</span>留学生の財布に外貨の商品券しか入っていない。家賃を円で払うために商品券を換金する（入口A）。商品券の利回りより日本の貯金の利子が高くなれば、換金して貯金に移す（入口B）。「あの商品券、そのうち使えなくなるらしい」と噂が立てば、皆が一斉に換金に走る（入口C）。換金したい人が増えるほど、レートは悪くなる。</div>
@@ -604,7 +713,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <ul class="facts">
     <li><b>S&amp;P500 7,592、4日続落。</b>10年債4.86%（2023年11月以来）、原油108ドル、卸売物価が上振れ、FOMCの利上げ観測が強まった。<b>分母が3つ同時に上がった日</b>。</li>
     <li><b>割高度</b>　シラーPER（10年平均利益で割ったPER）約41倍。1881年以来の1,749か月で上位1%、これより高かった月は1999〜2000年と2026年しかない（解説ベース）。ただし株の益回りから債券利回りを引いた差はまだ約1ポイント残っており、<b>2000年よりは債券に対して割高ではない</b>。</li>
-    <li><b>バフェットの現金3,800億ドル</b>は、この分母の上昇を待っている資金と読める。「700〜800億ドルは使いたいが値段が高すぎる」。</li>
+    <li><b>バークシャーの現金は3,800億ドル。</b>5/2の株主総会で「700〜800億ドルは使いたいが、値段が高すぎる」と述べている。</li>
     <li><b>中間選挙年の秋</b>（第6回）。11/3まで、政治の不確実性はリスクの側に乗る。</li>
   </ul>
 
@@ -634,7 +743,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <div class="view d"><div class="who">ムーディーズ<span class="when">2025年5月</span></div><p>米国をAaaからAa1へ。理由は「10年以上にわたる債務と利払い比率の上昇」。連邦債務はGDP比134%（2035年）に達しうる。</p></div>
   </div>
 
-  <p class="rel"><b>読み方</b>　「危ない」派（ダリオ・ドラッケンミラー）と「対処できる」派（ダイモン・ゴールドマン）の違いは、<b>図2の出口Ⅳが効くと思うかどうか</b>にある。ドラッケンミラーは出口Ⅳが躾け役（長期金利）を壊すと言い、ベッセントは時間を買えると言う。<b>どちらが正しいかは、11/4までの買い戻し60億ドルで10年債が5%を割るかどうかで、ある程度判定できる。</b></p>
+  <p class="rel"><b>読み方</b>　「危ない」派（ダリオ・ドラッケンミラー）と「対処できる」派（ダイモン・ゴールドマン）の違いは、<b>図4の出口Ⅳが効くと思うかどうか</b>にある。ドラッケンミラーは出口Ⅳが躾け役（長期金利）を壊すと言い、ベッセントは時間を買えると言う。<b>どちらが正しいかは、11/4までの買い戻し60億ドルで10年債が5%を割るかどうかで、ある程度判定できる。</b></p>
 </section>
 
 <!-- ===================== §9 ===================== -->
@@ -651,17 +760,17 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
   <h3>問い</h3>
   <ol class="q">
-    <li><b>9/16と9/18の結果は、図1の矢印①〜⑤のどれを、どちら向きに動かしたか。</b>2本選んで、動いた数字を添える。<span class="hint">着地点：第2回の「日米金利差」。矢印①が縮むか広がるかを、政策金利の差（現在約2.5ポイント）で言う。</span></li>
+    <li><b>9/16と9/18の結果は、図3の矢印①〜⑤のどれを、どちら向きに動かしたか。</b>2本選んで、動いた数字を添える。<span class="hint">着地点：第2回の「日米金利差」。矢印①が縮むか広がるかを、政策金利の差（現在約2.5ポイント）で言う。</span></li>
     <li><b>「金利が上がると米国はデフォルトする」を0〜100点で採点し、理由を1行。</b><span class="hint">着地点：§4の「払えない」と「薄まる」の区別。自国通貨建てかどうかを言えたら合格。損をするのが誰かまで言えたら100点。</span></li>
     <li><b>日本が8月に米国債を減らしたのは入口A・B・Cのどれか。次に開くのはどれか。</b><span class="hint">着地点：入口B。9/18の日銀利上げ→日本国債の利回り↑→ヘッジ後の米国債に勝つ、の3段を式で。</span></li>
     <li><b>「円高にすれば日本は米国債を売らずに済む」は正しいか。手段1・2・3に分けて答える。</b><span class="hint">着地点：§6。手段3のときだけ正しい。米財務省がユーロを売った理由を「売らせないため」と言えたら合格。</span></li>
     <li><b>自分の持ち株（無ければ第4回のリンチ・チャートの銘柄）に、米10年債5%は追い風か逆風か。</b>分母で説明する。<span class="hint">着地点：第5回の式。「日本経済にとって」ではなく「自分の1銘柄にとって」で答える。銀行なら追い風、不動産なら逆風、輸出なら円高の方が効く。</span></li>
-    <li><b>バフェットの「見えていたら起きない」を、第5回の言葉で言い換える。</b><span class="hint">着地点：織り込み済み。「全員が見えている暴落は、先に売られて値段に入る」。8/26のNVIDIA決算の実測（時間外▲5%→翌日＋8.7%）を例に。</span></li>
+    <li><b>ベッセントが買い戻しを増やした8/19と9/9のあと、米30年債はどう動いたか。図1で確かめて1行。</b><span class="hint">着地点：下がっていない。9/9時点で5.25%。<b>買い戻し60億ドルに対して、年間の新規発行のもとになる赤字は1.9兆ドル。</b>桁が2つ違う、まで言えたら100点。</span></li>
   </ol>
 
   <div class="hw">
     <div class="hwtime">第1部の宿題 ── 提出は 9/22（火）12:00 まで、HTMLで</div>
-    <div class="hwttl">図1の矢印①〜⑤のうち、9/16〜9/18で実際に動いた矢印を1本選び、動いた数字を一次情報の在り処つきで1行。</div>
+    <div class="hwttl">図3の矢印①〜⑤のうち、9/16〜9/18で実際に動いた矢印を1本選び、動いた数字を一次情報の在り処つきで1行。</div>
   </div>
 
 </section>
@@ -729,7 +838,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <text class="sm" x="30" y="248">返すとき：株を売る → 借りた70万円と金利を返す → 残りが自分のもの。売らずに70万円を入金して現物にすることもできる（現引き・§13）。</text>
     <text class="sm" x="30" y="30" style="font-weight:800">借りるのは「株」ではなく「お金」。第6回の空売りと、ここが逆になっている。</text>
   </svg>
-  <div class="cap">図3　信用買いの三者。保証金30万円に対して建玉100万円まで持てる。持てる上限は保証金率30%の決まりから来る。</div>
+  <div class="cap">図5　信用買いの三者。保証金30万円に対して建玉100万円まで持てる。持てる上限は保証金率30%の決まりから来る。</div>
   </div>
 
   <div class="ana"><span class="lb">たとえ</span>文化祭の前売り券を、1枚1,000円で300枚買うつもりだった。友達に70万円立て替えてもらい、1,000枚買う。当日値上がりすれば3倍以上うれしい。<b>値下がりしても、友達に返す70万円は1円も減らない。</b></div>
@@ -761,7 +870,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <text class="sm" x="620" y="172" style="font-weight:800">同じ30万円で、株数は3.3倍になる。</text>
     <text class="sm" x="620" y="194">値動きの効き方も、そのまま3.3倍。</text>
   </svg>
-  <div class="cap">図4　保証金率30%が「3.3倍まで」の正体。30万円÷0.3＝100万円が建てられる上限になる。</div>
+  <div class="cap">図6　保証金率30%が「3.3倍まで」の正体。30万円÷0.3＝100万円が建てられる上限になる。</div>
   </div>
 
   <h3>2. 株価が動いたとき、手元はどうなるか</h3>
@@ -803,7 +912,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <text class="lab" x="764" y="160" text-anchor="middle" style="fill:var(--macro)">現物 300株</text>
     <text class="sm" x="90" y="378">1割上がれば現物は＋3万円、信用は＋10万円。1割下がれば現物は−3万円、信用は−10万円。<tspan style="font-weight:800">手元30万円に対して、上も下も3.3倍で効く。</tspan></text>
   </svg>
-  <div class="cap">図5　同じ株の同じ値動きでも、傾きが3.3倍違う。信用の線が−30万円に届く700円が「元手が消える株価」。ただしその手前で強制決済される。</div>
+  <div class="cap">図7　同じ株の同じ値動きでも、傾きが3.3倍違う。信用の線が−30万円に届く700円が「元手が消える株価」。ただしその手前で強制決済される。</div>
   </div>
 
   <h3>3. 追証は、元手が消える前にやってくる</h3>
@@ -839,7 +948,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
     <text class="sm" x="30" y="278">株価がたった1割下がっただけで、維持率は30%から20%へ落ちて追証になる。<tspan style="font-weight:800">分母は100万円のまま動かないので、削られ方が速い。</tspan></text>
   </svg>
-  <div class="cap">図6　緑が保証金の残り、灰色が評価損。1,000円から900円への1割の下げが、維持率では30%→20%の下げになる。</div>
+  <div class="cap">図8　緑が保証金の残り、灰色が評価損。1,000円から900円への1割の下げが、維持率では30%→20%の下げになる。</div>
   </div>
 
   <ol class="chain">
@@ -888,7 +997,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <text class="sm" x="30" y="266">金利は<tspan style="font-weight:800">持っている日数だけ</tspan>かかる。2日なら約150円、91日なら約7,000円、6か月の期限いっぱいなら約1万4,000円。</text>
     <text class="sm" x="30" y="288">上がると読んでいても、<tspan style="font-weight:800">いつ上がるかを外すと、金利の分だけ負ける。</tspan>第6回の貸株料と同じ形。</text>
   </svg>
-  <div class="cap">図7　1,000円で1,000株を建て、3か月後に1,100円で返済した設例。金利は 100万円 × 2.8% × 91 ÷ 365 で約6,980円。</div>
+  <div class="cap">図9　1,000円で1,000株を建て、3か月後に1,100円で返済した設例。金利は 100万円 × 2.8% × 91 ÷ 365 で約6,980円。</div>
   </div>
 
   <div class="twocol">
@@ -931,7 +1040,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <circle cx="760" cy="210" r="9" fill="var(--corp)"/><text class="sm" x="760" y="196" text-anchor="middle">返す</text>
     <text class="sm" x="30" y="244">同じ1日のうちに何度でも。<tspan style="font-weight:800">短期売買をする人が信用買いを使う理由の多くは、レバレッジではなくこれである。</tspan></text>
   </svg>
-  <div class="cap">図8　上が現物、下が信用。横軸は同じ1日。現物の制限は「差金決済の禁止」から来ていて、資金量の問題ではない。</div>
+  <div class="cap">図10　上が現物、下が信用。横軸は同じ1日。現物の制限は「差金決済の禁止」から来ていて、資金量の問題ではない。</div>
   </div>
 
   <h3>使い方③ 現引き ── 信用で押さえて、あとで現物にする</h3>
@@ -957,7 +1066,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     </g>
     <text class="sm" x="30" y="180">権利を取りたいなら、<tspan style="font-weight:800">権利付最終日までに現引きを終えていること。</tspan>建玉のままでは、権利日をまたいでも優待は来ない。</text>
   </svg>
-  <div class="cap">図9　現引き。市場で売買するわけではないので売買手数料はかからない。第6回で扱った現渡しの、ちょうど裏返し。</div>
+  <div class="cap">図11　現引き。市場で売買するわけではないので売買手数料はかからない。第6回で扱った現渡しの、ちょうど裏返し。</div>
   </div>
 
   <div class="twocol">
@@ -990,7 +1099,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
     <text class="sm" x="30" y="236">信用倍率 ＝ 6.53 ÷ 0.83 ＝ <tspan style="font-weight:800">7.91倍</tspan>　買い残が売り残の約8倍。将来の売り予約が、買い予約の8倍たまっている。</text>
   </svg>
-  <div class="cap">図10　8/28時点。売り残は買い残と信用倍率から割り戻した計算値。倍率が高いほど「上値が重い」と言われる。</div>
+  <div class="cap">図12　8/28時点。売り残は買い残と信用倍率から割り戻した計算値。倍率が高いほど「上値が重い」と言われる。</div>
   </div>
 
   <p>信用倍率が高い銘柄は、株価が少し上がるたびに<b>やれやれの売り</b>が出て、上値が重くなりやすい。逆に売り残が多い銘柄は、上がると買い戻しが出て<b>踏み上げ</b>になることがある。第6回の空売りが「損に上限がない」と言ったのは、この踏み上げのことである。</p>
@@ -1009,12 +1118,12 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <p class="sub">Q7〜Q10は信用買いの中だけで閉じる。Q11・Q12は第1部の米国債につなぐ。</p>
 
   <ol class="q" start="7" style="counter-reset:qq 6">
-    <li><b>図5で、現物の線と信用の線が交わるのはどの株価か。そこでは何が等しいのか。</b><span class="hint">着地点：1,000円、損益ゼロ。ただし金利を入れると信用の線は下に平行移動するので、交点は1,000円より上にずれる。<b>コストは傾きではなく、線の高さを動かす。</b></span></li>
+    <li><b>図7で、現物の線と信用の線が交わるのはどの株価か。そこでは何が等しいのか。</b><span class="hint">着地点：1,000円、損益ゼロ。ただし金利を入れると信用の線は下に平行移動するので、交点は1,000円より上にずれる。<b>コストは傾きではなく、線の高さを動かす。</b></span></li>
     <li><b>「株価が3割下がると元手が消える」。では2割下がった時点で、何が起きているか。</b><span class="hint">着地点：維持率10%で強制決済。元手が消える前に証券会社が切る。<b>「待っていれば戻る」が使えないのが現物との差。</b></span></li>
     <li><b>第6回の空売りは「儲けの上限は売った値段まで、損に上限はない」だった。信用買いはどちらの向きか。1行で。</b><span class="hint">着地点：向きが逆。損の上限は建てた金額まで、儲けに上限はない。<b>ただし手元の元手を基準にすると、3.3倍の速さで消える。</b></span></li>
     <li><b>第6回の優待クロスが「現物買い＋信用売り」で、「信用買い＋信用売り」ではないのはなぜか。</b><span class="hint">着地点：優待と議決権は現物にしか付かない。信用買いで権利を取るには、権利付最終日までに現引きが要る。</span></li>
     <li><b>信用倍率7.91倍は、自分の持ち株にとって追い風か逆風か。</b>自分の1銘柄の倍率を調べて答える。<span class="hint">着地点：買い残＝将来の売り。倍率が高いほど上値が重い。「日本株全体が」ではなく「自分の1銘柄が」で答える。</span></li>
-    <li><b>第1部の図1に、信用買いの矢印を1本足すとしたら、どこからどこへ引くか。</b><span class="hint">着地点：金利↑は米国株の分母を上げる（矢印④）だけでなく、<b>借りて買っている人のコストも上げる</b>。日銀が利上げすれば買方金利も上がり、信用買い残は減る方向に向かう。<b>マクロの金利と、自分の口座の金利が同じものだと気づけたら100点。</b></span></li>
+    <li><b>第1部の図3に、信用買いの矢印を1本足すとしたら、どこからどこへ引くか。</b><span class="hint">着地点：金利↑は米国株の分母を上げる（矢印④）だけでなく、<b>借りて買っている人のコストも上げる</b>。日銀が利上げすれば買方金利も上がり、信用買い残は減る方向に向かう。<b>マクロの金利と、自分の口座の金利が同じものだと気づけたら100点。</b></span></li>
   </ol>
 
   <div class="hw t">
@@ -1025,10 +1134,10 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <h3>当日の流れ（目安）</h3>
   <ul class="tl">
     <li><span class="t">16:20</span><span class="c"><b>答え合わせ欄の突き合わせ</b>（10分）。9/1の予想・9/16・9/18の実際・宿題の矢印</span></li>
-    <li><span class="t">16:30</span><span class="c"><b>§1の検算</b>（10分）。投稿の7つの主張を、各自の判定と比べる</span></li>
-    <li><span class="t">16:40</span><span class="c"><b>図1を口頭で再構成</b>（20分）。矢印を1本ずつ、誰が何を売って何を買ったかで言い直す</span></li>
+    <li><span class="t">16:30</span><span class="c"><b>§1の年表と図1・図2</b>（10分）。8/19・9/9 の買い戻しのあと、線がどちらを向いたか</span></li>
+    <li><span class="t">16:40</span><span class="c"><b>図3を口頭で再構成</b>（20分）。矢印を1本ずつ、誰が何を売って何を買ったかで言い直す</span></li>
     <li><span class="t">17:00</span><span class="c"><b>Q2〜Q4</b>（25分）。デフォルトの2種類、3つの入口、円高の3手段</span></li>
-    <li><span class="t">17:25</span><span class="c"><b>第2部 §10〜§12</b>（30分）。図3〜図7を、現金の出入りで言い直す。Q7・Q8</span></li>
+    <li><span class="t">17:25</span><span class="c"><b>第2部 §10〜§12</b>（30分）。図5〜図9を、現金の出入りで言い直す。Q7・Q8</span></li>
     <li><span class="t">17:55</span><span class="c"><b>第2部 §13 使い方</b>（15分）。差金決済・現引き・信用倍率。Q9・Q10</span></li>
     <li><span class="t">18:10</span><span class="c"><b>Q11・Q12 と次回予告</b>（10分）。自分の1銘柄の倍率。9/29の権利落ちの実測を並べる</span></li>
   </ul>
@@ -1041,9 +1150,11 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <li>米国の借金40.1兆ドル・市中保有32.4兆ドルは財務省「Debt to the Penny」の9/8時点（一次）。<b>赤字1.9兆ドル・利払い1.0兆ドル・GDP比101%→120%はCBOの2026年2月推計</b>で、実績ではない。</li>
     <li>海外保有9.1兆ドル・日本1.15兆・英0.86兆・中国0.76兆は米財務省TICの2026年6月分（8/15公表、一次）。<b>TICは保管場所ベースなので、英国の数字には他国の投資家が混ざる。</b>日本の「官民ほぼ半々」と外貨準備の「7割が米国債」は市場推計。</li>
     <li>介入額986億ドル（7/30〜8/26）と外貨準備1.208兆ドル・▲796億ドル・外国証券▲878億ドルは財務省公表（一次）。「約15兆円」「4〜5月に約12兆円」は報道の円換算。ゴールドマンの「現金約2,000億ドル」「あと2〜3回」は同社の推計。</li>
+    <li><b>§1の金利推移</b>　図1は<b>日々の連続データではない。</b>日付が確認できた点だけを結んである。米10年債の4月末4.30%・6月末4.44%は週平均、8月の4.63%は月内の水準、9/10の4.86%は終値。米30年債の5月5.20%・7/16 5.02%・8/5 5.17%・9/9 5.25%はいずれも報道ベース。日本10年債の1月2.350%・7/8 2.87%は報道、9/1の2.995%は入札利回り（一次）。<b>高値・安値や月中の振れは表していない。</b></li>
+    <li><b>§1の政策金利</b>　米国は誘導目標レンジの上限3.75%、日本は無担保コールレート翌日物の誘導目標。据え置きの日付（1/28・3月・6/17・7/29）と日銀の引き上げ（2025年12月 0.75%、2026年6月16日 1.00%）は報道ベース。一次情報はFOMC声明と日銀の「当面の金融政策運営について」。</li>
     <li>入札の「テール」「まずまず」「弱い」は報道・解説の評価。シラーPER約41倍と「上位1%」は解説サイトの集計で、<b>集計期間の取り方で数字が変わる。</b></li>
     <li>ステーブルコイン残高約3,000億ドル、ベッセントの「最大1兆ドル」、ダリオの「10兆ドルの借り換え」はいずれも発言者・報道の推計。</li>
-    <li>§8の発言は要旨。日付は発言日または報道日。<b>バフェットの「見えていたら起きない」は二次情報のみで、一次の書き起こしは未確認。</b>Xの投稿の「Yuto氏」「日銀の最悪シナリオ」は公開情報で裏取りできていない。</li>
+    <li>§8の発言は要旨。日付は発言日または報道日。<b>一次の書き起こしに当たれていないものが含まれる。</b>引用するときは出典と日付を添えること。</li>
     <li><b>第2部の信用残</b>　信用買い残6兆5,293億円・信用倍率7.91倍は8月28日申込み時点の集計（解説サイト）。一次情報は日本取引所グループ「銘柄別信用取引週末残高」。<b>売り残 約0.83兆円は、買い残を信用倍率で割り戻した計算値で、公表値そのものではない。</b>6月26日時点の7兆1,670億円と「1994年12月以降の最高」は報道ベース。</li>
     <li><b>第2部の設例</b>　手元30万円・株価1,000円・1,000株・保証金率30%ちょうど、および3か月後1,100円で返済という数字は<b>すべて設例</b>である。実在の銘柄ではない。実際の証券会社は余裕を見るので保証金率ぎりぎりまでは建てられない。</li>
     <li><b>第2部のルール</b>　最低保証金30万円・保証金率30%・制度信用6か月・配当落調整金84.685%は法令と取引所の決まり（一次）。<b>維持率20%で追証・10%で強制決済、買方金利 年2.3〜3.1%、現引きの手数料無料は証券会社ごとに違う</b>（解説）。自分の口座の規定で確かめること。金利の計算は 100万円 × 2.8% × 91 ÷ 365 ＝ 約6,980円 を約7,000円に丸めた。</li>
@@ -1055,15 +1166,16 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
       <li><span class="st p1">一次</span>米財務省「Debt to the Penny」（2026年9月8日）／米財務省 TIC「Major Foreign Holders of Treasury Securities」（2026年6月分）／米財務省プレスリリース「Treasury Announces Increased Sizes of Nominal Long-End Liquidity Support Buybacks Beginning September 9」／CBO「The Budget and Economic Outlook: 2026 to 2036」（2026年2月）／財務省「外貨準備等の状況」（2026年8月末）「外国為替平衡操作の実施状況」／日本銀行 高田審議委員講演（2026年9月2日・札幌）／ムーディーズ「2025 United States Sovereign Rating Action」</li>
       <li><span class="st p2">報道</span>CNBC「Stock market news for Sept. 10, 2026」「Bessent says Treasury buyback operation could be more than $4 billion」（8/20）「U.S., Japan confirm coordinated yen intervention」（8/3）「Goldman says Japan's $1 trillion of reserves leaves 'plenty of capacity'」（8/13）「Jamie Dimon warns of 'some kind of bond crisis'」（4/28）「Trump turns up the heat on Warsh」（9/5）／Bloomberg「Japan Likely Sold Treasuries to Fund Record Yen Intervention」（9/6）「円買い介入の原資巡り議論活発」（5/8）／The Japan Times（9/7）／Nikkei Asia「Japan life insurers turn away from U.S. Treasurys for JGBs」／日本経済新聞「『日本は米国債売れない』は言い過ぎだ」（4月）「日銀の高田審議委員『機動的利上げの新局面に』」（9/2）／Fortune「By propping up the yen…」（8/9）／Forbes Advisor「Treasury Rates Today」（9/9）／外為どっとコム「佐々木融が鳴らす為替相場への警鐘」（9/7）</li>
       <li><span class="st p3">解説</span>Axios「U.S. role in yen intervention gives clue about Treasury goals」（8/3）／CFR「Why the U.S. Intervened to Prop Up Japan's Yen」／CRFB「Weak Auctions Underscore Risks of our Growing Debt Burden」（3/31）「Net Interest Costs Will Double, Again」／Brookings「Next steps for GENIUS payment stablecoins」／国際通貨研究所「28年ぶりの日米円買い協調介入の背景と影響」（8/12）／大和総研「円買い・ドル売り為替介入の限界」（7/3）／GuruFocus・MacroRadar（シラーPER）／Wolf Street「Foreign Central Banks &amp; Governments Dumped Treasuries…」（8/17）</li>
+      <li><span class="st p2">報道</span>Advisor Perspectives「10-Year Treasury Yield Long-Term Perspective」（2026年4月・6月）／Marketplace「Yield on 30-year Treasury tops 5% for longest period since 2007」（7/22）／日本経済新聞「1.0%への利上げ決定 国債買い入れ減額は27年4月以降停止」（6/15）「日銀、利上げ『ペースアップ必要』 7月決定会合の主な意見」（8/8）「市場に広がる『ベッセント・プット』 米財務省、異例の米債バイバック増額」（8/19）／J.P. Morgan「Fed Leaves Rates Unchanged to Start 2026」（1/28）／Schwab「Divided Fed Leaves Interest Rates Unchanged」（7/29）</li>
       <li><span class="st p1">一次</span>日本取引所グループ「銘柄別信用取引週末残高」「個別銘柄信用取引残高表」「信用取引に関する規制等」／金融商品取引法・同施行令（委託保証金・差金決済）</li>
       <li><span class="st p2">報道</span>日本経済新聞「信用買い残が過去最高の7兆円超え キオクシアなど短期売買」（2026年6月30日）「株、信用買い残が7週連続増加 6兆6958億円で過去最高」（2026年6月9日）</li>
       <li><span class="st p3">解説</span>SBIネオトレード証券「信用買いとは？」「回転売買、現引き・現渡しと二階建て」「信用取引金利・貸株料の主要ネット証券比較」／楽天証券「信用取引の基本ルール」「乗り換え売買」「第15回 現引と現渡について」／松井証券「委託保証金」／三菱UFJ eスマート証券「信用取引のリスク管理（追証と維持率）」／SMBC日興証券「現引きと現渡しの特徴」「増担保規制」／マネックス証券「信用取引規制銘柄とは？」</li>
-      <li><span class="st p4">二次・要確認</span>Motley Fool「Warren Buffett Recently Called the Stock Market 'A Church With a Casino Attached'」（8/9）「Stanley Druckenmiller Says the 30-Year Treasury Bond Is 'the Only Fiscal Disciplinarian We Have Left'」（9/3）／Hedgeweek「Dalio warns US debt crisis could emerge within three years」／X 上の投稿（2026年9月、検算対象）</li>
+      <li><span class="st p4">二次・要確認</span>Motley Fool「Warren Buffett Recently Called the Stock Market 'A Church With a Casino Attached'」（8/9）「Stanley Druckenmiller Says the 30-Year Treasury Bond Is 'the Only Fiscal Disciplinarian We Have Left'」（9/3）／Hedgeweek「Dalio warns US debt crisis could emerge within three years」</li>
     </ul>
   </div>
   <div class="next">
     <b>前回（第6回・9/8）</b>　<a href="lecture_20260908.html">米中間選挙の現在地／信用取引 ── 現物買い＋信用売りで優待は残るか</a><br>
-    <b>関連</b>　<a href="lecture_20260904.html">日銀が国債を買うと、世の中のお金は増えるのか</a>（自習・9/4。図2の出口Ⅲ）／<a href="lecture_20260901.html">予想との差だけが値段を動かす</a>（第5回。§7の式と「織り込み済み」）
+    <b>関連</b>　<a href="lecture_20260904.html">日銀が国債を買うと、世の中のお金は増えるのか</a>（自習・9/4。図4の出口Ⅲ）／<a href="lecture_20260901.html">予想との差だけが値段を動かす</a>（第5回。§7の式と「織り込み済み」）
   </div>
 </footer>
 
