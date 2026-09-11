@@ -22,7 +22,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
-| 夏期 第7回 | 2026-09-22 | 米国債・金利・ドル円・株の連関と、信用買いの仕組み（**第1部** §0で国債価格と金利の関係を割引現在価値から示し、実物（値段と借金の量）へ。**金利の推移を20年にとる**（米は4.7%→0.9%→4.9%と一周、日本は0%から3.0%へ）・ベッセントと日銀の年表・図7の矢印①〜⑤・日本が売る3つの入口・9/16 FOMC と 9/18 日銀の答え合わせ欄／**第2部** 信用買いの三者・追証と強制決済・現金の出入り・差金決済／現引き／信用倍率の使い方。図16枚） | [HTML](lectures/lecture_20260922.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260922.html) |
+| 夏期 第7回 | 2026-09-22 | 米国債・金利・ドル円・株の連関と、信用買いの仕組み（**第1部** §0で国債価格と金利の関係を割引現在価値から示し、実物（値段と借金の量）へ。**金利の推移を20年にとる**（米は4.7%→0.9%→4.9%と一周、日本は0%から3.0%へ）・ベッセントと日銀の年表・図7の矢印①〜⑤・日本が売る3つの入口・9/16 FOMC と 9/18 日銀の答え合わせ欄／**第2部** 信用買いの三者・追証と強制決済・現金の出入り・差金決済／現引き／信用倍率の使い方。図17枚） | [HTML](lectures/lecture_20260922.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260922.html) |
 | 夏期 第6回 | 2026-09-08 | 米中間選挙の現在地／信用取引 ── 現物買い＋信用売りで優待は残るか（冒頭に9/1の復習クイズ3問。**9/8 講義後に「答えが出なかった問い」23問を追記**） | [HTML](lectures/lecture_20260908.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260908.html) |
 | 自習資料 | 2026-09-04 配布 | 日銀が国債を買うと、世の中のお金は増えるのか ── 買いオペ・売りオペと信用創造（橘玲『プアジャパン』。問い1つ、答えなし。第6回 9/8 までに1行） | [HTML](lectures/lecture_20260904.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260904.html) |
 | 夏期 第5回 | 2026-09-01 | 予想との差だけが値段を動かす ── NVIDIAは買いか／Anthropicの上場／9月の中間決算 | [HTML](lectures/lecture_20260901.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260901.html) |

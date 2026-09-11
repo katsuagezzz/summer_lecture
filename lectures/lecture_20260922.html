@@ -267,10 +267,10 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   </ol>
   <div class="pt">第2部　信用買い</div>
   <ol start="11">
-    <li><a href="#s10">§10 信用買いの仕組み</a> <span class="s">投資家・証券会社・市場／図9</span></li>
-    <li><a href="#s11">§11 レバレッジ3.3倍の効果</a> <span class="s">株数・損益・追証／図10〜図12</span></li>
-    <li><a href="#s12">§12 3か月保有時の現金の出入り</a> <span class="s">買方金利／図13</span></li>
-    <li><a href="#s13">§13 信用買いの用途（4つ）</a> <span class="s">差金決済・現引き・信用残・二階建て／図14〜図16</span></li>
+    <li><a href="#s10">§10 信用買いの仕組み</a> <span class="s">投資家・証券会社・市場／図10</span></li>
+    <li><a href="#s11">§11 レバレッジ3.3倍の効果</a> <span class="s">株数・損益・追証／図11〜図13</span></li>
+    <li><a href="#s12">§12 3か月保有時の現金の出入り</a> <span class="s">買方金利／図14</span></li>
+    <li><a href="#s13">§13 信用買いの用途（4つ）</a> <span class="s">差金決済・現引き・信用残・二階建て／図15〜図17</span></li>
     <li><a href="#s14">§14 第2部の問い（Q7〜Q12）と宿題</a> <span class="s">当日の流れ</span></li>
   </ol>
 </nav>
@@ -649,7 +649,19 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
   <div class="twocol">
     <div class="card b"><div class="ch">払えないデフォルト</div><p>期日に金が無い状態。米国は<b>自国通貨建て</b>なので、制度上はドルを発行して払える。起きるとすれば<b>政治</b>。債務上限を上げずに払わない形。2011年にS&amp;P、2023年にフィッチ、2025年5月にムーディーズが格下げ。<b>3社とも最上位から外れている。</b></p></div>
-    <div class="card"><div class="ch">薄まるデフォルト</div><p>払うが、受け取ったドルの価値が減る。<b>インフレとドル安。</b>債権者から見れば「返ってきたが目減りした」。中国が金に替えているのはこちらへの備え。<b>市場が「米国のデフォルト」と言うときの9割はこれ。</b></p></div>
+    <div class="card"><div class="ch">薄まるデフォルト</div><p>払うが、受け取ったドルの価値が減る。<b>インフレとドル安。</b><b>名目の元本は満額支払われる。減るのは実質。</b>債権者から見れば「返ってきたが目減りした」状態。</p></div>
+  </div>
+
+  <div class="formula">
+    <code>10年後の100ドルの実質価値 ＝ 100 ÷（1 ＋ インフレ率）<sup>10</sup></code>
+    <span class="n">§0 の割引現在価値と同じ式。分子は契約で固定、分母だけが動く。</span>
+  </div>
+  <div class="fig">
+  <svg viewBox="0 0 900 260" role="img" aria-label="10年後に受け取る100ドルの実質価値。インフレ年2%・3%・5%の場合">
+    <path class="vl" d="M770,34 L770,242"/>
+    <text class="lab" x="138" y="72" text-anchor="end">名目（契約）</text><rect class="bar" x="150" y="48" width="620.0" height="34" rx="5" fill="var(--bridge)"/><text class="tick" x="780.0" y="70" text-anchor="start" style="font-weight:800">100.0ドル</text><text class="lab" x="138" y="120" text-anchor="end">インフレ 年2%</text><rect class="bar" x="150" y="96" width="508.4" height="34" rx="5" fill="var(--macro)"/><text class="tick" x="668.4" y="118" text-anchor="start" style="font-weight:800">82.0ドル</text><text class="lab" x="138" y="168" text-anchor="end">年3%</text><rect class="bar" x="150" y="144" width="461.3" height="34" rx="5" fill="var(--macro)"/><text class="tick" x="621.3" y="166" text-anchor="start" style="font-weight:800">74.4ドル</text><text class="lab" x="138" y="216" text-anchor="end">年5%</text><rect class="bar" x="150" y="192" width="380.7" height="34" rx="5" fill="var(--corp)"/><text class="tick" x="540.7" y="214" text-anchor="start" style="font-weight:800">61.4ドル</text>
+  </svg>
+  <div class="cap">図8　インフレ率を一定と仮定した計算例。名目の元本は満額支払われる。</div>
   </div>
 
   <h3>金利上昇と債務の連鎖、4つの出口</h3>
@@ -695,7 +707,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <text class="sm" x="782" y="240" text-anchor="middle" style="font-weight:800">Ⅳ 短期で借りて長期を買い戻す</text>
     <text class="sm" x="782" y="260" text-anchor="middle">ベッセントが今やっていること</text>
   </svg>
-  <div class="cap">図8　下の4つのうちどれを選ぶかで、損をする人が変わる。</div>
+  <div class="cap">図9　下の4つのうちどれを選ぶかで、損をする人が変わる。</div>
   </div>
 
   <h3>出口Ⅳ（ツイスト）の実施状況</h3>
@@ -807,7 +819,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <div class="view d"><div class="who">ムーディーズ<span class="when">2025年5月</span></div><p>米国をAaaからAa1へ。理由は「10年以上にわたる債務と利払い比率の上昇」。連邦債務はGDP比134%（2035年）に達しうる。</p></div>
   </div>
 
-  <p class="rel"><b>読み方</b>　「危ない」派（ダリオ・ドラッケンミラー）と「対処できる」派（ダイモン・ゴールドマン）の違いは、<b>図8の出口Ⅳが効くと思うかどうか</b>。判定の目安は、11/4までの買い戻し60億ドルで10年債が5%を割るかどうか。</p>
+  <p class="rel"><b>読み方</b>　「危ない」派（ダリオ・ドラッケンミラー）と「対処できる」派（ダイモン・ゴールドマン）の違いは、<b>図9の出口Ⅳが効くと思うかどうか</b>。判定の目安は、11/4までの買い戻し60億ドルで10年債が5%を割るかどうか。</p>
 </section>
 
 <!-- ===================== §9 ===================== -->
@@ -906,7 +918,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <text class="sm" x="30" y="248">返すとき：株を売る → 借りた70万円と金利を返す → 残りが自分のもの。売らずに70万円を入金して現物にすることもできる（現引き・§13）。</text>
     <text class="sm" x="30" y="30" style="font-weight:800">借りるのは「株」ではなく「お金」。第6回の空売りと、ここが逆になっている。</text>
   </svg>
-  <div class="cap">図9　持てる上限は、保証金率30%の決まりから来る。</div>
+  <div class="cap">図10　持てる上限は、保証金率30%の決まりから来る。</div>
   </div>
 </section>
 
@@ -936,7 +948,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <text class="sm" x="620" y="172" style="font-weight:800">同じ30万円で、株数は3.3倍になる。</text>
     <text class="sm" x="620" y="194">値動きの効き方も、そのまま3.3倍。</text>
   </svg>
-  <div class="cap">図10　保証金率30%が「3.3倍まで」の正体。</div>
+  <div class="cap">図11　保証金率30%が「3.3倍まで」の正体。</div>
   </div>
 
   <h3>株価と手元の損益</h3>
@@ -977,7 +989,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <rect class="labbg" x="700" y="146" width="128" height="20" rx="4"/>
     <text class="lab" x="764" y="160" text-anchor="middle" style="fill:var(--macro)">現物 300株</text>
   </svg>
-  <div class="cap">図11　信用の線が−30万円に届く700円が「元手が消える株価」。ただしその手前で強制決済される。</div>
+  <div class="cap">図12　信用の線が−30万円に届く700円が「元手が消える株価」。ただしその手前で強制決済される。</div>
   </div>
 
   <h3>維持率と追証</h3>
@@ -1012,7 +1024,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <text class="sm" x="442" y="218" text-anchor="middle">評価損 20万円</text>
 
   </svg>
-  <div class="cap">図12　緑が保証金の残り、灰色が評価損。<b>分母は買ったときの100万円で固定されている。</b></div>
+  <div class="cap">図13　緑が保証金の残り、灰色が評価損。<b>分母は買ったときの100万円で固定されている。</b></div>
   </div>
 
   <ol class="chain">
@@ -1057,7 +1069,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     </g>
     <text class="sm" x="30" y="268">金利は<tspan style="font-weight:800">持っている日数だけ</tspan>かかる。2日なら約150円、6か月の期限いっぱいなら約1万4,000円。</text>
   </svg>
-  <div class="cap">図13　設例。金利は 100万円 × 2.8% × 91 ÷ 365 で約6,980円。</div>
+  <div class="cap">図14　設例。金利は 100万円 × 2.8% × 91 ÷ 365 で約6,980円。</div>
   </div>
 
   <div class="twocol">
@@ -1102,7 +1114,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <circle cx="760" cy="210" r="9" fill="var(--corp)"/><text class="sm" x="760" y="196" text-anchor="middle">返す</text>
     <text class="sm" x="30" y="244">同じ1日のうちに何度でも。<tspan style="font-weight:800">短期売買をする人が信用買いを使う理由の多くは、レバレッジではなくこれである。</tspan></text>
   </svg>
-  <div class="cap">図14　横軸は同じ1日。現物の制限は「差金決済の禁止」から来ていて、資金量の問題ではない。</div>
+  <div class="cap">図15　横軸は同じ1日。現物の制限は「差金決済の禁止」から来ていて、資金量の問題ではない。</div>
   </div>
 
   <h3>用途③ 現引き</h3>
@@ -1128,7 +1140,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     </g>
     <text class="sm" x="30" y="180">権利を取りたいなら、<tspan style="font-weight:800">権利付最終日までに現引きを終えていること。</tspan>建玉のままでは、権利日をまたいでも優待は来ない。</text>
   </svg>
-  <div class="cap">図15　市場で売買しないので売買手数料はかからない。第6回で扱った現渡しの裏返し。</div>
+  <div class="cap">図16　市場で売買しないので売買手数料はかからない。第6回で扱った現渡しの裏返し。</div>
   </div>
 
   <div class="twocol">
@@ -1161,7 +1173,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
     <text class="sm" x="30" y="236">信用倍率 ＝ 6.53 ÷ 0.83 ＝ <tspan style="font-weight:800">7.91倍</tspan></text>
   </svg>
-  <div class="cap">図16　8/28時点。<b>売り残は買い残と信用倍率から割り戻した計算値で、公表値ではない。</b></div>
+  <div class="cap">図17　8/28時点。<b>売り残は買い残と信用倍率から割り戻した計算値で、公表値ではない。</b></div>
   </div>
 
   <p>倍率が高い銘柄は、少し上がるたびに<b>やれやれの売り</b>が出て上値が重い。売り残が多い銘柄は、上がると買い戻しが出て<b>踏み上げ</b>になる。第6回の「損に上限がない」はこれ。</p>
@@ -1182,7 +1194,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <p class="sub">Q7〜Q10は信用買いの中で閉じる。Q11・Q12は第1部の米国債につなぐ。</p>
 
   <ol class="q" start="7" style="counter-reset:qq 6">
-    <li><b>図11で、現物の線と信用の線が交わるのはどの株価か。そこでは何が等しいのか。</b><span class="hint">着地点　1,000円、損益ゼロ。金利を入れると信用の線は下へ平行移動し、交点は1,000円より上へ。<b>コストは傾きではなく、線の高さを動かす。</b></span></li>
+    <li><b>図12で、現物の線と信用の線が交わるのはどの株価か。そこでは何が等しいのか。</b><span class="hint">着地点　1,000円、損益ゼロ。金利を入れると信用の線は下へ平行移動し、交点は1,000円より上へ。<b>コストは傾きではなく、線の高さを動かす。</b></span></li>
     <li><b>「株価が3割下がると元手が消える」。では2割下がった時点で、何が起きているか。</b><span class="hint">着地点　維持率10%で強制決済。元手が消える前に切られる。<b>「待っていれば戻る」が使えないのが現物との差。</b></span></li>
     <li><b>第6回の空売りは「儲けの上限は売った値段まで、損に上限はない」だった。信用買いはどちらの向きか。1行で。</b><span class="hint">着地点　向きが逆。損の上限は建てた金額まで、儲けに上限なし。<b>ただし元手基準では3.3倍の速さで消える。</b></span></li>
     <li><b>第6回の優待クロスが「現物買い＋信用売り」で、「信用買い＋信用売り」ではないのはなぜか。</b><span class="hint">着地点　優待と議決権は現物にしか付かない。権利を取るには権利付最終日までの現引き。</span></li>
@@ -1202,7 +1214,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <li><span class="t">16:40</span><span class="c"><b>§2の図4〜図6と年表</b>（10分）。20年の形を見てから、8/19・9/9 の買い戻しのあと線がどちらを向いたかを見る</span></li>
     <li><span class="t">16:50</span><span class="c"><b>図7を口頭で再構成</b>（20分）。矢印を1本ずつ、誰が何を売って何を買ったかで言い直す</span></li>
     <li><span class="t">17:10</span><span class="c"><b>Q2〜Q4</b>（20分）。デフォルトの2種類、3つの入口、円高の3手段</span></li>
-    <li><span class="t">17:30</span><span class="c"><b>第2部 §10〜§12</b>（30分）。図9〜図13を、現金の出入りで言い直す。Q7・Q8</span></li>
+    <li><span class="t">17:30</span><span class="c"><b>第2部 §10〜§12</b>（30分）。図10〜図14を、現金の出入りで言い直す。Q7・Q8</span></li>
     <li><span class="t">18:00</span><span class="c"><b>第2部 §13 用途</b>（10分）。差金決済・現引き・信用倍率。Q9・Q10</span></li>
     <li><span class="t">18:10</span><span class="c"><b>Q11・Q12 と次回予告</b>（10分）。自分の1銘柄の倍率。9/29の権利落ちの実測を並べる</span></li>
   </ul>
@@ -1211,6 +1223,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 <footer>
   <h2>数字の扱いについて</h2>
   <ul>
+    <li><b>§4の図8は計算例。</b>インフレ率を一定と仮定し、100 ÷（1＋率）<sup>10</sup> で算出した。実際の物価上昇率は年ごとに違う。ドル安の分は含めていない。</li>
     <li><b>§0はすべて設例。</b>額面100円・1年割引債、100万円の現在価値（金利1%・3%・5%）、クーポン年2円・残存10年の利付債。<b>実在の銘柄ではない。</b>利付債は年1回払い・複利で計算し、価格は0.1円に丸めた（市場金利4%で83.78円→83.8円）。手数料・税・経過利子は入れていない。</li>
     <li><b>相場の数字は9/9〜9/10時点の報道ベース。</b>講義当日には動いている。一次情報は米財務省の利回りと各取引所の日々公表。</li>
     <li><b>借金40.1兆ドル・市中保有32.4兆ドル</b>　財務省「Debt to the Penny」9/8時点（一次）。<b>赤字1.9兆ドル・利払い1.0兆ドル・GDP比101%→120%はCBOの2026年2月推計。実績ではない。</b></li>
@@ -1242,7 +1255,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   </div>
   <div class="next">
     <b>前回（第6回・9/8）</b>　<a href="lecture_20260908.html">米中間選挙の現在地／信用取引 ── 現物買い＋信用売りで優待は残るか</a><br>
-    <b>関連</b>　<a href="lecture_20260904.html">日銀が国債を買うと、世の中のお金は増えるのか</a>（自習・9/4。図8の出口Ⅲ）／<a href="lecture_20260901.html">予想との差だけが値段を動かす</a>（第5回。§7の式と「織り込み済み」）
+    <b>関連</b>　<a href="lecture_20260904.html">日銀が国債を買うと、世の中のお金は増えるのか</a>（自習・9/4。図9の出口Ⅲ）／<a href="lecture_20260901.html">予想との差だけが値段を動かす</a>（第5回。§7の式と「織り込み済み」）
   </div>
 </footer>
 
