@@ -22,6 +22,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
+| 夏期 第7回 | 2026-09-22 | 米国債は「売られすぎ」で危ないのか ── 発行しすぎ・日本の売り・ドル円・金利・株を1枚の図でつなぐ（Xの投稿の検算・図1の矢印①〜⑤・日本が売る3つの入口・9/16 FOMC と 9/18 日銀の答え合わせ欄） | [HTML](lectures/lecture_20260922.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260922.html) |
 | 夏期 第6回 | 2026-09-08 | 米中間選挙の現在地／信用取引 ── 現物買い＋信用売りで優待は残るか（冒頭に9/1の復習クイズ3問。**9/8 講義後に「答えが出なかった問い」23問を追記**） | [HTML](lectures/lecture_20260908.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260908.html) |
 | 自習資料 | 2026-09-04 配布 | 日銀が国債を買うと、世の中のお金は増えるのか ── 買いオペ・売りオペと信用創造（橘玲『プアジャパン』。問い1つ、答えなし。第6回 9/8 までに1行） | [HTML](lectures/lecture_20260904.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260904.html) |
 | 夏期 第5回 | 2026-09-01 | 予想との差だけが値段を動かす ── NVIDIAは買いか／Anthropicの上場／9月の中間決算 | [HTML](lectures/lecture_20260901.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20260901.html) |
