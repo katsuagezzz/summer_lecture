@@ -169,9 +169,12 @@ nav.toc .pt.first{margin-top:0;}
 .hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
 .hw.t{border-top-color:var(--corp);}
 
-.tl{margin:12px 0 0; padding:0; list-style:none;}
-.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
-.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl{margin:14px 0 0; padding:2px 18px; list-style:none; background:var(--bg); border:1px solid var(--line); border-radius:11px;}
+.tl li{display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl li:last-child{border-bottom:none;}
+.tl .t{flex:0 0 84px; align-self:start; margin-top:1px; padding:3px 8px; border-radius:6px;
+  background:var(--note-bg); color:var(--ink2); font-weight:800; font-variant-numeric:tabular-nums;
+  font-size:12.5px; text-align:center; letter-spacing:.01em;}
 .tl .c{flex:1;}
 
 .st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em; padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
@@ -211,7 +214,9 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
   .hw{padding:16px 15px 18px;}
   .chk li{grid-template-columns:1fr; gap:4px;}
-  .tl li{flex-direction:column; gap:2px;}
+  .tl{padding:2px 14px;}
+  .tl li{flex-direction:column; align-items:flex-start; gap:5px;}
+  .tl .t{flex:0 0 auto;}
 }
 </style>
 </head>
