@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>講義資料 第7回｜2026年9月22日 米国債は「売られすぎ」で危ないのか ── 発行しすぎ・日本の売り・ドル円・金利・株を1枚の図でつなぐ</title>
+<title>講義資料 第7回｜2026年9月22日 米国債は「売られすぎ」で危ないのか／信用買い ── 手元30万円で100万円分を買うと、何が起きるか</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
@@ -151,6 +151,22 @@ p{margin:10px 0;}
 .fig .lab.c{fill:var(--corp);} .fig .lab.g{fill:var(--bridge);}
 .fig .labbg{fill:var(--bg); stroke:none;}
 
+/* ---------- 第2部の区切り ---------- */
+.parthead{margin:32px 0 18px; padding:15px 22px; background:var(--accent); color:var(--bg); border-radius:12px;}
+.parthead .pl{font-size:11.5px; letter-spacing:.2em; font-weight:800; opacity:.7;}
+.parthead h2{margin:3px 0 0; font-size:21px; line-height:1.45;}
+nav.toc .pt{font-size:11.5px; font-weight:800; letter-spacing:.1em; color:var(--ink3); margin:16px 0 7px;}
+nav.toc .pt.first{margin-top:0;}
+
+/* ---------- グラフの部品 ---------- */
+.fig .ax{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .gl{stroke:var(--line2); stroke-width:1; fill:none;}
+.fig .ln{fill:none; stroke-width:2.8; stroke-linejoin:round;}
+.fig .ln.a{stroke:var(--macro);} .fig .ln.b{stroke:var(--corp);}
+.fig .vl{stroke:var(--down); stroke-width:1.5; stroke-dasharray:5 4; fill:none;}
+.fig .tick{font-size:11.5px; fill:var(--ink3);}
+.fig .bar.g{fill:var(--bridge);} .fig .bar.c{fill:var(--corp);} .fig .bar.n{fill:var(--line);}
+
 .blank{display:inline-block; min-width:96px; border-bottom:2px dashed var(--q-line); margin:0 4px;}
 .fill{background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; padding:12px 16px; margin:10px 0; font-size:15px; line-height:2.1;}
 
@@ -163,6 +179,7 @@ p{margin:10px 0;}
 .hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
 .hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
 .hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hw.t{border-top-color:var(--corp);}
 
 .tl{margin:12px 0 0; padding:0; list-style:none;}
 .tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
@@ -225,23 +242,25 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 
 <header class="masthead">
   <div class="vol">LECTURE HANDOUT ／ 講義資料　夏期集中講座 第7回</div>
-  <h1 class="title">米国債は「売られすぎ」で危ないのか ── 発行しすぎ・日本の売り・ドル円・金利・株を1枚の図でつなぐ</h1>
+  <h1 class="title">米国債は「売られすぎ」で危ないのか／信用買い ── 手元30万円で100万円分を買うと、何が起きるか</h1>
   <div class="meta">
     <span><b>講義日</b>　2026年9月22日（火）16:20–18:20</span>
     <span><b>配布</b>　9月11日（金）</span>
-    <span><b>数字の時点</b>　9月10日（木）の終値ベース。9/16 FOMC・9/18 日銀会合の結果は§9の空欄に当日埋める</span>
+    <span><b>数字の時点</b>　9月10日（木）の終値ベース。信用残は8月28日時点。9/16 FOMC・9/18 日銀会合の結果は§9の空欄に当日埋める</span>
   </div>
   <div class="lede">
     <ul>
       <li>Xで「バフェットがドル崩壊を警告」「日本が米国債を投げ売りすれば大惨事」という投稿が回っている。<strong>投稿の7つの主張を1つずつ検算する。</strong>誇張が4つ、事実が2つ、確認できないものが1つ</li>
       <li>米国債・ドル円・金利・株は<strong>4つの値段が1本の輪でつながっている</strong>。図1の矢印①〜⑤で、2026年夏に実際に起きた順番をたどる</li>
       <li>「日本はいつ米国債を売らざるを得なくなるか」には<strong>3つの入口</strong>がある。1つはこの8月にもう起きた。<strong>円高は売りを止める策ではなく、むしろ売りの原因</strong>になる</li>
+      <li>第2部は<strong>信用買い</strong>。第6回で扱った空売りの裏返しで、借りるのは株ではなくお金。手元30万円で100万円分を買うと、<strong>1割下げただけで追証、2割で強制決済</strong>になる</li>
     </ul>
   </div>
 </header>
 
 <nav class="toc">
   <h2>目次</h2>
+  <div class="pt first">第1部　米国債・ドル円・金利・株</div>
   <ol>
     <li><a href="#s0">§0 まず実物 ── 9月10日の9つの値段</a></li>
     <li><a href="#s1">§1 Xの投稿を検算する</a> <span class="s">7つの主張、4つの判定</span></li>
@@ -252,9 +271,22 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <li><a href="#s6">§6 円高は「日本に米国債を売らせないための策」なのか</a></li>
     <li><a href="#s7">§7 株式市場の行方 ── 金利は株の分母に入る</a></li>
     <li><a href="#s8">§8 世界の識者・投資家は何を言っているか</a> <span class="s">日付つきで11人</span></li>
-    <li><a href="#s9">§9 答え合わせ欄と問い</a> <span class="s">9/16・9/18 の空欄／宿題は1行</span></li>
+    <li><a href="#s9">§9 答え合わせ欄と問い</a> <span class="s">9/16・9/18 の空欄／Q1〜Q6</span></li>
+  </ol>
+  <div class="pt">第2部　信用買い</div>
+  <ol start="11">
+    <li><a href="#s10">§10 7兆円は、誰が借りて買った株か</a> <span class="s">信用買いの三者／図3</span></li>
+    <li><a href="#s11">§11 3倍で買うと何が変わるか</a> <span class="s">株数・損益・追証／図4〜図6</span></li>
+    <li><a href="#s12">§12 3か月持ったときの、現金の出入り</a> <span class="s">金利というコスト／図7</span></li>
+    <li><a href="#s13">§13 実際の使い方</a> <span class="s">差金決済・現引き・信用倍率・二階建て／図8〜図10</span></li>
+    <li><a href="#s14">§14 第2部の問いと宿題</a> <span class="s">Q7〜Q12／当日の流れ</span></li>
   </ol>
 </nav>
+
+<div class="parthead">
+  <div class="pl">PART 1</div>
+  <h2>第1部　米国債は「売られすぎ」で危ないのか ── 4つの値段を1本の輪でつなぐ</h2>
+</div>
 
 <!-- ===================== §0 ===================== -->
 <section class="topic" id="s0">
@@ -628,18 +660,377 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   </ol>
 
   <div class="hw">
-    <div class="hwtime">宿題 ── 提出は 9/22（火）12:00 まで、HTMLで</div>
+    <div class="hwtime">第1部の宿題 ── 提出は 9/22（火）12:00 まで、HTMLで</div>
     <div class="hwttl">図1の矢印①〜⑤のうち、9/16〜9/18で実際に動いた矢印を1本選び、動いた数字を一次情報の在り処つきで1行。</div>
+  </div>
+
+</section>
+
+<div class="parthead">
+  <div class="pl">PART 2</div>
+  <h2>第2部　信用買い ── 手元30万円で100万円分を買うと、何が起きるか</h2>
+</div>
+
+<!-- ===================== §10 ===================== -->
+<section class="topic" id="s10">
+  <span class="badge corp">§10 実物</span>
+  <h2 class="thead">7兆円は、誰が借りて買った株か ── 信用買いの三者</h2>
+  <p class="sub">第6回（9/8）で扱ったのは信用<b>売り</b>だった。残りの半分をここで埋める。まず実物の数字から。</p>
+
+  <div class="kpis">
+    <div class="kpi c"><div class="k">東証の信用買い残</div><div class="v">6.53兆円</div><div class="n">8/28時点。6/26に7兆1,670億円で1994年以降の最高<span class="tag">一次（JPX）・報道</span></div></div>
+    <div class="kpi c"><div class="k">信用倍率</div><div class="v">7.91倍</div><div class="n">買い残 ÷ 売り残。売り残は約0.83兆円（割り算で出した計算値）<span class="tag">解説・計算値</span></div></div>
+    <div class="kpi m"><div class="k">最低保証金</div><div class="v">30万円</div><div class="n">かつ建玉の30%以上。法令と取引所の決まり<span class="tag">一次</span></div></div>
+    <div class="kpi m"><div class="k">買方金利</div><div class="v">年2.3〜3.1%</div><div class="n">制度信用・主要ネット証券の例。会社によって違う<span class="tag">解説</span></div></div>
+  </div>
+
+  <p>この6.53兆円は、<b>誰かが証券会社からお金を借りて買った株</b>である。自分の現金で買った株はここに入らない。6月末に過去最高を付けたときは、AI・半導体関連が中心だったと報じられている。<b>「株を買っている人」の中に、借りて買っている人がこれだけいる</b>という事実から始める。</p>
+
+  <h3>信用買いとは ── お金を借りて、株を買う</h3>
+  <p>第6回の信用売りは「<b>株</b>を借りて売り、あとで買い戻して返す」だった。信用買いは向きが1つずれる。<b>借りるのは株ではなく、お金</b>。買った株はそのまま証券会社に担保として預かられる。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 280" role="img" aria-label="投資家・証券会社・市場の三者で、お金を借りて株を買う流れの図">
+    <defs>
+      <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+      </marker>
+    </defs>
+    <rect class="box g" x="30" y="90" width="200" height="100" rx="12"/>
+    <text class="ttl" x="130" y="126" text-anchor="middle">あなた</text>
+    <text class="sm" x="130" y="150" text-anchor="middle">手元の現金 30万円</text>
+    <text class="sm" x="130" y="170" text-anchor="middle">＝ 委託保証金</text>
+
+    <rect class="box c" x="350" y="90" width="200" height="100" rx="12"/>
+    <text class="ttl" x="450" y="126" text-anchor="middle">証券会社</text>
+    <text class="sm" x="450" y="150" text-anchor="middle">70万円を貸す</text>
+    <text class="sm" x="450" y="170" text-anchor="middle">買った株を担保に預かる</text>
+
+    <rect class="box m" x="670" y="90" width="200" height="100" rx="12"/>
+    <text class="ttl" x="770" y="126" text-anchor="middle">市場</text>
+    <text class="sm" x="770" y="150" text-anchor="middle">1,000円の株を</text>
+    <text class="sm" x="770" y="170" text-anchor="middle">1,000株 ＝ 100万円</text>
+
+    <g style="color:var(--ink2)">
+      <path class="ar" d="M230,120 L350,120" marker-end="url(#ah3)"/>
+      <path class="ar" d="M550,120 L670,120" marker-end="url(#ah3)"/>
+      <path class="ar" d="M670,165 L550,165" marker-end="url(#ah3)"/>
+    </g>
+    <circle class="num" cx="290" cy="120" r="13"/><text class="numt" x="290" y="124.5" text-anchor="middle">①</text>
+    <circle class="num" cx="610" cy="120" r="13"/><text class="numt" x="610" y="124.5" text-anchor="middle">②</text>
+    <circle class="num" cx="610" cy="165" r="13"/><text class="numt" x="610" y="169.5" text-anchor="middle">③</text>
+    <rect class="labbg" x="236" y="56" width="110" height="22" rx="4"/>
+    <text class="lab" x="291" y="71" text-anchor="middle">保証金を預ける</text>
+    <rect class="labbg" x="556" y="56" width="118" height="22" rx="4"/>
+    <text class="lab" x="615" y="71" text-anchor="middle">100万円分を買う</text>
+    <rect class="labbg" x="556" y="196" width="118" height="22" rx="4"/>
+    <text class="lab" x="615" y="211" text-anchor="middle">株は担保に回る</text>
+
+    <text class="sm" x="30" y="248">返すとき：株を売る → 借りた70万円と金利を返す → 残りが自分のもの。売らずに70万円を入金して現物にすることもできる（現引き・§13）。</text>
+    <text class="sm" x="30" y="30" style="font-weight:800">借りるのは「株」ではなく「お金」。第6回の空売りと、ここが逆になっている。</text>
+  </svg>
+  <div class="cap">図3　信用買いの三者。保証金30万円に対して建玉100万円まで持てる。持てる上限は保証金率30%の決まりから来る。</div>
+  </div>
+
+  <div class="ana"><span class="lb">たとえ</span>文化祭の前売り券を、1枚1,000円で300枚買うつもりだった。友達に70万円立て替えてもらい、1,000枚買う。当日値上がりすれば3倍以上うれしい。<b>値下がりしても、友達に返す70万円は1円も減らない。</b></div>
+</section>
+
+<!-- ===================== §11 ===================== -->
+<section class="topic" id="s11">
+  <span class="badge corp">§11 レバレッジ</span>
+  <h2 class="thead">3倍で買うと何が変わるか ── 株数・損益・追証</h2>
+  <p class="sub">以下はすべて<b>設例</b>である。手元30万円、株価1,000円、保証金率30%ちょうど。実際の証券会社は余裕を見るので満額は建てられない。</p>
+
+  <h3>1. 買える株数</h3>
+  <div class="fig">
+  <svg viewBox="0 0 900 250" role="img" aria-label="同じ30万円で現物は300株、信用買いは1000株買えることを示す棒の図">
+    <text class="lab" x="30" y="38">現物買い</text>
+    <rect class="bar g" x="30" y="50" width="120" height="46" rx="5"/>
+    <text class="sm" x="90" y="78" text-anchor="middle" style="fill:var(--bg); font-weight:800">自己資金 30万円</text>
+    <text class="ttl" x="170" y="80">＝ 300株</text>
+
+    <text class="lab" x="30" y="146">信用買い</text>
+    <rect class="bar g" x="30" y="158" width="120" height="46" rx="5"/>
+    <text class="sm" x="90" y="186" text-anchor="middle" style="fill:var(--bg); font-weight:800">保証金 30万円</text>
+    <rect class="bar c" x="152" y="158" width="280" height="46" rx="5"/>
+    <text class="sm" x="292" y="186" text-anchor="middle" style="fill:var(--bg); font-weight:800">証券会社から借りる 70万円</text>
+    <text class="ttl" x="450" y="188">＝ 1,000株</text>
+
+    <path class="ar" d="M30,222 L432,222" style="color:var(--ink3)" stroke-dasharray="4 4"/>
+    <text class="sm" x="231" y="242" text-anchor="middle">建玉 100万円　＝　保証金 30万円 ÷ 30%</text>
+    <text class="sm" x="620" y="172" style="font-weight:800">同じ30万円で、株数は3.3倍になる。</text>
+    <text class="sm" x="620" y="194">値動きの効き方も、そのまま3.3倍。</text>
+  </svg>
+  <div class="cap">図4　保証金率30%が「3.3倍まで」の正体。30万円÷0.3＝100万円が建てられる上限になる。</div>
+  </div>
+
+  <h3>2. 株価が動いたとき、手元はどうなるか</h3>
+  <div class="fig">
+  <svg viewBox="0 0 900 400" role="img" aria-label="株価700円から1300円までの範囲で、現物300株と信用1000株の損益を比べた折れ線グラフ">
+    <!-- grid -->
+    <path class="gl" d="M90,50 L830,50 M90,115 L830,115 M90,180 L830,180 M90,245 L830,245 M90,310 L830,310"/>
+    <path class="ax" d="M90,50 L90,310"/>
+    <path class="ax" d="M90,180 L830,180"/>
+    <!-- y ticks -->
+    <text class="tick" x="82" y="54" text-anchor="end">＋30万</text>
+    <text class="tick" x="82" y="119" text-anchor="end">＋15万</text>
+    <text class="tick" x="82" y="184" text-anchor="end">0</text>
+    <text class="tick" x="82" y="249" text-anchor="end">−15万</text>
+    <text class="tick" x="82" y="314" text-anchor="end">−30万</text>
+    <text class="tick" x="30" y="34" style="font-weight:800">手元の損益</text>
+    <!-- x ticks -->
+    <text class="tick" x="90" y="330" text-anchor="middle">700円</text>
+    <text class="tick" x="213" y="330" text-anchor="middle">800円</text>
+    <text class="tick" x="337" y="330" text-anchor="middle">900円</text>
+    <text class="tick" x="460" y="330" text-anchor="middle">1,000円</text>
+    <text class="tick" x="583" y="330" text-anchor="middle">1,100円</text>
+    <text class="tick" x="830" y="330" text-anchor="middle">1,300円</text>
+    <text class="tick" x="830" y="350" text-anchor="end" style="font-weight:800">返済したときの株価</text>
+    <!-- vertical markers -->
+    <path class="vl" d="M337,50 L337,310"/>
+    <path class="vl" d="M213,50 L213,310"/>
+    <rect class="labbg" x="282" y="58" width="110" height="20" rx="4"/>
+    <text class="lab c" x="337" y="72" text-anchor="middle">900円で追証</text>
+    <rect class="labbg" x="150" y="84" width="126" height="20" rx="4"/>
+    <text class="lab c" x="213" y="98" text-anchor="middle">800円で強制決済</text>
+    <!-- lines -->
+    <polyline class="ln b" points="90,310 460,180 830,50"/>
+    <polyline class="ln a" points="90,219 460,180 830,141"/>
+    <!-- labels -->
+    <rect class="labbg" x="700" y="88" width="128" height="20" rx="4"/>
+    <text class="lab" x="764" y="102" text-anchor="middle" style="fill:var(--corp)">信用 1,000株</text>
+    <rect class="labbg" x="700" y="146" width="128" height="20" rx="4"/>
+    <text class="lab" x="764" y="160" text-anchor="middle" style="fill:var(--macro)">現物 300株</text>
+    <text class="sm" x="90" y="378">1割上がれば現物は＋3万円、信用は＋10万円。1割下がれば現物は−3万円、信用は−10万円。<tspan style="font-weight:800">手元30万円に対して、上も下も3.3倍で効く。</tspan></text>
+  </svg>
+  <div class="cap">図5　同じ株の同じ値動きでも、傾きが3.3倍違う。信用の線が−30万円に届く700円が「元手が消える株価」。ただしその手前で強制決済される。</div>
+  </div>
+
+  <h3>3. 追証は、元手が消える前にやってくる</h3>
+  <div class="formula">
+    <code>維持率 ＝（保証金 − 建玉の評価損）÷ 建玉の約定代金</code>
+    <span class="n">分母は買ったときの100万円で固定。分子だけが評価損で削られていく。<b>20%を割ると追証、10%を割ると強制決済</b>（会社によって違う）。</span>
+  </div>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="株価1000円900円800円での維持率30パーセント20パーセント10パーセントを示す棒の図">
+    <!-- threshold lines -->
+    <path class="vl" d="M440,42 L440,250"/>
+    <path class="vl" d="M280,42 L280,250"/>
+    <text class="lab c" x="440" y="34" text-anchor="middle">20% 追証</text>
+    <text class="lab c" x="280" y="34" text-anchor="middle">10% 強制決済</text>
+    <path class="ax" d="M120,42 L120,250"/>
+
+    <text class="lab" x="30" y="76">1,000円</text>
+    <rect class="bar g" x="120" y="56" width="480" height="34" rx="5"/>
+    <text class="sm" x="360" y="78" text-anchor="middle" style="fill:var(--bg); font-weight:800">保証金 30万円　→　維持率 30%</text>
+
+    <text class="lab" x="30" y="146">900円</text>
+    <rect class="bar g" x="120" y="126" width="320" height="34" rx="5"/>
+    <text class="sm" x="280" y="148" text-anchor="middle" style="fill:var(--bg); font-weight:800">残り 20万円　→　20%</text>
+    <rect class="bar n" x="444" y="126" width="156" height="34" rx="5"/>
+    <text class="sm" x="522" y="148" text-anchor="middle">評価損 10万円</text>
+
+    <text class="lab" x="30" y="216">800円</text>
+    <rect class="bar g" x="120" y="196" width="160" height="34" rx="5"/>
+    <text class="sm" x="200" y="218" text-anchor="middle" style="fill:var(--bg); font-weight:800">残り 10万円 → 10%</text>
+    <rect class="bar n" x="284" y="196" width="316" height="34" rx="5"/>
+    <text class="sm" x="442" y="218" text-anchor="middle">評価損 20万円</text>
+
+    <text class="sm" x="30" y="278">株価がたった1割下がっただけで、維持率は30%から20%へ落ちて追証になる。<tspan style="font-weight:800">分母は100万円のまま動かないので、削られ方が速い。</tspan></text>
+  </svg>
+  <div class="cap">図6　緑が保証金の残り、灰色が評価損。1,000円から900円への1割の下げが、維持率では30%→20%の下げになる。</div>
+  </div>
+
+  <ol class="chain">
+    <li><b>株価が900円になる。</b>評価損10万円。維持率20%。この時点で追証が発生する。</li>
+    <li><b>期限までに現金を追加する。</b>入れれば建玉は維持できる。入れられなければ次へ。</li>
+    <li><b>入れられなければ、証券会社が建玉を決済する。</b>自分の判断ではない。800円まで下げると維持率10%で、請求なしに切られることもある。</li>
+    <li><b>「待っていれば戻る」が使えない。</b>現物なら塩漬けにして待てる。信用買いは、待つ前に切られる。<b>これが現物との最大の違い。</b></li>
+  </ol>
+
+  <div class="ana"><span class="lb">たとえ</span>親に70万円立て替えてもらって前売り券を買った。券の値段が1割下がった時点で、親が「担保が足りない、今すぐ足すか、今すぐ売れ」と言う。<b>自分は「そのうち戻る」と思っていても、決めるのは親のほう。</b></div>
+</section>
+
+<!-- ===================== §12 ===================== -->
+<section class="topic" id="s12">
+  <span class="badge bridge">§12 コスト</span>
+  <h2 class="thead">3か月持ったときの、現金の出入り</h2>
+  <p class="sub">第6回の信用売りでは、貸株料と逆日歩がコストだった。信用買いのコストは<b>金利</b>である。3か月持って1,100円で返済した場合を、入ってくる／出ていく／残る、で並べる。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="信用買いを3か月持って返済したときの入金・出金・残りを示す図">
+    <rect class="box g" x="30" y="50" width="250" height="180" rx="12"/>
+    <text class="ttl" x="155" y="86" text-anchor="middle">入ってくる</text>
+    <text class="sm" x="155" y="122" text-anchor="middle">1,100円 × 1,000株</text>
+    <text class="ttl" x="155" y="152" text-anchor="middle">110万円</text>
+    <text class="sm" x="155" y="184" text-anchor="middle">配当があれば</text>
+    <text class="sm" x="155" y="204" text-anchor="middle">配当落調整金も受け取る</text>
+
+    <rect class="box c" x="325" y="50" width="250" height="180" rx="12"/>
+    <text class="ttl" x="450" y="86" text-anchor="middle">出ていく</text>
+    <text class="sm" x="450" y="122" text-anchor="middle">買った代金</text>
+    <text class="ttl" x="450" y="150" text-anchor="middle">100万円</text>
+    <text class="sm" x="450" y="182" text-anchor="middle">金利 年2.8% × 91日</text>
+    <text class="ttl" x="450" y="210" text-anchor="middle">約7,000円</text>
+
+    <rect class="box m" x="620" y="50" width="250" height="180" rx="12"/>
+    <text class="ttl" x="745" y="86" text-anchor="middle">残る</text>
+    <text class="ttl" x="745" y="128" text-anchor="middle" style="font-size:26px">約9万3,000円</text>
+    <text class="sm" x="745" y="162" text-anchor="middle">手元30万円に対して ＋31%</text>
+    <text class="sm" x="745" y="192" text-anchor="middle">現物300株なら ＋3万円</text>
+    <text class="sm" x="745" y="212" text-anchor="middle">＝ ＋10%</text>
+
+    <g style="color:var(--ink2)">
+      <path class="ar" d="M280,140 L325,140" marker-end="url(#ah3)"/>
+      <path class="ar" d="M575,140 L620,140" marker-end="url(#ah3)"/>
+    </g>
+    <text class="sm" x="30" y="266">金利は<tspan style="font-weight:800">持っている日数だけ</tspan>かかる。2日なら約150円、91日なら約7,000円、6か月の期限いっぱいなら約1万4,000円。</text>
+    <text class="sm" x="30" y="288">上がると読んでいても、<tspan style="font-weight:800">いつ上がるかを外すと、金利の分だけ負ける。</tspan>第6回の貸株料と同じ形。</text>
+  </svg>
+  <div class="cap">図7　1,000円で1,000株を建て、3か月後に1,100円で返済した設例。金利は 100万円 × 2.8% × 91 ÷ 365 で約6,980円。</div>
+  </div>
+
+  <div class="twocol">
+    <div class="card"><div class="ch">現物買いのコスト</div><p>売買手数料だけ。持っている間は0円。だから<b>何年でも待てる</b>。配当は全額もらえ、優待も議決権も付く。</p></div>
+    <div class="card b"><div class="ch">信用買いのコスト</div><p>買方金利が毎日かかる。制度信用は<b>6か月で強制的に終わる</b>。配当は配当落調整金として制度信用では84.685%が入り、<b>優待と議決権は付かない</b>。</p></div>
+  </div>
+
+  <p>第6回で、信用<b>売り</b>をしている人は配当落調整金を<b>払う</b>側だった。信用<b>買い</b>をしている人は<b>受け取る</b>側にいる。<b>払った人から受け取る人へ、同じお金が渡っている。</b>優待クロスで現物と信用売りを両方持つと、この2つが自分の中で相殺される。</p>
+
+  <div class="ana"><span class="lb">たとえ</span>合宿費を親に立て替えてもらい、バイト代が入るまで日割りで利息を払う。合宿が楽しかったかどうかとは別に、<b>立て替えが長引いた日数分だけ、利息は確実に減っていく。</b></div>
+</section>
+
+<!-- ===================== §13 ===================== -->
+<section class="topic" id="s13">
+  <span class="badge corp">§13 使い方</span>
+  <h2 class="thead">実際の使い方 ── レバレッジのほかに3つある</h2>
+  <p class="sub">教科書には「3倍買える」しか書いていないことが多い。実務で使われているのは、むしろ残りの3つである。</p>
+
+  <h3>使い方① 3倍で買う</h3>
+  <p>§11・§12のとおり。上も下も3.3倍で効き、1割下げれば追証、2割下げれば強制決済。<b>読みが当たる確率だけでなく、当たるまでの時間も当てないと使えない。</b>初心者がまず損をするのがこの使い方である。</p>
+
+  <h3>使い方② 同じお金で、1日に何度も回す</h3>
+  <p>現物には<b>差金決済の禁止</b>という決まりがある。同じ受渡日に同じお金で同じ銘柄を売り買いすると、実際の受け渡しを伴わない差額だけの決済になるので、金融商品取引法でこれを禁じている。だから<b>現物では、同じ資金で同じ銘柄は1日に1往復まで</b>。信用取引にはこの制限がない。保証金という担保を先に預けているからである。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 260" role="img" aria-label="現物は1日1往復まで、信用は同じ資金で何度も回せることを示すタイムラインの図">
+    <text class="lab" x="30" y="42">現物　100万円</text>
+    <path class="ax" d="M30,90 L860,90"/>
+    <circle cx="120" cy="90" r="9" fill="var(--bridge)"/><text class="sm" x="120" y="76" text-anchor="middle">買う</text>
+    <circle cx="300" cy="90" r="9" fill="var(--corp)"/><text class="sm" x="300" y="76" text-anchor="middle">売る</text>
+    <text class="sm" x="480" y="95" style="font-weight:800">ここで打ち止め。次にこの資金が使えるのは2営業日後。</text>
+
+    <text class="lab" x="30" y="162">信用　保証金100万円</text>
+    <path class="ax" d="M30,210 L860,210"/>
+    <circle cx="120" cy="210" r="9" fill="var(--bridge)"/><text class="sm" x="120" y="196" text-anchor="middle">買う</text>
+    <circle cx="240" cy="210" r="9" fill="var(--corp)"/><text class="sm" x="240" y="196" text-anchor="middle">返す</text>
+    <circle cx="380" cy="210" r="9" fill="var(--bridge)"/><text class="sm" x="380" y="196" text-anchor="middle">買う</text>
+    <circle cx="500" cy="210" r="9" fill="var(--corp)"/><text class="sm" x="500" y="196" text-anchor="middle">返す</text>
+    <circle cx="640" cy="210" r="9" fill="var(--bridge)"/><text class="sm" x="640" y="196" text-anchor="middle">買う</text>
+    <circle cx="760" cy="210" r="9" fill="var(--corp)"/><text class="sm" x="760" y="196" text-anchor="middle">返す</text>
+    <text class="sm" x="30" y="244">同じ1日のうちに何度でも。<tspan style="font-weight:800">短期売買をする人が信用買いを使う理由の多くは、レバレッジではなくこれである。</tspan></text>
+  </svg>
+  <div class="cap">図8　上が現物、下が信用。横軸は同じ1日。現物の制限は「差金決済の禁止」から来ていて、資金量の問題ではない。</div>
+  </div>
+
+  <h3>使い方③ 現引き ── 信用で押さえて、あとで現物にする</h3>
+  <p><b>現引き</b>とは、買い建てた株を売って差額を受け取るのではなく、<b>自分の現金を入れて株そのものを引き取ること</b>。多くの証券会社で手数料は無料である。使う場面は2つ。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 200" role="img" aria-label="信用で買い建てた株に現金を入れて現物株にする現引きの3段階の図">
+    <rect class="box c" x="30" y="50" width="230" height="90" rx="12"/>
+    <text class="ttl" x="145" y="86" text-anchor="middle">信用の買い建玉</text>
+    <text class="sm" x="145" y="112" text-anchor="middle">優待も議決権も付かない</text>
+
+    <rect class="box g" x="335" y="50" width="230" height="90" rx="12"/>
+    <text class="ttl" x="450" y="86" text-anchor="middle">70万円を入金</text>
+    <text class="sm" x="450" y="112" text-anchor="middle">借りていた分を返す</text>
+
+    <rect class="box m" x="640" y="50" width="230" height="90" rx="12"/>
+    <text class="ttl" x="755" y="86" text-anchor="middle">現物株 1,000株</text>
+    <text class="sm" x="755" y="112" text-anchor="middle">優待も議決権も付く</text>
+
+    <g style="color:var(--ink2)">
+      <path class="ar" d="M260,95 L335,95" marker-end="url(#ah3)"/>
+      <path class="ar" d="M565,95 L640,95" marker-end="url(#ah3)"/>
+    </g>
+    <text class="sm" x="30" y="180">権利を取りたいなら、<tspan style="font-weight:800">権利付最終日までに現引きを終えていること。</tspan>建玉のままでは、権利日をまたいでも優待は来ない。</text>
+  </svg>
+  <div class="cap">図9　現引き。市場で売買するわけではないので売買手数料はかからない。第6回で扱った現渡しの、ちょうど裏返し。</div>
+  </div>
+
+  <div class="twocol">
+    <div class="card b"><div class="ch">場面1　入金が間に合わない</div><p>買いたい株が今日ある。現金は3日後に入る。信用で先に押さえ、入金してから現引きする。<b>値段を今日で固定できる。</b></p></div>
+    <div class="card"><div class="ch">場面2　権利を取りに行く</div><p>優待・議決権は現物にしか付かない。建玉のままでは取れないので、権利付最終日までに現引きして現物にする。</p></div>
+  </div>
+
+  <p><b>第6回の優待クロスに、信用買いが出てこなかった理由がここにある。</b>あのとき組んだのは「現物買い＋信用売り」だった。優待は現物にしか付かないので、<b>買う側は現物でなければならない</b>。信用買いと信用売りを組み合わせても、値動きは消せるが優待は1つも手に入らない。</p>
+
+  <h3>使い方④ 自分では使わず、他人の信用買いを読む</h3>
+  <p>信用で買った株は、<b>いつか必ず売られる</b>。期限が6か月あるからである。だから信用買い残は「<b>将来の売り注文の予約表</b>」として読める。売り残はその逆で、将来の買い注文にあたる。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 250" role="img" aria-label="信用買い残6.53兆円と売り残0.83兆円を比べ、買い残が将来の売り圧力になることを示す図">
+    <text class="lab" x="30" y="50">信用買い残　6.53兆円</text>
+    <rect class="bar c" x="30" y="62" width="700" height="44" rx="5"/>
+    <text class="sm" x="380" y="90" text-anchor="middle" style="fill:var(--bg); font-weight:800">いつか売られる株</text>
+    <g style="color:var(--corp)">
+      <path class="ar" d="M740,84 L830,84" marker-end="url(#ah3)"/>
+    </g>
+    <text class="lab c" x="786" y="72" text-anchor="middle">売り</text>
+
+    <text class="lab" x="30" y="150">信用売り残　約0.83兆円</text>
+    <rect class="bar g" x="30" y="162" width="89" height="44" rx="5"/>
+    <g style="color:var(--bridge)">
+      <path class="ar g" d="M129,184 L219,184" marker-end="url(#ah3)"/>
+    </g>
+    <text class="lab g" x="175" y="172" text-anchor="middle">買い</text>
+    <text class="sm" x="240" y="190">いつか買い戻される株</text>
+
+    <text class="sm" x="30" y="236">信用倍率 ＝ 6.53 ÷ 0.83 ＝ <tspan style="font-weight:800">7.91倍</tspan>　買い残が売り残の約8倍。将来の売り予約が、買い予約の8倍たまっている。</text>
+  </svg>
+  <div class="cap">図10　8/28時点。売り残は買い残と信用倍率から割り戻した計算値。倍率が高いほど「上値が重い」と言われる。</div>
+  </div>
+
+  <p>信用倍率が高い銘柄は、株価が少し上がるたびに<b>やれやれの売り</b>が出て、上値が重くなりやすい。逆に売り残が多い銘柄は、上がると買い戻しが出て<b>踏み上げ</b>になることがある。第6回の空売りが「損に上限がない」と言ったのは、この踏み上げのことである。</p>
+  <p><b>ただし需給は材料の1つにすぎない。</b>第4回の内在価値、第5回の予想との差と並べて、3つ目の物差しとして置く。</p>
+
+  <h3>やってはいけない形 ── 二階建て</h3>
+  <p>信用取引の保証金は、現金でなくても<b>持っている株を代用</b>として差し入れられる。このとき、<b>代用にしている株と、信用で買う株が同じ銘柄</b>だと「二階建て」になる。株価が下がると、建玉の評価損と担保の目減りが同時に起きるので、維持率が2倍の速さで悪化する。取引所は過熱した銘柄を<b>日々公表銘柄</b>として毎日残高を公表し、それでも収まらなければ<b>増担保規制</b>で保証金率を30%から50%や60%へ引き上げる。</p>
+
+  <div class="ana"><span class="lb">たとえ</span>同じ1つの前売り券を、担保にも買う対象にも使う。値下がりすると「担保が減った」と「買った券が値下がりした」が同時に起き、<b>2つの穴が同じ方向に開く。</b></div>
+</section>
+
+<!-- ===================== §14 ===================== -->
+<section class="topic" id="s14">
+  <span class="badge word">§14 第2部の問い</span>
+  <h2 class="thead">第2部の問いと宿題</h2>
+  <p class="sub">Q7〜Q10は信用買いの中だけで閉じる。Q11・Q12は第1部の米国債につなぐ。</p>
+
+  <ol class="q" start="7" style="counter-reset:qq 6">
+    <li><b>図5で、現物の線と信用の線が交わるのはどの株価か。そこでは何が等しいのか。</b><span class="hint">着地点：1,000円、損益ゼロ。ただし金利を入れると信用の線は下に平行移動するので、交点は1,000円より上にずれる。<b>コストは傾きではなく、線の高さを動かす。</b></span></li>
+    <li><b>「株価が3割下がると元手が消える」。では2割下がった時点で、何が起きているか。</b><span class="hint">着地点：維持率10%で強制決済。元手が消える前に証券会社が切る。<b>「待っていれば戻る」が使えないのが現物との差。</b></span></li>
+    <li><b>第6回の空売りは「儲けの上限は売った値段まで、損に上限はない」だった。信用買いはどちらの向きか。1行で。</b><span class="hint">着地点：向きが逆。損の上限は建てた金額まで、儲けに上限はない。<b>ただし手元の元手を基準にすると、3.3倍の速さで消える。</b></span></li>
+    <li><b>第6回の優待クロスが「現物買い＋信用売り」で、「信用買い＋信用売り」ではないのはなぜか。</b><span class="hint">着地点：優待と議決権は現物にしか付かない。信用買いで権利を取るには、権利付最終日までに現引きが要る。</span></li>
+    <li><b>信用倍率7.91倍は、自分の持ち株にとって追い風か逆風か。</b>自分の1銘柄の倍率を調べて答える。<span class="hint">着地点：買い残＝将来の売り。倍率が高いほど上値が重い。「日本株全体が」ではなく「自分の1銘柄が」で答える。</span></li>
+    <li><b>第1部の図1に、信用買いの矢印を1本足すとしたら、どこからどこへ引くか。</b><span class="hint">着地点：金利↑は米国株の分母を上げる（矢印④）だけでなく、<b>借りて買っている人のコストも上げる</b>。日銀が利上げすれば買方金利も上がり、信用買い残は減る方向に向かう。<b>マクロの金利と、自分の口座の金利が同じものだと気づけたら100点。</b></span></li>
+  </ol>
+
+  <div class="hw t">
+    <div class="hwtime">第2部の宿題 ── 提出は 9/22（火）12:00 まで、HTMLで</div>
+    <div class="hwttl">自分の持ち株を1つ選び、直近の信用買い残・売り残・信用倍率と、その数字の出どころを1行で書く。</div>
   </div>
 
   <h3>当日の流れ（目安）</h3>
   <ul class="tl">
-    <li><span class="t">16:20</span><span class="c"><b>答え合わせ欄の突き合わせ</b>（15分）。9/1の予想・9/16・9/18の実際・宿題の矢印</span></li>
-    <li><span class="t">16:35</span><span class="c"><b>§1の検算</b>（10分）。投稿の7つの主張を、各自の判定と比べる</span></li>
-    <li><span class="t">16:45</span><span class="c"><b>図1を口頭で再構成</b>（25分）。矢印を1本ずつ、誰が何を売って何を買ったかで言い直す</span></li>
-    <li><span class="t">17:10</span><span class="c"><b>§4〜§6 の問い Q2〜Q4</b>（35分）。デフォルトの2種類、3つの入口、円高の3手段</span></li>
-    <li><span class="t">17:45</span><span class="c"><b>Q5 自分の1銘柄</b>（20分）。チーム別ポートフォリオ報告の枠をここに当てる</span></li>
-    <li><span class="t">18:05</span><span class="c"><b>Q6 と次回予告</b>（15分）。9/29の権利落ち（第6回の宿題）の実測を並べる</span></li>
+    <li><span class="t">16:20</span><span class="c"><b>答え合わせ欄の突き合わせ</b>（10分）。9/1の予想・9/16・9/18の実際・宿題の矢印</span></li>
+    <li><span class="t">16:30</span><span class="c"><b>§1の検算</b>（10分）。投稿の7つの主張を、各自の判定と比べる</span></li>
+    <li><span class="t">16:40</span><span class="c"><b>図1を口頭で再構成</b>（20分）。矢印を1本ずつ、誰が何を売って何を買ったかで言い直す</span></li>
+    <li><span class="t">17:00</span><span class="c"><b>Q2〜Q4</b>（25分）。デフォルトの2種類、3つの入口、円高の3手段</span></li>
+    <li><span class="t">17:25</span><span class="c"><b>第2部 §10〜§12</b>（30分）。図3〜図7を、現金の出入りで言い直す。Q7・Q8</span></li>
+    <li><span class="t">17:55</span><span class="c"><b>第2部 §13 使い方</b>（15分）。差金決済・現引き・信用倍率。Q9・Q10</span></li>
+    <li><span class="t">18:10</span><span class="c"><b>Q11・Q12 と次回予告</b>（10分）。自分の1銘柄の倍率。9/29の権利落ちの実測を並べる</span></li>
   </ul>
 </section>
 
@@ -653,7 +1044,10 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
     <li>入札の「テール」「まずまず」「弱い」は報道・解説の評価。シラーPER約41倍と「上位1%」は解説サイトの集計で、<b>集計期間の取り方で数字が変わる。</b></li>
     <li>ステーブルコイン残高約3,000億ドル、ベッセントの「最大1兆ドル」、ダリオの「10兆ドルの借り換え」はいずれも発言者・報道の推計。</li>
     <li>§8の発言は要旨。日付は発言日または報道日。<b>バフェットの「見えていたら起きない」は二次情報のみで、一次の書き起こしは未確認。</b>Xの投稿の「Yuto氏」「日銀の最悪シナリオ」は公開情報で裏取りできていない。</li>
-    <li>丸めは粗め（4.857%→4.86%、5.25〜5.31%→約5.3%、65,270.95円→65,271円）。受講者のポートフォリオ・保有銘柄は載せていない。</li>
+    <li><b>第2部の信用残</b>　信用買い残6兆5,293億円・信用倍率7.91倍は8月28日申込み時点の集計（解説サイト）。一次情報は日本取引所グループ「銘柄別信用取引週末残高」。<b>売り残 約0.83兆円は、買い残を信用倍率で割り戻した計算値で、公表値そのものではない。</b>6月26日時点の7兆1,670億円と「1994年12月以降の最高」は報道ベース。</li>
+    <li><b>第2部の設例</b>　手元30万円・株価1,000円・1,000株・保証金率30%ちょうど、および3か月後1,100円で返済という数字は<b>すべて設例</b>である。実在の銘柄ではない。実際の証券会社は余裕を見るので保証金率ぎりぎりまでは建てられない。</li>
+    <li><b>第2部のルール</b>　最低保証金30万円・保証金率30%・制度信用6か月・配当落調整金84.685%は法令と取引所の決まり（一次）。<b>維持率20%で追証・10%で強制決済、買方金利 年2.3〜3.1%、現引きの手数料無料は証券会社ごとに違う</b>（解説）。自分の口座の規定で確かめること。金利の計算は 100万円 × 2.8% × 91 ÷ 365 ＝ 約6,980円 を約7,000円に丸めた。</li>
+    <li>丸めは粗め（4.857%→4.86%、5.25〜5.31%→約5.3%、65,270.95円→65,271円、6,980円→約7,000円）。受講者のポートフォリオ・保有銘柄は載せていない。</li>
   </ul>
   <div class="src">
     <b>主な出典</b>
@@ -661,6 +1055,9 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
       <li><span class="st p1">一次</span>米財務省「Debt to the Penny」（2026年9月8日）／米財務省 TIC「Major Foreign Holders of Treasury Securities」（2026年6月分）／米財務省プレスリリース「Treasury Announces Increased Sizes of Nominal Long-End Liquidity Support Buybacks Beginning September 9」／CBO「The Budget and Economic Outlook: 2026 to 2036」（2026年2月）／財務省「外貨準備等の状況」（2026年8月末）「外国為替平衡操作の実施状況」／日本銀行 高田審議委員講演（2026年9月2日・札幌）／ムーディーズ「2025 United States Sovereign Rating Action」</li>
       <li><span class="st p2">報道</span>CNBC「Stock market news for Sept. 10, 2026」「Bessent says Treasury buyback operation could be more than $4 billion」（8/20）「U.S., Japan confirm coordinated yen intervention」（8/3）「Goldman says Japan's $1 trillion of reserves leaves 'plenty of capacity'」（8/13）「Jamie Dimon warns of 'some kind of bond crisis'」（4/28）「Trump turns up the heat on Warsh」（9/5）／Bloomberg「Japan Likely Sold Treasuries to Fund Record Yen Intervention」（9/6）「円買い介入の原資巡り議論活発」（5/8）／The Japan Times（9/7）／Nikkei Asia「Japan life insurers turn away from U.S. Treasurys for JGBs」／日本経済新聞「『日本は米国債売れない』は言い過ぎだ」（4月）「日銀の高田審議委員『機動的利上げの新局面に』」（9/2）／Fortune「By propping up the yen…」（8/9）／Forbes Advisor「Treasury Rates Today」（9/9）／外為どっとコム「佐々木融が鳴らす為替相場への警鐘」（9/7）</li>
       <li><span class="st p3">解説</span>Axios「U.S. role in yen intervention gives clue about Treasury goals」（8/3）／CFR「Why the U.S. Intervened to Prop Up Japan's Yen」／CRFB「Weak Auctions Underscore Risks of our Growing Debt Burden」（3/31）「Net Interest Costs Will Double, Again」／Brookings「Next steps for GENIUS payment stablecoins」／国際通貨研究所「28年ぶりの日米円買い協調介入の背景と影響」（8/12）／大和総研「円買い・ドル売り為替介入の限界」（7/3）／GuruFocus・MacroRadar（シラーPER）／Wolf Street「Foreign Central Banks &amp; Governments Dumped Treasuries…」（8/17）</li>
+      <li><span class="st p1">一次</span>日本取引所グループ「銘柄別信用取引週末残高」「個別銘柄信用取引残高表」「信用取引に関する規制等」／金融商品取引法・同施行令（委託保証金・差金決済）</li>
+      <li><span class="st p2">報道</span>日本経済新聞「信用買い残が過去最高の7兆円超え キオクシアなど短期売買」（2026年6月30日）「株、信用買い残が7週連続増加 6兆6958億円で過去最高」（2026年6月9日）</li>
+      <li><span class="st p3">解説</span>SBIネオトレード証券「信用買いとは？」「回転売買、現引き・現渡しと二階建て」「信用取引金利・貸株料の主要ネット証券比較」／楽天証券「信用取引の基本ルール」「乗り換え売買」「第15回 現引と現渡について」／松井証券「委託保証金」／三菱UFJ eスマート証券「信用取引のリスク管理（追証と維持率）」／SMBC日興証券「現引きと現渡しの特徴」「増担保規制」／マネックス証券「信用取引規制銘柄とは？」</li>
       <li><span class="st p4">二次・要確認</span>Motley Fool「Warren Buffett Recently Called the Stock Market 'A Church With a Casino Attached'」（8/9）「Stanley Druckenmiller Says the 30-Year Treasury Bond Is 'the Only Fiscal Disciplinarian We Have Left'」（9/3）／Hedgeweek「Dalio warns US debt crisis could emerge within three years」／X 上の投稿（2026年9月、検算対象）</li>
     </ul>
   </div>
