@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>空売り・クロス取引で答えに詰まった4問（2026年9月10日実施分）</title>
+<meta name="description" content="2026年9月10日の個別指導の復習。空売りとクロス取引（Jトラストの株主優待）を扱った30分の文字起こしから、佐々木くんが最初は答えられなかった箇所だけを抜いて4問にした。現物買い＋空売りで損益がゼロになる理由、利回りの計算式、空売りを仕掛ける一般条件、クロス取引後に手元に残るもの（ケーススタディ 第7回・復習編）">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #f9f9f7;
+    --surface: #fcfcfb;
+    --surface-raised: #ffffff;
+    --ink: #141413;
+    --ink-2: #52514e;
+    --ink-muted: #898781;
+    --hairline: #e1e0d9;
+    --border: rgba(11, 11, 11, 0.10);
+    --accent: #2a78d6;
+    --accent-ink: #1c5cab;
+    --accent-wash: rgba(42, 120, 214, 0.08);
+    --good: #006300;
+    --fx: #2a78d6;
+    --price: #eb6834;
+    --rate: #1baf7a;
+    --fx-wash: rgba(42, 120, 214, 0.10);
+    --price-wash: rgba(235, 104, 52, 0.10);
+    --rate-wash: rgba(27, 175, 122, 0.10);
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --s4: #eda100;
+    --s-other: #898781;
+    --f1: #86b6ef;
+    --f2: #2a78d6;
+    --f3: #104281;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-raised: #222220;
+      --ink: #f4f3ef;
+      --ink-2: #c3c2b7;
+      --ink-muted: #898781;
+      --hairline: #2c2c2a;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #3987e5;
+      --accent-ink: #86b6ef;
+      --accent-wash: rgba(57, 135, 229, 0.14);
+      --good: #0ca30c;
+      --fx: #3987e5;
+      --price: #f07a44;
+      --rate: #199e70;
+      --fx-wash: rgba(57, 135, 229, 0.16);
+      --price-wash: rgba(240, 122, 68, 0.16);
+      --rate-wash: rgba(25, 158, 112, 0.16);
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --s4: #c98500;
+      --s-other: #898781;
+      --f1: #6da7ec;
+      --f2: #3987e5;
+      --f3: #184f95;
+      --grid: #2c2c2a;
+      --axis: #383835;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-raised: #222220;
+    --ink: #f4f3ef;
+    --ink-2: #c3c2b7;
+    --ink-muted: #898781;
+    --hairline: #2c2c2a;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #3987e5;
+    --accent-ink: #86b6ef;
+    --accent-wash: rgba(57, 135, 229, 0.14);
+    --good: #0ca30c;
+    --fx: #3987e5;
+    --price: #f07a44;
+    --rate: #199e70;
+    --fx-wash: rgba(57, 135, 229, 0.16);
+    --price-wash: rgba(240, 122, 68, 0.16);
+    --rate-wash: rgba(25, 158, 112, 0.16);
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s-other: #898781;
+    --f1: #6da7ec;
+    --f2: #3987e5;
+    --f3: #184f95;
+    --grid: #2c2c2a;
+    --axis: #383835;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.75;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; }
+
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.14em; color: var(--accent-ink);
+    font-weight: 700; text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(30px, 5.4vw, 44px); font-weight: 800; line-height: 1.25;
+    letter-spacing: 0.01em; margin: 10px 0 14px; text-wrap: balance;
+  }
+  .lede { color: var(--ink-2); max-width: 40em; }
+  .lede strong { color: var(--ink); }
+  .meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+    border: 1px solid var(--hairline); background: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .chip em { font-style: normal; color: var(--accent-ink); }
+
+  .backlink { display: inline-block; font-size: 13px; font-weight: 700; color: var(--ink-muted);
+    text-decoration: none; margin-bottom: 16px; }
+  .backlink:hover { color: var(--accent-ink); }
+  @media print { .backlink { display: none; } }
+
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-top: 28px;
+    border-bottom: 1px solid var(--hairline);
+    overflow-x: auto; scrollbar-width: thin;
+  }
+  .tab {
+    flex: 0 0 auto; display: block; text-decoration: none;
+    padding: 10px 16px 9px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 8px 8px 0 0; margin-bottom: -1px;
+    font-size: 13.5px; font-weight: 700; color: var(--ink-muted);
+    white-space: nowrap; transition: color .12s ease, background .12s ease;
+  }
+  .tab small { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-muted); }
+  a.tab { color: var(--accent-ink); }
+  a.tab small { color: var(--ink-2); }
+  a.tab:hover { background: var(--accent-wash); }
+  a.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  a.tab .ext { font-weight: 500; font-size: 11px; }
+  .tab.is-current {
+    color: var(--ink); background: var(--surface);
+    border-color: var(--hairline); border-bottom: 1px solid var(--surface);
+  }
+  .tab.is-past { cursor: default; opacity: .55; }
+
+  section { margin-top: 56px; }
+  .step-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .step-time {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  h2 { font-size: 23px; font-weight: 800; line-height: 1.35; text-wrap: balance; }
+  h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  section > p, .card > p { color: var(--ink-2); max-width: 44em; }
+  section > p strong, .card p strong, li strong { color: var(--ink); }
+  .sec-note { font-size: 13px; color: var(--ink-muted); margin-top: 10px; }
+
+  .agenda { list-style: none; margin-top: 18px; border-top: 1px solid var(--hairline); }
+  .agenda li {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 14px;
+    align-items: baseline; padding: 11px 4px; border-bottom: 1px solid var(--hairline);
+  }
+  .agenda .t { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13.5px; color: var(--accent-ink); }
+  .agenda .what { font-weight: 600; }
+  .agenda .what small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-muted); }
+  .agenda .min { font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px; margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-wash);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 18px;
+    max-width: 46em;
+  }
+  .callout p { color: var(--ink-2); }
+  .callout .q { font-weight: 700; color: var(--ink); }
+  .recalls { display: grid; gap: 10px; margin-top: 18px; }
+  .recall {
+    border: 1px dashed var(--axis); background: var(--surface);
+    border-radius: 10px; padding: 14px 18px; max-width: 46em;
+  }
+  .recall .who { font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; color: var(--ink-muted); }
+  .recall .said { font-weight: 700; color: var(--ink); margin-top: 2px; }
+  .recall .note { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; border-top: 3px solid var(--border);
+  }
+  .tile.fx { border-top-color: var(--fx); }
+  .tile.rate { border-top-color: var(--rate); }
+  .tile.price { border-top-color: var(--price); }
+  .tile .k { font-size: 12px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .tile .v { font-size: 25px; font-weight: 800; line-height: 1.3; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .tile .v small { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .tile .d { font-size: 12.5px; font-weight: 600; margin-top: 1px; color: var(--ink-2); }
+  .tile .d.up { color: var(--good); }
+  .unsure { color: var(--s2); font-weight: 700; }
+
+  .formula {
+    margin-top: 18px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; font-weight: 700; font-size: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  }
+  .formula .num { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .formula small { font-weight: 500; color: var(--ink-muted); flex-basis: 100%; font-size: 12.5px; }
+
+  figure { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 14px; }
+  figcaption { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .figsub { font-size: 12.5px; color: var(--ink-muted); margin-bottom: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .chart-scroll { overflow-x: auto; }
+  .chart-scroll svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  svg text { font-family: inherit; }
+  .diagram { color: var(--ink-muted); }
+  .src { font-size: 11.5px; color: var(--ink-muted); margin-top: 8px; }
+
+  .ex { margin-top: 18px; }
+  .ex .card { padding: 0; overflow: hidden; }
+  .ex-q { padding: 18px 22px 6px; }
+  .ex-q .no {
+    display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    border-radius: 4px; padding: 2px 8px; margin-bottom: 8px;
+  }
+  .ex-q p { color: var(--ink); font-weight: 600; max-width: 44em; }
+  .ex-q .hint { font-weight: 400; font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+  .qz-choices { list-style: none; counter-reset: qc; margin: 12px 22px 4px; padding: 0; display: grid; gap: 6px; max-width: 46em; }
+  .qz-choices li {
+    counter-increment: qc; position: relative; border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 8px 14px 8px 40px; font-size: 14px; color: var(--ink-2);
+  }
+  .qz-choices li::before {
+    content: counter(qc, upper-alpha); position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    font-weight: 800; font-size: 12.5px; color: var(--accent-ink);
+  }
+  details { border-top: 1px solid var(--hairline); margin-top: 14px; }
+  summary {
+    cursor: pointer; padding: 12px 22px; font-weight: 700; font-size: 13.5px;
+    color: var(--accent-ink); list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "\25B8  "; }
+  details[open] summary::before { content: "\25BE  "; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 6px; }
+  .ans { padding: 0 22px 18px; color: var(--ink-2); max-width: 46em; }
+  .ans .calc {
+    font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink);
+    background: var(--accent-wash); border-radius: 8px; padding: 10px 14px; margin: 8px 0 10px;
+    display: inline-block;
+  }
+  .recall-inline { margin: 0 22px 14px; }
+
+  .tbl-scroll { overflow-x: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; background: var(--surface); font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td:first-child { font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td small { display: block; color: var(--ink-muted); font-size: 12px; }
+  .tbl-note { font-size: 12px; color: var(--ink-muted); margin-top: 8px; }
+
+  .qlist { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+  .qlist li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .qlist .q { font-weight: 700; }
+  .qlist .why { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  dl.gloss { margin-top: 16px; border-top: 1px solid var(--hairline); }
+  dl.gloss > div { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 12px 4px; border-bottom: 1px solid var(--hairline); }
+  @media (max-width: 560px) { dl.gloss > div { grid-template-columns: 1fr; gap: 2px; } }
+  dt { font-weight: 700; font-size: 14px; }
+  dt small { display: block; font-weight: 400; font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  dd { color: var(--ink-2); font-size: 14px; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 18px; font-size: 12.5px; color: var(--ink-muted); }
+  footer p { max-width: none; }
+  footer p + p { margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print {
+    body { background: #fff; }
+    .tabs { display: none; }
+    details { border-top: none; }
+    summary { display: none; }
+    .ans { padding-top: 0; }
+  }
+
+  ul.lede-pts { list-style: none; margin-top: 14px; max-width: 42em; display: grid; gap: 8px; }
+  ul.lede-pts li {
+    position: relative; padding-left: 18px; color: var(--ink-2); font-size: 15.5px;
+  }
+  ul.lede-pts li::before {
+    content: ""; position: absolute; left: 0; top: 11px;
+    width: 7px; height: 7px; border-radius: 2px; background: var(--accent);
+  }
+  ul.lede-pts strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="backlink" href="../sasaki.html">&larr; 講義資料の一覧へ</a>
+
+  <header>
+    <p class="eyebrow">ケーススタディ 第7回・復習編 ／ 2026年9月10日実施分</p>
+    <h1>空売り・クロス取引で答えに詰まった4問（2026年9月10日実施分）</h1>
+    <ul class="lede-pts">
+      <li>9月10日の30分は、志村先生の問いに佐々木くんが答える形で進んだ。下の4問は、<strong>最初は答えが出なかった、または誤って答えた箇所だけ</strong>を文字起こしから抜いてある。</li>
+      <li>選択肢がある問題も、開く前に<strong>理由を先に自分の言葉で言ってから</strong>選ぶ。</li>
+      <li>答えは各問の下に隠してある。合格ラインは「言えた」ではなく<strong>「調べずに動かせた」</strong>。</li>
+    </ul>
+    <div class="meta-chips">
+      <span class="chip">元になった回: <em>2026年9月10日</em></span>
+      <span class="chip">題材: <em>空売り・現物買い・クロス取引（Jトラストの株主優待）</em></span>
+      <span class="chip">全4問</span>
+    </div>
+
+    <nav class="tabs" aria-label="ケーススタディ シリーズ">
+      <span class="tab is-past" title="配布資料リンクなし（講義のみ）">第1回　メルカリ<small>GMVと営業損失</small></span>
+      <a class="tab" href="lecture_sasaki_20260817.html">第2回　ZOZOの決算を読む<small>受託販売とテイクレート <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260820.html">第3回　金利・為替・インフレ<small>三角形の一周 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260824.html">第4回　利払いが国防費を超えた国<small>国のPL <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260903.html">第5回　予想との差と1.1倍<small>9/3の復習クイズ <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260907.html">第6回　The capital will find you<small>英語とビジネスモデル <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260907_review.html">9/7 復習　英語で出た向き<small>5問 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260910.html">第7回　先に売って、あとで買い戻す<small>空売りとクロス取引 <span class="ext">&#8594;</span></small></a>
+      <span class="tab is-current" aria-current="page">9/10 復習　答えに詰まった4問<small>この4問（今回）</small></span>
+    </nav>
+  </header>
+
+  <section>
+    <h2>このページの使い方</h2>
+    <ol class="agenda">
+      <li><span class="t">まず</span><span class="what">§1の4問を解く<small>答えを開く前に、理由を声に出す</small></span><span class="min">10分</span></li>
+      <li><span class="t">つぎに</span><span class="what">答えを開いて照合する<small>合格ラインは「調べずに動かせた」</small></span><span class="min">5分</span></li>
+      <li><span class="t">次回冒頭</span><span class="what">先生が口頭で同じ4問を出す<small>教材を見ずに説明できれば合格</small></span><span class="min">7分</span></li>
+    </ol>
+    <p class="sec-note">辞書もAIも使わずに1周する。詰まったところだけ、あとで配布資料（第7回）に戻って確認する。</p>
+  </section>
+
+  <section>
+    <div class="step-head"><span class="step-time">§1</span><h2>4問</h2></div>
+    <p>いずれも、9月10日にその場では答えが出なかった、または最初は誤って答えた問いである。
+    引用は文字起こしからの発言そのもので、通し時間を付けてある。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q1</span>
+        <p>空売り（信用売り）と現物買いを同時に持つと、株価がどちらに動いても損益の合計はゼロになり、株主優待だけが手元に残る。<strong>その理由を自分の言葉で説明しなさい。</strong></p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">佐々木くん · 00:02</p>
+            <p class="said">「その時系列的に、現物と空売りのところが、プラマイゼロまで行って、株主優待分をもらうところが少しまだわからないです」</p>
+            <p class="note">この回の冒頭、本人が最初に挙げた「わからないところ」がこの1点だった。</p>
+          </div>
+        </div>
+        <details><summary>合格ラインを見る</summary><div class="ans">
+        <p class="calc">現物の含み損益と空売りの含み損益は、株価がどちらに動いても常に逆方向・同額になる</p>
+        <p>授業内の設例（700円→500円）で確認する。現物100株は700円で買って500円で売れば<strong>2万円の損</strong>。空売りは700円で売って500円で買い戻せば<strong>2万円の益</strong>。差し引きゼロになり、残るのは<strong>株主優待の1万円分だけ</strong>である。</p>
+        <p style="margin-top:10px">株価が上がった場合も同じ形になる。現物側の益と空売り側の損が同額で相殺されるため、<strong>株価の水準にかかわらず損益はゼロで固定される。</strong></p>
+        <p style="margin-top:10px"><b>着地点</b>　この仕組みは配布資料（第7回）5章のJトラスト実例に直結する。設例の700円・500円は理解のための数字で、実際の約定値は711円・771円である。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q2</span>
+        <p>100株を1株700円で買い、株主優待として1万円相当を受け取るとき、この投資の<strong>利回り</strong>は何%か。<strong>計算式も書きなさい。</strong></p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">佐々木くん · 00:05</p>
+            <p class="said">「7ですかね」→「700です」</p>
+            <p class="note">計算式を聞かれても、割り算の形がすぐには出てこなかった。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">利回り(%) = 収益 ÷ 投資額 × 100 = 10,000円 ÷ 70,000円 × 100 ≒ 14%</p>
+        <p>投資額は100株×700円＝7万円。収益は優待1万円。<strong>分子に収益、分母に投資額</strong>を置く形は、8月以降の決算ケーススタディで繰り返し出ている型と同じである。</p>
+        <p style="margin-top:10px"><b>着地点</b>　率を出すときは必ず分母（何に対する率か）を確認する。今回の分母は投資額7万円であり、優待の額面1万円ではない。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q3</span>
+        <p>株主優待クロスの話を離れて一般的に考えると、空売りは<strong>どんな条件がそろったとき</strong>に使う手法か。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">佐々木くん · 00:14</p>
+            <p class="said">「株に興味がなくても優待だけもらいたいとき」→「その株を持ってない時」→「資金がない時」</p>
+            <p class="note">3回言い直したのち「値下がりが読めた時です」に到達したが、直後に「調べて今調べました。資料とか見まくって」と、その場では自力で出せなかったことを認めている。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">将来、値下がりすると予想する（または知っている）とき</p>
+        <p>優待クロスは、この一般原則を「値下がりのリスクを消すために使う」という応用の一つに過ぎない。<strong>優待の有無にかかわらず、空売りの出発点は値下がりの予想である。</strong></p>
+        <p style="margin-top:10px"><b>着地点</b>　同じ原則が、為替介入を読んだ2日の空売り（配布資料3章）、年末の下げを読んだ110日の空売り（同4章）にも共通する。<strong>優待クロス（5章）は、その応用のうち唯一「一次情報」の実例である。</strong></p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q4</span>
+        <p>友だちからゲーム機を借りて4万円で売り、値下がり後に同じ機種を2万円で買い直して友だちに返した。<strong>最終的に佐々木くんの手元に残るのは何か。</strong></p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">佐々木くん · 00:27</p>
+            <p class="said">「ゲーム機とお金が残ってます」</p>
+            <p class="note">直後の「お金残ってるかな」の問い返しで「ゲーム機だけ残ってます」に訂正している。</p>
+          </div>
+        </div>
+        <ol class="qz-choices">
+          <li>現金2万円だけ</li>
+          <li>ゲーム機（現物）だけ</li>
+          <li>現金2万円とゲーム機の両方</li>
+          <li>何も残らない</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+        <p>4万円で売って現金化し、2万円で買い戻して返したので、<strong>現金は使い切っている。</strong>最初の答え「お金も残る」は、売った時点の4万円と買い戻した時点の2万円を両方数えてしまった誤りである。</p>
+        <p style="margin-top:10px"><b>着地点</b>　優待クロスで最後に残るのも現金ではなく現物株である。<strong>優待は現物の保有者にしか付かないため、「現物が残ること」が優待を取得する条件になっている</strong>（配布資料5章と同じ形）。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>次回までの宿題</h2>
+    <p>次回冒頭、この4問を教材を見ずに口頭で説明する。</p>
+  </section>
+
+  <footer>
+    <p><strong>このページの元になったもの:</strong> 2026年9月10日の個別指導の文字起こし。予定は30分。§1の引用は当日の文字起こしから取っており、時刻はその通し時間である。</p>
+    <p><strong>数字について:</strong> 授業内の700円・500円・4万円・2万円などはすべて理解のための設例で、実際の約定値ではない。一次情報を扱う実例（8508 Jトラスト・約定値711円・9/1終値771円）は配布資料（第7回）5章を参照。</p>
+    <p><strong>文字起こし:</strong> summer_lecture_private リポジトリ（非公開）の transcripts_txt/ に保管。</p>
+    <p>本資料は個別指導のための教材で、投資勧誘を目的とするものではありません。</p>
+  </footer>
+</div>
+
+</body>
+</html>
