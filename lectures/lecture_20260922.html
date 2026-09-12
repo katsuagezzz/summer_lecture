@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講義資料 第7回｜2026年9月22日 米国債・金利・ドル円・株の連関と、信用買いの仕組み</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16px; line-height:1.9; color:var(--ink);}
+.lede ul{margin:0; padding-left:1.3em;}
+.lede li{margin-bottom:6px;}
+.lede .ttl{font-size:15px; font-weight:800; letter-spacing:.04em; color:var(--ink); margin-bottom:9px; padding-bottom:7px; border-bottom:1px solid var(--line);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+p{margin:10px 0;}
+
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+.twocol{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; margin:14px 0 4px;}
+.card{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.card .ch{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:6px;}
+.card.b .ch{color:var(--corp);} .card.c .ch{color:var(--bridge);} .card.d .ch{color:var(--word);}
+.card p{margin:0; font-size:14.5px; line-height:1.75;}
+.card p+p{margin-top:8px;}
+
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view .when{font-size:11.5px; color:var(--ink3); font-weight:700; margin-left:6px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+.view.d{border-left-color:var(--word);} .view.d .who{color:var(--word);}
+
+/* 図 */
+.fig{margin:14px 0 6px; padding:14px 12px 10px; background:var(--bg); border:1px solid var(--line); border-radius:12px;}
+.fig svg{width:100%; height:auto; display:block; font-family:inherit;}
+.fig .cap{font-size:13px; color:var(--ink3); margin:8px 4px 0; line-height:1.6;}
+.fig .box{fill:var(--panel); stroke:var(--line); stroke-width:1.5;}
+.fig .box.m{stroke:var(--macro);} .fig .box.c{stroke:var(--corp);} .fig .box.g{stroke:var(--bridge);} .fig .box.w{stroke:var(--word);}
+.fig .ttl{font-size:16px; font-weight:800; fill:var(--ink);}
+.fig .sm{font-size:12px; fill:var(--ink2);}
+.fig .ar{fill:none; stroke:var(--ink2); stroke-width:2.2;}
+.fig .ar.dash{stroke-dasharray:7 5; stroke:var(--corp);}
+.fig .ar.g{stroke:var(--bridge);}
+.fig .num{fill:var(--accent);}
+.fig .numt{font-size:12px; font-weight:800; fill:var(--bg);}
+.fig .lab{font-size:12.5px; font-weight:700; fill:var(--ink);}
+.fig .lab.c{fill:var(--corp);} .fig .lab.g{fill:var(--bridge);}
+.fig .labbg{fill:var(--bg); stroke:none;}
+
+/* ---------- 第2部の区切り ---------- */
+.parthead{margin:32px 0 18px; padding:15px 22px; background:var(--accent); color:var(--bg); border-radius:12px;}
+.parthead .pl{font-size:11.5px; letter-spacing:.2em; font-weight:800; opacity:.7;}
+.parthead h2{margin:3px 0 0; font-size:21px; line-height:1.45;}
+nav.toc .pt{font-size:11.5px; font-weight:800; letter-spacing:.1em; color:var(--ink3); margin:16px 0 7px;}
+nav.toc .pt.first{margin-top:0;}
+
+/* ---------- グラフの部品 ---------- */
+.fig .ax{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .gl{stroke:var(--line2); stroke-width:1; fill:none;}
+.fig .ln{fill:none; stroke-width:2.8; stroke-linejoin:round;}
+.fig .ln.a{stroke:var(--macro);} .fig .ln.b{stroke:var(--corp);} .fig .ln.c{stroke:var(--bridge);}
+.fig .vl{stroke:var(--down); stroke-width:1.5; stroke-dasharray:5 4; fill:none;}
+.fig .tick{font-size:11.5px; fill:var(--ink3);}
+.fig .bar.g{fill:var(--bridge);} .fig .bar.c{fill:var(--corp);} .fig .bar.n{fill:var(--line);}
+
+.blank{display:inline-block; min-width:96px; border-bottom:2px dashed var(--q-line); margin:0 4px;}
+.fill{background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; padding:12px 16px; margin:10px 0; font-size:15px; line-height:2.1;}
+
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hw.t{border-top-color:var(--corp);}
+
+.tl{margin:14px 0 0; padding:2px 18px; list-style:none; background:var(--bg); border:1px solid var(--line); border-radius:11px;}
+.tl li{display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl li:last-child{border-bottom:none;}
+.tl .t{flex:0 0 84px; align-self:start; margin-top:1px; padding:3px 8px; border-radius:6px;
+  background:var(--note-bg); color:var(--ink2); font-weight:800; font-variant-numeric:tabular-nums;
+  font-size:12.5px; text-align:center; letter-spacing:.01em;}
+.tl .c{flex:1;}
+
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em; padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}
+.st.p2{background:var(--macro-bg); color:var(--macro);}
+.st.p3{background:var(--word-bg); color:var(--word);}
+.st.p4{background:var(--corp-bg); color:var(--corp);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .chk li{grid-template-columns:1fr; gap:4px;}
+  .tl{padding:2px 14px;}
+  .tl li{flex-direction:column; align-items:flex-start; gap:5px;}
+  .tl .t{flex:0 0 auto;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="lecture_20260825.html">第4回 8/25 講義資料</a>
+  <a href="lecture_20260901.html">第5回 9/1 講義資料</a>
+  <a href="lecture_20260908.html">第6回 9/8 講義資料</a>
+  <span class="cur">第7回 9/22 講義資料</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 講義資料　夏期集中講座 第7回</div>
+  <h1 class="title">米国債・金利・ドル円・株の連関と、信用買いの仕組み</h1>
+  <div class="meta">
+    <span><b>講義日</b>　2026年9月22日（火）16:20–18:20</span>
+    <span><b>配布</b>　9月11日（金）</span>
+    <span><b>数字の時点</b>　9月10日（木）の終値ベース。信用残は8月28日時点。9/16 FOMC・9/18 日銀会合の結果は§9の空欄に当日埋める</span>
+  </div>
+  <div class="lede">
+    <div class="ttl">本日学ぶこと</div>
+    <ul>
+      <li><strong>金利と国債価格の関係</strong>　国債の市場価格が下がると金利が上がる。そのロジックを説明できる</li>
+      <li><strong>金利と為替</strong>　日米の金利状況に関心を持ち、自分のポートフォリオへの影響を考える。今後3年間はインフレか。円で資産を持つことは大丈夫か、推測する</li>
+      <li><strong>信用買い</strong>　ファイナンスの知識として、前回（9/8）の信用売り（カラ売り）とともに理解する</li>
+    </ul>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>目次</h2>
+  <div class="pt first">第1部　米国債・ドル円・金利・株</div>
+  <ol>
+    <li><a href="#s0">§0 国債価格と金利の関係</a> <span class="s">割引現在価値／図1〜図3</span></li>
+    <li><a href="#s1">§1 2026年9月10日の市場と、米国の債務残高</a> <span class="s">8つの値段／保有者／入札</span></li>
+    <li><a href="#s2">§2 日米金利推移（2006年から2026年）</a> <span class="s">長期金利・政策金利・2026年・年表</span></li>
+    <li><a href="#s3">§3 米国債・ドル円・米国株・日本のお金の連関</a> <span class="s">矢印①〜⑤／図7</span></li>
+    <li><a href="#s4">§4 米国債のデフォルト</a> <span class="s">元利金の不払いと実質価値の目減り／4つの出口</span></li>
+    <li><a href="#s5">§5 日本の米国債売却 ── 3つの入口</a> <span class="s">介入の原資／ヘッジ後の利回り／信認</span></li>
+    <li><a href="#s6">§6 円高に至る3つの手段と、米国債への影響</a></li>
+    <li><a href="#s7">§7 金利と株価の関係</a> <span class="s">分母としての金利／日本株への影響</span></li>
+    <li><a href="#s8">§8 識者・投資家の発言</a> <span class="s">11人・日付順</span></li>
+    <li><a href="#s9">§9 9/16 FOMC・9/18 日銀の記録欄と問い</a> <span class="s">Q1〜Q6</span></li>
+  </ol>
+  <div class="pt">第2部　信用買い</div>
+  <ol start="11">
+    <li><a href="#s10">§10 信用買いの仕組み</a> <span class="s">投資家・証券会社・市場／図10</span></li>
+    <li><a href="#s11">§11 レバレッジ3.3倍の効果</a> <span class="s">株数・損益・追証／図11〜図13</span></li>
+    <li><a href="#s12">§12 3か月保有時の現金の出入り</a> <span class="s">買方金利／図14</span></li>
+    <li><a href="#s13">§13 信用買いの用途（4つ）</a> <span class="s">差金決済・現引き・信用残・二階建て／図15〜図17</span></li>
+    <li><a href="#s14">§14 第2部の問い（Q7〜Q12）と宿題</a> <span class="s">当日の流れ</span></li>
+  </ol>
+</nav>
+
+<div class="parthead">
+  <div class="pl">PART 1</div>
+  <h2>第1部　米国債・金利・ドル円・株</h2>
+</div>
+
+<!-- ===================== §0 ===================== -->
+<section class="topic" id="s0">
+  <span class="badge word">§0 前提</span>
+  <h2 class="thead">国債価格と金利の関係 ── 割引現在価値</h2>
+  <p class="sub">価格と利回りは、同じ事実の2つの言い方。以下はすべて設例。</p>
+
+  <h3>1年もの・利息なしの国債（額面100円）</h3>
+  <div class="formula">
+    <code>利回り ＝（100円 − 買った値段）÷ 買った値段</code>
+  </div>
+  <div class="fig">
+  <svg viewBox="0 0 900 350" role="img" aria-label="1年満期・利息なしの国債（額面100円）の買値と利回りの関係">
+    <path class="gl" d="M100,233.3 L840,233.3 M100,166.7 L840,166.7 M100,100.0 L840,100.0"/>
+    <path class="ax" d="M100,50 L100,300 M100,300 L860,300"/>
+    <text class="tick" x="92" y="304.0" text-anchor="end">0%</text><text class="tick" x="92" y="237.3" text-anchor="end">5%</text><text class="tick" x="92" y="170.7" text-anchor="end">10%</text><text class="tick" x="92" y="104.0" text-anchor="end">15%</text><text class="tick" x="100.0" y="322" text-anchor="middle">85円</text><text class="tick" x="346.7" y="322" text-anchor="middle">90円</text><text class="tick" x="593.3" y="322" text-anchor="middle">95円</text><text class="tick" x="840.0" y="322" text-anchor="middle">100円</text>
+    <text class="tick" x="92" y="42" text-anchor="end" style="font-weight:800">利回り</text>
+    <text class="tick" x="860" y="342" text-anchor="end" style="font-weight:800">買った値段</text>
+    <polyline class="ln a" points="100.0,64.7 248.0,118.1 346.7,151.9 445.3,184.0 544.0,214.9 642.7,244.4 741.3,272.8 840.0,300.0"/>
+    <path class="vl" d="M346.7,151.9 L346.7,300"/><circle cx="346.7" cy="151.9" r="5" fill="var(--macro)"/><text class="lab" x="346.7" y="139.9" text-anchor="middle">11.1%</text><path class="vl" d="M593.3,229.9 L593.3,300"/><circle cx="593.3" cy="229.9" r="5" fill="var(--macro)"/><text class="lab" x="593.3" y="217.9" text-anchor="middle">5.3%</text><path class="vl" d="M741.3,272.8 L741.3,300"/><circle cx="741.3" cy="272.8" r="5" fill="var(--macro)"/><text class="lab" x="741.3" y="260.8" text-anchor="middle">2.0%</text>
+  </svg>
+  <div class="cap">図1　満期に受け取る額を100円に固定し、買った値段だけを動かした場合。</div>
+  </div>
+  <ul class="facts">
+    <li><b>受け取る100円は契約で固定。</b>動くのは買った値段だけ</li>
+    <li><b>値段が下がる＝同じ100円を安く買う＝利回りが上がる。</b>2つは同じ1つの取引</li>
+  </ul>
+
+  <h3>割引現在価値</h3>
+  <div class="formula">
+    <code>現在価値 ＝ 将来の金額 ÷（1 ＋ 金利）<sup>年数</sup></code>
+    <span class="n">将来の100万円を、いま何円と見るか。金利が分母に入る。</span>
+  </div>
+  <div class="fig">
+  <svg viewBox="0 0 900 370" role="img" aria-label="将来受け取る100万円の現在価値。金利1%・3%・5%で、受け取りまでの年数別">
+    <path class="gl" d="M100,255.0 L840,255.0 M100,190.0 L840,190.0 M100,125.0 L840,125.0 M100,60.0 L840,60.0"/>
+    <path class="ax" d="M100,50 L100,320 M100,320 L840,320"/>
+    <text class="tick" x="92" y="324.0" text-anchor="end">0万</text><text class="tick" x="92" y="259.0" text-anchor="end">25万</text><text class="tick" x="92" y="194.0" text-anchor="end">50万</text><text class="tick" x="92" y="129.0" text-anchor="end">75万</text><text class="tick" x="92" y="64.0" text-anchor="end">100万</text><text class="tick" x="100.0" y="342" text-anchor="middle">0年後</text><text class="tick" x="346.7" y="342" text-anchor="middle">10年後</text><text class="tick" x="593.3" y="342" text-anchor="middle">20年後</text><text class="tick" x="840.0" y="342" text-anchor="middle">30年後</text>
+    <text class="tick" x="92" y="42" text-anchor="end" style="font-weight:800">現在価値</text>
+    <polyline class="ln c" points="100.0,60.0 124.7,62.6 223.3,72.7 346.7,84.7 593.3,106.8 840.0,127.1"/><g fill="var(--bridge)"><circle cx="100.0" cy="60.0" r="3.5"/><circle cx="124.7" cy="62.6" r="3.5"/><circle cx="223.3" cy="72.7" r="3.5"/><circle cx="346.7" cy="84.7" r="3.5"/><circle cx="593.3" cy="106.8" r="3.5"/><circle cx="840.0" cy="127.1" r="3.5"/></g><polyline class="ln a" points="100.0,60.0 124.7,67.5 223.3,95.6 346.7,126.6 593.3,176.0 840.0,212.9"/><g fill="var(--macro)"><circle cx="100.0" cy="60.0" r="3.5"/><circle cx="124.7" cy="67.5" r="3.5"/><circle cx="223.3" cy="95.6" r="3.5"/><circle cx="346.7" cy="126.6" r="3.5"/><circle cx="593.3" cy="176.0" r="3.5"/><circle cx="840.0" cy="212.9" r="3.5"/></g><polyline class="ln b" points="100.0,60.0 124.7,72.5 223.3,116.2 346.7,160.4 593.3,222.0 840.0,259.9"/><g fill="var(--corp)"><circle cx="100.0" cy="60.0" r="3.5"/><circle cx="124.7" cy="72.5" r="3.5"/><circle cx="223.3" cy="116.2" r="3.5"/><circle cx="346.7" cy="160.4" r="3.5"/><circle cx="593.3" cy="222.0" r="3.5"/><circle cx="840.0" cy="259.9" r="3.5"/></g><text class="tick" x="850" y="131.1" text-anchor="start" style="font-weight:800">金利1%　74.2万</text><text class="tick" x="850" y="216.9" text-anchor="start" style="font-weight:800">金利3%　41.2万</text><text class="tick" x="850" y="263.9" text-anchor="start" style="font-weight:800">金利5%　23.1万</text>
+  </svg>
+  <div class="cap">図2　将来受け取る100万円の現在価値。金利は一定と仮定。</div>
+  </div>
+  <ul class="facts">
+    <li><b>分子は契約で固定。動くのは分母だけ。</b></li>
+    <li><b>年数が長いほど、同じ金利差の効きが大きい。</b>分母が累乗で効くため</li>
+  </ul>
+
+  <h3>クーポン付きの国債（額面100円・年2円・残存10年）</h3>
+  <div class="formula">
+    <code>価格 ＝ 毎年のクーポン2円の現在価値の合計 ＋ 10年後の額面100円の現在価値</code>
+  </div>
+  <div class="fig">
+  <svg viewBox="0 0 900 350" role="img" aria-label="クーポン年2円・残存10年・額面100円の国債の、市場金利ごとの価格">
+    <path class="gl" d="M100,268.0 L840,268.0 M100,204.0 L840,204.0 M100,76.0 L840,76.0"/>
+    <path class="vl" d="M100,140.0 L840,140.0"/>
+    <path class="ax" d="M100,50 L100,300 M100,300 L840,300"/>
+    <text class="tick" x="92" y="272.0" text-anchor="end">60円</text><text class="tick" x="92" y="208.0" text-anchor="end">80円</text><text class="tick" x="92" y="144.0" text-anchor="end">100円</text><text class="tick" x="92" y="80.0" text-anchor="end">120円</text><text class="tick" x="100.0" y="322" text-anchor="middle">0%</text><text class="tick" x="285.0" y="322" text-anchor="middle">2%</text><text class="tick" x="470.0" y="322" text-anchor="middle">4%</text><text class="tick" x="655.0" y="322" text-anchor="middle">6%</text><text class="tick" x="840.0" y="322" text-anchor="middle">8%</text>
+    <text class="tick" x="92" y="42" text-anchor="end" style="font-weight:800">価格</text>
+    <text class="tick" x="840" y="342" text-anchor="end" style="font-weight:800">市場金利</text>
+    <polyline class="ln b" points="100.0,76.0 192.5,109.6 285.0,140.0 377.5,167.2 470.0,191.8 562.5,214.2 655.0,234.1 747.5,252.3 840.0,269.0"/>
+    <circle cx="285.0" cy="140.0" r="5" fill="var(--corp)"/><text class="lab" x="838" y="132.0" text-anchor="end">額面100円</text><circle cx="470.0" cy="191.8" r="5" fill="var(--corp)"/><text class="lab" x="470.0" y="179.8" text-anchor="middle">83.8円</text><circle cx="562.5" cy="214.2" r="5" fill="var(--corp)"/><text class="lab" x="562.5" y="202.2" text-anchor="middle">76.8円</text>
+  </svg>
+  <div class="cap">図3　年1回払い・複利で計算。市場金利がクーポン率2%と等しいとき、価格は額面100円に一致する。</div>
+  </div>
+  <ul class="facts">
+    <li><b>既発債のクーポン2円は変更できない。</b>調整は価格側だけで起きる</li>
+    <li><b>残存が長い債券ほど、同じ金利差での価格の振れが大きい。</b>30年債が10年債より大きく動く理由</li>
+  </ul>
+
+  <p>以降の「値段が下がる＝金利が上がる」は、この関係を指す。</p>
+</section>
+
+<!-- ===================== §1 ===================== -->
+<section class="topic" id="s1">
+  <span class="badge macro">§1 市場と債務</span>
+  <h2 class="thead">2026年9月10日の市場と、米国の債務残高</h2>
+  <p class="sub">値段と量だけ。<b>9月10日（木）の終値、または直近の公表値。</b>時点と種別は各タイルに。</p>
+
+  <div class="kpis">
+    <div class="kpi m"><div class="k">米10年国債 利回り</div><div class="v">4.86%</div><div class="n">9/10終値。2023年11月以来の高さ<span class="tag">報道</span></div></div>
+    <div class="kpi m"><div class="k">米30年国債 利回り</div><div class="v">約5.3%</div><div class="n">9/9〜10。5月に5.2%で2008年以来の高さを付けた後、さらに上<span class="tag">報道</span></div></div>
+    <div class="kpi m"><div class="k">米政策金利</div><div class="v">3.50〜3.75%</div><div class="n">FOMCは9/16。市場は<b>利上げ</b>を6割前後で織り込む<span class="tag">予測市場・報道</span></div></div>
+    <div class="kpi c"><div class="k">ドル円</div><div class="v">約156円</div><div class="n">9月第2週は154〜158円。7/23に163.99円（円は40年ぶりの安値）<span class="tag">報道</span></div></div>
+    <div class="kpi c"><div class="k">日本10年国債 利回り</div><div class="v">約3.0%</div><div class="n">9/1入札で2.995%。政策金利は1.0%、日銀会合は9/18<span class="tag">一次（財務省入札）</span></div></div>
+    <div class="kpi g"><div class="k">S&amp;P500</div><div class="v">7,592</div><div class="n">9/10終値。4日続落。シラーPER（CAPE）は約41倍<span class="tag">報道・解説</span></div></div>
+    <div class="kpi c"><div class="k">原油（ブレント）</div><div class="v">約108ドル</div><div class="n">9/10終値。イラン情勢で5月以来の高値<span class="tag">報道</span></div></div>
+    <div class="kpi g"><div class="k">金（1オンス）</div><div class="v">約4,400ドル</div><div class="n">9/10。1/29に5,597ドルの最高値を付けてから2割安<span class="tag">報道</span></div></div>
+  </div>
+
+  <p><b>米10年債4.86%・ドル円156円・株の4日続落は、同じ週の出来事。</b>別々のニュースではない。</p>
+
+  <h3>米国の債務残高</h3>
+  <div class="kpis">
+    <div class="kpi m"><div class="k">借金の総額</div><div class="v">40.1兆ドル</div><div class="n">9/8時点。市中保有32.4兆＋政府内保有7.7兆<span class="tag">一次</span></div></div>
+    <div class="kpi m"><div class="k">市中保有 ÷ GDP</div><div class="v">101%</div><div class="n">2026年（CBO 2月推計）。2036年に120%。1946年の106%を超える<span class="tag">推計</span></div></div>
+    <div class="kpi c"><div class="k">2026年度の赤字</div><div class="v">1.9兆ドル</div><div class="n">GDP比5.8%。毎年これだけ新しく借りる<span class="tag">推計（CBO）</span></div></div>
+    <div class="kpi c"><div class="k">純利払い（年）</div><div class="v">1.0兆ドル</div><div class="n">GDP比3.3%。2036年に2.1兆ドル。国防費とほぼ同じ規模<span class="tag">推計（CBO）</span></div></div>
+  </div>
+  <ul class="facts">
+    <li><b>利払い1.0兆ドル＝赤字1.9兆ドルの半分。</b>「利息を払うための借金」</li>
+    <li>利息を除いた赤字（プライマリー赤字）はGDP比2.6%。CBOはこの先10年、それ以上には増えないと見る</li>
+    <li><b>増えるのは利息の方。</b>金利1ポイントの上昇が、借り換えのたびに乗る</li>
+  </ul>
+
+  <h3>米国債の保有者（2026年6月・米財務省TIC）</h3>
+  <div class="twocol">
+    <div class="card"><div class="ch">海外 全体</div><p><b>約9.1兆ドル。</b>市中保有の3割弱。2000年代のピークは5割超。<b>海外の比率が下がるほど、国内の買い手に高い金利が要る。</b></p></div>
+    <div class="card b"><div class="ch">日本（1位）</div><p><b>約1.15兆ドル。</b>官（外貨準備）と民（生保・年金・銀行）がほぼ半々との推計。GPIF単体で約2,300億ドル（2025年3月末）。10年以上1兆ドル台。</p></div>
+    <div class="card c"><div class="ch">英国（2位）</div><p><b>約0.86兆ドル。</b>ロンドン経由のファンド勢。実際の持ち主は世界中。増減が速い。</p></div>
+    <div class="card d"><div class="ch">中国（3位）</div><p><b>約0.76兆ドル。</b>2013年のピーク1.3兆ドルから<b>ほぼ半減</b>。金は17か月以上連続で買い増し、外貨準備の約9%。<b>2013年以降、保有を減らし続けている。</b></p></div>
+  </div>
+
+  <h3>入札の結果（2026年）</h3>
+  <ul class="facts">
+    <li><b>国債は入札で売る。</b>買い手が少なければ、予定より高い金利でしか売れない（テール）</li>
+    <li><b>2026年5月</b>　30年債5.3%は平均的な需要、20年債5%超は低調、2・5・7年債は3本続けてテール（報道・解説ベース）</li>
+    <li><b>金利上昇の理由は半分ずつ。</b>買い手の減少と、インフレ・FRBの利上げ観測</li>
+  </ul>
+  <div class="formula">
+    <code>米国債の金利 ＝ 政策金利の予想 ＋ 期待インフレ ＋ 期間プレミアム</code>
+    <span class="n">期間プレミアムは、満期までの期間が長いことへの上乗せ分。財政と需給の懸念はここに反映される。10年4.86%と30年5.3%の差（約0.45ポイント）がその一部。</span>
+  </div>
+</section>
+
+<!-- ===================== §2 ===================== -->
+<section class="topic" id="s2">
+  <span class="badge macro">§2 金利</span>
+  <h2 class="thead">日米金利推移（2006年から2026年）</h2>
+  <p class="sub">日付と数字だけ。解釈は §3 以降。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 960 400" role="img" aria-label="2006年から2026年までの米10年国債と日本10年国債の利回りの推移">
+    <path class="gl" d="M90,276.7 L918,276.7 M90,233.3 L918,233.3 M90,190.0 L918,190.0 M90,146.7 L918,146.7 M90,103.3 L918,103.3 M90,60.0 L918,60.0"/>
+    <path class="ax" d="M90,52 L90,320 M90,320 L918,320"/>
+    <text class="tick" x="82" y="324.0" text-anchor="end">0%</text><text class="tick" x="82" y="280.7" text-anchor="end">1%</text><text class="tick" x="82" y="237.3" text-anchor="end">2%</text><text class="tick" x="82" y="194.0" text-anchor="end">3%</text><text class="tick" x="82" y="150.7" text-anchor="end">4%</text><text class="tick" x="82" y="107.3" text-anchor="end">5%</text><text class="tick" x="82" y="64.0" text-anchor="end">6%</text><text class="tick" x="90.0" y="342" text-anchor="middle">2006</text><text class="tick" x="252.0" y="342" text-anchor="middle">2010</text><text class="tick" x="414.0" y="342" text-anchor="middle">2014</text><text class="tick" x="576.0" y="342" text-anchor="middle">2018</text><text class="tick" x="738.0" y="342" text-anchor="middle">2022</text><text class="tick" x="900.0" y="342" text-anchor="middle">2026</text>
+    <path class="vl" d="M171.0,52 L171.0,320"/><text class="lab c" x="171.0" y="44" text-anchor="middle">2008 リーマン</text><path class="vl" d="M495.0,52 L495.0,320"/><text class="lab c" x="495.0" y="44" text-anchor="middle">2016 日銀マイナス金利</text><path class="vl" d="M657.0,52 L657.0,320"/><text class="lab c" x="657.0" y="44" text-anchor="middle">2020 コロナ</text><path class="vl" d="M819.0,52 L819.0,320"/><text class="lab c" x="819.0" y="44" text-anchor="middle">2024/3 YCC撤廃</text>
+    <polyline class="ln a" points="90.0,116.3 130.5,146.7 171.0,224.7 211.5,155.3 252.0,177.0 292.5,237.7 333.0,242.0 373.5,190.0 414.0,224.7 454.5,220.3 495.0,216.0 535.5,216.0 576.0,203.0 616.5,237.7 657.0,281.0 697.5,255.0 738.0,151.0 778.5,151.0 819.0,120.7 859.5,138.0 900.0,107.7"/>
+    <polyline class="ln c" points="90.0,246.3 130.5,255.0 171.0,268.0 211.5,263.7 252.0,272.3 292.5,276.7 333.0,285.3 373.5,289.7 414.0,307.0 454.5,307.0 495.0,320.0 535.5,320.0 576.0,320.0 616.5,320.0 657.0,320.0 697.5,315.7 738.0,302.7 778.5,294.0 819.0,272.3 859.5,233.3 900.0,190.0"/>
+    <g fill="var(--macro)"><circle cx="90.0" cy="116.3" r="3"/><circle cx="130.5" cy="146.7" r="3"/><circle cx="171.0" cy="224.7" r="3"/><circle cx="211.5" cy="155.3" r="3"/><circle cx="252.0" cy="177.0" r="3"/><circle cx="292.5" cy="237.7" r="3"/><circle cx="333.0" cy="242.0" r="3"/><circle cx="373.5" cy="190.0" r="3"/><circle cx="414.0" cy="224.7" r="3"/><circle cx="454.5" cy="220.3" r="3"/><circle cx="495.0" cy="216.0" r="3"/><circle cx="535.5" cy="216.0" r="3"/><circle cx="576.0" cy="203.0" r="3"/><circle cx="616.5" cy="237.7" r="3"/><circle cx="657.0" cy="281.0" r="3"/><circle cx="697.5" cy="255.0" r="3"/><circle cx="738.0" cy="151.0" r="3"/><circle cx="778.5" cy="151.0" r="3"/><circle cx="819.0" cy="120.7" r="3"/><circle cx="859.5" cy="138.0" r="3"/><circle cx="900.0" cy="107.7" r="3"/></g>
+    <g fill="var(--bridge)"><circle cx="90.0" cy="246.3" r="3"/><circle cx="130.5" cy="255.0" r="3"/><circle cx="171.0" cy="268.0" r="3"/><circle cx="211.5" cy="263.7" r="3"/><circle cx="252.0" cy="272.3" r="3"/><circle cx="292.5" cy="276.7" r="3"/><circle cx="333.0" cy="285.3" r="3"/><circle cx="373.5" cy="289.7" r="3"/><circle cx="414.0" cy="307.0" r="3"/><circle cx="454.5" cy="307.0" r="3"/><circle cx="495.0" cy="320.0" r="3"/><circle cx="535.5" cy="320.0" r="3"/><circle cx="576.0" cy="320.0" r="3"/><circle cx="616.5" cy="320.0" r="3"/><circle cx="657.0" cy="320.0" r="3"/><circle cx="697.5" cy="315.7" r="3"/><circle cx="738.0" cy="302.7" r="3"/><circle cx="778.5" cy="294.0" r="3"/><circle cx="819.0" cy="272.3" r="3"/><circle cx="859.5" cy="233.3" r="3"/><circle cx="900.0" cy="190.0" r="3"/></g>
+    <text class="tick" x="96" y="106.3" text-anchor="start">4.7</text>
+    <text class="tick" x="638.0" y="297.0" text-anchor="middle">0.9</text>
+    <text class="tick" x="924" y="111.7" text-anchor="start">4.9</text>
+    <text class="tick" x="96" y="262.3" text-anchor="start">1.7</text>
+    <text class="tick" x="576.0" y="336.0" text-anchor="middle">0.0</text>
+    <text class="tick" x="924" y="194.0" text-anchor="start">3.0</text>
+    <path class="ln a" d="M104,70 L134,70"/><text class="lab" x="142" y="74">米10年債</text>
+    <path class="ln c" d="M104,94 L134,94"/><text class="lab" x="142" y="98">日本10年債</text>
+  </svg>
+  <div class="cap">図4　各年12月の水準。<b>年末値の概数（0.1ポイント丸め）。</b>2026年だけは9/10（米）・9/1（日本）。<b>平らな区間は、日銀が上限を決めて国債を買っていた期間にあたる。</b>一次情報は米財務省の金利データと財務省「国債金利情報」。</div>
+  </div>
+
+  <h3>日米政策金利推移（2006年から2026年）</h3>
+  <div class="fig">
+  <svg viewBox="0 0 960 350" role="img" aria-label="2006年から2026年までの米国の政策金利上限と日本の政策金利の階段グラフ">
+    <path class="gl" d="M90,207.1 L918,207.1 M90,175.7 L918,175.7 M90,144.3 L918,144.3 M90,112.8 L918,112.8 M90,81.4 L918,81.4 M90,50.0 L918,50.0"/>
+    <path class="ax" d="M90,52 L90,270 M90,238.6 L918,238.6"/>
+    <text class="tick" x="82" y="242.6" text-anchor="end">0%</text><text class="tick" x="82" y="211.1" text-anchor="end">1%</text><text class="tick" x="82" y="179.7" text-anchor="end">2%</text><text class="tick" x="82" y="148.3" text-anchor="end">3%</text><text class="tick" x="82" y="116.8" text-anchor="end">4%</text><text class="tick" x="82" y="85.4" text-anchor="end">5%</text><text class="tick" x="82" y="54.0" text-anchor="end">6%</text><text class="tick" x="90.0" y="292" text-anchor="middle">2006</text><text class="tick" x="252.0" y="292" text-anchor="middle">2010</text><text class="tick" x="414.0" y="292" text-anchor="middle">2014</text><text class="tick" x="576.0" y="292" text-anchor="middle">2018</text><text class="tick" x="738.0" y="292" text-anchor="middle">2022</text><text class="tick" x="900.0" y="292" text-anchor="middle">2026</text>
+    <path class="vl" d="M495.0,52 L495.0,270"/><text class="lab c" x="495.0" y="44" text-anchor="middle">2016/2 マイナス金利</text><path class="vl" d="M819.0,52 L819.0,270"/><text class="lab c" x="819.0" y="44" text-anchor="middle">2024/3 解除</text>
+    <path class="ln a" d="M90.0,73.6 L130.5,73.6 L130.5,105.0 L171.0,105.0 L171.0,230.7 L211.5,230.7 L211.5,230.7 L252.0,230.7 L252.0,230.7 L292.5,230.7 L292.5,230.7 L333.0,230.7 L333.0,230.7 L373.5,230.7 L373.5,230.7 L414.0,230.7 L414.0,230.7 L454.5,230.7 L454.5,222.9 L495.0,222.9 L495.0,215.0 L535.5,215.0 L535.5,191.4 L576.0,191.4 L576.0,160.0 L616.5,160.0 L616.5,183.6 L657.0,183.6 L657.0,230.7 L697.5,230.7 L697.5,230.7 L738.0,230.7 L738.0,97.1 L778.5,97.1 L778.5,65.7 L819.0,65.7 L819.0,97.1 L859.5,97.1 L859.5,120.7 L900.0,120.7 L900.0,120.7"/>
+    <path class="ln c" d="M90.0,230.7 L130.5,230.7 L130.5,222.9 L171.0,222.9 L171.0,235.4 L211.5,235.4 L211.5,235.4 L252.0,235.4 L252.0,235.4 L292.5,235.4 L292.5,235.4 L333.0,235.4 L333.0,235.4 L373.5,235.4 L373.5,235.4 L414.0,235.4 L414.0,235.4 L454.5,235.4 L454.5,235.4 L495.0,235.4 L495.0,241.7 L535.5,241.7 L535.5,241.7 L576.0,241.7 L576.0,241.7 L616.5,241.7 L616.5,241.7 L657.0,241.7 L657.0,241.7 L697.5,241.7 L697.5,241.7 L738.0,241.7 L738.0,241.7 L778.5,241.7 L778.5,241.7 L819.0,241.7 L819.0,230.7 L859.5,230.7 L859.5,215.0 L900.0,215.0 L900.0,207.1"/>
+    <text class="tick" x="96" y="65.6" text-anchor="start">5.25</text>
+    <text class="tick" x="778.5" y="57.7" text-anchor="middle">5.50</text>
+    <text class="tick" x="333.0" y="222.7" text-anchor="middle">米 0.25</text>
+    <text class="tick" x="924" y="124.7" text-anchor="start">3.75</text>
+    <text class="tick" x="657.0" y="257.7" text-anchor="middle">日 −0.10</text>
+    <text class="tick" x="924" y="211.1" text-anchor="start">1.00</text>
+    <path class="ln a" d="M104,70 L134,70"/><text class="lab" x="142" y="74">米国（誘導目標レンジの上限）</text>
+    <path class="ln c" d="M104,94 L134,94"/><text class="lab" x="142" y="98">日本（無担保コールレート翌日物）</text>
+  </svg>
+  <div class="cap">図5　各年12月の水準。米国は誘導目標レンジの上限、日本は無担保コールレート翌日物の誘導目標。<b>2026年の米国は 1/28・3月・6/17・7/29 と4回すべて据え置き。動いたのは日本だけである。</b>9/16のFOMCと9/18の日銀会合が次の分岐になる。</div>
+  </div>
+
+  <h3>2026年の金利推移</h3>
+  <div class="fig">
+  <svg viewBox="0 0 900 420" role="img" aria-label="2026年の米30年債・米10年債・日本10年債の利回りの推移を、確認できた日付の点で結んだ折れ線グラフ">
+    <!-- grid -->
+    <path class="gl" d="M100,99 L850,99 M100,176 L850,176 M100,253 L850,253"/>
+    <path class="ax" d="M100,60 L100,330 M100,330 L850,330"/>
+    <text class="tick" x="92" y="103" text-anchor="end">5%</text>
+    <text class="tick" x="92" y="180" text-anchor="end">4%</text>
+    <text class="tick" x="92" y="257" text-anchor="end">3%</text>
+    <text class="tick" x="92" y="334" text-anchor="end">2%</text>
+    <text class="tick" x="100" y="350" text-anchor="middle">1月</text>
+    <text class="tick" x="275" y="350" text-anchor="middle">3月</text>
+    <text class="tick" x="456" y="350" text-anchor="middle">5月</text>
+    <text class="tick" x="637" y="350" text-anchor="middle">7月</text>
+    <text class="tick" x="820" y="350" text-anchor="middle">9月</text>
+
+    <!-- event markers -->
+    <path class="vl" d="M592,60 L592,330"/>
+    <path class="vl" d="M782,60 L782,330"/>
+    <text class="lab c" x="592" y="50" text-anchor="middle">6/16 日銀 1.00%へ</text>
+    <text class="lab c" x="782" y="50" text-anchor="middle">8/19 買い戻し倍増</text>
+
+    <!-- lines -->
+    <polyline class="ln b" points="521,83 681,97 740,85 844,79"/>
+    <polyline class="ln a" points="453,153 634,142 785,127 847,109"/>
+    <polyline class="ln c" points="156,303 657,263 820,253"/>
+    <!-- dots -->
+    <g fill="var(--corp)"><circle cx="521" cy="83" r="4"/><circle cx="681" cy="97" r="4"/><circle cx="740" cy="85" r="4"/><circle cx="844" cy="79" r="4"/></g>
+    <g fill="var(--macro)"><circle cx="453" cy="153" r="4"/><circle cx="634" cy="142" r="4"/><circle cx="785" cy="127" r="4"/><circle cx="847" cy="109" r="4"/></g>
+    <g fill="var(--bridge)"><circle cx="156" cy="303" r="4"/><circle cx="657" cy="263" r="4"/><circle cx="820" cy="253" r="4"/></g>
+
+    <!-- point labels -->
+    <text class="tick" x="521" y="74" text-anchor="middle">5.20</text>
+    <text class="tick" x="676" y="112" text-anchor="middle">5.02</text>
+    <text class="tick" x="860" y="83" text-anchor="start">5.25</text>
+    <text class="tick" x="449" y="168" text-anchor="middle">4.30</text>
+    <text class="tick" x="630" y="157" text-anchor="middle">4.44</text>
+    <text class="tick" x="762" y="146" text-anchor="middle">4.63</text>
+    <text class="tick" x="860" y="113" text-anchor="start">4.86</text>
+    <text class="tick" x="156" y="318" text-anchor="middle">2.35</text>
+    <text class="tick" x="657" y="280" text-anchor="middle">2.87</text>
+    <text class="tick" x="860" y="257" text-anchor="start">3.00</text>
+
+    <!-- legend -->
+    <path class="ln b" d="M112,74 L142,74"/>
+    <text class="lab" x="150" y="78">米30年債</text>
+    <path class="ln a" d="M112,100 L142,100"/>
+    <text class="lab" x="150" y="104">米10年債</text>
+    <path class="ln c" d="M112,126 L142,126"/>
+    <text class="lab" x="150" y="130">日本10年債</text>
+
+  </svg>
+  <div class="cap">図6　単位は%。8月の値は月内の水準、4月末・6月末は週平均。<b>日次の連続データではなく、日付が確認できた点だけを結んだ線である。</b>日本の30年債は9月に4.18%で過去最高（グラフには入れていない）。</div>
+  </div>
+
+  <h3>米財務省の措置（日付順）</h3>
+  <ul class="tl">
+    <li><span class="t">7/31</span><span class="c">日米が<b>協調して円買い介入</b>。米財務省は手元の<b>ユーロを売って</b>円を買った。円買いでの日米協調は1998年以来</span></li>
+    <li><span class="t">8/3</span><span class="c">日米が共同声明。ベッセントは「アジアの安定のため」と説明。日本にはFRBの<b>FIMAレポ</b>（米国債を担保にドルを借りる枠）の利用を促す</span></li>
+    <li><span class="t">8/19</span><span class="c">残存10年超の国債の買い戻しを、1回<b>20億ドルから40億ドル</b>へ倍増すると発表。実施は9/9〜11/4</span></li>
+    <li><span class="t">8/20</span><span class="c">「1回40億ドルを超えることもありうる」「市場の<b>熱を冷ます</b>」。自らこの操作を<b>Treasury Twist</b>と呼ぶ。原資は短期国債の増発</span></li>
+    <li><span class="t">8/24</span><span class="c">買い戻しの原資に、財務省の手元資金（TGA・約1兆ドル）を充てうると報じられる</span></li>
+    <li><span class="t">8/28</span><span class="c">上院銀行委員会のウォーレン議員が介入の目的を書面で質す。ベッセントは反論</span></li>
+    <li><span class="t">9/9</span><span class="c">買い戻しを1回<b>60億ドル</b>へ拡大すると発表（11/4まで）。同日の米10年債は4.80%、30年債は5.25%</span></li>
+  </ul>
+  <p><b>買い戻しは3週間で3倍。</b>2026年度の財政赤字は1.9兆ドル（CBO推計）。</p>
+
+  <h3>日本銀行の措置（日付順）</h3>
+  <ul class="tl">
+    <li><span class="t">2025/12</span><span class="c">政策金利を<b>0.75%</b>へ</span></li>
+    <li><span class="t">2026/1</span><span class="c">10年国債の利回りが一時<b>2.350%</b>。約27年ぶりの水準</span></li>
+    <li><span class="t">6/16</span><span class="c">政策金利を<b>1.00%</b>へ。1%台は約31年ぶり。あわせて<b>国債買い入れの減額は2027年4月以降に停止</b>と決定</span></li>
+    <li><span class="t">7/8</span><span class="c">10年国債の利回りが<b>2.87%</b>。1996年9月以来</span></li>
+    <li><span class="t">7/30-31</span><span class="c">据え置き。<b>高田委員が一人だけ反対し、1.25%への利上げを提案</b></span></li>
+    <li><span class="t">8月</span><span class="c">7月会合の「主な意見」に<b>「利上げのペースアップが必要」</b>が載る</span></li>
+    <li><span class="t">9/1</span><span class="c">10年国債の入札利回りが<b>2.995%</b>。3%目前</span></li>
+    <li><span class="t">9/2</span><span class="c">高田委員が札幌で講演。<b>「決まったペースにとらわれず、機動的に利上げを行う新局面」</b>。この日は長期金利が上がり、円・債券・株の三つが同時に下げたと報じられる</span></li>
+    <li><span class="t">9月</span><span class="c">30年国債が<b>4.18%</b>で過去最高</span></li>
+    <li><span class="t">9/17-18</span><span class="c">金融政策決定会合。市場の一部は0.5ポイントの利上げも織り込む</span></li>
+  </ul>
+  <p>この2本が、<b>次の§3の矢印①の中身</b>。</p>
+</section>
+
+<!-- ===================== §3 ===================== -->
+<section class="topic" id="s3">
+  <span class="badge bridge">§3 連関</span>
+  <h2 class="thead">米国債・ドル円・米国株・日本のお金の連関（矢印①〜⑤）</h2>
+  <p class="sub">実線は普段の向き。点線は<b>信認が揺らいだときだけ</b>出る向き。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 920 560" role="img" aria-label="米国債・ドル円・米国株・日本のお金の4つをつなぐ矢印①〜⑤の図">
+    <defs>
+      <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+      </marker>
+    </defs>
+    <!-- boxes -->
+    <rect class="box m" x="40" y="50" width="320" height="120" rx="14"/>
+    <text class="ttl" x="200" y="86" text-anchor="middle">Ⓐ 米国債</text>
+    <text class="sm" x="200" y="112" text-anchor="middle">値段が下がる ＝ 金利が上がる（定理1）</text>
+    <text class="sm" x="200" y="134" text-anchor="middle">10年 4.86%／30年 約5.3%（9/10）</text>
+    <text class="sm" x="200" y="156" text-anchor="middle">売り手：財政赤字1.9兆ドル分の新発＋海外の売り</text>
+
+    <rect class="box c" x="540" y="50" width="320" height="120" rx="14"/>
+    <text class="ttl" x="700" y="86" text-anchor="middle">Ⓑ ドル円</text>
+    <text class="sm" x="700" y="112" text-anchor="middle">7/23 163.99円 → 介入 → 9月 約156円</text>
+    <text class="sm" x="700" y="134" text-anchor="middle">普段は日米の金利差で動く</text>
+    <text class="sm" x="700" y="156" text-anchor="middle">信認が揺らぐと、米金利↑でもドル安</text>
+
+    <rect class="box g" x="40" y="390" width="320" height="120" rx="14"/>
+    <text class="ttl" x="200" y="426" text-anchor="middle">Ⓒ 米国株</text>
+    <text class="sm" x="200" y="452" text-anchor="middle">株価 ＝ 将来の利益 ÷（金利＋リスク）</text>
+    <text class="sm" x="200" y="474" text-anchor="middle">S&amp;P500 7,592（9/10、4日続落）</text>
+    <text class="sm" x="200" y="496" text-anchor="middle">CAPE 約41倍＝1881年以来の上位1%</text>
+
+    <rect class="box w" x="540" y="390" width="320" height="120" rx="14"/>
+    <text class="ttl" x="700" y="426" text-anchor="middle">Ⓓ 日本のお金</text>
+    <text class="sm" x="700" y="452" text-anchor="middle">官：外貨準備 約1.2兆ドル（7割が米国債・推計）</text>
+    <text class="sm" x="700" y="474" text-anchor="middle">民：生保・年金・銀行の米国債 約1兆ドル</text>
+    <text class="sm" x="700" y="496" text-anchor="middle">日銀：政策金利1.0%、9/18に利上げ観測</text>
+
+    <!-- ① A -> B (top) -->
+    <g style="color:var(--ink2)">
+      <path class="ar" d="M360,95 L540,95" marker-end="url(#ah)"/>
+    </g>
+    <circle class="num" cx="450" cy="95" r="13"/><text class="numt" x="450" y="99.5" text-anchor="middle">①</text>
+    <rect class="labbg" x="372" y="16" width="160" height="22" rx="4"/>
+    <text class="lab" x="452" y="31" text-anchor="middle">米金利↑ → 金利差↑ → 円安</text>
+
+    <!-- ①' B -> A dashed (below ①) -->
+    <g style="color:var(--corp)">
+      <path class="ar dash" d="M540,140 L360,140" marker-end="url(#ah)"/>
+    </g>
+    <rect class="labbg" x="362" y="150" width="178" height="22" rx="4"/>
+    <text class="lab c" x="451" y="165" text-anchor="middle">信認↓：金利↑と同時にドル安</text>
+
+    <!-- ② B -> D (right side) -->
+    <g style="color:var(--ink2)">
+      <path class="ar" d="M700,170 L700,390" marker-end="url(#ah)"/>
+    </g>
+    <circle class="num" cx="700" cy="280" r="13"/><text class="numt" x="700" y="284.5" text-anchor="middle">②</text>
+    <rect class="labbg" x="714" y="200" width="150" height="44" rx="4"/>
+    <text class="lab" x="789" y="217" text-anchor="middle">円安が行き過ぎ →</text>
+    <text class="lab" x="789" y="235" text-anchor="middle">財務省がドル売り介入</text>
+
+    <!-- ③ D -> A (diagonal) -->
+    <g style="color:var(--bridge)">
+      <path class="ar g" d="M560,390 L330,175" marker-end="url(#ah)"/>
+    </g>
+    <circle class="num" cx="445" cy="283" r="13"/><text class="numt" x="445" y="287.5" text-anchor="middle">③</text>
+    <rect class="labbg" x="330" y="300" width="250" height="62" rx="4"/>
+    <text class="lab g" x="455" y="318" text-anchor="middle">介入の原資に米国債を売る／担保に借りる</text>
+    <text class="lab g" x="455" y="336" text-anchor="middle">生保が米国債を売って日本国債へ</text>
+    <text class="lab g" x="455" y="354" text-anchor="middle">→ 米国債の値段↓ ＝ 金利↑（Ⓐへ戻る）</text>
+
+    <!-- ④ A -> C (left side) -->
+    <g style="color:var(--ink2)">
+      <path class="ar" d="M200,170 L200,390" marker-end="url(#ah)"/>
+    </g>
+    <circle class="num" cx="200" cy="280" r="13"/><text class="numt" x="200" y="284.5" text-anchor="middle">④</text>
+    <rect class="labbg" x="30" y="255" width="150" height="44" rx="4"/>
+    <text class="lab" x="105" y="272" text-anchor="middle">金利↑ → 分母↑</text>
+    <text class="lab" x="105" y="290" text-anchor="middle">→ 株の値段↓</text>
+
+    <!-- ⑤ D -> B (日銀利上げ → 円高) on right, drawn as curve -->
+    <g style="color:var(--ink2)">
+      <path class="ar" d="M840,390 C880,300 880,260 840,170" marker-end="url(#ah)"/>
+    </g>
+    <circle class="num" cx="862" cy="280" r="13"/><text class="numt" x="862" y="284.5" text-anchor="middle">⑤</text>
+    <text class="lab" transform="rotate(90 900 280)" x="900" y="280" text-anchor="middle">日銀利上げ → 金利差↓ → 円高</text>
+
+    <!-- C -> A feedback note (bottom-left) -->
+    <text class="sm" x="40" y="540">普段は「株↓ → 安全資産の米国債へ逃げる → 金利↓」の戻りがある。2026年9月は株↓と金利↑が同時＝戻りが効いていない。</text>
+  </svg>
+  <div class="cap">図7　実線は普段の向き。点線①'は信認が揺らいだときだけ出る向きで、2025年4月の「Sell America」と2026年夏がこれ。矢印③は官（介入）と民（生保）の2本の流れが同じ向きに合流している。</div>
+  </div>
+
+  <h3>矢印ごとの実例と数字</h3>
+  <ul class="facts">
+    <li><b>①</b>　2026年前半の政策金利の差は2.5ポイント以上。円を売ってドルで持つ方が得になる。</li>
+    <li><b>②</b>　7/23に163.99円。7/30〜31に日米が同時に円買い介入。<b>円買いでの日米協調は1998年以来。</b>7/30〜8/26の介入額は986億ドル＝約15兆円。</li>
+    <li><b>③</b>　ドルは外貨準備に米国債の形で置いてある。売るか、担保に借りるしかない。8月の外貨準備は796億ドル減、うち外国証券が878億ドル減。<b>ここで矢印がⒶに戻る。</b></li>
+    <li><b>①'</b>　2025年4月は関税発表の週に10年債が2001年以来の上げ幅。2026年8〜9月は10年債4.9%近くでドル指数が約99。<b>金利とドルが逆に動いた場合、この経路を確認する。</b></li>
+    <li><b>④</b>　9/10は10年債4.86%と原油108ドルでS&amp;P500が4日続落。分母が3つ同時に上がった日。</li>
+    <li><b>⑤</b>　日銀が利上げすると①の差が縮むだけでなく、日本国債の利回りが上がる（10年3.0%、30年4.18%）。<b>生保はヘッジ後の米国債より日本国債が高くなり、米国債を売って戻る。円高は③の売りを止めず、増やす方向に働く。</b></li>
+  </ul>
+</section>
+
+<!-- ===================== §4 ===================== -->
+<section class="topic" id="s4">
+  <span class="badge macro">§4 デフォルト</span>
+  <h2 class="thead">米国債のデフォルト ── 元利金の不払いと、実質価値の目減り</h2>
+  <p class="sub">デフォルトは2種類。どちらを指すかで答えが変わる。</p>
+
+  <div class="twocol">
+    <div class="card b"><div class="ch">① 元利金の不払い</div><p>期日に支払いが行われない状態。米国は<b>自国通貨建て</b>なので、制度上はドルを発行して払える。起きるとすれば<b>政治</b>。債務上限を上げずに払わない形。2011年にS&amp;P、2023年にフィッチ、2025年5月にムーディーズが格下げ。<b>3社とも最上位から外れている。</b></p></div>
+    <div class="card"><div class="ch">② 実質価値の目減り</div><p>支払いは行われるが、受け取ったドルの購買力が下がる。要因は<b>インフレとドル安</b>。<b>名目の元本は満額。減るのは実質。</b></p></div>
+  </div>
+
+  <div class="formula">
+    <code>10年後の100ドルの実質価値 ＝ 100 ÷（1 ＋ インフレ率）<sup>10</sup></code>
+    <span class="n">§0 の割引現在価値と同じ式。分子は契約で固定、分母だけが動く。</span>
+  </div>
+  <div class="fig">
+  <svg viewBox="0 0 900 260" role="img" aria-label="10年後に受け取る100ドルの実質価値。インフレ年2%・3%・5%の場合">
+    <path class="vl" d="M770,34 L770,242"/>
+    <text class="lab" x="138" y="72" text-anchor="end">名目（契約）</text><rect class="bar" x="150" y="48" width="620.0" height="34" rx="5" fill="var(--bridge)"/><text class="tick" x="780.0" y="70" text-anchor="start" style="font-weight:800">100.0ドル</text><text class="lab" x="138" y="120" text-anchor="end">インフレ 年2%</text><rect class="bar" x="150" y="96" width="508.4" height="34" rx="5" fill="var(--macro)"/><text class="tick" x="668.4" y="118" text-anchor="start" style="font-weight:800">82.0ドル</text><text class="lab" x="138" y="168" text-anchor="end">年3%</text><rect class="bar" x="150" y="144" width="461.3" height="34" rx="5" fill="var(--macro)"/><text class="tick" x="621.3" y="166" text-anchor="start" style="font-weight:800">74.4ドル</text><text class="lab" x="138" y="216" text-anchor="end">年5%</text><rect class="bar" x="150" y="192" width="380.7" height="34" rx="5" fill="var(--corp)"/><text class="tick" x="540.7" y="214" text-anchor="start" style="font-weight:800">61.4ドル</text>
+  </svg>
+  <div class="cap">図8　②の計算例。インフレ率は一定と仮定。名目の元本は満額支払われる。</div>
+  </div>
+
+  <h3>金利上昇と債務の連鎖、4つの出口</h3>
+  <div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="利払い増→赤字増→発行増→金利上昇→利払い増の輪と、4つの出口">
+    <defs>
+      <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+      </marker>
+    </defs>
+    <rect class="box c" x="30" y="40" width="180" height="70" rx="12"/>
+    <text class="ttl" x="120" y="70" text-anchor="middle">金利が上がる</text>
+    <text class="sm" x="120" y="94" text-anchor="middle">借り換えのたびに効く</text>
+    <rect class="box c" x="260" y="40" width="180" height="70" rx="12"/>
+    <text class="ttl" x="350" y="70" text-anchor="middle">利払いが増える</text>
+    <text class="sm" x="350" y="94" text-anchor="middle">1.0兆 → 2.1兆ドル</text>
+    <rect class="box c" x="490" y="40" width="180" height="70" rx="12"/>
+    <text class="ttl" x="580" y="70" text-anchor="middle">赤字が増える</text>
+    <text class="sm" x="580" y="94" text-anchor="middle">半分は利息のため</text>
+    <rect class="box c" x="720" y="40" width="160" height="70" rx="12"/>
+    <text class="ttl" x="800" y="70" text-anchor="middle">発行が増える</text>
+    <text class="sm" x="800" y="94" text-anchor="middle">買い手が足りない</text>
+    <g style="color:var(--ink2)">
+      <path class="ar" d="M210,75 L260,75" marker-end="url(#ah2)"/>
+      <path class="ar" d="M440,75 L490,75" marker-end="url(#ah2)"/>
+      <path class="ar" d="M670,75 L720,75" marker-end="url(#ah2)"/>
+      <path class="ar" d="M800,110 L800,150 L120,150 L120,110" marker-end="url(#ah2)"/>
+    </g>
+    <rect class="labbg" x="360" y="139" width="200" height="22" rx="4"/>
+    <text class="lab c" x="460" y="154" text-anchor="middle">売れ残ると金利を上げて売る</text>
+    <!-- exits -->
+    <text class="lab" x="30" y="200">輪から抜ける4つの出口</text>
+    <rect class="box g" x="30" y="215" width="195" height="60" rx="10"/>
+    <text class="sm" x="127" y="240" text-anchor="middle" style="font-weight:800">Ⅰ 増税・歳出削減</text>
+    <text class="sm" x="127" y="260" text-anchor="middle">政治的な制約が大きい</text>
+    <rect class="box g" x="248" y="215" width="195" height="60" rx="10"/>
+    <text class="sm" x="345" y="240" text-anchor="middle" style="font-weight:800">Ⅱ インフレで薄める</text>
+    <text class="sm" x="345" y="260" text-anchor="middle">債権者が負担する</text>
+    <rect class="box g" x="466" y="215" width="195" height="60" rx="10"/>
+    <text class="sm" x="563" y="240" text-anchor="middle" style="font-weight:800">Ⅲ 中央銀行が買う</text>
+    <text class="sm" x="563" y="260" text-anchor="middle">日銀は国債の約半分を保有</text>
+    <rect class="box g" x="684" y="215" width="196" height="60" rx="10"/>
+    <text class="sm" x="782" y="240" text-anchor="middle" style="font-weight:800">Ⅳ 短期で借りて長期を買い戻す</text>
+    <text class="sm" x="782" y="260" text-anchor="middle">ベッセントが実施中</text>
+  </svg>
+  <div class="cap">図9　下の4つのうちどれを選ぶかで、負担する主体が変わる。</div>
+  </div>
+
+  <h3>出口Ⅳ（ツイスト）の実施状況</h3>
+  <ul class="facts">
+    <li><b>8/19</b>　10〜30年債の買い戻しを1回20億→<b>40億ドル</b>。翌日「40億を超えてもよい」「市場の熱を冷ます」（報道）</li>
+    <li><b>9/9</b>　<b>60億ドル</b>へ拡大（財務省発表、11/4まで）。原資は短期国債の増発。長期を買い、短期で借りる。自ら「ツイスト」と呼ぶ</li>
+    <li><b>ステーブルコイン</b>　GENIUS法（2025年成立）で、裏付けは93日以内の米短期債。ベッセントの見込みは最大1兆ドルの買い。<b>現在の残高は約3,000億ドル</b>（報道）</li>
+    <li><b>結果</b>　倍増後も10年・30年は上昇。<b>買い戻し40億ドルに対し、毎年の新発は1.9兆ドル。桁が2つ違う</b></li>
+  </ul>
+  <p>8/18時点の枠は1回20億ドル。<b>1か月で3倍。同じ期間に10年債・30年債はいずれも上昇。</b></p>
+
+  <p><b>結論。</b>①は制度上ほぼ起きない。起きるのは②。<b>負担するのは債権者 ── 米国債を持つ日本の生保・年金・外貨準備。</b></p>
+</section>
+
+<!-- ===================== §5 ===================== -->
+<section class="topic" id="s5">
+  <span class="badge corp">§5 日本の売り</span>
+  <h2 class="thead">日本の米国債売却 ── 3つの入口</h2>
+  <p class="sub">売り手は3種類。誰が、何のために売るかで条件が違う。</p>
+
+  <div class="twocol">
+    <div class="card b"><div class="ch">入口A　官 ── 円安を止めるための介入</div>
+      <p><b>誰</b>　財務省（外国為替資金特別会計）<br><b>条件</b>　円安が政治的に許容できない水準に達したとき<br><b>2026年</b>　4〜5月に約12兆円（報道）。7/30〜8/26に986億ドル＝約15兆円。8月の外貨準備は▲796億ドル、外国証券は▲878億ドル（財務省 一次）。残高1.208兆ドル</p>
+      <p><b>限界</b>　ゴールドマンの推計は、ドル準備約1兆ドルのうち現金約2,000億ドル。同規模の介入があと2〜3回分。日経の検証（4月）は「売れない、は言い過ぎ」。<b>論点は、売れるかではなく、どの年限をどの相場でいくら売るか。</b></p>
+    </div>
+    <div class="card"><div class="ch">入口B　民 ── ヘッジ後の利回りが国内債を下回ったとき</div>
+      <p><b>誰</b>　生保・年金・銀行<br><b>条件</b>　「米国債の利回り − 為替ヘッジのコスト」が日本国債の利回りを下回ったとき。ヘッジコストはほぼ日米の短期金利差。<b>米金利が高いほどヘッジは高くつく。</b></p>
+      <p><b>2026年</b>　日本の30年国債4.18%（9月・過去最高）、10年3.0%。ヘッジ後の米30年債より日本の超長期債が高くなり、生保が国債へ回帰（日経アジア）。農林中金は2024年度に約13兆円の米欧債を売却。<b>日銀が利上げするほど広がる入口。</b></p>
+    </div>
+    <div class="card d"><div class="ch">入口C　信認 ── 「安全資産」の前提が崩れたとき</div>
+      <p><b>誰</b>　全員<br><b>条件</b>　制裁・関税・中央銀行への政治圧力で、「米国債はいつでも売れて価値が守られる」という前提が疑われたとき</p>
+      <p><b>実例</b>　2025年4月の関税発表週、10年債が1週間で2001年以来の上げ幅（4.59%）。日本の年金・銀行のリバランス売りとされる。2026年9月はトランプ大統領がFRB議長ウォーシュに公開の場で利下げを要求。<b>中国は2013年以降、この入口から保有を減らし続けている。</b></p>
+    </div>
+  </div>
+
+  <h3>各入口の現状（2026年9月）</h3>
+  <ol class="chain">
+    <li><b>入口A（介入）は8月に開いた。</b>ただし米財務省が先回り。①自らユーロを売って円を買う ②FRBの<b>FIMAレポ</b>＝米国債を担保にドルを借りる枠を日本に使わせる。<b>売らずにドルを作れる。米国の狙いは、日本による大量売却を避けること</b>（解説ベース）</li>
+    <li><b>入口B（ヘッジ後の利回り）は進行中。</b>9/18の利上げで日本国債の利回りが上がれば、生保の国内回帰が加速。<b>介入と違い、誰も止められない</b></li>
+    <li><b>入口C（信認）は兆しの段階。</b>目印は「金利↑とドル安が同時」（図7の点線①'）。9月上旬はドル指数約99、10年債4.9%近く</li>
+  </ol>
+</section>
+
+<!-- ===================== §6 ===================== -->
+<section class="topic" id="s6">
+  <span class="badge bridge">§6 円高</span>
+  <h2 class="thead">円高に至る3つの手段と、米国債への影響</h2>
+  <p class="sub">「円高」に至る手段は3つ。米国債への効き方が全部違う。</p>
+
+  <div class="twocol">
+    <div class="card b"><div class="ch">手段1　介入で円高にする</div><p>ドルを売って円を買う。ドルの置き場は米国債。<b>介入＝米国債を減らす方向。売らせない策ではなく、売りの原因。</b>米国が用意した「売らせない策」は、ユーロ売りとFIMAレポの2つ。</p></div>
+    <div class="card"><div class="ch">手段2　日銀の利上げで円高にする</div><p>金利差が縮んで円高。同時に日本国債の利回りが上がり、<b>生保が米国債を売って戻る（入口B）</b>。<b>円高は売りを止めず、増やす方向に働く。</b></p></div>
+    <div class="card c"><div class="ch">手段3　米国の利下げで円高にする</div><p>金利差もヘッジコストも縮む。<b>日本の買い手が米国債に戻る唯一の経路。</b>ただし9月のFOMCは<b>利上げ</b>が本線。原油108ドル、CPI3%台。</p></div>
+  </div>
+
+  <ul class="facts">
+    <li><b>「円高にすれば日本は米国債を売らずに済む」が成り立つのは、手段3のときだけ。</b></li>
+    <li>手段1・2では、<b>円高と米国債の売りが同時に起きる</b></li>
+    <li>2026年夏に起きたのは手段1。9/18に起きうるのは手段2</li>
+    <li>米財務省が協調介入に加わった狙いは、円高そのものではなく、<b>その過程で米国債が売られるのを抑えること</b>（解説ベース）</li>
+  </ul>
+</section>
+
+<!-- ===================== §7 ===================== -->
+<section class="topic" id="s7">
+  <span class="badge corp">§7 株</span>
+  <h2 class="thead">金利と株価の関係 ── 分母としての金利</h2>
+  <p class="sub">金利は株の値段の分母。第5回の式をそのまま使う。</p>
+
+  <div class="formula">
+    <code>株の値段 ＝ 将来の利益 ÷（金利 ＋ リスク）</code>
+    <span class="n">10年債が4.86%なら、1年後の1万円は今9,540円の価値。5%なら9,520円。分母が上がるほど、遠い将来の利益ほど値段が下がる。利益がまだ先にあるAI・成長株ほど効く。</span>
+  </div>
+
+  <h3>2026年9月10日の米国市場</h3>
+  <ul class="facts">
+    <li><b>S&amp;P500 7,592、4日続落。</b>10年債4.86%、原油108ドル、卸売物価が上振れ、FOMCの利上げ観測。<b>分母が3つ同時に上がった日。</b></li>
+    <li><b>シラーPER 約41倍。</b>1881年以来の1,749か月で上位1%。これより高いのは1999〜2000年と2026年だけ（解説ベース）。ただし株の益回りと債券利回りの差は約1ポイント残る。<b>債券に対しては2000年ほど割高ではない。</b></li>
+    <li><b>バークシャーの現金 3,800億ドル。</b>5/2の株主総会で「700〜800億ドルは使いたいが、値段が高すぎる」</li>
+    <li><b>中間選挙年の秋</b>（第6回）。11/3まで、政治の不確実性が分母のリスクに加わる</li>
+  </ul>
+
+  <h3>日本株への影響</h3>
+  <ul class="facts">
+    <li>日経平均は9/9に65,271円。<b>日本株には、米金利とは別の分母が2つある。</b></li>
+    <li><b>円高</b>　輸出企業の円換算利益が減る</li>
+    <li><b>日本の金利↑</b>　不動産・建設は借入コスト増で下、銀行・保険は利ざや拡大で上（第2回の業種論）</li>
+    <li><b>9/18の日銀会合は、この2つを同時に動かす。</b></li>
+  </ul>
+</section>
+
+<!-- ===================== §8 ===================== -->
+<section class="topic" id="s8">
+  <span class="badge word">§8 発言</span>
+  <h2 class="thead">識者・投資家の発言（11人・日付順）</h2>
+  <p class="sub">見解は一致していない。発言は要旨。原文は出典欄。</p>
+
+  <div class="views">
+    <div class="view b"><div class="who">ウォーレン・バフェット<span class="when">5/2 株主総会</span></div><p>株式市場は「教会にカジノがくっついたもの」。1日で期限が来るオプションの売買は「投資でも投機でもなく、ギャンブル」。多くの株価が「ばかばかしい」水準。米国も「インフレの暴走と無縁ではない」。</p></div>
+    <div class="view b"><div class="who">レイ・ダリオ（ブリッジウォーター創業者）<span class="when">8月</span></div><p>赤字2兆ドル、利払い1兆ドル、借り換え10兆ドル。「AIと軍事の資金需要で、<b>引き返せない点を過ぎたかもしれない</b>」。債務危機は1〜5年、中心は3年以内。金を10〜15%、ビットコインを少し。</p></div>
+    <div class="view b"><div class="who">ジェイミー・ダイモン（JPモルガンCEO）<span class="when">4/28 オスロ</span></div><p>「このまま行けば、<b>何らかの債券危機</b>に直面する可能性が高い」。ただし「それほど心配していない。対処できる。大人なら起きる前に対処すべきだ、というだけ」。</p></div>
+    <div class="view b"><div class="who">スタンリー・ドラッケンミラー<span class="when">8/24 WSJ寄稿</span></div><p>30年債の利回りは「<b>米国に残された唯一の財政の躾け役</b>」。ベッセントの買い戻しは利回りを人為的に抑え、問題の先送りにしかならない。ベッセントはソロス時代の部下にあたる。</p></div>
+    <div class="view"><div class="who">スコット・ベッセント（米財務長官）<span class="when">8/19〜9/9</span></div><p>長期債の買い戻しを20億→40億→60億ドルに。「市場の熱を冷ます」。円買い協調介入は「アジアの安定のため」。ステーブルコインで最大1兆ドルの短期債需要。</p></div>
+    <div class="view"><div class="who">ケビン・ウォーシュ（FRB議長、5月就任）<span class="when">7〜9月</span></div><p>基調的なインフレは「意味のある改善をしていない」。大統領の圧力については「私の判断に影響していない」。7月は据え置き、9月は利上げ観測。</p></div>
+    <div class="view c"><div class="who">ゴールドマン・サックス（K. Fishman）<span class="when">8/13</span></div><p>日本のドル準備約1兆ドルのうち現金約2,000億ドル。「同じ規模の介入をあと2〜3回やる余力はある」。介入は「時間を買う」だけで、根本は金利差。</p></div>
+    <div class="view c"><div class="who">日本経済新聞 データ・調査報道<span class="when">4月</span></div><p>「日本は米国債を売れない」は言い過ぎ。売る米国債には短期債もかなりあり、償還金を使う手もある。本当の論点は「どこまで、どの年限で、どの相場なら売るべきか」。</p></div>
+    <div class="view c"><div class="who">佐々木融（為替ストラテジスト）<span class="when">9/7</span></div><p>日銀の政策が変わらない限り、円安基調は変わらない。利上げペースが速まっても、それだけで本格的な円高トレンドには転じにくい。</p></div>
+    <div class="view d"><div class="who">高田創（日銀審議委員）<span class="when">9/2 札幌</span></div><p>「決まったペースにとらわれず、<b>機動的に利上げを行う新局面</b>」。7月会合では1.25%への利上げを一人で提案した。市場の一部は9月の0.5ポイント利上げを織り込み始めた。</p></div>
+    <div class="view d"><div class="who">ムーディーズ<span class="when">2025年5月</span></div><p>米国をAaaからAa1へ。理由は「10年以上にわたる債務と利払い比率の上昇」。連邦債務はGDP比134%（2035年）に達しうる。</p></div>
+  </div>
+
+  <p class="rel"><b>読み方</b>　債務危機を警告する側（ダリオ・ドラッケンミラー）と、対処可能とする側（ダイモン・ゴールドマン）の違いは、<b>図9の出口Ⅳが効くと思うかどうか</b>。判定の目安は、11/4までの買い戻し60億ドルで10年債が5%を割るかどうか。</p>
+</section>
+
+<!-- ===================== §9 ===================== -->
+<section class="topic" id="s9">
+  <span class="badge macro">§9 記録と問い</span>
+  <h2 class="thead">9/16 FOMC・9/18 日銀の記録欄と問い</h2>
+  <p class="sub">空欄は各自が一次情報で埋めてくる。第5回に書いたドル円の予想と突き合わせる。</p>
+
+  <div class="fill">
+    <b>9/16（水）FOMC</b>　決定：<span class="blank"></span>　→ 米10年債：<span class="blank"></span>%　ドル円：<span class="blank"></span>円　S&amp;P500：<span class="blank"></span><br>
+    <b>9/18（金）日銀</b>　決定：<span class="blank"></span>　→ 日本10年債：<span class="blank"></span>%　ドル円：<span class="blank"></span>円　日経平均：<span class="blank"></span><br>
+    <b>9/1に自分が書いたドル円の予想</b>：<span class="blank"></span>円　→ 差：<span class="blank"></span>円　当たった理由／外れた理由を1行：<span class="blank" style="min-width:260px"></span>
+  </div>
+
+  <h3>問い（Q1〜Q6）</h3>
+  <ol class="q">
+    <li><b>9/16と9/18の結果は、図7の矢印①〜⑤のどれを、どちら向きに動かしたか。</b>2本選んで、動いた数字を添える。<span class="hint">着地点　日米金利差。矢印①が縮むか広がるかを、政策金利の差（約2.75ポイント）で。</span></li>
+    <li><b>「金利が上がると米国はデフォルトする」を0〜100点で採点し、理由を1行。</b><span class="hint">着地点　①元利金の不払いと②実質価値の目減りの区別。自国通貨建てで合格。負担するのが誰かまで言えたら100点。</span></li>
+    <li><b>日本が8月に米国債を減らしたのは入口A・B・Cのどれか。次に開くのはどれか。</b><span class="hint">着地点　入口B。日銀利上げ→日本国債の利回り↑→ヘッジ後の米国債に勝つ、の3段を式で。</span></li>
+    <li><b>「円高にすれば日本は米国債を売らずに済む」は正しいか。手段1・2・3に分けて答える。</b><span class="hint">着地点　手段3のときだけ正しい。米財務省がユーロを売った理由まで言えたら合格。</span></li>
+    <li><b>自分の持ち株（無ければ第4回のリンチ・チャートの銘柄）に、米10年債5%は押し上げ要因か、押し下げ要因か。</b>分母で説明する。<span class="hint">着地点　第5回の式。「日本経済にとって」ではなく「自分の1銘柄にとって」。銀行は押し上げ、不動産は押し下げ、輸出は円高の方が効く。</span></li>
+    <li><b>ベッセントが買い戻しを増やした8/19と9/9のあと、米30年債はどう動いたか。図6で確かめて1行。</b><span class="hint">着地点　下がっていない。9/9で5.25%。<b>買い戻し60億ドルに対し、赤字は1.9兆ドル。桁が2つ違う</b>まで言えたら100点。</span></li>
+  </ol>
+
+  <div class="hw">
+    <div class="hwtime">第1部の宿題 ── 提出は 9/22（火）12:00 まで、HTMLで</div>
+    <div class="hwttl">図7の矢印①〜⑤のうち、9/16〜9/18で実際に動いた矢印を1本選び、動いた数字を一次情報の在り処つきで1行。</div>
+  </div>
+
+</section>
+
+<div class="parthead">
+  <div class="pl">PART 2</div>
+  <h2>第2部　信用買い</h2>
+</div>
+
+<!-- ===================== §10 ===================== -->
+<section class="topic" id="s10">
+  <span class="badge corp">§10 仕組み</span>
+  <h2 class="thead">信用買いの仕組み ── 投資家・証券会社・市場</h2>
+  <p class="sub">第6回（9/8）で扱ったのは信用<b>売り</b>。残りの半分。</p>
+
+  <div class="kpis">
+    <div class="kpi c"><div class="k">東証の信用買い残</div><div class="v">6.53兆円</div><div class="n">8/28時点。6/26に7兆1,670億円で1994年以降の最高<span class="tag">一次（JPX）・報道</span></div></div>
+    <div class="kpi c"><div class="k">信用倍率</div><div class="v">7.91倍</div><div class="n">買い残 ÷ 売り残。売り残は約0.83兆円（割り算で出した計算値）<span class="tag">解説・計算値</span></div></div>
+    <div class="kpi m"><div class="k">最低保証金</div><div class="v">30万円</div><div class="n">かつ建玉の30%以上。法令と取引所の決まり<span class="tag">一次</span></div></div>
+    <div class="kpi m"><div class="k">買方金利</div><div class="v">年2.3〜3.1%</div><div class="n">制度信用・主要ネット証券の例。会社によって違う<span class="tag">解説</span></div></div>
+  </div>
+
+  <ul class="facts">
+    <li><b>6.53兆円は、誰かが証券会社から金を借りて買った株。</b>自分の現金で買った株はここに入らない</li>
+    <li>6月末の過去最高時は、AI・半導体関連が中心と報じられた</li>
+    <li><b>株式の買い手には、自己資金による買いと、借入による買いが混在する。</b></li>
+  </ul>
+
+  <h3>信用買いの定義</h3>
+  <p>第6回の空売りは<b>株</b>を借りて売る。信用買いは<b>お金</b>を借りて買う。買った株は、そのまま証券会社が担保として預かる。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 280" role="img" aria-label="投資家・証券会社・市場の三者で、お金を借りて株を買う流れの図">
+    <defs>
+      <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+      </marker>
+    </defs>
+    <rect class="box g" x="30" y="90" width="200" height="100" rx="12"/>
+    <text class="ttl" x="130" y="126" text-anchor="middle">あなた</text>
+    <text class="sm" x="130" y="150" text-anchor="middle">手元の現金 30万円</text>
+    <text class="sm" x="130" y="170" text-anchor="middle">＝ 委託保証金</text>
+
+    <rect class="box c" x="350" y="90" width="200" height="100" rx="12"/>
+    <text class="ttl" x="450" y="126" text-anchor="middle">証券会社</text>
+    <text class="sm" x="450" y="150" text-anchor="middle">70万円を貸す</text>
+    <text class="sm" x="450" y="170" text-anchor="middle">買った株を担保に預かる</text>
+
+    <rect class="box m" x="670" y="90" width="200" height="100" rx="12"/>
+    <text class="ttl" x="770" y="126" text-anchor="middle">市場</text>
+    <text class="sm" x="770" y="150" text-anchor="middle">1,000円の株を</text>
+    <text class="sm" x="770" y="170" text-anchor="middle">1,000株 ＝ 100万円</text>
+
+    <g style="color:var(--ink2)">
+      <path class="ar" d="M230,120 L350,120" marker-end="url(#ah3)"/>
+      <path class="ar" d="M550,120 L670,120" marker-end="url(#ah3)"/>
+      <path class="ar" d="M670,165 L550,165" marker-end="url(#ah3)"/>
+    </g>
+    <circle class="num" cx="290" cy="120" r="13"/><text class="numt" x="290" y="124.5" text-anchor="middle">①</text>
+    <circle class="num" cx="610" cy="120" r="13"/><text class="numt" x="610" y="124.5" text-anchor="middle">②</text>
+    <circle class="num" cx="610" cy="165" r="13"/><text class="numt" x="610" y="169.5" text-anchor="middle">③</text>
+    <rect class="labbg" x="236" y="56" width="110" height="22" rx="4"/>
+    <text class="lab" x="291" y="71" text-anchor="middle">保証金を預ける</text>
+    <rect class="labbg" x="556" y="56" width="118" height="22" rx="4"/>
+    <text class="lab" x="615" y="71" text-anchor="middle">100万円分を買う</text>
+    <rect class="labbg" x="556" y="196" width="118" height="22" rx="4"/>
+    <text class="lab" x="615" y="211" text-anchor="middle">株は担保に回る</text>
+
+    <text class="sm" x="30" y="248">返すとき：株を売る → 借りた70万円と金利を返す → 残りが自分のもの。売らずに70万円を入金して現物にすることもできる（現引き・§13）。</text>
+    <text class="sm" x="30" y="30" style="font-weight:800">借りるのは「株」ではなく「お金」。第6回の空売りと、ここが逆になっている。</text>
+  </svg>
+  <div class="cap">図10　持てる上限は、保証金率30%の決まりから来る。</div>
+  </div>
+</section>
+
+<!-- ===================== §11 ===================== -->
+<section class="topic" id="s11">
+  <span class="badge corp">§11 レバレッジ</span>
+  <h2 class="thead">レバレッジ3.3倍の効果 ── 株数・損益・追証</h2>
+  <p class="sub">以下はすべて<b>設例</b>。手元30万円、株価1,000円、保証金率30%ちょうど。実際は余裕を見るので満額まで建てられない。</p>
+
+  <h3>買える株数</h3>
+  <div class="fig">
+  <svg viewBox="0 0 900 250" role="img" aria-label="同じ30万円で現物は300株、信用買いは1000株買えることを示す棒の図">
+    <text class="lab" x="30" y="38">現物買い</text>
+    <rect class="bar g" x="30" y="50" width="120" height="46" rx="5"/>
+    <text class="sm" x="90" y="78" text-anchor="middle" style="fill:var(--bg); font-weight:800">自己資金 30万円</text>
+    <text class="ttl" x="170" y="80">＝ 300株</text>
+
+    <text class="lab" x="30" y="146">信用買い</text>
+    <rect class="bar g" x="30" y="158" width="120" height="46" rx="5"/>
+    <text class="sm" x="90" y="186" text-anchor="middle" style="fill:var(--bg); font-weight:800">保証金 30万円</text>
+    <rect class="bar c" x="152" y="158" width="280" height="46" rx="5"/>
+    <text class="sm" x="292" y="186" text-anchor="middle" style="fill:var(--bg); font-weight:800">証券会社から借りる 70万円</text>
+    <text class="ttl" x="450" y="188">＝ 1,000株</text>
+
+    <path class="ar" d="M30,222 L432,222" style="color:var(--ink3)" stroke-dasharray="4 4"/>
+    <text class="sm" x="231" y="242" text-anchor="middle">建玉 100万円　＝　保証金 30万円 ÷ 30%</text>
+    <text class="sm" x="620" y="172" style="font-weight:800">同じ30万円で、株数は3.3倍になる。</text>
+    <text class="sm" x="620" y="194">値動きの効き方も、そのまま3.3倍。</text>
+  </svg>
+  <div class="cap">図11　保証金率30%が「3.3倍まで」の正体。</div>
+  </div>
+
+  <h3>株価と手元の損益</h3>
+  <div class="fig">
+  <svg viewBox="0 0 900 400" role="img" aria-label="株価700円から1300円までの範囲で、現物300株と信用1000株の損益を比べた折れ線グラフ">
+    <!-- grid -->
+    <path class="gl" d="M90,50 L830,50 M90,115 L830,115 M90,180 L830,180 M90,245 L830,245 M90,310 L830,310"/>
+    <path class="ax" d="M90,50 L90,310"/>
+    <path class="ax" d="M90,180 L830,180"/>
+    <!-- y ticks -->
+    <text class="tick" x="82" y="54" text-anchor="end">＋30万</text>
+    <text class="tick" x="82" y="119" text-anchor="end">＋15万</text>
+    <text class="tick" x="82" y="184" text-anchor="end">0</text>
+    <text class="tick" x="82" y="249" text-anchor="end">−15万</text>
+    <text class="tick" x="82" y="314" text-anchor="end">−30万</text>
+    <text class="tick" x="30" y="34" style="font-weight:800">手元の損益</text>
+    <!-- x ticks -->
+    <text class="tick" x="90" y="330" text-anchor="middle">700円</text>
+    <text class="tick" x="213" y="330" text-anchor="middle">800円</text>
+    <text class="tick" x="337" y="330" text-anchor="middle">900円</text>
+    <text class="tick" x="460" y="330" text-anchor="middle">1,000円</text>
+    <text class="tick" x="583" y="330" text-anchor="middle">1,100円</text>
+    <text class="tick" x="830" y="330" text-anchor="middle">1,300円</text>
+    <text class="tick" x="830" y="350" text-anchor="end" style="font-weight:800">返済したときの株価</text>
+    <!-- vertical markers -->
+    <path class="vl" d="M337,50 L337,310"/>
+    <path class="vl" d="M213,50 L213,310"/>
+    <rect class="labbg" x="282" y="58" width="110" height="20" rx="4"/>
+    <text class="lab c" x="337" y="72" text-anchor="middle">900円で追証</text>
+    <rect class="labbg" x="150" y="84" width="126" height="20" rx="4"/>
+    <text class="lab c" x="213" y="98" text-anchor="middle">800円で強制決済</text>
+    <!-- lines -->
+    <polyline class="ln b" points="90,310 460,180 830,50"/>
+    <polyline class="ln a" points="90,219 460,180 830,141"/>
+    <!-- labels -->
+    <rect class="labbg" x="700" y="88" width="128" height="20" rx="4"/>
+    <text class="lab" x="764" y="102" text-anchor="middle" style="fill:var(--corp)">信用 1,000株</text>
+    <rect class="labbg" x="700" y="146" width="128" height="20" rx="4"/>
+    <text class="lab" x="764" y="160" text-anchor="middle" style="fill:var(--macro)">現物 300株</text>
+  </svg>
+  <div class="cap">図12　信用の線が−30万円に届く700円が、元手がゼロになる株価。ただしその手前で強制決済される。</div>
+  </div>
+
+  <h3>維持率と追証</h3>
+  <div class="formula">
+    <code>維持率 ＝（保証金 − 建玉の評価損）÷ 建玉の約定代金</code>
+    <span class="n">分母は買ったときの100万円で固定。分子だけが評価損で削られていく。<b>20%を割ると追証、10%を割ると強制決済</b>（会社によって違う）。</span>
+  </div>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="株価1000円900円800円での維持率30パーセント20パーセント10パーセントを示す棒の図">
+    <!-- threshold lines -->
+    <path class="vl" d="M440,42 L440,250"/>
+    <path class="vl" d="M280,42 L280,250"/>
+    <text class="lab c" x="440" y="34" text-anchor="middle">20% 追証</text>
+    <text class="lab c" x="280" y="34" text-anchor="middle">10% 強制決済</text>
+    <path class="ax" d="M120,42 L120,250"/>
+
+    <text class="lab" x="30" y="76">1,000円</text>
+    <rect class="bar g" x="120" y="56" width="480" height="34" rx="5"/>
+    <text class="sm" x="360" y="78" text-anchor="middle" style="fill:var(--bg); font-weight:800">保証金 30万円　→　維持率 30%</text>
+
+    <text class="lab" x="30" y="146">900円</text>
+    <rect class="bar g" x="120" y="126" width="320" height="34" rx="5"/>
+    <text class="sm" x="280" y="148" text-anchor="middle" style="fill:var(--bg); font-weight:800">残り 20万円　→　20%</text>
+    <rect class="bar n" x="444" y="126" width="156" height="34" rx="5"/>
+    <text class="sm" x="522" y="148" text-anchor="middle">評価損 10万円</text>
+
+    <text class="lab" x="30" y="216">800円</text>
+    <rect class="bar g" x="120" y="196" width="160" height="34" rx="5"/>
+    <text class="sm" x="200" y="218" text-anchor="middle" style="fill:var(--bg); font-weight:800">残り 10万円 → 10%</text>
+    <rect class="bar n" x="284" y="196" width="316" height="34" rx="5"/>
+    <text class="sm" x="442" y="218" text-anchor="middle">評価損 20万円</text>
+
+  </svg>
+  <div class="cap">図13　緑が保証金の残り、灰色が評価損。<b>分母は買ったときの100万円で固定されている。</b></div>
+  </div>
+
+  <ol class="chain">
+    <li><b>期限までに現金を追加。</b>入れれば建玉は維持。入れられなければ次へ</li>
+    <li><b>証券会社が建玉を決済。</b>自分の判断ではない。800円で維持率10%、請求なしに切られることもある</li>
+    <li><b>「待っていれば戻る」が使えない。</b>現物は保有を続けて待てる。信用買いは待つ前に決済される。<b>現物との最大の違い。</b></li>
+  </ol>
+</section>
+
+<!-- ===================== §12 ===================== -->
+<section class="topic" id="s12">
+  <span class="badge bridge">§12 コスト</span>
+  <h2 class="thead">3か月保有時の現金の出入り</h2>
+  <p class="sub">信用売りのコストは貸株料と逆日歩。信用買いのコストは<b>金利</b>。3か月持って1,100円で返済した場合。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="信用買いを3か月持って返済したときの入金・出金・残りを示す図">
+    <rect class="box g" x="30" y="50" width="250" height="180" rx="12"/>
+    <text class="ttl" x="155" y="86" text-anchor="middle">入ってくる</text>
+    <text class="sm" x="155" y="122" text-anchor="middle">1,100円 × 1,000株</text>
+    <text class="ttl" x="155" y="152" text-anchor="middle">110万円</text>
+    <text class="sm" x="155" y="184" text-anchor="middle">配当があれば</text>
+    <text class="sm" x="155" y="204" text-anchor="middle">配当落調整金も受け取る</text>
+
+    <rect class="box c" x="325" y="50" width="250" height="180" rx="12"/>
+    <text class="ttl" x="450" y="86" text-anchor="middle">出ていく</text>
+    <text class="sm" x="450" y="122" text-anchor="middle">買った代金</text>
+    <text class="ttl" x="450" y="150" text-anchor="middle">100万円</text>
+    <text class="sm" x="450" y="182" text-anchor="middle">金利 年2.8% × 91日</text>
+    <text class="ttl" x="450" y="210" text-anchor="middle">約7,000円</text>
+
+    <rect class="box m" x="620" y="50" width="250" height="180" rx="12"/>
+    <text class="ttl" x="745" y="86" text-anchor="middle">残る</text>
+    <text class="ttl" x="745" y="128" text-anchor="middle" style="font-size:26px">約9万3,000円</text>
+    <text class="sm" x="745" y="162" text-anchor="middle">手元30万円に対して ＋31%</text>
+    <text class="sm" x="745" y="192" text-anchor="middle">現物300株なら ＋3万円</text>
+    <text class="sm" x="745" y="212" text-anchor="middle">＝ ＋10%</text>
+
+    <g style="color:var(--ink2)">
+      <path class="ar" d="M280,140 L325,140" marker-end="url(#ah3)"/>
+      <path class="ar" d="M575,140 L620,140" marker-end="url(#ah3)"/>
+    </g>
+    <text class="sm" x="30" y="268">金利は<tspan style="font-weight:800">持っている日数だけ</tspan>かかる。2日なら約150円、6か月の期限いっぱいなら約1万4,000円。</text>
+  </svg>
+  <div class="cap">図14　設例。金利は 100万円 × 2.8% × 91 ÷ 365 で約6,980円。</div>
+  </div>
+
+  <div class="twocol">
+    <div class="card"><div class="ch">現物買いのコスト</div><p>売買手数料だけ。持っている間は0円。<b>何年でも待てる。</b>配当は全額。優待も議決権も付く。</p></div>
+    <div class="card b"><div class="ch">信用買いのコスト</div><p>買方金利が毎日かかる。制度信用は<b>6か月で強制終了</b>。配当は配当落調整金として84.685%（制度信用）。<b>優待と議決権は付かない。</b></p></div>
+  </div>
+
+  <p>第6回の信用売りは配当落調整金を<b>払う</b>側。信用買いは<b>受け取る</b>側。同じ金が払う人から受け取る人へ渡る。<b>優待クロスでは、この2つが自分の中で相殺される。</b></p>
+</section>
+
+<!-- ===================== §13 ===================== -->
+<section class="topic" id="s13">
+  <span class="badge corp">§13 用途</span>
+  <h2 class="thead">信用買いの用途（4つ）</h2>
+  <p class="sub">レバレッジのほかに3つ。実務で使われるのは主に後の3つ。</p>
+
+  <h3>用途① レバレッジ</h3>
+  <p>§11・§12のとおり。上も下も3.3倍。1割下げで追証、2割で強制決済。<b>当たる確率だけでなく、当たるまでの時間も当てる必要がある。</b></p>
+
+  <h3>用途② 同一資金の日中回転（差金決済の回避）</h3>
+  <ul class="facts">
+    <li><b>現物には差金決済の禁止がある。</b>同じ受渡日に同じ金で同じ銘柄を売り買いすると、受け渡しを伴わない差額だけの決済になるため、金融商品取引法が禁じている</li>
+    <li><b>現物は、同じ資金で同じ銘柄は1日1往復まで。</b></li>
+    <li><b>信用取引にこの制限はない。</b>保証金という担保を先に預けているため</li>
+  </ul>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 260" role="img" aria-label="現物は1日1往復まで、信用は同じ資金で何度も回せることを示すタイムラインの図">
+    <text class="lab" x="30" y="42">現物　100万円</text>
+    <path class="ax" d="M30,90 L860,90"/>
+    <circle cx="120" cy="90" r="9" fill="var(--bridge)"/><text class="sm" x="120" y="76" text-anchor="middle">買う</text>
+    <circle cx="300" cy="90" r="9" fill="var(--corp)"/><text class="sm" x="300" y="76" text-anchor="middle">売る</text>
+    <text class="sm" x="480" y="95" style="font-weight:800">ここで打ち止め。次にこの資金が使えるのは2営業日後。</text>
+
+    <text class="lab" x="30" y="162">信用　保証金100万円</text>
+    <path class="ax" d="M30,210 L860,210"/>
+    <circle cx="120" cy="210" r="9" fill="var(--bridge)"/><text class="sm" x="120" y="196" text-anchor="middle">買う</text>
+    <circle cx="240" cy="210" r="9" fill="var(--corp)"/><text class="sm" x="240" y="196" text-anchor="middle">返す</text>
+    <circle cx="380" cy="210" r="9" fill="var(--bridge)"/><text class="sm" x="380" y="196" text-anchor="middle">買う</text>
+    <circle cx="500" cy="210" r="9" fill="var(--corp)"/><text class="sm" x="500" y="196" text-anchor="middle">返す</text>
+    <circle cx="640" cy="210" r="9" fill="var(--bridge)"/><text class="sm" x="640" y="196" text-anchor="middle">買う</text>
+    <circle cx="760" cy="210" r="9" fill="var(--corp)"/><text class="sm" x="760" y="196" text-anchor="middle">返す</text>
+    <text class="sm" x="30" y="244">同じ1日のうちに何度でも。<tspan style="font-weight:800">短期売買をする人が信用買いを使う理由の多くは、レバレッジではなくこれである。</tspan></text>
+  </svg>
+  <div class="cap">図15　横軸は同じ1日。現物の制限は「差金決済の禁止」から来ていて、資金量の問題ではない。</div>
+  </div>
+
+  <h3>用途③ 現引き</h3>
+  <p><b>現引き</b>　差額を受け取るのではなく、自分の現金を入れて株そのものを引き取ること。多くの証券会社で手数料は無料。使う場面は2つ。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 200" role="img" aria-label="信用で買い建てた株に現金を入れて現物株にする現引きの3段階の図">
+    <rect class="box c" x="30" y="50" width="230" height="90" rx="12"/>
+    <text class="ttl" x="145" y="86" text-anchor="middle">信用の買い建玉</text>
+    <text class="sm" x="145" y="112" text-anchor="middle">優待も議決権も付かない</text>
+
+    <rect class="box g" x="335" y="50" width="230" height="90" rx="12"/>
+    <text class="ttl" x="450" y="86" text-anchor="middle">70万円を入金</text>
+    <text class="sm" x="450" y="112" text-anchor="middle">借りていた分を返す</text>
+
+    <rect class="box m" x="640" y="50" width="230" height="90" rx="12"/>
+    <text class="ttl" x="755" y="86" text-anchor="middle">現物株 1,000株</text>
+    <text class="sm" x="755" y="112" text-anchor="middle">優待も議決権も付く</text>
+
+    <g style="color:var(--ink2)">
+      <path class="ar" d="M260,95 L335,95" marker-end="url(#ah3)"/>
+      <path class="ar" d="M565,95 L640,95" marker-end="url(#ah3)"/>
+    </g>
+    <text class="sm" x="30" y="180">権利を取りたいなら、<tspan style="font-weight:800">権利付最終日までに現引きを終えていること。</tspan>建玉のままでは、権利日をまたいでも優待は来ない。</text>
+  </svg>
+  <div class="cap">図16　市場で売買しないので売買手数料はかからない。第6回で扱った現渡しの裏返し。</div>
+  </div>
+
+  <div class="twocol">
+    <div class="card b"><div class="ch">場面1　入金が間に合わない</div><p>買いたい株が今日ある。現金は3日後に入る。信用で先に押さえ、入金してから現引きする。<b>値段を今日で固定できる。</b></p></div>
+    <div class="card"><div class="ch">場面2　権利を取りに行く</div><p>優待・議決権は現物にしか付かない。建玉のままでは取れないので、権利付最終日までに現引きして現物にする。</p></div>
+  </div>
+
+  <p><b>第6回の優待クロスに信用買いが出てこなかった理由。</b>組んだのは「現物買い＋信用売り」。優待は現物にしか付かないので、買う側は現物でなければならない。<b>信用買いと信用売りでは、値動きは消せても優待は1つも手に入らない。</b></p>
+
+  <h3>用途④ 信用残の読み方</h3>
+  <p>信用で買った株は<b>いつか必ず売られる</b>。期限が6か月あるため。<b>信用買い残は、将来の売り注文の予約表。</b>売り残はその逆で、将来の買い注文。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 900 250" role="img" aria-label="信用買い残6.53兆円と売り残0.83兆円を比べ、買い残が将来の売り圧力になることを示す図">
+    <text class="lab" x="30" y="50">信用買い残　6.53兆円</text>
+    <rect class="bar c" x="30" y="62" width="700" height="44" rx="5"/>
+    <text class="sm" x="380" y="90" text-anchor="middle" style="fill:var(--bg); font-weight:800">いつか売られる株</text>
+    <g style="color:var(--corp)">
+      <path class="ar" d="M740,84 L830,84" marker-end="url(#ah3)"/>
+    </g>
+    <text class="lab c" x="786" y="72" text-anchor="middle">売り</text>
+
+    <text class="lab" x="30" y="150">信用売り残　約0.83兆円</text>
+    <rect class="bar g" x="30" y="162" width="89" height="44" rx="5"/>
+    <g style="color:var(--bridge)">
+      <path class="ar g" d="M129,184 L219,184" marker-end="url(#ah3)"/>
+    </g>
+    <text class="lab g" x="175" y="172" text-anchor="middle">買い</text>
+    <text class="sm" x="240" y="190">いつか買い戻される株</text>
+
+    <text class="sm" x="30" y="236">信用倍率 ＝ 6.53 ÷ 0.83 ＝ <tspan style="font-weight:800">7.91倍</tspan></text>
+  </svg>
+  <div class="cap">図17　8/28時点。<b>売り残は買い残と信用倍率から割り戻した計算値で、公表値ではない。</b></div>
+  </div>
+
+  <p>倍率が高い銘柄は、少し上がるたびに<b>戻り待ちの売り</b>が出て上値が重い。売り残が多い銘柄は、上がると買い戻しが出て<b>踏み上げ</b>になる。第6回の「損に上限がない」はこれ。</p>
+  <p><b>需給は材料の1つ。</b>第4回の内在価値、第5回の予想との差と並べて、3つ目の物差しに置く。</p>
+
+  <h3>二階建てと規制</h3>
+  <ul class="facts">
+    <li>保証金は、現金でなくても<b>持っている株を代用</b>として差し入れられる</li>
+    <li><b>代用にしている株と信用で買う株が同じ銘柄だと「二階建て」。</b>下落時に建玉の評価損と担保の目減りが同時に来るので、維持率が2倍の速さで悪化する</li>
+    <li>取引所は過熱した銘柄を<b>日々公表銘柄</b>として毎日残高を公表。収まらなければ<b>増担保規制</b>で保証金率を30%から50%・60%へ</li>
+  </ul>
+</section>
+
+<!-- ===================== §14 ===================== -->
+<section class="topic" id="s14">
+  <span class="badge word">§14 問いと宿題</span>
+  <h2 class="thead">第2部の問い（Q7〜Q12）と宿題</h2>
+  <p class="sub">Q7〜Q10は信用買いの中で閉じる。Q11・Q12は第1部の米国債につなぐ。</p>
+
+  <ol class="q" start="7" style="counter-reset:qq 6">
+    <li><b>図12で、現物の線と信用の線が交わるのはどの株価か。そこでは何が等しいのか。</b><span class="hint">着地点　1,000円、損益ゼロ。金利を入れると信用の線は下へ平行移動し、交点は1,000円より上へ。<b>コストは傾きではなく、線の高さを動かす。</b></span></li>
+    <li><b>「株価が3割下がると元手が消える」。では2割下がった時点で、何が起きているか。</b><span class="hint">着地点　維持率10%で強制決済。元手が消える前に切られる。<b>「待っていれば戻る」が使えないのが現物との差。</b></span></li>
+    <li><b>第6回の空売りは「儲けの上限は売った値段まで、損に上限はない」だった。信用買いはどちらの向きか。1行で。</b><span class="hint">着地点　向きが逆。損の上限は建てた金額まで、儲けに上限なし。<b>ただし元手基準では3.3倍の速さで消える。</b></span></li>
+    <li><b>第6回の優待クロスが「現物買い＋信用売り」で、「信用買い＋信用売り」ではないのはなぜか。</b><span class="hint">着地点　優待と議決権は現物にしか付かない。権利を取るには権利付最終日までの現引き。</span></li>
+    <li><b>信用倍率7.91倍は、自分の持ち株にとって押し上げ要因か、押し下げ要因か。</b>自分の1銘柄の倍率を調べて答える。<span class="hint">着地点　買い残＝将来の売り。倍率が高いほど上値が重い。「日本株全体が」ではなく「自分の1銘柄が」。</span></li>
+    <li><b>第1部の図7に、信用買いの矢印を1本足すとしたら、どこからどこへ引くか。</b><span class="hint">着地点　金利↑は株の分母（矢印④）だけでなく<b>借りて買っている人のコスト</b>も上げる。日銀が利上げすれば買方金利も上がり、信用買い残は減る方向。<b>マクロの金利と自分の口座の金利が同じものだと気づけたら100点。</b></span></li>
+  </ol>
+
+  <div class="hw t">
+    <div class="hwtime">第2部の宿題 ── 提出は 9/22（火）12:00 まで、HTMLで</div>
+    <div class="hwttl">自分の持ち株を1つ選び、直近の信用買い残・売り残・信用倍率と、その数字の出どころを1行で書く。</div>
+  </div>
+
+  <h3>当日の流れ（目安）</h3>
+  <ul class="tl">
+    <li><span class="t">16:20</span><span class="c"><b>答え合わせ欄の突き合わせ</b>（10分）。9/1の予想・9/16・9/18の実際・宿題の矢印</span></li>
+    <li><span class="t">16:30</span><span class="c"><b>§0 国債価格と金利</b>（10分）。図1〜図3。割引現在価値の式に数字を入れる</span></li>
+    <li><span class="t">16:40</span><span class="c"><b>§2の図4〜図6と年表</b>（10分）。20年の形を見てから、8/19・9/9 の買い戻しのあと線がどちらを向いたかを見る</span></li>
+    <li><span class="t">16:50</span><span class="c"><b>図7を口頭で再構成</b>（20分）。矢印を1本ずつ、誰が何を売って何を買ったかで言い直す</span></li>
+    <li><span class="t">17:10</span><span class="c"><b>Q2〜Q4</b>（20分）。デフォルトの2種類、3つの入口、円高の3手段</span></li>
+    <li><span class="t">17:30</span><span class="c"><b>第2部 §10〜§12</b>（30分）。図10〜図14を、現金の出入りで言い直す。Q7・Q8</span></li>
+    <li><span class="t">18:00</span><span class="c"><b>第2部 §13 用途</b>（10分）。差金決済・現引き・信用倍率。Q9・Q10</span></li>
+    <li><span class="t">18:10</span><span class="c"><b>Q11・Q12 と次回予告</b>（10分）。自分の1銘柄の倍率。9/29の権利落ちの実測を並べる</span></li>
+  </ul>
+</section>
+
+<footer>
+  <h2>数字の扱いについて</h2>
+  <ul>
+    <li><b>§4の図8は計算例。</b>インフレ率を一定と仮定し、100 ÷（1＋率）<sup>10</sup> で算出した。実際の物価上昇率は年ごとに違う。ドル安の分は含めていない。</li>
+    <li><b>§0はすべて設例。</b>額面100円・1年割引債、100万円の現在価値（金利1%・3%・5%）、クーポン年2円・残存10年の利付債。<b>実在の銘柄ではない。</b>利付債は年1回払い・複利で計算し、価格は0.1円に丸めた（市場金利4%で83.78円→83.8円）。手数料・税・経過利子は入れていない。</li>
+    <li><b>相場の数字は9/9〜9/10時点の報道ベース。</b>講義当日には動いている。一次情報は米財務省の利回りと各取引所の日々公表。</li>
+    <li><b>借金40.1兆ドル・市中保有32.4兆ドル</b>　財務省「Debt to the Penny」9/8時点（一次）。<b>赤字1.9兆ドル・利払い1.0兆ドル・GDP比101%→120%はCBOの2026年2月推計。実績ではない。</b></li>
+    <li><b>海外保有</b>　米財務省TIC 2026年6月分（8/15公表、一次）。<b>保管場所ベースのため、英国の数字には他国の投資家が混ざる。</b>日本の「官民ほぼ半々」と外貨準備の「7割が米国債」は市場推計。</li>
+    <li><b>介入額と外貨準備</b>　財務省公表（一次）。「約15兆円」「4〜5月に約12兆円」は報道の円換算。ゴールドマンの「現金約2,000億ドル」「あと2〜3回」は同社推計。</li>
+    <li><b>図4・図5</b>　<b>各年12月の水準を0.1ポイントに丸めた概数。</b>年内の振れは表していない。政策金利は会合で決まった数字だが、年末時点の値だけ。<b>一次情報は米財務省の金利データ、財務省「国債金利情報」、FOMC声明、日銀「当面の金融政策運営について」。引用は各自でそこに当たること。</b></li>
+    <li><b>図6</b>　<b>日々の連続データではない。日付が確認できた点だけを結んである。</b>米10年債の4月末・6月末は週平均、8月は月内の水準、9/10は終値。米30年債は報道ベース。日本10年債の1月・7/8は報道、9/1の2.995%は入札利回り（一次）。</li>
+    <li><b>政策金利</b>　米国は誘導目標レンジの上限、日本は無担保コールレート翌日物の誘導目標。据え置きと引き上げの日付は報道ベース。</li>
+    <li><b>入札の評価とシラーPER</b>　報道・解説ベース。<b>集計期間の取り方で数字が変わる。</b></li>
+    <li><b>ステーブルコイン残高・ベッセントの「最大1兆ドル」・ダリオの「10兆ドル」</b>　いずれも発言者・報道の推計。</li>
+    <li>§8の発言は要旨。日付は発言日または報道日。<b>一次の書き起こしに当たれていないものが含まれる。</b>引用するときは出典と日付を添えること。</li>
+    <li><b>信用残</b>　買い残6兆5,293億円・信用倍率7.91倍は8/28申込み時点の集計（解説サイト）。一次情報はJPX「銘柄別信用取引週末残高」。<b>売り残 約0.83兆円は割り戻した計算値。公表値ではない。</b>6/26の7兆1,670億円と「1994年12月以降の最高」は報道ベース。</li>
+    <li><b>第2部の設例</b>　手元30万円・株価1,000円・1,000株・保証金率30%・3か月後1,100円で返済は<b>すべて設例。実在の銘柄ではない。</b>実際は余裕を見るので、保証金率ぎりぎりまでは建てられない。</li>
+    <li><b>第2部のルール</b>　最低保証金30万円・保証金率30%・制度信用6か月・配当落調整金84.685%は法令と取引所の決まり（一次）。<b>維持率20%で追証、10%で強制決済、買方金利 年2.3〜3.1%、現引き手数料無料は証券会社ごとに違う</b>（解説）。<b>自分の口座の規定で確かめること。</b></li>
+    <li><b>丸めは粗め。</b>受講者のポートフォリオ・保有銘柄は載せていない。</li>
+  </ul>
+  <div class="src">
+    <b>主な出典</b>
+    <ul>
+      <li><span class="st p1">一次</span>米財務省「Debt to the Penny」（2026年9月8日）／米財務省 TIC「Major Foreign Holders of Treasury Securities」（2026年6月分）／米財務省プレスリリース「Treasury Announces Increased Sizes of Nominal Long-End Liquidity Support Buybacks Beginning September 9」／CBO「The Budget and Economic Outlook: 2026 to 2036」（2026年2月）／財務省「外貨準備等の状況」（2026年8月末）「外国為替平衡操作の実施状況」／日本銀行 高田審議委員講演（2026年9月2日・札幌）／ムーディーズ「2025 United States Sovereign Rating Action」</li>
+      <li><span class="st p2">報道</span>CNBC「Stock market news for Sept. 10, 2026」「Bessent says Treasury buyback operation could be more than $4 billion」（8/20）「U.S., Japan confirm coordinated yen intervention」（8/3）「Goldman says Japan's $1 trillion of reserves leaves 'plenty of capacity'」（8/13）「Jamie Dimon warns of 'some kind of bond crisis'」（4/28）「Trump turns up the heat on Warsh」（9/5）／Bloomberg「Japan Likely Sold Treasuries to Fund Record Yen Intervention」（9/6）「円買い介入の原資巡り議論活発」（5/8）／The Japan Times（9/7）／Nikkei Asia「Japan life insurers turn away from U.S. Treasurys for JGBs」／日本経済新聞「『日本は米国債売れない』は言い過ぎだ」（4月）「日銀の高田審議委員『機動的利上げの新局面に』」（9/2）／Fortune「By propping up the yen…」（8/9）／Forbes Advisor「Treasury Rates Today」（9/9）／外為どっとコム「佐々木融が鳴らす為替相場への警鐘」（9/7）</li>
+      <li><span class="st p3">解説</span>Axios「U.S. role in yen intervention gives clue about Treasury goals」（8/3）／CFR「Why the U.S. Intervened to Prop Up Japan's Yen」／CRFB「Weak Auctions Underscore Risks of our Growing Debt Burden」（3/31）「Net Interest Costs Will Double, Again」／Brookings「Next steps for GENIUS payment stablecoins」／国際通貨研究所「28年ぶりの日米円買い協調介入の背景と影響」（8/12）／大和総研「円買い・ドル売り為替介入の限界」（7/3）／GuruFocus・MacroRadar（シラーPER）／Wolf Street「Foreign Central Banks &amp; Governments Dumped Treasuries…」（8/17）</li>
+      <li><span class="st p2">報道</span>Advisor Perspectives「10-Year Treasury Yield Long-Term Perspective」（2026年4月・6月）／Marketplace「Yield on 30-year Treasury tops 5% for longest period since 2007」（7/22）／日本経済新聞「1.0%への利上げ決定 国債買い入れ減額は27年4月以降停止」（6/15）「日銀、利上げ『ペースアップ必要』 7月決定会合の主な意見」（8/8）「市場に広がる『ベッセント・プット』 米財務省、異例の米債バイバック増額」（8/19）／J.P. Morgan「Fed Leaves Rates Unchanged to Start 2026」（1/28）／Schwab「Divided Fed Leaves Interest Rates Unchanged」（7/29）</li>
+      <li><span class="st p1">一次</span>日本取引所グループ「銘柄別信用取引週末残高」「個別銘柄信用取引残高表」「信用取引に関する規制等」／金融商品取引法・同施行令（委託保証金・差金決済）</li>
+      <li><span class="st p2">報道</span>日本経済新聞「信用買い残が過去最高の7兆円超え キオクシアなど短期売買」（2026年6月30日）「株、信用買い残が7週連続増加 6兆6958億円で過去最高」（2026年6月9日）</li>
+      <li><span class="st p3">解説</span>SBIネオトレード証券「信用買いとは？」「回転売買、現引き・現渡しと二階建て」「信用取引金利・貸株料の主要ネット証券比較」／楽天証券「信用取引の基本ルール」「乗り換え売買」「第15回 現引と現渡について」／松井証券「委託保証金」／三菱UFJ eスマート証券「信用取引のリスク管理（追証と維持率）」／SMBC日興証券「現引きと現渡しの特徴」「増担保規制」／マネックス証券「信用取引規制銘柄とは？」</li>
+      <li><span class="st p4">二次・要確認</span>Motley Fool「Warren Buffett Recently Called the Stock Market 'A Church With a Casino Attached'」（8/9）「Stanley Druckenmiller Says the 30-Year Treasury Bond Is 'the Only Fiscal Disciplinarian We Have Left'」（9/3）／Hedgeweek「Dalio warns US debt crisis could emerge within three years」</li>
+    </ul>
+  </div>
+  <div class="next">
+    <b>前回（第6回・9/8）</b>　<a href="lecture_20260908.html">米中間選挙の現在地／信用取引 ── 現物買い＋信用売りで優待は残るか</a><br>
+    <b>関連</b>　<a href="lecture_20260904.html">日銀が国債を買うと、世の中のお金は増えるのか</a>（自習・9/4。図9の出口Ⅲ）／<a href="lecture_20260901.html">予想との差だけが値段を動かす</a>（第5回。§7の式と「織り込み済み」）
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
