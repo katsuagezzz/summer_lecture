@@ -363,7 +363,7 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
 #qa h3:first-of-type{margin-top:18px;}
 </style>
 <style>
-/* ---------- 9/16 追記：持ち越し・記入欄・宿題 ---------- */
+/* ---------- 記入欄・宿題 ---------- */
 .entry{background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px;
   padding:12px 16px; margin:10px 0; font-size:15px; line-height:2.2;}
 .entry b{font-weight:800;}
@@ -389,11 +389,12 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
 .fig .bar.a{fill:var(--macro);} .fig .bar.b{fill:var(--corp);} .fig .bar.c{fill:var(--bridge);}
 .fig a{fill:var(--macro);}
 /* この回の問いは「問」番号。9/15 の15問（Q番号）と混ざらないようにする */
-#s-move .q>li::before{content:"問" counter(qq);}
-#s-move .q>li{padding-left:50px;}
-#s-move .q .hint{display:block; margin-top:7px; padding-left:11px; border-left:3px solid var(--bridge);
+#s-move .q>li::before, #s-opt .q>li::before{content:"問" counter(qq);}
+#s-move .q>li, #s-opt .q>li{padding-left:50px;}
+#s-opt .q{counter-reset:qq 5;}   /* §4 の問5 から続ける */
+#s-move .q .hint, #s-opt .q .hint{display:block; margin-top:7px; padding-left:11px; border-left:3px solid var(--bridge);
   font-size:13.5px; line-height:1.7; color:var(--ink2);}
-#s-move .q .hint .lb{font-weight:800; letter-spacing:.04em; margin-right:5px; color:var(--bridge);}
+#s-move .q .hint .lb, #s-opt .q .hint .lb{font-weight:800; letter-spacing:.04em; margin-right:5px; color:var(--bridge);}
 .pfnote{font-size:13.5px; color:var(--ink2); line-height:1.75; margin:10px 0 0;}
 </style>
 </head>
@@ -436,7 +437,7 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <li><a href="#s-boj">9/18 日銀</a> <span class="s">― 決定と、日本株・長期金利・ドル円</span></li>
     <li><a href="#s-move">向きが教科書と違った4点</a> <span class="s">― 問1〜問5</span></li>
     <li><a href="#qa">9/15で答えが出なかった問い</a> <span class="s">― Q1〜Q15。冒頭はここから</span></li>
-    <li><a href="#s-carry">9/15に触れなかったもの</a> <span class="s">― 4つ。第7回の資料の該当箇所</span></li>
+    <li><a href="#s-opt">オプション取引</a> <span class="s">― 図4。権利行使価格・期日・プレミアム</span></li>
     <li><a href="#s-pf">チーム別ポートフォリオ</a> <span class="s">― TradingViewの3リンク。報告とチーム課題</span></li>
     <li><a href="#s-hw">宿題</a> <span class="s">― 1行。9/22（火）12:00まで</span></li>
   </ol>
@@ -733,18 +734,93 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
   </div>
 </section>
 
-<!-- ============ 9/15に触れなかったもの ============ -->
-<section class="topic" id="s-carry">
-  <span class="badge macro">持ち越し</span>
-  <h2 class="thead">9/15に触れなかったもの ── 4つ</h2>
-  <p class="sub">時間が足りず、第7回の資料に載せたまま開かなかったもの。<b>新しい資料は作らない。</b>9/15の資料をもう一度開く。</p>
+<!-- ============ §5 オプション ============ -->
+<section class="topic" id="s-opt">
+  <span class="badge word">§5 オプション</span>
+  <h2 class="thead">オプション取引 ── 権利行使価格・期日・プレミアムの3つ</h2>
+  <p class="sub">株そのものではなく、<b>決まった日に決まった値段で売り買いする権利</b>を売買する取引。初歩だけ。</p>
 
+  <div class="kpis">
+    <div class="kpi"><div class="k">商品</div><div class="v">日経225<br>オプション</div><div class="n">大阪取引所に上場<span class="st p1">一次</span></div></div>
+    <div class="kpi m"><div class="k">原資産</div><div class="v">日経平均株価</div><div class="n">9/18終値 65,018円95銭<span class="st p2">報道</span></div></div>
+    <div class="kpi"><div class="k">権利行使</div><div class="v">満期日のみ</div><div class="n">ヨーロピアンタイプ。差額を現金で受け渡す<span class="st p1">一次</span></div></div>
+    <div class="kpi c"><div class="k">日経平均VI</div><div class="v">27.89</div><div class="n">9/18終値。前日比 −1.93。日経225オプションの値段から算出する指数<span class="st p2">報道</span></div></div>
+  </div>
+
+  <h3>取引の流れ</h3>
   <ol class="chain">
-    <li><b>図7　米国債・ドル円・米国株・日本のお金の輪（矢印①〜⑤）</b>　第1部の本体。<a href="lecture_20260915.html#s3">第7回 §3</a>。矢印を1本ずつ、<b>誰が何を売って何を買ったか</b>で言い直す。Q10〜Q12の着地点はこの図の上にある</li>
-    <li><b>10年債の20年グラフと、ベッセント・日銀の年表</b>　<a href="lecture_20260915.html#s2">第7回 §2</a>の図4と図6。<b>政策金利のほうは、本資料の図1・図2で9/18まで延ばしてある。</b>Q8・Q9の5人の名前は、年表を読むために要る</li>
-    <li><b>デフォルトの2つ目 ── 実質価値の目減り</b>　<a href="lecture_20260915.html#s4">第7回 §4</a>の図8。9/15は「払えない」側だけで終わった。<b>名目は満額払われる。それでも損をするのは誰か</b></li>
-    <li><b>信用買いの設例</b>　<a href="lecture_20260915.html#s11">第7回 §11</a>〜<a href="lecture_20260915.html#s13">§13</a>の図10〜図17。9/15は「他人の金で買う」までの5分だけ。<b>維持率・追証・強制決済・金利・現引き・信用倍率は、数字を一度も入れていない。</b>Q13・Q14はここに戻る</li>
+    <li><b>買い手がプレミアムを払う。</b>払う先は売り手。<b>これで「権利」を手に入れる。</b>証拠金は要らない</li>
+    <li><b>売り手がプレミアムを受け取る。</b>同時に「応じる義務」を負い、<b>証拠金を差し入れる</b></li>
+    <li><b>満期日（SQ）まで待つか、途中で反対売買する。</b>取引最終日は各限月の第2金曜日（SQ日）の前日</li>
+    <li><b>SQ値と権利行使価格を比べ、差額を現金で清算する。</b>買い手に不利なら権利を使わない。<b>その場合、買い手が失うのはプレミアムだけ</b></li>
   </ol>
+
+  <h3>コール・オプション（買う権利）の満期損益</h3>
+  <div class="fig">
+  <svg viewBox="0 0 960 340" role="img" aria-label="権利行使価格65,000円・プレミアム800円のコールオプションについて、満期のSQ値ごとの買い手と売り手の損益を示す折れ線">
+    <path class="gl" d="M96,50 L924,50 M96,90 L924,90 M96,130 L924,130 M96,210 L924,210 M96,250 L924,250 M96,290 L924,290"/>
+    <path class="zl" d="M96,170 L924,170"/>
+    <path class="ax" d="M96,50 L96,290"/>
+    <text class="tick" x="88" y="54" text-anchor="end">+1,500</text><text class="tick" x="88" y="94" text-anchor="end">+1,000</text><text class="tick" x="88" y="134" text-anchor="end">+500</text><text class="tick" x="88" y="174" text-anchor="end">0</text><text class="tick" x="88" y="214" text-anchor="end">−500</text><text class="tick" x="88" y="254" text-anchor="end">−1,000</text><text class="tick" x="88" y="294" text-anchor="end">−1,500</text>
+    <text class="tick" x="96.0" y="312" text-anchor="middle">63,000</text><text class="tick" x="303.0" y="312" text-anchor="middle">64,000</text><text class="tick" x="510.0" y="312" text-anchor="middle">65,000</text><text class="tick" x="717.0" y="312" text-anchor="middle">66,000</text><text class="tick" x="924.0" y="312" text-anchor="middle">67,000</text>
+    <text class="tick" x="510.0" y="332" text-anchor="middle">満期日（SQ）の日経平均株価</text>
+    <path class="vl" d="M510,50 L510,290"/><text class="lab c" x="510" y="42" text-anchor="middle">権利行使価格 65,000</text>
+    <path class="vl" d="M675.6,50 L675.6,290"/><text class="lab c" x="700" y="42" text-anchor="start">損益分岐 65,800</text>
+    <path class="ln a" d="M96,234 L510,234 L924,74"/>
+    <path class="ln b" d="M96,106 L510,106 L924,266"/>
+    <text class="val" x="300" y="250" text-anchor="middle">−800</text>
+    <text class="val" x="300" y="98" text-anchor="middle">+800</text>
+    <text class="val" x="920" y="62" text-anchor="end">+1,200</text>
+    <text class="val" x="920" y="286" text-anchor="end">−1,200</text>
+    <path class="ln a" d="M120,62 L150,62"/><text class="lab" x="158" y="66">コールの買い手</text>
+    <path class="ln b" d="M300,62 L330,62"/><text class="lab" x="338" y="66">コールの売り手</text>
+  </svg>
+  <div class="cap">図4　<b>設例。</b>権利行使価格65,000円、プレミアム800円。<b>実在の建玉ではない。</b>縦軸は指数ポイント。日経225オプションの取引単位は1,000倍なので、<b>100ポイントは10万円にあたる。</b>手数料・税・証拠金の金利は入っていない。</div>
+  </div>
+
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">買い手 ── 権利を持つ</div>
+      <p>最初に<b>プレミアムを払う。</b>証拠金は要らない。</p>
+      <p>権利なので、<b>使わなくてよい。</b>不利なまま満期を迎えたら、何もせずに終わる。</p>
+      <p><b>追加で払う場面がない。</b>最初に払った額より先に、損は伸びない。</p>
+    </div>
+    <div class="card b">
+      <div class="ch">売り手 ── 義務を負う</div>
+      <p>最初に<b>プレミアムを受け取る。</b>そのうえで<b>証拠金を差し入れる。</b></p>
+      <p>買い手が権利を使えば、<b>断れない。</b></p>
+      <p><b>相場が動けば証拠金の追加を求められる。</b>第6回の空売りと同じ形。</p>
+    </div>
+  </div>
+
+  <h3>4つの言葉</h3>
+  <div class="gloss compact">
+    <dl>
+      <dt>権利行使価格<span class="en">strike</span></dt>
+      <dd>その値段で売り買いする、と最初に決めておく値段。<b>取引所が刻んで並べる。</b>日経225オプションは当初250円刻み、直近3限月になると125円刻みが加わる。</dd>
+      <dt>期日（SQ）<span class="en">expiry</span></dt>
+      <dd>権利が消える日。日経225オプションは<b>各限月の第2金曜日</b>。取引最終日はその前日。</dd>
+      <dt>プレミアム<span class="en">premium</span></dt>
+      <dd>権利そのものの値段。<b>市場で売買されて決まる。</b>買い手が払い、売り手が受け取る。</dd>
+      <dt>コールとプット<span class="en">call / put</span></dt>
+      <dd>コールは<b>買う権利</b>、プットは<b>売る権利</b>。どちらにも買い手と売り手がいる。<b>合わせて4つの立場がある。</b></dd>
+    </dl>
+  </div>
+
+  <ol class="q">
+    <li><b>信用買いとコールの買いは、どちらも手元の金より大きい額を動かす。損の上限は、それぞれいくらか。</b>
+      <span class="hint"><span class="lb">着地点</span>第7回 <a href="lecture_20260915.html#s11">§11</a>の信用買いの設例と、図4の買い手の線。<b>片方には追証があり、片方にはない。</b>Q13・Q14に戻る。</span></li>
+
+    <li><b>売り手は最初にプレミアムを受け取る。それでも証拠金を差し入れるのはなぜか。</b>
+      <span class="hint"><span class="lb">着地点</span>図4の売り手の線が、右へどこまで伸びるか。<b>受け取った額は最初に決まっているが、払う額は決まっていない。</b></span></li>
+
+    <li><b>9/18、日経平均株価と日経平均VIは逆を向いた。この2つは、それぞれ何を測っているか。</b>
+      <span class="hint"><span class="lb">着地点</span>水準と、これからの振れ幅の見込み。<b>問3の「決まったもの／これから決まるもの」と同じ切り分け。</b>日経平均VIは日経225オプションの値段から逆算して作る。<b>オプションの値段が上がれば、この指数も上がる。</b></span></li>
+  </ol>
+
+  <div class="rel">
+    <b>数字の出どころ</b>　図4の権利行使価格65,000円・プレミアム800円は<b>設例</b>で、実在の建玉ではない。商品の決まり（取引単位1,000倍・ヨーロピアンタイプ・権利行使価格の刻み・SQ）は<b>日本取引所グループ「日経225オプション」の商品概要</b><span class="st p1">一次</span>。日経平均VIの値は報道ベース<span class="st p2">報道</span>で、算出元は日本経済新聞社。<b>受講者の保有建玉は載せていない。</b>
+  </div>
 </section>
 
 <!-- ============ チーム別ポートフォリオ ============ -->
@@ -795,6 +871,7 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
     <li><b>米10年債5.006%・日本10年債2.985%・ドル円157円79銭は、いずれも9/18の報道ベース。</b>時点の異なる数字を並べていないかを、自分で確かめること。</li>
     <li><b>票決（12対0、7対2）と、ドットプロットの人数（18人中16人・4人）は報道ベース。</b>票決は声明と議事要旨で、見通しは経済見通し要旨（SEP）で確かめられる。</li>
     <li><b>「1995年以来」「2007年7月以来」「1996年9月以来」は、いずれも報道の言い方をそのまま置いた概数の表現である。</b>何と比べて何年ぶりかは、原系列にあたること。</li>
+    <li><b>図1〜図4はこの資料の図。</b>本文中の「第7回 §◯の図◯」は、第7回の資料の図番号である。</li>
     <li><b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b>9/15の教室での発言は要約であり、逐語ではない。</li>
   </ul>
   <div class="src">
