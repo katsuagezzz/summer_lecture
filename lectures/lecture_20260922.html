@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>講義資料 第8回｜2026年9月22日 第7回（9/15）で答えが出なかった問い（15問）</title>
+<title>講義資料 第8回｜2026年9月22日 日米政策金利推移（2006年から2026年）と、利上げ後の株・金利・為替</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
@@ -371,6 +371,31 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
 .entry .wide{min-width:100%;}
 .chain a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
 </style>
+<style>
+/* ---------- 9/19 追記：図（第7回の書式をそのまま使う） ---------- */
+.fig{margin:14px 0 6px; padding:14px 12px 10px; background:var(--bg); border:1px solid var(--line); border-radius:12px;}
+.fig svg{width:100%; height:auto; display:block; font-family:inherit;}
+.fig .cap{font-size:13px; color:var(--ink3); margin:8px 4px 0; line-height:1.6;}
+.fig .ax{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .gl{stroke:var(--line2); stroke-width:1; fill:none;}
+.fig .zl{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .ln{fill:none; stroke-width:2.8; stroke-linejoin:round;}
+.fig .ln.a{stroke:var(--macro);} .fig .ln.b{stroke:var(--corp);} .fig .ln.c{stroke:var(--bridge);}
+.fig .vl{stroke:var(--down); stroke-width:1.5; stroke-dasharray:5 4; fill:none;}
+.fig .tick{font-size:11.5px; fill:var(--ink3);}
+.fig .lab{font-size:12.5px; font-weight:700; fill:var(--ink);}
+.fig .lab.c{fill:var(--corp);}
+.fig .val{font-size:12px; font-weight:800; fill:var(--ink2); font-variant-numeric:tabular-nums;}
+.fig .bar.a{fill:var(--macro);} .fig .bar.b{fill:var(--corp);} .fig .bar.c{fill:var(--bridge);}
+.fig a{fill:var(--macro);}
+/* この回の問いは「問」番号。9/15 の15問（Q番号）と混ざらないようにする */
+#s-move .q>li::before{content:"問" counter(qq);}
+#s-move .q>li{padding-left:50px;}
+#s-move .q .hint{display:block; margin-top:7px; padding-left:11px; border-left:3px solid var(--bridge);
+  font-size:13.5px; line-height:1.7; color:var(--ink2);}
+#s-move .q .hint .lb{font-weight:800; letter-spacing:.04em; margin-right:5px; color:var(--bridge);}
+.pfnote{font-size:13.5px; color:var(--ink2); line-height:1.75; margin:10px 0 0;}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -387,18 +412,18 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
 
 <header class="masthead">
   <div class="vol">LECTURE HANDOUT ／ 講義資料　夏期集中講座 第8回</div>
-  <h1 class="title">第7回（9/15）で答えが出なかった問い ── 15問</h1>
+  <h1 class="title">日米政策金利推移（2006年から2026年）と、利上げ後の株・金利・為替</h1>
   <div class="meta">
     <span><b>講義</b>　2026年9月22日（火）16:20–18:20</span>
-    <span><b>この節の作成</b>　2026年9月16日（水）</span>
-    <span><b>出題元</b>　9/15 第7回の記録</span>
-    <span><b>9/16 追記</b>　持ち越し4つ・9/16 FOMC・9/18 日銀の記入欄・宿題1行</span>
+    <span><b>作成</b>　2026年9月19日（土）</span>
+    <span><b>対象期間</b>　2006年〜2026年9月18日</span>
+    <span><b>数字の時点</b>　2026年9月18日の終値・報道</span>
   </div>
   <div class="lede">
     <ul class="three">
-      <li><strong>出題元は9/15の教室のやり取りだけ</strong></li>
-      <li><strong>答えが出た問いは載せていない</strong></li>
-      <li><strong>答えは書いていない。教室で出た答えと着地点だけ</strong></li>
+      <li><strong>9/16 FOMC　3.75〜4.00%へ0.25ポイント引き上げ。2023年7月以来の利上げ</strong></li>
+      <li><strong>9/18 日銀　1.25%程度へ0.25ポイント引き上げ。1995年以来の水準</strong></li>
+      <li><strong>同じ幅で上げたため、日米の政策金利差は2.75ポイントのまま動いていない</strong></li>
     </ul>
   </div>
 </header>
@@ -406,21 +431,223 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
 <nav class="toc">
   <h2>この資料の構成</h2>
   <ol>
-    <li><a href="#qa">答えが出なかった問い</a> <span class="s">― 15問。9/15の講義後に作成</span></li>
-    <li><a href="#g1">国債の値段と金利</a> <span class="s">― Q1〜Q7。何が固定で、何が動くか</span></li>
-    <li><a href="#g2">登場人物と、金利を上げさせない理由</a> <span class="s">― Q8〜Q12</span></li>
-    <li><a href="#g3">信用買いとポートフォリオ</a> <span class="s">― Q13〜Q15</span></li>
+    <li><a href="#s-rate">日米の政策金利（2006年から2026年）</a> <span class="s">― 図1・図2。水準と差</span></li>
+    <li><a href="#s-fomc">9/16 FOMC</a> <span class="s">― 決定と、米国株の3日間。図3</span></li>
+    <li><a href="#s-boj">9/18 日銀</a> <span class="s">― 決定と、日本株・長期金利・ドル円</span></li>
+    <li><a href="#s-move">向きが教科書と違った4点</a> <span class="s">― 問1〜問5</span></li>
+    <li><a href="#qa">9/15で答えが出なかった問い</a> <span class="s">― Q1〜Q15。冒頭はここから</span></li>
     <li><a href="#s-carry">9/15に触れなかったもの</a> <span class="s">― 4つ。第7回の資料の該当箇所</span></li>
-    <li><a href="#s-fomc">9/16 FOMC・9/18 日銀</a> <span class="s">― 記入欄</span></li>
+    <li><a href="#s-pf">チーム別ポートフォリオ</a> <span class="s">― TradingViewの3リンク。報告とチーム課題</span></li>
     <li><a href="#s-hw">宿題</a> <span class="s">― 1行。9/22（火）12:00まで</span></li>
   </ol>
 </nav>
+
+<!-- ============ §1 政策金利 ============ -->
+<section class="topic" id="s-rate">
+  <span class="badge macro">§1 政策金利</span>
+  <h2 class="thead">日米の政策金利（2006年から2026年）</h2>
+  <p class="sub">水準と日付だけ。解釈は §4。</p>
+
+  <div class="fig">
+  <svg viewBox="0 0 960 350" role="img" aria-label="2006年から2026年までの米国の政策金利誘導目標レンジ上限と日本の無担保コールレート翌日物誘導目標の階段グラフ">
+    <path class="gl" d="M90,207.1 L918,207.1 M90,175.7 L918,175.7 M90,144.3 L918,144.3 M90,112.8 L918,112.8 M90,81.4 L918,81.4 M90,50.0 L918,50.0"/>
+    <path class="ax" d="M90,52 L90,270 M90,238.6 L918,238.6"/>
+    <text class="tick" x="82" y="242.6" text-anchor="end">0%</text><text class="tick" x="82" y="211.1" text-anchor="end">1%</text><text class="tick" x="82" y="179.7" text-anchor="end">2%</text><text class="tick" x="82" y="148.3" text-anchor="end">3%</text><text class="tick" x="82" y="116.8" text-anchor="end">4%</text><text class="tick" x="82" y="85.4" text-anchor="end">5%</text><text class="tick" x="82" y="54.0" text-anchor="end">6%</text>
+    <text class="tick" x="90.0" y="292" text-anchor="middle">2006</text><text class="tick" x="252.0" y="292" text-anchor="middle">2010</text><text class="tick" x="414.0" y="292" text-anchor="middle">2014</text><text class="tick" x="576.0" y="292" text-anchor="middle">2018</text><text class="tick" x="738.0" y="292" text-anchor="middle">2022</text><text class="tick" x="900.0" y="292" text-anchor="middle">2026</text>
+    <path class="vl" d="M495.0,52 L495.0,270"/><text class="lab c" x="495.0" y="44" text-anchor="middle">2016/2 マイナス金利</text>
+    <path class="vl" d="M819.0,52 L819.0,270"/><text class="lab c" x="819.0" y="44" text-anchor="middle">2024/3 解除</text>
+    <path class="vl" d="M900.0,52 L900.0,270"/><text class="lab c" x="918.0" y="44" text-anchor="end">2026/9</text>
+    <path class="ln a" d="M90.0,73.6 L130.5,73.6 L130.5,105.0 L171.0,105.0 L171.0,230.7 L211.5,230.7 L211.5,230.7 L252.0,230.7 L252.0,230.7 L292.5,230.7 L292.5,230.7 L333.0,230.7 L333.0,230.7 L373.5,230.7 L373.5,230.7 L414.0,230.7 L414.0,230.7 L454.5,230.7 L454.5,222.9 L495.0,222.9 L495.0,215.0 L535.5,215.0 L535.5,191.4 L576.0,191.4 L576.0,160.0 L616.5,160.0 L616.5,183.6 L657.0,183.6 L657.0,230.7 L697.5,230.7 L697.5,230.7 L738.0,230.7 L738.0,97.2 L778.5,97.2 L778.5,65.7 L819.0,65.7 L819.0,97.2 L859.5,97.2 L859.5,120.7 L900.0,120.7 L900.0,112.9"/>
+    <path class="ln c" d="M90.0,230.7 L130.5,230.7 L130.5,222.9 L171.0,222.9 L171.0,235.5 L211.5,235.5 L211.5,235.5 L252.0,235.5 L252.0,235.5 L292.5,235.5 L292.5,235.5 L333.0,235.5 L333.0,235.5 L373.5,235.5 L373.5,235.5 L414.0,235.5 L414.0,235.5 L454.5,235.5 L454.5,235.5 L495.0,235.5 L495.0,241.7 L535.5,241.7 L535.5,241.7 L576.0,241.7 L576.0,241.7 L616.5,241.7 L616.5,241.7 L657.0,241.7 L657.0,241.7 L697.5,241.7 L697.5,241.7 L738.0,241.7 L738.0,241.7 L778.5,241.7 L778.5,241.7 L819.0,241.7 L819.0,230.7 L859.5,230.7 L859.5,215.0 L900.0,215.0 L900.0,199.3"/>
+    <text class="tick" x="96" y="65.6" text-anchor="start">5.25</text>
+    <text class="tick" x="778.5" y="57.7" text-anchor="middle">5.50</text>
+    <text class="tick" x="333.0" y="222.7" text-anchor="middle">米 0.25</text>
+    <text class="tick" x="924" y="116.9" text-anchor="start">4.00</text>
+    <text class="tick" x="657.0" y="257.7" text-anchor="middle">日 −0.10</text>
+    <text class="tick" x="924" y="203.3" text-anchor="start">1.25</text>
+    <path class="ln a" d="M104,70 L134,70"/><text class="lab" x="142" y="74">米国（誘導目標レンジの上限）</text>
+    <path class="ln c" d="M104,94 L134,94"/><text class="lab" x="142" y="98">日本（無担保コールレート翌日物）</text>
+  </svg>
+  <div class="cap">図1　各年12月の水準。<b>2026年だけは9/18時点。</b>米国は誘導目標レンジの上限、日本は無担保コールレート翌日物の誘導目標。<b>年内の振れは表していない。</b>一次情報はFOMC声明と日銀「当面の金融政策運営について」。<span class="st p1">一次</span></div>
+  </div>
+
+  <h3>日米の政策金利差（2006年から2026年）</h3>
+  <div class="fig">
+  <svg viewBox="0 0 960 350" role="img" aria-label="2006年から2026年までの日米政策金利差の推移">
+    <path class="gl" d="M90,207.1 L918,207.1 M90,175.7 L918,175.7 M90,144.3 L918,144.3 M90,112.8 L918,112.8 M90,81.4 L918,81.4 M90,50.0 L918,50.0"/>
+    <path class="ax" d="M90,52 L90,270 M90,238.6 L918,238.6"/>
+    <text class="tick" x="82" y="242.6" text-anchor="end">0</text><text class="tick" x="82" y="211.1" text-anchor="end">1</text><text class="tick" x="82" y="179.7" text-anchor="end">2</text><text class="tick" x="82" y="148.3" text-anchor="end">3</text><text class="tick" x="82" y="116.8" text-anchor="end">4</text><text class="tick" x="82" y="85.4" text-anchor="end">5</text><text class="tick" x="82" y="54.0" text-anchor="end">6</text>
+    <text class="tick" x="90.0" y="292" text-anchor="middle">2006</text><text class="tick" x="252.0" y="292" text-anchor="middle">2010</text><text class="tick" x="414.0" y="292" text-anchor="middle">2014</text><text class="tick" x="576.0" y="292" text-anchor="middle">2018</text><text class="tick" x="738.0" y="292" text-anchor="middle">2022</text><text class="tick" x="900.0" y="292" text-anchor="middle">2026</text>
+    <path class="vl" d="M900.0,52 L900.0,270"/><text class="lab c" x="918.0" y="44" text-anchor="end">2026/9</text>
+    <polyline class="ln b" points="90.0,81.4 130.5,120.7 171.0,233.9 211.5,233.9 252.0,233.9 292.5,233.9 333.0,233.9 373.5,233.9 414.0,233.9 454.5,226.0 495.0,211.9 535.5,188.3 576.0,156.9 616.5,180.4 657.0,227.6 697.5,227.6 738.0,94.0 778.5,62.6 819.0,105.0 859.5,144.3 900.0,152.2"/>
+    <g fill="var(--corp)"><circle cx="90.0" cy="81.4" r="3"/><circle cx="130.5" cy="120.7" r="3"/><circle cx="171.0" cy="233.9" r="3"/><circle cx="211.5" cy="233.9" r="3"/><circle cx="252.0" cy="233.9" r="3"/><circle cx="292.5" cy="233.9" r="3"/><circle cx="333.0" cy="233.9" r="3"/><circle cx="373.5" cy="233.9" r="3"/><circle cx="414.0" cy="233.9" r="3"/><circle cx="454.5" cy="226.0" r="3"/><circle cx="495.0" cy="211.9" r="3"/><circle cx="535.5" cy="188.3" r="3"/><circle cx="576.0" cy="156.9" r="3"/><circle cx="616.5" cy="180.4" r="3"/><circle cx="657.0" cy="227.6" r="3"/><circle cx="697.5" cy="227.6" r="3"/><circle cx="738.0" cy="94.0" r="3"/><circle cx="778.5" cy="62.6" r="3"/><circle cx="819.0" cy="105.0" r="3"/><circle cx="859.5" cy="144.3" r="3"/><circle cx="900.0" cy="152.2" r="3"/></g>
+    <text class="tick" x="96" y="71.4" text-anchor="start">5.00</text>
+    <text class="tick" x="778.5" y="54.6" text-anchor="middle">5.60</text>
+    <text class="tick" x="333.0" y="248.9" text-anchor="middle">0.15</text>
+    <text class="tick" x="924" y="156.2" text-anchor="start">2.75</text>
+    <path class="ln b" d="M200,116 L230,116"/><text class="lab" x="238" y="120">米国の上限 − 日本の誘導目標（ポイント）</text>
+  </svg>
+  <div class="cap">図2　図1の差。<b>下限どうしで引いても増減の向きは変わらない</b>（会合前 3.50−1.00＝2.50、会合後 3.75−1.25＝2.50）。<b>2016年2月から2024年3月までは日本側が−0.10のため、差が日本のゼロ近傍より上に出る。</b>差は水準の引き算であり、為替の予想ではない。<span class="st p1">一次</span></div>
+  </div>
+
+  <h3>2026年の会合と決定</h3>
+  <ul class="cal">
+    <li><span class="d">1/28</span><span class="c">FOMC　据え置き</span></li>
+    <li><span class="d">3/18</span><span class="c">FOMC　据え置き</span></li>
+    <li><span class="d">4/29</span><span class="c">FOMC　据え置き</span></li>
+    <li><span class="d">6/16</span><span class="c">日銀　0.75%程度 → <b>1.00%程度</b></span></li>
+    <li><span class="d">6/17</span><span class="c">FOMC　据え置き</span></li>
+    <li><span class="d">7/29</span><span class="c">FOMC　据え置き</span></li>
+    <li class="hot"><span class="d">9/16</span><span class="c">FOMC　3.50〜3.75% → <b>3.75〜4.00%</b>。2023年7月以来の利上げ</span></li>
+    <li class="hot"><span class="d">9/18</span><span class="c">日銀　1.00%程度 → <b>1.25%程度</b>。1995年以来の水準</span></li>
+    <li><span class="d">10/28</span><span class="c">FOMC（10/27–28）</span></li>
+    <li><span class="d">10/30</span><span class="c">日銀（10/29–30）</span></li>
+    <li><span class="d">12/9</span><span class="c">FOMC（12/8–9）</span></li>
+    <li><span class="d">12/18</span><span class="c">日銀（12/17–18）</span></li>
+  </ul>
+  <div class="rel"><b>日程の出どころ</b>　FOMCは米連邦準備制度理事会の会合カレンダー、日銀は「金融政策決定会合等の日程」。<b>いずれも一次情報。</b><span class="st p1">一次</span>　<b>9月までの5回が据え置きだった点は報道ベース</b><span class="st p2">報道</span>。声明で確かめること。</div>
+</section>
+
+<!-- ============ §2 FOMC ============ -->
+<section class="topic" id="s-fomc">
+  <span class="badge macro">§2 米国</span>
+  <h2 class="thead">9/16 FOMC ── 決定と、米国株の3日間</h2>
+  <p class="sub">決定・票決・市場の値。理由は §4。</p>
+
+  <div class="kpis">
+    <div class="kpi m"><div class="k">誘導目標レンジ</div><div class="v">3.75〜4.00%</div><div class="n">0.25ポイント引き上げ。9/16決定<span class="st p1">一次</span></div></div>
+    <div class="kpi"><div class="k">票決</div><div class="v">12対0</div><div class="n">反対なし<span class="st p2">報道</span></div></div>
+    <div class="kpi"><div class="k">前回の利上げ</div><div class="v">2023年7月</div><div class="n">3年2か月ぶり<span class="st p2">報道</span></div></div>
+    <div class="kpi c"><div class="k">米10年債利回り</div><div class="v">5.006%</div><div class="n">9/18時点。2007年7月以来の水準<span class="st p2">報道</span></div></div>
+  </div>
+
+  <div class="fig">
+  <svg viewBox="0 0 960 330" role="img" aria-label="9月16日から18日までの米国3株価指数の日次騰落率の棒グラフ">
+    <path class="gl" d="M96,52.0 L924,52.0 M96,118.9 L924,118.9 M96,252.6 L924,252.6"/>
+    <path class="zl" d="M96,185.7 L924,185.7"/>
+    <path class="ax" d="M96,52 L96,286"/>
+    <text class="tick" x="88" y="56.0" text-anchor="end">+2%</text><text class="tick" x="88" y="122.9" text-anchor="end">+1%</text><text class="tick" x="88" y="189.7" text-anchor="end">0%</text><text class="tick" x="88" y="256.6" text-anchor="end">−1%</text>
+    <rect class="bar a" x="137.0" y="185.7" width="58.0" height="80.9" rx="2"/>
+    <rect class="bar b" x="205.0" y="185.7" width="58.0" height="30.1" rx="2"/>
+    <rect class="bar c" x="273.0" y="185.7" width="58.0" height="1.2" rx="2"/>
+    <rect class="bar a" x="413.0" y="144.9" width="58.0" height="40.8" rx="2"/>
+    <rect class="bar b" x="481.0" y="109.5" width="58.0" height="76.2" rx="2"/>
+    <rect class="bar c" x="549.0" y="72.7" width="58.0" height="113.0" rx="2"/>
+    <rect class="bar a" x="689.0" y="185.7" width="58.0" height="12.0" rx="2"/>
+    <rect class="bar b" x="757.0" y="174.3" width="58.0" height="11.4" rx="2"/>
+    <rect class="bar c" x="825.0" y="159.6" width="58.0" height="26.1" rx="2"/>
+    <text class="tick" x="234.0" y="308" text-anchor="middle">9/16（水）FOMC当日</text>
+    <text class="val" x="166.0" y="281.6" text-anchor="middle">−1.21</text>
+    <text class="val" x="234.0" y="230.8" text-anchor="middle">−0.45</text>
+    <text class="val" x="302.0" y="201.9" text-anchor="middle">−0.01</text>
+    <text class="tick" x="510.0" y="308" text-anchor="middle">9/17（木）</text>
+    <text class="val" x="442.0" y="138.9" text-anchor="middle">+0.61</text>
+    <text class="val" x="510.0" y="103.5" text-anchor="middle">+1.14</text>
+    <text class="val" x="578.0" y="66.7" text-anchor="middle">+1.69</text>
+    <text class="tick" x="786.0" y="308" text-anchor="middle">9/18（金）</text>
+    <text class="val" x="718.0" y="212.7" text-anchor="middle">−0.18</text>
+    <text class="val" x="786.0" y="168.3" text-anchor="middle">+0.17</text>
+    <text class="val" x="854.0" y="153.6" text-anchor="middle">+0.39</text>
+    <rect class="bar a" x="600" y="20" width="14" height="10" rx="2"/><text class="lab" x="620" y="30">NYダウ</text>
+    <rect class="bar b" x="700" y="20" width="14" height="10" rx="2"/><text class="lab" x="720" y="30">S&amp;P500</text>
+    <rect class="bar c" x="800" y="20" width="14" height="10" rx="2"/><text class="lab" x="820" y="30">ナスダック総合</text>
+  </svg>
+  <div class="cap">図3　<b>前営業日の終値を分母にした日次騰落率。</b>小数第2位まで。<b>3日間とも取引時間中の値ではなく終値どうしの比較。</b>FOMCの発表と議長会見は9/16の取引時間中にあたる。値は報道ベース<span class="st p2">報道</span>であり、指数の確定値は各指数の算出元にあたること。</div>
+  </div>
+
+  <ul class="facts">
+    <li><b>議長</b>　ケビン・ウォーシュ。会見中に株価が下げ幅を広げた<span class="st p2">報道</span></li>
+    <li><b>見通し（ドットプロット）</b>　18人のうち16人が年内あと1回以上、4人が2回。2026年末・2027年末の中央値は4.00〜4.25%<span class="st p2">報道</span></li>
+    <li><b>週次</b>　NYダウとS&amp;P500は9/14〜9/18の週で下落<span class="st p2">報道</span></li>
+  </ul>
+</section>
+
+<!-- ============ §3 日銀 ============ -->
+<section class="topic" id="s-boj">
+  <span class="badge bridge">§3 日本</span>
+  <h2 class="thead">9/18 日銀 ── 決定と、日本株・長期金利・ドル円</h2>
+  <p class="sub">決定・票決・市場の値。理由は §4。</p>
+
+  <div class="kpis">
+    <div class="kpi g"><div class="k">無担保コールレート翌日物</div><div class="v">1.25%程度</div><div class="n">0.25ポイント引き上げ。9/18決定<span class="st p1">一次</span></div></div>
+    <div class="kpi"><div class="k">票決</div><div class="v">7対2</div><div class="n">政策委員9人のうち2人が反対<span class="st p2">報道</span></div></div>
+    <div class="kpi"><div class="k">前回の利上げ</div><div class="v">2026年6月</div><div class="n">3か月ぶり<span class="st p2">報道</span></div></div>
+    <div class="kpi c"><div class="k">日本10年債利回り</div><div class="v">2.985%</div><div class="n">9/18時点<span class="st p2">報道</span></div></div>
+  </div>
+
+  <h3>9/18の日本株 ── 2つの指数</h3>
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">日経平均株価</div>
+      <p><b>65,018円95銭</b>（前日比 +882円70銭）</p>
+      <p>前営業日の終値 64,136円25銭を分母にして <b>+1.38%</b>。3日続伸。上げ幅は取引時間中に一時1,300円を超えた<span class="st p2">報道</span></p>
+      <p>採用225銘柄。株価を足して除数で割る<b>株価平均型</b></p>
+    </div>
+    <div class="card b">
+      <div class="ch">TOPIX</div>
+      <p><b>4,091.14</b>（前日比 −3.05）</p>
+      <p>前営業日の終値 4,094.19 を分母にして <b>−0.07%</b>。反落<span class="st p2">報道</span></p>
+      <p>東証プライム全銘柄。時価総額（浮動株調整後）で加重する<b>時価総額加重型</b></p>
+    </div>
+  </div>
+
+  <ul class="facts">
+    <li><b>ドル円</b>　決定の発表後に円安が進み157円50銭台。9/18 18:00時点で <b>1ドル＝157円79銭</b><span class="st p2">報道</span></li>
+    <li><b>長期金利</b>　日本10年債は9/18時点で2.985%。8月に一時2.945%を付け、1996年9月以来の水準と報じられている<span class="st p2">報道</span></li>
+    <li><b>円安の理由として報じられたもの</b>　2人の反対票により、追加利上げのペースが速まるとの観測が後退した<span class="st p3">解説</span></li>
+  </ul>
+
+  <div class="entry">
+    <b>一次情報で置き換える欄。</b>この資料の値には報道ベースが混ざっている。<br>
+    <b>FOMC声明</b>　日付 <span class="blank"></span>　決定 <span class="blank"></span>　票決 <span class="blank" style="min-width:70px"></span><br>
+    <b>日銀「当面の金融政策運営について」</b>　日付 <span class="blank"></span>　決定 <span class="blank"></span>　票決 <span class="blank" style="min-width:70px"></span><br>
+    <b>米10年債（9/18）</b>　<span class="blank" style="min-width:70px"></span>%　出どころ <span class="blank"></span><br>
+    <b>日本10年債（9/18）</b>　<span class="blank" style="min-width:70px"></span>%　出どころ <span class="blank"></span>
+  </div>
+  <div class="rel"><b>一次情報の在り処</b>　FOMC声明は米連邦準備制度理事会、日銀の決定は日本銀行「当面の金融政策運営について」、米国債利回りは米財務省の日次利回りと連邦準備制度理事会 H.15、日本10年債は財務省「国債金利情報」、TOPIXは日本取引所グループ。<b>数字を書くときは、どこで見たかを添えること。</b></div>
+</section>
+
+<!-- ============ §4 向きが違った4点 ============ -->
+<section class="topic" id="s-move">
+  <span class="badge word">§4 論点</span>
+  <h2 class="thead">向きが教科書と違った4点</h2>
+  <p class="sub">§1〜§3 の値から、そのまま出てくる不一致。問いの番号は「問」。9/15の15問（Q番号）とは別系統。</p>
+
+  <div class="points">
+    <div class="point"><div class="h">1　差が動いていない</div><p>日米とも0.25ポイント。引き算の答えは会合の前後で同じ。</p></div>
+    <div class="point b"><div class="h">2　利上げの日に円安</div><p>日銀が上げた9/18に、ドル円は円安方向。</p></div>
+    <div class="point c"><div class="h">3　当日の符号が日米で逆</div><p>米国は利上げ当日に下げ、日本は利上げ当日に上げた。</p></div>
+    <div class="point"><div class="h">4　同じ日の日本株で符号が割れた</div><p>日経平均とTOPIXが逆を向いた。</p></div>
+  </div>
+
+  <ol class="q">
+    <li><b>9/16と9/18で、日米の政策金利差は広がったか、縮まったか。数字で言うこと。</b>
+      <span class="hint"><span class="lb">着地点</span>図2。上限どうしで引いても下限どうしで引いても、答えは会合前と同じ。<b>差で説明できない動きが、9/18に残る。</b></span></li>
+
+    <li><b>「利上げした通貨は買われる」と9/18の動きは合わない。間違っているのはどちらか。</b>
+      <span class="hint"><span class="lb">着地点</span>8/4の教室で、ある学生が「日米金利差が円安の原因だったのだから、日本が利上げすれば円高」と言った。この文が見ているのは<b>決まった水準か、これから決まる水準か。</b>§3の「反対2票」はどちらに効く材料か。</span></li>
+
+    <li><b>9/16と9/17で、決まった政策金利は同じである。図3で符号が反転した理由を、何が変わったかで言うこと。</b>
+      <span class="hint"><span class="lb">着地点</span>0.25ポイントは16日も17日も同じ。動いたのは<b>決まっていない部分</b>＝この先の回数の見方。第7回 <a href="lecture_20260915.html#s1">§1</a> の式のどの項に入るか。</span></li>
+
+    <li><b>同じ日・同じ市場で、日経平均とTOPIXの符号が割れた。なぜ割れるのか。</b>
+      <span class="hint"><span class="lb">着地点</span>§3の2枚のカード。<b>何を何で加重しているか。</b>銘柄数はいくつか。<b>「日本株が上がった」と言うとき、どちらの指数を指しているのか。</b></span></li>
+
+    <li><b>政策金利の差と、10年債利回りの差は一致しない。どちらがどちらを説明するのか。</b>
+      <span class="hint"><span class="lb">着地点</span>第7回 <a href="lecture_20260915.html#s1">§1</a>「米国債の金利 ＝ 政策金利の予想 ＋ 期待インフレ ＋ 期間プレミアム」。<b>政策金利は今日の1つの数字、10年債はこれから10年の平均の予想。</b>Q10・Q12の利払いの話もここに戻る。</span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">9/15の復習クイズ第4問の答え合わせ</span>
+    第7回の記録に置いた第4問は「9/16のFOMCと9/18の日銀で、日米の政策金利の差は広がったか縮まったか。数字で言うこと」だった。<b>合格ラインは、差の増減を数字で出し、そこから向きを言えること。</b>「利上げ＝円高」と、日米どちらの利上げかを言わずに答えた場合は不合格とする。
+  </div>
+</section>
 
 <!-- ============ 答えが出なかった問い ============ -->
 <section class="topic" id="qa">
   <span class="badge bridge">第7回の記録 ／ 2026年9月15日</span>
   <h2 class="thead">答えが出なかった問い ── 15問</h2>
-  <p class="sub">9/15の教室で問われ、その場で答えが出なかった問い、向きが逆になった問い、調べてから答えた問いだけを拾った。答えられた問いは載せていない。<b>答えは書いていない。</b>教室で出た答えと着地点だけを置いた。次回の冒頭はここから出す。</p>
+  <p class="sub">9/15の教室で問われ、その場で答えが出なかった問い、向きが逆になった問い、調べてから答えた問いだけを拾った。答えられた問いは載せていない。<b>答えは書いていない。</b>教室で出た答えと着地点だけを置いた。この回の冒頭はここから出す。</p>
 
   <h3 id="g1">国債の値段と金利 ── 何が固定で、何が動くか</h3>
   <ol class="q">
@@ -510,35 +737,43 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
 <section class="topic" id="s-carry">
   <span class="badge macro">持ち越し</span>
   <h2 class="thead">9/15に触れなかったもの ── 4つ</h2>
-  <p class="sub">時間が足りず、第7回の資料に載せたまま開かなかったもの。<b>第8回で新しい資料は作らない。</b>9/15の資料をもう一度開く。</p>
+  <p class="sub">時間が足りず、第7回の資料に載せたまま開かなかったもの。<b>新しい資料は作らない。</b>9/15の資料をもう一度開く。</p>
 
   <ol class="chain">
     <li><b>図7　米国債・ドル円・米国株・日本のお金の輪（矢印①〜⑤）</b>　第1部の本体。<a href="lecture_20260915.html#s3">第7回 §3</a>。矢印を1本ずつ、<b>誰が何を売って何を買ったか</b>で言い直す。Q10〜Q12の着地点はこの図の上にある</li>
-    <li><b>20年の金利グラフと年表</b>　<a href="lecture_20260915.html#s2">第7回 §2</a>の図4〜図6。米国は20年かけて一周、日本は20年前より高い。ベッセントと日銀の日付順の年表つき。<b>Q8・Q9の5人の名前は、この年表を読むために要る</b></li>
+    <li><b>10年債の20年グラフと、ベッセント・日銀の年表</b>　<a href="lecture_20260915.html#s2">第7回 §2</a>の図4と図6。<b>政策金利のほうは、本資料の図1・図2で9/18まで延ばしてある。</b>Q8・Q9の5人の名前は、年表を読むために要る</li>
     <li><b>デフォルトの2つ目 ── 実質価値の目減り</b>　<a href="lecture_20260915.html#s4">第7回 §4</a>の図8。9/15は「払えない」側だけで終わった。<b>名目は満額払われる。それでも損をするのは誰か</b></li>
     <li><b>信用買いの設例</b>　<a href="lecture_20260915.html#s11">第7回 §11</a>〜<a href="lecture_20260915.html#s13">§13</a>の図10〜図17。9/15は「他人の金で買う」までの5分だけ。<b>維持率・追証・強制決済・金利・現引き・信用倍率は、数字を一度も入れていない。</b>Q13・Q14はここに戻る</li>
   </ol>
 </section>
 
-<!-- ============ 9/16 FOMC・9/18 日銀 ============ -->
-<section class="topic" id="s-fomc">
-  <span class="badge word">記入欄</span>
-  <h2 class="thead">9/16 FOMC・9/18 日銀</h2>
-  <p class="sub">どちらも9/15の講義の後。結果を自分で調べて書き、9/22に持ってくる。</p>
+<!-- ============ チーム別ポートフォリオ ============ -->
+<section class="topic" id="s-pf">
+  <span class="badge corp">チーム</span>
+  <h2 class="thead">チーム別ポートフォリオ ── 9/16・9/18をはさんだ3チーム</h2>
+  <p class="sub">各チーム、自分のリンクを開いて報告する。持ち時間は3チーム合わせて15分。</p>
 
-  <div class="entry">
-    <b>9/16（水）FOMC</b>　決定：<span class="blank"></span>　米10年債：<span class="blank" style="min-width:70px"></span>%　ドル円：<span class="blank" style="min-width:70px"></span>円　S&amp;P500：<span class="blank" style="min-width:80px"></span><br>
-    <b>9/18（金）日銀</b>　決定：<span class="blank"></span>　日本10年債：<span class="blank" style="min-width:70px"></span>%　ドル円：<span class="blank" style="min-width:70px"></span>円　日経平均：<span class="blank" style="min-width:80px"></span>
+  <div class="pf">
+    <a href="https://jp.tradingview.com/portfolios/96d42da1b31d4f47b13c34536ff7f36e/" target="_blank" rel="noopener"><span class="tm">Aチーム</span><span class="u">jp.tradingview.com/portfolios/96d42da1…</span></a>
+    <a class="b" href="https://jp.tradingview.com/portfolios/12725df68d9d44b79c1d2e74b1b9eb85/" target="_blank" rel="noopener"><span class="tm">Bチーム</span><span class="u">jp.tradingview.com/portfolios/12725df6…</span></a>
+    <a class="c" href="https://www.tradingview.com/portfolios/2fd709d801b343a2935bca992c72e9ce/" target="_blank" rel="noopener"><span class="tm">Cチーム</span><span class="u">www.tradingview.com/portfolios/2fd709d8…</span></a>
   </div>
 
-  <div class="entry">
-    <b>日米の政策金利の差は、広がったか縮まったか。</b>数字で　<span class="blank wide"></span><br>
-    <b>そのとき、ドル円はどちらに動いたか。</b>図7のどの矢印で説明するか　<span class="blank wide"></span>
+  <h3>報告の型 ── 3点と、今回の1問</h3>
+  <ol class="chain">
+    <li><b>前回比 ±%</b>　<b>基準日と評価通貨を必ず言う。</b>9/15は口頭で読み上げた値だけが残り、基準日と評価通貨が記録に残っていない</li>
+    <li><b>効いた銘柄</b>　上下それぞれ1つ</li>
+    <li><b>理由を1行</b></li>
+    <li><b>今回の1問 ── 9/16・9/18の2つの利上げは、自チームの保有銘柄のどれに効いたか。効いていないなら、効いていないと言う</b></li>
+  </ol>
+
+  <div class="hw t">
+    <div class="hwhead"><span class="team">チーム課題</span><span class="hwtime">当日、報告のときに1行で</span></div>
+    <div class="hwttl">保有銘柄を1つ選び、それを組み替える条件を1行で書く。</div>
+    <p class="pfnote">9/15に、ある学生が「組み替える指標がないまま始めた」「出口戦略がないと何を基準に組み替えればいいのか分からない」と自分から申告した。<b>下げ幅か、保有期間か、買った理由が消えたときか。</b>条件は1行。数値を入れること。</p>
   </div>
 
-  <div class="rel">
-    <b>一次情報の在り処</b>　FOMC声明は米連邦準備制度理事会、日銀の決定は日本銀行「当面の金融政策運営について」、米10年債利回りは米財務省の日次利回り、日本10年債は財務省「国債金利情報」。<b>数字を書くときは、どこで見たかを添えること。</b>
-  </div>
+  <div class="rel"><b>ポートフォリオの扱い</b>　各チームのリンクは TradingView のポートフォリオ。<b>この資料には保有銘柄も評価額も書かない。</b>教室で数字を読み上げるときは、<b>基準日と評価通貨をそのつど言うこと。</b></div>
 </section>
 
 <!-- ============ 宿題 ============ -->
@@ -554,14 +789,33 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
 <footer>
   <h2>数字の扱いについて</h2>
   <ul>
-    <li><b>この節に出てくる数字は、すべて9/15の教室で口頭に作られた設例か、学生がその場で出した概算である。</b>額面10万円・満期に11万円・残り9年、市場金利2%、現在価値 約9万2,000円、差額 約2,000円、10万1,000円、手元30万円・1,000株。<b>実在の銘柄ではない。</b>手数料・税・経過利子は入っていない。</li>
-    <li><b>「約9万2,000円」「約2,000円」は、学生が教室の電卓で出した値。</b>検算はしていない。粗い概数として扱う。</li>
-    <li><b>相場・財政・信用残の数字は、この節には入れていない。</b>それらは<a href="lecture_20260915.html">第7回の資料</a>にあり、一次・報道・解説の区別と時点が付けてある。</li>
-    <li><b>要人名は9/15時点の役職。</b>会合の結果（9/16 FOMC・9/18 日銀）は各自が一次情報で確かめること。一次情報はFOMC声明と日銀「当面の金融政策運営について」。</li>
-    <li>発言は要約。逐語ではない。<b>受講者の氏名・ポートフォリオ・保有銘柄は載せていない。</b></li>
+    <li><b>図1・図2の政策金利は、各年12月の水準。2026年だけは9/18時点。</b>米国は誘導目標レンジの上限、日本は無担保コールレート翌日物の誘導目標。<b>年内の振れは表していない。</b>一次情報はFOMC声明と日銀「当面の金融政策運営について」。</li>
+    <li><b>図3の騰落率は、前営業日の終値を分母にした日次の値。</b>取引時間中の高値・安値は入っていない。<b>指数の値と騰落率は報道ベースであり、確定値は各指数の算出元にあたること。</b></li>
+    <li><b>日経平均の +1.38% は 64,136円25銭、TOPIXの −0.07% は 4,094.19 をそれぞれ分母にしている。</b>絶対額（+882円70銭／−3.05）と率を混ぜて読まないこと。</li>
+    <li><b>米10年債5.006%・日本10年債2.985%・ドル円157円79銭は、いずれも9/18の報道ベース。</b>時点の異なる数字を並べていないかを、自分で確かめること。</li>
+    <li><b>票決（12対0、7対2）と、ドットプロットの人数（18人中16人・4人）は報道ベース。</b>票決は声明と議事要旨で、見通しは経済見通し要旨（SEP）で確かめられる。</li>
+    <li><b>「1995年以来」「2007年7月以来」「1996年9月以来」は、いずれも報道の言い方をそのまま置いた概数の表現である。</b>何と比べて何年ぶりかは、原系列にあたること。</li>
+    <li><b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b>9/15の教室での発言は要約であり、逐語ではない。</li>
   </ul>
+  <div class="src">
+    <b>出典</b>
+    <ul>
+      <li><span class="st p1">一次</span>FOMC 会合カレンダー・声明 — <a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm" target="_blank" rel="noopener">federalreserve.gov/monetarypolicy/fomccalendars.htm</a></li>
+      <li><span class="st p1">一次</span>連邦準備制度理事会 H.15 Selected Interest Rates — <a href="https://www.federalreserve.gov/releases/h15/" target="_blank" rel="noopener">federalreserve.gov/releases/h15/</a></li>
+      <li><span class="st p1">一次</span>日本銀行 金融政策決定会合の日程・決定内容 — <a href="https://www.boj.or.jp/mopo/mpmsche_minu/index.htm" target="_blank" rel="noopener">boj.or.jp/mopo/mpmsche_minu/index.htm</a></li>
+      <li><span class="st p1">一次</span>日本取引所グループ TOPIX — <a href="https://www.jpx.co.jp/markets/indices/topix/" target="_blank" rel="noopener">jpx.co.jp/markets/indices/topix/</a></li>
+      <li><span class="st p2">報道</span>日銀 利上げ決定 政策金利1.25%程度へ（9/18） — <a href="https://news.web.nhk/newsweb/na/nd-20260918de50968" target="_blank" rel="noopener">news.web.nhk/newsweb/na/nd-20260918de50968</a></li>
+      <li><span class="st p2">報道</span>Fed rate decision September 2026: Rates rise to 3.75%-4% — <a href="https://www.cnbc.com/2026/09/16/fed-rate-decision-september-2026.html" target="_blank" rel="noopener">cnbc.com/2026/09/16/fed-rate-decision-september-2026.html</a></li>
+      <li><span class="st p2">報道</span>10-year Treasury yield climbs back to 5% after Fed hikes rates（9/16） — <a href="https://www.cnbc.com/2026/09/16/treasury-yield-bond-market-fed-decision.html" target="_blank" rel="noopener">cnbc.com/2026/09/16/treasury-yield-bond-market-fed-decision.html</a></li>
+      <li><span class="st p2">報道</span>Treasury yields move higher as volatile week wraps up（9/18） — <a href="https://www.cnbc.com/2026/09/18/treasury-yields-fed-rates-volatile-week.html" target="_blank" rel="noopener">cnbc.com/2026/09/18/treasury-yields-fed-rates-volatile-week.html</a></li>
+      <li><span class="st p2">報道</span>日経平均、終値882円高 日銀利上げ「逆風にならず」 — <a href="https://www.nikkei.com/article/DGXZQOFL180NVTY6A910C2000000/" target="_blank" rel="noopener">nikkei.com/article/DGXZQOFL180NVTY6A910C2000000/</a></li>
+      <li><span class="st p2">報道</span>日経平均大引け（9/18・終値と前日比） — <a href="https://www.zaikei.co.jp/article/20260918/870698.html" target="_blank" rel="noopener">zaikei.co.jp/article/20260918/870698.html</a></li>
+      <li><span class="st p3">解説</span>日銀利上げでも円安進行、ドル円は再び160円に戻るか（9/18） — <a href="https://www.gaitame.com/media/entry/2026/09/18/193200" target="_blank" rel="noopener">gaitame.com/media/entry/2026/09/18/193200</a></li>
+      <li><span class="st p2">報道</span>日本国債10年（新発10年物国債利回り） — <a href="https://www.nikkei.com/marketdata/quote/JP10YT/" target="_blank" rel="noopener">nikkei.com/marketdata/quote/JP10YT/</a></li>
+    </ul>
+  </div>
   <div class="next">
-    <b>前回（第7回・9/15）</b>　<a href="lecture_20260915.html">米国債・金利・ドル円・株の連関と、信用買いの仕組み</a>。この15問の着地点は、すべてこの資料の中にある。<br>
+    <b>前回（第7回・9/15）</b>　<a href="lecture_20260915.html">米国債・金利・ドル円・株の連関と、信用買いの仕組み</a>。Q1〜Q15の着地点は、すべてこの資料の中にある。<br>
     <b>関連</b>　<a href="lecture_20260908.html">米中間選挙の現在地／信用取引</a>（第6回。空売りと優待クロス。Q13の裏返し）／<a href="lecture_20260904.html">日銀が国債を買うと、世の中のお金は増えるのか</a>（自習・9/4。Q10・Q12の輪）
   </div>
 </footer>
