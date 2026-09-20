@@ -67,8 +67,9 @@
 
 | 講義日 | テーマ | ファイル |
 |---|---|---|
-| 2026-09-11 | 「お金を刷ってもインフレにはならない」と彼は言った ― その理屈は、1本の割り算でできている（エコノミスト誌のマスク・インタビュー抜粋を英語のまま読む。節ごとに英語の確認。答えなし） | [HTML](lectures/lecture_toyonaga_20260911.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260911.html) |
-| 2026-09-04 の復習 | 国債は誰と誰の間を動き、お金はどちらに動くか（9/4 の30分で聞かれた問いだけの11問。答えなし。9/11 の冒頭で使う） | [HTML](lectures/lecture_toyonaga_20260904_review.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260904_review.html) |
+| 2026-09-18 の復習 | マスク×エコノミスト誌インタビューの語彙と読解（9/18 の30分で聞かれた問いだけの23問。Q1〜Q6 は自力で答えたもの、Q7〜Q23 は答えが出なかったもの。英単語12問・英文3問・締めの判断とPL・BSの持ち越し2問。答えなし。9/25 の冒頭で使う） | [HTML](lectures/lecture_toyonaga_20260918_review.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260918_review.html) |
+| 2026-09-11 配布／**2026-09-18 実施** | 「お金を刷ってもインフレにはならない」と彼は言った ― その理屈は、1本の割り算でできている（エコノミスト誌のマスク・インタビュー抜粋を英語のまま読む。節ごとに英語の確認。答えなし。**実施は1週ずれたが、配布済みURLなのでファイル名の日付は 9/11 のまま**） | [HTML](lectures/lecture_toyonaga_20260911.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260911.html) |
+| 2026-09-04 の復習 | 国債は誰と誰の間を動き、お金はどちらに動くか（9/4 の30分で聞かれた問いだけの11問。答えなし。9/18 の回の冒頭用） | [HTML](lectures/lecture_toyonaga_20260904_review.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260904_review.html) |
 | 2026-09-04 | 日銀が国債を買うと、世の中のお金は増えるのか ― 買いオペ・売りオペと信用創造（橘玲『プアジャパン』。問い1つを30分議論） | [HTML](lectures/lecture_toyonaga_20260904.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260904.html) |
 | 2026-08-28 | 「儲かっている」は、4回に分けて言われる ― ところが、メルカリのPLには、そのうち1つが無い（PL・段階損益・会計基準） | [HTML](lectures/lecture_toyonaga_20260828.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260828.html) |
 | 2026-08-21 | 在庫を持たない会社が、世界でいちばん重い買い物を始めた（為替・金利・BS・固定資産・減価償却） | [HTML](lectures/lecture_toyonaga_20260821.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260821.html) |
