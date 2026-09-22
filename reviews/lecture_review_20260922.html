@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>復習 第8回｜2026年9月22日 答えが出なかった問い（全18問）</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+/* ---------- 問い（教室で出た答え／着地点） ---------- */
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+
+.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
+.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
+.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
+  width:6px; height:6px; border-radius:50%; background:var(--macro);}
+.lede ul.three strong{border-bottom:none; padding-bottom:0;}
+
+.tag.m{background:var(--macro-bg); color:var(--macro);}
+.tag.c{background:var(--corp-bg); color:var(--corp);}
+.tag.w{background:var(--word-bg); color:var(--word);}
+.qtags{display:inline;}
+
+.qa .q .said, .qa .q .hint{
+  display:block; margin-top:7px; padding-left:11px;
+  font-size:13.5px; line-height:1.7; color:var(--ink2);
+}
+.qa .q .said{border-left:3px solid var(--q-line);}
+.qa .q .hint{border-left:3px solid var(--bridge);}
+.qa .q .lb{font-weight:800; letter-spacing:.04em; margin-right:5px;}
+.qa .q .said .lb{color:var(--ink3);}
+.qa .q .hint .lb{color:var(--bridge);}
+.qa .q a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+/* Q番号を6つのまとまりをまたいで通す */
+.qa{counter-reset:qq;}
+.qa .q{counter-reset:none;}
+.qa h3{font-size:18px; margin:26px 0 8px; letter-spacing:.01em;}
+.qa h3:first-of-type{margin-top:18px;}
+.qa code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px; font-weight:700; background:var(--word-bg); color:var(--word);
+  padding:1px 5px; border-radius:4px; word-break:break-word;}
+.meta a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="backlink" href="../seminar.html">&larr; 夏期集中講座の資料一覧</a>
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="../lectures/lecture_20260908.html">第6回 9/8 講義資料</a>
+  <a href="../lectures/lecture_20260915.html">第7回 9/15 講義資料</a>
+  <a href="../lectures/lecture_20260922.html">第8回 9/22 講義資料</a>
+  <span class="cur">第8回 9/22 答えが出なかった問い</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE REVIEW ／ 復習ページ　夏期集中講座 第8回</div>
+  <h1 class="title">第8回（9月22日）で答えが出なかった問い（全18問）</h1>
+  <div class="meta">
+    <span><b>講義</b>　2026年9月22日（火）16:20–18:20</span>
+    <span><b>作成</b>　2026年9月22日（火）</span>
+    <span><b>出題元</b>　当日の教室のやり取り</span>
+    <span><b>配布資料</b>　<a href="../lectures/lecture_20260922.html">第8回 講義資料</a></span>
+  </div>
+  <div class="lede">
+    <ul class="three">
+      <li><strong>その場で答えが出なかった問い、向きが逆になった問い、調べてから答えた問いだけを拾った</strong></li>
+      <li><strong>答えは書いていない。教室で出た答えと着地点だけを置いた</strong></li>
+      <li><strong>次回の冒頭はここから出す</strong></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>このページの構成</h2>
+  <ol>
+    <li><a href="#g1">政策金利と長期金利</a> <span class="s">― Q1〜Q3。誰が、どこで決めるか</span></li>
+    <li><a href="#g2">利上げの日に、市場で何が起きたか</a> <span class="s">― Q4〜Q6。業種と通貨の向き</span></li>
+    <li><a href="#g3">債券は、何が固定で何が動くか</a> <span class="s">― Q7〜Q9。第7回 Q1・Q2 の再出題</span></li>
+    <li><a href="#g4">空売りと信用買い</a> <span class="s">― Q10〜Q12。現金はいつ、どちらに動くか</span></li>
+    <li><a href="#g5">マスク × エコノミスト誌の英文</a> <span class="s">― Q13〜Q15。語ではなく、指している先</span></li>
+    <li><a href="#g6">オプションと、ポートフォリオ</a> <span class="s">― Q16〜Q18</span></li>
+  </ol>
+</nav>
+
+<section class="topic qa" id="qa">
+  <span class="badge bridge">第8回の記録 ／ 2026年9月22日</span>
+  <h2 class="thead">答えが出なかった問い ── 18問</h2>
+  <p class="sub">9/22の教室で問われ、その場で答えが出なかった問い、向きが逆になった問い、調べてから答えた問いだけを拾った。答えられた問いは載せていない。<b>答えは書いていない。</b>教室で出た答えと着地点だけを置いた。</p>
+
+  <h3 id="g1">政策金利と長期金利 ── 誰が、どこで決めるか</h3>
+  <ol class="q">
+    <li><b>政策金利と、市場で決まる長期金利は、どこが違うか。</b><span class="qtags"><span class="tag m">金利</span><span class="tag w">用語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「市場のものはコントロールできない、世の中の動向で決まる。政策のほうは特定の人が決める」。<b>直前に講師が言ったことの言い直しで、そこから先は出なかった。</b></span>
+      <span class="hint"><span class="lb">着地点</span>決まる場所（会合か市場か）と、値段がつく対象（1日で返す資金か、残存年数のある国債か）を、別の欄に書き分ける。<a href="../lectures/lecture_20260922.html#s-rate">第8回 §1</a>。</span></li>
+
+    <li><b>政策金利は、何に、どういう順序で影響するのか。</b><span class="qtags"><span class="tag m">金利</span><span class="tag m">日銀</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「国債の金利にヒットしてくる」「政策金利を上げると、国債も上げざるを得なくなる」。<b>国債は市場で決まると差し戻され、順序はその場では出なかった。</b></span>
+      <span class="hint"><span class="lb">着地点</span>日銀が自分で動かせるのは1本だけ。そこから民間銀行の調達、企業への貸出、住宅ローンの順に伝わる。国債の利回りは、この順序の外で決まる。</span></li>
+
+    <li><b>無担保コールレート（翌日物）は、誰と誰が、何を、何日間やり取りする取引か。</b><span class="qtags"><span class="tag m">日銀</span><span class="tag w">用語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>出なかった。日本の政策金利の名前として資料に書いてあるが、中身は問われた時点で空いていた。</span>
+      <span class="hint"><span class="lb">着地点</span>名前の4語（無担保・コール・翌日・物）が、それぞれ取引の条件を1つずつ表している。1語ずつ日本語に直す。</span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">この3問は、先週の問いと矛盾して見えるところから始まった</span>
+    第7回は「国債の値段が下がると金利が上がる＝市場で決まる」、第8回は「日銀とFRBが金利を上げ下げする＝会合で決まる」。<b>同じ「金利」という1語で、決まり方の違う2つを指している。</b>先に2つを分けないと、Q2の順序が引けない。
+  </div>
+
+  <h3 id="g2">利上げの日に、市場で何が起きたか</h3>
+  <ol class="q">
+    <li><b>9/16・9/18 の利上げのあと、株式市場はどう動いたか。</b><span class="qtags"><span class="tag c">株式</span><span class="tag m">金利</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>その場では出ず、「確認します」。<b>調べたうえで「上がっている」、続いて「銀行と金融が上がっている」まで出た。</b></span>
+      <span class="hint"><span class="lb">着地点</span>指数の符号と、業種別の符号は別のもの。<a href="../lectures/lecture_20260922.html#s-fomc">第8回 §2</a>・<a href="../lectures/lecture_20260922.html#s-boj">§3</a>の日次騰落率を、自分で開く。</span></li>
+
+    <li><b>利上げで下がると言われる業種はどこか。その理由は何か。</b><span class="qtags"><span class="tag c">株式</span><span class="tag m">金利</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「海外がメインの企業」。理由を問われて円高を挙げたが、<b>9/18 は円安に動いている。</b>調べ直して「借り入れが多い業種（デベロッパー、電力・インフラ）」に届いた。<b>個人の借金の側（住宅ローンとハウスメーカー）は出なかった。</b></span>
+      <span class="hint"><span class="lb">着地点</span>金利が上がると、誰の支払う額が増えるのか。企業の借入と、個人の住宅ローンの2つを並べる。</span></li>
+
+    <li><b>金利が高いほうの通貨は、高くなるか、安くなるか。金融機関はどちらで借り、どちらで運用するか。</b><span class="qtags"><span class="tag m">為替</span><span class="tag m">金利差</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「円で借りて、ドルを買ってドルで運用する」までは出た。通貨の向きは言い直しのすえ「高くなる」。<b>その向きと、9/18 に起きたこと（円安）が合わない理由は出ていない。</b></span>
+      <span class="hint"><span class="lb">着地点</span>比べているのは水準か、差か。<a href="../lectures/lecture_20260922.html#s-move">第8回 §4</a>の問1〜問5。<b>日米が同じ幅で上げたので、差は2.75ポイントのまま動いていない。</b></span></li>
+  </ol>
+
+  <h3 id="g3">債券は、何が固定で何が動くか</h3>
+  <ol class="q">
+    <li><b>国債の市場価格が下がると金利が上がる。そのメカニズムを説明できるか。</b><span class="qtags"><span class="tag m">国債</span><span class="tag m">利回り</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>調べてきたうえで答えた。長期保有への懸念、買うメリットの低下、将来の通貨価値まで入れて組み立てたが、<b>「複雑にしすぎ」と返された。</b>前回 Q1 の再出題で、向きは今回も合っている。</span>
+      <span class="hint"><span class="lb">着地点</span>満期に受け取る額は契約で固定。動くのは買値だけ。<a href="../lectures/lecture_20260915.html#s0">第7回 §0</a>の図1。<b>為替も信認も経由しないで、1本で言い切る。</b></span></li>
+
+    <li><b>国債を持っている間、毎年お金は入るのか。満期に戻ってくるのはいくらか。</b><span class="qtags"><span class="tag m">債券</span><span class="tag m">利回り</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「5万円で買って、毎年7%の利息が入り、30年後にその5万円が戻ってくる」。<b>戻る額を買値と同じだと置いていた。</b></span>
+      <span class="hint"><span class="lb">着地点</span>満期に受け取るのは額面であって、買値ではない。買値と額面の差と、途中で受け取る利息を、別々に数える。<a href="../lectures/lecture_20260915.html#s0">第7回 §0</a>の図3。</span></li>
+
+    <li><b>満期も額面も同じ債券なのに、発行した相手によって値段が違うのはなぜか。</b><span class="qtags"><span class="tag m">債券</span><span class="tag c">社債</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「払えなくなるリスクが値段に反映される」まで出た。<b>値段と利回りのどちらが先に決まるかは、今回も出ていない。</b></span>
+      <span class="hint"><span class="lb">着地点</span>買い手のつく値段が先に決まり、利回りはそこから計算で出てくる。<b>前回 Q2 と同じ場所。</b>国と会社（国債と社債）で、確かめる先が変わるだけ。</span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">Q7は調べてきた。Q8で、同じ人の手元の絵が違っていた</span>
+    メカニズムを準備してきた回答と、「買った額がそのまま戻る」という絵が、同じ教室で並んでいる。<b>説明できることと、キャッシュの出入りを絵にできることは別である。</b>次は、いつ・いくら入るかを3本（買値・毎年の利息・満期の額面）に分けて書くところから始める。
+  </div>
+  <h3 id="g4">空売りと信用買い ── 現金はいつ、どちらに動くか</h3>
+  <ol class="q">
+    <li><b>空売りで、最初に手に入るのは株か、現金か。</b><span class="qtags"><span class="tag c">空売り</span><span class="tag c">信用取引</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「証券会社から株を借りて、それを後々現金化する」。<b>借りた株を手元に持ったままにする形で置かれていた。</b></span>
+      <span class="hint"><span class="lb">着地点</span>借りたものは手元に置かない。借りてすぐ売り、現金にする。<a href="../lectures/lecture_20260908.html">第6回</a>の優待クロスは、この順序の上に立っている。</span></li>
+
+    <li><b>空売りは、どうなると儲かるのか。</b><span class="qtags"><span class="tag c">空売り</span><span class="tag c">損益</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>最初は「株が上がったら」で<b>向きが逆</b>。言い直しのすえ、「1,000円で売って、700円で買い戻して返す。差の300円が利益」まで自力で到達した。<b>3往復かかっている。</b></span>
+      <span class="hint"><span class="lb">着地点</span>先に売った値段と、あとで買い戻す値段の差。<b>返すのは株であって、現金ではない。</b></span></li>
+
+    <li><b>信用買いでは、現金はいつ、どちらに動くのか。</b><span class="qtags"><span class="tag c">信用買い</span><span class="tag c">レバレッジ</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「先に証券会社に現金を払って、株を買ってもらう」。<b>借りるのは株ではなく金である、という点は今回も出なかった。</b></span>
+      <span class="hint"><span class="lb">着地点</span><a href="../lectures/lecture_20260915.html#s11">第7回 §11</a>の図10・図11。手元30万円で、現物なら何株、信用なら何株か。<b>前回 Q13・Q14 と同じ問いが、2回続けて開いたままである。</b></span></li>
+  </ol>
+
+  <h3 id="g5">マスク × エコノミスト誌の英文</h3>
+  <ol class="q">
+    <li><b><code>what do you need money for in that case?</code> ── <code>in that case</code> は、どの場合を指しているか。</b><span class="qtags"><span class="tag w">英語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>出なかった。<b>語の意味（<code>abundant</code>＝豊富な、<code>consume</code>＝消費する）は出たが、文がどこを指しているかは出なかった。</b></span>
+      <span class="hint"><span class="lb">着地点</span>直前の2行のうち、条件を述べている側はどれか。<a href="../lectures/lecture_20260922.html#m1">第8回 教材 §1</a>の英文を、条件と結論の2つに割る。</span></li>
+
+    <li><b><code>more goods and services than any human could possibly consume</code> ── この <code>more</code> は、何より多いのか。</b><span class="qtags"><span class="tag w">英語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「モアは何よりモアか」と問われて、出なかった。</span>
+      <span class="hint"><span class="lb">着地点</span><code>than</code> の後ろが比較の相手である。<b>比べているのは、作られる量と、使いきれる量。</b></span></li>
+
+    <li><b>労働の価値がなくなると、経済的には何がなくなるのか。</b><span class="qtags"><span class="tag m">需給</span><span class="tag w">用語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>出なかった。<b>「ロボットとAIが作る量が増えると、その価値は落ちる」は、講師の誘導のあとで出ている。</b></span>
+      <span class="hint"><span class="lb">着地点</span>供給が増えると、値段はどちらへ動くか。<a href="../lectures/lecture_20260922.html#m3">第8回 教材 §3</a>の割り算で、分子と分母のどちらの話かをはっきりさせる。</span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">出なかったのは単語ではなく、文が何を指しているか</span>
+    <code>abundant</code> も <code>consume</code> も出た。出なかったのは <code>in that case</code> の中身と、<code>more</code> の相手である。<b>語の意味を1つずつ当てても、文の指し先が空いていると、主張は取れない。</b>英文は、条件・比較・結論の3つに割ってから読む。
+  </div>
+
+  <h3 id="g6">オプションと、ポートフォリオ</h3>
+  <ol class="q">
+    <li><b>オプションとはどういう取引か。株そのものは、やり取りするのか。</b><span class="qtags"><span class="tag c">オプション</span><span class="tag w">用語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「聞いたことがない」。<b>「新しく株を発行するときの予約のようなものか」まで出たが、そこで止まった。</b></span>
+      <span class="hint"><span class="lb">着地点</span>売買するのは権利であって、株ではない。<a href="../lectures/lecture_20260922.html#s-opt">第8回 §5</a>。権利行使価格・期日・プレミアムの3つを、それぞれ何を指す語か言う。</span></li>
+
+    <li><b>コール（値上がりの権利）を売った側は、どうなると損をするのか。そのとき、いくら払うのか。</b><span class="qtags"><span class="tag c">オプション</span><span class="tag c">損益</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「超えられると負ける」まで。<b>いくら払うのかは出ていない。</b>プレミアムが受け取り側に先に入ることは、講師の説明のあとで確認された。</span>
+      <span class="hint"><span class="lb">着地点</span><a href="../lectures/lecture_20260922.html#s-opt">第8回 §5</a>の図4。買い手は権利、売り手は義務。<b>Q11の空売りと同じで、先に現金が入るほうが、あとで差額を払う側になる。</b></span></li>
+
+    <li><b>保有している銘柄を、どういう条件で組み替えるのか。</b><span class="qtags"><span class="tag c">ポートフォリオ</span><span class="tag c">出口戦略</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>報告は値動きと売買の結果だけで、条件は今回も出ていない。<b>第8回のチーム課題（保有銘柄1つの組み替え条件を1行）は、2回続けて提出されていない。</b></span>
+      <span class="hint"><span class="lb">着地点</span>下げ幅か、保有期間か、買った理由が消えたときか。<b>1行。数値を入れる。</b></span></li>
+  </ol>
+
+  <div class="rel">
+    <b>この18問の読み方</b>　発言は要約であり、逐語ではない。誰の発言かは書いていない。教室で口頭に作った設例の数字（5万円・1,000円・700円など）は、実在の銘柄ではない。<b>配布資料に載せた一次情報・報道ベースの数字は、9/22の教室ではほとんど読み上げられていない。</b>数字を確かめるときは<a href="../lectures/lecture_20260922.html">第8回の資料</a>の本文と出典にあたること。<b>口頭の概算と一次情報は別物として扱う。</b>
+  </div>
+</section>
+
+<footer>
+  <h2>このページの扱いについて</h2>
+  <ul>
+    <li><b>出題元は9/22の教室のやり取りだけである。</b>配布資料に載っていて教室で触れなかった論点は、ここには入れていない。</li>
+    <li><b>答えが出た問いは載せていない。</b>載せたのは、その場で出なかった問い・向きが逆になった問い・調べてから答えた問いの3種類。</li>
+    <li><b>教室で出た数字（5万円・30万円・1,000円・700円・300円など）は、すべて口頭の設例。</b>実在の銘柄でも、実際の取引でもない。</li>
+    <li><b>2.75ポイントは、第8回の資料に載せた9/18時点の値。</b>報道ベースの数字であり、一次情報は<a href="../lectures/lecture_20260922.html">第8回の資料</a>の出典から辿ること。</li>
+    <li><b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b>チームの騰落率も、基準日と評価通貨が残っていないため載せていない。</li>
+  </ul>
+  <div class="next">
+    <b>この回の配布資料</b>　<a href="../lectures/lecture_20260922.html">第8回（9/22）日米政策金利上げ、オプション取引</a>。Q1〜Q6・Q13〜Q17の着地点は、この資料の中にある。<br>
+    <b>前回</b>　<a href="../lectures/lecture_20260915.html">第7回（9/15）米国債・金利・ドル円・株の連関と、信用買いの仕組み</a>（Q7〜Q9・Q12の着地点）／<a href="../lectures/lecture_20260908.html">第6回（9/8）米中間選挙の現在地／信用取引</a>（Q10・Q11の裏返し）
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
