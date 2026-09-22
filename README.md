@@ -34,6 +34,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
+| 夏期 第8回 | 2026-09-22 | 第8回（9月22日）で答えが出なかった問い（全18問。政策金利と長期金利の違い／利上げの日の業種と通貨の向き／国債の値段・満期に戻る額・同じ満期で値段が違う理由／空売りと信用買いの現金の向き／マスク×エコノミスト誌の英文で `in that case` と `more` が指すもの／オプションの売り手の損と、保有銘柄の組み替え条件。**答えなし。**教室で出た答えと着地点の2行だけ） | [HTML](reviews/lecture_review_20260922.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20260922.html) |
 | 夏期 第5回 | 2026-09-01 | 時価総額の中身を数える ― ネットキャッシュ比率、AIサプライチェーン、買収の実務（要点まとめ＋10問4択） | [HTML](reviews/lecture_review_20260901.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20260901.html) |
 | 夏期 第3回 | 2026-08-18 | 復習クイズ（5問4択）― Anthropic・為替・金利 | [HTML](reviews/lecture_quiz_20260818.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_quiz_20260818.html) |
 | 夏期 第2回 | 2026-08-11 | 介入は「流れ」を変えられるか ― 為替・金利・減価償却・原価率 | [HTML](reviews/lecture_review_20260811.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20260811.html) |
