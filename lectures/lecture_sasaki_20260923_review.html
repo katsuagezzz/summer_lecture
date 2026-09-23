@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>債券価格・銀行の原資・オプションの売り手で答えに詰まった7問（2026年9月23日実施分）</title>
+<meta name="description" content="2026年9月23日の個別指導の復習。日米の利上げ、債券価格と利回り、政策金利と無担保コール翌日物、イーロン・マスクのインタビューの英語、オプション取引を扱った約50分の文字起こしから、佐々木くんが答えられなかった箇所・誤って答えた箇所だけを抜いて7問にした。債券価格と利回りの向き、価格差が示す信用力、銀行が貸すお金の原資、1兆円の1%、abundant と consume、コールの売り手の損の上限（ケーススタディ 第8回・復習編）">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #f9f9f7;
+    --surface: #fcfcfb;
+    --surface-raised: #ffffff;
+    --ink: #141413;
+    --ink-2: #52514e;
+    --ink-muted: #898781;
+    --hairline: #e1e0d9;
+    --border: rgba(11, 11, 11, 0.10);
+    --accent: #2a78d6;
+    --accent-ink: #1c5cab;
+    --accent-wash: rgba(42, 120, 214, 0.08);
+    --good: #006300;
+    --fx: #2a78d6;
+    --price: #eb6834;
+    --rate: #1baf7a;
+    --fx-wash: rgba(42, 120, 214, 0.10);
+    --price-wash: rgba(235, 104, 52, 0.10);
+    --rate-wash: rgba(27, 175, 122, 0.10);
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --s4: #eda100;
+    --s-other: #898781;
+    --f1: #86b6ef;
+    --f2: #2a78d6;
+    --f3: #104281;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-raised: #222220;
+      --ink: #f4f3ef;
+      --ink-2: #c3c2b7;
+      --ink-muted: #898781;
+      --hairline: #2c2c2a;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #3987e5;
+      --accent-ink: #86b6ef;
+      --accent-wash: rgba(57, 135, 229, 0.14);
+      --good: #0ca30c;
+      --fx: #3987e5;
+      --price: #f07a44;
+      --rate: #199e70;
+      --fx-wash: rgba(57, 135, 229, 0.16);
+      --price-wash: rgba(240, 122, 68, 0.16);
+      --rate-wash: rgba(25, 158, 112, 0.16);
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --s4: #c98500;
+      --s-other: #898781;
+      --f1: #6da7ec;
+      --f2: #3987e5;
+      --f3: #184f95;
+      --grid: #2c2c2a;
+      --axis: #383835;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-raised: #222220;
+    --ink: #f4f3ef;
+    --ink-2: #c3c2b7;
+    --ink-muted: #898781;
+    --hairline: #2c2c2a;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #3987e5;
+    --accent-ink: #86b6ef;
+    --accent-wash: rgba(57, 135, 229, 0.14);
+    --good: #0ca30c;
+    --fx: #3987e5;
+    --price: #f07a44;
+    --rate: #199e70;
+    --fx-wash: rgba(57, 135, 229, 0.16);
+    --price-wash: rgba(240, 122, 68, 0.16);
+    --rate-wash: rgba(25, 158, 112, 0.16);
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s-other: #898781;
+    --f1: #6da7ec;
+    --f2: #3987e5;
+    --f3: #184f95;
+    --grid: #2c2c2a;
+    --axis: #383835;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.75;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; }
+
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.14em; color: var(--accent-ink);
+    font-weight: 700; text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(30px, 5.4vw, 44px); font-weight: 800; line-height: 1.25;
+    letter-spacing: 0.01em; margin: 10px 0 14px; text-wrap: balance;
+  }
+  .lede { color: var(--ink-2); max-width: 40em; }
+  .lede strong { color: var(--ink); }
+  .meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+    border: 1px solid var(--hairline); background: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .chip em { font-style: normal; color: var(--accent-ink); }
+
+  .backlink { display: inline-block; font-size: 13px; font-weight: 700; color: var(--ink-muted);
+    text-decoration: none; margin-bottom: 16px; }
+  .backlink:hover { color: var(--accent-ink); }
+  @media print { .backlink { display: none; } }
+
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-top: 28px;
+    border-bottom: 1px solid var(--hairline);
+    overflow-x: auto; scrollbar-width: thin;
+  }
+  .tab {
+    flex: 0 0 auto; display: block; text-decoration: none;
+    padding: 10px 16px 9px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 8px 8px 0 0; margin-bottom: -1px;
+    font-size: 13.5px; font-weight: 700; color: var(--ink-muted);
+    white-space: nowrap; transition: color .12s ease, background .12s ease;
+  }
+  .tab small { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-muted); }
+  a.tab { color: var(--accent-ink); }
+  a.tab small { color: var(--ink-2); }
+  a.tab:hover { background: var(--accent-wash); }
+  a.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  a.tab .ext { font-weight: 500; font-size: 11px; }
+  .tab.is-current {
+    color: var(--ink); background: var(--surface);
+    border-color: var(--hairline); border-bottom: 1px solid var(--surface);
+  }
+  .tab.is-past { cursor: default; opacity: .55; }
+
+  section { margin-top: 56px; }
+  .step-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .step-time {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  h2 { font-size: 23px; font-weight: 800; line-height: 1.35; text-wrap: balance; }
+  h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  section > p, .card > p { color: var(--ink-2); max-width: 44em; }
+  section > p strong, .card p strong, li strong { color: var(--ink); }
+  .sec-note { font-size: 13px; color: var(--ink-muted); margin-top: 10px; }
+
+  .agenda { list-style: none; margin-top: 18px; border-top: 1px solid var(--hairline); }
+  .agenda li {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 14px;
+    align-items: baseline; padding: 11px 4px; border-bottom: 1px solid var(--hairline);
+  }
+  .agenda .t { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13.5px; color: var(--accent-ink); }
+  .agenda .what { font-weight: 600; }
+  .agenda .what small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-muted); }
+  .agenda .min { font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px; margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-wash);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 18px;
+    max-width: 46em;
+  }
+  .callout p { color: var(--ink-2); }
+  .callout .q { font-weight: 700; color: var(--ink); }
+  .recalls { display: grid; gap: 10px; margin-top: 18px; }
+  .recall {
+    border: 1px dashed var(--axis); background: var(--surface);
+    border-radius: 10px; padding: 14px 18px; max-width: 46em;
+  }
+  .recall .who { font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; color: var(--ink-muted); }
+  .recall .said { font-weight: 700; color: var(--ink); margin-top: 2px; }
+  .recall .note { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; border-top: 3px solid var(--border);
+  }
+  .tile.fx { border-top-color: var(--fx); }
+  .tile.rate { border-top-color: var(--rate); }
+  .tile.price { border-top-color: var(--price); }
+  .tile .k { font-size: 12px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .tile .v { font-size: 25px; font-weight: 800; line-height: 1.3; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .tile .v small { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .tile .d { font-size: 12.5px; font-weight: 600; margin-top: 1px; color: var(--ink-2); }
+  .tile .d.up { color: var(--good); }
+  .unsure { color: var(--s2); font-weight: 700; }
+
+  .formula {
+    margin-top: 18px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; font-weight: 700; font-size: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  }
+  .formula .num { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .formula small { font-weight: 500; color: var(--ink-muted); flex-basis: 100%; font-size: 12.5px; }
+
+  figure { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 14px; }
+  figcaption { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .figsub { font-size: 12.5px; color: var(--ink-muted); margin-bottom: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .chart-scroll { overflow-x: auto; }
+  .chart-scroll svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  svg text { font-family: inherit; }
+  .diagram { color: var(--ink-muted); }
+  .src { font-size: 11.5px; color: var(--ink-muted); margin-top: 8px; }
+
+  .ex { margin-top: 18px; }
+  .ex .card { padding: 0; overflow: hidden; }
+  .ex-q { padding: 18px 22px 6px; }
+  .ex-q .no {
+    display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    border-radius: 4px; padding: 2px 8px; margin-bottom: 8px;
+  }
+  .ex-q p { color: var(--ink); font-weight: 600; max-width: 44em; }
+  .ex-q .hint { font-weight: 400; font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+  .qz-choices { list-style: none; counter-reset: qc; margin: 12px 22px 4px; padding: 0; display: grid; gap: 6px; max-width: 46em; }
+  .qz-choices li {
+    counter-increment: qc; position: relative; border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 8px 14px 8px 40px; font-size: 14px; color: var(--ink-2);
+  }
+  .qz-choices li::before {
+    content: counter(qc, upper-alpha); position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    font-weight: 800; font-size: 12.5px; color: var(--accent-ink);
+  }
+  details { border-top: 1px solid var(--hairline); margin-top: 14px; }
+  summary {
+    cursor: pointer; padding: 12px 22px; font-weight: 700; font-size: 13.5px;
+    color: var(--accent-ink); list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "\25B8  "; }
+  details[open] summary::before { content: "\25BE  "; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 6px; }
+  .ans { padding: 0 22px 18px; color: var(--ink-2); max-width: 46em; }
+  .ans .calc {
+    font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink);
+    background: var(--accent-wash); border-radius: 8px; padding: 10px 14px; margin: 8px 0 10px;
+    display: inline-block;
+  }
+  .recall-inline { margin: 0 22px 14px; }
+
+  .tbl-scroll { overflow-x: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; background: var(--surface); font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td:first-child { font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td small { display: block; color: var(--ink-muted); font-size: 12px; }
+  .tbl-note { font-size: 12px; color: var(--ink-muted); margin-top: 8px; }
+
+  .qlist { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+  .qlist li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .qlist .q { font-weight: 700; }
+  .qlist .why { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  dl.gloss { margin-top: 16px; border-top: 1px solid var(--hairline); }
+  dl.gloss > div { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 12px 4px; border-bottom: 1px solid var(--hairline); }
+  @media (max-width: 560px) { dl.gloss > div { grid-template-columns: 1fr; gap: 2px; } }
+  dt { font-weight: 700; font-size: 14px; }
+  dt small { display: block; font-weight: 400; font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  dd { color: var(--ink-2); font-size: 14px; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 18px; font-size: 12.5px; color: var(--ink-muted); }
+  footer p { max-width: none; }
+  footer p + p { margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print {
+    body { background: #fff; }
+    .tabs { display: none; }
+    details { border-top: none; }
+    summary { display: none; }
+    .ans { padding-top: 0; }
+  }
+
+  ul.lede-pts { list-style: none; margin-top: 14px; max-width: 42em; display: grid; gap: 8px; }
+  ul.lede-pts li {
+    position: relative; padding-left: 18px; color: var(--ink-2); font-size: 15.5px;
+  }
+  ul.lede-pts li::before {
+    content: ""; position: absolute; left: 0; top: 11px;
+    width: 7px; height: 7px; border-radius: 2px; background: var(--accent);
+  }
+  ul.lede-pts strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="backlink" href="../sasaki.html">&larr; 講義資料の一覧へ</a>
+
+  <header>
+    <p class="eyebrow">ケーススタディ 第8回・復習編 ／ 2026年9月23日実施分</p>
+    <h1>債券価格・銀行の原資・オプションの売り手で答えに詰まった7問（2026年9月23日実施分）</h1>
+    <ul class="lede-pts">
+      <li>9月23日の約50分は、志村先生の問いに佐々木くんが答える形で進んだ。下の7問は、<strong>答えが出なかった、または誤って答えた箇所だけ</strong>を文字起こしから抜いてある。</li>
+      <li>答えを開く前に、<strong>理由を先に自分の言葉で言う</strong>。</li>
+      <li>合格ラインは「言えた」ではなく<strong>「調べずに動かせた」</strong>。Q5は電卓を使わずに桁を出す。</li>
+    </ul>
+    <div class="meta-chips">
+      <span class="chip">元になった回: <em>2026年9月23日</em></span>
+      <span class="chip">題材: <em>債券価格と利回り・政策金利・英語・オプション取引</em></span>
+      <span class="chip">全7問</span>
+    </div>
+
+    <nav class="tabs" aria-label="ケーススタディ シリーズ">
+      <span class="tab is-past" title="配布資料リンクなし（講義のみ）">第1回　メルカリ<small>GMVと営業損失</small></span>
+      <a class="tab" href="lecture_sasaki_20260817.html">第2回　ZOZOの決算を読む<small>受託販売とテイクレート <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260820.html">第3回　金利・為替・インフレ<small>三角形の一周 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260824.html">第4回　利払いが国防費を超えた国<small>国のPL <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260903.html">第5回　予想との差と1.1倍<small>9/3の復習クイズ <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260907.html">第6回　The capital will find you<small>英語とビジネスモデル <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260907_review.html">9/7 復習　英語で出た向き<small>5問 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260910.html">第7回　先に売って、あとで買い戻す<small>空売りとクロス取引 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260910_review.html">9/10 復習　答えに詰まった4問<small>4問 <span class="ext">&#8594;</span></small></a>
+      <span class="tab is-current" aria-current="page">9/23 復習　答えに詰まった7問<small>この7問（今回）</small></span>
+    </nav>
+  </header>
+
+  <section>
+    <h2>このページの使い方</h2>
+    <ol class="agenda">
+      <li><span class="t">まず</span><span class="what">§1の7問を解く<small>答えを開く前に、理由を声に出す</small></span><span class="min">15分</span></li>
+      <li><span class="t">つぎに</span><span class="what">答えを開いて照合する<small>合格ラインは「調べずに動かせた」</small></span><span class="min">7分</span></li>
+      <li><span class="t">次回冒頭</span><span class="what">先生が口頭で同じ7問を出す<small>教材を見ずに説明できれば合格</small></span><span class="min">10分</span></li>
+    </ol>
+    <p class="sec-note">辞書もAIも使わずに1周する。Q1〜Q3は1本の設例でつながっているので、順番に解く。</p>
+  </section>
+
+  <section>
+    <div class="step-head"><span class="step-time">§1</span><h2>7問</h2></div>
+    <p>いずれも、9月23日にその場では答えが出なかった、または誤って答えた問いである。
+    引用は文字起こしからの発言そのもので、通し時間を付けてある。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q1</span>
+        <p>ある債券の市場価格が下がると、その債券の利回りは上がるか、下がるか。<strong>どちらかを選び、理由を自分の言葉で説明しなさい。</strong></p>
+        <p class="hint">満期に受け取る金額は変わらない、という条件で考える。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">佐々木くん · 00:01</p>
+            <p class="said">「いや、知らないです」</p>
+            <p class="note">「国債の値段が下がると金利が上がる、という話は知っているか」に対する答え。「何年ものでも」と条件を外して聞き直しても「存じてなかったですね」。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">価格が下がる → 利回りは上がる</p>
+        <p>満期に受け取る金額（額面と利息）は<strong>発行のときの契約で固定されている</strong>。動くのは、それを手に入れるために今払う値段のほうである。<strong>分子は固定、動くのは分母。</strong>同じ将来のお金を安く手に入れられれば、そのぶん利回りは高くなる。</p>
+        <p style="margin-top:10px">授業内の設例で確認する。8年後に110万円になる債券を、今100万円で買うか、90万円で買うか、80万円で買うか。<strong>80万円で買えたときがいちばん利回りが高い。</strong>この設例では本人が即答している（00:05「買った人は80万で買えた方がいい」）。<strong>同じことを、価格と利回りという言葉に置き換えたとたんに止まった。</strong></p>
+        <p style="margin-top:10px"><b>着地点</b>　「長期金利が上がった」という報道は、ほぼすべて「国債が売られて値段が下がった」と同じ事実を指している。<strong>金利の側から読むか、値段の側から読むかの違いしかない。</strong></p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q2</span>
+        <p>政策金利と長期金利は、それぞれ<strong>何が決めているか。</strong>2つの違いを、決め方と対象の両方で説明しなさい。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">佐々木くん · 00:03</p>
+            <p class="said">「政策金利と長期金利の違いは、その金利を中央銀行が決めるかどうかです」</p>
+            <p class="note">約20秒の沈黙のあとの答え。決め方の違いには届いたが、長期金利が「何の利回りか」は出てこなかった。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">政策金利 ＝ 日銀が決める／長期金利 ＝ 市場の売買が決める</p>
+        <p><strong>政策金利</strong>は、民間の銀行どうしが1日だけお金を貸し借りするときの金利（無担保コール翌日物）を、日銀が誘導する対象として決めている。</p>
+        <p style="margin-top:10px"><strong>長期金利</strong>は、誰かが決めた数字ではない。<strong>10年国債が市場でいくらで売り買いされたかから逆算された利回り</strong>である。だからQ1と同じ話になる ── 値段が動けば、利回りも動く。</p>
+        <p style="margin-top:10px"><b>着地点</b>　当日、本人は水準も答えている（長期金利 約3%、政策金利 1.25%）が、<strong>教室では一次情報にあたっていない。</strong>政策金利は日本銀行のサイト、10年国債の利回りは財務省の「国債金利情報」で、<strong>自分で当日の値を引くところまでやる。</strong></p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q3</span>
+        <p>満期も額面も同じ債券が、一方は90万円で取引され、もう一方は50万円でしか買い手がつかない。<strong>この2つは、何が違うのか。</strong></p>
+        <p class="hint">「受け取れる金額が違う」以外の答えを出す。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">佐々木くん · 00:09</p>
+            <p class="said">「需要がないっていうことは、売る価値がないってことですか」</p>
+            <p class="note">「需要があるか」までは自力で出したが、そこから先に進まず、先生が「信用がない」と与えている。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">値段の差 ＝ 発行体の信用力の差 ＝ 要求される利回りの差</p>
+        <p>買い手は、返ってこないかもしれないと思うぶんだけ<strong>安くしか買わない。</strong>安くしか買わないということは、Q1のとおり<strong>高い利回りを要求している</strong>ということである。50万円でしか買い手がつかない債券は、<strong>リスクが高いぶん利回りも高い。</strong></p>
+        <p style="margin-top:10px">「需要がない」で止まると、なぜ需要がないのかが説明できない。需要の有無を決めているのは、<strong>満期に約束どおり払われるかどうかの見込み</strong>である。</p>
+        <p style="margin-top:10px"><b>着地点</b>　日本の長期金利の上昇を「国の信用が下がった」と読むときの根拠がこれである。<strong>ただし金利は信用だけで動かない</strong> ── 政策金利の見通し、物価、需給も同時に効く。信用だけで説明しない。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q4</span>
+        <p>銀行が企業や個人に貸し出しているお金は、<strong>もともとどこから来たのか。</strong></p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">佐々木くん · 00:12</p>
+            <p class="said">「借りたい人たちから集めます」→「中央銀行ですか」</p>
+            <p class="note">2回とも外した。先生が「個人個人の預金」と与えている。</p>
+          </div>
+        </div>
+        <ol class="qz-choices">
+          <li>借りたい人から集めたお金</li>
+          <li>個人や企業の預金</li>
+          <li>全額が日銀からの借入</li>
+          <li>銀行の自己資本だけ</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
+        <p>貸し出しの原資の大半は<strong>預金</strong>である。給与の振込口座に置いたままの残高も含まれる。日銀から借りるのは<strong>足りないぶんだけ</strong>で、それも「明日返す」前提の1日の貸し借り（翌日物）が中心である。</p>
+        <p style="margin-top:10px">この順番がわかると、政策金利がどこに効くかが決まる。<strong>政策金利は、銀行が足りないぶんを埋めるときの値段。</strong>そこが上がると、銀行は借りたくなくなり、貸したくもなくなる。世の中に出回るお金の量が減る。</p>
+        <p style="margin-top:10px"><b>着地点</b>　この先は当日、本人が自力で通している ── お金の量が減る → お金の価値が上がる → <strong>デフレ</strong>（00:16、先生「正解」）。<strong>入口だけが抜けていた。</strong></p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q5</span>
+        <p>1兆円の1%はいくらか。<strong>電卓を使わずに答えなさい。</strong>あわせて、年1%で1兆円を<strong>1日だけ</strong>借りたときの利息も出しなさい。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">佐々木くん · 00:14</p>
+            <p class="said">「1000万円です」→「100万円です」→「1億円です」→「あ、1000万円です」→「いや、1億円です」</p>
+            <p class="note">5回言い直し、<strong>教室では正しい桁に到達しないまま次の話に進んだ。</strong>このページで確定させる。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">1兆円 × 1% = 100億円</p>
+        <p>1%は100分の1である。1兆円の100分の1は<strong>100億円</strong>。教室で出た1000万円は10万分の1、100万円は100万分の1、1億円は1万分の1で、<strong>いずれも桁が2つから4つ足りない。</strong></p>
+        <p style="margin-top:10px">桁を落とさない手順は1つだけ ── <strong>ゼロの数で数える。</strong>1兆＝ゼロ12個。1%を掛けるとはゼロを2つ減らすこと。残るのはゼロ10個＝100億。</p>
+        <p class="calc" style="margin-top:12px">1日ぶんの利息 ＝ 100億円 ÷ 365 ≒ 約2,700万円</p>
+        <p>当日の話題は「銀行が日銀から1兆円を<strong>1日だけ</strong>借りる」場面だった。金利は年率で表示されるので、<strong>1日ぶんは365で割る。</strong>年率のまま掛けた100億円は、この場面の利息ではない。</p>
+        <p style="margin-top:10px"><b>着地点</b>　率を出したら<strong>分母</strong>を書く。絶対額を出したら<strong>どの期間ぶんか</strong>を書く。この2つを付けずに数字だけを言うと、今回のように桁が合っているかどうかを自分で検算できない。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q6</span>
+        <p>イーロン・マスクの発言 ── <em>“If that is so abundant that there's more that the robots and AI are providing more goods and services than any human could possibly consume, what do you need money for in that case?”</em><br><strong>この文は、何と何を比べているか。</strong>abundant と consume の意味もあわせて答えなさい。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">佐々木くん · 00:26</p>
+            <p class="said">「コンシューマーはなんだっけ、えっと、調べます」</p>
+            <p class="note">consume が出ず、調べてから「消費する、何々する人・もの」。そのうえで比較の中身は「消費しきれないくらいのものやサービス」まで自力で到達している。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">比べているのは「ロボットとAIが供給する量」と「人間が消費しきれる量」</p>
+        <p>abundant ＝ 有り余るほどある。consume ＝ 消費する（名詞形 consumption ＝ 消費、consumer ＝ 消費者）。<strong>more … than の前後に何が入っているかを取るのが、この文のすべてである。</strong></p>
+        <p style="margin-top:10px">前が供給、後ろが消費。<strong>供給のほうが大きい</strong>と言っている。だからこの主張は、需要と供給の話に着地する ── 供給が需要を超えれば値段は下がる。マスクは「お金がいらなくなる」という結論を、<strong>この1本の比較から導いている。</strong></p>
+        <p style="margin-top:10px"><b>着地点</b>　比較の向きを取り違える型は、9/7の英語でも出ている（<a href="lecture_sasaki_20260907_review.html">9/7 復習・5問</a> のQ1、The ideas are more valuable than the relationships.）。<strong>2回とも、崩れたのは単語ではなく more … than の向きである。</strong></p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q7</span>
+        <p>「1か月後に1,000円で買える権利」を売った人は、1か月後に株価が2,000円、3,000円、4,000円と上がっていったとき、<strong>いくらまで損をするか。</strong>上限はあるか。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">佐々木くん · 00:35</p>
+            <p class="said">「ってことは損しないってことですか」</p>
+            <p class="note">権利を売る側は損をしない、と受け取った場面。問い返しのあと「売った額よりも株が伸びてしまったら」と損の向きには自力で到達したが、<strong>上限がないことまでは出ていない。</strong></p>
+          </div>
+        </div>
+        <ol class="qz-choices">
+          <li>受け取った権利の代金が損の上限</li>
+          <li>権利行使価格の1,000円が損の上限</li>
+          <li>損に上限はない</li>
+          <li>権利を売った側は損をしない</li>
+        </ol>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: C ── 損に上限はない</p>
+        <p>買った人が権利を使えば、売った人は<strong>1,000円で株を渡す義務</strong>を負う。手元に株がなければ市場から買って渡す。市場価格が2,000円なら差額の1,000円が損、3,000円なら2,000円、4,000円なら3,000円。<strong>株価が上がり続けるかぎり、損は増え続ける。</strong></p>
+        <p style="margin-top:10px">一方、<strong>利益の側には上限がある。</strong>期限までに株価がその値段まで上がらなければ、権利は使われずに終わり、売った人の利益は<strong>最初に受け取った権利の代金だけ</strong>で確定する。</p>
+        <p style="margin-top:10px"><b>着地点</b>　この非対称は、<a href="lecture_sasaki_20260910.html">第7回</a>2章の空売りとまったく同じ形である ── <strong>儲けには上限があり、損には上限がない。</strong>「損をしない取引」ではなく、「損の出方が逆向きの取引」として覚える。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="step-head"><span class="step-time">§2</span><h2>この回、自力で言えたこと</h2></div>
+    <p>出題からは外したが、当日その場で説明できた箇所である。<strong>次回はここを出発点にする。</strong></p>
+    <ul class="qlist">
+      <li><p class="q">同じ債券なら、100万円より80万円で買えたほうが得である</p><p class="why">00:05。価格と利回りという言葉を使わなければ、設例では即答している。</p></li>
+      <li><p class="q">お金の量が減る → お金の価値が上がる → デフレ</p><p class="why">00:16。政策金利から物価までの3段を、口頭で1本につないだ。</p></li>
+      <li><p class="q">空売りは、借りた株を先に売り、下がったところで買い戻して差額を取る</p><p class="why">00:30。「売ったら手元に現金が残る」まで含めて、詰まらずに説明している（第7回の内容）。</p></li>
+      <li><p class="q">信用買いは、手元資金を超える額を借りて株を買い、値上がり後に売って返す</p><p class="why">00:31。空売りとの対比で、借りるものが株かお金かを取り違えずに言い切った。</p></li>
+      <li><p class="q">権利を売った側が損をするのは、売った値段より株価が伸びたとき</p><p class="why">00:36。Q7の前半にあたる部分は自力で出ている。</p></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>次回までの宿題</h2>
+    <p>政策金利と10年国債の利回りを、日本銀行と財務省のサイトで1つずつ引き、日付とあわせて1行で書く。</p>
+  </section>
+
+  <footer>
+    <p><strong>このページの元になったもの:</strong> 2026年9月23日の個別指導の文字起こし。約50分。§1・§2の引用は当日の文字起こしから取っており、時刻はその通し時間である。</p>
+    <p><strong>数字について:</strong> 100万円・110万円・90万円・50万円・1,000円・2,000円などはすべて理解のための設例で、実在の銘柄や実際の約定値ではない。Q2に出てくる長期金利 約3%・政策金利 1.25% は<strong>当日教室で口頭で出た水準</strong>であり、一次情報で確認していない。政策金利は日本銀行、10年国債の利回りは財務省「国債金利情報」が一次情報である。Q5の約2,700万円は、年1%・1兆円を365で割った概数。</p>
+    <p><strong>文字起こし:</strong> summer_lecture_private リポジトリ（非公開）の transcripts_txt/ に保管。</p>
+    <p>本資料は個別指導のための教材で、投資勧誘を目的とするものではありません。</p>
+  </footer>
+</div>
+
+</body>
+</html>

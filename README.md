@@ -53,6 +53,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
+| 第8回（復習編） | 2026-09-23 | 債券価格・銀行の原資・オプションの売り手で答えに詰まった7問 ― 9/23実施分の文字起こしから作った復習クイズ7問 | [HTML](lectures/lecture_sasaki_20260923_review.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260923_review.html) |
 | 第7回 | 2026-09-10 | 信用取引（空売り）先に売って、あとで買い戻す ― Jトラストの優待クロス（現物買いと空売りの組合せ） | [HTML](lectures/lecture_sasaki_20260910.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260910.html) |
 | 第7回（復習編） | 2026-09-10 | 空売り・クロス取引で答えに詰まった4問 ― 9/10実施分の文字起こしから作った復習クイズ4問 | [HTML](lectures/lecture_sasaki_20260910_review.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260910_review.html) |
 | 第6回 | 2026-09-07 | The capital will find you ― ビル・アックマンは誰に、何を、いくらで売っているか | [HTML](lectures/lecture_sasaki_20260907.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_sasaki_20260907.html) |
