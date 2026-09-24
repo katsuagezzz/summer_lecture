@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>個別講義資料｜2026年9月11日 「お金を刷ってもインフレにはならない」と彼は言った ── その理屈は、1本の割り算でできている</title>
+<title>個別講義資料｜2026年9月25日 服を売る2社の原価率・販管費率・在庫 ── ファーストリテイリングとしまむら</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
@@ -61,7 +61,6 @@ header.masthead{
 h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
 .meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
 .meta b{color:var(--ink); font-weight:700;}
-.meta a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45); font-weight:700;}
 .lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
 .lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
 
@@ -241,14 +240,6 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 .tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
 .tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
 
-/* 役割カード */
-.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
-.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
-      background:var(--panel); padding:14px 16px;}
-.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
-.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
-.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
-
 /* 出典の格付けタグ */
 .st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
     padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
@@ -339,46 +330,19 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 .pick3 .s{display:block; font-size:13px; color:var(--ink2); line-height:1.65; margin-top:5px;}
 </style>
 <style>
-/* ---------- 第4回（9/11）で追加したパーツ ---------- */
-/* リードの3点箇条書き */
-.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
-.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
-.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
-  width:5px; height:5px; border-radius:50%; background:var(--macro);}
-.lede ul.three strong{border-bottom:none; padding-bottom:0;}
-/* たとえ話の箱 */
-.ana{background:var(--note-bg); border-radius:9px; padding:11px 15px; margin:11px 0;
-  font-size:14.5px; line-height:1.75;}
-.ana .lb{font-size:11px; font-weight:800; letter-spacing:.08em; color:var(--word); margin-right:9px;}
-/* 自分で3つ書く欄 */
-.slots{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; margin:14px 0 4px;}
-.slots>div{border:1px dashed var(--q-line); background:var(--q-bg); border-radius:10px; padding:12px 14px;}
-.slots .n{font-size:11.5px; font-weight:800; letter-spacing:.07em; color:#8a6d1f; margin-bottom:6px;}
-@media (prefers-color-scheme: dark){ .slots .n{color:#d9c07a;} }
-.slots .ln{display:block; border-bottom:2px dashed var(--q-line); height:26px; margin-bottom:8px;}
-.slots .s{font-size:12.5px; color:var(--ink2); line-height:1.6;}
-/* 英文の引用ブロック */
-.en{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:0 10px 10px 0;
-    background:var(--bg); padding:14px 17px; margin:14px 0 6px;}
-.en .who{font-size:11.5px; font-weight:800; letter-spacing:.08em; color:var(--macro); margin-bottom:7px;}
-.en.q .who{color:var(--corp);} .en.q{border-left-color:var(--corp);}
-.en p{margin:0 0 8px; font-size:15px; line-height:1.85;
-      font-family:"Georgia","Times New Roman",serif; letter-spacing:.005em;}
-.en p:last-child{margin-bottom:0;}
-.en b{font-weight:800; background:var(--q-bg); padding:0 3px; border-radius:3px;}
-@media (prefers-color-scheme: dark){ .en b{background:#2a2416;} }
-.en .ja{display:block; margin-top:9px; padding-top:9px; border-top:1px dashed var(--line);
-        font-family:inherit; font-size:13.5px; color:var(--ink2); line-height:1.7;}
-/* 英語チェック */
-.eng{list-style:none; margin:12px 0 0; padding:0;
-     display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:9px;}
-.eng li{background:var(--word-bg); border:1px solid var(--line); border-radius:9px; padding:11px 14px;
-        font-size:14.2px; line-height:1.65;}
-.eng li code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
-        font-size:13.5px; font-weight:700; color:var(--word);}
-.eng li .s{display:block; font-size:12.8px; color:var(--ink2); margin-top:5px;}
-.eng .hd{grid-column:1/-1; font-size:11.5px; font-weight:800; letter-spacing:.09em;
-        color:var(--word); margin-bottom:-2px;}
+/* ---------- 第5回（9/25）で追加したパーツ ---------- */
+.lede ul{margin:0; padding-left:1.2em;}
+.lede li{margin-bottom:5px;}
+.cmp{width:100%; border-collapse:collapse; font-size:15px; margin:14px 0 4px;}
+.cmp th,.cmp td{border-bottom:1px solid var(--line2); padding:9px 11px; text-align:right; font-variant-numeric:tabular-nums;}
+.cmp th:first-child,.cmp td:first-child{text-align:left; font-variant-numeric:normal;}
+.cmp thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3);}
+.cmp thead th.a{color:var(--macro);} .cmp thead th.b{color:var(--corp);}
+.cmp tr.sum td{background:var(--note-bg); font-weight:800;}
+.cmp td.lbl{font-weight:700;}
+.cmp caption{caption-side:top; text-align:left; font-size:12.5px; color:var(--ink3); font-weight:700; padding-bottom:6px;}
+.cmp td .blank{min-width:64px;}
+@media(max-width:640px){ .cmp{font-size:13.5px;} .cmp th,.cmp td{padding:7px 6px;} }
 </style>
 </head>
 <body>
@@ -395,253 +359,213 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <a href="lecture_toyonaga_20260828.html">8/28　PL・段階損益・会計基準</a>
   <a href="lecture_toyonaga_20260904.html">9/4　買いオペ・売りオペと信用創造</a>
   <a href="lecture_toyonaga_20260904_review.html">9/4 復習クイズ</a>
-  <span class="cur">9/18 講義資料</span>
+  <a href="lecture_toyonaga_20260911.html">9/18　マスク／インフレという割り算</a>
   <a href="lecture_toyonaga_20260918_review.html">9/18 復習クイズ</a>
-  <a href="lecture_toyonaga_20260925.html">9/25　2社の原価率・販管費率・在庫</a>
+  <span class="cur">9/25 講義資料</span>
 </div>
 
 <header class="masthead">
-  <div class="vol">LECTURE HANDOUT ／ 個別講義資料 ── 第4回</div>
-  <h1 class="title">「お金を刷ってもインフレにはならない」と彼は言った ──<br>その理屈は、1本の割り算でできている</h1>
+  <div class="vol">LECTURE HANDOUT ／ 個別講義資料 ── 第5回</div>
+  <h1 class="title">服を売る2社の原価率・販管費率・在庫 ──<br>ファーストリテイリング 2025年8月期／しまむら 2026年2月期</h1>
   <div class="meta">
-    <span><b>講義</b>　2026年9月18日（金）15:00 開始・30分<b>（実施ずみ）</b>。ファイル名は配布時の 9/11 のまま</span>
-    <span><b>教材</b>　<a href="https://www.instagram.com/reel/DbNPAhVgfTx/" target="_blank" rel="noopener">インタビュー抜粋の動画</a>・約3分半。<b>英語のまま</b></span>
-    <span><b>形式</b>　英文を読んでから、主張を<b>割り算1本</b>に落とす</span>
+    <span><b>講義</b>　2026年9月25日（金）15:00 開始・30分</span>
+    <span><b>材料</b>　両社の有価証券報告書から抜いた実額。単位はすべて億円</span>
+    <span><b>冒頭5分</b>　<a href="lecture_toyonaga_20260918_review.html">9/18 の復習23問</a>（別紙）</span>
   </div>
   <div class="lede">
-    <ul class="three">
-      <li>イーロン・マスクは英エコノミスト誌の編集長に<strong>「2036年、お金は重要でなくなる」</strong>と言った</li>
-      <li>編集長は<strong>2回押し返している。1回目は財源、2回目は政治。</strong>その2回がこの抜粋の本体である</li>
-      <li>英文はそのまま載せた。<strong>訳と、言い回しの確認から入る</strong></li>
+    <ul>
+      <li>2社の実額を、同じ並びで置いた</li>
+      <li><strong>率は1つも書いていない。原価率も販管費率も自分で出す</strong></li>
+      <li>締めは、どちらの株を買うか</li>
     </ul>
   </div>
 </header>
 
 <nav class="toc">
-  <h2>今日の順番</h2>
+  <h2>今日の30分</h2>
   <ol>
-    <li><a href="#s1">何のためにお金が欲しいのか</a><span class="s">　── 使い道を4つ挙げている</span></li>
-    <li><a href="#s2">では、財源はどこから</a><span class="s">　── 「小切手を配ればいい」</span></li>
-    <li><a href="#s3">インフレを1本の割り算にする</a><span class="s">　── 今日の中心</span></li>
-    <li><a href="#s4">最後に怖がったのは、経済ではなかった</a><span class="s">　── 一般の人の不安</span></li>
-    <li><a href="#s5">今日の1問</a><span class="s">　── YES か NO かを決めて来る</span></li>
+    <li><a href="#s1">A社とB社の損益計算書</a><span class="s">　── 率を出して、どちらがどちらか当てる</span></li>
+    <li><a href="#s2">同じ2社の、売れ残りと現金</a><span class="s">　── 売上原価と棚卸資産</span></li>
+    <li><a href="#s3">締め ── どちらの株を買うか</a></li>
+    <li><a href="#s4">販管費の中身</a><span class="s">　── 時間が余ったら</span></li>
+    <li><a href="#s5">会計基準と、開示の粒度</a><span class="s">　── 時間が余ったら</span></li>
   </ol>
-  <p class="rel"><b>英語の確認は、節ごとに置いてある。</b>紫の箱がそれ。<b>訳せなくてよい。「言えるか」を見る。</b></p>
 </nav>
 
 <!-- ============ §1 ============ -->
 <section class="topic" id="s1">
-  <span class="badge macro">§1</span>
-  <h2 class="thead">何のためにお金が欲しいのか</h2>
-  <p class="sub">最初の10秒で結論が出ている。<b>そのあと、彼は自分で理由を1つだけ足した。</b></p>
+  <span class="badge corp">本体① ── 12分</span>
+  <h2 class="thead">A社とB社の損益計算書</h2>
+  <p class="sub">どちらも日本で服を売る上場企業。片方は<b>自分で企画して工場に作らせ、自分の店で売る</b>。もう片方は<b>他社が作った服を仕入れて売る</b>。どちらがどちらかは書いていない。</p>
 
-  <div class="en">
-    <div class="who">ELON MUSK　00:00:04</div>
-    <p>I think that money won't matter in twenty thirty six. <b>What do you want money for?</b></p>
-  </div>
-  <div class="en">
-    <div class="who">ELON MUSK　00:00:34</div>
-    <p>You want money for <b>goods and services</b>, right? You want money for obviously food, housing, transport, entertainment. If that is so <b>abundant</b> that there's more that the robots and AI are providing more goods and services than any human could possibly consume, what do you need money for in that case?</p>
-  </div>
-
-  <ul class="eng">
-    <li class="hd">英語の確認 ── 言えるか</li>
-    <li><code>What do you want money for?</code><span class="s">最後の <b>for</b> は何をしているか。<b>for を取ると、文の意味はどう変わるか。</b></span></li>
-    <li><code>goods and services</code><span class="s">日本語で1語ずつ。<b>goods はなぜ複数形なのか。</b></span></li>
-    <li><code>abundant</code><span class="s">名詞形は。<b>この2行のうち、どの日本語がこれに当たるか。</b></span></li>
-    <li><code>any human could possibly consume</code><span class="s">possibly はどこに効いているか。<b>無くても意味は通るのに、なぜ入れたか。</b></span></li>
-  </ul>
-
-  <h4>埋める</h4>
-  <p>彼が挙げたお金の使い道は4つ ── <span class="blank">　　　</span>／<span class="blank">　　　</span>／<span class="blank">　　　</span>／<span class="blank">　　　</span>。<br>
-  <b>この4つに共通するのは何か。</b><span class="blank">　　　　　　　　　　　　　　</span></p>
-
-  <div class="ana">
-    <span class="lb">たとえ</span>学食の食券。<b>券が要るのは、定食の数が限られているからである。</b>
-    定食が無限に出てくる日、券売機の前に列はできるか。
+  <div class="tblwrap">
+  <table class="cmp">
+    <caption>単位：億円。1億円未満は四捨五入</caption>
+    <thead><tr><th>損益計算書</th><th class="a">A社</th><th class="b">B社</th></tr></thead>
+    <tbody>
+      <tr><td class="lbl">売上</td><td>34,005</td><td>7,000</td></tr>
+      <tr><td class="lbl">売上原価</td><td>15,717</td><td>4,561</td></tr>
+      <tr><td class="lbl">販売費及び一般管理費</td><td>12,777</td><td>1,838</td></tr>
+      <tr class="sum"><td class="lbl">営業利益</td><td>5,643</td><td>615</td></tr>
+    </tbody>
+  </table>
   </div>
 
-  <div class="callout">
-    <span class="lbl">§1 の問い</span>
-    「<b>使いきれないほどある</b>」と「<b>全員に行き渡る</b>」は、同じことか。<br>
-    違うと思うなら、どこが違うかを1行で。<br>
-    <span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
+  <h3>まず、率を出す</h3>
+  <div class="tblwrap">
+  <table class="cmp">
+    <thead><tr><th>率</th><th>式</th><th class="a">A社</th><th class="b">B社</th></tr></thead>
+    <tbody>
+      <tr><td class="lbl">原価率</td><td style="text-align:left;font-size:13.5px">売上原価 ÷ 売上</td><td><span class="blank">　　</span>%</td><td><span class="blank">　　</span>%</td></tr>
+      <tr><td class="lbl">売上総利益率</td><td style="text-align:left;font-size:13.5px">100% − 原価率</td><td><span class="blank">　　</span>%</td><td><span class="blank">　　</span>%</td></tr>
+      <tr><td class="lbl">販管費率</td><td style="text-align:left;font-size:13.5px">販管費 ÷ 売上</td><td><span class="blank">　　</span>%</td><td><span class="blank">　　</span>%</td></tr>
+      <tr><td class="lbl">営業利益率</td><td style="text-align:left;font-size:13.5px">営業利益 ÷ 売上</td><td><span class="blank">　　</span>%</td><td><span class="blank">　　</span>%</td></tr>
+    </tbody>
+  </table>
   </div>
+  <p style="font-size:14px;color:var(--ink2);margin-top:4px">小数第1位まで。<b>電卓で構わない。</b></p>
+
+  <ol class="q">
+    <li><b>自分で企画して作らせているのは、A社とB社のどちらか。</b><span class="hint">理由は、いま計算した率のうち<b>2つの数字</b>で言うこと。「なんとなく大きい会社だから」は理由にならない。</span></li>
+    <li><b>原価率が低いほうの会社は、浮いた分をどこに使っているか。</b><span class="hint">表にある行の名前で答える。</span></li>
+    <li><b>2社の営業利益率の差は、何ポイントか。原価率の差より大きいか、小さいか。</b><span class="hint">引き算して確かめる。</span></li>
+    <li><b>売上は約5倍ちがう。それでも率で比べるのはなぜか。</b><span class="hint">1行。9/18 にやった<b>「率を出したら分母を書く」</b>の続き。</span></li>
+  </ol>
 </section>
 
 <!-- ============ §2 ============ -->
 <section class="topic" id="s2">
-  <span class="badge corp">§2</span>
-  <h2 class="thead">では、財源はどこから</h2>
-  <p class="sub">編集長の1回目の押し返し。<b>「その理想はいい。そこへ行くまでの道の話をしている」</b>という形で入ってくる。</p>
+  <span class="badge bridge">本体② ── 12分</span>
+  <h2 class="thead">同じ2社の、売れ残りと現金</h2>
+  <p class="sub">同じ決算書の、別のページから抜いた実額。</p>
 
-  <div class="en q">
-    <div class="who">THE ECONOMIST　00:00:58</div>
-    <p>Let's agree that could be where we end up. <b>I'm concerned about the road</b>, and we live in democracies, and people are very worried about this. Firstly, do you have to have massive <b>redistribution</b> from people like you to the people who are losing their jobs? Do you need to pay more tax? Do you have much higher taxes on <b>capital</b> so that you fund some kind of universal income? Otherwise, <b>what do people live off?</b></p>
-  </div>
-  <div class="en">
-    <div class="who">ELON MUSK　00:01:25</div>
-    <p>I think <b>the treasury</b> should just simply <b>issue</b> people <b>checks</b>.</p>
-  </div>
-  <div class="en q">
-    <div class="who">THE ECONOMIST　00:01:30</div>
-    <p>But <b>where's the revenue coming from?</b> <b>I'm enough of an economist.</b> If you just issue checks, you're going to have inflation.</p>
+  <div class="tblwrap">
+  <table class="cmp">
+    <caption>単位：億円</caption>
+    <thead><tr><th>貸借対照表・キャッシュフロー計算書</th><th class="a">A社</th><th class="b">B社</th></tr></thead>
+    <tbody>
+      <tr><td class="lbl">棚卸資産（売れ残っている商品）</td><td>5,110</td><td>609</td></tr>
+      <tr><td class="lbl">現金</td><td>8,932</td><td>1,272</td></tr>
+      <tr><td class="lbl">短期の有価証券</td><td>―</td><td>1,532</td></tr>
+      <tr><td class="lbl">総資産</td><td>38,594</td><td>5,547</td></tr>
+      <tr><td class="lbl">負債合計</td><td>15,862</td><td>661</td></tr>
+      <tr><td class="lbl">純資産</td><td>22,731</td><td>4,885</td></tr>
+      <tr class="sum"><td class="lbl">営業キャッシュフロー</td><td>5,806</td><td>481</td></tr>
+    </tbody>
+  </table>
   </div>
 
-  <ul class="eng">
-    <li class="hd">英語の確認 ── 言えるか</li>
-    <li><code>issue</code><span class="s"><b>9/4 にこの動詞を1度使っている。</b>「国債を◯◯する」の◯◯である。<b>同じ動詞で、配るものが変わると何が変わるか。</b></span></li>
-    <li><code>the treasury</code><span class="s">日本語で。<b>頭を大文字にすると何を指すか。</b>日本ならどこにあたるか。</span></li>
-    <li><code>check</code><span class="s">ここでの意味。<b>イギリス式の綴りは別にある。</b>何か。</span></li>
-    <li><code>revenue</code><span class="s">日本語で。<b>8/28 にPLの一番上の行としてやった語である。</b>ここでは誰の revenue か。</span></li>
-    <li><code>capital</code><span class="s"><b>taxes on capital</b> とは、何にかかる税か。<b>労働にかかる税と、どこが違うか。</b></span></li>
-    <li><code>I'm enough of an economist.</code><span class="s">直訳と、<b>実際に言いたいこと</b>を分けて書く。ここは皮肉か、そうでないか。</span></li>
-    <li><code>what do people live off?</code><span class="s">最後の <b>off</b> は何をしているか。§1 の <code>for</code> と同じ形である。</span></li>
-  </ul>
-
-  <div class="callout">
-    <span class="lbl">§2 の問い</span>
-    編集長は<b>「小切手を配ればインフレになる」</b>と言った。<b>なぜそうなるのか。</b><br>
-    <b>9/4 でやった言葉を1つ使って</b>説明すること。<br>
-    <span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
+  <h3>ここでも、率を出す</h3>
+  <div class="tblwrap">
+  <table class="cmp">
+    <thead><tr><th>率</th><th>式</th><th class="a">A社</th><th class="b">B社</th></tr></thead>
+    <tbody>
+      <tr><td class="lbl">在庫日数</td><td style="text-align:left;font-size:13.5px">棚卸資産 ÷ 売上原価 × 365</td><td><span class="blank">　　</span>日</td><td><span class="blank">　　</span>日</td></tr>
+      <tr><td class="lbl">自己資本比率</td><td style="text-align:left;font-size:13.5px">純資産 ÷ 総資産</td><td><span class="blank">　　</span>%</td><td><span class="blank">　　</span>%</td></tr>
+      <tr><td class="lbl">現金の厚み</td><td style="text-align:left;font-size:13.5px">現金 ÷ 売上</td><td><span class="blank">　　</span>%</td><td><span class="blank">　　</span>%</td></tr>
+    </tbody>
+  </table>
   </div>
+
+  <ol class="q" start="5">
+    <li><b>在庫日数は、何を数えた日数か。</b><span class="hint">「仕入れてから売れるまで」なのか「作ってから売れるまで」なのか。A社とB社で意味が変わる。</span></li>
+    <li><b>1着の服は、売上原価と棚卸資産のどちらに書かれるか。分かれ目は何か。</b><span class="hint">9/18 の最後に君が言った<b>「PLとBSのつながりが分からない」</b>は、この1問である。<b>売上原価は損益計算書、棚卸資産は貸借対照表。</b>同じ1着が、年度末の時点でどちらかに行く。</span></li>
+    <li><b>在庫日数が長いほうの会社は、なぜ長いのか。</b><span class="hint">Q1 の答えと同じ理由で言えるかを確かめる。言えなければ、Q1 の答えが違う。</span></li>
+    <li><b>「現金が多い」と言うとき、何で割ったかを必ず書く。</b><span class="hint">絶対額で多いのはどちらか。売上で割ると、どちらか。<b>B社は短期の有価証券も持っている。</b>足すか足さないかで、答えが変わるかどうかも見る。</span></li>
+  </ol>
 </section>
 
 <!-- ============ §3 ============ -->
 <section class="topic" id="s3">
-  <span class="badge bridge">§3　今日の中心</span>
-  <h2 class="thead">インフレを1本の割り算にする</h2>
-  <p class="sub">マスクの答えは、反論ではなく<b>定義の言い換え</b>である。<b>1文で割り算を出してくる。</b></p>
-
-  <div class="en">
-    <div class="who">ELON MUSK　00:01:36</div>
-    <p>These things were relevant in the past; they will not be relevant in the future. <b>Inflation is simply the ratio of money to goods and services.</b> If the goods and services output increases dramatically, if it increases a thousand percent, you can literally print — or these guys <b>change the database</b> and never print money. You create money in the database. <b>Provided</b> the creation of that money is less than the rate at which goods and services increase, you actually have deflation.</p>
-    <p>So I'll make a prediction: <b>deflation will be the issue, not inflation.</b> If the output of goods and services increases faster than money supply, you will have deflation.</p>
-  </div>
-
-  <ul class="eng">
-    <li class="hd">英語の確認 ── ここが今日いちばん大事</li>
-    <li><code>the ratio of A to B</code><span class="s"><b>割り算に直すと、A と B のどちらが分子で、どちらが分母か。</b>迷ったら、日本語の「AのBに対する比」で確かめる。</span></li>
-    <li><code>Provided (that) ...</code><span class="s">この <b>Provided</b> は「与えられた」ではない。<b>接続詞として何を表すか。</b>言い換えられる語を1つ。</span></li>
-    <li><code>money supply</code><span class="s">日本語で。<b>9/4 に日本語で出てきた語とほぼ同じものである。</b>どれか。</span></li>
-    <li><code>the issue</code><span class="s">ここの issue は §2 の issue と品詞が違う。<b>どう違うか。</b></span></li>
-  </ul>
-
-  <h4>割り算に直す</h4>
-  <div class="formula">
-    <code>インフレ　＝　<span class="blank">　　　　　　　</span>　÷　<span class="blank">　　　　　　　</span></code>
-    <span class="n">分子が速く増えると → <span class="blank">　　　　</span>　／　分母が速く増えると → <span class="blank">　　　　</span></span>
-  </div>
-
-  <div class="recall">
-    <span class="lbl">先週（9/4）の空欄</span>
-    <p>橘玲は「<span class="me">お金とは <span class="blank">　　</span> である</span>」と書いていた。<b>先週埋めたものを、そのまま持ってくること。</b></p>
-    <p>マスクはここで <b>“change the database”</b> と言い直している。<b>9/4 に君が見た「銀行が貸すとお金が増える」も、やっていることは同じである。</b>どこが同じか。</p>
-  </div>
-
-  <div class="ana">
-    <span class="lb">たとえ</span>文化祭の焼きそば。<b>券を2倍刷っても、焼きそばが3倍出てくるなら、券1枚で買える量は増える。</b>
-    値上がりするのは、券だけが増えたときである。
-  </div>
+  <span class="badge word">締め ── 5分</span>
+  <h2 class="thead">どちらの株を買うか</h2>
 
   <div class="callout">
-    <span class="lbl">§3 の問い</span>
-    彼の理屈が成り立つには、<b>分母が、分子より速く増え続けなければならない。</b><br>
-    <b>分母が増える速さは、何で決まるのか。</b>1つ挙げること。<br>
-    <span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
+    <span class="lbl">今日の判断</span>
+    <b>A社とB社。どちらか1社の株を買うとする。どちらを買うか。</b><br>
+    理由は<b>1行</b>。<b>使ってよいのは、今日計算した率だけ。</b>
   </div>
+  <div class="formula"><code><span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span></code></div>
 
-  <p><b>数字の扱い</b>　<b>a thousand percent</b> も <b>2036年</b> も、<b>本人が口頭で挙げた例と予想である。</b>
-  一次情報でも、計算された数字でもない。<b>そのつもりで扱うこと。</b></p>
+  <p><b>条件は2つ。</b><br>
+  ① 会社の名前ではなく、<b>率の名前</b>で理由を書く。<br>
+  ② その率が<b>来年どちらに動くと思うか</b>も、あわせて書く。</p>
+
+  <div class="recall">
+    <span class="lbl">9/4 と 9/18 で、2回とも流れたところ</span>
+    <p>9/4 の「円を買うか、ドルを買うか、何もしないか」も、9/18 の「2036年、お金は要らなくなるか」も、<span class="me">結論を1行にするところまで行かなかった</span>。</p>
+    <p><b>今日は、ここを最初に時計に入れてある。</b></p>
+  </div>
 </section>
 
 <!-- ============ §4 ============ -->
 <section class="topic" id="s4">
-  <span class="badge word">§4</span>
-  <h2 class="thead">最後に怖がったのは、経済ではなかった</h2>
-  <p class="sub">編集長は<b>「あなたが正しいかもしれない」と認めたうえで</b>、2回目の押し返しをしている。<b>論点が経済から政治へ移る。</b></p>
+  <span class="badge macro">時間が余ったら ①</span>
+  <h2 class="thead">販管費の中身</h2>
+  <p class="sub">§1 で出した販管費を、有価証券報告書の明細で分けたもの。</p>
 
-  <div class="en q">
-    <div class="who">THE ECONOMIST　00:02:34</div>
-    <p>I'm actually perfectly willing to believe that <b>you may well be right</b>. But I'm really <b>hung up on</b> how we get from the current polarized, angry, fearful policy we have now to <b>this nirvana</b>. I think you can paint a picture where people are so scared by this. They essentially try to stop it. Maybe they can't, but you get <b>nationalised</b>. There's a kind of far left government. There's <b>exorbitant</b> tax increases. The economy <b>crumbles</b> because people are so worried about a future, which does sound quite scary as you describe it. So how do you handle the politics now?</p>
-  </div>
-  <div class="en">
-    <div class="who">ELON MUSK　00:03:14</div>
-    <p>It's <b>exhilarating and terrifying</b>. If you ask me on any given day, I've gone from exhilaration to terror regarding AI.</p>
-  </div>
-
-  <ul class="eng">
-    <li class="hd">英語の確認 ── 言えるか</li>
-    <li><code>you may well be right</code><span class="s"><b>may</b> と <b>may well</b> は、確からしさがどう違うか。</span></li>
-    <li><code>hung up on</code><span class="s">元の <b>hang up</b>（電話を切る／掛ける）から、なぜこの意味になるか。</span></li>
-    <li><code>this nirvana</code><span class="s">元は何語か。<b>ここで編集長は褒めているか、皮肉を言っているか。</b>どちらだと思うか。</span></li>
-    <li><code>nationalised</code><span class="s">日本語で。<b>綴りが nationalized ではない。</b>なぜか。</span></li>
-    <li><code>exorbitant</code>／<code>crumble</code><span class="s">それぞれ日本語で1語。</span></li>
-    <li><code>exhilarating and terrifying</code><span class="s">この2語は、<b>反対の意味なのに and でつないである。</b>なぜ but ではないのか。</span></li>
-  </ul>
-
-  <h4>2つの押し返しを、1行ずつに分ける</h4>
-  <div class="vs">
-    <div class="a">
-      <div class="hd">1回目（§2）── 経済の質問</div>
-      <p>聞いていること　<span class="blank">　　　　　　</span></p>
-      <p>マスクの答え　<span class="blank">　　　　　　</span></p>
-    </div>
-    <div class="b">
-      <div class="hd">2回目（§4）── 政治の質問</div>
-      <p>聞いていること　<span class="blank">　　　　　　</span></p>
-      <p>マスクの答え　<span class="blank">　　　　　　</span></p>
-    </div>
+  <div class="tblwrap">
+  <table class="cmp">
+    <caption>単位：億円。A社とB社で費目の名前も分け方も違う</caption>
+    <thead><tr><th>費目</th><th class="a">A社</th><th class="b">B社</th></tr></thead>
+    <tbody>
+      <tr><td class="lbl">人件費・給料手当</td><td>4,699</td><td>759</td></tr>
+      <tr><td class="lbl">減価償却費</td><td>2,144</td><td>70</td></tr>
+      <tr><td class="lbl">物流費</td><td>1,442</td><td>―</td></tr>
+      <tr><td class="lbl">地代家賃</td><td>1,265</td><td>334</td></tr>
+      <tr><td class="lbl">広告宣伝費</td><td>1,085</td><td>118</td></tr>
+      <tr><td class="lbl">業務委託費</td><td>723</td><td>―</td></tr>
+      <tr><td class="lbl">その他</td><td>1,419</td><td>54</td></tr>
+      <tr class="sum"><td class="lbl">明細の合計</td><td>12,777</td><td>1,335</td></tr>
+      <tr class="sum"><td class="lbl">§1 の販管費</td><td>12,777</td><td>1,838</td></tr>
+    </tbody>
+  </table>
   </div>
 
-  <div class="ana">
-    <span class="lb">たとえ</span>「10年後には全員に部屋が行きわたる」と言われても、
-    <b>今日その部屋に住んでいない人には、10年間をどう過ごすかのほうが問題になる。</b>
-  </div>
-
-  <div class="callout">
-    <span class="lbl">§4 の問い</span>
-    <b>2回目の質問に、彼は答えているか。</b>YES か NO か。<br>
-    そのうえで ── <b>君の周りで、この話をいちばん怖がるのは誰か。何が怖いのか。</b><br>
-    <span class="blank">　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
-  </div>
+  <ol class="q" start="9">
+    <li><b>広告宣伝費を売上で割ると、何%か。2社でどちらが高いか。</b><span class="hint">絶対額では<b>A社が約9倍</b>。率でも同じ順番になるかを確かめる。</span></li>
+    <li><b>B社は、明細の合計が §1 の販管費に届いていない。なぜか。</b><span class="hint">足し忘れではない。<b>何が載っていて、何が載っていないのか</b>を、有価証券報告書を開いて確かめる。</span></li>
+  </ol>
 </section>
 
 <!-- ============ §5 ============ -->
 <section class="topic" id="s5">
-  <span class="badge macro">§5　今日の30分 ── 議論</span>
-  <h2 class="thead">2036年、お金は要らなくなるか</h2>
-  <p class="sub">議論はここに使う。<b>YES か NO を決めて来ること。</b>「どちらとも言えない」は持ち込まない。</p>
+  <span class="badge word">時間が余ったら ②</span>
+  <h2 class="thead">会計基準と、開示の粒度</h2>
+  <p class="sub">A社は IFRS、B社は日本基準。<b>8/28 のメルカリと同じ話が、ここでも起きている。</b></p>
 
-  <div class="callout">
-    <span class="lbl">今日の問い ── これ1つ</span>
-    <b>2036年、お金は要らなくなるか。YES か NO か。理由を1行で。</b>
+  <ol class="q" start="11">
+    <li><b>一番上の行の名前が、2社で違う。何と何か。</b><span class="hint">有価証券報告書を開いて、書き写す。</span></li>
+    <li><b>B社の決算書には経常利益がある。A社には無い。理由を1行。</b><span class="hint">8/28 に答えたことの再テスト。</span></li>
+    <li><b>売上 − 売上原価 − 販管費 を計算すると、2社とも営業利益に一致しない。差額は何か。</b><span class="hint">計算違いではない。<b>有価証券報告書の損益計算書を開き、売上原価と営業利益のあいだに並んでいる行を、全部書き写すこと。</b></span></li>
+    <li><b>決算期が2社で違う。A社は8月まで、B社は2月まで。この比較は成り立つか。</b><span class="hint">成り立つ・成り立たない、どちらでもよい。<b>理由を言えるかだけを見る。</b></span></li>
+  </ol>
+</section>
+
+<!-- ============ 宿題 ============ -->
+<div class="hw">
+  <div class="hwhead">
+    <span class="team">宿題</span>
+    <span class="hwtime">次回まで</span>
   </div>
-  <div class="formula"><code>YES ／ NO　<span class="blank">　　　　　　　　　　　　　　　　　　　　　　</span></code></div>
+  <div class="hwttl">§3 の1行を紙に書いて持ってくる。</div>
+</div>
 
-  <p><b>書き方の条件は2つ。</b><br>
-  ① <b>「AIが」「ロボットが」で終わらせない。</b>要らなくなる、あるいは残る、と君が考えるものを<b>1つ名指しで書く</b>こと。<br>
-  ② その1行が、<b>§3 の割り算の分子と分母のどちらの話をしているのか</b>を、はっきりさせること。</p>
-
-  <div class="hw">
-    <div class="hwhead"><span class="team">宿題</span><span class="hwtime">9/11 の15:00までに</span></div>
-    <div class="hwttl">§5 の1問に、YES か NO と理由を1行で書いてくること。</div>
-  </div>
-
+<section class="topic">
   <div class="src">
     <b>SOURCES</b>
     <ul>
-      <li><span class="st p1">一次</span><b>この資料の英文は、配布したインタビュー抜粋の文字起こしそのままである。</b>話し手は Elon Musk、聞き手は The Economist の編集長。抜粋は約3分半。<b>タイムコードも文字起こしのもの。</b></li>
-      <li><span class="st p1">一次</span><b>動画そのものはここにある</b> ── <a href="https://www.instagram.com/reel/DbNPAhVgfTx/" target="_blank" rel="noopener">https://www.instagram.com/reel/DbNPAhVgfTx/</a><br><b>聞き取れないところは、必ず音で確かめること。</b>あわせて ── <b>これを投稿しているアカウントは誰か。The Economist 本体か、切り出した第三者か。</b>開いて確かめること。<b>出典の所在は、いつも自分で見に行く。</b></li>
-      <li><span class="st p2">報道</span>抜粋の元になった本編は、2026年7月に収録された長いインタビューだと報じられている。<b>収録日と全体の長さは報道ベース。</b>当日その場で確認する。</li>
-      <li><span class="st p4">要確認</span>文字起こしは自動生成で、人手の校正をしていない。<b>`twenty thirty six` のような数字の表記や、途中で切れている文がそのまま残っている。</b>読みにくい箇所は音声で確認すること。</li>
-      <li><span class="st p3">解説</span>この発言には「豊かさが実現しても、配分は保証されない」型の反論が多く出ている。<b>§4 はその論点に当たるが、本資料には反論そのものを載せていない。</b>先に自分で考えること。</li>
+      <li><span class="st p1">一次</span>ファーストリテイリング 2025年8月期 有価証券報告書（EDINET）── <a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X6X6" target="_blank" rel="noopener">https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X6X6</a></li>
+      <li><span class="st p1">一次</span>しまむら 2026年2月期 有価証券報告書（EDINET）── <a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100Y2PP" target="_blank" rel="noopener">https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100Y2PP</a></li>
+      <li><span class="st p4">要確認</span><b>2社の1年はずれている。</b>A社は2024年9月から2025年8月まで、B社は2025年2月21日から2026年2月20日まで。<b>同じ1年を比べているわけではない。</b></li>
+      <li><span class="st p4">要確認</span><b>「現金」の中身も2社で違う。</b>A社は現金及び現金同等物、B社は現金及び預金。B社は短期の有価証券を別に持っている。</li>
+      <li><span class="st p3">解説</span>この資料の億円は、有価証券報告書の百万円単位の数字を1億円未満で四捨五入したもの。<b>率は四捨五入前の数字で出しても、この表の数字で出しても、小数第1位までなら同じになる。</b>四捨五入のため、行を足し引きすると1億円ずれる箇所がある。</li>
     </ul>
   </div>
 </section>
 
 <footer>
-  <div class="next"><b>次回　9月25日（金）15:00</b>　冒頭は<b><a href="lecture_toyonaga_20260918_review.html">この回の復習23問</a></b>から入る。9/18 に答えが出なかった17問がそこにある。本体は<b><a href="lecture_toyonaga_20260925.html">服を売る2社の原価率・販管費率・在庫</a></b>。最後に言った「PLとBSのつながりが分からない」を、実額の比較で取る。<b>CF計算書そのもの</b>は、その先に置く。</div>
+  <div class="next"><b>次回　自分の3銘柄</b>　今日の率を、自分で選んだ3社に当てる。<b>銘柄は自分で決めて持ってくる。</b>日程は当日決める。</div>
 </footer>
 
 </div>

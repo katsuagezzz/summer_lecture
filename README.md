@@ -68,7 +68,8 @@
 
 | 講義日 | テーマ | ファイル |
 |---|---|---|
-| 2026-09-18 の復習 | マスク×エコノミスト誌インタビューの語彙と読解（9/18 の30分で聞かれた問いだけの23問。Q1〜Q6 は自力で答えたもの、Q7〜Q23 は答えが出なかったもの。英単語12問・英文3問・締めの判断とPL・BSの持ち越し2問。答えなし。9/25 の冒頭で使う） | [HTML](lectures/lecture_toyonaga_20260918_review.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260918_review.html) |
+| 2026-09-25 | 服を売る2社の原価率・販管費率・在庫 ― ファーストリテイリング 2025年8月期／しまむら 2026年2月期（実額だけを同じ並びで渡し、原価率・販管費率・在庫日数・自己資本比率を自分で計算させる。社名は A社／B社 と伏せ、どちらが自社で企画して作らせている会社かを率2つで当てる。売上原価と棚卸資産の分かれ目で PL と BS をつなぐ。締めはどちらの株を買うか1行。答えなし） | [HTML](lectures/lecture_toyonaga_20260925.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260925.html) |
+| 2026-09-18 の復習 | マスク×エコノミスト誌インタビューの語彙と読解（9/18 の30分で聞かれた問いだけの23問。Q1〜Q6 は自力で答えたもの、Q7〜Q23 は答えが出なかったもの。英単語12問・英文3問・締めの判断とPL・BSの持ち越し2問。答えなし。9/25 の冒頭5分で使う） | [HTML](lectures/lecture_toyonaga_20260918_review.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260918_review.html) |
 | 2026-09-11 配布／**2026-09-18 実施** | 「お金を刷ってもインフレにはならない」と彼は言った ― その理屈は、1本の割り算でできている（エコノミスト誌のマスク・インタビュー抜粋を英語のまま読む。節ごとに英語の確認。答えなし。**実施は1週ずれたが、配布済みURLなのでファイル名の日付は 9/11 のまま**） | [HTML](lectures/lecture_toyonaga_20260911.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260911.html) |
 | 2026-09-04 の復習 | 国債は誰と誰の間を動き、お金はどちらに動くか（9/4 の30分で聞かれた問いだけの11問。答えなし。9/18 の回の冒頭用） | [HTML](lectures/lecture_toyonaga_20260904_review.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260904_review.html) |
 | 2026-09-04 | 日銀が国債を買うと、世の中のお金は増えるのか ― 買いオペ・売りオペと信用創造（橘玲『プアジャパン』。問い1つを30分議論） | [HTML](lectures/lecture_toyonaga_20260904.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_toyonaga_20260904.html) |
