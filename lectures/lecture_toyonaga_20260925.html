@@ -344,6 +344,20 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 .cmp td .blank{min-width:64px;}
 @media(max-width:640px){ .cmp{font-size:13.5px;} .cmp th,.cmp td{padding:7px 6px;} }
 </style>
+<style>
+/* ---------- 9/25 復習タブ（JSなし。#review を :target で切り替える） ---------- */
+.tabbar{display:flex; flex-wrap:wrap; gap:4px; border-bottom:2px solid var(--line); margin:0 0 18px;}
+.tabbar a, .tabbar span{font-size:14px; font-weight:800; text-decoration:none; color:var(--ink3);
+  padding:9px 18px; border:1px solid transparent; border-bottom:none; border-radius:10px 10px 0 0; margin-bottom:-2px;}
+.tabbar a:hover{color:var(--macro);}
+.tabbar .on{background:var(--panel); color:var(--ink); border-color:var(--line); border-bottom:2px solid var(--panel);}
+#review{display:none;}
+#review:target{display:block;}
+#review:target ~ #main{display:none;}
+.q .line{display:block; min-height:30px; border-bottom:2px dashed var(--q-line); margin-top:10px;}
+@media print{ .tabbar{display:none;} }
+@media(max-width:640px){ .tabbar a, .tabbar span{padding:8px 12px; font-size:13px;} }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -361,8 +375,107 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <a href="lecture_toyonaga_20260904_review.html">9/4 復習クイズ</a>
   <a href="lecture_toyonaga_20260911.html">9/18　マスク／インフレという割り算</a>
   <a href="lecture_toyonaga_20260918_review.html">9/18 復習クイズ</a>
-  <span class="cur">9/25 講義資料</span>
+  <span class="cur">9/25 講義資料／復習</span>
 </div>
+
+<div id="review">
+<nav class="tabbar" aria-label="この回の資料">
+  <a href="#main">講義資料</a>
+  <span class="on">復習（9/25 の実施後）</span>
+</nav>
+
+<header class="masthead">
+  <div class="vol">REVIEW ／ 個別講義 復習 ── 第5回</div>
+  <h1 class="title">原価率・人件費率・在庫日数・現在価値の復習<br>（2026年9月25日・全16問）</h1>
+  <div class="meta">
+    <span><b>元になった回</b>　2026年9月25日（金）15:00・約40分</span>
+    <span><b>内訳</b>　自力で答えた問い4問／答えが出なかった問い9問／時間切れの問い3問</span>
+    <span><b>形式</b>　空欄に1行で書く。答えは書いていない</span>
+  </div>
+  <div class="lede">
+    <ul>
+      <li>9/25 の授業で実際に聞かれた問いだけで組んである</li>
+      <li>Q1〜Q4 は自力で答えたもの、Q5〜Q13 は答えが出なかったもの、Q14〜Q16 は時間切れで扱えなかったもの</li>
+      <li>数字は「講義資料」タブの表から取る。電卓で構わない</li>
+    </ul>
+  </div>
+</header>
+
+<section class="topic">
+  <span class="badge bridge">9/25 に自力で答えた問い</span>
+  <h2 class="thead">店で見えるものとPLの行（4問）</h2>
+  <p class="sub">前回は詰まらずに出た。ここは10秒ずつで通す。</p>
+
+  <ol class="q">
+    <li><b>店員が少ない店は、PL のどの行が軽くなるか。</b><span class="hint">費用の名前と、それが入る行の名前の2つを書く。</span><span class="line"></span></li>
+    <li><b>店を増やしたのに、利益が減った。何が伸びず、何が増えたか。</b><span class="line"></span></li>
+    <li><b>在庫日数は、長いほうが良いか、短いほうが良いか。理由1行。</b><span class="line"></span></li>
+    <li><b>今日の100万円と、1ヶ月後の100万円。今日の時点で価値が高いのはどちらか。理由1行。</b><span class="line"></span></li>
+  </ol>
+</section>
+
+<section class="topic">
+  <span class="badge corp">9/25 に答えが出なかった問い ── 原価率と人件費</span>
+  <h2 class="thead">売上原価と販管費の切り分け（4問）</h2>
+  <p class="sub">使う数字は §1 と §4 の表。</p>
+
+  <ol class="q" start="5" style="counter-reset:qq 4">
+    <li><b>原価率の式を書く。その式に、販管費は入っているか。</b><span class="hint">9/25 は「B社の原価率が高いのは、販管費が少ないから」と答えている。§1 の表を上から読み、原価率がどの2行で決まるかを確かめる。</span><span class="line"></span></li>
+    <li><b>B社の原価率が高い理由を、「高い生地を使っている」以外で1つ。</b><span class="hint">売上は A社がB社の約5倍。<b>売上原価は何倍か</b>を割り算で出し、2つの倍率がずれる理由を1行で書く。</span>
+      <div class="formula"><code>売上原価の倍率 ＝ 15,717 ÷ 4,561 ＝ <span class="blank">　　</span> 倍</code></div><span class="line"></span></li>
+    <li><b>人件費率（人件費 ÷ 売上）を2社で出す。どちらが重いか。</b><span class="hint">人件費の絶対額は A社がB社の約6倍、売上は約5倍。<b>絶対額の倍率と、率の順番を混ぜない。</b></span>
+      <div class="formula"><code>A社 ＝ <span class="blank">　　</span> %　　B社 ＝ <span class="blank">　　</span> %</code></div><span class="line"></span></li>
+    <li><b>「A社のほうが給料が高い」と言うには、人件費の総額のほかに、何の数字が要るか。</b><span class="hint">率を出したら分母を書く。</span><span class="line"></span></li>
+  </ol>
+</section>
+
+<section class="topic">
+  <span class="badge macro">9/25 に答えが出なかった問い ── 在庫と現金</span>
+  <h2 class="thead">在庫日数と現在価値（5問）</h2>
+  <p class="sub">金利3%は、9/25 の授業中に置いた例示の数字。実在の金利ではない。</p>
+
+  <ol class="q" start="9" style="counter-reset:qq 8">
+    <li><b>同じTシャツを1ヶ月で売り切る会社と、2ヶ月かかる会社。1ヶ月のほうが良い理由を、お金の出入りで1行。</b><span class="hint">9/25 は「信用があるから」と答えている。信用は別の話。生地代は、Tシャツが売れる前に払ってある。</span><span class="line"></span></li>
+    <li><b>月3%の金利で、1ヶ月後の100万円は、今日いくらか。</b><span class="hint">9/25 は「100 ÷ 0.97」「100 × 0.97」と答えた。どちらでもない。</span>
+      <div class="formula"><code>100万円 ÷ <span class="blank">　　</span> ＝ <span class="blank">　　</span> 万円</code></div><span class="line"></span></li>
+    <li><b>同じ条件で、2ヶ月後の100万円は、今日いくらか。</b><span class="hint">金利が何回かかるか。</span>
+      <div class="formula"><code>100万円 ÷ <span class="blank">　　</span> ＝ <span class="blank">　　</span> 万円</code></div><span class="line"></span></li>
+    <li><b>「金利で割り引く」とは、何を何で割ることか。1行。</b><span class="hint">9/25 は「わかんないです」と答えている。Q10・Q11 の式を見ながら書く。</span><span class="line"></span></li>
+    <li><b>§2 の式で在庫日数を出す。A社とB社、どちらが長いか。</b><span class="hint">Q3 で「短いほうが良い」と答えた。9/25 は2社の在庫日数を比べないまま終わっている。<b>長いほうの会社は、なぜ長いのか</b>を、講義資料 §1 の Q1 と同じ理由で書けるか。</span>
+      <div class="formula"><code>A社 ＝ <span class="blank">　　</span> 日　　B社 ＝ <span class="blank">　　</span> 日</code></div><span class="line"></span></li>
+  </ol>
+</section>
+
+<section class="topic">
+  <span class="badge word">9/25 は時間切れ ── 持ち越し</span>
+  <h2 class="thead">PLとBSのつながりと、締めの判断（3問）</h2>
+  <p class="sub">9/25 は、この3つに入る前に終わっている。</p>
+
+  <ol class="q" start="14" style="counter-reset:qq 13">
+    <li><b>PL を上から5行、行の名前だけで書く。</b><span class="hint">売上から営業利益まで。9/25 の最後に「どの活動がどこに計上されるか、まだ慣れていない」と言ったところ。</span><span class="line"></span></li>
+    <li><b>同じ1着の服は、決算日までに売れたら何になり、売れ残ったら何になるか。それぞれ PL か BS か。</b><span class="hint">講義資料 §2 の Q6。9/18 の復習 Q23「PL と BS はどこでつながっているか」と同じ問い。</span><span class="line"></span></li>
+    <li><b>A社とB社、どちらの株を買うか。理由1行。</b><span class="hint">会社の名前ではなく<b>率の名前</b>で書く。Q13 の在庫日数も材料に入れる。9/4・9/18・9/25 と3回続けて、本人の1行が出ていない。</span><span class="line"></span></li>
+  </ol>
+</section>
+
+<div class="hw">
+  <div class="hwhead">
+    <span class="team">宿題</span>
+    <span class="hwtime">次回まで</span>
+  </div>
+  <div class="hwttl">16問を埋めて持ってくる。書けなかった問いには「×」だけ付ける。</div>
+</div>
+
+<footer>
+  <div class="next"><b>次回　自分の3銘柄</b>　冒頭でこの復習から Q5・Q10・Q13・Q15・Q16 の5問を使う。<b>Q16 で選んだ1社を、3銘柄のうちの1つとして持ってくる。</b>日程は当日決める。</div>
+</footer>
+</div><!-- /#review -->
+
+<div id="main">
+<nav class="tabbar" aria-label="この回の資料">
+  <span class="on">講義資料</span>
+  <a href="#review">復習（9/25 の実施後）</a>
+</nav>
 
 <header class="masthead">
   <div class="vol">LECTURE HANDOUT ／ 個別講義資料 ── 第5回</div>
@@ -467,7 +580,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   </table>
   </div>
 
-  <ol class="q" start="5">
+  <ol class="q" start="5" style="counter-reset:qq 4">
     <li><b>在庫日数は、何を数えた日数か。</b><span class="hint">「仕入れてから売れるまで」なのか「作ってから売れるまで」なのか。A社とB社で意味が変わる。</span></li>
     <li><b>1着の服は、売上原価と棚卸資産のどちらに書かれるか。分かれ目は何か。</b><span class="hint">9/18 の最後に君が言った<b>「PLとBSのつながりが分からない」</b>は、この1問である。<b>売上原価は損益計算書、棚卸資産は貸借対照表。</b>同じ1着が、年度末の時点でどちらかに行く。</span></li>
     <li><b>在庫日数が長いほうの会社は、なぜ長いのか。</b><span class="hint">Q1 の答えと同じ理由で言えるかを確かめる。言えなければ、Q1 の答えが違う。</span></li>
@@ -522,7 +635,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   </table>
   </div>
 
-  <ol class="q" start="9">
+  <ol class="q" start="9" style="counter-reset:qq 8">
     <li><b>広告宣伝費を売上で割ると、何%か。2社でどちらが高いか。</b><span class="hint">絶対額では<b>A社が約9倍</b>。率でも同じ順番になるかを確かめる。</span></li>
     <li><b>B社は、明細の合計が §1 の販管費に届いていない。なぜか。</b><span class="hint">足し忘れではない。<b>何が載っていて、何が載っていないのか</b>を、有価証券報告書を開いて確かめる。</span></li>
   </ol>
@@ -534,7 +647,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
   <h2 class="thead">会計基準と、開示の粒度</h2>
   <p class="sub">A社は IFRS、B社は日本基準。<b>8/28 のメルカリと同じ話が、ここでも起きている。</b></p>
 
-  <ol class="q" start="11">
+  <ol class="q" start="11" style="counter-reset:qq 10">
     <li><b>一番上の行の名前が、2社で違う。何と何か。</b><span class="hint">有価証券報告書を開いて、書き写す。</span></li>
     <li><b>B社の決算書には経常利益がある。A社には無い。理由を1行。</b><span class="hint">8/28 に答えたことの再テスト。</span></li>
     <li><b>売上 − 売上原価 − 販管費 を計算すると、2社とも営業利益に一致しない。差額は何か。</b><span class="hint">計算違いではない。<b>有価証券報告書の損益計算書を開き、売上原価と営業利益のあいだに並んでいる行を、全部書き写すこと。</b></span></li>
@@ -567,6 +680,7 @@ footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(
 <footer>
   <div class="next"><b>次回　自分の3銘柄</b>　今日の率を、自分で選んだ3社に当てる。<b>銘柄は自分で決めて持ってくる。</b>日程は当日決める。</div>
 </footer>
+</div><!-- /#main -->
 
 </div>
 </body>
