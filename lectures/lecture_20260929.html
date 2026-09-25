@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講義資料 第9回｜2026年9月29日 米中首脳会談（9/24）、オプションの4つの立場、チーム別ポートフォリオ分析</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 第4回で追加したパーツ ---------- */
+.promptbox{background:var(--note-bg); border:1px solid var(--line); border-left:4px solid var(--word);
+  border-radius:0 10px 10px 0; padding:15px 17px; margin:12px 0;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px; line-height:1.95; white-space:pre-wrap; word-break:break-word; color:var(--ink);}
+.promptbox .cap{display:block; font-family:inherit; font-size:11.5px; font-weight:800;
+  letter-spacing:.09em; color:var(--word); margin-bottom:8px;}
+.twocol{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; margin:14px 0 4px;}
+.card{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.card .ch{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:6px;}
+.card.b .ch{color:var(--corp);} .card.c .ch{color:var(--bridge);} .card.d .ch{color:var(--word);}
+.card p{margin:0; font-size:14.5px; line-height:1.75;}
+.card p+p{margin-top:8px;}
+.quote{border-left:4px solid var(--word); background:var(--word-bg); border-radius:0 9px 9px 0;
+  padding:13px 17px; margin:13px 0; font-size:15px; line-height:1.9;}
+.quote .src2{display:block; font-size:12.5px; color:var(--ink3); font-weight:700; margin-top:7px;}
+table.cmp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.cmp th, table.cmp td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+table.cmp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+table.cmp td.h{font-weight:700; color:var(--ink); width:22%;}
+@media (max-width:640px){ .promptbox{font-size:12px;} }
+</style>
+<style>
+/* ---------- 第5回で追加したパーツ ---------- */
+/* サプライズ表（実績 − 予想） */
+table.surp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.surp th, table.surp td{border-bottom:1px solid var(--line2); padding:9px 10px; text-align:right; vertical-align:top;}
+table.surp th:first-child, table.surp td:first-child{text-align:left;}
+table.surp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em; text-align:right;}
+table.surp thead th:first-child{text-align:left;}
+table.surp td.num{font-variant-numeric:tabular-nums;}
+table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
+/* 答え合わせカード */
+.ac{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+    background:var(--bg); padding:14px 16px; margin-bottom:10px;}
+.ac .qq{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:5px;}
+.ac .aa{font-size:15px; line-height:1.75; margin:0;}
+.ac .aa b{font-weight:800;}
+.ac.miss{border-left-color:var(--corp);}
+.ac.miss .qq{color:var(--corp);}
+/* 時点ラベル（同じ銘柄・違う時点） */
+.snap{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:2px;
+      background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 6px;}
+.snap div{background:var(--panel); padding:12px 14px;}
+.snap .w{font-size:11.5px; color:var(--ink3); font-weight:800; letter-spacing:.04em; margin-bottom:4px; line-height:1.45;}
+.snap .r{font-size:19px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.3;}
+.snap .r.up{color:var(--up);} .snap .r.down{color:var(--down);}
+.snap .z{font-size:12px; color:var(--ink2); margin-top:3px; line-height:1.55;}
+</style>
+<style>
+/* ---------- リードの3点箇条書き（第6回で追加） ---------- */
+/* リードの3点箇条書き */
+.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
+.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
+.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
+  width:5px; height:5px; border-radius:50%; background:var(--macro);}
+.lede ul.three strong{border-bottom:none; padding-bottom:0;}
+</style>
+<style>
+/* ---------- ポートフォリオ報告・ネットキャッシュ（第5回で追加） ---------- */
+.pf{display:grid; grid-template-columns:repeat(auto-fit,minmax(238px,1fr)); gap:11px; margin:14px 0 6px;}
+.pf a{display:block; border:1px solid var(--line); border-left:4px solid var(--macro);
+      border-radius:0 10px 10px 0; background:var(--bg); padding:13px 15px;
+      text-decoration:none; color:var(--ink);}
+.pf a:hover{border-color:var(--macro);}
+.pf .tm{display:block; font-size:12.5px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:4px;}
+.pf .u{display:block; font-size:12.5px; color:var(--ink3); line-height:1.55; word-break:break-all;}
+.pf a.b{border-left-color:var(--corp);} .pf a.b .tm{color:var(--corp);} .pf a.b:hover{border-color:var(--corp);}
+.pf a.c{border-left-color:var(--bridge);} .pf a.c .tm{color:var(--bridge);} .pf a.c:hover{border-color:var(--bridge);}
+/* ネットキャッシュの記入表 */
+table.nc{width:100%; border-collapse:collapse; font-size:14px; margin:12px 0 4px;}
+table.nc th, table.nc td{border-bottom:1px solid var(--line2); padding:8px 9px; text-align:left; vertical-align:middle;}
+table.nc thead th{border-bottom:2px solid var(--line); font-size:12px; color:var(--ink3); letter-spacing:.04em;}
+table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
+@media print{ .pf a{border:1px solid #ccc;} }
+</style>
+<style>
+/* ---------- 前回回答できなかった質問（第6回の書式をそのまま使う） ---------- */
+/* 分類タグ。色の意味は既存の変数に合わせる（macro＝マクロの論点／corp＝株と実務） */
+.tag.m{background:var(--macro-bg); color:var(--macro);}
+.tag.c{background:var(--corp-bg); color:var(--corp);}
+.tag.w{background:var(--word-bg); color:var(--word);}
+.qtags{display:inline;}
+.meta a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+/* 教室で出た答え／着地点 */
+#qa .q .said, #qa .q .hint{
+  display:block; margin-top:7px; padding-left:11px;
+  font-size:13.5px; line-height:1.7; color:var(--ink2);
+}
+#qa .q .said{border-left:3px solid var(--q-line);}
+#qa .q .hint{border-left:3px solid var(--bridge);}
+#qa .q .lb{font-weight:800; letter-spacing:.04em; margin-right:5px;}
+#qa .q .said .lb{color:var(--ink3);}
+#qa .q .hint .lb{color:var(--bridge);}
+/* Q番号を3つのまとまりをまたいで通す */
+#qa{counter-reset:qq;}
+#qa .q{counter-reset:none;}
+#qa h3{margin-top:26px;}
+#qa h3:first-of-type{margin-top:18px;}
+</style>
+<style>
+/* ---------- 記入欄・宿題 ---------- */
+.entry{background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px;
+  padding:12px 16px; margin:10px 0; font-size:15px; line-height:2.2;}
+.entry b{font-weight:800;}
+.entry .blank{min-width:96px; margin:0 4px;}
+.entry .wide{min-width:100%;}
+.chain a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+</style>
+<style>
+/* ---------- 9/19 追記：図（第7回の書式をそのまま使う） ---------- */
+.fig{margin:14px 0 6px; padding:14px 12px 10px; background:var(--bg); border:1px solid var(--line); border-radius:12px;}
+.fig svg{width:100%; height:auto; display:block; font-family:inherit;}
+.fig .cap{font-size:13px; color:var(--ink3); margin:8px 4px 0; line-height:1.6;}
+.fig .ax{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .gl{stroke:var(--line2); stroke-width:1; fill:none;}
+.fig .zl{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .ln{fill:none; stroke-width:2.8; stroke-linejoin:round;}
+.fig .ln.a{stroke:var(--macro);} .fig .ln.b{stroke:var(--corp);} .fig .ln.c{stroke:var(--bridge);}
+.fig .vl{stroke:var(--down); stroke-width:1.5; stroke-dasharray:5 4; fill:none;}
+.fig .tick{font-size:11.5px; fill:var(--ink3);}
+.fig .lab{font-size:12.5px; font-weight:700; fill:var(--ink);}
+.fig .lab.c{fill:var(--corp);}
+.fig .val{font-size:12px; font-weight:800; fill:var(--ink2); font-variant-numeric:tabular-nums;}
+.fig .bar.a{fill:var(--macro);} .fig .bar.b{fill:var(--corp);} .fig .bar.c{fill:var(--bridge);}
+.fig a{fill:var(--macro);}
+/* この回の問いは「問」番号で、3つの節をまたいで通す */
+body{counter-reset:qq;}
+.q{counter-reset:none;}
+section.topic .q>li::before{content:"問" counter(qq);}
+section.topic .q>li{padding-left:50px;}
+section.topic .q .hint{display:block; margin-top:7px; padding-left:11px; border-left:3px solid var(--bridge);
+  font-size:13.5px; line-height:1.7; color:var(--ink2);}
+section.topic .q .hint .lb{font-weight:800; letter-spacing:.04em; margin-right:5px; color:var(--bridge);}
+.pfnote{font-size:13.5px; color:var(--ink2); line-height:1.75; margin:10px 0 0;}
+/* 4つの立場のカード（2×2） */
+.four{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0 4px;}
+@media(max-width:640px){ .four{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="lecture_20260908.html">第6回 9/8 講義資料</a>
+  <a href="lecture_20260915.html">第7回 9/15 講義資料</a>
+  <a href="lecture_20260922.html">第8回 9/22 講義資料</a>
+  <a href="../reviews/lecture_review_20260922.html">第8回 9/22 答えが出なかった問い</a>
+  <span class="cur">第9回 9/29 講義資料</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 講義資料　夏期集中講座 第9回</div>
+  <h1 class="title">米中首脳会談（9/24）、オプションの4つの立場、チーム別ポートフォリオ分析</h1>
+  <div class="meta">
+    <span><b>講義</b>　2026年9月29日（火）16:20から約30分</span>
+    <span><b>作成</b>　2026年9月25日（金）</span>
+    <span><b>数字の時点</b>　2026年9月24日の終値・報道</span>
+  </div>
+  <div class="lede">
+    <ul class="three">
+      <li><strong>9/24 米中首脳会談　貿易休戦の期限を1月10日まで2か月延長</strong></li>
+      <li><strong>オプションの4つの立場　コールとプット、それぞれに買いと売り</strong></li>
+      <li><strong>チーム別ポートフォリオ分析　配分・効いた出来事・組み替える条件</strong></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>この資料の構成（約30分）</h2>
+  <ol>
+    <li><a href="#s-uscn">米中首脳会談（9/24）</a> <span class="s">― 5分。決まったことと先送りされたこと。問1</span></li>
+    <li><a href="#s-opt">オプションの4つの立場</a> <span class="s">― 13分。図1。損益分岐点まで。問2〜問4</span></li>
+    <li><a href="#s-pf">チーム別ポートフォリオ分析</a> <span class="s">― 12分。TradingViewの3リンク。問5・問6</span></li>
+    <li><a href="#s-hw">宿題</a> <span class="s">― 1行</span></li>
+  </ol>
+</nav>
+
+<!-- ============ §1 米中首脳会談 ============ -->
+<section class="topic" id="s-uscn">
+  <span class="badge macro">§1 マクロ</span>
+  <h2 class="thead">米中首脳会談（2026年9月24日・ホワイトハウス）</h2>
+  <p class="sub">トピックだけ。すべて報道ベース。合意文書の詳細は会談当日には公表されていない。</p>
+
+  <ul class="facts">
+    <li><b>9/23</b>　習近平国家主席がアンドルーズ空軍基地に到着<span class="st p2">報道</span></li>
+    <li><b>9/24</b>　ホワイトハウスで首脳会談。議題は台湾・貿易・AI・イラン・薬物密輸<span class="st p2">報道</span></li>
+    <li><b>9/24</b>　中国・豪州の主要レアアース株が0.5〜2%程度下落<span class="st p2">報道</span></li>
+  </ul>
+
+  <div class="twocol">
+    <div class="card c">
+      <div class="ch">決まったこと</div>
+      <p><b>貿易休戦（通称・釜山合意）の期限延長。</b>11月10日から1月10日へ、2か月。ベッセント財務長官が発表<span class="st p2">報道</span></p>
+    </div>
+    <div class="card b">
+      <div class="ch">検討中・先送り</div>
+      <p><b>関税引き下げ 約300億ドル</b>　安保リスクの低い品目。検討中で、合意ではない<span class="st p2">報道</span></p>
+      <p><b>台湾向け武器の追加売却 約140億ドル</b>　数か月保留のまま<span class="st p2">報道</span></p>
+      <p><b>AI</b>　安保上の脅威を相互に通知する枠組みを協議<span class="st p2">報道</span></p>
+      <p><b>より大きな合意</b>　ベッセント氏「可能かは分からない」<span class="st p2">報道</span></p>
+    </div>
+  </div>
+
+  <ol class="q">
+    <li><b>休戦の延長が決まった日に、レアアース株は下がった。何が予想を下回ったのか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260901.html">第5回</a>の式「値段が動く幅 ＝ 出てきた事実 − すでに織り込まれていた予想」。事実の欄に「2か月延長」、予想の欄に何が入っていたかを言う。</span></li>
+  </ol>
+</section>
+
+<!-- ============ §2 オプション ============ -->
+<section class="topic" id="s-opt">
+  <span class="badge word">§2 オプション</span>
+  <h2 class="thead">オプションの4つの立場（コール・プット × 買い・売り）</h2>
+  <p class="sub">第8回 <a href="lecture_20260922.html#s-opt">§5</a> の続き。第8回はコールだけ。今回はプットを足して4つにし、損益分岐点まで。</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">商品</div><div class="v">日経225<br>オプション</div><div class="n">大阪取引所。取引単位は1,000倍<span class="st p1">一次</span></div></div>
+    <div class="kpi m"><div class="k">原資産</div><div class="v">日経平均株価</div><div class="n">9/24終値 65,513円99銭<span class="st p2">報道</span></div></div>
+    <div class="kpi"><div class="k">期日</div><div class="v">10月限 SQ</div><div class="n">10/9（金）。各限月の第2金曜日<span class="st p1">一次</span></div></div>
+  </div>
+
+  <div class="four">
+    <div class="card">
+      <div class="ch">コールの買い ── 買う権利を買う</div>
+      <p>プレミアムを<b>払う。</b>証拠金は要らない。</p>
+      <p>不利なら権利を使わずに終わる。</p>
+    </div>
+    <div class="card b">
+      <div class="ch">コールの売り ── 買う権利を売る</div>
+      <p>プレミアムを<b>受け取る。</b>証拠金を差し入れる。</p>
+      <p>買い手が権利を使えば、断れない。</p>
+    </div>
+    <div class="card">
+      <div class="ch">プットの買い ── 売る権利を買う</div>
+      <p>プレミアムを<b>払う。</b>証拠金は要らない。</p>
+      <p>不利なら権利を使わずに終わる。</p>
+    </div>
+    <div class="card b">
+      <div class="ch">プットの売り ── 売る権利を売る</div>
+      <p>プレミアムを<b>受け取る。</b>証拠金を差し入れる。</p>
+      <p>買い手が権利を使えば、断れない。</p>
+    </div>
+  </div>
+
+  <h3>4つの立場の満期損益</h3>
+  <div class="fig">
+  <svg viewBox="0 0 960 600" role="img" aria-label="権利行使価格65,000円、コールのプレミアム800円、プットのプレミアム500円の設例で、コールとプットの買いと売り、4つの立場の満期損益を示す4枚の折れ線">
+    <text class="lab" x="70" y="22">コールの買い</text>
+    <path class="gl" d="M70,74 L455,74 M70,194 L455,194"/>
+    <path class="zl" d="M70,134 L455,134"/>
+    <path class="ax" d="M70,44 L70,224"/>
+    <text class="tick" x="64" y="78" text-anchor="end">+1,000</text>
+    <text class="tick" x="64" y="138" text-anchor="end">0</text>
+    <text class="tick" x="64" y="198" text-anchor="end">−1,000</text>
+    <text class="tick" x="70.0" y="242" text-anchor="middle">63,000</text>
+    <text class="tick" x="262.5" y="242" text-anchor="middle">65,000</text>
+    <text class="tick" x="455.0" y="242" text-anchor="middle">67,000</text>
+    <path class="vl" d="M339.5,44 L339.5,224"/>
+    <text class="lab c" x="344.5" y="218" text-anchor="start">損益分岐 65,800</text>
+    <path class="ln a" d="M70.0,182.0 L262.5,182.0 L455.0,62.0"/>
+    <text class="val" x="166.2" y="198" text-anchor="middle">−800</text>
+    <text class="val" x="455.0" y="54" text-anchor="end">+1,200</text>
+    <text class="lab" x="550" y="22">コールの売り</text>
+    <path class="gl" d="M550,74 L935,74 M550,194 L935,194"/>
+    <path class="zl" d="M550,134 L935,134"/>
+    <path class="ax" d="M550,44 L550,224"/>
+    <text class="tick" x="544" y="78" text-anchor="end">+1,000</text>
+    <text class="tick" x="544" y="138" text-anchor="end">0</text>
+    <text class="tick" x="544" y="198" text-anchor="end">−1,000</text>
+    <text class="tick" x="550.0" y="242" text-anchor="middle">63,000</text>
+    <text class="tick" x="742.5" y="242" text-anchor="middle">65,000</text>
+    <text class="tick" x="935.0" y="242" text-anchor="middle">67,000</text>
+    <path class="vl" d="M819.5,44 L819.5,224"/>
+    <text class="lab c" x="824.5" y="48" text-anchor="start">損益分岐 65,800</text>
+    <path class="ln b" d="M550.0,86.0 L742.5,86.0 L935.0,206.0"/>
+    <text class="val" x="646.2" y="78" text-anchor="middle">+800</text>
+    <text class="val" x="935.0" y="222" text-anchor="end">−1,200</text>
+    <text class="lab" x="70" y="312">プットの買い</text>
+    <path class="gl" d="M70,364 L455,364 M70,484 L455,484"/>
+    <path class="zl" d="M70,424 L455,424"/>
+    <path class="ax" d="M70,334 L70,514"/>
+    <text class="tick" x="64" y="368" text-anchor="end">+1,000</text>
+    <text class="tick" x="64" y="428" text-anchor="end">0</text>
+    <text class="tick" x="64" y="488" text-anchor="end">−1,000</text>
+    <text class="tick" x="70.0" y="532" text-anchor="middle">63,000</text>
+    <text class="tick" x="262.5" y="532" text-anchor="middle">65,000</text>
+    <text class="tick" x="455.0" y="532" text-anchor="middle">67,000</text>
+    <path class="vl" d="M214.4,334 L214.4,514"/>
+    <text class="lab c" x="209.4" y="508" text-anchor="end">損益分岐 64,500</text>
+    <path class="ln a" d="M70.0,334.0 L262.5,454.0 L455.0,454.0"/>
+    <text class="val" x="358.8" y="470" text-anchor="middle">−500</text>
+    <text class="val" x="70.0" y="326" text-anchor="start">+1,500</text>
+    <text class="lab" x="550" y="312">プットの売り</text>
+    <path class="gl" d="M550,364 L935,364 M550,484 L935,484"/>
+    <path class="zl" d="M550,424 L935,424"/>
+    <path class="ax" d="M550,334 L550,514"/>
+    <text class="tick" x="544" y="368" text-anchor="end">+1,000</text>
+    <text class="tick" x="544" y="428" text-anchor="end">0</text>
+    <text class="tick" x="544" y="488" text-anchor="end">−1,000</text>
+    <text class="tick" x="550.0" y="532" text-anchor="middle">63,000</text>
+    <text class="tick" x="742.5" y="532" text-anchor="middle">65,000</text>
+    <text class="tick" x="935.0" y="532" text-anchor="middle">67,000</text>
+    <path class="vl" d="M694.4,334 L694.4,514"/>
+    <text class="lab c" x="689.4" y="338" text-anchor="end">損益分岐 64,500</text>
+    <path class="ln b" d="M550.0,514.0 L742.5,394.0 L935.0,394.0"/>
+    <text class="val" x="838.8" y="386" text-anchor="middle">+500</text>
+    <text class="val" x="580.0" y="512" text-anchor="start">−1,500</text>
+    <text class="tick" x="480" y="594" text-anchor="middle">横軸：満期日（SQ）の日経平均株価　縦軸：損益（指数ポイント）</text>
+  </svg>
+  <div class="cap">図1　<b>設例。</b>権利行使価格65,000円、プレミアムはコール800円・プット500円。<b>実在の建玉でも実際の気配値でもない。</b>縦軸は指数ポイントで、取引単位1,000倍により<b>100ポイントは10万円。</b>手数料・税・証拠金の金利は入っていない。青は買い手、橙は売り手。</div>
+  </div>
+
+  <div class="formula">
+    <code>コールの損益分岐点 ＝ 権利行使価格 ＋ プレミアム</code><br>
+    <code>プットの損益分岐点 ＝ 権利行使価格 − プレミアム</code>
+    <span class="n">買い手と売り手で分岐点は同じ。<b>同じ点を境に、損益の符号が逆になる。</b></span>
+  </div>
+
+  <ol class="q">
+    <li><b>「上がる」「下がる」「上がらない」「下がらない」。4つの見方を、4つの立場に1つずつ割り振る。</b>
+      <span class="hint"><span class="lb">着地点</span>図1の線が右上がりか右下がりか、水平の部分がどちら側にあるか。<b>「上がらない」と「下がる」は同じ見方ではない。</b></span></li>
+
+    <li><b>損が限られている立場はどれとどれか。限られていない立場が、証拠金を求められるのはなぜか。</b>
+      <span class="hint"><span class="lb">着地点</span>第8回 <a href="lecture_20260922.html#s-opt">§5</a> 問7の続き。<b>受け取る額は最初に決まり、払う額は決まっていない。</b>第6回の空売りと同じ形。</span></li>
+
+    <li><b>プットを売った。SQの日経平均が63,000円だった。損益は何円か。</b>
+      <span class="hint"><span class="lb">着地点</span>式を口で言ってから数字を入れる。指数ポイントで出し、<b>1,000倍して円に直す。</b>受け取ったプレミアムを足し忘れない。</span></li>
+  </ol>
+
+  <div class="rel">
+    <b>数字の出どころ</b>　図1の権利行使価格・プレミアムは<b>設例</b>。取引単位1,000倍・ヨーロピアンタイプ・SQの決まりは<b>日本取引所グループ「日経225オプション」の商品概要</b><span class="st p1">一次</span>。日経平均の終値は報道ベース<span class="st p2">報道</span>。<b>受講者の保有建玉は載せていない。</b>
+  </div>
+</section>
+
+<!-- ============ §3 チーム別ポートフォリオ分析 ============ -->
+<section class="topic" id="s-pf">
+  <span class="badge corp">§3 チーム</span>
+  <h2 class="thead">チーム別ポートフォリオ分析（3チーム・9/16から9/24まで）</h2>
+  <p class="sub">各チーム、自分のリンクを開いて報告する。持ち時間は3チーム合わせて12分。</p>
+
+  <div class="pf">
+    <a href="https://jp.tradingview.com/portfolios/96d42da1b31d4f47b13c34536ff7f36e/" target="_blank" rel="noopener"><span class="tm">Aチーム</span><span class="u">jp.tradingview.com/portfolios/96d42da1…</span></a>
+    <a class="b" href="https://jp.tradingview.com/portfolios/12725df68d9d44b79c1d2e74b1b9eb85/" target="_blank" rel="noopener"><span class="tm">Bチーム</span><span class="u">jp.tradingview.com/portfolios/12725df6…</span></a>
+    <a class="c" href="https://www.tradingview.com/portfolios/2fd709d801b343a2935bca992c72e9ce/" target="_blank" rel="noopener"><span class="tm">Cチーム</span><span class="u">www.tradingview.com/portfolios/2fd709d8…</span></a>
+  </div>
+
+  <h3>分析の4点</h3>
+  <ol class="chain">
+    <li><b>前回比 ±%</b>　基準日と評価通貨を必ず言う</li>
+    <li><b>配分</b>　業種ごと・国（通貨）ごとの割合。<b>比率が最大の1銘柄と、その比率</b></li>
+    <li><b>効いた出来事</b>　9/16 FOMC・9/18 日銀・9/24 米中首脳会談のどれが、どの銘柄に効いたか。効いていないなら、効いていないと言う</li>
+    <li><b>組み替える条件</b>　保有銘柄1つについて1行。数値を入れる</li>
+  </ol>
+
+  <ol class="q">
+    <li><b>比率が最大の銘柄が1割下がった。ポートフォリオ全体は何%下がるか。</b>
+      <span class="hint"><span class="lb">着地点</span>全体の下げ ＝ その銘柄の比率 × 10%。<b>分母はポートフォリオ全体の評価額。</b>1銘柄の騰落率と全体の騰落率を混ぜない。</span></li>
+
+    <li><b>自チームの保有株の下げに備えるなら、図1の4つの立場のどれを取るか。保有株と合わせた損益の形はどうなるか。</b>
+      <span class="hint"><span class="lb">着地点</span>§2 図1。<b>払ったプレミアムの分だけ、上がったときの利益が減る。</b>日経225オプションは指数なので、<b>個別銘柄の下げとは一致しない。</b></span></li>
+  </ol>
+
+  <div class="rel"><b>ポートフォリオの扱い</b>　各チームのリンクは TradingView のポートフォリオ。<b>この資料には保有銘柄も評価額も書かない。</b>教室で数字を読み上げるときは、<b>基準日と評価通貨をそのつど言うこと。</b></div>
+</section>
+
+<!-- ============ 宿題 ============ -->
+<section class="topic" id="s-hw">
+  <span class="badge corp">宿題</span>
+  <h2 class="thead">宿題</h2>
+  <div class="hw">
+    <div class="hwtime">提出は次回講義日の 12:00 まで、HTMLで</div>
+    <div class="hwttl">自チームで比率が最大の銘柄を、日経225のプットの買いで守るとしたら、権利行使価格をいくらに置くか。理由を1行。</div>
+  </div>
+</section>
+
+<footer>
+  <h2>数字の扱いについて</h2>
+  <ul>
+    <li><b>§1の米中首脳会談の内容は、すべて報道ベース。</b>合意文書の詳細は会談当日に公表されていない。<b>約300億ドルの関税引き下げは検討中の内容で、正式合意ではない。</b>レアアース株の0.5〜2%は、9/24の複数銘柄の下落幅を報道がまとめた概数。</li>
+    <li><b>日経平均の65,513円99銭は9/24の終値</b>で、報道ベース。講義日までにさらに動く。</li>
+    <li><b>図1はすべて設例。</b>権利行使価格65,000円・プレミアム800円（コール）・500円（プット）は、実在の気配値ではない。</li>
+    <li><b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b></li>
+  </ul>
+  <div class="src">
+    <b>出典</b>
+    <ul>
+      <li><span class="st p1">一次</span>日本取引所グループ 日経225オプション 商品概要 — <a href="https://www.jpx.co.jp/derivatives/products/domestic/225options/index.html" target="_blank" rel="noopener">jpx.co.jp/derivatives/products/domestic/225options/</a></li>
+      <li><span class="st p2">報道</span>Trump-Xi summit: Leaders meet at White House amid tensions over Taiwan, trade and AI（NBC News・9/24） — <a href="https://www.nbcnews.com/world/asia/trump-xi-summit-meet-white-house-tensions-taiwan-trade-ai-rcna598073" target="_blank" rel="noopener">nbcnews.com/world/asia/trump-xi-summit-meet-white-house-tensions-taiwan-trade-ai-rcna598073</a></li>
+      <li><span class="st p2">報道</span>米中、貿易休戦を1月10日まで2カ月延長－ベッセント財務長官が表明（Bloomberg・9/24） — <a href="https://finance.yahoo.co.jp/news/detail/b32c65af067b9ad75b52ef302470a959eaa02798" target="_blank" rel="noopener">finance.yahoo.co.jp/news/detail/b32c65af067b9ad75b52ef302470a959eaa02798</a></li>
+      <li><span class="st p2">報道</span>米中、「貿易休戦」を1月まで延長 ベセント米財務長官（AFPBB News） — <a href="https://www.afpbb.com/articles/-/3654109" target="_blank" rel="noopener">afpbb.com/articles/-/3654109</a></li>
+      <li><span class="st p2">報道</span>米中貿易休戦が1月まで延長、アジアのレアアース株が下落（Investing.com・9/24） — <a href="https://jp.investing.com/news/stock-market-news/article-1690210" target="_blank" rel="noopener">jp.investing.com/news/stock-market-news/article-1690210</a></li>
+      <li><span class="st p2">報道</span>日経平均大引け：前日比495.04円高の65513.99円（財経新聞・9/24） — <a href="https://www.zaikei.co.jp/article/20260924/871065.html" target="_blank" rel="noopener">zaikei.co.jp/article/20260924/871065.html</a></li>
+    </ul>
+  </div>
+  <div class="next">
+    <b>前回（第8回・9/22）</b>　<a href="lecture_20260922.html">日米政策金利上げ、オプション取引</a>。§5 にコールの満期損益（第8回の図4）。／<a href="../reviews/lecture_review_20260922.html">第8回で答えが出なかった問い（全18問）</a><br>
+    <b>関連</b>　<a href="lecture_20260908.html">米中間選挙の現在地／信用取引</a>（第6回。空売りと証拠金）／<a href="lecture_20260901.html">第5回</a>（値段が動く式）
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
