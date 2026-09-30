@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講義資料 第10回｜2026年10月6日 欧州の選挙結果と世論調査（2026年9月）、ストラドルとストラングル、チーム別ポートフォリオ分析</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 第4回で追加したパーツ ---------- */
+.promptbox{background:var(--note-bg); border:1px solid var(--line); border-left:4px solid var(--word);
+  border-radius:0 10px 10px 0; padding:15px 17px; margin:12px 0;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px; line-height:1.95; white-space:pre-wrap; word-break:break-word; color:var(--ink);}
+.promptbox .cap{display:block; font-family:inherit; font-size:11.5px; font-weight:800;
+  letter-spacing:.09em; color:var(--word); margin-bottom:8px;}
+.twocol{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; margin:14px 0 4px;}
+.card{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.card .ch{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:6px;}
+.card.b .ch{color:var(--corp);} .card.c .ch{color:var(--bridge);} .card.d .ch{color:var(--word);}
+.card p{margin:0; font-size:14.5px; line-height:1.75;}
+.card p+p{margin-top:8px;}
+.quote{border-left:4px solid var(--word); background:var(--word-bg); border-radius:0 9px 9px 0;
+  padding:13px 17px; margin:13px 0; font-size:15px; line-height:1.9;}
+.quote .src2{display:block; font-size:12.5px; color:var(--ink3); font-weight:700; margin-top:7px;}
+table.cmp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.cmp th, table.cmp td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+table.cmp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+table.cmp td.h{font-weight:700; color:var(--ink); width:22%;}
+@media (max-width:640px){ .promptbox{font-size:12px;} }
+</style>
+<style>
+/* ---------- 第5回で追加したパーツ ---------- */
+/* サプライズ表（実績 − 予想） */
+table.surp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.surp th, table.surp td{border-bottom:1px solid var(--line2); padding:9px 10px; text-align:right; vertical-align:top;}
+table.surp th:first-child, table.surp td:first-child{text-align:left;}
+table.surp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em; text-align:right;}
+table.surp thead th:first-child{text-align:left;}
+table.surp td.num{font-variant-numeric:tabular-nums;}
+table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
+/* 答え合わせカード */
+.ac{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+    background:var(--bg); padding:14px 16px; margin-bottom:10px;}
+.ac .qq{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:5px;}
+.ac .aa{font-size:15px; line-height:1.75; margin:0;}
+.ac .aa b{font-weight:800;}
+.ac.miss{border-left-color:var(--corp);}
+.ac.miss .qq{color:var(--corp);}
+/* 時点ラベル（同じ銘柄・違う時点） */
+.snap{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:2px;
+      background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 6px;}
+.snap div{background:var(--panel); padding:12px 14px;}
+.snap .w{font-size:11.5px; color:var(--ink3); font-weight:800; letter-spacing:.04em; margin-bottom:4px; line-height:1.45;}
+.snap .r{font-size:19px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.3;}
+.snap .r.up{color:var(--up);} .snap .r.down{color:var(--down);}
+.snap .z{font-size:12px; color:var(--ink2); margin-top:3px; line-height:1.55;}
+</style>
+<style>
+/* ---------- リードの3点箇条書き（第6回で追加） ---------- */
+/* リードの3点箇条書き */
+.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
+.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
+.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
+  width:5px; height:5px; border-radius:50%; background:var(--macro);}
+.lede ul.three strong{border-bottom:none; padding-bottom:0;}
+</style>
+<style>
+/* ---------- ポートフォリオ報告・ネットキャッシュ（第5回で追加） ---------- */
+.pf{display:grid; grid-template-columns:repeat(auto-fit,minmax(238px,1fr)); gap:11px; margin:14px 0 6px;}
+.pf a{display:block; border:1px solid var(--line); border-left:4px solid var(--macro);
+      border-radius:0 10px 10px 0; background:var(--bg); padding:13px 15px;
+      text-decoration:none; color:var(--ink);}
+.pf a:hover{border-color:var(--macro);}
+.pf .tm{display:block; font-size:12.5px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:4px;}
+.pf .u{display:block; font-size:12.5px; color:var(--ink3); line-height:1.55; word-break:break-all;}
+.pf a.b{border-left-color:var(--corp);} .pf a.b .tm{color:var(--corp);} .pf a.b:hover{border-color:var(--corp);}
+.pf a.c{border-left-color:var(--bridge);} .pf a.c .tm{color:var(--bridge);} .pf a.c:hover{border-color:var(--bridge);}
+/* ネットキャッシュの記入表 */
+table.nc{width:100%; border-collapse:collapse; font-size:14px; margin:12px 0 4px;}
+table.nc th, table.nc td{border-bottom:1px solid var(--line2); padding:8px 9px; text-align:left; vertical-align:middle;}
+table.nc thead th{border-bottom:2px solid var(--line); font-size:12px; color:var(--ink3); letter-spacing:.04em;}
+table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
+@media print{ .pf a{border:1px solid #ccc;} }
+</style>
+<style>
+/* ---------- 前回回答できなかった質問（第6回の書式をそのまま使う） ---------- */
+/* 分類タグ。色の意味は既存の変数に合わせる（macro＝マクロの論点／corp＝株と実務） */
+.tag.m{background:var(--macro-bg); color:var(--macro);}
+.tag.c{background:var(--corp-bg); color:var(--corp);}
+.tag.w{background:var(--word-bg); color:var(--word);}
+.qtags{display:inline;}
+.meta a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+/* 教室で出た答え／着地点 */
+#qa .q .said, #qa .q .hint{
+  display:block; margin-top:7px; padding-left:11px;
+  font-size:13.5px; line-height:1.7; color:var(--ink2);
+}
+#qa .q .said{border-left:3px solid var(--q-line);}
+#qa .q .hint{border-left:3px solid var(--bridge);}
+#qa .q .lb{font-weight:800; letter-spacing:.04em; margin-right:5px;}
+#qa .q .said .lb{color:var(--ink3);}
+#qa .q .hint .lb{color:var(--bridge);}
+/* Q番号を3つのまとまりをまたいで通す */
+#qa{counter-reset:qq;}
+#qa .q{counter-reset:none;}
+#qa h3{margin-top:26px;}
+#qa h3:first-of-type{margin-top:18px;}
+</style>
+<style>
+/* ---------- 記入欄・宿題 ---------- */
+.entry{background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px;
+  padding:12px 16px; margin:10px 0; font-size:15px; line-height:2.2;}
+.entry b{font-weight:800;}
+.entry .blank{min-width:96px; margin:0 4px;}
+.entry .wide{min-width:100%;}
+.chain a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+</style>
+<style>
+/* ---------- 9/19 追記：図（第7回の書式をそのまま使う） ---------- */
+.fig{margin:14px 0 6px; padding:14px 12px 10px; background:var(--bg); border:1px solid var(--line); border-radius:12px;}
+.fig svg{width:100%; height:auto; display:block; font-family:inherit;}
+.fig .cap{font-size:13px; color:var(--ink3); margin:8px 4px 0; line-height:1.6;}
+.fig .ax{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .gl{stroke:var(--line2); stroke-width:1; fill:none;}
+.fig .zl{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .ln{fill:none; stroke-width:2.8; stroke-linejoin:round;}
+.fig .ln.a{stroke:var(--macro);} .fig .ln.b{stroke:var(--corp);} .fig .ln.c{stroke:var(--bridge);}
+.fig .vl{stroke:var(--down); stroke-width:1.5; stroke-dasharray:5 4; fill:none;}
+.fig .tick{font-size:11.5px; fill:var(--ink3);}
+.fig .lab{font-size:12.5px; font-weight:700; fill:var(--ink);}
+.fig .lab.c{fill:var(--corp);}
+.fig .val{font-size:12px; font-weight:800; fill:var(--ink2); font-variant-numeric:tabular-nums;}
+.fig .bar.a{fill:var(--macro);} .fig .bar.b{fill:var(--corp);} .fig .bar.c{fill:var(--bridge);}
+.fig a{fill:var(--macro);}
+/* この回の問いは「問」番号で、3つの節をまたいで通す */
+body{counter-reset:qq;}
+.q{counter-reset:none;}
+section.topic .q>li::before{content:"問" counter(qq);}
+section.topic .q>li{padding-left:50px;}
+section.topic .q .hint{display:block; margin-top:7px; padding-left:11px; border-left:3px solid var(--bridge);
+  font-size:13.5px; line-height:1.7; color:var(--ink2);}
+section.topic .q .hint .lb{font-weight:800; letter-spacing:.04em; margin-right:5px; color:var(--bridge);}
+.pfnote{font-size:13.5px; color:var(--ink2); line-height:1.75; margin:10px 0 0;}
+/* 4つの立場のカード（2×2） */
+.four{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0 4px;}
+@media(max-width:640px){ .four{grid-template-columns:1fr;} }
+</style>
+<style>
+/* ---------- 第10回で追加：原文＋欄外の照合、照合結果リスト ---------- */
+.legend{display:flex; flex-wrap:wrap; gap:8px 14px; margin:12px 0 4px; font-size:13px; color:var(--ink2);}
+.legend .lg{display:inline-flex; align-items:center; gap:6px;}
+.mk{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.06em; padding:2px 8px; border-radius:5px; white-space:nowrap;}
+.mk.ng{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.4);}
+.mk.sm{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+.mk.ck{background:var(--word-bg); color:var(--word); border:1px solid rgba(107,63,181,.35);}
+.mk.ev{background:var(--note-bg); color:var(--ink2); border:1px solid var(--line);}
+.mk.nt{background:var(--macro-bg); color:var(--macro); border:1px solid rgba(28,111,212,.3);}
+.mk.ok{background:var(--bridge-bg); color:var(--bridge); border:1px solid rgba(14,124,102,.35);}
+@media (prefers-color-scheme: dark){ .mk.sm{color:#d9c07a;} }
+
+.artlbl{display:block; margin:26px 0 6px; font-size:12.5px; font-weight:800; letter-spacing:.09em; color:var(--ink3); border-top:2px solid var(--line); padding-top:12px;}
+.artlbl:first-of-type{margin-top:16px;}
+.ar{display:grid; grid-template-columns:minmax(0,1fr) 262px; gap:0 20px; align-items:start;}
+.ar p.tx{margin:0 0 14px; font-size:15.5px; line-height:1.95;}
+.ar .mg{font-size:12.5px; line-height:1.65; color:var(--ink2);}
+.ar .mg .nn{border-left:3px solid var(--line); background:var(--note-bg); border-radius:0 8px 8px 0; padding:8px 11px; margin-bottom:8px;}
+.ar .mg .nn.ng{border-left-color:var(--corp);}
+.ar .mg .nn.sm{border-left-color:var(--q-line);}
+.ar .mg .nn.ck{border-left-color:var(--word);}
+.ar .mg .nn.nt{border-left-color:var(--macro);}
+.ar .mg .nn b{color:var(--ink); font-weight:800;}
+.ar .mg .nn .mk{margin-right:5px;}
+mark.ng,mark.sm,mark.ck,mark.ev,mark.nt{color:inherit; padding:0 1px; border-radius:2px;}
+mark.ng{background:rgba(184,72,15,.22); border-bottom:2px solid var(--corp);}
+mark.sm{background:rgba(224,207,148,.45); border-bottom:2px solid var(--q-line);}
+mark.ck{background:rgba(107,63,181,.16); border-bottom:2px solid var(--word);}
+mark.ev{background:rgba(120,130,145,.18); border-bottom:2px dotted var(--ink3);}
+mark.nt{background:rgba(28,111,212,.14); border-bottom:2px solid var(--macro);}
+@media (max-width:820px){
+  .ar{grid-template-columns:1fr;}
+  .ar .mg{margin:-4px 0 14px;}
+}
+@media print{ mark{background:none !important;} .ar{grid-template-columns:1fr 200px;} }
+
+.chk ul{list-style:none; margin:0; padding:0;}
+.chk h4{margin:20px 0 6px;}
+.chk li{padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.3px; line-height:1.7;}
+.chk li .lk{display:block; font-size:12.5px; color:var(--ink3); margin-top:2px; line-height:1.6;}
+.chk li .lk a{color:var(--macro); text-decoration:none; word-break:break-all; border-bottom:1px solid rgba(120,150,190,.45);}
+.hwhint{font-size:13.5px; color:var(--ink2); line-height:1.7; margin:10px 0 0; padding-left:11px; border-left:3px solid var(--bridge);}
+.hwhint .lb{font-weight:800; letter-spacing:.04em; color:var(--bridge); margin-right:5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="lecture_20260915.html">第7回 9/15 講義資料</a>
+  <a href="lecture_20260922.html">第8回 9/22 講義資料</a>
+  <a href="lecture_20260929.html">第9回 9/29 講義資料</a>
+  <span class="cur">第10回 10/6 講義資料</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 講義資料　夏期集中講座 第10回</div>
+  <h1 class="title">欧州の選挙結果と世論調査（2026年9月）、ストラドルとストラングル、チーム別ポートフォリオ分析</h1>
+  <div class="meta">
+    <span><b>講義</b>　2026年10月6日（火）16:20から</span>
+    <span><b>作成</b>　2026年9月30日（水）</span>
+    <span><b>数字の時点</b>　選挙結果は各投開票日（9/6・9/13・9/20）、世論調査は9/16</span>
+  </div>
+  <div class="lede">
+    <ul class="three">
+      <li><strong>欧州の選挙結果と世論調査　ベルリン・メクポム・ザクセン＝アンハルト・スウェーデン・オーストリア</strong></li>
+      <li><strong>ストラドルの買いとストラングルの売り　コールとプットを1本ずつ組み合わせる2つの戦略</strong></li>
+      <li><strong>チーム別ポートフォリオ分析　配分・効いた出来事・組み替える条件</strong></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>この資料の構成</h2>
+  <ol>
+    <li><a href="#s-eu">欧州の選挙結果と世論調査（2026年9月）</a> <span class="s">― 冒頭に宿題1行。原文をそのまま掲載。事実と違う点は欄外。照合できた出典つき</span></li>
+    <li><a href="#s-opt">ストラドルの買いとストラングルの売り</a> <span class="s">― 図1。損益分岐点は2つ。問1〜問3</span></li>
+    <li><a href="#s-pf">チーム別ポートフォリオ分析</a> <span class="s">― TradingViewの3リンク。問4・問5</span></li>
+  </ol>
+</nav>
+
+<!-- ============ §1 欧州の選挙・世論 ============ -->
+<section class="topic" id="s-eu">
+  <span class="badge macro">§1 マクロ</span>
+  <h2 class="thead">欧州の選挙結果と世論調査（2026年9月）</h2>
+  <h3>宿題</h3>
+  <div class="hw" id="s-hw" style="margin-bottom:18px">
+    <div class="hwtime">提出は次回講義日の 12:00 まで、HTMLで</div>
+    <div class="hwttl">下の原文にある欧州の動きは日本に波及するか。結論と、根拠の数字を1つ、1行で。</div>
+    <div class="hwhint"><span class="lb">着地点</span>原文の条件（住宅費・移民・福祉負担・世論調査の首位）のうち1つに、<b>日本の数字を当てる。</b>一次情報の在り処は、総務省統計局・国土交通省・出入国在留管理庁。</div>
+    </div>
+  <p class="sub">原文は提供された文章をそのまま掲載。ファクトと違う点・確認できなかった点は欄外（右、狭い画面では段落の下）に明記。照合は2026年9月30日時点。</p>
+
+  <div class="legend">
+    <span class="lg"><mark class="ng">　</mark><span class="mk ng">相違</span>出典の数字と違う（2）</span>
+    <span class="lg"><mark class="sm">　</mark><span class="mk sm">小差</span>丸めの範囲（1）</span>
+    <span class="lg"><mark class="ck">　</mark><span class="mk ck">未確認</span>裏が取れていない（5）</span>
+    <span class="lg"><mark class="nt">　</mark><span class="mk nt">補足</span>誤りではないが読み方に効く（2）</span>
+    <span class="lg"><mark class="ev">　</mark><span class="mk ev">評価・予測</span>照合の対象外（2）</span>
+  </div>
+
+  <span class="artlbl">原文 ①　ベルリン州議会選挙・メクレンブルク＝フォアポンメルン州議会選挙</span>
+
+  <div class="ar">
+    <p class="tx">今週9月20日に行われたベルリン州議会選挙で、<mark class="nt">極左政党と言われる「ディー・リンケ」</mark>が第一党になりました。<mark class="ck">選挙管理当局が21日に公表した暫定結果</mark>では、政党への投票にあたる第二票の得票率は25.7％。メルツ首相のキリスト教民主同盟（CDU）は18.8％でした。同じ日のメクレンブルク＝フォアポンメルン州議会選挙では、極右AfDが第一党となり、CDUは議席獲得に必要な5％を下回り、首相の党が、左右の異なる勢力に敗れた日でもありました。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>呼称</b>　「極左」は通称・評価語。媒体で呼び方が違う（Al Jazeera の見出しは "far left"、Rosa-Luxemburg-Stiftung は "Die Linke"）。日本語の表記は「左派党」「リンケ」も使われる。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>「21日に公表」</b>　25.7％と18.8％は複数の報道と一致。公表日と「暫定結果」の位置づけは確認していない。</div>
+    </div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">一方、メクレンブルク＝フォアポンメルン州、通称メクポムでは、極右のAfDが16〜24歳で<mark class="ng">36％</mark>、25〜34歳で<mark class="ck">32％</mark>。若年層では州全体の約38％を下回りますが、どちらの年代でも第一党です。つまり、地方の若者たちは、ベルリンの若者と同じ選択をしたわけではなく、極左によって固められた首都周りを極右が取り囲むような形になっています。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>16〜24歳のAfD</b>　ZDF（Infratest dimap 出口調査）は<b>35％</b>。原文は36％。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>25〜34歳のAfD 32％と「どちらの年代でも第一党」</b>　該当の数字を出典で確認できていない。州全体の38.2％は一致。</div>
+    </div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">さらに、AfDは35〜44歳で<mark class="ng">46％</mark>、45〜59歳で47％と、中年層で強い支持を集めています。ところが70歳以上になると<mark class="ck">26％</mark>に下がり、SPDが52％で過半数を占める。極左にとっての都市部若年層、極右にとっての中年層と地方の若年層、保守にとっての高齢層という、支持の濃淡が見えてきます。<mark class="ev">この傾向は、米国でも顕著です。</mark></p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>35〜44歳のAfD</b>　同じ出口調査は<b>45％</b>。原文は46％。45〜59歳の47％、70歳以上のSPD 52％は一致。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>70歳以上のAfD 26％</b>　出典で確認できていない。</div>
+      <div class="nn"><span class="mk ev">評価</span><b>「米国でも顕著」</b>　根拠の数字が示されていない。</div>
+    </div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">現在、極左と言われる「ディー・リンケ」は2007年、二つの派閥が合流して誕生しました。ひとつは、旧東ドイツの支配政党だった社会主義統一党（SED）から改組された民主社会党（PDS）。もうひとつは、SPD政権の社会保障・労働市場改革に反発した旧西ドイツ側の元SPD党員や労働組合関係者らによるWASGです。旧体制の後継という歴史と、統一後の市場重視の改革への反発が、同じ党に重なっているのが特徴です。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">その歴史を持つ党が、いま支持基盤を広げています。旧東ドイツの伝統的な支持層に加え、都市の若者や女性、移民背景をもつ住民へと支持を広げ、若返りを進めました。<mark class="ck">仏紙ルモンドによると</mark>、全国の党員数は2024年末の約6万人から2025年末には12万3,000人へ。わずか1年で、約2倍にふくれ上がったのです。</p>
+    <div class="mg">
+      <div class="nn ck"><span class="mk ck">未確認</span><b>出典の「ルモンド」</b>　数字は党公式の集計と一致（2024年末58,532人→2025年末123,558人）。ルモンドの記事そのものは見つかっていない。一次情報は党の公表値。</div>
+    </div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">党の綱領が目指すのは、資本主義を超える「民主社会主義」です。生活を支える公共サービスやインフラ、金融、エネルギーを公共的な所有と民主的な管理のもとに置く構想を持ち、富裕層への資産課税や生活費の規制も求めています。住宅会社の社会化は、その所有観が暮らしに直結する政策として現れた結果です。利益を分配する段階に加え、利益を生む資産を誰が持つかまで変えようとする。ここに、この党の急進性があります。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">筆頭候補のエリフ・エラルプが前面に掲げたのは、手の届く家賃で暮らせる街を取り戻すこと。その政策には、大手不動産会社が持つ約22万戸の住宅を公共的な所有へ移す「社会化」が含まれます。かつて公営住宅の民営化を進めた街で、今度は住宅の所有を公共側へ戻そうとする公約が支持を集めたのは、大変興味深いところです。現在、毎月の家賃という身近な問題が、街の資産を誰が持つべきかという大きな問いに変わっています。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">一体、なぜ、ここまで大きな変更を求めるのでしょうか。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">ベルリン投資銀行（IBB）の2025年版住宅市場報告によると、管理費や暖房費などを除く募集家賃の中央値は、2016年から2025年にかけて<mark class="nt">約75％上がりました</mark>。1平方メートルあたりの月額で、9ユーロから15.78ユーロへの上昇です。これは、すでに暮らしている全住民の家賃が一律に上がったという意味ではありません。公開された募集情報の数字で、これから部屋を探す人が直面する価格です。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>数字は一致</b>　2016年9.00ユーロ→2025年15.78ユーロ、+75.3％。ただし<b>2025年単年は前年比+0.04ユーロ</b>で、統計開始以来ほぼ最小の伸び（IBB）。上昇は2016〜2024年に集中している。</div>
+    </div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">たとえば、昇給しても、引っ越し先の家賃がそれ以上に高ければ、暮らしは楽になりません。仕事を選び直そうにも、通える場所に部屋がない。子供が生まれるので広い家を探すと、その家賃のために、子供と過ごす時間を減らして働かなければならなくなる。こうした状況では、経済成長率が少し上がったという話が、遠く聞こえて当然です。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">これまで、生活を支える政策の中心には、税金を集めて給付するという発想がありました。住宅費が高ければ、家賃補助を出す。ところが、借りられる部屋が足りないまま補助を増やすと、その一部が家賃の上昇に吸収される可能性があります。住民を助けるために使った税金が、結果として所有者の収入を支える。供給が追いつかない住宅市場では、そんな矛盾も起こりえます。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">そこで出てくるのが、家賃を払う人への支援とともに、家賃が決まる仕組みを変えよう、という要求です。さらに進めば、住宅を誰が所有し、そこから生まれる収益を何に使うのかまで、政治の争点になる。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">そもそも、街の価値は、建物の所有者だけがつくるものではありません。鉄道が便利になり、学校が整い、近所に良い店ができる。音楽家が集まり、夜に人が歩き、街の名前が知られるようになる。そこで暮らし、働く人たちの活動が、場所の魅力を育てます。ところが、その魅力が家賃に反映されると、街を面白くした店や人が、そこに居続けられなくなっていく。街を育てた人々が、その成功によって街から押し出される。このねじれを、どう解くのか。ベルリンの選挙は、住宅をめぐるそんな問いに他ならないのです。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">果たして、政権が変われば、街をつくる人が、その街で暮らし続けられるのでしょうか？<br>それとも、この問いに答えられない都市から、本格的に「あたらしい社会主義」は広がっていくのでしょうか？</p>
+    <div class="mg"></div>
+  </div>
+
+  <span class="artlbl">原文 ②　スウェーデン総選挙</span>
+
+  <div class="ar">
+    <p class="tx">今週9月13日、スウェーデンで総選挙が行われました。結果は、中道左派の野党ブロックが176議席、与党側が173議席という僅差で野党が過半数を取りました。差は約5万票で、投票率は約<mark class="sm">84.8％</mark>。つまり国家が真っ二つに割れた形です。</p>
+    <div class="mg">
+      <div class="nn sm"><span class="mk sm">小差</span><b>投票率</b>　集計は<b>84.9％</b>（6,834,413票、前回比+0.7ポイント）。議席176対173、票差50,359票は一致。</div>
+    </div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">スウェーデンは長いあいだ、開かれた社会と手厚い福祉を両立させた「北欧モデル」の象徴でした。高い税金を負担する代わりに、医療、教育、育児、老後を国家が支える。その制度を成立させていたのは、お金だけではありません。<br>自分が払った税金は、同じ社会を構成する誰かのために使われる。そして、自分が困ったときには社会が助けてくれる。この相互信頼こそが、北欧型福祉国家の見えない通貨でした。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">ところが、2015年の欧州難民危機で、人口約1000万人のスウェーデンは、年間16万人を超える難民申請者を受け入れました。人口比で考えれば、世界でも突出した規模です。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">その後、移民の統合、住宅不足、学校の分断、福祉負担、ギャング犯罪などが政治の中心課題になりました。2022年の総選挙では、移民抑制を掲げるスウェーデン民主党が20.5％を獲得し、議会第二党にまで躍進しています。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">そして今回の選挙でも、移民、犯罪、治安、国防が大きな争点になりました。ただし、移民に厳しい政策を支持する人々が、同時に福祉国家の解体を望んでいるわけではありません。<br>むしろ逆で、医療を守ってほしい。年金を守ってほしい。電気代が上がれば補助してほしい。子育て世帯を支援してほしい。犯罪から地域を守ってほしい。そして、自国民の生活を最優先してほしい。つまり、有権者が求めているのは小さな政府ではありません。<br>「自分たちのために働く、大きくて強い政府」です。かつての右派は、小さな政府、減税、規制緩和、自由貿易を掲げました。かつての左派は、大きな政府、再分配、労働者保護、国際連帯を掲げました。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">しかし、現在の有権者は、この二つの思想を奇妙な形で組み合わせ始めています。移民と国境については右派。賃金、住宅、医療、教育、エネルギーについては左派。文化的には保守的で、経済的には国家介入を求める。<br>外国から入ってくる人には厳しく、国内にいる人には手厚くする。自由貿易には懐疑的ですが、生活補助には積極的です。この新しい政治を、従来の「右か左か」という一本の線で理解することはできません。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">そもそも、なぜこのような変化が起きたのでしょうか。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">この30年間、グローバリゼーションはテレビ、衣服、家具、スマートフォンを安くしました。その一方で、住宅、医療、教育、エネルギー、老後という、人生に不可欠なものは高くなりました。人々は安い商品を手に入れましたが、安定した人生を失いました。<br>GDPは増えても、自分の給料は増えない。株価は上昇しても、家を買えない。街には新しい店が増えても、自分が育った地域には住めない。移民が経済成長に必要だと説明されても、学校や病院や住宅の混雑は自分たちが引き受ける。エリートは「経済全体では得をしている」と説明します。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">しかし、有権者が見ているのは経済全体ではありません。自分の家賃、自分の電気代、自分の子供が通う学校、自分の街の治安です。このずれが、世界各地で中道政党やエリート官僚システムを破壊しています。<br><mark class="ev">おそらく2030年代前半までに、世界の主要民主国家から、従来型の中道政治は急速に消えていくでしょう。</mark>右派政党は、小さな政府や自由貿易へのこだわりを捨て、国境管理、関税、産業補助金、家族給付、エネルギー価格統制を組み合わせます。左派政党も、無制限の国際連帯を諦め、福祉制度を維持するために移民を選別し、給付を受けられる人の範囲を狭めるようになります。</p>
+    <div class="mg">
+      <div class="nn"><span class="mk ev">予測</span><b>「2030年代前半までに中道政治は消える」</b>　予測であり、照合できる事実ではない。</div>
+    </div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">国境は右へ、経済は左へ。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">果たして、それは崩れかけた民主主義を守る防波堤になるのでしょうか。<br>それとも、人々を静かに選別する巨大な装置になるのでしょうか。</p>
+    <div class="mg"></div>
+  </div>
+
+  <span class="artlbl">原文 ③　オーストリア・ウィーン</span>
+
+  <div class="ar">
+    <p class="tx">今週は、ウィーンにいます。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">地中海の光から一転して、この街は、もう秋模様。街路樹が色づき始めた通りを歩いていると、ヨーロッパの都市のなかでも、文化的厚みからウィーンほど「かつて世界の中心だった」ことがにじみ出る街はないと、あらためて思います。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">ただ、今回この街に来て最初に感じたのは、建築の重厚さでも音楽の気配でもなく、政治圧の変化でした。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">現在のオーストリアで世論調査の首位に立っているのは、極右と言われる自由党（FPO）です。<mark class="ck">世論調査を集計するPolitProの9月16日時点の推計では38.7％。首相を出している国民党の21.1％</mark>を、大きく引き離しています。2024年秋の総選挙で自由党は28.8％を得て、初めて第一党になりました。<br>しかし、極右の自由党を阻止すべく、連立交渉を経て2025年3月に発足したのは、シュトッカー首相率いる国民党・社民党・リベラル政党NEOSの三党連立でした。それから一年半、自由党は野党のまま支持を広げています。<br>キックルは支持率の高さから、自らを「国民宰相（フォルクスカンツラー）」と呼んでいます。ナチス時代を想起させるとして批判されてきた呼称を使う政治家が、次の政権を着実にうかがっている。それが、2026年秋のオーストリアです。</p>
+    <div class="mg">
+      <div class="nn ck"><span class="mk ck">未確認</span><b>PolitPro 9/16時点の38.7％・21.1％</b>　9/30時点の表示は自由党38.0％・国民党21.3％で近い値。集計は更新されるため、9/16の値そのものは確認できていない。2024年の28.8％、2025年3月の三党連立は一致。</div>
+    </div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">ところが、レストランやカフェに座っていると、その気配はまったく感じられません。ウィーン市そのものは1945年以来、社民党が市政を率いてきた「赤いウィーン」で、2025年の選挙後も社民党とNEOSの連立が続いています。全国では自由党が伸びても、首都は別の政治を選んでいる。現在、欧州で顕著なのは、こうした大都市と国全体の温度差です。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">地図を見ると、ウィーンが東西の接点であることがよくわかります。ウィーンはプラハよりも東にあり、スロバキアの首都ブラティスラバまでは直線距離で約55キロ。僕自身、何度も国境を越えて、タクシーで移動したことがあります。かつて冷戦時代、鉄のカーテンはすぐ東に引かれていました。<br>いま、その向こうにはスロバキアのフィツォ政権、昨年12月に返り咲いたチェコのバビシュ政権があります。一方、ハンガリーでは今年4月、16年続いたオルバーン政権が選挙で敗れましたが、勝ったのは元与党員マジャルが率いる中道右派で、東から右傾化が着実に忍び寄るように感じています。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">先週9月6日には、隣国ドイツの旧東独ザクセン＝アンハルト州の議会選挙で、極右AfDが43.8％を獲得し、メルツ首相の与党CDUは17.2％まで支持を落としました。AfDの支持率が高い地域を地図に塗ると、そこにはほぼ正確に、消えたはずの東ドイツの国境線が浮かび上がります。壁が崩れて37年、地図の上では、いまも壁が立っているのです。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">この東西の断層には、ロシアとの関係も重なります。オーストリア自由党は2016年にプーチンの与党「統一ロシア」と協力協定を結んだ党であり、ウクライナ支援にも対ロ制裁にも反対する姿勢を掲げています。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">僕がこの街で右傾化のニュースを聞くと、どうしても90年代を思い出します。当時、米国とヨーロッパを行き来していた僕がウィーンの街角で繰り返し目にしたのは、日焼けした顔にイタリア製のスーツを着た、ケルンテン州知事イェルク・ハイダーでした。<br>ナチスの「秩序ある雇用政策」を称賛して州知事の座を追われ、武装SSの退役軍人の集会で「立派な人格の持ち主たち」と語りかけた男は、メディアが批判すればするほど支持を伸ばし、1999年の総選挙で自由党を26.9％、わずか415票差で国民党を抜いて第二党に押し上げました。<br>何度かウィーンの街角で偶然拝見しましたが、演説は実に見事でした。翌2000年、国民党が自由党と連立を組むと、EUの他の14カ国はオーストリア政府との高位の二国間接触を制限し、イスラエルは大使を召還。<br>ウィーンでは毎週木曜日の夜に大規模なデモが続き、「ヨーロッパの真ん中に極右政権が生まれた」という衝撃は、当時大陸のどこにいても伝わってきました。そのハイダー自身は2008年、深夜に制限速度の倍でクルマを飛ばして事故死しています。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">そして今日、四半世紀を経て、何が変わったのか。当時のヨーロッパは、オーストリアを「隔離」できました。しかし2026年、かつて異端として扱われた勢力は欧州各国の議会で存在感を増し、既成政党は協力するのか、距離を置くのかを、その都度迫られています。<br>ハイダーの絶頂期に選挙で27％を得た自由党は、いま世論調査の集計で39％近くに達しています。実は、この党は数年前にイビサ島で大スキャンダルを起こし、大きな危機に直面しました。<br>2019年、当時の党首シュトラッヘが、イビサの別荘でロシアの新興財閥の姪を名乗る女性に、国の公共事業を見返りに選挙支援を持ちかける密談を録画され、連立政権はあっけなく崩壊しました。<br>世に言う「イビサ事件」です。このとき内相の座を解任されたのが、ほかならぬキックルでした。それから七年、イビサで転んだ党が、ロシアの影をまとったまま、より強くなって戻ってきた。これが、ウィーンで感じる「政治圧の変化」の正体です。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">世界有数の都市だった1900年前後のウィーンは、フロイトとクリムトを生んだ都であると同時に、若きヒトラーが心酔した反ユダヤ主義の人気市長カール・ルエーガーを生んだ都でもありました。精神分析と現代ポピュリズムは、同じカフェの隣のテーブルで育ち、ハイダーもキックルも、その系譜の上にいます。ザッハトルテの甘さと政治の苦さは、この街では昔から同じ皿に載ってきたのです。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="ar">
+    <p class="tx">いま、急速に欧州東部の変化を感じます。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="chk">
+    <h3>照合できた項目と出典</h3>
+    <p class="pfnote">判定：<span class="mk ok">一致</span> 出典と合う ／ <span class="mk ng">相違</span> 出典の数字と違う ／ <span class="mk ck">未確認</span> 裏が取れていない。<span class="st p1">一次</span>公的機関・当事者の公表　<span class="st p2">報道</span>報道機関　<span class="st p3">解説</span>百科・分析。</p>
+
+    <h4>ベルリン州議会選挙（9/20）</h4>
+    <ul>
+      <li><span class="mk ok">一致</span>左派党25.7％・CDU 18.8％・2023年は12.2％・投票率74.2％<span class="lk"><span class="st p2">報道</span><a href="https://www.aljazeera.com/news/2026/9/20/two-german-states-go-to-the-polls-after-far-right-gains" target="_blank" rel="noopener">Al Jazeera（9/20）</a>　<span class="st p3">解説</span><a href="https://www.rosalux.de/en/news/id/55260/die-linke-takes-berlin-as-the-afd-sweeps-east-germany" target="_blank" rel="noopener">Rosa-Luxemburg-Stiftung</a>　<span class="st p3">解説</span><a href="https://en.wikipedia.org/wiki/2026_Berlin_state_election" target="_blank" rel="noopener">Wikipedia</a></span></li>
+      <li><span class="mk ok">一致</span>30歳未満の約半数が左派党。60歳以上だけCDUが明確な第一党（出口調査 22,725人）<span class="lk"><span class="st p2">報道</span><a href="https://www.zdfheute.de/politik/deutschland/wahl-berlin-wahlverhalten-alter-geschlecht-bildung-100.html" target="_blank" rel="noopener">ZDFheute</a></span></li>
+      <li><span class="mk ok">一致</span>綱領に約22万戸の「社会化」。対象は3,000戸超を持つ企業<span class="lk"><span class="st p2">報道</span><a href="https://www.t-online.de/finanzen/aktuelles/wirtschaft/id_101397042/berlin-wahl-eralp-fordert-enteignung-was-das-kosten-wuerde.html" target="_blank" rel="noopener">t-online</a></span></li>
+      <li><span class="mk ok">一致</span>募集家賃の中央値 9.00ユーロ（2016）→15.78ユーロ（2025）、+75.3％<span class="lk"><span class="st p1">一次</span><a href="https://www.ibb.de/de/ueber-uns/publikationen/wohnungsmarktbericht/2025.html" target="_blank" rel="noopener">IBB 住宅市場報告2025</a>　<span class="st p1">一次</span><a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/ibb_wohnungsmarktbericht_2016.pdf" target="_blank" rel="noopener">IBB 住宅市場報告2016（PDF）</a></span></li>
+      <li><span class="mk ok">一致</span>左派党の党員数 58,532人（2024年末）→123,558人（2025年末）<span class="lk"><span class="st p1">一次</span><a href="https://www.die-linke.de/partei/ueber-uns/mitgliederzahlen-2025/" target="_blank" rel="noopener">Die Linke 党員数</a>　<span class="st p2">報道</span><a href="https://taz.de/Mitgliederboom-bei-Linkspartei-2025/!6148490/" target="_blank" rel="noopener">taz</a></span></li>
+    </ul>
+
+    <h4>メクレンブルク＝フォアポンメルン州議会選挙（9/20）</h4>
+    <ul>
+      <li><span class="mk ok">一致</span>AfD 38.2％・SPD 35.5％・CDU 4.9％（5％未満）・投票率78.1％<span class="lk"><span class="st p1">一次</span><a href="https://www.landtag-mv.de/landtag/rund-um-wahlen/landtagswahl-2026" target="_blank" rel="noopener">州議会</a>　<span class="st p3">解説</span><a href="https://de.wikipedia.org/wiki/Landtagswahl_in_Mecklenburg-Vorpommern_2026" target="_blank" rel="noopener">Wikipedia</a></span></li>
+      <li><span class="mk ng">相違</span>AfD 16〜24歳は35％（原文36％）、35〜44歳は45％（原文46％）。45〜59歳47％・70歳以上SPD 52％は一致<span class="lk"><span class="st p2">報道</span><a href="https://www.zdfheute.de/politik/deutschland/landtagswahl-mecklenburg-vorpommern-wahlverhalten-alter-geschlecht-100.html" target="_blank" rel="noopener">ZDFheute（Infratest dimap）</a>　※ページ全文は取得できず、検索結果の抜粋で照合。講義前に原ページで再確認</span></li>
+      <li><span class="mk ck">未確認</span>25〜34歳のAfD 32％、70歳以上のAfD 26％<span class="lk">上の出典では確認できず。<a href="https://www.kas.de/de/monitor-wahl-und-sozialforschung/detail/-/content/wahlanalyse-der-landtagswahl-in-mecklenburg-vorpommern-am-20-september-2026" target="_blank" rel="noopener">Konrad-Adenauer-Stiftung の選挙分析</a>に当たる余地あり</span></li>
+    </ul>
+
+    <h4>ザクセン＝アンハルト州議会選挙（9/6）</h4>
+    <ul>
+      <li><span class="mk ok">一致</span>AfD 43.8％・CDU 17.2％<span class="lk"><span class="st p1">一次</span><a href="https://www.bpb.de/kurz-knapp/hintergrund-aktuell/581006/landtagswahl-in-sachsen-anhalt-2026/" target="_blank" rel="noopener">bpb（連邦政治教育センター）</a></span></li>
+    </ul>
+
+    <h4>スウェーデン総選挙（9/13）</h4>
+    <ul>
+      <li><span class="mk ok">一致</span>赤緑ブロック176議席・与党側173議席・票差50,359票。投票率は84.9％（原文は約84.8％）<span class="lk"><span class="st p2">報道</span><a href="https://cphpost.dk/2026-09-17/news/round-up/red-green-bloc-wins-narrow-victory-in-swedish-election/" target="_blank" rel="noopener">Copenhagen Post（9/17）</a>　<span class="st p3">解説</span><a href="https://en.wikipedia.org/wiki/2026_Swedish_general_election" target="_blank" rel="noopener">Wikipedia</a></span></li>
+      <li><span class="mk ok">一致</span>2022年のスウェーデン民主党 20.5％・第二党<span class="lk"><span class="st p3">解説</span><a href="https://en.wikipedia.org/wiki/2022_Swedish_general_election" target="_blank" rel="noopener">Wikipedia</a></span></li>
+      <li><span class="mk ok">一致</span>2015年の難民申請 162,877人<span class="lk"><span class="st p1">一次</span><a href="https://www.migrationsverket.se/en/about-the-swedish-migration-agency/the-swedish-migration-agency-answers/2025/2025-10-27-ten-years-since-2015---what-happened.html" target="_blank" rel="noopener">スウェーデン移民庁</a>　<span class="st p2">報道</span><a href="https://news.yahoo.com/sweden-sees-record-number-asylum-seekers-2015-135422652.html" target="_blank" rel="noopener">Yahoo News</a></span></li>
+    </ul>
+
+    <h4>オーストリア・ウィーン・東欧</h4>
+    <ul>
+      <li><span class="mk ck">未確認</span>PolitPro 9/16時点の自由党38.7％・国民党21.1％（9/30時点の表示は38.0％・21.3％）<span class="lk"><span class="st p3">解説</span><a href="https://politpro.eu/en/austria" target="_blank" rel="noopener">PolitPro（オーストリア）</a></span></li>
+      <li><span class="mk ok">一致</span>2024年総選挙の自由党28.8％<span class="lk"><span class="st p3">解説</span><a href="https://en.wikipedia.org/wiki/2024_Austrian_legislative_election" target="_blank" rel="noopener">Wikipedia</a></span></li>
+      <li><span class="mk ok">一致</span>ウィーン市 2025年4月27日選挙で社民党39.4％、社民党とNEOSの連立継続<span class="lk"><span class="st p2">報道</span><a href="https://www.nachrichten.at/politik/innenpolitik/nach-wien-wahl-spoe-und-neos-einigten-sich-auf-koalition;art385,4056185" target="_blank" rel="noopener">nachrichten.at</a></span></li>
+      <li><span class="mk ok">一致</span>ハンガリー 4/12の選挙でオルバーン政権（16年）が敗れ、元与党員マジャルのTiszaが勝利<span class="lk"><span class="st p2">報道</span><a href="https://www.cnn.com/2026/04/12/world/live-news/hungary-election-orban-magyar" target="_blank" rel="noopener">CNN（4/12）</a></span></li>
+      <li><span class="mk ok">一致</span>ハイダー 1999年に自由党26.9％、国民党を415票上回り第二党／2008年の事故は時速142km<span class="lk"><span class="st p2">報道</span><a href="https://www.profil.at/home/wahl-1999-unentschieden-222235" target="_blank" rel="noopener">profil</a>　<span class="st p2">報道</span><a href="https://www.derstandard.at/story/1220460584014/haider-war-zum-unfallzeitpunkt-mit-142-kmh-unterwegs" target="_blank" rel="noopener">derStandard</a></span></li>
+      <li><span class="mk ok">一致</span>2019年イビサ事件、キックル内相の解任<span class="lk"><span class="st p3">解説</span><a href="https://en.wikipedia.org/wiki/Ibiza_affair" target="_blank" rel="noopener">Wikipedia</a></span></li>
+    </ul>
+    <p class="pfnote">照合していない記述：<b>チェコのバビシュ政権の発足時期、スロバキア・ブラティスラバまでの距離、自由党と統一ロシアの2016年の協定、2000年のEU14か国の措置、ハイダーの事故時の制限速度</b>は、講師側の既知の事実と矛盾しないことだけを確認。出典は付けていない。</p>
+  </div>
+
+  <div class="rel"><b>数字の出どころ</b>　選挙結果・党員数・家賃の中央値は<b>一次情報</b>（州議会・bpb・党公表・IBB）と報道の突き合わせ。<b>年齢別の投票行動は出口調査の推計</b>で、公式の集計ではない。世論調査（PolitPro）は<b>複数の調査を集めた推計</b>で、日付によって値が動く。</div>
+</section>
+
+<!-- ============ §2 ストラドルとストラングル ============ -->
+<section class="topic" id="s-opt">
+  <span class="badge word">§2 オプション</span>
+  <h2 class="thead">ストラドルの買いとストラングルの売り（コールとプットの組み合わせ2つ）</h2>
+  <p class="sub">第9回 <a href="lecture_20260929.html#s-opt">§2</a> の4つの立場を、1本ずつ重ねる。組み合わせは2つ。損益分岐点は、どちらも2つになる。</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">商品</div><div class="v">日経225<br>オプション</div><div class="n">大阪取引所。取引単位は1,000倍<span class="st p1">一次</span></div></div>
+    <div class="kpi m"><div class="k">部品</div><div class="v">コール・プット<br>× 買い・売り</div><div class="n">第9回の4つの立場</div></div>
+    <div class="kpi c"><div class="k">組み合わせ</div><div class="v">2つ</div><div class="n">ストラドルの買い／ストラングルの売り</div></div>
+  </div>
+
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">ストラドルの買い ── 同じ権利行使価格のコールとプットを両方買う</div>
+      <p><b>構成</b>　コールの買い ＋ プットの買い。権利行使価格はどちらも65,000円</p>
+      <p><b>払うもの</b>　プレミアム 800 ＋ 500 ＝ 1,300ポイント（130万円）。証拠金は要らない</p>
+      <p><b>損益の限度</b>　損は1,300ポイントまで。利益は上に上限なし、下は指数が0になるまで</p>
+      <p><b>見方</b>　方向は分からない。動く幅がプレミアムの合計を超えると見る</p>
+    </div>
+    <div class="card b">
+      <div class="ch">ストラングルの売り ── 権利行使価格の違うプットとコールを両方売る</div>
+      <p><b>構成</b>　プットの売り（64,000円）＋ コールの売り（66,000円）</p>
+      <p><b>受け取るもの</b>　プレミアム 300 ＋ 450 ＝ 750ポイント（75万円）。証拠金を差し入れる</p>
+      <p><b>損益の限度</b>　利益は750ポイントまで。損は上に上限なし、下は指数が0になるまで</p>
+      <p><b>見方</b>　SQまで64,000〜66,000円の間に収まると見る</p>
+    </div>
+  </div>
+
+  <h3>2つの組み合わせの満期損益</h3>
+  <div class="fig">
+  <svg viewBox="0 0 960 300" role="img" aria-label="権利行使価格65,000円のストラドルの買いと、権利行使価格64,000円のプットと66,000円のコールのストラングルの売りの満期損益を示す2枚の折れ線">
+    <text class="lab" x="70" y="22">ストラドルの買い</text>
+    <path class="gl" d="M70,74 L455,74 M70,194 L455,194"/>
+    <path class="zl" d="M70,134 L455,134"/>
+    <path class="ax" d="M70,44 L70,224"/>
+    <text class="tick" x="64" y="78" text-anchor="end">+1,000</text>
+    <text class="tick" x="64" y="138" text-anchor="end">0</text>
+    <text class="tick" x="64" y="198" text-anchor="end">−1,000</text>
+    <text class="tick" x="70.0" y="242" text-anchor="middle">63,000</text>
+    <text class="tick" x="262.5" y="242" text-anchor="middle">65,000</text>
+    <text class="tick" x="455.0" y="242" text-anchor="middle">67,000</text>
+    <path class="vl" d="M137.4,44 L137.4,224"/>
+    <path class="vl" d="M387.6,44 L387.6,224"/>
+    <text class="lab c" x="132.4" y="60" text-anchor="end">損益分岐 63,700</text>
+    <text class="lab c" x="392.6" y="60" text-anchor="start">損益分岐 66,300</text>
+    <path class="ln a" d="M70.0,92.0 L262.5,212.0 L455.0,92.0"/>
+    <text class="val" x="276" y="206" text-anchor="start">−1,300</text>
+    <text class="val" x="76" y="86" text-anchor="start">+700</text>
+    <text class="val" x="449" y="86" text-anchor="end">+700</text>
+
+    <text class="lab" x="550" y="22">ストラングルの売り</text>
+    <path class="gl" d="M550,74 L935,74 M550,194 L935,194"/>
+    <path class="zl" d="M550,134 L935,134"/>
+    <path class="ax" d="M550,44 L550,224"/>
+    <text class="tick" x="544" y="78" text-anchor="end">+1,000</text>
+    <text class="tick" x="544" y="138" text-anchor="end">0</text>
+    <text class="tick" x="544" y="198" text-anchor="end">−1,000</text>
+    <text class="tick" x="550.0" y="242" text-anchor="middle">63,000</text>
+    <text class="tick" x="646.3" y="242" text-anchor="middle">64,000</text>
+    <text class="tick" x="742.5" y="242" text-anchor="middle">65,000</text>
+    <text class="tick" x="838.8" y="242" text-anchor="middle">66,000</text>
+    <text class="tick" x="935.0" y="242" text-anchor="middle">67,000</text>
+    <path class="vl" d="M574.1,44 L574.1,224"/>
+    <path class="vl" d="M910.9,44 L910.9,224"/>
+    <text class="lab c" x="579.1" y="208" text-anchor="start">損益分岐 63,250</text>
+    <text class="lab c" x="905.9" y="208" text-anchor="end">損益分岐 66,750</text>
+    <path class="ln b" d="M550.0,149.0 L646.3,89.0 L838.8,89.0 L935.0,149.0"/>
+    <text class="val" x="742.5" y="80" text-anchor="middle">+750</text>
+    <text class="val" x="592" y="168" text-anchor="start">−250</text>
+    <text class="val" x="893" y="168" text-anchor="end">−250</text>
+
+    <text class="tick" x="480" y="286" text-anchor="middle">横軸：満期日（SQ）の日経平均株価　縦軸：損益（指数ポイント）</text>
+  </svg>
+  <div class="cap">図1　<b>設例。</b>ストラドルは権利行使価格65,000円・プレミアムはコール800円・プット500円。ストラングルはプット64,000円（プレミアム300円）・コール66,000円（プレミアム450円）。<b>実在の建玉でも実際の気配値でもない。</b>縦軸は指数ポイントで、取引単位1,000倍により<b>100ポイントは10万円。</b>手数料・税・証拠金の金利は入っていない。青は買い手、橙は売り手。</div>
+  </div>
+
+  <div class="formula">
+    <code>ストラドルの損益分岐点 ＝ 権利行使価格 ± （コールのプレミアム ＋ プットのプレミアム）</code><br>
+    <code>ストラングルの損益分岐点 ＝ プットの権利行使価格 − 受取総額、コールの権利行使価格 ＋ 受取総額</code>
+    <span class="n">設例：65,000 ± 1,300 ＝ 63,700円と66,300円。64,000 − 750 ＝ 63,250円、66,000 ＋ 750 ＝ 66,750円。<b>組み合わせの損益は、1本ずつの損益の足し算。</b></span>
+  </div>
+
+  <ol class="q">
+    <li><b>ストラドルを買った。SQの日経平均が66,000円だった。損益は何円か。</b>
+      <span class="hint"><span class="lb">着地点</span>コールとプットを別々に出してから足す。<b>払ったプレミアムの合計を引き忘れない。</b>指数ポイントで出し、1,000倍して円に直す。</span></li>
+
+    <li><b>ストラングルを売った。SQの日経平均が63,000円だった。損益は何円か。</b>
+      <span class="hint"><span class="lb">着地点</span>第9回 <a href="lecture_20260929.html#s-opt">§2</a> 問4（プットの売り）と同じ型。<b>権利行使価格が64,000円である点だけが新しい。</b>受け取った合計を足す。</span></li>
+
+    <li><b>結果が出る日を控えて、日経平均が大きく動くかもしれないと見ている。2つの組み合わせのどちらを取るか。動かなかった場合、何が起きるか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260901.html">第5回</a>の式「値段が動く幅 ＝ 出てきた事実 − すでに織り込まれていた予想」。<b>プレミアムには予想がすでに入っている。</b>動く幅がプレミアムの合計を超えて初めて、買い手の損益がプラスになる。売り手が証拠金を求められる理由は、第9回問3。</span></li>
+  </ol>
+
+  <div class="rel">
+    <b>数字の出どころ</b>　図1の権利行使価格・プレミアムはすべて<b>設例</b>。取引単位1,000倍・SQの決まりは<b>日本取引所グループ「日経225オプション」の商品概要</b><span class="st p1">一次</span>。ストラドル・ストラングルの名称と構成は一般的な定義。<b>受講者の保有建玉は載せていない。</b>
+  </div>
+</section>
+
+<!-- ============ §3 チーム別ポートフォリオ分析 ============ -->
+<section class="topic" id="s-pf">
+  <span class="badge corp">§3 チーム</span>
+  <h2 class="thead">チーム別ポートフォリオ分析（3チーム・9/29から10/6まで）</h2>
+  <p class="sub">各チーム、自分のリンクを開いて報告する。</p>
+
+  <div class="pf">
+    <a href="https://jp.tradingview.com/portfolios/96d42da1b31d4f47b13c34536ff7f36e/" target="_blank" rel="noopener"><span class="tm">Aチーム</span><span class="u">jp.tradingview.com/portfolios/96d42da1…</span></a>
+    <a class="b" href="https://jp.tradingview.com/portfolios/12725df68d9d44b79c1d2e74b1b9eb85/" target="_blank" rel="noopener"><span class="tm">Bチーム</span><span class="u">jp.tradingview.com/portfolios/12725df6…</span></a>
+    <a class="c" href="https://www.tradingview.com/portfolios/2fd709d801b343a2935bca992c72e9ce/" target="_blank" rel="noopener"><span class="tm">Cチーム</span><span class="u">www.tradingview.com/portfolios/2fd709d8…</span></a>
+  </div>
+
+  <h3>分析の4点</h3>
+  <ol class="chain">
+    <li><b>前回比 ±%</b>　基準日と評価通貨を必ず言う</li>
+    <li><b>配分</b>　業種ごと・国（通貨）ごとの割合。<b>比率が最大の1銘柄と、その比率</b></li>
+    <li><b>効いた出来事</b>　9/29 の講義以降に起きたことのうち、どれが、どの銘柄に効いたか。効いていないなら、効いていないと言う</li>
+    <li><b>組み替える条件</b>　保有銘柄1つについて1行。数値を入れる</li>
+  </ol>
+
+  <ol class="q">
+    <li><b>自チームの保有株の下げに備える手段として、§2 のストラドルの買いは使えるか。第9回のプットの買いと比べて、何が違うか。</b>
+      <span class="hint"><span class="lb">着地点</span>§2 図1と、第9回 <a href="lecture_20260929.html#s-opt">図1</a>のプットの買い。<b>上がったときにも、払ったプレミアムの分だけ損をする。</b>日経225オプションは指数なので、個別銘柄の下げとは一致しない。</span></li>
+
+    <li><b>自チームの保有株のうち、9/29 以降に最も動いた1銘柄。その動きは、9/29 に置いた「組み替える条件」に入ったか。</b>
+      <span class="hint"><span class="lb">着地点</span>条件を数値で置いていたかどうかを、実績で確かめる。<b>入ったなら組み替えたか、入っていないならなぜ動かなかったか。</b></span></li>
+  </ol>
+
+  <div class="rel"><b>ポートフォリオの扱い</b>　各チームのリンクは TradingView のポートフォリオ。<b>この資料には保有銘柄も評価額も書かない。</b>教室で数字を読み上げるときは、<b>基準日と評価通貨をそのつど言うこと。</b></div>
+</section>
+
+<footer>
+  <h2>数字の扱いについて</h2>
+  <ul>
+    <li><b>§1 の原文は提供された文章をそのまま掲載。</b>欄外の照合は2026年9月30日時点。<b>年齢別の投票行動は出口調査の推計</b>で、公式の集計ではない。相違が出た2か所（16〜24歳・35〜44歳のAfD）は、出典ページ全文を取得できていないため、講義前に原ページで再確認する。</li>
+    <li><b>PolitPro の9/16時点の値は確認できていない。</b>複数の調査を集めた推計で、日付によって動く。</li>
+    <li><b>図1はすべて設例。</b>権利行使価格・プレミアムは実在の気配値ではない。</li>
+    <li><b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b></li>
+  </ul>
+  <div class="src">
+    <b>出典</b>
+    <ul>
+      <li><span class="st p1">一次</span>日本取引所グループ 日経225オプション 商品概要 — <a href="https://www.jpx.co.jp/derivatives/products/domestic/225options/index.html" target="_blank" rel="noopener">jpx.co.jp/derivatives/products/domestic/225options/</a></li>
+      <li>§1 の出典は <a href="#s-eu">§1 の「照合できた項目と出典」</a> に一覧</li>
+    </ul>
+  </div>
+  <div class="next">
+    <b>前回（第9回・9/29）</b>　<a href="lecture_20260929.html">米中首脳会談（9/24）、オプションの4つの立場、チーム別ポートフォリオ分析</a>。§2 に4つの立場の満期損益（第9回の図1）。<br>
+    <b>関連</b>　<a href="lecture_20260922.html">第8回</a>（日米政策金利上げ、コールの満期損益）／<a href="lecture_20260901.html">第5回</a>（値段が動く式）
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
