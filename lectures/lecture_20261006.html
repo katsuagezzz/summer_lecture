@@ -388,6 +388,12 @@ table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
 .fig .val{font-size:12px; font-weight:800; fill:var(--ink2); font-variant-numeric:tabular-nums;}
 .fig .bar.a{fill:var(--macro);} .fig .bar.b{fill:var(--corp);} .fig .bar.c{fill:var(--bridge);}
 .fig a{fill:var(--macro);}
+/* 10/1 追記：スマホ画面のスクリーンショット */
+.shots{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px;}
+.shots figure{margin:0;}
+.shots img{width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:8px;}
+.shots figcaption{font-size:12px; font-weight:700; color:var(--ink2); margin-top:4px; text-align:center;}
+@media print{ .shots{grid-template-columns:repeat(3,1fr);} .fig{page-break-inside:avoid;} }
 /* この回の問いは「問」番号で、3つの節をまたいで通す */
 body{counter-reset:qq;}
 .q{counter-reset:none;}
@@ -618,7 +624,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
   <h2>この資料の構成</h2>
   <ol>
     <li><a href="#s-eu">欧州の選挙結果と世論調査（2026年9月）</a> <span class="s">― 冒頭に宿題1行。原文をそのまま掲載。事実と違う点は欄外。照合できた出典つき</span></li>
-    <li><a href="#s-opt">ストラドルの買いとストラングルの売り</a> <span class="s">― 図1。損益分岐点は2つ。問1〜問3</span></li>
+    <li><a href="#s-opt">ストラドルの買いとストラングルの売り</a> <span class="s">― 実例は図1・図2（コールの買い1本）。組み合わせは図3。損益分岐点は2つ。問1〜問3</span></li>
     <li><a href="#s-pf">チーム別ポートフォリオ分析</a> <span class="s">― TradingViewの3リンク。問4・問5</span></li>
   </ol>
 </nav>
@@ -913,6 +919,41 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
     <div class="kpi c"><div class="k">組み合わせ</div><div class="v">2つ</div><div class="n">ストラドルの買い／ストラングルの売り</div></div>
   </div>
 
+  <h3>実例：コールの買い1本（日経225ミニオプション 2026年10月限・10/1 09:54時点）</h3>
+  <div class="fig">
+    <div class="shots">
+      <figure><img src="img/20261006/fig_03_chain_atm66750.jpg" alt="日経225ミニオプション 26/10限のオプション一覧。権利行使価格68,000円から66,625円" loading="lazy"><figcaption>オプション一覧（ATM付近）</figcaption></figure>
+      <figure><img src="img/20261006/fig_04_board_c69000.jpg" alt="コール 権利行使価格69,000円の板。現在値405" loading="lazy"><figcaption>コール 69,000円の板</figcaption></figure>
+      <figure><img src="img/20261006/fig_06_board_c71000.jpg" alt="コール 権利行使価格71,000円の板。現在値90" loading="lazy"><figcaption>コール 71,000円の板</figcaption></figure>
+    </div>
+    <div class="cap">図1　<b>実際の画面（2026年10月1日 09:54〜09:55）。</b>日経平均は67,612円。値段は取引時間中の気配で、講義日には動いている。</div>
+  </div>
+
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">コール 69,000円を1枚買う</div>
+      <p><b>買値</b>　売り気配 405 × 100倍 ＝ 4万500円</p>
+      <p><b>すぐ売ると</b>　買い気配 390。差の1,500円が往復のコスト</p>
+      <p><b>損益分岐</b>　69,000 ＋ 405 ＝ 69,405円。10/1 時点の日経平均から約3%上</p>
+    </div>
+    <div class="card b">
+      <div class="ch">コール 71,000円を1枚買う</div>
+      <p><b>買値</b>　売り気配 97 × 100倍 ＝ 9,700円</p>
+      <p><b>すぐ売ると</b>　買い気配 92。差の500円が往復のコスト</p>
+      <p><b>損益分岐</b>　71,000 ＋ 97 ＝ 71,097円。10/1 時点の日経平均から約5%上</p>
+    </div>
+  </div>
+
+  <div class="fig">
+    <div class="shots">
+      <figure><img src="img/20261006/fig_05_chart_c69000.jpg" alt="コール 権利行使価格69,000円の日足チャート" loading="lazy"><figcaption>コール 69,000円の日足</figcaption></figure>
+      <figure><img src="img/20261006/fig_07_chart_c71000.jpg" alt="コール 権利行使価格71,000円の日足チャート" loading="lazy"><figcaption>コール 71,000円の日足</figcaption></figure>
+    </div>
+    <div class="cap">図2　8月中旬から10/1までの日足。パラボリック・MACDは画面の初期設定で、この資料では使わない。</div>
+  </div>
+
+  <p><b>損の上限は買値まで。</b>SQ（10月9日）に日経平均が権利行使価格以下なら、コールは0円で終わる。<b>日経225ミニオプションの取引単位は100倍</b><span class="st p4">要確認</span>。下の設例（日経225オプション）は1,000倍。</p>
+
   <div class="twocol">
     <div class="card">
       <div class="ch">ストラドルの買い ── 同じ権利行使価格のコールとプットを両方買う</div>
@@ -975,7 +1016,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
 
     <text class="tick" x="480" y="286" text-anchor="middle">横軸：満期日（SQ）の日経平均株価　縦軸：損益（指数ポイント）</text>
   </svg>
-  <div class="cap">図1　<b>設例。</b>ストラドルは権利行使価格65,000円・プレミアムはコール800円・プット500円。ストラングルはプット64,000円（プレミアム300円）・コール66,000円（プレミアム450円）。<b>実在の建玉でも実際の気配値でもない。</b>縦軸は指数ポイントで、取引単位1,000倍により<b>100ポイントは10万円。</b>手数料・税・証拠金の金利は入っていない。青は買い手、橙は売り手。</div>
+  <div class="cap">図3　<b>設例。</b>ストラドルは権利行使価格65,000円・プレミアムはコール800円・プット500円。ストラングルはプット64,000円（プレミアム300円）・コール66,000円（プレミアム450円）。<b>実在の建玉でも実際の気配値でもない。</b>縦軸は指数ポイントで、取引単位1,000倍により<b>100ポイントは10万円。</b>手数料・税・証拠金の金利は入っていない。青は買い手、橙は売り手。</div>
   </div>
 
   <div class="formula">
@@ -996,7 +1037,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
   </ol>
 
   <div class="rel">
-    <b>数字の出どころ</b>　図1の権利行使価格・プレミアムはすべて<b>設例</b>。取引単位1,000倍・SQの決まりは<b>日本取引所グループ「日経225オプション」の商品概要</b><span class="st p1">一次</span>。ストラドル・ストラングルの名称と構成は一般的な定義。<b>受講者の保有建玉は載せていない。</b>
+    <b>数字の出どころ</b>　図1・図2は2026年10月1日 09:54〜09:55 の実際の画面（日経225ミニオプション 26/10限）。図3の権利行使価格・プレミアムはすべて<b>設例</b>。取引単位1,000倍・SQの決まりは<b>日本取引所グループ「日経225オプション」の商品概要</b><span class="st p1">一次</span>。ストラドル・ストラングルの名称と構成は一般的な定義。<b>受講者の保有建玉は載せていない。</b>
   </div>
 </section>
 
@@ -1022,7 +1063,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
 
   <ol class="q">
     <li><b>自チームの保有株の下げに備える手段として、§2 のストラドルの買いは使えるか。第9回のプットの買いと比べて、何が違うか。</b>
-      <span class="hint"><span class="lb">着地点</span>§2 図1と、第9回 <a href="lecture_20260929.html#s-opt">図1</a>のプットの買い。<b>上がったときにも、払ったプレミアムの分だけ損をする。</b>日経225オプションは指数なので、個別銘柄の下げとは一致しない。</span></li>
+      <span class="hint"><span class="lb">着地点</span>§2 図3と、第9回 <a href="lecture_20260929.html#s-opt">図1</a>のプットの買い。<b>上がったときにも、払ったプレミアムの分だけ損をする。</b>日経225オプションは指数なので、個別銘柄の下げとは一致しない。</span></li>
 
     <li><b>自チームの保有株のうち、9/29 以降に最も動いた1銘柄。その動きは、9/29 に置いた「組み替える条件」に入ったか。</b>
       <span class="hint"><span class="lb">着地点</span>条件を数値で置いていたかどうかを、実績で確かめる。<b>入ったなら組み替えたか、入っていないならなぜ動かなかったか。</b></span></li>
@@ -1036,7 +1077,8 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
   <ul>
     <li><b>§1 の原文は提供された文章をそのまま掲載。</b>欄外の照合は2026年9月30日時点。<b>年齢別の投票行動は出口調査の推計</b>で、公式の集計ではない。相違が出た2か所（16〜24歳・35〜44歳のAfD）は、出典ページ全文を取得できていないため、講義前に原ページで再確認する。</li>
     <li><b>PolitPro の9/16時点の値は確認できていない。</b>複数の調査を集めた推計で、日付によって動く。</li>
-    <li><b>図1はすべて設例。</b>権利行使価格・プレミアムは実在の気配値ではない。</li>
+    <li><b>図1・図2は10/1 09:54〜09:55 の実際の画面。</b>気配値は時点の値で、講義日には動いている。<b>ミニオプションの取引単位100倍とSQ日（10/9）は、講義前に日本取引所グループの商品概要で確認する。</b></li>
+    <li><b>図3はすべて設例。</b>権利行使価格・プレミアムは実在の気配値ではない。</li>
     <li><b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b></li>
   </ul>
   <div class="src">
