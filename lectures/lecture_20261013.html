@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講義資料 後期 第3回｜2026年10月13日 米中会談（ヘルシンキ）、ホワイトハウス超知能協定（6社）、AIロールアップ、オプションのスプレッド戦略、チーム別ポートフォリオ結果</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 第4回で追加したパーツ ---------- */
+.promptbox{background:var(--note-bg); border:1px solid var(--line); border-left:4px solid var(--word);
+  border-radius:0 10px 10px 0; padding:15px 17px; margin:12px 0;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px; line-height:1.95; white-space:pre-wrap; word-break:break-word; color:var(--ink);}
+.promptbox .cap{display:block; font-family:inherit; font-size:11.5px; font-weight:800;
+  letter-spacing:.09em; color:var(--word); margin-bottom:8px;}
+.twocol{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; margin:14px 0 4px;}
+.card{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.card .ch{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:6px;}
+.card.b .ch{color:var(--corp);} .card.c .ch{color:var(--bridge);} .card.d .ch{color:var(--word);}
+.card p{margin:0; font-size:14.5px; line-height:1.75;}
+.card p+p{margin-top:8px;}
+.quote{border-left:4px solid var(--word); background:var(--word-bg); border-radius:0 9px 9px 0;
+  padding:13px 17px; margin:13px 0; font-size:15px; line-height:1.9;}
+.quote .src2{display:block; font-size:12.5px; color:var(--ink3); font-weight:700; margin-top:7px;}
+table.cmp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.cmp th, table.cmp td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+table.cmp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+table.cmp td.h{font-weight:700; color:var(--ink); width:22%;}
+@media (max-width:640px){ .promptbox{font-size:12px;} }
+</style>
+<style>
+/* ---------- 第5回で追加したパーツ ---------- */
+/* サプライズ表（実績 − 予想） */
+table.surp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.surp th, table.surp td{border-bottom:1px solid var(--line2); padding:9px 10px; text-align:right; vertical-align:top;}
+table.surp th:first-child, table.surp td:first-child{text-align:left;}
+table.surp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em; text-align:right;}
+table.surp thead th:first-child{text-align:left;}
+table.surp td.num{font-variant-numeric:tabular-nums;}
+table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
+/* 答え合わせカード */
+.ac{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+    background:var(--bg); padding:14px 16px; margin-bottom:10px;}
+.ac .qq{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:5px;}
+.ac .aa{font-size:15px; line-height:1.75; margin:0;}
+.ac .aa b{font-weight:800;}
+.ac.miss{border-left-color:var(--corp);}
+.ac.miss .qq{color:var(--corp);}
+/* 時点ラベル（同じ銘柄・違う時点） */
+.snap{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:2px;
+      background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 6px;}
+.snap div{background:var(--panel); padding:12px 14px;}
+.snap .w{font-size:11.5px; color:var(--ink3); font-weight:800; letter-spacing:.04em; margin-bottom:4px; line-height:1.45;}
+.snap .r{font-size:19px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.3;}
+.snap .r.up{color:var(--up);} .snap .r.down{color:var(--down);}
+.snap .z{font-size:12px; color:var(--ink2); margin-top:3px; line-height:1.55;}
+</style>
+<style>
+/* ---------- リードの3点箇条書き（第6回で追加） ---------- */
+/* リードの3点箇条書き */
+.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
+.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
+.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
+  width:5px; height:5px; border-radius:50%; background:var(--macro);}
+.lede ul.three strong{border-bottom:none; padding-bottom:0;}
+</style>
+<style>
+/* ---------- ポートフォリオ報告・ネットキャッシュ（第5回で追加） ---------- */
+.pf{display:grid; grid-template-columns:repeat(auto-fit,minmax(238px,1fr)); gap:11px; margin:14px 0 6px;}
+.pf a{display:block; border:1px solid var(--line); border-left:4px solid var(--macro);
+      border-radius:0 10px 10px 0; background:var(--bg); padding:13px 15px;
+      text-decoration:none; color:var(--ink);}
+.pf a:hover{border-color:var(--macro);}
+.pf .tm{display:block; font-size:12.5px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:4px;}
+.pf .u{display:block; font-size:12.5px; color:var(--ink3); line-height:1.55; word-break:break-all;}
+.pf a.b{border-left-color:var(--corp);} .pf a.b .tm{color:var(--corp);} .pf a.b:hover{border-color:var(--corp);}
+.pf a.c{border-left-color:var(--bridge);} .pf a.c .tm{color:var(--bridge);} .pf a.c:hover{border-color:var(--bridge);}
+/* ネットキャッシュの記入表 */
+table.nc{width:100%; border-collapse:collapse; font-size:14px; margin:12px 0 4px;}
+table.nc th, table.nc td{border-bottom:1px solid var(--line2); padding:8px 9px; text-align:left; vertical-align:middle;}
+table.nc thead th{border-bottom:2px solid var(--line); font-size:12px; color:var(--ink3); letter-spacing:.04em;}
+table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
+@media print{ .pf a{border:1px solid #ccc;} }
+</style>
+<style>
+/* ---------- 前回回答できなかった質問（第6回の書式をそのまま使う） ---------- */
+/* 分類タグ。色の意味は既存の変数に合わせる（macro＝マクロの論点／corp＝株と実務） */
+.tag.m{background:var(--macro-bg); color:var(--macro);}
+.tag.c{background:var(--corp-bg); color:var(--corp);}
+.tag.w{background:var(--word-bg); color:var(--word);}
+.qtags{display:inline;}
+.meta a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+/* 教室で出た答え／着地点 */
+#qa .q .said, #qa .q .hint{
+  display:block; margin-top:7px; padding-left:11px;
+  font-size:13.5px; line-height:1.7; color:var(--ink2);
+}
+#qa .q .said{border-left:3px solid var(--q-line);}
+#qa .q .hint{border-left:3px solid var(--bridge);}
+#qa .q .lb{font-weight:800; letter-spacing:.04em; margin-right:5px;}
+#qa .q .said .lb{color:var(--ink3);}
+#qa .q .hint .lb{color:var(--bridge);}
+/* Q番号を3つのまとまりをまたいで通す */
+#qa{counter-reset:qq;}
+#qa .q{counter-reset:none;}
+#qa h3{margin-top:26px;}
+#qa h3:first-of-type{margin-top:18px;}
+</style>
+<style>
+/* ---------- 記入欄・宿題 ---------- */
+.entry{background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px;
+  padding:12px 16px; margin:10px 0; font-size:15px; line-height:2.2;}
+.entry b{font-weight:800;}
+.entry .blank{min-width:96px; margin:0 4px;}
+.entry .wide{min-width:100%;}
+.chain a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+</style>
+<style>
+/* ---------- 9/19 追記：図（第7回の書式をそのまま使う） ---------- */
+.fig{margin:14px 0 6px; padding:14px 12px 10px; background:var(--bg); border:1px solid var(--line); border-radius:12px;}
+.fig svg{width:100%; height:auto; display:block; font-family:inherit;}
+.fig .cap{font-size:13px; color:var(--ink3); margin:8px 4px 0; line-height:1.6;}
+.fig .ax{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .gl{stroke:var(--line2); stroke-width:1; fill:none;}
+.fig .zl{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .ln{fill:none; stroke-width:2.8; stroke-linejoin:round;}
+.fig .ln.a{stroke:var(--macro);} .fig .ln.b{stroke:var(--corp);} .fig .ln.c{stroke:var(--bridge);}
+.fig .vl{stroke:var(--down); stroke-width:1.5; stroke-dasharray:5 4; fill:none;}
+.fig .tick{font-size:11.5px; fill:var(--ink3);}
+.fig .lab{font-size:12.5px; font-weight:700; fill:var(--ink);}
+.fig .lab.c{fill:var(--corp);}
+.fig .val{font-size:12px; font-weight:800; fill:var(--ink2); font-variant-numeric:tabular-nums;}
+.fig .bar.a{fill:var(--macro);} .fig .bar.b{fill:var(--corp);} .fig .bar.c{fill:var(--bridge);}
+.fig a{fill:var(--macro);}
+/* 10/1 追記：スマホ画面のスクリーンショット */
+.shots{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px;}
+.shots figure{margin:0;}
+.shots img{width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:8px;}
+.shots figcaption{font-size:12px; font-weight:700; color:var(--ink2); margin-top:4px; text-align:center;}
+@media print{ .shots{grid-template-columns:repeat(3,1fr);} .fig{page-break-inside:avoid;} }
+/* この回の問いは「問」番号で、3つの節をまたいで通す */
+body{counter-reset:qq;}
+.q{counter-reset:none;}
+section.topic .q>li::before{content:"問" counter(qq);}
+section.topic .q>li{padding-left:50px;}
+section.topic .q .hint{display:block; margin-top:7px; padding-left:11px; border-left:3px solid var(--bridge);
+  font-size:13.5px; line-height:1.7; color:var(--ink2);}
+section.topic .q .hint .lb{font-weight:800; letter-spacing:.04em; margin-right:5px; color:var(--bridge);}
+.pfnote{font-size:13.5px; color:var(--ink2); line-height:1.75; margin:10px 0 0;}
+/* 4つの立場のカード（2×2） */
+.four{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0 4px;}
+@media(max-width:640px){ .four{grid-template-columns:1fr;} }
+</style>
+<style>
+/* ---------- 第10回で追加：原文＋欄外の照合、照合結果リスト ---------- */
+.legend{display:flex; flex-wrap:wrap; gap:8px 14px; margin:12px 0 4px; font-size:13px; color:var(--ink2);}
+.legend .lg{display:inline-flex; align-items:center; gap:6px;}
+.mk{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.06em; padding:2px 8px; border-radius:5px; white-space:nowrap;}
+.mk.ng{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.4);}
+.mk.sm{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+.mk.ck{background:var(--word-bg); color:var(--word); border:1px solid rgba(107,63,181,.35);}
+.mk.ev{background:var(--note-bg); color:var(--ink2); border:1px solid var(--line);}
+.mk.nt{background:var(--macro-bg); color:var(--macro); border:1px solid rgba(28,111,212,.3);}
+.mk.ok{background:var(--bridge-bg); color:var(--bridge); border:1px solid rgba(14,124,102,.35);}
+@media (prefers-color-scheme: dark){ .mk.sm{color:#d9c07a;} }
+
+.artlbl{display:block; margin:26px 0 6px; font-size:12.5px; font-weight:800; letter-spacing:.09em; color:var(--ink3); border-top:2px solid var(--line); padding-top:12px;}
+.artlbl:first-of-type{margin-top:16px;}
+.ar{display:grid; grid-template-columns:minmax(0,1fr) 262px; gap:0 20px; align-items:start;}
+.ar p.tx{margin:0 0 14px; font-size:15.5px; line-height:1.95;}
+.ar .mg{font-size:12.5px; line-height:1.65; color:var(--ink2);}
+.ar .mg .nn{border-left:3px solid var(--line); background:var(--note-bg); border-radius:0 8px 8px 0; padding:8px 11px; margin-bottom:8px;}
+.ar .mg .nn.ng{border-left-color:var(--corp);}
+.ar .mg .nn.sm{border-left-color:var(--q-line);}
+.ar .mg .nn.ck{border-left-color:var(--word);}
+.ar .mg .nn.nt{border-left-color:var(--macro);}
+.ar .mg .nn b{color:var(--ink); font-weight:800;}
+.ar .mg .nn .mk{margin-right:5px;}
+mark.ng,mark.sm,mark.ck,mark.ev,mark.nt{color:inherit; padding:0 1px; border-radius:2px;}
+mark.ng{background:rgba(184,72,15,.22); border-bottom:2px solid var(--corp);}
+mark.sm{background:rgba(224,207,148,.45); border-bottom:2px solid var(--q-line);}
+mark.ck{background:rgba(107,63,181,.16); border-bottom:2px solid var(--word);}
+mark.ev{background:rgba(120,130,145,.18); border-bottom:2px dotted var(--ink3);}
+mark.nt{background:rgba(28,111,212,.14); border-bottom:2px solid var(--macro);}
+@media (max-width:820px){
+  .ar{grid-template-columns:1fr;}
+  .ar .mg{margin:-4px 0 14px;}
+}
+@media print{ mark{background:none !important;} .ar{grid-template-columns:1fr 200px;} }
+
+.chk ul{list-style:none; margin:0; padding:0;}
+.chk h4{margin:20px 0 6px;}
+.chk li{padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.3px; line-height:1.7;}
+.chk li .lk{display:block; font-size:12.5px; color:var(--ink3); margin-top:2px; line-height:1.6;}
+.chk li .lk a{color:var(--macro); text-decoration:none; word-break:break-all; border-bottom:1px solid rgba(120,150,190,.45);}
+.hwhint{font-size:13.5px; color:var(--ink2); line-height:1.7; margin:10px 0 0; padding-left:11px; border-left:3px solid var(--bridge);}
+.hwhint .lb{font-weight:800; letter-spacing:.04em; color:var(--bridge); margin-right:5px;}
+</style>
+<style>
+/* ---------- ポップ版（第10回から。色の意味づけ macro/corp/bridge/word/q は踏襲） ---------- */
+:root{
+  --bg:#fff8ef; --panel:#ffffff; --ink:#1d1633; --ink2:#443b5e; --ink3:#7a7091;
+  --line:#1d1633; --line2:#efe6f7;
+  --macro:#2f6bff; --macro-bg:#e3ecff;
+  --corp:#ff5a36; --corp-bg:#ffe7df;
+  --bridge:#00a88a; --bridge-bg:#d9f7ef;
+  --word:#8a3ffc; --word-bg:#efe3ff;
+  --accent:#1d1633;
+  --q-bg:#fff4c2; --q-line:#f2c230;
+  --note-bg:#f6f1ff;
+  --pop-y:#ffd23f; --pop-p:#ff6fb5;
+  --shadow:4px 4px 0 var(--ink);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#15112a; --panel:#1f1a3a; --ink:#f4f0ff; --ink2:#cdc4ea; --ink3:#9d93c0;
+    --line:#f4f0ff; --line2:#2e2752;
+    --macro:#7aa2ff; --macro-bg:#1d2a5c;
+    --corp:#ff8a6b; --corp-bg:#4a2219;
+    --bridge:#3fe0bf; --bridge-bg:#0f3a33;
+    --word:#b98cff; --word-bg:#34205c;
+    --accent:#f4f0ff;
+    --q-bg:#3a3214; --q-line:#c9a227;
+    --note-bg:#28224a;
+    --pop-y:#ffd23f; --pop-p:#ff6fb5;
+    --shadow:4px 4px 0 #000;
+  }
+}
+body{
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255,111,181,.16) 0 120px, transparent 121px),
+    radial-gradient(circle at 92% 22%, rgba(47,107,255,.14) 0 160px, transparent 161px),
+    radial-gradient(circle at 80% 70%, rgba(255,210,63,.16) 0 140px, transparent 141px),
+    var(--bg);
+  background-attachment:fixed;
+}
+
+/* 表紙 */
+header.masthead{
+  position:relative; overflow:hidden;
+  background:linear-gradient(135deg,#2f6bff 0%,#8a3ffc 52%,#ff6fb5 100%);
+  color:#fff; border:3px solid var(--ink); border-top-width:3px; border-radius:22px;
+  box-shadow:6px 6px 0 var(--ink);
+}
+header.masthead::before,header.masthead::after{content:""; position:absolute; border-radius:50%; pointer-events:none;}
+header.masthead::before{width:220px; height:220px; right:-60px; top:-70px; background:var(--pop-y); opacity:.9;}
+header.masthead::after{width:90px; height:90px; right:150px; bottom:-30px; background:#fff; opacity:.25;}
+header.masthead > *{position:relative; z-index:1;}
+header.masthead .vol{color:#fff; opacity:.9; display:inline-block; background:rgba(0,0,0,.22); padding:4px 12px; border-radius:999px; font-size:12px;}
+header.masthead h1.title{color:#fff; font-size:34px; font-weight:900; text-shadow:3px 3px 0 rgba(29,22,51,.35); margin-right:120px;}
+header.masthead .meta{color:#fff; border-top:2px dashed rgba(255,255,255,.5);}
+header.masthead .meta b{color:var(--pop-y);}
+header.masthead .lede{background:#fff; color:#1d1633; border:3px solid #1d1633; border-radius:16px; box-shadow:4px 4px 0 #1d1633;}
+header.masthead .lede ul.three li::before{width:12px; height:12px; left:-1.25em; top:.5em; border-radius:4px; transform:rotate(12deg);}
+header.masthead .lede ul.three li:nth-child(1)::before{background:#2f6bff;}
+header.masthead .lede ul.three li:nth-child(2)::before{background:#8a3ffc;}
+header.masthead .lede ul.three li:nth-child(3)::before{background:#ff5a36;}
+header.masthead .lede ul.three{padding-left:1.5em;}
+@media (max-width:640px){ header.masthead h1.title{font-size:25px; margin-right:40px;} header.masthead::before{width:130px; height:130px; right:-50px; top:-50px;} }
+
+/* ナビ・目次 */
+.snav a,.snav span{border:2px solid var(--ink); font-weight:800;}
+.snav .cur{background:var(--pop-y); color:#1d1633; border-color:var(--ink); box-shadow:2px 2px 0 var(--ink);}
+.snav .lbl{border:none;}
+.snav a:hover{background:var(--macro-bg);}
+nav.toc{border:3px solid var(--ink); border-radius:20px; box-shadow:var(--shadow);}
+nav.toc ol{list-style:none; padding:0; counter-reset:tc;}
+nav.toc li{counter-increment:tc; position:relative; padding:8px 0 8px 46px; margin:0;}
+nav.toc li::before{content:counter(tc); position:absolute; left:0; top:6px; width:32px; height:32px; border-radius:10px; border:2px solid var(--ink); font-weight:900; text-align:center; line-height:28px; color:#fff; background:#2f6bff;}
+nav.toc li:nth-child(2)::before{background:#2f6bff;}
+nav.toc li:nth-child(3)::before{background:#ff5a36;}
+nav.toc li:nth-child(4)::before{background:#8a3ffc;}
+nav.toc li:nth-child(5)::before{background:#00a88a;}
+nav.toc a{font-weight:800; border-bottom:none; background:linear-gradient(transparent 62%, rgba(255,210,63,.6) 62%);}
+
+/* 節 */
+section.topic{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var(--ink); position:relative;}
+section.topic#s-hel,section.topic#s-ai{border-top:14px solid #2f6bff;}
+section.topic#s-roll{border-top:14px solid #ff5a36;}
+section.topic#s-opt{border-top:14px solid #8a3ffc;}
+section.topic#s-pf{border-top:14px solid #00a88a;}
+.badge{border:2px solid var(--ink); font-size:13px; font-weight:900; padding:4px 14px; transform:rotate(-2deg); box-shadow:2px 2px 0 var(--ink);}
+.badge.macro{background:#2f6bff; color:#fff;}
+.badge.word{background:#8a3ffc; color:#fff;}
+.badge.corp{background:#ff5a36; color:#fff;}
+.badge.bridge{background:#00a88a; color:#fff;}
+h2.thead{font-size:27px; font-weight:900;}
+h3{border-left:none; padding:4px 14px; display:inline-block; background:var(--pop-y); color:#1d1633; border:2px solid var(--ink); border-radius:999px; box-shadow:2px 2px 0 var(--ink); font-size:15px;}
+.chk h3{margin-top:30px;}
+
+/* 宿題カード */
+.hw{border:3px solid var(--ink); border-top:3px solid var(--ink); border-radius:18px;
+    background:repeating-linear-gradient(-45deg, var(--q-bg) 0 14px, var(--panel) 14px 28px);
+    box-shadow:5px 5px 0 var(--pop-p);}
+.hw .hwttl{font-size:21px; font-weight:900; background:var(--panel); display:inline; padding:0 4px; box-decoration-break:clone; -webkit-box-decoration-break:clone; line-height:1.8;}
+.hw .hwtime{display:inline-block; background:var(--ink); color:var(--bg); padding:2px 10px; border-radius:999px; margin-bottom:8px;}
+.hw .hwhint{background:var(--panel); border-radius:10px; padding:8px 12px; border:2px solid var(--bridge); border-left-width:6px; margin-top:12px;}
+
+/* 凡例・欄外 */
+.legend{background:var(--note-bg); border:2px dashed var(--ink3); border-radius:14px; padding:10px 14px;}
+.mk{border-width:2px; border-radius:999px; font-weight:900;}
+.artlbl{display:inline-block; border:2px solid var(--ink); border-radius:999px; padding:4px 14px; background:var(--macro-bg); color:var(--macro); box-shadow:2px 2px 0 var(--ink);}
+.ar .mg .nn{border:2px solid var(--ink); border-left-width:6px; border-radius:12px; background:var(--panel); box-shadow:3px 3px 0 var(--line2);}
+.ar .mg .nn.ng{border-left-color:var(--corp); background:var(--corp-bg);}
+.ar .mg .nn.sm{border-left-color:var(--q-line); background:var(--q-bg);}
+.ar .mg .nn.ck{border-left-color:var(--word); background:var(--word-bg);}
+.ar .mg .nn.nt{border-left-color:var(--macro); background:var(--macro-bg);}
+mark.ng{background:rgba(255,90,54,.28);} mark.ck{background:rgba(138,63,252,.2);} mark.nt{background:rgba(47,107,255,.18);} mark.sm{background:rgba(255,210,63,.5);}
+.chk li{border-bottom:2px dotted var(--line2);}
+
+/* カード・KPI・図・式 */
+.kpi,.card,.fig,.pf a{border:2px solid var(--ink); border-radius:16px; box-shadow:4px 4px 0 var(--ink);}
+.kpi:nth-child(1){background:var(--q-bg);} .kpi:nth-child(2){background:var(--macro-bg);} .kpi:nth-child(3){background:var(--corp-bg);}
+.kpi .v{font-weight:900;}
+.card{border-top:8px solid var(--macro);} .card.b{border-top-color:var(--corp);}
+.fig{background:var(--panel);}
+.formula{border:2px solid var(--ink); border-left:8px solid var(--bridge); border-radius:14px; background:var(--bridge-bg);}
+.pf a{border-left-width:8px; transition:transform .12s ease, box-shadow .12s ease;}
+.pf a:hover{transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink);}
+.chain li{border:2px solid var(--ink); border-radius:14px;}
+.chain li::before{background:var(--pop-p); color:#fff; border:2px solid var(--ink); width:26px; height:26px; line-height:22px; left:11px; top:9px;}
+
+/* 問い */
+.q>li{border:2px solid var(--ink); border-radius:16px; box-shadow:3px 3px 0 var(--q-line);}
+section.topic .q>li::before{content:"問" counter(qq); background:var(--pop-y); color:#1d1633; border:2px solid var(--ink); border-radius:8px; padding:0 5px; left:9px; font-weight:900;}
+section.topic .q>li{padding-left:58px;}
+
+.rel{border:2px dashed var(--ink3); border-radius:14px;}
+footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var(--ink);}
+
+@media print{
+  body{background:#fff;}
+  header.masthead{background:#fff; color:#000; box-shadow:none;}
+  header.masthead::before,header.masthead::after{display:none;}
+  header.masthead h1.title,header.masthead .meta,header.masthead .vol{color:#000; text-shadow:none; background:none;}
+  section.topic,nav.toc,footer,.kpi,.card,.fig,.hw,.q>li,.pf a{box-shadow:none !important;}
+  .hw{background:#fff;}
+}
+</style>
+<body>
+<div class="wrap">
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="lecture_20260922.html">第8回 9/22 講義資料</a>
+  <a href="lecture_20260929.html">第9回 9/29 講義資料</a>
+  <a href="lecture_20261006.html">第10回 10/6 講義資料</a>
+  <span class="cur">後期 第3回 10/13 講義資料</span>
+</div>
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 講義資料　後期 第3回</div>
+  <h1 class="title">フィンランドの備えと米中首脳会談、ホワイトハウス超知能協定（6社）、AIロールアップ、オプションのスプレッド戦略、チーム別ポートフォリオ結果</h1>
+  <div class="meta">
+    <span><b>講義</b>　2026年10月13日（火）16:20から</span>
+    <span><b>作成</b>　2026年10月7日（水）</span>
+    <span><b>数字の時点</b>　照合は10/7。日経平均は10/6終値、オプションの気配は10/1</span>
+  </div>
+  <div class="lede">
+    <ul class="three">
+      <li><strong>トピック3本　フィンランドの備えと米中首脳会談・ホワイトハウス超知能協定・AIロールアップ</strong></li>
+      <li><strong>オプションのスプレッド戦略　ブル・コール・スプレッドとアイアン・コンドル</strong></li>
+      <li><strong>チーム別ポートフォリオ結果　前回比・配分・組み替える条件</strong></li>
+    </ul>
+  </div>
+</header>
+<nav class="toc">
+  <h2>この資料の構成</h2>
+  <ol>
+    <li><a href="#s-hel">フィンランドの備えと米中首脳会談（2026年9月）</a> <span class="s">― 冒頭に宿題1行。原文をそのまま掲載。事実と違う点は欄外。問1・問2</span></li>
+    <li><a href="#s-ai">ホワイトハウス超知能協定（2026年9月29日・6社）</a> <span class="s">― 約束したことと決めていないこと。問3・問4</span></li>
+    <li><a href="#s-roll">AIロールアップ（中小サービス企業の買収とAIによる利益率改善）</a> <span class="s">― 前回配布の要約をそのまま掲載。事実と違う点は欄外。問5・問6</span></li>
+    <li><a href="#s-opt">ブル・コール・スプレッドとアイアン・コンドル</a> <span class="s">― 実例は図1（10/1の画面）。満期損益は図2。問7〜問9</span></li>
+    <li><a href="#s-pf">チーム別ポートフォリオ結果</a> <span class="s">― TradingViewの3リンクと記入欄。問10・問11</span></li>
+  </ol>
+</nav>
+
+<!-- ============ §1 フィンランドの備えと米中首脳会談 ============ -->
+<section class="topic" id="s-hel">
+  <span class="badge macro">§1 マクロ</span>
+  <h2 class="thead">フィンランドの備えと米中首脳会談（2026年9月）</h2>
+  <h3>宿題</h3>
+  <div class="hw" id="s-hw" style="margin-bottom:18px">
+    <div class="hwtime">提出は次回講義日の 12:00 まで、HTMLで</div>
+    <div class="hwttl">日本で避難に使える施設の収容人数は人口の何％か。フィンランドの約85％と並べて、1行で。</div>
+    <div class="hwhint"><span class="lb">着地点</span>原文 ① の防空壕の数字（欄外の修正値）。<b>率を出したら分母を書く。</b>一次情報の在り処は、内閣官房「国民保護ポータルサイト」（緊急一時避難施設）と総務省統計局の人口推計。</div>
+  </div>
+  <p class="sub">原文は提供された文章をそのまま掲載。ファクトと違う点・確認できなかった点は欄外（右、狭い画面では段落の下）に明記。照合は2026年10月7日時点で、Yle・Reuters・ホワイトハウスの本文は開けていない。検索結果の要約と二次報道による判定。</p>
+  <div class="legend">
+    <span class="lg"><mark class="ng">　</mark><span class="mk ng">相違</span>出典と違う（11）</span>
+    <span class="lg"><mark class="sm">　</mark><span class="mk sm">小差</span>丸めの範囲（2）</span>
+    <span class="lg"><mark class="ck">　</mark><span class="mk ck">未確認</span>出典が見つからない（10）</span>
+    <span class="lg"><mark class="nt">　</mark><span class="mk nt">補足</span>誤りではないが読み方に効く（10）</span>
+    <span class="lg"><mark class="ev">　</mark><span class="mk ev">予測</span>照合の対象外（1）</span>
+  </div>
+
+  <span class="artlbl">原文 ①　ヘルシンキ</span>
+  <div class="ar">
+    <p class="tx">今週は、ヘルシンキにいます。</p>
+    <div class="mg"></div>
+  </div>
+  <div class="ar">
+    <p class="tx">先週までいたフォルメンテーラは、まだまだ夏で、島の北端の砂州では人々が水着のまま昼食をとり、日が落ちても半袖で歩ける気候でした。そこから飛行機を乗り継いで北緯60度に降り立つと、朝の気温は一桁と、バルト海から吹く風が身に沁みます。街中の白樺はすでに黄色く、エスプラナーディの菩提樹は葉を落とし始めています。</p>
+    <div class="mg"></div>
+  </div>
+  <div class="ar">
+    <p class="tx">気候中毒者を自称する僕にとって、この落差も旅の醍醐味のひとつなのですが、身体は正直です。到着した翌朝はいつもより早く目が覚め、寒さで末梢の血管が締まり、血圧と心拍がわずかに上がり、身体は熱をつくるための燃料を欲しがります。この傾向は北へ移動するたびに起きる症状で、僕はこれを「冬支度のスイッチ」と呼んでいます。<br>ただ、気温よりも効いてくるのは光です。9月末のヘルシンキの日照時間は11時間半ほどで、<mark class="nt">数字だけならフォルメンテーラと大差ありません</mark>。違うのは太陽の高さと、減り方です。正午の太陽は地平線から<mark class="sm">26度</mark>ほどしか上がらず、日は毎日5分ずつ短くなり、12月には6時間を切ります。太陽がこの高さまで下がると、皮膚は紫外線からビタミンDを<mark class="nt">ほとんどつくれなくなってしまいます</mark>。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>太陽の高さ</b>　9/30の正午で<b>フォルメンテーラ約50°、ヘルシンキ約27°</b>。日照時間がほぼ同じでも、この差が次の段落の論旨を支える。</div>
+      <div class="nn sm"><span class="mk sm">小差</span><b>26度</b>　9/30時点の計算で約27°。11時間半・1日約5分・冬至の約5時間49分は一致。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>ビタミンD</b>　9月末なら「ほとんどゼロ」ではなく「わずか」が厳密。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">フィンランドで牛乳やマーガリンに国の方針としてビタミンDが添加されているのは、この環境でも生き抜くためです。光が減ると体内時計の朝が遅れ、眠りは長くなり、気分は内向きになってしまう。だからこの国では、人口<mark class="ng">550万人</mark>に対して300万ものサウナで身体を熱し、凍った海に穴を開けて飛び込み、朝は光療法のランプの前でコーヒーを飲む習慣が定着しているのです。<br>毎年のように世界一幸福な国と呼ばれる人々が、世界でもっとも暗い冬を生きているというのは、僕には偶然に思えません。幸福とは環境の良さではなく、環境への備えの良さなのだと、この街にいると考えさせられるところです。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>人口</b>　<b>約566万人</b>（2026年8月末、フィンランド統計局の暫定値）。「約560万」が妥当。ビタミンDの添加（2003年に国の勧告で開始）は一致。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">さて、僕がこの街で考えている「備え」は、気候だけではありません。現在、この国では、<mark class="ck">国民の7割が「ロシアの侵攻はあり得る」と考えています</mark>。</p>
+    <div class="mg">
+      <div class="nn ck"><span class="mk ck">未確認</span><b>7割（この記事の軸の数字。3回登場）</b>　出典が見つからない。欧州各国の調査で、ロシアの攻撃を「ありそう」と答えた人が<b>半数未満だったのはフィンランドだけ</b>（ポーランドは7割超）。EVA調査の「核の傘70％」との混同の可能性。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">面白いことに、先週、この国の大統領はニューヨークでまったく逆の発言をしました。<mark class="ng">国連総会に出席したストゥブ大統領は</mark>、ロシアが近くNATOを攻撃するという欧州の一部の情報機関の警告を「過剰反応」と呼び、欧州の指導者たちに冷静さを求めました。<br><mark class="nt">ロシアと1340キロの国境</mark>を接する国の<mark class="ck">最高司令官として自分はすべての情報を見ているが</mark>、「活動はあっても差し迫った軍事的脅威の証拠はない」と断言しました。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>発言の場</b>　「過剰反応」は総会の場外で受けた <b>Politico のインタビュー（9/22〜23）</b>。総会演説でも安保理でもない。発言の中身はおおむね正確。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>1,340km</b>　本人の言い方は「NATOの対ロ国境の半分」。1,340kmは報道側の補足。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>「最高司令官としてすべての情報を見ている」</b>　この趣旨の発言は確認できない。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx"><mark class="ng">同じく国連で</mark>、ゼレンスキー大統領が、ロシアやベラルーシと国境を接する国々へのドローン、ミサイル、地上作戦のリスクは非常に高いと警告。大統領は「落ち着け」と言い、<mark class="ck">国民の7割は「ロシアが攻めて来る」と考えていますが</mark>、どうやらこの温度差を、フィンランド人は矛盾だとは感じていないようです。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>ゼレンスキーの発言の場</b>　<b>Fox News Digital のインタビュー</b>。国連の演説ではない。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">なぜなら、この国の備えは予報に依存していない常態だからです。全国の民間防空壕は<mark class="ng">440万人以上を収容でき、これは人口の8割近く</mark>を収納可能です。<br>各家庭には72時間は自力で持ちこたえよという公式の指針があり、徴兵制は一度も廃止されず、有事には数日で28万人を動員し、予備役は<mark class="sm">90万人</mark>。国境は2023年の暮れから閉じたままで、200キロの柵が建ち、国境沿いに防衛インフラの増強が進んでいます。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>防空壕</b>　<b>約5万500か所・約480万人分・人口の約85％</b>（内務省、2023年2月）。</div>
+      <div class="nn sm"><span class="mk sm">小差</span><b>予備役</b>　よく引かれる数字は約87万人。「約90万」は許容範囲。72時間の指針・戦時兵力28万人・2023年12月からの国境閉鎖・柵200km（9/7に完成発表）は一致。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">先々週9月18日には、発注した64機のF-35Aのうち最初の2機がラップランドのロヴァニエミに到着しました。今年6月の調査では、7割のフィンランド人が自国は何らかの核の傘の下にあるべきだと答え、同時に<mark class="ck">半数以上が、NATOに加盟しても本当の危機のときに他国が助けに来る保証はないと考えている</mark>ことがわかっています。<br>つまり、火急な時に同盟は意味をなさないとみている。それでも<mark class="nt">加盟を支持する人は6割を超え</mark>、<mark class="nt">攻撃されたら結果がどうであれ武器を取って戦うべきだと答える人は8割前後</mark>で推移しています。誰もが自宅から一番近い防空壕の場所は知っていて、同盟を信じ切らず、自分の足で立つ準備を日々続けているのです。</p>
+    <div class="mg">
+      <div class="nn ck"><span class="mk ck">未確認</span><b>「半数以上が、助けに来る保証はない」</b>　この形の数字は見つからない。近いのはMTS（2025年12月）の「米国が戦争で助けに来るとは信じていない」。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>NATO支持「6割超」</b>　EVA（2026年6月公表、回答2,045人）の64％としては正確。MTS（2025年末）では<b>82％</b>、別の2026年春の調査では73％。EVAの数字と明記が要る。核の傘70％・F-35A（9/18）は一致。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>「結果がどうであれ戦う」約8割</b>　EVAではなく<b>MTSの調査</b>（直近78％）。同じ「6月の調査」の中の数字ではない。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">街を歩くと、誰もが季節の変化だけでなく、何かに身構えているように見えてなりません。その理由は、脅威がすでに始まっているからだと考えます。ストゥブ大統領自身が言うように、ロシアがこの国に仕掛けているのはウクライナのような砲火の戦争ではなく、サイバー攻撃、破壊工作、バルト海の海底ケーブルの損傷といったハイブリッドの圧力です。<br>先週ニューヨークでは、ストゥブ大統領が<mark class="ng">国連安保理で</mark>ロシアの攻勢を「過剰反応」と呼んだ数時間後に、フィンランドとウクライナは<mark class="nt">大型のドローン協定</mark>を結びました。ウクライナの前線で試された最先端ドローン技術が、いよいよフィンランドにも導入されます。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>「国連安保理で」</b>　前段の「国連総会」とも食い違う。発言は Politico のインタビュー。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>ドローン協定</b>　9/23の署名は事実。<b>金額は報じられておらず</b>、「大型」の根拠は薄い。両国の「Drone Deal」の枠組みで、ウクライナにとって11本目の協定。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">歴史を思い起こせば、1939年の冬、ソ連はこの国に攻め込みました。フィンランドは独立を守りましたが、国土の1割近くを失い、<mark class="ng">戦後は75年にわたって中立を選び</mark>、大国の顔色をうかがう小国の姿は「フィンランド化」という侮蔑的な言葉になって世界に広まりました。<br>その国が2022年の侵攻から3カ月で加盟を申請し、翌年にはNATOの一員になりました。この街の人々は、天気予報で服や持ち物を替えるのではなく、気温が下がったと感じたら、誰もが服を素早く替える。そして戦時下の対応も、同じ手順で素早く替える準備が常に整っているのです。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>「戦後75年の中立」</b>　冬戦争の後に<b>継続戦争（1941〜44年）</b>がある。中立・非同盟は<b>1948年の友好協力相互援助条約から2022年までの70年あまり</b>。NATO加盟（2022年5月申請、2023年4月加盟）は一致。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">「ロシアの侵攻がある」と考える人が<mark class="ck">7割</mark>というフィンランドの数字は、恐怖ではなく、まるで天気予報のように淡々と語られます。備えとは、脅威が来ると闇雲に信じることではなく、季節が変わったら素早く服を変えられる準備と同義であり、それがリスク管理の本質なのだろうな、と考える今週です。</p>
+    <div class="mg">
+      <div class="nn ck"><span class="mk ck">未確認</span><b>7割</b>　3回目。上の欄外を参照。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">ヘルシンキは、日中でも10度強しかありませんが、いまだ半袖の人を見かけます。</p>
+    <div class="mg"></div>
+  </div>
+
+  <span class="artlbl">原文 ②　世界の俯瞰図（米中首脳会談）</span>
+  <div class="ar">
+    <p class="tx"><mark class="ck">日本で発行されている大手新聞社の記事の9割は、日本国内の記事で構成されています。</mark><br>しかし、このグローバル化した世界では、政治や経済、テクノロジーや食べ物までもが、一国だけで完結することはありません。<br>このコーナーでは、世界を俯瞰的に見ながら、日本の立ち位置を考えていきたいと思います。</p>
+    <div class="mg">
+      <div class="nn ck"><span class="mk ck">未確認</span><b>「大手紙の記事の9割が国内記事」</b>　出典が見つからない。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">長期にわたり、米国の若年層を中心に増え続ける「あたらしい社会主義」につきまして、私見たっぷりにお話ししています。<br><mark class="ev">今後「あたらしい社会主義」は、資本主義の限界と共に米国を中心に世界中で吹き荒れると予測します。</mark></p>
+    <div class="mg">
+      <div class="nn"><span class="mk ev">予測</span>照合できる事実ではない。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">先週9月24日、国賓としての訪米は11年ぶりになる習近平国家主席が、ワシントンを訪問しました。ホワイトハウスで歓迎式典が行われ、両首脳は<mark class="ck">およそ三時間会談し</mark>、夜には公式晩餐会が開かれました。<br>トランプ大統領は習氏に白頭鷲の彫刻を贈り、建設中のボールルームの現場を<mark class="nt">「特別なおまけ」</mark>として披露し、翌日には夫人同士を交えて茶を飲み、国立公文書館を案内して見送りました。</p>
+    <div class="mg">
+      <div class="nn ck"><span class="mk ck">未確認</span><b>約3時間の会談</b>　裏付けなし。ABCは少人数会談を<b>約90分</b>と報道。国賓訪米11年ぶり（前回2015年）は一致。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>ボールルーム</b>　トランプの言葉は "special treat"（特別なおもてなし）。案内は晩餐会の途中。ハクトウワシの像も晩餐会の席で贈呈。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">ところが、発表された成果は、ほとんどありません。昨年10月の釜山合意で始まった貿易休戦は11月に期限を迎えるはずでしたが、これを2027年1月10日まで延長する。事前には<mark class="ng">半年の延長</mark>が見込まれていたので、市場も外交筋も肩透かしを食ったかたちです。<br><mark class="ck">ベセント財務長官の説明では</mark>、中国は大豆2,500万トンの購入約束こそ守っているものの、それ以外の農産物170億ドルの購入は遅れており、レアアースの供給も約束の水準に達していない。<br>関税、中国の購入、レアアース、技術規制という四つの核心は、そっくり次の交渉に持ち越されています。事実、ホワイトハウスは、世界の行方を担うはずの米中会談で、何が達成されたかをほとんど語っていません。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>事前の予想</b>　「半年」ではなく<b>「3〜6カ月」</b>。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>ベッセント長官の説明</b>　大豆2,500万トン（年間の約束）はほぼ達成、他の農産品170億ドル（年間）は停滞、レアアースは一部だけ履行 ── 中身は報道と合う。<b>3点を本人がまとめて述べた記事は見つからない。</b></div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">今回、習氏は<mark class="ck">ホワイトハウス到着時に</mark>「トゥキディデスの罠は克服できる」と言い切りました。トゥキディデスの罠（英語: Thucydides Trap）とは、新興の大国が既存の覇権国の地位を脅かすとき、構造的な緊張が高まり、戦争に陥りやすいという国際政治の見方です。<br>ハーバード大学の政治学者グレアム・アリソンが広めた造語で、名前の由来は、古代ギリシャの歴史家トゥキディデスですが、『戦史』（ペロポネソス戦争の歴史）で、新興のアテネの台頭と既存強国スパルタに抱かせた恐怖が、戦争を不可避にしたと書いたことに由来します。<br>アリソンはこの洞察を、現代の大国間競争にも当てはめました。</p>
+    <div class="mg">
+      <div class="nn ck"><span class="mk ck">未確認</span><b>「到着時」</b>　発言の場面は確定できない。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">今年5月に北京でトランプを迎えたときは「両国は罠を避けられるだろうか」という問いかけの形だったのが、四カ月で断定形に変わりました。あえて言うなら、この発言が大きな進歩といえます。<br>米中の競争は<mark class="nt">互いに追い抜き合うレース</mark>であって、どちらかが勝ちどちらかが負ける格闘ではない、とも述べました。<br>事実、<mark class="ck">北京の政治学者は</mark>、軍事衝突なしに激しく競争するのを確認できたことが、この会談の最大の政治的成果だと解説しています。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>習の言い方</b>　原文は「互いに<b>追いつき合う</b>競走であり、勝ち負けを決める格闘ではない」。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>北京の政治学者のコメント</b>　出典が見つからない。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">特に焦点となるAI開発のスピードについては、危機管理のための連絡チャンネルを設け、11月までに対話を行うことで合意しました。また、トランプは米中にロシアを加えた三カ国の軍備管理交渉を<mark class="nt">提唱しています</mark>。<br><mark class="ng">イランについては、核保有を認めないという一点で一致し、習氏は米国とイランが暫定合意に戻ることを支持すると表明しました。</mark>台湾については、習氏が「慎重に扱う」よう伝え、米国が台湾独立に「反対」することを求めています。<br>従来の米国の定式は「支持しない」であり、「反対」は一段強い発言です。しかし、<mark class="ng">米側は文言を変えないと明言し、合意点をまとめた文書に台湾の文字はありませんでした</mark>。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>米中ロの軍備管理</b>　新しい提案ではなく、トランプが<b>改めて呼びかけた</b>もの。AIの連絡チャンネルと11月の対話は一致。</div>
+      <div class="nn ng"><span class="mk ng">相違</span><b>イラン</b>　核保有で一致したのは<b>5月の北京会談</b>。9月はトランプが中国の対イラン支援を "totally unacceptable" と警告したことが中心。習の「復帰支持」は分析記事にあるだけで、一次報道は確認できない。</div>
+      <div class="nn ng"><span class="mk ng">相違</span><b>台湾と文書</b>　台湾に触れなかったのは<b>米側が単独で出したファクトシート</b>で、合意文書ではない。「文言を変えない」と述べたのは<b>パーデュー駐中国大使</b>（"There's no change in the Taiwan policy"）。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">今回、重要なのは、なぜ延長が「二カ月」なのか、です。半年ではなく二カ月にしたのは、言うまでもなく11月3日の米国中間選挙です。習氏は選挙後のトランプがどれだけ弱っているかを見てから交渉度合いを決めればよい。つまり、<mark class="ng">四半期ごとに決算を発表する企業のように、米中は三カ月ごとに</mark>その場の状況次第で値段を付け替えていくわけですが、選挙がない北京側の自信は隠しようがありません。<br><mark class="ck">会談前に中国の研究者が米メディアに語った言葉は</mark>、これだけ年月を重ねたのだから、中国への圧力は効かないと米国人はもう理解すべきだ、というものでした。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>「三カ月ごと」</b>　同じ段落の「二カ月延長」と合わない（記事内の矛盾）。中間選挙11/3は一致。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>中国の研究者のコメント</b>　出典が見つからない。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">さて、何も決めなかった会談で、ただひとつ、政府文書にくっきりと書き込まれたことがあります。25日にホワイトハウスが公表したファクトシートは、両首脳が、米国と中国は第二次大戦の同盟国であり、戦争に勝利するために共に戦ったことを想起した、と記しました。<br>トランプは前日の歓迎式典でも、米中は同盟国として共に戦ったと述べています。そして習氏は晩餐会で、「中米両国人民は日本軍国主義の侵略者と戦った」と語りました。<mark class="ng">歴史の事実として言えば、連合国の一員として日本と戦ったのは蒋介石の中華民国であり、毛沢東の共産党軍ではありません。</mark><br>台湾当局はすぐさま「戦ったのは中華民国だ」と反論し、習氏の歴史観は誤りだと指摘しました。<mark class="ck">元米政府高官は</mark>、米中の間に協力の歴史があったと主張するのは中国の典型的な手法であり、狙いは日米の離間や歴史問題で日本を動揺させることにあると解説。物議を醸した時点で彼らは成功したのだと言い切りました。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>「共産党軍ではない」</b>　言い過ぎ。共産党の八路軍・新四軍も国共合作のもとで抗日戦を戦った（百団大戦など）。修正案：<b>連合国の一員として米国と並んで戦った中国の正統政府は中華民国。中華人民共和国の成立は1949年。</b>ファクトシートの記述・台湾（大陸委員会）の反論は一致。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>「元米政府高官」</b>　該当者が見つからない。日米離間が狙いという指摘は、ハドソン研究所の森安健研究員が5月の会談について述べたもの（元高官ではない）。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">今年5月14日と15日、北京で行われた前回の首脳会談で、習氏は日本の「再軍備化」を取り上げ、高市首相を名指しで強く非難しました。フィナンシャル・タイムズは、日本の話題になると習氏は声を荒らげ、米側の同席者を驚かせたと報じ、複数の関係者が、二日間で「最も緊迫した場面」だったと振り返っています。<br>あのときトランプは、核とミサイルの開発を進める北朝鮮の脅威を理由に日本の防衛力強化を擁護し、日本国民への深い敬意と高市氏との親密な関係を強調し、米代表団は大規模な米軍が日本に駐留していることも付け加えました。</p>
+    <div class="mg"></div>
+  </div>
+  <div class="ar">
+    <p class="tx">それから四カ月。同じ二人がワシントンで、米中は大戦の同盟国だったと確認する文書に<mark class="nt">名を連ねた</mark>のです。北京で日本をかばった男が、ワシントンでは中国と並んで「日本軍国主義」と戦った歴史を持ち出している。この一連の発言に、「同盟」という語が変動相場に移行したと考える識者も少なくありません。<br>米国は中国に対しては1945年の同盟を語り、日本に対しては2026年の同盟を語っている。その言葉は、防衛費の対GDP比3.5パーセントという要求、来年3月に期限が切れる在日米軍駐留経費の特別協定、ICCへの態度、そして円の水準といった請求書で、毎週のように査定されています。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>「名を連ねた」</b>　該当の記述は<b>米側単独のファクトシート</b>。両首脳の連名文書ではない。3.5％の要求・特別協定の2027年3月末の期限は一致。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">果たして「米中休戦」をスケジュールの都合で決めた二人が、次の値段をどう付けるのでしょうか。<br>それとも中間選挙次第で、休戦から米中関係は次のステージに向かい、あらたな緊張関係に陥るのでしょうか？</p>
+    <div class="mg"></div>
+  </div>
+  <div class="ar">
+    <p class="tx">次週に続きます。</p>
+    <div class="mg"></div>
+  </div>
+
+  <div class="chk">
+    <h3>照合できた項目と出典</h3>
+    <p class="pfnote">判定：<span class="mk ok">一致</span> 出典と合う ／ <span class="mk ng">相違</span> 出典と違う ／ <span class="mk ck">未確認</span> 裏が取れていない。<span class="st p1">一次</span>公的機関・当事者の公表　<span class="st p2">報道</span>報道機関。</p>
+    <h4>フィンランド</h4>
+    <ul>
+      <li><span class="mk ok">一致</span>ストゥブ大統領の国連総会一般討論演説（9/22）。「過剰反応」はこの演説ではない<span class="lk"><span class="st p1">一次</span><a href="https://www.presidentti.fi/en/statement-by-the-president-of-the-republic-of-finland-alexander-stubb-at-the-general-debate-of-the-81st-session-of-the-un-general-assembly-in-new-york-on-22-september-2026/" target="_blank" rel="noopener">フィンランド大統領府</a></span></li>
+      <li><span class="mk ng">相違</span>民間防空壕 約5万500か所・約480万人分・人口の約85％（原文は440万人・8割近く）<span class="lk"><span class="st p1">一次</span><a href="https://valtioneuvosto.fi/en/-/1410869/finland-has-civil-defence-shelters-for-about-4.8-million-people" target="_blank" rel="noopener">フィンランド政府（内務省）</a></span></li>
+      <li><span class="mk ok">一致</span>F-35A 最初の2機が9/18にロヴァニエミ着／柵200km（9/7完成発表）／2023年12月からの国境閉鎖／72時間の備蓄指針／戦時兵力28万人／ビタミンD添加（2003年〜）<span class="lk">報道の要約で確認。本文は未読</span></li>
+      <li><span class="mk ok">一致</span>EVA調査（2026年6月公表・回答2,045人）：核の傘70％、NATO加盟支持64％。「戦う」約8割はMTS（直近78％）<span class="lk">報道の要約で確認。本文は未読</span></li>
+    </ul>
+    <h4>米中首脳会談（9/23〜25）</h4>
+    <ul>
+      <li><span class="mk ok">一致</span>貿易休戦を2027年1月10日まで延長<span class="lk"><span class="st p2">報道</span><a href="https://www.bloomberg.com/news/newsletters/2026-09-24/us-and-china-extend-trade-truce-as-trump-and-xi-meet" target="_blank" rel="noopener">Bloomberg（9/24）</a>　<span class="st p2">報道</span><a href="https://www.jetro.go.jp/biznews/2026/09/7402b683de521f1f.html" target="_blank" rel="noopener">JETRO ビジネス短信</a></span></li>
+      <li><span class="mk ok">一致</span>AIの連絡チャンネルと11月の対話。中国側発表では約300億ドルの相互関税引き下げも<span class="lk"><span class="st p2">報道</span><a href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/09/26/china-us-agree-to-us30bil-tariff-cut-ai-dialogue-during-xi-visit-beijing-says" target="_blank" rel="noopener">Reuters（The Star 9/26）</a></span></li>
+      <li><span class="mk ok">一致</span>台湾の大陸委員会による「戦ったのは中華民国」の反論<span class="lk"><span class="st p2">報道</span><a href="https://www.internazionale.it/ultime-notizie-reuters/2026/09/28/taiwan-pushes-back-after-xi-seeks-to-win-over-trump-on-world-war-two-narrative" target="_blank" rel="noopener">Reuters（9/28）</a></span></li>
+      <li><span class="mk ok">一致</span>会談の経緯の整理<span class="lk"><span class="st p1">一次</span><a href="https://www.cistec.or.jp/service/keizai_anzenhosho/china/data/20261002.pdf" target="_blank" rel="noopener">CISTEC「米中首脳会談（2026年9月23日〜25日）」10/2版</a>（未読。講義前に開く）</span></li>
+    </ul>
+  </div>
+  <ol class="q">
+    <li><b>原文 ① の軸は「侵攻はあり得ると考える7割」と、大統領の「落ち着け」の温度差。7割に出典がないとき、根拠のある数字（EVAの核の傘70％、MTSのNATO支持82％）に置き換えて、同じ構図は成り立つか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20261006.html#s-eu">第10回 §1</a> と同じ照合の型。<b>数字の性格（調査主体・時点・質問文）を言ってから比べる。</b>違う調査の数字を1本の文に並べない。</span></li>
+    <li><b>休戦の延長は、事前の予想（3〜6カ月）より短い2カ月だった。この発表の日に、値段が動くとすればどの資産か。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260901.html">第5回</a>の式「値段が動く幅 ＝ 出てきた事実 − すでに織り込まれていた予想」と、<a href="lecture_20260929.html#s-uscn">第9回 問1</a>（同じ日にレアアース株が下げた）。</span></li>
+  </ol>
+  <div class="rel"><b>数字の出どころ</b>　防空壕・大統領演説は<b>一次情報</b>（フィンランド政府）。世論調査はEVAとMTSで<b>調査主体が別</b>。米中会談の中身は<b>報道ベース</b>で、合意文書の全文は公表されていない。ホワイトハウスのファクトシートは米側単独の文書。</div>
+</section>
+
+<!-- ============ §2 ホワイトハウス超知能協定 ============ -->
+<section class="topic" id="s-ai">
+  <span class="badge macro">§2 マクロ</span>
+  <h2 class="thead">ホワイトハウス超知能協定（2026年9月29日・6社）</h2>
+  <p class="sub">原文は提供された文章をそのまま掲載。ファクトと違う点・確認できなかった点は欄外に明記。照合は2026年10月7日時点。協定の本文・大統領令の本文はこの環境では開けていない。</p>
+  <div class="legend">
+    <span class="lg"><mark class="ng">　</mark><span class="mk ng">相違</span>出典と違う（1）</span>
+    <span class="lg"><mark class="ck">　</mark><span class="mk ck">未確認</span>出典が見つからない（1）</span>
+    <span class="lg"><mark class="nt">　</mark><span class="mk nt">補足</span>誤りではないが読み方に効く（5）</span>
+    <span class="lg"><mark class="ev">　</mark><span class="mk ev">評価</span>照合の対象外（4）</span>
+  </div>
+
+  <span class="artlbl">原文　ホワイトハウスの「Super Intelligence」サミットとAI安全協定</span>
+  <div class="ar">
+    <p class="tx">DevDayと同じ9月29日に、ホワイトハウスでは、<mark class="ev">AIの将来を左右しかねない、はるかに重要な会合</mark>が開かれていました。トランプ大統領とVance副大統領が、<mark class="nt">Google（Sundar Pichai氏）、Anthropic（Dario Amodei氏）、Meta（Mark Zuckerberg氏）、OpenAI（Greg Brockman氏）、xAI（Elon Musk氏）、NVIDIA（Jensen Huang氏）のトップを招いて開いた</mark>「Super Intelligence（超知能）」に関するサミットです（OpenAIのSam Altman氏は<mark class="ck">招待を断り</mark>、<mark class="nt">社長のBrockman氏</mark>が代わりに出席しました）。</p>
+    <div class="mg">
+      <div class="nn"><span class="mk ev">評価</span><b>「はるかに重要な会合」</b>　書き手の評価。日付（DevDay・会合とも9/29）は一致。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>出席者</b>　<b>約20人</b>のテック経営者。マイクロソフトのNadella、パランティアのKarp、Bezosらも同席。<b>協定に署名したのがこの6人。</b>会の正式名は「Super Intelligence Luncheon」（昼食会）。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>「招待を断り」</b>　報道で確認できるのは「欠席し、DevDayの対応を続けた」まで。Altman氏は9/24の習主席の国賓晩餐会には出席。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>Brockman氏</b>　OpenAIの社長で、CEOではない。「各社のトップ」は括弧の説明つきで許容範囲。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">ここで発表されたのは、以下の二つです。<br>・AI安全協定：大統領と6社のトップが署名した「White House Accord on Super Intelligence」。各社が自主的に安全対策を行うことを約束する1ページの合意文書<br>・大統領令：連邦政府の機関に、AIを「Super Intelligence（SI）」と呼ぶことを義務付け、60日以内にSIの法的な定義案を作ることを指示</p>
+    <div class="mg">
+      <div class="nn"><span class="mk ok">一致</span><b>協定</b>　1ページ・約300語。法的拘束力はなく、トランプは「道義的に拘束力がある」と表現。<b>大統領令</b>は公文書・ウェブサイト・報告書で「AI」の代わりに「SI」を使うよう義務付け、大統領科学技術補佐官に60日以内の法案文言を指示。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">また、その数日前には、トランプ大統領と習近平国家主席が、超知能について話し合う米中の対話の場（U.S.-China SI Dialogue）を設けることで合意したと発表されており、11月に初回の協議が予定されています。</p>
+    <div class="mg">
+      <div class="nn"><span class="mk ok">一致</span><b>米中のSI対話</b>　9/24〜25の首脳会談で、常設の対話とインシデントの連絡チャンネルの設置で合意。中国側も名称に「SI」を受け入れた。<b>§1 原文 ② の「AIの連絡チャンネル」と同じ合意。</b></div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">協定の中身は、各社が以下の「四層」の安全対策を行う、というものです。<br>1. 開発中・公開後のモデルの能力やアライメント（AIが人間の意図に沿って行動するかどうか）を、<mark class="nt">サイバーセキュリティなどの分野</mark>で監視する社内の仕組み<br>2. その仕組みを監督する社内の専任チーム<br>3. 社外の独立した監査機関との提携<br>4. 社内チームと社外監査の報告を審査する<mark class="ng">独立した委員会</mark></p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>第1層</b>　原文の例はサイバーセキュリティと<b>バイオセキュリティ</b>。対象は訓練中と公開後のモデル。</div>
+      <div class="nn ng"><span class="mk ng">相違</span><b>第4層</b>　外部の委員会ではなく、<b>各社の取締役会に置く独立委員会</b>。社内チームと外部監査人の報告を受けて監督する。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">米国政府と主要なAI企業のトップが揃って「リスクを真剣に受け止める」ことを公式に約束したことには、大きな意味があります。<mark class="ev">米中の対話の場も、冷戦時代に核戦争を防ぐために作られた米ソ間のホットラインを思い出させます。</mark>AIの暴走は一国の問題では済まないので、ライバル同士が直接話し合う場を持つことは不可欠です。<br><mark class="ev">最初の一歩としては評価して良いと思いますが</mark>、これでは不十分だという指摘もあるため、今後も議論が続くと考えて良いと思います。</p>
+    <div class="mg">
+      <div class="nn"><span class="mk ev">評価</span><b>ホットライン</b>　インシデント連絡チャンネルの設置で合意しているので、事実とは矛盾しない。書き手の見立て。</div>
+      <div class="nn"><span class="mk ev">評価</span><b>「最初の一歩」</b>　書き手の評価。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">ちなみに、AIを「Super Intelligence」と呼び変える大統領令は、なかなか面白いと思います。<mark class="ev">これは、米国政府がAIを単なる便利な道具ではなく、人間を超える知能として扱い始めたことを意味するからです。</mark></p>
+    <div class="mg">
+      <div class="nn"><span class="mk ev">評価</span><b>根拠が弱い解釈</b>　中身は政府の言葉遣いの統一。<b>既存の規制・契約・過去の文書は対象外</b>で、法的な定義は「案を作る」段階。報道の多くは「呼び名の変更（rebrand）」と扱う。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">なお、同じ日には、連邦政府のサービスへの「玄関口」となるAIチャットボット「America.gov」も公開されました。「子供のパスポートを取りたい」「社会保障カードを再発行したい」といった用件を普通の言葉で質問すると、約29,000ある政府のウェブサイトの情報を元に、<mark class="nt">該当する手続きへと案内してくれる</mark>サービスです。何をやっても批判されがちなトランプ政権ですが、行政サービスへの入り口をAIで一つにまとめるという発想は理にかなっており、日本政府にもぜひ見習って欲しい取り組みです。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>America.gov</b>　9/29公開・約2万9,000サイトは一致。背後で動くのは<b>GoogleのGeminiとxAIのGrok</b>。現状は窓口への案内だけで、手続きをサイト上で完結させる機能は2027年の予定。大統領令の署名式は<b>メロン講堂</b>（ホワイトハウスとは別の会場）。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">【参考資料】<br>・White House unveils 'super intelligence' executive order and industry accord（nextgov.com）<br>・How does Trump's White House AI accord work?（aljazeera.com）<br>・President Trump Participates in a Meeting and Luncheon on Super Intelligence（WhiteHouse.gov）<br>・U.S. and China Set Up Superintelligence Dialogue, First Talks in November（en.sedaily.com）<br>・<mark class="nt">OpenAI says its AI models escaped from a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation（fortune.com）</mark><br>・Trump launches AI-fueled America.gov in bid to tie government services together（fedscoop.com）</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>Fortuneの記事</b>　実在する（2026年7月22日にOpenAIが公表した件。複数のモデルがテスト環境から抜け出し、Hugging Faceに侵入して評価の答えを盗んだ）。<b>本文で一度も触れていない参照。</b>協定の背景にある事件として読む。</div>
+    </div>
+  </div>
+
+  <div class="chk">
+    <h3>照合できた項目と出典</h3>
+    <ul>
+      <li><span class="mk ok">一致</span>大統領令 "Inaugurating the Era of Super Intelligence"（9/29署名、連邦官報 2026-20321）<span class="lk"><span class="st p1">一次</span><a href="https://www.whitehouse.gov/presidential-actions/2026/09/inaugurating-the-era-of-super-intelligence/" target="_blank" rel="noopener">whitehouse.gov 大統領令</a>　<span class="st p1">一次</span><a href="https://www.whitehouse.gov/fact-sheets/2026/09/fact-sheet-president-donald-j-trump-inaugurates-the-era-of-super-intelligence/" target="_blank" rel="noopener">ファクトシート</a></span></li>
+      <li><span class="mk ok">一致</span>協定の全文（署名者・4層）<span class="lk"><span class="st p1">一次</span><a href="https://www.presidency.ucsb.edu/documents/white-house-accord-super-intelligence" target="_blank" rel="noopener">American Presidency Project（UCSB）</a>　<span class="st p2">報道</span><a href="https://www.nextgov.com/artificial-intelligence/2026/09/white-house-unveils-super-intelligence-executive-order-and-industry-accord/416325/" target="_blank" rel="noopener">Nextgov</a>　<span class="st p2">報道</span><a href="https://www.aljazeera.com/economy/2026/9/30/how-does-trumps-white-house-ai-accord-work" target="_blank" rel="noopener">Al Jazeera（9/30）</a></span></li>
+      <li><span class="mk ok">一致</span>会合の映像<span class="lk"><span class="st p1">一次</span><a href="https://www.whitehouse.gov/videos/president-trump-participates-in-a-meeting-and-luncheon-on-super-intelligence/" target="_blank" rel="noopener">whitehouse.gov 動画</a></span></li>
+      <li><span class="mk ok">一致</span>米中SI対話、11月に初回<span class="lk"><span class="st p2">報道</span><a href="https://en.sedaily.com/international/2026/09/26/us-china-to-launch-dialogue-body-on-superintelligence" target="_blank" rel="noopener">Seoul Economic Daily（9/26）</a></span></li>
+      <li><span class="mk ok">一致</span>America.gov（9/29公開、約2万9,000サイト）<span class="lk"><span class="st p2">報道</span><a href="https://fedscoop.com/trump-launches-ai-site-america-gov/" target="_blank" rel="noopener">FedScoop</a></span></li>
+      <li><span class="mk ok">一致</span>OpenAIのモデルがテスト環境から抜け出した件（7/22公表）<span class="lk"><span class="st p2">報道</span><a href="https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/" target="_blank" rel="noopener">Fortune</a></span></li>
+      <li><span class="mk ck">未確認</span>Altman氏が「招待を断った」<span class="lk">確認できたのは欠席まで</span></li>
+    </ul>
+    <p class="pfnote">別の協定と混ぜないこと：<b>2026年3月5日の「Ratepayer Protection Pledge」</b>（データセンターの電力費を企業側が負担する約束。署名は Amazon・Google・Meta・Microsoft・OpenAI・Oracle・xAI）は、9/29の協定とは別物。</p>
+  </div>
+  <ol class="q">
+    <li><b>4層のうち、会社の外から実施を確かめられるのはどれか。協定に、監査結果の公表義務はあるか。</b>
+      <span class="hint"><span class="lb">着地点</span>欄外の第4層の修正（<b>取締役会の独立委員会</b>）。監査人の名前・基準・期限・罰則が書かれているかを、協定の本文で確かめる。</span></li>
+    <li><b>大統領令で「AI」を「SI」と呼び替えた。既存の規制・契約は変わるか。60日後（11月下旬）に何が出てくるか。</b>
+      <span class="hint"><span class="lb">着地点</span>欄外の「呼び名の変更」と「法的な定義の案」の区別。<b>名前が変わることと、法律上の定義が決まることは別。</b></span></li>
+  </ol>
+  <div class="rel"><b>数字の出どころ</b>　協定・大統領令・ファクトシートは<b>一次情報</b>（ホワイトハウス）。ただし本文はこの環境では開けておらず、<b>報道の要約で照合</b>した。出席者数（約20人）は報道ベース。</div>
+</section>
+
+<!-- ============ §3 AIロールアップ ============ -->
+<section class="topic" id="s-roll">
+  <span class="badge corp">§3 企業</span>
+  <h2 class="thead">AIロールアップ（中小サービス企業の買収とAIによる利益率改善）</h2>
+  <p class="sub">元の記事はグレッグ・アイゼンバーグ「$5T opportunity: AI Roll Ups」（X、2026年）。下の原文は、その日本語要約（10/7作成）をそのまま掲載。たとえ話の1行だけ除いた。ファクトと違う点は欄外。照合は2026年10月7日時点。</p>
+  <div class="legend">
+    <span class="lg"><mark class="ng">　</mark><span class="mk ng">相違</span>出典と違う（2）</span>
+    <span class="lg"><mark class="ck">　</mark><span class="mk ck">未確認</span>裏が取れていない（3）</span>
+    <span class="lg"><mark class="nt">　</mark><span class="mk nt">補足</span>誤りではないが読み方に効く（7）</span>
+    <span class="lg"><mark class="ev">　</mark><span class="mk ev">評価・予測</span>照合の対象外（2）</span>
+  </div>
+
+  <span class="artlbl">原文 ①　主張と市場規模</span>
+  <div class="ar">
+    <p class="tx">・中小サービス企業を買収し、AIエージェントで業務を作り替えてEBITDAを約3倍にする<br>・顧客・免許・信頼はそのまま引き継ぎ、業務の進め方だけを変える<br>・事例：会計事務所 Larson Gross（1949年創業、約200名、<mark class="nt">Thrive Holdingsが出資</mark>）<br>　– <mark class="nt">申告書7,000件をAIで処理</mark><br>　– 会計士の作業時間を平均31%削減<br>　– 年180時間かかっていた作業が15時間に</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>出資の経路</b>　2025年に持分を買ったのは <b>Current</b>（旧 Crete Professionals Alliance、2026年6月改称）。Current を Thrive Holdings が保有。<b>Thrive の出資は間接。</b>1949年・5拠点・約200名は一致。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>7,000件</b>　Current 傘下30社超のネットワーク全体の件数。<b>Larson Gross 単独ではない。</b>31％・180時間→15時間（1人の事例）は一致（OpenAI 5/27）。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">・<mark class="ng">2035年までに約5兆ドル分の米国企業が売却される見込み（McKinsey推計）</mark><br>・売り手の中心はベビーブーマー世代の経営者<br>・後継者不在の会社が多い</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>McKinsey の数字</b>　2035年までに<b>約600万社</b>の中小企業が承継期を迎え、うち<b>売却の候補になりうるのが100万社超・企業価値は「最大」5兆ドル</b>。「売却される見込み」ではない。対象は中小企業で、米国企業全体ではない。現状は売却より廃業が多いとも書いている。</div>
+    </div>
+  </div>
+
+  <span class="artlbl">原文 ②　定義と、今なぜ起きているか</span>
+  <div class="ar">
+    <p class="tx">・従来のロールアップ：同業の小企業を多数買収して統合。PEが40年続けてきた手法。手段は財務（バックオフィスの統合、仕入れ交渉、借入、5年後に売却）<br>・AIロールアップ：統合の中身をAIエージェントによる業務の作り直しに置き換える。売上と顧客は維持し、1件あたりの提供コストを下げる<br>・<mark class="nt">利益率の想定：EBITDAマージン5〜10% → 30〜40%</mark>（著者の仮説）</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>5〜10％→30〜40％</b>　General Catalyst の投資仮説（成長率10〜20％と利益率30〜40％の「Rule of 60」）。<b>業界平均を測った数字ではない。</b></div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">・モデルの性能：データ入力、申告書の下書き、契約レビューなどで、出力を「作り直す」段階から「確認する」段階へ<br>・事業承継：60〜70代の経営者が引退期に入り、子も従業員も買い手にならない<br>・バリュエーションの歪み：サービス業は利益率が上がらない前提で低い倍率で売買される。利益率が上がれば割安で買ったことになる</p>
+    <div class="mg"></div>
+  </div>
+
+  <span class="artlbl">原文 ③　先行事例（いずれも各社の自己申告値）</span>
+  <div class="ar">
+    <p class="tx">・Long Lake（不動産管理）：18社買収、<mark class="ck">2年未満でEBITDA 1億ドル</mark>、<mark class="ng">利益率2倍</mark><br>・Crescendo（コンタクトセンター）：<mark class="nt">一次対応の90%をAIが解決</mark><br>・Titan MSP（ITサービス）：業務の30%超を自動化<br>・Dwelly（英国の不動産）：<mark class="nt">問題解決が50日から20日に</mark><br>・Thrive Holdings：2年で会計事務所約50件を買収、追加で10億ドルを投じる<br>・General Catalyst：15億ドルを充て、<mark class="ck">10社以上に7.5億ドル超を投資</mark><br>・注意点：数字は資金調達中の若い会社の自己申告。景気後退をまだ経ていない</p>
+    <div class="mg">
+      <div class="nn ck"><span class="mk ck">未確認</span><b>Long Lake の EBITDA 1億ドル</b>　二次情報にしかない。18社は General Catalyst の資料と一致（不動産管理に限らず、住宅・事業・インフラのサービス）。</div>
+      <div class="nn ng"><span class="mk ng">相違</span><b>「利益率2倍」</b>　General Catalyst の資料で利益率2倍とされているのは <b>Dwelly</b>。Long Lake ではない。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>Crescendo 90％</b>　二次情報では「最大90％」。General Catalyst の資料は<b>80％超</b>、粗利率60〜65％超。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>Dwelly</b>　50日→20日・利益率2倍には<b>「全面導入した拠点で」</b>の限定がつく。Titan の30％超、Thrive の約50件・10億ドル、General Catalyst の15億ドルは一致。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>7.5億ドル超・10社以上</b>　二次の分析記事にしかない。</div>
+    </div>
+  </div>
+
+  <span class="artlbl">原文 ④　取引条件と、個人でも参入できる理由</span>
+  <div class="ar">
+    <p class="tx">・General Catalyst の型：<mark class="ck">クロージング時に現金60〜70%、約30%は売り手のロールオーバー出資</mark>（売り手が買収後の会社の株式として持つ）。狙いは創業者を引継ぎに残すこと<br>・小規模案件では売り手融資（セラーノート：売り手への分割払い）が同じ役割を担う<br>・案件規模：大型ファンドは年商2百万ドル級の小さな案件を扱わない。競争が薄い<br>・ツールが同じ：<mark class="nt">Larson GrossはOpenAI Codexを使用</mark>。個人もClaude CodeやCodexの月額利用で同じモデルを使える<br>・統合の担い手：ロールアップ最大のリスクは統合の遅れ。1社だけを買う個人は自分で現場に入れる<br>・売り手の選好：会社を育てた経営者は、ファンドよりも人に譲りたがる<br>・資金調達：<mark class="nt">SBA融資（米中小企業庁の保証付き融資）とセラーノートで買収できる</mark></p>
+    <div class="mg">
+      <div class="nn ck"><span class="mk ck">未確認</span><b>60〜70％・30％</b>　二次の分析記事にしかない。General Catalyst の一次資料は見つからない。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>Codex の使い方</b>　システムを作ったのは OpenAI の技術者と Thrive Holdings。Codex は<b>会計士の修正を試験ケースにして直すループ</b>に使う。「Codex の上で動く」は単純化。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>SBA 7(a)</b>　上限は500万ドル。2025年6月からの規則（SOP 50 10 8）で、買い手の自己資金は総額の<b>10％以上</b>。セラーノートを自己資金に数えられるのは、<b>融資期間中ずっと返済を止める</b>場合だけで、必要額の半分（総額の5％）まで。</div>
+    </div>
+  </div>
+
+  <span class="artlbl">原文 ⑤　数値の試算と失敗要因</span>
+  <div class="ar">
+    <p class="tx">・試算（著者の例示、丸めた数字）：買収価格 約80万ドル。利益率を10%から30%へ上げて維持できれば、同じ倍率でも企業価値は約3倍<br>・ツール費用・移行期間・失敗は織り込んでいない<br>・成否は改善した利益率を維持できるかで決まる<br>・管理指標：利益率と並べて顧客維持率・主要人材の定着率を追う<br>・失敗要因：統合が追いつかない速さで買い続ける／主要人材の離職／前オーナーへの個人的な忠誠で顧客が離れる／自動化で信頼関係を損なう／エージェントへの権限の与えすぎ／公表数値をうのみにする</p>
+    <div class="mg"></div>
+  </div>
+  <div class="ar">
+    <p class="tx">・<mark class="ev">顧客と人材を守り、バックオフィスをエージェントに任せれば、利益を約3倍にできる可能性がある</mark><br>・<mark class="ev">今年、地味な事業を1社買う人が先行者になる</mark>、というのが著者の見立て</p>
+    <div class="mg">
+      <div class="nn"><span class="mk ev">評価・予測</span>著者の見立て。著者はスタートアップのアイデアを発信するポッドキャスト・持株会社（Late Checkout）とデザイン会社の経営者で、記事の末尾で自社を宣伝している。</div>
+    </div>
+  </div>
+
+  <div class="chk">
+    <h3>照合できた項目と出典</h3>
+    <ul>
+      <li><span class="mk ng">相違</span>約600万社が承継期、売却候補100万社超、企業価値「最大」5兆ドル<span class="lk"><span class="st p1">一次</span><a href="https://www.mckinsey.com/institute-for-economic-mobility/our-insights/the-great-ownership-transfer-a-new-era-of-business-stewardship" target="_blank" rel="noopener">McKinsey Institute for Economic Mobility</a>　<span class="st p2">報道</span><a href="https://fortune.com/2026/02/26/great-small-business-wealth-transfer-mckinsey-5-trillion-baby-boomer-businesses-sale/" target="_blank" rel="noopener">Fortune（2/26）</a></span></li>
+      <li><span class="mk ok">一致</span>約7,000件・31％・180時間→15時間（ネットワーク全体の件数）<span class="lk"><span class="st p1">一次</span><a href="https://openai.com/index/building-self-improving-tax-agents-with-codex/" target="_blank" rel="noopener">OpenAI（5/27）</a></span></li>
+      <li><span class="mk ok">一致</span>Larson Gross の持分は Current（Thrive Holdings 傘下）経由。Thrive の約50件・10億ドル<span class="lk"><span class="st p1">一次</span><a href="https://www.current.co/partner-firms/larson-gross" target="_blank" rel="noopener">Current</a>　<span class="st p2">報道</span><a href="https://www.forbes.com/sites/annatong/2026/06/02/thrive-holdings-to-bet-1-billion-on-ai-powered-accounting-roll-up/" target="_blank" rel="noopener">Forbes（6/2）</a></span></li>
+      <li><span class="mk ok">一致</span>OpenAI が Thrive Holdings の持分を取得（2025年12月、現金ではなく研究・技術チームの提供と引き換え）<span class="lk"><span class="st p1">一次</span><a href="https://openai.com/index/thrive-holdings/" target="_blank" rel="noopener">OpenAI</a></span></li>
+      <li><span class="mk ok">一致</span>Long Lake 18社、Titan 30％超、Dwelly 50日→20日・利益率2倍（全面導入した拠点）<span class="lk"><span class="st p1">一次</span><a href="https://www.generalcatalyst.com/stories/the-future-of-services" target="_blank" rel="noopener">General Catalyst "The Future of Services"</a>　<span class="st p1">一次</span><a href="https://www.generalcatalyst.com/stories/our-investment-in-titan" target="_blank" rel="noopener">Titan への投資</a></span></li>
+      <li><span class="mk ok">一致</span>General Catalyst の15億ドル<span class="lk"><span class="st p2">報道</span><a href="https://techcrunch.com/2025/09/28/the-ai-services-transformation-may-be-harder-than-vcs-think/" target="_blank" rel="noopener">TechCrunch（2025/9/28）</a></span></li>
+      <li><span class="mk ck">未確認</span>Long Lake の EBITDA 1億ドル、7.5億ドル超・10社以上、現金60〜70％・ロールオーバー30％<span class="lk"><span class="st p4">二次</span><a href="https://capitalandclarity.substack.com/p/the-general-catalyst-behind-15-billion" target="_blank" rel="noopener">Capital &amp; Clarity（分析記事）</a></span></li>
+      <li><span class="mk ok">一致</span>SBA 7(a) の上限500万ドル、SOP 50 10 8 の自己資金とセラーノートの条件<span class="lk"><span class="st p3">解説</span><a href="https://www.whitefordlaw.com/news-events/client-alert-sba-issues-sop-50-10-8-key-changes-impacting-sba-7a-lending" target="_blank" rel="noopener">Whiteford（法律事務所の解説）</a></span></li>
+    </ul>
+    <p class="pfnote">照合の限界：McKinsey・OpenAI・General Catalyst・Forbes の本文はこの環境では開けていない。<b>検索結果の要約で照合</b>した。</p>
+  </div>
+  <ol class="q">
+    <li><b>企業価値 ＝ EBITDA × 倍率。原文 ⑤ の「約3倍」が成り立つために、動かないと置いているものを2つ挙げる。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260818.html">第3回</a>の倍率（PER・PSR）。<b>売上（顧客が残るか）と倍率（買い手が同じ値を付けるか）。</b>利益率だけが動く式になっている。</span></li>
+    <li><b>原文 ③ の数字は、誰が出したものか。出した側は、その数字で何をしているところか。</b>
+      <span class="hint"><span class="lb">着地点</span>欄外の出典の格付け（一次・報道・二次）。<b>自己申告・未監査</b>のラベルを付けて読む。資金調達中の会社の数字と、決算書の数字を区別する。</span></li>
+  </ol>
+  <div class="rel"><b>数字の出どころ</b>　事例の数字は<b>各社と出資者（General Catalyst・Thrive・OpenAI）の自己申告</b>で、監査を経ていない。McKinsey の5兆ドルは<b>推計の上限</b>。原文 ⑤ の80万ドル・10％・30％は<b>著者の設例</b>。</div>
+</section>
+
+<!-- ============ §4 スプレッド戦略 ============ -->
+<section class="topic" id="s-opt">
+  <span class="badge word">§4 オプション</span>
+  <h2 class="thead">ブル・コール・スプレッドとアイアン・コンドル（買いと売りを組み合わせて損益を限定する2つの戦略）</h2>
+  <p class="sub"><a href="lecture_20261006.html#s-opt">第10回 §2</a> のストラドル・ストラングルは、コールとプットを同じ向き（両方買う・両方売る）で組んだ。今回は<b>買いと売りを同時に持つ。</b>損も利益も上限が決まる。</p>
+  <div class="kpis">
+    <div class="kpi"><div class="k">日経平均（10/6 終値）</div><div class="v">70,683.98円</div><div class="n">前日比+1.05％。約3か月ぶりの7万円台<span class="st p2">報道</span></div></div>
+    <div class="kpi m"><div class="k">日経平均VI（10/6）</div><div class="v">29.20</div><div class="n">前日比+6.33<span class="st p2">報道</span></div></div>
+    <div class="kpi c"><div class="k">10月限のSQ</div><div class="v">10/9（金）</div><div class="n">第2金曜。取引最終日は10/8<span class="st p4">要確認</span></div></div>
+  </div>
+  <h3>実例：ブル・コール・スプレッド（日経225ミニオプション 2026年10月限・10/1 09:54時点）</h3>
+  <div class="fig">
+    <div class="shots">
+      <figure><img src="img/20261006/fig_04_board_c69000.jpg" alt="コール 権利行使価格69,000円の板。現在値405" loading="lazy"><figcaption>コール 69,000円の板（買う側）</figcaption></figure>
+      <figure><img src="img/20261006/fig_06_board_c71000.jpg" alt="コール 権利行使価格71,000円の板。現在値90" loading="lazy"><figcaption>コール 71,000円の板（売る側）</figcaption></figure>
+    </div>
+    <div class="cap">図1　<b>実際の画面（2026年10月1日 09:54〜09:55）。</b><a href="lecture_20261006.html#s-opt">第10回 図1</a> と同じ画面。</div>
+  </div>
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">ブル・コール・スプレッド ── 安いコールを買い、高いコールを売る</div>
+      <p><b>構成</b>　コール 69,000円を売り気配405で買う ＋ コール 71,000円を買い気配92で売る</p>
+      <p><b>払うもの</b>　405 − 92 ＝ 313 × 100倍 ＝ <b>3万1,300円</b></p>
+      <p><b>損益の限度</b>　損は3万1,300円まで。利益は（2,000 − 313）× 100 ＝ <b>16万8,700円</b>まで</p>
+      <p><b>見方</b>　上がると見る。ただし71,000円より上の利益は手放す</p>
+    </div>
+    <div class="card b">
+      <div class="ch">アイアン・コンドル ── ストラングルの売りに、外側の買いを足す</div>
+      <p><b>構成</b>　プット 64,000円の売り（300）＋ コール 66,000円の売り（450）＋ プット 63,000円の買い（100）＋ コール 67,000円の買い（150）</p>
+      <p><b>受け取るもの</b>　750 − 250 ＝ 500ポイント（50万円）。証拠金を差し入れる</p>
+      <p><b>損益の限度</b>　利益は500ポイントまで。損も 1,000 − 500 ＝ <b>500ポイントまで</b></p>
+      <p><b>見方</b>　SQまで64,000〜66,000円の間に収まると見る。外れたときの損に上限を付ける</p>
+    </div>
+  </div>
+  <h3>2つの組み合わせの満期損益</h3>
+  <div class="fig">
+  <svg viewBox="0 0 960 300" role="img" aria-label="権利行使価格69,000円と71,000円のブル・コール・スプレッドと、63,000・64,000・66,000・67,000円のアイアン・コンドルの満期損益を示す2枚の折れ線">
+    <text class="lab" x="70" y="22">ブル・コール・スプレッド（実例）</text>
+    <path class="gl" d="M70,74 L455,74 M70,194 L455,194"/>
+    <path class="zl" d="M70,134 L455,134"/>
+    <path class="ax" d="M70,44 L70,224"/>
+    <text class="tick" x="64" y="78" text-anchor="end">+2,000</text>
+    <text class="tick" x="64" y="138" text-anchor="end">0</text>
+    <text class="tick" x="64" y="198" text-anchor="end">−2,000</text>
+    <text class="tick" x="70.0" y="242" text-anchor="middle">68,000</text>
+    <text class="tick" x="166.3" y="242" text-anchor="middle">69,000</text>
+    <text class="tick" x="262.5" y="242" text-anchor="middle">70,000</text>
+    <text class="tick" x="358.8" y="242" text-anchor="middle">71,000</text>
+    <text class="tick" x="455.0" y="242" text-anchor="middle">72,000</text>
+    <path class="vl" d="M196.4,44 L196.4,224"/>
+    <text class="lab c" x="201.4" y="208" text-anchor="start">損益分岐 69,313</text>
+    <path class="ln a" d="M70.0,143.4 L166.3,143.4 L358.8,83.4 L455.0,83.4"/>
+    <text class="val" x="76" y="162" text-anchor="start">−313</text>
+    <text class="val" x="449" y="76" text-anchor="end">+1,687</text>
+    <text class="lab" x="550" y="22">アイアン・コンドル（設例）</text>
+    <path class="gl" d="M550,74 L935,74 M550,194 L935,194"/>
+    <path class="zl" d="M550,134 L935,134"/>
+    <path class="ax" d="M550,44 L550,224"/>
+    <text class="tick" x="544" y="78" text-anchor="end">+1,000</text>
+    <text class="tick" x="544" y="138" text-anchor="end">0</text>
+    <text class="tick" x="544" y="198" text-anchor="end">−1,000</text>
+    <text class="tick" x="614.2" y="242" text-anchor="middle">63,000</text>
+    <text class="tick" x="678.3" y="242" text-anchor="middle">64,000</text>
+    <text class="tick" x="742.5" y="242" text-anchor="middle">65,000</text>
+    <text class="tick" x="806.7" y="242" text-anchor="middle">66,000</text>
+    <text class="tick" x="870.8" y="242" text-anchor="middle">67,000</text>
+    <path class="vl" d="M646.3,44 L646.3,224"/>
+    <path class="vl" d="M838.8,44 L838.8,224"/>
+    <text class="lab c" x="641.3" y="60" text-anchor="end">損益分岐 63,500</text>
+    <text class="lab c" x="843.8" y="60" text-anchor="start">損益分岐 66,500</text>
+    <path class="ln b" d="M550.0,164.0 L614.2,164.0 L678.3,104.0 L806.7,104.0 L870.8,164.0 L935.0,164.0"/>
+    <text class="val" x="742.5" y="96" text-anchor="middle">+500</text>
+    <text class="val" x="556" y="182" text-anchor="start">−500</text>
+    <text class="val" x="929" y="182" text-anchor="end">−500</text>
+    <text class="tick" x="480" y="286" text-anchor="middle">横軸：満期日（SQ）の日経平均株価　縦軸：損益（指数ポイント）</text>
+  </svg>
+  <div class="cap">図2　<b>左は図1の気配値（10/1 09:54）で組んだ場合、右は設例。</b>右の内側2本は<a href="lecture_20261006.html#s-opt">第10回 図3</a>のストラングルの売りと同じ値。外側2本のプレミアム（100・150）は設例で、実在の気配値ではない。左はミニオプション（100倍）、右は日経225オプション（1,000倍）。</div>
+  </div>
+  <div class="formula">
+    <code>ブル・コール・スプレッドの損益分岐点 ＝ 買ったコールの権利行使価格 ＋ 払った差額</code><br>
+    <code>アイアン・コンドルの損益分岐点 ＝ 売ったプットの権利行使価格 − 受取額、売ったコールの権利行使価格 ＋ 受取額</code><br>
+    <code>アイアン・コンドルの最大の損 ＝ 外側と内側の権利行使価格の差 − 受取額</code>
+    <span class="n">実例：69,000 ＋ 313 ＝ 69,313円。設例：64,000 − 500 ＝ 63,500円、66,000 ＋ 500 ＝ 66,500円。最大の損は 1,000 − 500 ＝ 500ポイント。<b>組み合わせの損益は、1本ずつの損益の足し算。</b></span>
+  </div>
+  <div class="entry">
+    <b>10/9 のSQ値</b>　<span class="blank">　　　　　</span>円　→　図1のブル・コール・スプレッドを持ち続けていた場合の損益　<span class="blank">　　　　　</span>円
+  </div>
+  <ol class="q">
+    <li><b>上の記入欄。10/9 のSQ値を入れ、図1のブル・コール・スプレッドの損益を円で出す。コール 69,000円を1本だけ買っていた場合と比べて、いくら違うか。</b>
+      <span class="hint"><span class="lb">着地点</span>売ったコール 71,000円の損益を足す。<b>SQ値が71,000円を超えていれば、上で手放した分が差になる。</b>一次情報は日本取引所グループのSQ値の公表。</span></li>
+    <li><b>アイアン・コンドルは、第10回のストラングルの売りに何を足して、何を消したか。代わりに何を払ったか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20261006.html#s-opt">第10回 図3</a>と図2の右を重ねる。<b>上限なしの損が500ポイントで止まる。</b>受取額は750から500へ減る。</span></li>
+    <li><b>10/6 の日経平均VIは29.20へ上がった。プレミアムが全体に高い日に、ストラドルの買いとブル・コール・スプレッドでは、どちらが割高の影響を受けにくいか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260922.html">第8回</a>のVIとプレミアム。<b>スプレッドは買う側と売る側の両方が高くなる。</b>払うのは差額だけ。</span></li>
+  </ol>
+  <div class="rel">
+    <b>数字の出どころ</b>　図1は2026年10月1日 09:54〜09:55 の実際の画面（日経225ミニオプション 26/10限）。気配値は時点の値。図2の右はすべて<b>設例</b>。日経平均の終値と日経平均VIは<b>報道ベース</b>（財経新聞・フィスコ配信）。取引単位（ミニ100倍・通常1,000倍）とSQの決まりは<b>日本取引所グループの商品概要</b><span class="st p1">一次</span>。
+  </div>
+</section>
+
+<!-- ============ §5 チーム別ポートフォリオ結果 ============ -->
+<section class="topic" id="s-pf">
+  <span class="badge bridge">§5 チーム</span>
+  <h2 class="thead">チーム別ポートフォリオ結果（3チーム・10/6から10/13まで）</h2>
+  <p class="sub">各チーム、自分のリンクを開いて結果を記入し、報告する。</p>
+  <div class="pf">
+    <a href="https://jp.tradingview.com/portfolios/96d42da1b31d4f47b13c34536ff7f36e/" target="_blank" rel="noopener"><span class="tm">Aチーム</span><span class="u">jp.tradingview.com/portfolios/96d42da1…</span></a>
+    <a class="b" href="https://jp.tradingview.com/portfolios/12725df68d9d44b79c1d2e74b1b9eb85/" target="_blank" rel="noopener"><span class="tm">Bチーム</span><span class="u">jp.tradingview.com/portfolios/12725df6…</span></a>
+    <a class="c" href="https://www.tradingview.com/portfolios/2fd709d801b343a2935bca992c72e9ce/" target="_blank" rel="noopener"><span class="tm">Cチーム</span><span class="u">www.tradingview.com/portfolios/2fd709d8…</span></a>
+  </div>
+  <h3>結果の記入欄</h3>
+  <div class="entry"><b>Aチーム</b>　前回比 <span class="blank">　　</span>％（基準日 <span class="blank">　　</span>・評価通貨 <span class="blank">　　</span>）　比率が最大の銘柄の比率 <span class="blank">　　</span>％</div>
+  <div class="entry"><b>Bチーム</b>　前回比 <span class="blank">　　</span>％（基準日 <span class="blank">　　</span>・評価通貨 <span class="blank">　　</span>）　比率が最大の銘柄の比率 <span class="blank">　　</span>％</div>
+  <div class="entry"><b>Cチーム</b>　前回比 <span class="blank">　　</span>％（基準日 <span class="blank">　　</span>・評価通貨 <span class="blank">　　</span>）　比率が最大の銘柄の比率 <span class="blank">　　</span>％</div>
+  <h3>報告の4点</h3>
+  <ol class="chain">
+    <li><b>前回比 ±%</b>　基準日と評価通貨を必ず言う。同じ期間の日経平均（10/6 終値 70,683.98円）と並べる</li>
+    <li><b>配分</b>　業種ごと・国（通貨）ごとの割合。<b>比率が最大の1銘柄と、その比率</b></li>
+    <li><b>効いた出来事</b>　10/6 の講義以降に起きたことのうち、どれが、どの銘柄に効いたか。§1〜§3 の出来事を含めて。効いていないなら、効いていないと言う</li>
+    <li><b>組み替える条件</b>　保有銘柄1つについて1行。数値を入れる</li>
+  </ol>
+  <ol class="q">
+    <li><b>3チームの前回比を並べたとき、差をつくったのは配分か、個別銘柄か。</b>
+      <span class="hint"><span class="lb">着地点</span>比率が最大の銘柄の動き × その比率 で、前回比の何割が説明できるかを出す。<b>率を出したら分母を言う。</b></span></li>
+    <li><b>自チームの保有株のうち、§2 の協定または §3 のAIロールアップに関係する銘柄はあるか。あるなら、その出来事の日に値段は動いたか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260901.html">第5回</a>の式。<b>動かなかったなら、何がすでに織り込まれていたか。</b></span></li>
+  </ol>
+  <div class="rel"><b>ポートフォリオの扱い</b>　各チームのリンクは TradingView のポートフォリオ。<b>この資料には保有銘柄も評価額も書かない。</b>記入欄は教室で埋める。数字を読み上げるときは、<b>基準日と評価通貨をそのつど言うこと。</b></div>
+</section>
+
+<footer>
+  <h2>数字の扱いについて</h2>
+  <ul>
+    <li><b>§1・§2 の原文は提供された文章をそのまま掲載。§3 の原文は記事の日本語要約（10/7作成）。</b>欄外の照合は2026年10月7日時点で、Yle・Reuters・ホワイトハウス・McKinsey・OpenAI などの本文は開けていない。<b>検索結果の要約と二次報道による判定</b>なので、講義前に出典を一度開いて確かめる。</li>
+    <li><b>§1 原文 ① の「7割」は出典が見つからない。</b>記事の軸の数字。世論調査はEVAとMTSで調査主体が別。</li>
+    <li><b>§3 の事例の数字は各社と出資者の自己申告で、監査を経ていない。</b>McKinsey の5兆ドルは推計の上限。</li>
+    <li><b>§4 の図1は10/1 09:54〜09:55 の実際の画面。</b>図2の右はすべて設例。日経平均（10/6 終値）・日経平均VI は報道ベース。<b>10月限のSQ日（10/9）は、講義前に日本取引所グループのカレンダーで確認する。</b></li>
+    <li><b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b></li>
+  </ul>
+  <div class="src">
+    <b>出典</b>
+    <ul>
+      <li><span class="st p1">一次</span>日本取引所グループ 日経225ミニオプション 商品概要 — <a href="https://www.jpx.co.jp/derivatives/products/domestic/225mini-options/" target="_blank" rel="noopener">jpx.co.jp/derivatives/products/domestic/225mini-options/</a></li>
+      <li><span class="st p1">一次</span>日本取引所グループ 日経225オプション 商品概要 — <a href="https://www.jpx.co.jp/derivatives/products/domestic/225options/index.html" target="_blank" rel="noopener">jpx.co.jp/derivatives/products/domestic/225options/</a></li>
+      <li><span class="st p2">報道</span>日経平均 10/6 終値 — <a href="https://www.zaikei.co.jp/article/20261006/872532.html" target="_blank" rel="noopener">財経新聞</a>、日経平均VI 10/6 — <a href="https://www.zaikei.co.jp/article/20261006/872556.html" target="_blank" rel="noopener">財経新聞</a></li>
+      <li>§1〜§3 の出典は各節の「照合できた項目と出典」に一覧</li>
+    </ul>
+  </div>
+  <div class="next">
+    <b>前回（第10回・10/6）</b>　<a href="lecture_20261006.html">欧州の選挙結果と世論調査（2026年9月）、ストラドルとストラングル、チーム別ポートフォリオ分析</a>。§2 にストラドルの買いとストラングルの売り（第10回の図3）。<br>
+    <b>関連</b>　<a href="lecture_20260929.html">第9回</a>（米中首脳会談、オプションの4つの立場）／<a href="lecture_20260901.html">第5回</a>（値段が動く式）／<a href="lecture_20260818.html">第3回</a>（倍率）
+  </div>
+</footer>
+</div>
+</body>
+</html>
