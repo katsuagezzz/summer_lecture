@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>空売り・クロス取引で答えに詰まった4問（2026年9月10日実施分）</title>
-<meta name="description" content="2026年9月10日の個別指導の復習。空売りとクロス取引（Jトラストの株主優待）を扱った30分の文字起こしから、佐々木くんが最初は答えられなかった箇所だけを抜いて4問にした。現物買い＋空売りで損益がゼロになる理由、利回りの計算式、空売りを仕掛ける一般条件、クロス取引後に手元に残るもの（ケーススタディ 第7回・復習編）">
+<title>日経平均オプションの買い（コール・ストラドル）の損益と損益分岐点（2026年10月7日実施分・7問）</title>
+<meta name="description" content="2026年10月7日の個別指導の復習。ゼミで出たオプションの板とグラフを見直した約17分の文字起こしから、その場で答えに詰まった箇所だけを抜いて7問にした。板の読み方、コール買いの得と損、損益分岐点、ストラドル・ストラングルの違い、ストラドル買いの損益、ストラングル売りの持ち越し（ケーススタディ 復習編）">
 <style>
   :root {
     color-scheme: light;
@@ -330,17 +330,17 @@
   <a class="backlink" href="../sasaki.html">&larr; 講義資料の一覧へ</a>
 
   <header>
-    <p class="eyebrow">ケーススタディ 第7回・復習編 ／ 2026年9月10日実施分</p>
-    <h1>空売り・クロス取引で答えに詰まった4問（2026年9月10日実施分）</h1>
+    <p class="eyebrow">ケーススタディ 復習編 ／ 2026年10月7日実施分</p>
+    <h1>日経平均オプションの買い（コール・ストラドル）の損益と損益分岐点（2026年10月7日実施分・7問）</h1>
     <ul class="lede-pts">
-      <li>9月10日の30分は、志村先生の問いに佐々木くんが答える形で進んだ。下の4問は、<strong>最初は答えが出なかった、または誤って答えた箇所だけ</strong>を文字起こしから抜いてある。</li>
-      <li>選択肢がある問題も、開く前に<strong>理由を先に自分の言葉で言ってから</strong>選ぶ。</li>
-      <li>答えは各問の下に隠してある。合格ラインは「言えた」ではなく<strong>「調べずに動かせた」</strong>。</li>
+      <li>10月7日の約17分は、ゼミで出たオプションの板とグラフを見直す形で進んだ。下の7問は、<strong>その場で答えに詰まった、または取り違えた箇所だけ</strong>を文字起こしから抜いてある。</li>
+      <li>開く前に<strong>理由を先に自分の言葉で言ってから</strong>答えを見る。</li>
+      <li>答えは各問の下に隠してある。合格ラインは「言えた」ではなく<strong>「数字を入れて動かせた」</strong>。</li>
     </ul>
     <div class="meta-chips">
-      <span class="chip">元になった回: <em>2026年9月10日</em></span>
-      <span class="chip">題材: <em>空売り・現物買い・クロス取引（Jトラストの株主優待）</em></span>
-      <span class="chip">全4問</span>
+      <span class="chip">元になった回: <em>2026年10月7日</em></span>
+      <span class="chip">題材: <em>日経平均オプション（コール買い・ストラドル買い）</em></span>
+      <span class="chip">全7問</span>
     </div>
 
     <nav class="tabs" aria-label="ケーススタディ シリーズ">
@@ -352,112 +352,133 @@
       <a class="tab" href="lecture_sasaki_20260907.html">第6回　The capital will find you<small>英語とビジネスモデル <span class="ext">&#8594;</span></small></a>
       <a class="tab" href="lecture_sasaki_20260907_review.html">9/7 復習　英語で出た向き<small>5問 <span class="ext">&#8594;</span></small></a>
       <a class="tab" href="lecture_sasaki_20260910.html">第7回　先に売って、あとで買い戻す<small>空売りとクロス取引 <span class="ext">&#8594;</span></small></a>
-      <span class="tab is-current" aria-current="page">9/10 復習　答えに詰まった4問<small>この4問（今回）</small></span>
+      <a class="tab" href="lecture_sasaki_20260910_review.html">9/10 復習　答えに詰まった4問<small>4問 <span class="ext">&#8594;</span></small></a>
       <a class="tab" href="lecture_sasaki_20260930_review.html">9/30 復習　オプションの売り<small>7問 <span class="ext">&#8594;</span></small></a>
-      <a class="tab" href="lecture_sasaki_20261007_review.html">10/7 復習　オプションの買い<small>7問 <span class="ext">&#8594;</span></small></a>
+      <span class="tab is-current" aria-current="page">10/7 復習　オプションの買い<small>この7問（今回）</small></span>
     </nav>
   </header>
 
   <section>
     <h2>このページの使い方</h2>
     <ol class="agenda">
-      <li><span class="t">まず</span><span class="what">§1の4問を解く<small>答えを開く前に、理由を声に出す</small></span><span class="min">10分</span></li>
-      <li><span class="t">つぎに</span><span class="what">答えを開いて照合する<small>合格ラインは「調べずに動かせた」</small></span><span class="min">5分</span></li>
-      <li><span class="t">次回冒頭</span><span class="what">先生が口頭で同じ4問を出す<small>教材を見ずに説明できれば合格</small></span><span class="min">7分</span></li>
+      <li><span class="t">まず</span><span class="what">§1の7問を解く<small>Q3・Q5〜Q7 は紙に数字を書いて計算する</small></span><span class="min">12分</span></li>
+      <li><span class="t">つぎに</span><span class="what">答えを開いて照合する<small>合格ラインは「数字を入れて動かせた」</small></span><span class="min">5分</span></li>
+      <li><span class="t">次回冒頭</span><span class="what">先生が口頭で同じ問いを出す<small>グラフを見ずに説明できれば合格</small></span><span class="min">7分</span></li>
     </ol>
-    <p class="sec-note">辞書もAIも使わずに1周する。詰まったところだけ、あとで配布資料（第7回）に戻って確認する。</p>
+    <p class="sec-note">辞書もAIも使わずに1周する。詰まったところだけ、9月30日の復習ページに戻って確認する。</p>
   </section>
 
   <section>
-    <div class="step-head"><span class="step-time">§1</span><h2>4問</h2></div>
-    <p>いずれも、9月10日にその場では答えが出なかった、または最初は誤って答えた問いである。
-    引用は文字起こしからの発言そのもので、通し時間を付けてある。</p>
+    <div class="step-head"><span class="step-time">§1</span><h2>7問</h2></div>
+    <p>いずれも、10月7日にその場では答えが出なかった、または取り違えた問いである。Q1〜Q3 はコール1本の買い、Q4〜Q6 はストラドル、Q7 は授業で宿題になったストラングル売り。</p>
 
     <div class="ex">
       <div class="card">
         <div class="ex-q"><span class="no">Q1</span>
-        <p>空売り（信用売り）と現物買いを同時に持つと、株価がどちらに動いても損益の合計はゼロになり、株主優待だけが手元に残る。<strong>その理由を自分の言葉で説明しなさい。</strong></p></div>
+        <p>オプションの板に「<strong>67,000円のコール　1,240円</strong>」とある。この<strong>67,000円と1,240円はそれぞれ何か。</strong></p></div>
         <div class="recalls recall-inline">
           <div class="recall">
-            <p class="who">佐々木くん · 00:02</p>
-            <p class="said">「その時系列的に、現物と空売りのところが、プラマイゼロまで行って、株主優待分をもらうところが少しまだわからないです」</p>
-            <p class="note">この回の冒頭、本人が最初に挙げた「わからないところ」がこの1点だった。</p>
+            <p class="who">10/7 · 由来</p>
+            <p class="note">板の数字を「3つの言葉で」説明する場面で、67,000円を「取引されている価格」、1,240円を「予想に近いので当たりやすい」と読んだ。2つの数字の役割が入れ替わっていた。</p>
           </div>
         </div>
-        <details><summary>合格ラインを見る</summary><div class="ans">
-        <p class="calc">現物の含み損益と空売りの含み損益は、株価がどちらに動いても常に逆方向・同額になる</p>
-        <p>授業内の設例（700円→500円）で確認する。現物100株は700円で買って500円で売れば<strong>2万円の損</strong>。空売りは700円で売って500円で買い戻せば<strong>2万円の益</strong>。差し引きゼロになり、残るのは<strong>株主優待の1万円分だけ</strong>である。</p>
-        <p style="margin-top:10px">株価が上がった場合も同じ形になる。現物側の益と空売り側の損が同額で相殺されるため、<strong>株価の水準にかかわらず損益はゼロで固定される。</strong></p>
-        <p style="margin-top:10px"><b>着地点</b>　この仕組みは配布資料（第7回）5章のJトラスト実例に直結する。設例の700円・500円は理解のための数字で、実際の約定値は711円・771円である。</p></div></details>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">67,000円 ＝ 行使価格（日経平均を買える値段）　／　1,240円 ＝ 権利の値段（プレミアム）</p><p>コールは<strong>満期に日経平均を行使価格で買える権利</strong>。1,240円は、その権利を買うために<strong>今日払う</strong>お金。日経平均の値ではない。</p><p style="margin-top:10px"><b>着地点</b>　9/30 のQ1・Q3 と同じ。グラフの縦軸（損益）は、日経平均の値ではなくオプションの売り買いで残るお金。</p></div></details>
       </div>
     </div>
 
     <div class="ex">
       <div class="card">
         <div class="ex-q"><span class="no">Q2</span>
-        <p>100株を1株700円で買い、株主優待として1万円相当を受け取るとき、この投資の<strong>利回り</strong>は何%か。<strong>計算式も書きなさい。</strong></p></div>
+        <p>Q1のコールを<strong>買った</strong>人は、満期までに<strong>どんな得</strong>と<strong>どんな損</strong>がありうるか。</p></div>
         <div class="recalls recall-inline">
           <div class="recall">
-            <p class="who">佐々木くん · 00:05</p>
-            <p class="said">「7ですかね」→「700です」</p>
-            <p class="note">計算式を聞かれても、割り算の形がすぐには出てこなかった。</p>
+            <p class="who">10/7 · 由来</p>
+            <p class="note">「どういう気持ちで買うか。どんな得があるか、損があるか」に対し、本人は価格が高いか安いかと、ATMに近いので安心、という返答にとどまった。</p>
           </div>
         </div>
-        <details><summary>答えを見る</summary><div class="ans"><p class="calc">利回り(%) = 収益 ÷ 投資額 × 100 = 10,000円 ÷ 70,000円 × 100 ≒ 14%</p>
-        <p>投資額は100株×700円＝7万円。収益は優待1万円。<strong>分子に収益、分母に投資額</strong>を置く形は、8月以降の決算ケーススタディで繰り返し出ている型と同じである。</p>
-        <p style="margin-top:10px"><b>着地点</b>　率を出すときは必ず分母（何に対する率か）を確認する。今回の分母は投資額7万円であり、優待の額面1万円ではない。</p></div></details>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">損 ＝ 払った1,240円が上限　／　得 ＝ 日経平均が上がるほど増える（上限なし）</p><p>満期に日経平均が67,000円以下なら、権利は使わず、<strong>払った1,240円がそのまま損</strong>になる。それ以上は損が増えない。上がれば、上がった分だけ得が増える。</p><p style="margin-top:10px"><b>着地点</b>　9/30 のコール売りと向きが逆。<strong>買い手は損に上限があり、売り手は損に上限がない。</strong></p></div></details>
       </div>
     </div>
 
     <div class="ex">
       <div class="card">
         <div class="ex-q"><span class="no">Q3</span>
-        <p>株主優待クロスの話を離れて一般的に考えると、空売りは<strong>どんな条件がそろったとき</strong>に使う手法か。</p></div>
+        <p>Q1のコールを買った人が、<strong>損益ゼロになる日経平均</strong>はいくらか。計算式も書きなさい。</p></div>
         <div class="recalls recall-inline">
           <div class="recall">
-            <p class="who">佐々木くん · 00:14</p>
-            <p class="said">「株に興味がなくても優待だけもらいたいとき」→「その株を持ってない時」→「資金がない時」</p>
-            <p class="note">3回言い直したのち「値下がりが読めた時です」に到達したが、直後に「調べて今調べました。資料とか見まくって」と、その場では自力で出せなかったことを認めている。</p>
+            <p class="who">10/7 · 由来</p>
+            <p class="note">「いくらだったら得になるか」に対し、最初は「振れ幅ですか」「67,000円から上がれば得」と答えた。払った1,240円を差し引く点は、先生のヒントで出た。</p>
           </div>
         </div>
-        <details><summary>答えを見る</summary><div class="ans"><p class="calc">将来、値下がりすると予想する（または知っている）とき</p>
-        <p>優待クロスは、この一般原則を「値下がりのリスクを消すために使う」という応用の一つに過ぎない。<strong>優待の有無にかかわらず、空売りの出発点は値下がりの予想である。</strong></p>
-        <p style="margin-top:10px"><b>着地点</b>　同じ原則が、為替介入を読んだ2日の空売り（配布資料3章）、年末の下げを読んだ110日の空売り（同4章）にも共通する。<strong>優待クロス（5章）は、その応用のうち唯一「一次情報」の実例である。</strong></p></div></details>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">67,000円 ＋ 1,240円 ＝ 68,240円</p><p>67,000円になっても、<strong>払った1,240円を取り戻すまでは損</strong>のまま。68,240円を超えたところから得になる。</p><p style="margin-top:10px"><b>着地点</b>　損益分岐点 ＝ 行使価格 ＋ 払った値段。9/30 のコール売り（63,000円＋800円）と同じ式で、向きだけが逆。</p></div></details>
       </div>
     </div>
 
     <div class="ex">
       <div class="card">
         <div class="ex-q"><span class="no">Q4</span>
-        <p>友だちからゲーム機を借りて4万円で売り、値下がり後に同じ機種を2万円で買い直して友だちに返した。<strong>最終的に佐々木くんの手元に残るのは何か。</strong></p></div>
+        <p><strong>ストラドル</strong>と<strong>ストラングル</strong>は、それぞれ何をする戦略か。</p></div>
         <div class="recalls recall-inline">
           <div class="recall">
-            <p class="who">佐々木くん · 00:27</p>
-            <p class="said">「ゲーム機とお金が残ってます」</p>
-            <p class="note">直後の「お金残ってるかな」の問い返しで「ゲーム機だけ残ってます」に訂正している。</p>
+            <p class="who">10/7 · 由来</p>
+            <p class="note">「コールの買い・プットの買いとは別のものか」と本人が聞き返した。名前と中身が結びついていなかった。</p>
           </div>
         </div>
-        <ol class="qz-choices">
-          <li>現金2万円だけ</li>
-          <li>ゲーム機（現物）だけ</li>
-          <li>現金2万円とゲーム機の両方</li>
-          <li>何も残らない</li>
-        </ol>
-        <details><summary>答えを見る</summary><div class="ans"><p class="calc">正解: B</p>
-        <p>4万円で売って現金化し、2万円で買い戻して返したので、<strong>現金は使い切っている。</strong>最初の答え「お金も残る」は、売った時点の4万円と買い戻した時点の2万円を両方数えてしまった誤りである。</p>
-        <p style="margin-top:10px"><b>着地点</b>　優待クロスで最後に残るのも現金ではなく現物株である。<strong>優待は現物の保有者にしか付かないため、「現物が残ること」が優待を取得する条件になっている</strong>（配布資料5章と同じ形）。</p></div></details>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">ストラドル ＝ コールとプットを両方買う　／　ストラングル ＝ コールとプットを両方売る</p><p>どちらも、コールとプットを<strong>組み合わせて</strong>、満期の日経平均がいくらなら儲かるかを狙う戦略の名前。業界用語で、ほかにも組合せの名前が多数ある。</p><p style="margin-top:10px"><b>着地点</b>　9/30 のQ7（コール売り＋プット売りの同時売り）は、ここでいうストラングル売りにあたる。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q5</span>
+        <p>日経平均が65,000円のとき、<strong>65,000円のコールを800円、65,000円のプットを500円で、両方買った</strong>（ストラドル買い）。満期の日経平均がちょうど<strong>65,000円</strong>だったとき、<strong>損益はいくらか。</strong></p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">10/7 · 由来</p>
+            <p class="note">「65,000円ぴったりで予想は当たったのに、損になる」という点を、本人が最初は受け止められなかった（先生の説明のあとで「わかった」）。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">払った 800 ＋ 500 ＝ 1,300円　→　損益は −1,300円</p><p>満期に65,000円なら、<strong>コールもプットも使い道がない</strong>。2つの権利に払った1,300円だけが損として残る。日経平均を当てても、動かなければ損。</p><p style="margin-top:10px"><b>着地点</b>　ストラドル買いが儲かるのは、日経平均が<strong>大きく動いたとき</strong>。向きは問わない。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q6</span>
+        <p>Q5のストラドル買いで、満期の日経平均が<strong>67,000円</strong>のときの損益はいくらか。また、損益ゼロになる日経平均は<strong>2つ</strong>ある。それぞれいくらか。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">10/7 · 由来</p>
+            <p class="note">グラフが63,000円と67,000円のどちらでも「+700円」になっているのを見て、「1,300円払って700円もらう賭けなのか」と本人が聞いた。損益と損益分岐点の区別がついていなかった。分岐点（63,700円と66,300円）の数字自体は自力で出た。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">67,000円: コールは 2,000円の得、払った 1,300円を引いて ＋700円　／　分岐点 ＝ 63,700円と66,300円</p><p>67,000円のとき、プットは使わず価値がゼロ。コールだけが働く。<strong>グラフの+700円は「もらう額」ではなく、払った1,300円を引いたあとの損益</strong>。</p><p style="margin-top:10px">分岐点は 65,000 − 1,300 ＝ 63,700円、65,000 ＋ 1,300 ＝ 66,300円。63,700円を下回るか66,300円を上回ると得になる。</p><p style="margin-top:10px"><b>着地点</b>　2つの分岐点のあいだは損、外は得。9/30 Q7（売り）の範囲と同じ形で、損益が逆。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q7</span>
+        <p><strong>持ち越し（自習）</strong>　コールとプットを両方<strong>売った</strong>（ストラングル売り）。受け取った合計が<strong>750円</strong>のとき、<strong>(a) 利益の上限はいくらか。(b) 損が大きくなるのはどんなときか。</strong></p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">10/7 · 由来</p>
+            <p class="note">授業の最後に先生が「自分で考えてみな」と宿題にした問い。ストラドル買いと同じ理屈で、向きを逆にして考える。授業内では答えが出ていない。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">(a) 750円（受け取った合計）　／　(b) 日経平均が上にも下にも大きく動いたとき</p><p>満期に、コールとプットの<strong>2つの行使価格のあいだ</strong>で終われば、どちらも使われず、受け取った750円がそのまま利益になる。それ以上は増えない。</p><p style="margin-top:10px">外に出ると損が増える。<strong>上は日経平均が上がるほど際限なく損が増える</strong>（9/30 のQ5・Q6）。下はゼロになるまで。</p><p style="margin-top:10px"><b>着地点</b>　ストラドル買いの損益を上下逆にしたグラフになる。買いは「損に上限・得に上限なし」、売りは「得に上限・損に上限なし」。</p></div></details>
       </div>
     </div>
   </section>
 
   <section>
     <h2>次回までの宿題</h2>
-    <p>次回冒頭、この4問を教材を見ずに口頭で説明する。</p>
+    <p>Q7 を紙に書いて持ってくる。</p>
   </section>
 
   <footer>
-    <p><strong>このページの元になったもの:</strong> 2026年9月10日の個別指導の文字起こし。予定は30分。§1の引用は当日の文字起こしから取っており、時刻はその通し時間である。</p>
-    <p><strong>数字について:</strong> 授業内の700円・500円・4万円・2万円などはすべて理解のための設例で、実際の約定値ではない。一次情報を扱う実例（8508 Jトラスト・約定値711円・9/1終値771円）は配布資料（第7回）5章を参照。</p>
+    <p><strong>このページの元になったもの:</strong> 2026年10月7日の個別指導の文字起こし（約17分）。</p>
+    <p><strong>数字について:</strong> 67,000円・1,240円・65,000円・800円・500円・750円はすべて理解のための設例で、実際の値ではない。実際の日経平均オプションは、指数の値に1,000円を掛けた額で決済される（取引単位・証拠金は大阪取引所の商品概要、証券会社の資料で確認）。</p>
     <p><strong>文字起こし:</strong> summer_lecture_private リポジトリ（非公開）の transcripts_txt/ に保管。</p>
     <p>本資料は個別指導のための教材で、投資勧誘を目的とするものではありません。</p>
   </footer>
