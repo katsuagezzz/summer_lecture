@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>復習 後期 第3回｜2026年10月13日 答えが出なかった問い（全16問）</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+/* ---------- 問い（教室で出た答え／着地点） ---------- */
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+
+.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
+.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
+.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
+  width:6px; height:6px; border-radius:50%; background:var(--macro);}
+.lede ul.three strong{border-bottom:none; padding-bottom:0;}
+
+.tag.m{background:var(--macro-bg); color:var(--macro);}
+.tag.c{background:var(--corp-bg); color:var(--corp);}
+.tag.w{background:var(--word-bg); color:var(--word);}
+.qtags{display:inline;}
+
+.qa .q .said, .qa .q .hint{
+  display:block; margin-top:7px; padding-left:11px;
+  font-size:13.5px; line-height:1.7; color:var(--ink2);
+}
+.qa .q .said{border-left:3px solid var(--q-line);}
+.qa .q .hint{border-left:3px solid var(--bridge);}
+.qa .q .lb{font-weight:800; letter-spacing:.04em; margin-right:5px;}
+.qa .q .said .lb{color:var(--ink3);}
+.qa .q .hint .lb{color:var(--bridge);}
+.qa .q a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+/* Q番号を6つのまとまりをまたいで通す */
+.qa{counter-reset:qq;}
+.qa .q{counter-reset:none;}
+.qa h3{font-size:18px; margin:26px 0 8px; letter-spacing:.01em;}
+.qa h3:first-of-type{margin-top:18px;}
+.qa code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px; font-weight:700; background:var(--word-bg); color:var(--word);
+  padding:1px 5px; border-radius:4px; word-break:break-word;}
+.meta a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+/* ---------- 後期 第3回で追加：答えを開く（JSなし） ---------- */
+#qa details{margin-top:8px; border:1px solid var(--line); border-radius:8px; background:var(--panel);}
+#qa summary{cursor:pointer; padding:7px 11px; font-size:13px; font-weight:800; color:var(--bridge); letter-spacing:.04em;}
+#qa details[open] summary{border-bottom:1px solid var(--line2);}
+#qa .ans{padding:9px 12px 11px; font-size:14px; line-height:1.75; color:var(--ink);}
+#qa .ans p{margin:0;}
+#qa .ans p+p{margin-top:7px;}
+#qa .ans .calc{font-weight:800; font-variant-numeric:tabular-nums;}
+@media print{ #qa details{border:none;} #qa details > *{display:block;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="backlink" href="../seminar.html">&larr; 夏期集中講座の資料一覧</a>
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="../lectures/lecture_20260929.html">第9回 9/29 講義資料</a>
+  <a href="../lectures/lecture_20261006.html">第10回 10/6 講義資料</a>
+  <a href="../lectures/lecture_20261013.html">後期 第3回 10/13 講義資料</a>
+  <span class="cur">後期 第3回 10/13 答えが出なかった問い</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE REVIEW ／ 復習ページ　後期 第3回</div>
+  <h1 class="title">後期 第3回（10月13日）で答えが出なかった問い（全16問）</h1>
+  <div class="meta">
+    <span><b>講義</b>　2026年10月13日（火）16:20–18:20</span>
+    <span><b>作成</b>　2026年10月13日（火）</span>
+    <span><b>出題元</b>　当日の教室のやり取り</span>
+    <span><b>配布資料</b>　<a href="../lectures/lecture_20261013.html">後期 第3回 講義資料</a></span>
+  </div>
+  <div class="lede">
+    <ul class="three">
+      <li><strong>その場で答えが出なかった問い、取り違えた問い、計算が途中で崩れた問いだけを拾った</strong></li>
+      <li><strong>答えは各問の「答えを開く」の中。開く前に、自分の言葉と数字で1行書く</strong></li>
+      <li><strong>次回の冒頭はここから出す</strong></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>このページの構成</h2>
+  <ol>
+    <li><a href="#g1">フィンランドと米中会談</a> <span class="s">― Q1〜Q4。地図・略語・安保理・「同盟国」の文言</span></li>
+    <li><a href="#g2">AIロールアップとEBITDA</a> <span class="s">― Q5〜Q8。ロールアップの意味、出口、EBITDAの中身</span></li>
+    <li><a href="#g3">板とブル・コール・スプレッド</a> <span class="s">― Q9〜Q13。板の読み方、売るコールの義務、313の出どころ</span></li>
+    <li><a href="#g4">アイアン・コンドル</a> <span class="s">― Q14・Q15。60,000円の計算、「絶対に損しない」か</span></li>
+    <li><a href="#g5">投資信託</a> <span class="s">― Q16。アクティブとパッシブ</span></li>
+  </ol>
+</nav>
+
+<section class="topic qa" id="qa">
+  <span class="badge bridge">後期 第3回の記録 ／ 2026年10月13日</span>
+  <h2 class="thead">答えが出なかった問い ── 16問</h2>
+  <p class="sub">10/13の教室で問われ、その場で答えが出なかった問い・取り違えた問い・計算が途中で崩れた問いだけを拾った。答えられた問いは載せていない。<b>「教室で出た答え」→自分で1行→「答えを開く」の順。</b>発言者は書いていない。</p>
+
+  <h3 id="g1">フィンランドと米中会談 ── 地図・略語・文言</h3>
+  <ol class="q">
+    <li><b>北欧3国（ノルウェー・スウェーデン・フィンランド）の首都はどこか。西から順に並べる。</b><span class="qtags"><span class="tag m">地理</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>ヘルシンキとストックホルムは出た。<b>ノルウェーの首都が出ず</b>、「ロシアに面しているのがスウェーデン」と並び順も一度逆になった。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">西から　ノルウェー（オスロ）→ スウェーデン（ストックホルム）→ フィンランド（ヘルシンキ）</p>
+        <p>ロシアと国境を接するのはフィンランド（約1,340km）とノルウェー（北端の短い区間）。スウェーデンは接していない。</p>
+        <p><b>着地点</b>　<a href="../lectures/lecture_20261013.html#s-hel">講義資料 §1</a> の原文 ①。「NATOの対ロ国境の半分」という言い方は、この地図で読む。</p>
+      </div></details></li>
+
+    <li><b>NATO の正式名称を英語で。「A」は何を指すか。</b><span class="qtags"><span class="tag w">用語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>日本語の「北大西洋条約機構」は出た。英語は「N はナショナル」と言いかけ、<b>Atlantic を「オーストラリアの上」と取り違えた。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">North Atlantic Treaty Organization　／　Atlantic ＝ 大西洋</p>
+        <p>N は North（北）。太平洋は Pacific。「オーストラリアの上」は伝説の大陸アトランティスとの混同。</p>
+        <p><b>着地点</b>　北大西洋をはさむ北米と欧州の同盟。フィンランドの加盟は2023年4月（申請は2022年5月）。</p>
+      </div></details></li>
+
+    <li><b>国連安全保障理事会は何か国で構成されるか。常任と非常任の内訳は。</b><span class="qtags"><span class="tag m">国際政治</span><span class="tag w">用語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「5か国と7か国」。常任理事国は米・仏・露まで出た。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">15か国 ＝ 常任理事国5（米・英・仏・露・中）＋ 非常任理事国10（任期2年）</p>
+        <p>常任理事国だけが拒否権を持つ。第二次大戦の連合国側の主要国。</p>
+        <p><b>着地点</b>　講義資料 §1 の欄外。ストゥブ大統領の「過剰反応」は<b>総会でも安保理でもなく</b>、場外のインタビュー。</p>
+      </div></details></li>
+
+    <li><b>9/25 のホワイトハウスのファクトシートにある「米国と中国は第二次大戦の同盟国」。日本と台湾で問題になったのはなぜか。</b><span class="qtags"><span class="tag m">米中</span><span class="tag m">日本</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>解説を求められて出なかった。資料で該当箇所を探し、「トランプが言った」「日本は敗戦国ということ」までで止まった。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">連合国として米国と並んで戦った中国の正統政府は中華民国。中華人民共和国の成立は1949年</p>
+        <p>習主席は晩餐会で「中米両国人民は日本軍国主義の侵略者と戦った」と述べた。台湾の大陸委員会は「戦ったのは中華民国」と反論。日本から見ると、同盟国の米国が、対中で「1945年の同盟」を文書に書いた点が問題になる。</p>
+        <p><b>着地点</b>　講義資料 §1 原文 ② の欄外。<b>文書は米側単独のファクトシートで、両首脳の合意文書ではない。</b>共産党の八路軍・新四軍も抗日戦を戦っており、「共産党軍は戦っていない」も言い過ぎ。</p>
+      </div></details></li>
+  </ol>
+
+  <h3 id="g2">AIロールアップとEBITDA</h3>
+  <ol class="q">
+    <li><b>「ロールアップ」とは何をすることか。</b><span class="qtags"><span class="tag c">M&amp;A</span><span class="tag w">用語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「利益率の改善」「中小サービス企業の利益率改善」。<b>講師の判定は「惜しい」。</b>「買収をしまくる」は別の学生から出た。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">同業の小さな会社を多数買収し、1つにまとめること</p>
+        <p>利益率の改善は、まとめたあとに狙う<b>結果</b>。AIロールアップは、まとめ方の中身（バックオフィスの統合・借入）を、AIによる業務の作り直しに置き換えたもの。</p>
+        <p><b>着地点</b>　<a href="../lectures/lecture_20261013.html#s-roll">講義資料 §3</a> 原文 ②。</p>
+      </div></details></li>
+
+    <li><b>PE（プライベート・エクイティ）のロールアップと、事業会社・持株会社のロールアップは、どこが違うか。</b><span class="qtags"><span class="tag c">M&amp;A</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>学生から「PEは出口がある、事業会社は売らずに持ち続ける」が出た。<b>その違いが買い値・資金の出し手にどう効くかまでは進まなかった。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">PE ＝ 数年で売って値上がり益を回収（出口あり）　／　持株会社 ＝ 持ち続けて毎年の現金を受け取る</p>
+        <p>出口のあるPEは、売るときの倍率が下がるリスクを負う。持ち続ける側は、利益率を<b>維持できるか</b>だけが問題になる。</p>
+        <p><b>着地点</b>　講義資料 §3 問5（企業価値 ＝ EBITDA × 倍率）。PEは倍率と利益率の両方、持ち続ける側は利益率だけに賭けている。</p>
+      </div></details></li>
+
+    <li><b>EBITDA は何の略か。損益計算書のどの利益に、何を足すと近い値になるか。</b><span class="qtags"><span class="tag c">会計</span><span class="tag w">用語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「営業利益から減価償却費を<b>マイナス</b>」と答え、プラスに直された。Amortization の日本語が出ず、講師も「忘れちゃった」。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">Earnings Before Interest, Taxes, Depreciation and Amortization　≒ 営業利益 ＋ 減価償却費 ＋ 償却費</p>
+        <p>利息（Interest）・税金（Taxes）を引く前、減価償却費（Depreciation）と無形資産の償却費（Amortization）を引く前の利益。Amortization には、日本基準では<b>のれんの償却</b>が入る。</p>
+        <p><b>着地点</b>　減価償却費は営業利益の上で引かれている。だから営業利益に<b>足し戻す</b>。</p>
+      </div></details></li>
+
+    <li><b>なぜ、わざわざ減価償却費を足し戻した数字を見るのか。</b><span class="qtags"><span class="tag c">会計</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「企業の稼ぐ力の本質を見る」「だいたいどのくらいの利益が残るか」。<b>現金との関係までは出なかった。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">減価償却費は、その年に現金が出ていかないのに利益を減らす費用だから</p>
+        <p>足し戻すと、本業が生む現金に近い数字になる。借入の多さ（利息）・国ごとの税率・設備の古さ（償却）の違いを外して、会社どうしを並べられる。買収の値段を「EBITDA の何倍」で言うのはこのため。</p>
+        <p><b>着地点</b>　<a href="lecture_review_20260811.html">第2回の復習</a>（減価償却）。ただし設備の買い替えには現金が要る。EBITDA は現金そのものではない。</p>
+      </div></details></li>
+  </ol>
+
+  <h3 id="g3">板とブル・コール・スプレッド</h3>
+  <ol class="q">
+    <li><b>講義資料 図1 のコール 69,000円の板。この板だけを見て、短期的に値段は上がりやすいか、下がりやすいか。根拠を板の数字で言う。</b><span class="qtags"><span class="tag c">オプション</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「下がる。売りたい人のほうが多い」。<b>講師の見立ては別の理由</b>（買い注文が375円付近に厚く、405円近くには薄い）。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">講師の見立て：買いの厚いところ（375円付近）に値段が寄りやすい → 短期的には下</p>
+        <p>買うなら、390円で買い気配に並ぶより、もう少し下に指値を置いて待つ、という使い方。<b>板は数秒で入れ替わる。</b>当たり外れを保証する読み方ではない。</p>
+        <p><b>着地点</b>　「売りが多い」だけでは、どの値段に寄るかが言えない。<b>どの値段に、どれだけ並んでいるか</b>で言う。</p>
+      </div></details></li>
+
+    <li><b>ブル・コール・スプレッドで「コール 71,000円を売る」とは、何を引き受けることか。</b><span class="qtags"><span class="tag c">オプション</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「71,000円で売る権利」「71,000円で取引する権利」。<b>売る側が持つのは権利ではなく義務。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">買い手に「71,000円で買える権利」を渡し、満期に応じる義務を負う。代わりにプレミアム92を受け取る</p>
+        <p>満期に日経平均が72,000円なら、買い手は権利を使う。売った側は 72,000 − 71,000 ＝ 1,000ポイントの損（受け取った92を引いて908の損）。</p>
+        <p><b>着地点</b>　<a href="../lectures/lecture_20260929.html#s-opt">第9回 §2</a> の4つの立場。<b>買い＝権利、売り＝義務。</b>コールでもプットでも同じ。</p>
+      </div></details></li>
+
+    <li><b>図2 の左の「−313」は、どこから出てくる数字か。円にするといくらか。</b><span class="qtags"><span class="tag c">オプション</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「金利を買ったときの金額」。別の学生が「405から引いて313」と出した。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">405（69,000円のコールを買って払う）− 92（71,000円のコールを売って受け取る）＝ 313　→　× 100倍 ＝ 3万1,300円</p>
+        <p>金利ではない。2本のプレミアムの差額。<b>日経225ミニオプションは100倍</b>。</p>
+        <p><b>着地点</b>　講義資料 §4 のカード「払うもの」。</p>
+      </div></details></li>
+
+    <li><b>このブル・コール・スプレッドの、最大の損・最大の利益・損益分岐点は。</b><span class="qtags"><span class="tag c">オプション</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>損益分岐を「69,000円から3,130円以上」と言いかけ、「313円以上」に直った。最大の損3万1,300円は出た。<b>最大の利益と、それがいくらで頭打ちになるかは講師が説明した。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">最大の損 −3万1,300円（69,000円以下）　／　最大の利益 （2,000 − 313）× 100 ＝ 16万8,700円（71,000円以上）　／　損益分岐 69,313円</p>
+        <p>69,000〜71,000円のあいだは、1円上がるごとに100円ずつ損益が改善する。</p>
+        <p><b>着地点</b>　講義資料 §4 の式「買ったコールの権利行使価格 ＋ 払った差額」。</p>
+      </div></details></li>
+
+    <li><b>コール 69,000円を1本買うだけでも、損は払った額で止まる。それなのに、なぜ 71,000円のコールを売って組み合わせるのか。</b><span class="qtags"><span class="tag c">オプション</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「損の限度額が決まる」。学生から「買いだけでも天井なしで、損も限られるのでは」と疑問が出た。<b>別の学生が「4万500円の損を3万円に抑えている」と出したところで止まった。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">払う額を 4万500円（405 × 100）から 3万1,300円に下げるため。代わりに 71,000円より上の利益を手放す</p>
+        <p>損に上限があるのは、1本買いでも組み合わせでも同じ。違うのは<b>上限の高さ</b>と、<b>利益に天井ができる</b>こと。「71,000円あたりまでしか上がらない」と見るときに選ぶ形。</p>
+        <p><b>着地点</b>　損を限定するために売りに買いを足すのは、Q14・Q15 のアイアン・コンドル。ブル・コール・スプレッドは、<b>買いに売りを足して安くする</b>向き。</p>
+      </div></details></li>
+  </ol>
+
+  <div class="callout">
+    <span class="lbl">Q13 の答えは、教室では一度ずれた</span>
+    「売りを組み合わせると損の限度が決まる」は、<b>売りから出発した組み合わせ（アイアン・コンドル）</b>の説明。ブル・コール・スプレッドは<b>買いから出発</b>しているので、損の上限は最初からある。どちらから出発したかを先に言う。
+  </div>
+
+  <h3 id="g4">アイアン・コンドル</h3>
+  <ol class="q">
+    <li><b>講義資料 §4 のアイアン・コンドル（設例）。SQ の日経平均が 60,000円だったとき、4本それぞれの損益と、合計はいくらか。</b><span class="qtags"><span class="tag c">オプション</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>プットの2本で「−3,700 と ＋2,900、差し引き −800」までは合った。<b>コールの2本を足すところで計算が崩れ、合計が「＋2,200」になった。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">プット 64,000円の売り −4,000 ＋ 300 ＝ −3,700　／　プット 63,000円の買い ＋3,000 − 100 ＝ ＋2,900</p>
+        <p class="calc">コール 66,000円の売り ＋450（使われない）　／　コール 67,000円の買い −150（使わない）</p>
+        <p class="calc">合計 −3,700 ＋ 2,900 ＋ 450 − 150 ＝ −500ポイント（× 1,000倍 ＝ −50万円）</p>
+        <p>図2 の右の左端（−500）と一致する。60,000円でも 50,000円でも、63,000円より下なら −500 で止まる。</p>
+        <p><b>着地点</b>　1本ずつ損益を出してから足す。<b>コールの2本は「使われない・使わない」なので、受け取った・払ったプレミアムだけが残る。</b></p>
+      </div></details></li>
+
+    <li><b>「ありえないぐらい離れた値段で売って、外側に買いを入れておけば、絶対に損しない」は正しいか。</b><span class="qtags"><span class="tag c">オプション</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>学生の発言として出た。講師は「リスクヘッジは必ずする」と応じ、<b>売りだけで大きく損をした経験を例に挙げた。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">正しくない。損は止まるが、ゼロにはならない</p>
+        <p>アイアン・コンドルの最大の損 ＝ 外側と内側の権利行使価格の差 − 受け取った額。設例では 1,000 − 500 ＝ 500ポイント。外側の買いがなければ（ストラングルの売り）、損に上限はない。</p>
+        <p>離れた値段ほどプレミアムは安い。受け取る額が小さくなるので、外れたときの損との差は、むしろ広がる。</p>
+        <p><b>着地点</b>　<a href="../lectures/lecture_20261006.html#s-opt">第10回 図3</a>（ストラングルの売り）と講義資料 §4 図2（右）を重ねる。</p>
+      </div></details></li>
+  </ol>
+
+  <h3 id="g5">投資信託</h3>
+  <ol class="q">
+    <li><b>アクティブファンドとパッシブ（インデックス）ファンドの違いは何か。投資信託が運用報告書で開示するものは何か。</b><span class="qtags"><span class="tag c">投資信託</span><span class="tag w">用語</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>Slack に置いた投資信託の運用レポートを見て「ほぼプラス」。<b>アクティブとパッシブの違いは講師の説明だけで、学生からは出なかった。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">アクティブ ＝ 運用者が銘柄を選ぶ　／　パッシブ ＝ 指数（日経平均・TOPIX・S&amp;P500など）と同じ値動きを目指す</p>
+        <p>アクティブは手数料（信託報酬）が高めで、指数に勝てない期間もある。運用報告書では、組入銘柄・比率・基準価額の推移・費用などを開示する。</p>
+        <p><b>着地点</b>　チーム別ポートフォリオは、アクティブ運用を自分たちでやっている状態。<b>同じ期間の日経平均と並べて</b>、勝っているかを言う（講義資料 §5 の報告の1点目）。</p>
+      </div></details></li>
+  </ol>
+
+  <div class="rel"><b>数字の出どころ</b>　オプションの数字は講義資料 §4 の図1（10/1 09:54 の実際の画面）と図2（右は設例）。安保理・NATO・EBITDA の定義は一般的な定義。教室で口頭で示された概数（投資信託の規模・銘柄数など）は載せていない。<b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b></div>
+</section>
+
+<footer>
+  <div class="next">
+    <b>この回の講義資料</b>　<a href="../lectures/lecture_20261013.html">フィンランドの備えと米中首脳会談、ホワイトハウス超知能協定（6社）、AIロールアップ、オプションのスプレッド戦略、チーム別ポートフォリオ結果</a><br>
+    <b>前回の復習</b>　<a href="lecture_review_20260922.html">第8回（9/22）で答えが出なかった問い</a>
+  </div>
+</footer>
+</div>
+</body>
+</html>
