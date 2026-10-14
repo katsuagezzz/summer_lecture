@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>統計の調べ方（白書・世界銀行）と統計の英語（2026年10月14日実施分・7問）</title>
+<meta name="description" content="2026年10月14日の個別指導の復習。新聞やニュースの数字をどこで調べるかを実際に検索しながら進めた約32分の文字起こしから、その場で答えに詰まった箇所だけを抜いて7問にした。一次情報の探し方、世界銀行、平均寿命の英語表記と意味、income と overview、ドルから円への換算と倍率（ケーススタディ 復習編）">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #f9f9f7;
+    --surface: #fcfcfb;
+    --surface-raised: #ffffff;
+    --ink: #141413;
+    --ink-2: #52514e;
+    --ink-muted: #898781;
+    --hairline: #e1e0d9;
+    --border: rgba(11, 11, 11, 0.10);
+    --accent: #2a78d6;
+    --accent-ink: #1c5cab;
+    --accent-wash: rgba(42, 120, 214, 0.08);
+    --good: #006300;
+    --fx: #2a78d6;
+    --price: #eb6834;
+    --rate: #1baf7a;
+    --fx-wash: rgba(42, 120, 214, 0.10);
+    --price-wash: rgba(235, 104, 52, 0.10);
+    --rate-wash: rgba(27, 175, 122, 0.10);
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --s4: #eda100;
+    --s-other: #898781;
+    --f1: #86b6ef;
+    --f2: #2a78d6;
+    --f3: #104281;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-raised: #222220;
+      --ink: #f4f3ef;
+      --ink-2: #c3c2b7;
+      --ink-muted: #898781;
+      --hairline: #2c2c2a;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #3987e5;
+      --accent-ink: #86b6ef;
+      --accent-wash: rgba(57, 135, 229, 0.14);
+      --good: #0ca30c;
+      --fx: #3987e5;
+      --price: #f07a44;
+      --rate: #199e70;
+      --fx-wash: rgba(57, 135, 229, 0.16);
+      --price-wash: rgba(240, 122, 68, 0.16);
+      --rate-wash: rgba(25, 158, 112, 0.16);
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --s4: #c98500;
+      --s-other: #898781;
+      --f1: #6da7ec;
+      --f2: #3987e5;
+      --f3: #184f95;
+      --grid: #2c2c2a;
+      --axis: #383835;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-raised: #222220;
+    --ink: #f4f3ef;
+    --ink-2: #c3c2b7;
+    --ink-muted: #898781;
+    --hairline: #2c2c2a;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #3987e5;
+    --accent-ink: #86b6ef;
+    --accent-wash: rgba(57, 135, 229, 0.14);
+    --good: #0ca30c;
+    --fx: #3987e5;
+    --price: #f07a44;
+    --rate: #199e70;
+    --fx-wash: rgba(57, 135, 229, 0.16);
+    --price-wash: rgba(240, 122, 68, 0.16);
+    --rate-wash: rgba(25, 158, 112, 0.16);
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s-other: #898781;
+    --f1: #6da7ec;
+    --f2: #3987e5;
+    --f3: #184f95;
+    --grid: #2c2c2a;
+    --axis: #383835;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    line-height: 1.75;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; }
+
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.14em; color: var(--accent-ink);
+    font-weight: 700; text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(30px, 5.4vw, 44px); font-weight: 800; line-height: 1.25;
+    letter-spacing: 0.01em; margin: 10px 0 14px; text-wrap: balance;
+  }
+  .lede { color: var(--ink-2); max-width: 40em; }
+  .lede strong { color: var(--ink); }
+  .meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+    border: 1px solid var(--hairline); background: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .chip em { font-style: normal; color: var(--accent-ink); }
+
+  .backlink { display: inline-block; font-size: 13px; font-weight: 700; color: var(--ink-muted);
+    text-decoration: none; margin-bottom: 16px; }
+  .backlink:hover { color: var(--accent-ink); }
+  @media print { .backlink { display: none; } }
+
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-top: 28px;
+    border-bottom: 1px solid var(--hairline);
+    overflow-x: auto; scrollbar-width: thin;
+  }
+  .tab {
+    flex: 0 0 auto; display: block; text-decoration: none;
+    padding: 10px 16px 9px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 8px 8px 0 0; margin-bottom: -1px;
+    font-size: 13.5px; font-weight: 700; color: var(--ink-muted);
+    white-space: nowrap; transition: color .12s ease, background .12s ease;
+  }
+  .tab small { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-muted); }
+  a.tab { color: var(--accent-ink); }
+  a.tab small { color: var(--ink-2); }
+  a.tab:hover { background: var(--accent-wash); }
+  a.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  a.tab .ext { font-weight: 500; font-size: 11px; }
+  .tab.is-current {
+    color: var(--ink); background: var(--surface);
+    border-color: var(--hairline); border-bottom: 1px solid var(--surface);
+  }
+  .tab.is-past { cursor: default; opacity: .55; }
+
+  section { margin-top: 56px; }
+  .step-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .step-time {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  h2 { font-size: 23px; font-weight: 800; line-height: 1.35; text-wrap: balance; }
+  h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  section > p, .card > p { color: var(--ink-2); max-width: 44em; }
+  section > p strong, .card p strong, li strong { color: var(--ink); }
+  .sec-note { font-size: 13px; color: var(--ink-muted); margin-top: 10px; }
+
+  .agenda { list-style: none; margin-top: 18px; border-top: 1px solid var(--hairline); }
+  .agenda li {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 14px;
+    align-items: baseline; padding: 11px 4px; border-bottom: 1px solid var(--hairline);
+  }
+  .agenda .t { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13.5px; color: var(--accent-ink); }
+  .agenda .what { font-weight: 600; }
+  .agenda .what small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-muted); }
+  .agenda .min { font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px; margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-wash);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 18px;
+    max-width: 46em;
+  }
+  .callout p { color: var(--ink-2); }
+  .callout .q { font-weight: 700; color: var(--ink); }
+  .recalls { display: grid; gap: 10px; margin-top: 18px; }
+  .recall {
+    border: 1px dashed var(--axis); background: var(--surface);
+    border-radius: 10px; padding: 14px 18px; max-width: 46em;
+  }
+  .recall .who { font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; color: var(--ink-muted); }
+  .recall .said { font-weight: 700; color: var(--ink); margin-top: 2px; }
+  .recall .note { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; border-top: 3px solid var(--border);
+  }
+  .tile.fx { border-top-color: var(--fx); }
+  .tile.rate { border-top-color: var(--rate); }
+  .tile.price { border-top-color: var(--price); }
+  .tile .k { font-size: 12px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .tile .v { font-size: 25px; font-weight: 800; line-height: 1.3; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .tile .v small { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .tile .d { font-size: 12.5px; font-weight: 600; margin-top: 1px; color: var(--ink-2); }
+  .tile .d.up { color: var(--good); }
+  .unsure { color: var(--s2); font-weight: 700; }
+
+  .formula {
+    margin-top: 18px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; font-weight: 700; font-size: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  }
+  .formula .num { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .formula small { font-weight: 500; color: var(--ink-muted); flex-basis: 100%; font-size: 12.5px; }
+
+  figure { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 14px; }
+  figcaption { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .figsub { font-size: 12.5px; color: var(--ink-muted); margin-bottom: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .chart-scroll { overflow-x: auto; }
+  .chart-scroll svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  svg text { font-family: inherit; }
+  .diagram { color: var(--ink-muted); }
+  .src { font-size: 11.5px; color: var(--ink-muted); margin-top: 8px; }
+
+  .ex { margin-top: 18px; }
+  .ex .card { padding: 0; overflow: hidden; }
+  .ex-q { padding: 18px 22px 6px; }
+  .ex-q .no {
+    display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--accent-ink); background: var(--accent-wash);
+    border-radius: 4px; padding: 2px 8px; margin-bottom: 8px;
+  }
+  .ex-q p { color: var(--ink); font-weight: 600; max-width: 44em; }
+  .ex-q .hint { font-weight: 400; font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+  .qz-choices { list-style: none; counter-reset: qc; margin: 12px 22px 4px; padding: 0; display: grid; gap: 6px; max-width: 46em; }
+  .qz-choices li {
+    counter-increment: qc; position: relative; border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 8px 14px 8px 40px; font-size: 14px; color: var(--ink-2);
+  }
+  .qz-choices li::before {
+    content: counter(qc, upper-alpha); position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    font-weight: 800; font-size: 12.5px; color: var(--accent-ink);
+  }
+  details { border-top: 1px solid var(--hairline); margin-top: 14px; }
+  summary {
+    cursor: pointer; padding: 12px 22px; font-weight: 700; font-size: 13.5px;
+    color: var(--accent-ink); list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "\25B8  "; }
+  details[open] summary::before { content: "\25BE  "; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 6px; }
+  .ans { padding: 0 22px 18px; color: var(--ink-2); max-width: 46em; }
+  .ans .calc {
+    font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink);
+    background: var(--accent-wash); border-radius: 8px; padding: 10px 14px; margin: 8px 0 10px;
+    display: inline-block;
+  }
+  .recall-inline { margin: 0 22px 14px; }
+
+  .tbl-scroll { overflow-x: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; background: var(--surface); font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td:first-child { font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td small { display: block; color: var(--ink-muted); font-size: 12px; }
+  .tbl-note { font-size: 12px; color: var(--ink-muted); margin-top: 8px; }
+
+  .qlist { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+  .qlist li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .qlist .q { font-weight: 700; }
+  .qlist .why { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  dl.gloss { margin-top: 16px; border-top: 1px solid var(--hairline); }
+  dl.gloss > div { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 12px 4px; border-bottom: 1px solid var(--hairline); }
+  @media (max-width: 560px) { dl.gloss > div { grid-template-columns: 1fr; gap: 2px; } }
+  dt { font-weight: 700; font-size: 14px; }
+  dt small { display: block; font-weight: 400; font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  dd { color: var(--ink-2); font-size: 14px; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 18px; font-size: 12.5px; color: var(--ink-muted); }
+  footer p { max-width: none; }
+  footer p + p { margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print {
+    body { background: #fff; }
+    .tabs { display: none; }
+    details { border-top: none; }
+    summary { display: none; }
+    .ans { padding-top: 0; }
+  }
+
+  ul.lede-pts { list-style: none; margin-top: 14px; max-width: 42em; display: grid; gap: 8px; }
+  ul.lede-pts li {
+    position: relative; padding-left: 18px; color: var(--ink-2); font-size: 15.5px;
+  }
+  ul.lede-pts li::before {
+    content: ""; position: absolute; left: 0; top: 11px;
+    width: 7px; height: 7px; border-radius: 2px; background: var(--accent);
+  }
+  ul.lede-pts strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="backlink" href="../sasaki.html">&larr; 講義資料の一覧へ</a>
+
+  <header>
+    <p class="eyebrow">ケーススタディ 復習編 ／ 2026年10月14日実施分</p>
+    <h1>統計の調べ方（白書・世界銀行）と統計の英語（2026年10月14日実施分・7問）</h1>
+    <ul class="lede-pts">
+      <li>10月14日の約32分は、本人の質問「ニュースの知識をどこから集めるか」から、実際に検索しながら進んだ。下の7問は、<strong>その場で答えに詰まった、または取り違えた箇所だけ</strong>を文字起こしから抜いてある。</li>
+      <li>開く前に<strong>理由を先に自分の言葉で言ってから</strong>答えを見る。</li>
+      <li>答えは各問の下に隠してある。合格ラインは「言えた」ではなく<strong>「出どころを挙げて、数字を入れて動かせた」</strong>。</li>
+    </ul>
+    <div class="meta-chips">
+      <span class="chip">元になった回: <em>2026年10月14日</em></span>
+      <span class="chip">題材: <em>白書・世界銀行・統計の英語</em></span>
+      <span class="chip">全7問</span>
+    </div>
+
+    <nav class="tabs" aria-label="ケーススタディ シリーズ">
+      <span class="tab is-past" title="配布資料リンクなし（講義のみ）">第1回　メルカリ<small>GMVと営業損失</small></span>
+      <a class="tab" href="lecture_sasaki_20260817.html">第2回　ZOZOの決算を読む<small>受託販売とテイクレート <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260820.html">第3回　金利・為替・インフレ<small>三角形の一周 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260824.html">第4回　利払いが国防費を超えた国<small>国のPL <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260903.html">第5回　予想との差と1.1倍<small>9/3の復習クイズ <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260907.html">第6回　The capital will find you<small>英語とビジネスモデル <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260907_review.html">9/7 復習　英語で出た向き<small>5問 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260910.html">第7回　先に売って、あとで買い戻す<small>空売りとクロス取引 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260910_review.html">9/10 復習　答えに詰まった4問<small>4問 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20260930_review.html">9/30 復習　オプションの売り<small>7問 <span class="ext">&#8594;</span></small></a>
+      <a class="tab" href="lecture_sasaki_20261007_review.html">10/7 復習　オプションの買い<small>7問 <span class="ext">&#8594;</span></small></a>
+      <span class="tab is-current" aria-current="page">10/14 復習　統計の調べ方<small>この7問（今回）</small></span>
+    </nav>
+  </header>
+
+  <section>
+    <h2>このページの使い方</h2>
+    <ol class="agenda">
+      <li><span class="t">まず</span><span class="what">§1の7問を解く<small>Q6・Q7 は紙に数字を書いて計算する</small></span><span class="min">10分</span></li>
+      <li><span class="t">つぎに</span><span class="what">答えを開いて照合する<small>合格ラインは「出どころを挙げて、数字を入れて動かせた」</small></span><span class="min">5分</span></li>
+      <li><span class="t">次回冒頭</span><span class="what">先生が口頭で同じ問いを出す<small>画面を見ずに説明できれば合格</small></span><span class="min">7分</span></li>
+    </ol>
+    <p class="sec-note">辞書もAIも使わずに1周する。詰まったところだけ、あとで世界銀行のサイトを開いて確認する。</p>
+  </section>
+
+  <section>
+    <div class="step-head"><span class="step-time">§1</span><h2>7問</h2></div>
+    <p>いずれも、10月14日にその場では答えが出なかった、または取り違えた問いである。Q1〜Q2 は数字の出どころ、Q3〜Q5 は統計の英語、Q6〜Q7 は授業中に出た数字の計算し直し。</p>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q1</span>
+        <p>新聞の発行部数や、アメリカの新聞のランキングを知りたい。検索すると、一番上に Wikipedia が出る。<strong>数字の出どころとして、どこを見るべきか。</strong></p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">10/14 · 由来</p>
+            <p class="note">「ニュースや新聞の知識を、どこから集めればいいか」と本人が最初に聞いた。実際に検索すると、Wikipedia が一番上に出て、先生が「それじゃ意味がない」と退けた。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">官庁・業界団体・白書など、数字を集計している側のサイト（一次情報）</p><p>今回の例は、<strong>日本新聞協会</strong>（業界団体）と<strong>情報メディア白書</strong>（白書）。白書は、官庁や業界団体などが出す、データをまとめた報告書。検索語に「白書」や団体名を足すと、そこに届く。</p><p style="margin-top:10px"><b>着地点</b>　数字を使うときは、出どころを書く（財務省・日銀・SEC・各社IRなど）。Wikipedia や解説記事は、その出どころへの入口にとどめる。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q2</span>
+        <p>世界の国ごとの人口・1人あたりGDP・平均寿命などを、<strong>公式の数字で調べたい。どこを見るか。</strong>検索のコツも1つ挙げなさい。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">10/14 · 由来</p>
+            <p class="note">「首都のような国別の知識は暗記するしかないのか」と本人が聞いた。先生が世界銀行のサイトに案内した。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">世界銀行（World Bank）のサイト。検索語に「世界銀行」を足す</p><p>国別に、人口・1人あたりGDP・平均寿命などの基本データが載っている。ランキングも出せる。たとえば「世界人口ランキング　世界銀行」と検索すると、該当ページに届く。</p><p style="margin-top:10px"><b>着地点</b>　国別の統計は世界銀行、日本の統計は官庁のサイト、業界の数字は業界団体、と出どころを決めて調べる。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q3</span>
+        <p>世界銀行のサイトに「Life expectancy at birth, total」とある。<strong>これは日本語で何か。何を数えた数字か。</strong></p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">10/14 · 由来</p>
+            <p class="note">「at birth」の読みで本人は詰まり、「expect」は映画の呪文と取り違えた。「total」も読み違えた。先生が「出生時の平均寿命」と説明した。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">出生時の平均余命（＝平均寿命）　／　0歳の人が、平均してあと何年生きるか</p><p>expect は「見込む」、birth は「誕生」、total は「男女合計」。<strong>生まれた時点から数えて、平均で何年生きる見込みか</strong>を表す。</p><p style="margin-top:10px"><b>着地点</b>　「平均寿命」という日本語の裏に、統計の取り方がある。基準は 0歳。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q4</span>
+        <p>途上国の平均寿命は、先進国より低く出る。<strong>0歳を基準にすると低くなるのは、なぜか。</strong>20歳の人にとっての「あと何年」は、どうなるか。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">10/14 · 由来</p>
+            <p class="note">Q3 の続きで、先生が説明した箇所。本人は「ああ、うん」と相づちを打つにとどまり、自分の言葉では言えなかった。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">赤ちゃんの時期に亡くなる子が多いと、0歳の平均が下がる　／　20歳まで生きた人は、そこから先は大きく下がらない</p><p>0歳の平均には、<strong>生まれてすぐに亡くなった子の分</strong>が混ざる。20歳の人は、すでにその時期を生き延びているので、あと何年生きるかは0歳ほど低くならない。</p><p style="margin-top:10px"><b>着地点</b>　平均は、どの年齢から数えるかで値が変わる。比べるときは、基準の年齢をそろえる。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q5</span>
+        <p>次の3つの英語は、それぞれ何を意味するか。<strong>(a) overview　(b) income　(c) income statement</strong></p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">10/14 · 由来</p>
+            <p class="note">overview の「view」を「天体」と取り違えた。income を「通信」と答えた。income statement は先生が「PLのことを英語ではこう言う」と説明した。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">(a) 概要（上から見渡す）　(b) 収入　(c) 損益計算書（PL）</p><p>(a) over（上から）＋ view（見る）で、全体を見渡した<strong>概要</strong>。(b) in（入る）＋ come（来る）で、入ってくるお金、つまり<strong>収入</strong>。(c) 英語では、PL（Profit and Loss）のことも<strong>income statement</strong>と呼ぶ。</p><p style="margin-top:10px"><b>着地点</b>　世界銀行のサイトの「income group」は、国を<strong>収入の水準</strong>で分けたグループ（high income など）。決算書の英語は、8月以降のケーススタディに出てくる。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q6</span>
+        <p>ノルウェーの1人あたりGDPは、画面で<strong>約94,000ドル</strong>だった。<strong>1ドル160円</strong>として、日本円でいくらか。式も書きなさい。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">10/14 · 由来</p>
+            <p class="note">本人は「160かける9万で1,400万円」と答え、先生もそのまま受けた。計算し直すと答えが違う。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">94,000 × 160 ＝ 15,040,000　→　約1,500万円</p><p>94,000ドルは、<strong>約1,500万円</strong>（1,400万円ではない）。本人は 160 × 9万 で式は合っていたが、掛け算の結果が違っていた。</p><p style="margin-top:10px"><b>着地点</b>　ドルを円に直すときは、為替レートと時点を書く。1人あたりGDPは、人口で割った絶対額で、国の総額ではない。</p></div></details>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="card">
+        <div class="ex-q"><span class="no">Q7</span>
+        <p>日本の1人あたりGDPが<strong>約35,000ドル</strong>、ノルウェーが<strong>約94,000ドル</strong>のとき、<strong>ノルウェーは日本の何倍か。</strong>その倍率の分母は何か。</p></div>
+        <div class="recalls recall-inline">
+          <div class="recall">
+            <p class="who">10/14 · 由来</p>
+            <p class="note">先生が「日本は3万5千ドルくらい。ノルウェーは3倍」と言った箇所。Q6 の円換算と合わせて、倍率を自分で出す問いとして残す。</p>
+          </div>
+        </div>
+        <details><summary>答えを見る</summary><div class="ans"><p class="calc">94,000 ÷ 35,000 ＝ 約2.7倍　／　分母 ＝ 日本の1人あたりGDP</p><p>授業内では「3倍」と言ったが、計算すると<strong>約2.7倍</strong>。「約3倍」は粗い丸めとしては成り立つが、<strong>どちらを分母にしたか</strong>を書かないと、倍率は意味がない。</p><p style="margin-top:10px"><b>着地点</b>　率や倍率を出したら分母を書く。授業中に画面で読んだ数字は、年次を確認してから使う（世界銀行のサイトで、最新の年を選び直す）。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>次回までの宿題</h2>
+    <p>世界銀行のサイトで、気になる国を1つ選び、人口・1人あたりGDP・平均寿命の3つを、年次つきでメモしてくる。</p>
+  </section>
+
+  <footer>
+    <p><strong>このページの元になったもの:</strong> 2026年10月14日の個別指導の文字起こし（約32分）。</p>
+    <p><strong>数字について:</strong> 約94,000ドル（ノルウェー）・約35,000ドル（日本）は授業中に画面で読んだ値で、年次は未確認。為替の1ドル160円は計算用の設例で、実際のレートではない。一次情報は世界銀行のデータ（data.worldbank.org）で、最新の年を選んで確認する。</p>
+    <p><strong>文字起こし:</strong> summer_lecture_private リポジトリ（非公開）の transcripts_txt/ に保管。</p>
+  </footer>
+</div>
+
+</body>
+</html>
