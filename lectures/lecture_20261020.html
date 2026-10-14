@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講義資料 後期 第4回｜2026年10月20日 フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、プロテクティブ・プットとカバード・コール</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 第4回で追加したパーツ ---------- */
+.promptbox{background:var(--note-bg); border:1px solid var(--line); border-left:4px solid var(--word);
+  border-radius:0 10px 10px 0; padding:15px 17px; margin:12px 0;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px; line-height:1.95; white-space:pre-wrap; word-break:break-word; color:var(--ink);}
+.promptbox .cap{display:block; font-family:inherit; font-size:11.5px; font-weight:800;
+  letter-spacing:.09em; color:var(--word); margin-bottom:8px;}
+.twocol{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; margin:14px 0 4px;}
+.card{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.card .ch{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:6px;}
+.card.b .ch{color:var(--corp);} .card.c .ch{color:var(--bridge);} .card.d .ch{color:var(--word);}
+.card p{margin:0; font-size:14.5px; line-height:1.75;}
+.card p+p{margin-top:8px;}
+.quote{border-left:4px solid var(--word); background:var(--word-bg); border-radius:0 9px 9px 0;
+  padding:13px 17px; margin:13px 0; font-size:15px; line-height:1.9;}
+.quote .src2{display:block; font-size:12.5px; color:var(--ink3); font-weight:700; margin-top:7px;}
+table.cmp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.cmp th, table.cmp td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+table.cmp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+table.cmp td.h{font-weight:700; color:var(--ink); width:22%;}
+@media (max-width:640px){ .promptbox{font-size:12px;} }
+</style>
+<style>
+/* ---------- 第5回で追加したパーツ ---------- */
+/* サプライズ表（実績 − 予想） */
+table.surp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.surp th, table.surp td{border-bottom:1px solid var(--line2); padding:9px 10px; text-align:right; vertical-align:top;}
+table.surp th:first-child, table.surp td:first-child{text-align:left;}
+table.surp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em; text-align:right;}
+table.surp thead th:first-child{text-align:left;}
+table.surp td.num{font-variant-numeric:tabular-nums;}
+table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
+/* 答え合わせカード */
+.ac{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+    background:var(--bg); padding:14px 16px; margin-bottom:10px;}
+.ac .qq{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:5px;}
+.ac .aa{font-size:15px; line-height:1.75; margin:0;}
+.ac .aa b{font-weight:800;}
+.ac.miss{border-left-color:var(--corp);}
+.ac.miss .qq{color:var(--corp);}
+/* 時点ラベル（同じ銘柄・違う時点） */
+.snap{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:2px;
+      background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 6px;}
+.snap div{background:var(--panel); padding:12px 14px;}
+.snap .w{font-size:11.5px; color:var(--ink3); font-weight:800; letter-spacing:.04em; margin-bottom:4px; line-height:1.45;}
+.snap .r{font-size:19px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.3;}
+.snap .r.up{color:var(--up);} .snap .r.down{color:var(--down);}
+.snap .z{font-size:12px; color:var(--ink2); margin-top:3px; line-height:1.55;}
+</style>
+<style>
+/* ---------- リードの3点箇条書き（第6回で追加） ---------- */
+/* リードの3点箇条書き */
+.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
+.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
+.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
+  width:5px; height:5px; border-radius:50%; background:var(--macro);}
+.lede ul.three strong{border-bottom:none; padding-bottom:0;}
+</style>
+<style>
+/* ---------- ポートフォリオ報告・ネットキャッシュ（第5回で追加） ---------- */
+.pf{display:grid; grid-template-columns:repeat(auto-fit,minmax(238px,1fr)); gap:11px; margin:14px 0 6px;}
+.pf a{display:block; border:1px solid var(--line); border-left:4px solid var(--macro);
+      border-radius:0 10px 10px 0; background:var(--bg); padding:13px 15px;
+      text-decoration:none; color:var(--ink);}
+.pf a:hover{border-color:var(--macro);}
+.pf .tm{display:block; font-size:12.5px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:4px;}
+.pf .u{display:block; font-size:12.5px; color:var(--ink3); line-height:1.55; word-break:break-all;}
+.pf a.b{border-left-color:var(--corp);} .pf a.b .tm{color:var(--corp);} .pf a.b:hover{border-color:var(--corp);}
+.pf a.c{border-left-color:var(--bridge);} .pf a.c .tm{color:var(--bridge);} .pf a.c:hover{border-color:var(--bridge);}
+/* ネットキャッシュの記入表 */
+table.nc{width:100%; border-collapse:collapse; font-size:14px; margin:12px 0 4px;}
+table.nc th, table.nc td{border-bottom:1px solid var(--line2); padding:8px 9px; text-align:left; vertical-align:middle;}
+table.nc thead th{border-bottom:2px solid var(--line); font-size:12px; color:var(--ink3); letter-spacing:.04em;}
+table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
+@media print{ .pf a{border:1px solid #ccc;} }
+</style>
+<style>
+/* ---------- 前回回答できなかった質問（第6回の書式をそのまま使う） ---------- */
+/* 分類タグ。色の意味は既存の変数に合わせる（macro＝マクロの論点／corp＝株と実務） */
+.tag.m{background:var(--macro-bg); color:var(--macro);}
+.tag.c{background:var(--corp-bg); color:var(--corp);}
+.tag.w{background:var(--word-bg); color:var(--word);}
+.qtags{display:inline;}
+.meta a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+/* 教室で出た答え／着地点 */
+#qa .q .said, #qa .q .hint{
+  display:block; margin-top:7px; padding-left:11px;
+  font-size:13.5px; line-height:1.7; color:var(--ink2);
+}
+#qa .q .said{border-left:3px solid var(--q-line);}
+#qa .q .hint{border-left:3px solid var(--bridge);}
+#qa .q .lb{font-weight:800; letter-spacing:.04em; margin-right:5px;}
+#qa .q .said .lb{color:var(--ink3);}
+#qa .q .hint .lb{color:var(--bridge);}
+/* Q番号を3つのまとまりをまたいで通す */
+#qa{counter-reset:qq;}
+#qa .q{counter-reset:none;}
+#qa h3{margin-top:26px;}
+#qa h3:first-of-type{margin-top:18px;}
+</style>
+<style>
+/* ---------- 記入欄・宿題 ---------- */
+.entry{background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px;
+  padding:12px 16px; margin:10px 0; font-size:15px; line-height:2.2;}
+.entry b{font-weight:800;}
+.entry .blank{min-width:96px; margin:0 4px;}
+.entry .wide{min-width:100%;}
+.chain a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+</style>
+<style>
+/* ---------- 9/19 追記：図（第7回の書式をそのまま使う） ---------- */
+.fig{margin:14px 0 6px; padding:14px 12px 10px; background:var(--bg); border:1px solid var(--line); border-radius:12px;}
+.fig svg{width:100%; height:auto; display:block; font-family:inherit;}
+.fig .cap{font-size:13px; color:var(--ink3); margin:8px 4px 0; line-height:1.6;}
+.fig .ax{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .gl{stroke:var(--line2); stroke-width:1; fill:none;}
+.fig .zl{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .ln{fill:none; stroke-width:2.8; stroke-linejoin:round;}
+.fig .ln.a{stroke:var(--macro);} .fig .ln.b{stroke:var(--corp);} .fig .ln.c{stroke:var(--bridge);}
+.fig .vl{stroke:var(--down); stroke-width:1.5; stroke-dasharray:5 4; fill:none;}
+.fig .tick{font-size:11.5px; fill:var(--ink3);}
+.fig .lab{font-size:12.5px; font-weight:700; fill:var(--ink);}
+.fig .lab.c{fill:var(--corp);}
+.fig .val{font-size:12px; font-weight:800; fill:var(--ink2); font-variant-numeric:tabular-nums;}
+.fig .bar.a{fill:var(--macro);} .fig .bar.b{fill:var(--corp);} .fig .bar.c{fill:var(--bridge);}
+.fig a{fill:var(--macro);}
+/* 10/1 追記：スマホ画面のスクリーンショット */
+.shots{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px;}
+.shots figure{margin:0;}
+.shots img{width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:8px;}
+.shots figcaption{font-size:12px; font-weight:700; color:var(--ink2); margin-top:4px; text-align:center;}
+@media print{ .shots{grid-template-columns:repeat(3,1fr);} .fig{page-break-inside:avoid;} }
+/* この回の問いは「問」番号で、3つの節をまたいで通す */
+body{counter-reset:qq;}
+.q{counter-reset:none;}
+section.topic .q>li::before{content:"問" counter(qq);}
+section.topic .q>li{padding-left:50px;}
+section.topic .q .hint{display:block; margin-top:7px; padding-left:11px; border-left:3px solid var(--bridge);
+  font-size:13.5px; line-height:1.7; color:var(--ink2);}
+section.topic .q .hint .lb{font-weight:800; letter-spacing:.04em; margin-right:5px; color:var(--bridge);}
+.pfnote{font-size:13.5px; color:var(--ink2); line-height:1.75; margin:10px 0 0;}
+/* 4つの立場のカード（2×2） */
+.four{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0 4px;}
+@media(max-width:640px){ .four{grid-template-columns:1fr;} }
+</style>
+<style>
+/* ---------- 第10回で追加：原文＋欄外の照合、照合結果リスト ---------- */
+.legend{display:flex; flex-wrap:wrap; gap:8px 14px; margin:12px 0 4px; font-size:13px; color:var(--ink2);}
+.legend .lg{display:inline-flex; align-items:center; gap:6px;}
+.mk{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.06em; padding:2px 8px; border-radius:5px; white-space:nowrap;}
+.mk.ng{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.4);}
+.mk.sm{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+.mk.ck{background:var(--word-bg); color:var(--word); border:1px solid rgba(107,63,181,.35);}
+.mk.ev{background:var(--note-bg); color:var(--ink2); border:1px solid var(--line);}
+.mk.nt{background:var(--macro-bg); color:var(--macro); border:1px solid rgba(28,111,212,.3);}
+.mk.ok{background:var(--bridge-bg); color:var(--bridge); border:1px solid rgba(14,124,102,.35);}
+@media (prefers-color-scheme: dark){ .mk.sm{color:#d9c07a;} }
+
+.artlbl{display:block; margin:26px 0 6px; font-size:12.5px; font-weight:800; letter-spacing:.09em; color:var(--ink3); border-top:2px solid var(--line); padding-top:12px;}
+.artlbl:first-of-type{margin-top:16px;}
+.ar{display:grid; grid-template-columns:minmax(0,1fr) 262px; gap:0 20px; align-items:start;}
+.ar p.tx{margin:0 0 14px; font-size:15.5px; line-height:1.95;}
+.ar .mg{font-size:12.5px; line-height:1.65; color:var(--ink2);}
+.ar .mg .nn{border-left:3px solid var(--line); background:var(--note-bg); border-radius:0 8px 8px 0; padding:8px 11px; margin-bottom:8px;}
+.ar .mg .nn.ng{border-left-color:var(--corp);}
+.ar .mg .nn.sm{border-left-color:var(--q-line);}
+.ar .mg .nn.ck{border-left-color:var(--word);}
+.ar .mg .nn.nt{border-left-color:var(--macro);}
+.ar .mg .nn b{color:var(--ink); font-weight:800;}
+.ar .mg .nn .mk{margin-right:5px;}
+mark.ng,mark.sm,mark.ck,mark.ev,mark.nt{color:inherit; padding:0 1px; border-radius:2px;}
+mark.ng{background:rgba(184,72,15,.22); border-bottom:2px solid var(--corp);}
+mark.sm{background:rgba(224,207,148,.45); border-bottom:2px solid var(--q-line);}
+mark.ck{background:rgba(107,63,181,.16); border-bottom:2px solid var(--word);}
+mark.ev{background:rgba(120,130,145,.18); border-bottom:2px dotted var(--ink3);}
+mark.nt{background:rgba(28,111,212,.14); border-bottom:2px solid var(--macro);}
+@media (max-width:820px){
+  .ar{grid-template-columns:1fr;}
+  .ar .mg{margin:-4px 0 14px;}
+}
+@media print{ mark{background:none !important;} .ar{grid-template-columns:1fr 200px;} }
+
+.chk ul{list-style:none; margin:0; padding:0;}
+.chk h4{margin:20px 0 6px;}
+.chk li{padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.3px; line-height:1.7;}
+.chk li .lk{display:block; font-size:12.5px; color:var(--ink3); margin-top:2px; line-height:1.6;}
+.chk li .lk a{color:var(--macro); text-decoration:none; word-break:break-all; border-bottom:1px solid rgba(120,150,190,.45);}
+.hwhint{font-size:13.5px; color:var(--ink2); line-height:1.7; margin:10px 0 0; padding-left:11px; border-left:3px solid var(--bridge);}
+.hwhint .lb{font-weight:800; letter-spacing:.04em; color:var(--bridge); margin-right:5px;}
+</style>
+<style>
+/* ---------- ポップ版（第10回から。色の意味づけ macro/corp/bridge/word/q は踏襲） ---------- */
+:root{
+  --bg:#fff8ef; --panel:#ffffff; --ink:#1d1633; --ink2:#443b5e; --ink3:#7a7091;
+  --line:#1d1633; --line2:#efe6f7;
+  --macro:#2f6bff; --macro-bg:#e3ecff;
+  --corp:#ff5a36; --corp-bg:#ffe7df;
+  --bridge:#00a88a; --bridge-bg:#d9f7ef;
+  --word:#8a3ffc; --word-bg:#efe3ff;
+  --accent:#1d1633;
+  --q-bg:#fff4c2; --q-line:#f2c230;
+  --note-bg:#f6f1ff;
+  --pop-y:#ffd23f; --pop-p:#ff6fb5;
+  --shadow:4px 4px 0 var(--ink);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#15112a; --panel:#1f1a3a; --ink:#f4f0ff; --ink2:#cdc4ea; --ink3:#9d93c0;
+    --line:#f4f0ff; --line2:#2e2752;
+    --macro:#7aa2ff; --macro-bg:#1d2a5c;
+    --corp:#ff8a6b; --corp-bg:#4a2219;
+    --bridge:#3fe0bf; --bridge-bg:#0f3a33;
+    --word:#b98cff; --word-bg:#34205c;
+    --accent:#f4f0ff;
+    --q-bg:#3a3214; --q-line:#c9a227;
+    --note-bg:#28224a;
+    --pop-y:#ffd23f; --pop-p:#ff6fb5;
+    --shadow:4px 4px 0 #000;
+  }
+}
+body{
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255,111,181,.16) 0 120px, transparent 121px),
+    radial-gradient(circle at 92% 22%, rgba(47,107,255,.14) 0 160px, transparent 161px),
+    radial-gradient(circle at 80% 70%, rgba(255,210,63,.16) 0 140px, transparent 141px),
+    var(--bg);
+  background-attachment:fixed;
+}
+
+/* 表紙 */
+header.masthead{
+  position:relative; overflow:hidden;
+  background:linear-gradient(135deg,#2f6bff 0%,#8a3ffc 52%,#ff6fb5 100%);
+  color:#fff; border:3px solid var(--ink); border-top-width:3px; border-radius:22px;
+  box-shadow:6px 6px 0 var(--ink);
+}
+header.masthead::before,header.masthead::after{content:""; position:absolute; border-radius:50%; pointer-events:none;}
+header.masthead::before{width:220px; height:220px; right:-60px; top:-70px; background:var(--pop-y); opacity:.9;}
+header.masthead::after{width:90px; height:90px; right:150px; bottom:-30px; background:#fff; opacity:.25;}
+header.masthead > *{position:relative; z-index:1;}
+header.masthead .vol{color:#fff; opacity:.9; display:inline-block; background:rgba(0,0,0,.22); padding:4px 12px; border-radius:999px; font-size:12px;}
+header.masthead h1.title{color:#fff; font-size:34px; font-weight:900; text-shadow:3px 3px 0 rgba(29,22,51,.35); margin-right:120px;}
+header.masthead .meta{color:#fff; border-top:2px dashed rgba(255,255,255,.5);}
+header.masthead .meta b{color:var(--pop-y);}
+header.masthead .lede{background:#fff; color:#1d1633; border:3px solid #1d1633; border-radius:16px; box-shadow:4px 4px 0 #1d1633;}
+header.masthead .lede ul.three li::before{width:12px; height:12px; left:-1.25em; top:.5em; border-radius:4px; transform:rotate(12deg);}
+header.masthead .lede ul.three li:nth-child(1)::before{background:#2f6bff;}
+header.masthead .lede ul.three li:nth-child(2)::before{background:#8a3ffc;}
+header.masthead .lede ul.three li:nth-child(3)::before{background:#ff5a36;}
+header.masthead .lede ul.three{padding-left:1.5em;}
+@media (max-width:640px){ header.masthead h1.title{font-size:25px; margin-right:40px;} header.masthead::before{width:130px; height:130px; right:-50px; top:-50px;} }
+
+/* ナビ・目次 */
+.snav a,.snav span{border:2px solid var(--ink); font-weight:800;}
+.snav .cur{background:var(--pop-y); color:#1d1633; border-color:var(--ink); box-shadow:2px 2px 0 var(--ink);}
+.snav .lbl{border:none;}
+.snav a:hover{background:var(--macro-bg);}
+nav.toc{border:3px solid var(--ink); border-radius:20px; box-shadow:var(--shadow);}
+nav.toc ol{list-style:none; padding:0; counter-reset:tc;}
+nav.toc li{counter-increment:tc; position:relative; padding:8px 0 8px 46px; margin:0;}
+nav.toc li::before{content:counter(tc); position:absolute; left:0; top:6px; width:32px; height:32px; border-radius:10px; border:2px solid var(--ink); font-weight:900; text-align:center; line-height:28px; color:#fff; background:#2f6bff;}
+nav.toc li:nth-child(2)::before{background:#ff5a36;}
+nav.toc li:nth-child(3)::before{background:#8a3ffc;}
+nav.toc a{font-weight:800; border-bottom:none; background:linear-gradient(transparent 62%, rgba(255,210,63,.6) 62%);}
+
+/* 節 */
+section.topic{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var(--ink); position:relative;}
+section.topic#s-fr{border-top:14px solid #2f6bff;}
+section.topic#s-arb{border-top:14px solid #ff5a36;}
+section.topic#s-opt{border-top:14px solid #8a3ffc;}
+.fig .ln.r{stroke:var(--ink3); stroke-width:1.6; stroke-dasharray:4 4; fill:none;}
+.badge{border:2px solid var(--ink); font-size:13px; font-weight:900; padding:4px 14px; transform:rotate(-2deg); box-shadow:2px 2px 0 var(--ink);}
+.badge.macro{background:#2f6bff; color:#fff;}
+.badge.word{background:#8a3ffc; color:#fff;}
+.badge.corp{background:#ff5a36; color:#fff;}
+.badge.bridge{background:#00a88a; color:#fff;}
+h2.thead{font-size:27px; font-weight:900;}
+h3{border-left:none; padding:4px 14px; display:inline-block; background:var(--pop-y); color:#1d1633; border:2px solid var(--ink); border-radius:999px; box-shadow:2px 2px 0 var(--ink); font-size:15px;}
+.chk h3{margin-top:30px;}
+
+/* 宿題カード */
+.hw{border:3px solid var(--ink); border-top:3px solid var(--ink); border-radius:18px;
+    background:repeating-linear-gradient(-45deg, var(--q-bg) 0 14px, var(--panel) 14px 28px);
+    box-shadow:5px 5px 0 var(--pop-p);}
+.hw .hwttl{font-size:21px; font-weight:900; background:var(--panel); display:inline; padding:0 4px; box-decoration-break:clone; -webkit-box-decoration-break:clone; line-height:1.8;}
+.hw .hwtime{display:inline-block; background:var(--ink); color:var(--bg); padding:2px 10px; border-radius:999px; margin-bottom:8px;}
+.hw .hwhint{background:var(--panel); border-radius:10px; padding:8px 12px; border:2px solid var(--bridge); border-left-width:6px; margin-top:12px;}
+
+/* 凡例・欄外 */
+.legend{background:var(--note-bg); border:2px dashed var(--ink3); border-radius:14px; padding:10px 14px;}
+.mk{border-width:2px; border-radius:999px; font-weight:900;}
+.artlbl{display:inline-block; border:2px solid var(--ink); border-radius:999px; padding:4px 14px; background:var(--macro-bg); color:var(--macro); box-shadow:2px 2px 0 var(--ink);}
+.ar .mg .nn{border:2px solid var(--ink); border-left-width:6px; border-radius:12px; background:var(--panel); box-shadow:3px 3px 0 var(--line2);}
+.ar .mg .nn.ng{border-left-color:var(--corp); background:var(--corp-bg);}
+.ar .mg .nn.sm{border-left-color:var(--q-line); background:var(--q-bg);}
+.ar .mg .nn.ck{border-left-color:var(--word); background:var(--word-bg);}
+.ar .mg .nn.nt{border-left-color:var(--macro); background:var(--macro-bg);}
+mark.ng{background:rgba(255,90,54,.28);} mark.ck{background:rgba(138,63,252,.2);} mark.nt{background:rgba(47,107,255,.18);} mark.sm{background:rgba(255,210,63,.5);}
+.chk li{border-bottom:2px dotted var(--line2);}
+
+/* カード・KPI・図・式 */
+.kpi,.card,.fig,.pf a{border:2px solid var(--ink); border-radius:16px; box-shadow:4px 4px 0 var(--ink);}
+.kpi:nth-child(1){background:var(--q-bg);} .kpi:nth-child(2){background:var(--macro-bg);} .kpi:nth-child(3){background:var(--corp-bg);}
+.kpi .v{font-weight:900;}
+.card{border-top:8px solid var(--macro);} .card.b{border-top-color:var(--corp);}
+.fig{background:var(--panel);}
+.formula{border:2px solid var(--ink); border-left:8px solid var(--bridge); border-radius:14px; background:var(--bridge-bg);}
+.pf a{border-left-width:8px; transition:transform .12s ease, box-shadow .12s ease;}
+.pf a:hover{transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink);}
+.chain li{border:2px solid var(--ink); border-radius:14px;}
+.chain li::before{background:var(--pop-p); color:#fff; border:2px solid var(--ink); width:26px; height:26px; line-height:22px; left:11px; top:9px;}
+
+/* 問い */
+.q>li{border:2px solid var(--ink); border-radius:16px; box-shadow:3px 3px 0 var(--q-line);}
+section.topic .q>li::before{content:"問" counter(qq); background:var(--pop-y); color:#1d1633; border:2px solid var(--ink); border-radius:8px; padding:0 5px; left:9px; font-weight:900;}
+section.topic .q>li{padding-left:58px;}
+
+.rel{border:2px dashed var(--ink3); border-radius:14px;}
+footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var(--ink);}
+
+@media print{
+  body{background:#fff;}
+  header.masthead{background:#fff; color:#000; box-shadow:none;}
+  header.masthead::before,header.masthead::after{display:none;}
+  header.masthead h1.title,header.masthead .meta,header.masthead .vol{color:#000; text-shadow:none; background:none;}
+  section.topic,nav.toc,footer,.kpi,.card,.fig,.hw,.q>li,.pf a{box-shadow:none !important;}
+  .hw{background:#fff;}
+}
+</style>
+<body>
+<div class="wrap">
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="lecture_20261006.html">第10回 10/6 講義資料</a>
+  <a href="lecture_20261013.html">後期 第3回 10/13 講義資料</a>
+  <a href="../reviews/lecture_review_20261013.html">後期 第3回 10/13 答えが出なかった問い</a>
+  <span class="cur">後期 第4回 10/20 講義資料</span>
+</div>
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 講義資料　後期 第4回</div>
+  <h1 class="title">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、プロテクティブ・プットとカバード・コール</h1>
+  <div class="meta">
+    <span><b>講義</b>　2026年10月20日（火）16:20から</span>
+    <span><b>作成</b>　2026年10月14日（水）</span>
+    <span><b>数字の時点</b>　国債利回りは10/12〜13、日経平均と先物は10/14終値、裁定買い残は9/25</span>
+  </div>
+  <div class="lede">
+    <ul class="three">
+      <li><strong>フランスの高校生の抗議とフランス国債の売り　利回り・独仏伊の差・日本勢の保有と売り</strong></li>
+      <li><strong>裁定取引　日経225先物と現物の差、理論価格、裁定買い残</strong></li>
+      <li><strong>プロテクティブ・プットとカバード・コール　現物にオプションを1本足す2つの戦略</strong></li>
+    </ul>
+  </div>
+</header>
+<nav class="toc">
+  <h2>この資料の構成</h2>
+  <ol>
+    <li><a href="#s-fr">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）</a> <span class="s">― 冒頭に宿題1行。国債の数字と日本勢の動き、続けて原文をそのまま掲載し欄外で照合。問1〜問3</span></li>
+    <li><a href="#s-arb">裁定取引（日経225先物と現物）</a> <span class="s">― 10/14の先物と現物、理論価格の式、裁定買い残。問4〜問6</span></li>
+    <li><a href="#s-opt">プロテクティブ・プットとカバード・コール</a> <span class="s">― 満期損益は図1。問7〜問9</span></li>
+  </ol>
+</nav>
+
+<!-- ============ §1 フランス ============ -->
+<section class="topic" id="s-fr">
+  <span class="badge macro">§1 マクロ</span>
+  <h2 class="thead">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）</h2>
+  <h3>宿題</h3>
+  <div class="hw" id="s-hw" style="margin-bottom:18px">
+    <div class="hwtime">提出は次回講義日の 12:00 まで、HTMLで</div>
+    <div class="hwttl">為替ヘッジをかけてフランス10年債を買う日本の投資家の利回りは、日本10年債より何ポイント上か。数字と1行の結論で。</div>
+    <div class="hwhint"><span class="lb">着地点</span>下の式「ヘッジ後の利回り」。短期金利はECBの預金金利と日銀の政策金利。<b>率を出したら、どの日の値かを書く。</b></div>
+  </div>
+
+  <h3>実物：フランス10年債の利回りと、日本勢</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="k">フランス10年債（10/12）</div><div class="v">4.86％</div><div class="n">10/1 に日中で約4.99％。2002年以来の高さ<span class="st p2">報道</span></div></div>
+    <div class="kpi m"><div class="k">ドイツ10年債との差（10/12）</div><div class="v">約1.4ポイント</div><div class="n">10/5 前後に約1.5ポイント。2011〜12年以来の広さ<span class="st p2">報道</span></div></div>
+    <div class="kpi c"><div class="k">日本勢の保有（7月）</div><div class="v">約23兆円</div><div class="n">日本の外国債券保有の6.6％。Bloomberg の推計<span class="st p4">推計</span></div></div>
+  </div>
+  <ul class="cal">
+    <li><span class="d">2026/8/24</span><span class="c">フランス10年債 4.13％。2008年以来の高さ<span class="st p2">報道</span></span></li>
+    <li><span class="d">9/10</span><span class="c">ECB が預金金利を2.50％へ引き上げ<span class="st p2">報道</span></span></li>
+    <li><span class="d">9/18</span><span class="c">日銀が政策金利を1.25％程度へ。ドイツとの差は約1.0ポイント<span class="st p2">報道</span></span></li>
+    <li><span class="d">9/29</span><span class="c">政府債務 GDP比119.0％（2026年6月末）。1946年以来の高さ<span class="st p1">一次</span></span></li>
+    <li class="hot"><span class="d">10/1</span><span class="c">2027年予算案。赤字 GDP比5.4％（2026年見込み）→5.0％。同じ日に10年債が日中で約4.99％<span class="st p2">報道</span></span></li>
+    <li class="hot"><span class="d">10/2</span><span class="c">三井住友DSアセットマネジメントの債券ファンド1本がフランス国債を全売却。ドイツ国債と日本の短期国債へ。金額は非公表<span class="st p2">報道</span></span></li>
+    <li><span class="d">10/9</span><span class="c">フランス10年債がイタリア10年債を約0.3ポイント上回る。ユーロ導入以来で最大<span class="st p2">報道</span></span></li>
+    <li><span class="d">10/23</span><span class="c">ムーディーズの格付け見直し予定（現在 Aa3）。S&amp;P は11/27（現在 A+）<span class="st p2">報道</span></span></li>
+  </ul>
+  <div class="twocol">
+    <div class="card b">
+      <div class="ch">売る側の材料</div>
+      <p><b>財政</b>　債務 GDP比119.0％（6月末）、赤字5.4％（2026年見込み）</p>
+      <p><b>政治</b>　予算案に不信任の動き。大統領選は2027年4〜5月</p>
+      <p><b>日本の金利</b>　日本10年債が3％台。ヘッジ後の上乗せは約0.4ポイントまで縮小<span class="st p2">報道</span></p>
+    </div>
+    <div class="card">
+      <div class="ch">買う側の材料</div>
+      <p><b>水準</b>　4.8％台。イタリアより高い</p>
+      <p><b>需要</b>　10/1 の長期債入札は約120億ユーロ、応札は約2倍<span class="st p2">報道</span></p>
+      <p><b>日本勢の流れ</b>　6〜8月は約46億ユーロの買い越し、9月に売り（モルガン・スタンレーの集計として報道）。アモーヴァ（旧日興）AMは買い増しに前向き<span class="st p2">報道</span></p>
+    </div>
+  </div>
+  <div class="formula">
+    <code>ヘッジ後の利回り ≒ 外国債の利回り − （外国の短期金利 − 日本の短期金利）</code>
+    <span class="n">かっこの中がヘッジのコスト。ユーロ円なら ECB 預金金利2.50％、日銀1.25％。<b>実際のコストは為替の先渡しの値段で決まり、この式は概算。</b></span>
+  </div>
+  <div class="rel"><b>数字の出どころ</b>　利回りは報道ベース（Bloomberg・ideal-investisseur・Trading Economics）。<b>ドイツとの差の頂点は報道で約1.47〜1.52ポイントと幅がある。</b>日本勢の保有23兆円は Bloomberg の推計で、財務省の公表値ではない（財務省の週次統計には国別の内訳がない）。債務比率は INSEE（一次情報）。</div>
+
+  <h3>原文：パリの校門と金利</h3>
+  <p class="sub">原文は提供された文章をそのまま掲載。ファクトと違う点・確認できなかった点は欄外（右、狭い画面では段落の下）に明記。照合は2026年10月14日時点で、仏語の報道本文は開けていない。検索結果の要約による判定。</p>
+  <div class="legend">
+    <span class="lg"><mark class="ng">　</mark><span class="mk ng">相違</span>出典と違う（5）</span>
+    <span class="lg"><mark class="sm">　</mark><span class="mk sm">小差</span>丸め・言い換えの範囲（4）</span>
+    <span class="lg"><mark class="ck">　</mark><span class="mk ck">未確認</span>出典が見つからない（2）</span>
+    <span class="lg"><mark class="nt">　</mark><span class="mk nt">補足</span>誤りではないが読み方に効く（5）</span>
+    <span class="lg"><mark class="ev">　</mark><span class="mk ev">評価</span>照合の対象外（2）</span>
+  </div>
+  <span class="artlbl">原文</span>
+  <div class="ar">
+    <p class="tx">先週10月2日、フランス全土で<mark class="sm">四百あまりの高校で、大規模な抗議デモが発生しました</mark>。<mark class="nt">パリ、マルセイユ、ストラスブール、レンヌと、全仏各地で機動隊と高校生が衝突</mark>。ダルマナン法相はラジオで、<mark class="ng">デモ開始からの逮捕者が約二千人</mark>、その大半が十代だと明かしています。<br>校長四十人を含む六十五人の教職員も負傷。<mark class="ng">北部ランスで十五歳の少年が警察の閃光弾に関わる事故で片手を失い</mark>、パリ警視総監は<mark class="sm">「運動はもはや制御不能だ」</mark>と発言しました。</p>
+    <div class="mg">
+      <div class="nn sm"><span class="mk sm">小差</span><b>四百あまり</b>　10/2 は約400校が<b>閉鎖</b>、約560校で抗議・混乱（全国の高校は約3,700校）。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>4都市</b>　4都市の並びは AFP の10/1付の記事。マルセイユの衝突は10/1。リール・ボルドー・リヨンでも衝突。</div>
+      <div class="nn ng"><span class="mk ng">相違</span><b>約二千人</b>　ダルマナン法相（RTL、10/2）の約2,000人は<b>警察での身柄拘束（garde à vue）</b>の数で、9割が未成年。<b>逮捕（interpellation）は内務省集計で5,000人超</b>（約85％が未成年）。校長40人を含む65人の負傷は一致（ジェフレ教育相）。</div>
+      <div class="nn ng"><span class="mk ng">相違</span><b>手を失った少年</b>　町は<b>ランス（Reims）ではなく Lens</b>（パ＝ド＝カレー県）、日付は<b>10/5</b>。器具は<b>スタングレネード</b>。拾ったのか投げつけられたのかは不明で、警察監察（IGPN）が調査中。「事故」とは確定していない。10/7 に内務相が高校の抗議でのスタングレネード使用を停止。</div>
+      <div class="nn sm"><span class="mk sm">小差</span><b>警視総監</b>　X の公開書簡（10/3ごろ）。趣旨は「始めた者たちは、もう運動を制御していない」。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">火種は、9月下旬のパリ近郊ではじまりました。<mark class="ng">オーベルヴィリエやサン＝ドニの高校生がゴミ箱に火をつけて校門を封鎖し</mark>、それが一週間で<mark class="ck">SNSを通じて全国に飛び火</mark>。つまり、文字通りの「炎上」です。<br>今回、高校生たちの要求を聞くと驚くほど地味な内容で、休んだ教師の代わりに来る代替教員を雇ってほしい、すし詰めの教室をなんとかしてほしい、崩れかけた校舎を直してほしい、朝八時から夕方まで続く時間割を見直してほしい、大学進学の出願・選考システム「パルクールシュプ」を透明化してほしい、そして暑すぎる教室をなんとかしてほしい、などです。<br>つまりこの子たちは、気候が変わったことと、国家に金がないこと、社会システムが不透明なことを、年々暑くなる教室の温度計から学びました。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>始まった場所</b>　報道で最初とされるのは<b>クレテイユ</b>の高校（9/18ごろ）。サン＝ドニは激化した場所の一つ。<b>オーベルヴィリエは2026年の記事で確認できない。</b></div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>SNSで飛び火</b>　TikTok・Snapchat による拡散はブログの記述のみ。要求の6項目は一致。政府は代替教員3,000人の緊急配置を発表。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">ルコルニュ首相は10月1日、閣僚の出張を取り消して危機会議を招集。政府は背後で左派政党「不服従のフランス」が煽っていると非難していますが、党首メランションは、<mark class="ng">「政府は若者を獰猛に、しかも紛れもなく人種差別的に弾圧している」</mark>と応酬しました。法的に<mark class="sm">来年五月の大統領選</mark>でマクロンは三選できませんので、この一週間の応酬は、すでに選挙の前哨戦となりました。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>メランションの言葉</b>　確認できる言い方は、弾圧に<b>「明らかな人種差別の後味（arrière-goût raciste évident）」</b>（9/28ごろ）。「獰猛に」は出典が見つからない。首相の危機会議（10/1）と、政府による不服従のフランスへの非難は一致。</div>
+      <div class="nn sm"><span class="mk sm">小差</span><b>大統領選</b>　第1回投票は<b>2027年4月18日</b>、決選投票は<b>5月2日</b>。連続3選の禁止は憲法6条。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">社会学者ピエール・ブルデューが『再生産』で、学校は階級を溶かすのではなく再生産する装置だと喝破したのは1970年のことでした。それでも半世紀のあいだ、このエスカレーターは遅いなりに動いてきました。環境や資金的に恵まれない郊外の子どもも、グランゼコール（少人数制のエリート養成を行う高等教育機関の総称）に辿り着く例外的な数人の物語を信じて、朝八時の教室に座って学び続けていました。<br>しかし、今回の反乱は、事実上「あたらしい階級」が固定され、蜘蛛の糸同然だった細いエスカレーターが止まったことを、乗っている本人たちが知ってしまった、という事実です。つまり、これは暴動ではなく、むしろ、ある認識の到達だとも解釈できます。</p>
+    <div class="mg">
+      <div class="nn"><span class="mk ok">一致</span><b>『再生産』</b>　ブルデューとパスロンの共著、1970年（ミニュイ社）。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">かつての階級は職業で決まりました。工場を持つか、工場で働くか。一方、いまの階級は「位置」で決まります。動ける者と動けない者。資産を持つ者と、給料しか持たない者。AIを使う側に立つ者と、AIに置き換えられる側に立つ者。フランスの政治家で思想家ジャック・アタリが二十年前に予言した<mark class="nt">ハイパーノマドと定住民の分岐</mark>が、所得の格差ではなく、人生の設計図の格差として明確に現れている。<br>今週のフランスが示しているのは、その次の段階で、すでに固定されつつある、ということなのです。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>アタリ</b>　『未来の歴史（Une brève histoire de l'avenir）』2006年。分類は<b>3つ</b>（ハイパーノマド・インフラノマド・定住民）で、原文の二分は簡略化。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">社会階層の形成と固定の違いは、下にいる人間がそれを知っているかどうかです。形成の段階では、まだ誰もが上に行けると信じている。固定の段階では、下の子どもたちが「自分は下だ」と自覚し、上の子どもたちが「自分は上だ」と安心する。<br>固定を知らせる装置は、昔なら制服や方言でしたが、いまはスマートフォンです。暑い教室の生徒は、涼しい教室がどこかにあることを知っている。そして、<mark class="ev">固定の執行官は、警察でも政治家でもなく、意外かもしれませんが、実は金利にあります。</mark></p>
+    <div class="mg">
+      <div class="nn"><span class="mk ev">評価</span>書き手の見立て。この資料では問2で数字に置き換える。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">ここで世界の数字を重ねてみましょう。米国の十年債利回りは五パーセント台と数十年ぶりの高さで、<mark class="ck">世界の債券は五週間売られ続けています</mark>。ホルムズ海峡の封鎖が解けないまま<mark class="sm">原油は百ドル近辺に張りつき</mark>、先週末には<mark class="nt">フーシ派がリヤドとクライスのアラムコ施設を弾道ミサイルとドローンで攻撃しました</mark>。<br>フランスの高校生の不満に、空調等の「燃料価格」が混じっているのは偶然ではありません。金利が上がれば、国家は利払いに追われ、その分、削れるものから削られる。<mark class="ev">年金は削れません。なぜなら年金受給者は投票するからで、削られるのは、投票できない十六歳の教室の予算なのです。</mark></p>
+    <div class="mg">
+      <div class="nn"><span class="mk ok">一致</span><b>米10年債</b>　10/1 に約5.34％で2002年以来。10/13 は約5.22％。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>「五週間」</b>　日付のない市場コメントにしか見当たらない。</div>
+      <div class="nn sm"><span class="mk sm">小差</span><b>原油</b>　ブレントは10/8・10/13 とも約105ドル。「百ドル超」が近い。ホルムズ海峡の通航は10/4に4隻（危機前は1日約85隻）。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>フーシ派の攻撃</b>　10/3〜4 の攻撃は<b>フーシ派の主張</b>。サウジ側は被害を確認していない。</div>
+      <div class="nn"><span class="mk ev">評価</span><b>教室の予算</b>　見立て。数字は、2026年予算で教員ポスト約4,000の削減（2月成立）、2027年政府案で純減1,588（在籍生徒は約18万人減の見込み）。教育省の予算総額は政府案で増額。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">そして、この炎上はフランスだけのものではありません。去年の「すべてを封鎖せよ」のデモで、パリの群衆の上に『ワンピース』の麦わらの海賊旗は、ネパール、インドネシア、フィリピン、<mark class="ng">マダガスカル</mark>のZ世代の抗議から伝搬してきたものでした。<br>ネパールでは首相が辞任に追い込まれ、<mark class="nt">マダガスカルでは大統領が国を追われました</mark>。夏には本欄でインドの<mark class="nt">「ゴキブリ人民党」</mark>の躍進をお伝えしました。エスカレーターが止まった社会で最初に声を上げるのは、いつの時代も、乗ったばかりの若者たちです。</p>
+    <div class="mg">
+      <div class="nn ng"><span class="mk ng">相違</span><b>マダガスカル</b>　抗議の開始は<b>2025年9/25</b>で、「すべてを封鎖せよ」（9/10）より後。旗の伝搬元には入らない。インドネシア（8月）・ネパール（9/9）・フィリピンは一致。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>マダガスカルの大統領</b>　2025年10/12ごろ国外へ。<b>辞任はしていない。</b>ネパールのオリ首相の辞任（2025年9月）は一致。</div>
+      <div class="nn nt"><span class="mk nt">補足</span><b>ゴキブリ人民党</b>　英語名は Cockroach Janta Party。<b>政党登録はない運動。</b>6月にデリーで抗議。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">今週、パリの校門で燃えているゴミ箱は、三十年間ゼロ金利で先送りしてきたツケが、実質的に関係ない次の世代にまわされた合図なのでしょうか？<br>それとも、そのツケは、国境を選ばず、これから世界中に届いていくのでしょうか？</p>
+    <div class="mg"></div>
+  </div>
+  <div class="chk">
+    <h3>照合できた項目と出典</h3>
+    <p class="pfnote"><span class="st p1">一次</span>公的機関の公表　<span class="st p2">報道</span>報道機関　<span class="st p3">解説</span>百科・分析。仏語の報道本文は開けておらず、<b>検索結果の要約で照合</b>した。</p>
+    <ul>
+      <li><span class="mk ok">一致</span>10/2 に約400校が閉鎖、拘束約2,000人<span class="lk"><span class="st p2">報道</span><a href="https://fr.euronews.com/video/2026/10/02/400-lycees-fermes-plus-de-2-000-interpellations-la-mobilisation-lyceenne-ne-faiblit-pas" target="_blank" rel="noopener">Euronews（10/2）</a></span></li>
+      <li><span class="mk ok">一致</span>首相の危機会議（10/1）と、不服従のフランスへの非難<span class="lk"><span class="st p2">報道</span><a href="https://fr.euronews.com/2026/10/01/blocages-des-lycees-violences-incendies-et-affrontements-lecornu-accuse-lfi-et-lultra-gauc" target="_blank" rel="noopener">Euronews（10/1）</a></span></li>
+      <li><span class="mk ng">相違</span>Lens の生徒、スタングレネード、10/5<span class="lk"><span class="st p2">報道</span><a href="https://www.parismatch.be/actualites/monde/2026/10/05/manifestation-des-lyceens-en-france-un-ado-a-eu-la-main-arrachee-en-ramassant-une-grenade-policiere-XKENFYHCUVB7FAD3OCLUTCHXGU/" target="_blank" rel="noopener">Paris Match（10/5）</a>　<span class="st p2">報道</span><a href="https://www.publicsenat.fr/actualites/politique/blocus-des-lycees-dix-huit-enquetes-igpn-ouvertes-lusage-des-grenades-assourdissantes-suspendu" target="_blank" rel="noopener">Public Sénat</a></span></li>
+      <li><span class="mk ok">一致</span>パリ警視総監の公開書簡<span class="lk"><span class="st p2">報道</span><a href="https://www.internazionale.it/ultime-notizie-reuters/2026/10/03/paris-police-chief-says-student-protest-movement-out-of-control-urges-peaceful-action" target="_blank" rel="noopener">Reuters（10/3）</a></span></li>
+      <li><span class="mk ok">一致</span>高校生の要求<span class="lk"><span class="st p2">報道</span><a href="https://lcp.fr/actualites/blocage-des-lycees-quelles-sont-les-revendications-des-eleves-442989" target="_blank" rel="noopener">LCP</a></span></li>
+      <li><span class="mk ok">一致</span>大統領選 2027年4/18・5/2<span class="lk"><span class="st p2">報道</span><a href="https://lcp.fr/actualites/presidentielle-2027-les-dates-du-premier-et-du-second-tour-fixees-438582" target="_blank" rel="noopener">LCP（6/30）</a></span></li>
+      <li><span class="mk ok">一致</span>米10年債 2002年以来の高さ（10/1）<span class="lk"><span class="st p2">報道</span><a href="https://www.irishtimes.com/business/2026/10/01/global-bond-sell-off-pushes-10-year-treasury-yield-to-highest-since-2002/" target="_blank" rel="noopener">Irish Times（10/1）</a></span></li>
+      <li><span class="mk ok">一致</span>フーシ派の攻撃の主張と、サウジ側の否定<span class="lk"><span class="st p2">報道</span><a href="https://www.zawya.com/en/world/yemens-houthis-say-they-struck-saudi-aramco-sites-in-riyadh-khurais-1498480" target="_blank" rel="noopener">Zawya</a></span></li>
+      <li><span class="mk ok">一致</span>2027年予算の教員ポスト純減1,588<span class="lk"><span class="st p1">一次</span><a href="https://www.education.gouv.fr/sites/default/files/document/budget-2027-pour-l-cole-le-dossier-de-presse-521314.pdf" target="_blank" rel="noopener">教育省 2027年予算 報道資料</a></span></li>
+      <li><span class="mk ok">一致</span>政府債務 GDP比119.0％（2026年6月末）<span class="lk"><span class="st p1">一次</span><a href="https://www.insee.fr/fr/statistiques/9053525" target="_blank" rel="noopener">INSEE</a></span></li>
+      <li><span class="mk ok">一致</span>日本勢の保有 約23兆円（推計）と、三井住友DSのファンドの全売却<span class="lk"><span class="st p2">報道</span><a href="https://www.bloomberg.com/jp/news/articles/2026-10-05/TMF3HTKJH6V400" target="_blank" rel="noopener">Bloomberg（10/5）</a>　<span class="st p2">報道</span><a href="https://www.bloomberg.com/jp/news/articles/2026-10-02/TM9EV2T96OSG00" target="_blank" rel="noopener">Bloomberg（10/2）</a></span></li>
+      <li><span class="mk ok">一致</span>フランスがイタリアを約0.3ポイント上回る（10/9）<span class="lk"><span class="st p2">報道</span><a href="https://www.briefs.co/news/french-10-year-premium-over-italy-hits-record-30-basis-point/" target="_blank" rel="noopener">Briefs</a></span></li>
+      <li><span class="mk ok">一致</span>非居住者の保有割合 55.9％（2026年3月末、一般政府の長期債）<span class="lk"><span class="st p1">一次</span><a href="https://www.banque-france.fr/en/statistics/loans/securities-issues-french-residents-2026-q1" target="_blank" rel="noopener">フランス銀行</a></span></li>
+    </ul>
+  </div>
+  <ol class="q">
+    <li><b>フランス10年債の利回りは、8/24 の4.13％から10/1 に約4.99％へ上がった。この間、すでに持っていた人の国債の値段は上がったか、下がったか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260915.html">第7回 §0</a>。<b>分子（約束された元利金）は固定、動くのは分母。</b>利回りが上がった＝値段が下がった。</span></li>
+    <li><b>原文の「固定の執行官は金利」。金利が上がると、国の予算のどの行が増え、どの行が削られるか。フランスの2027年予算案の数字を1つ当てる。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260915.html">第7回 §1</a>（米国の利払い1.0兆ドル）と同じ型。欄外の教員ポスト純減1,588は政府案。<b>見立てと数字を分けて言う。</b></span></li>
+    <li><b>三井住友DSのファンドは、フランス国債を売ってドイツ国債と日本の短期国債へ移した。日本の投資家がユーロ建ての国債を売って円に戻すと、為替はどちらに動きやすいか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260915.html">第7回</a>の4つの値段の輪。<b>ヘッジをかけて持っていた分は、売っても為替の取引がほぼ相殺される。</b>ヘッジの有無で答えが変わる。</span></li>
+  </ol>
+  <div class="rel"><b>数字の出どころ</b>　抗議の数字は仏政府の発表を報じたもの。<b>拘束と逮捕は数え方が違う。</b>国債の利回り・差は報道ベース、債務比率と非居住者保有は一次情報（INSEE・フランス銀行）。格付けの見直し日程は報道ベース。</div>
+</section>
+
+<!-- ============ §2 裁定取引 ============ -->
+<section class="topic" id="s-arb">
+  <span class="badge corp">§2 ファイナンス</span>
+  <h2 class="thead">裁定取引（日経225先物と現物）</h2>
+  <p class="sub">同じものに2つの値段が付いたとき、高いほうを売って安いほうを買い、値段がそろう日を待つ。先物と現物は、SQ の日に必ず同じ値段になる。</p>
+  <h3>実物：10/14 の日経平均と12月限の先物</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="k">日経平均（10/14 15:30）</div><div class="v">67,744.29円</div><div class="n">5日続落<span class="st p2">報道</span></div></div>
+    <div class="kpi m"><div class="k">日経225先物 12月限（10/14 15:45）</div><div class="v">68,160円</div><div class="n">日中取引の終値。SQ は12/11<span class="st p2">報道</span></div></div>
+    <div class="kpi c"><div class="k">裁定買い残（9/25 時点）</div><div class="v">3兆3,750億円</div><div class="n">3週連続の増加。4月中旬以来の水準<span class="st p2">報道</span></div></div>
+  </div>
+  <p>差は約420円。<b>ただし現物の終値は15:30、先物は15:45 で、時刻が15分ずれている。</b>この差をそのまま裁定の機会とは読めない。</p>
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">裁定買い ── 先物が割高なとき</div>
+      <p><b>構成</b>　先物を売る ＋ 現物（日経225の225銘柄）を買う</p>
+      <p><b>SQの日</b>　先物と現物が同じ値段になる。売った先物の値段と買った現物の値段の差が残る</p>
+      <p><b>残高</b>　この現物の買いが「裁定買い残」として毎週公表される</p>
+    </div>
+    <div class="card b">
+      <div class="ch">裁定売り ── 先物が割安なとき</div>
+      <p><b>構成</b>　先物を買う ＋ 現物を売る</p>
+      <p><b>現物を持っていないとき</b>　現物を借りて売る（<a href="lecture_20260908.html">第6回</a>の空売り）</p>
+      <p><b>残高</b>　「裁定売り残」として公表される</p>
+    </div>
+  </div>
+  <div class="formula">
+    <code>先物の理論価格 ≒ 現物 × （1 ＋ 金利 × 残存日数 ÷ 365） − 満期までに受け取る配当</code>
+    <span class="n">先物を買う人は、現物を買うお金を満期まで払わずに済む（金利の分だけ先物が高い）。その代わり、満期までの配当はもらえない（配当の分だけ先物が安い）。</span>
+  </div>
+  <h3>設例：割高な先物で裁定買いを組む</h3>
+  <ol class="chain">
+    <li><b>条件</b>　現物 68,000円、金利 年1.25％、SQ まで58日、満期までの配当は0円とする</li>
+    <li><b>理論価格</b>　68,000 × （1 ＋ 0.0125 × 58 ÷ 365） ≒ 68,135円</li>
+    <li><b>先物が68,400円で取引されている</b>　理論価格より265円高い。先物を1枚売り、現物を同じ額だけ買う</li>
+    <li><b>SQ の日</b>　現物がいくらで終わっても、先物と現物は同じ値段。265円 × 1,000倍 ＝ 26万5,000円が残る。ここから手数料と、225銘柄をそろえる手間を引く</li>
+  </ol>
+  <ol class="q">
+    <li><b>同じ設例で、先物が67,900円だったら。どちらの裁定を組み、1枚でいくら残るか。</b>
+      <span class="hint"><span class="lb">着地点</span>理論価格68,135円との差。<b>割安な側を買い、割高な側を売る。</b>現物を持っていなければ空売り（第6回）になり、貸株料がかかる。</span></li>
+    <li><b>裁定買い残が3兆3,750億円ある。この現物の買いは、いつ、何に変わるか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260915.html">第7回</a> 第2部の④「他人の信用買い残を将来の売り圧力として読む」と同じ型。<b>SQ の前後か、先物の割高が消えたときに、現物の売りとして戻ってくる。</b></span></li>
+    <li><b>10/14 の差約420円は、裁定の機会か。言うために、あと何をそろえる必要があるか。</b>
+      <span class="hint"><span class="lb">着地点</span><b>同じ時刻の値段</b>、金利、満期までの配当、手数料。<a href="lecture_20260901.html">第5回</a>と同じく、<b>数字を比べる前に時点をそろえる。</b></span></li>
+  </ol>
+  <div class="rel"><b>数字の出どころ</b>　日経平均・先物の終値は報道ベース（株探）。裁定買い残は日本取引所グループの公表を報じた日経の記事（9/25時点、9/30公表）<span class="st p2">報道</span>。一次情報は<a href="https://www.jpx.co.jp/markets/statistics-equities/program/index.html" target="_blank" rel="noopener">日本取引所グループ「裁定取引に係る現物ポジション」</a>。設例の金利・配当・先物の値段は<b>設例</b>で、日銀の政策金利（1.25％程度）を借りた。<b>実際の短期金利と期間中の配当は、講義前に確かめる。</b></div>
+</section>
+
+<!-- ============ §3 オプション戦略 ============ -->
+<section class="topic" id="s-opt">
+  <span class="badge word">§3 オプション</span>
+  <h2 class="thead">プロテクティブ・プットとカバード・コール（現物にオプションを1本足す2つの戦略）</h2>
+  <p class="sub"><a href="lecture_20261013.html#s-opt">後期 第3回 §4</a> まではオプションどうしの組み合わせ。今回は<b>持っている現物</b>に1本足す。設例は日経平均に連動する現物を68,000円で1単位持っているとする。</p>
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">プロテクティブ・プット ── 現物 ＋ プットの買い</div>
+      <p><b>構成</b>　現物 68,000円 ＋ プット 66,000円を600円で買う</p>
+      <p><b>下がったとき</b>　66,000円より下は、プットで売れる。損は 2,000 ＋ 600 ＝ 2,600円で止まる</p>
+      <p><b>上がったとき</b>　現物の値上がりから600円を引いた分が残る。上限なし</p>
+      <p><b>見方</b>　持ち続けたい現物に、下げの保険を掛ける</p>
+    </div>
+    <div class="card b">
+      <div class="ch">カバード・コール ── 現物 ＋ コールの売り</div>
+      <p><b>構成</b>　現物 68,000円 ＋ コール 70,000円を500円で売る</p>
+      <p><b>上がったとき</b>　70,000円より上は、コールの買い手に渡す。利益は 2,000 ＋ 500 ＝ 2,500円で止まる</p>
+      <p><b>下がったとき</b>　受け取った500円の分だけ損が軽くなる。下の損は残る</p>
+      <p><b>見方</b>　大きくは上がらないと見て、持っている現物から500円を受け取る</p>
+    </div>
+  </div>
+  <h3>2つの戦略の満期損益</h3>
+  <div class="fig">
+  <svg viewBox="0 0 960 300" role="img" aria-label="現物68,000円に権利行使価格66,000円のプットの買いを足したプロテクティブ・プットと、権利行使価格70,000円のコールの売りを足したカバード・コールの満期損益。点線は現物だけを持った場合">
+    <text class="lab" x="70" y="22">プロテクティブ・プット</text>
+    <path class="gl" d="M70,74 L455,74 M70,194 L455,194"/>
+    <path class="zl" d="M70,134 L455,134"/>
+    <path class="ax" d="M70,44 L70,224"/>
+    <text class="tick" x="64" y="78" text-anchor="end">+4,000</text>
+    <text class="tick" x="64" y="138" text-anchor="end">0</text>
+    <text class="tick" x="64" y="198" text-anchor="end">−4,000</text>
+    <text class="tick" x="70.0" y="242" text-anchor="middle">64,000</text>
+    <text class="tick" x="166.3" y="242" text-anchor="middle">66,000</text>
+    <text class="tick" x="262.5" y="242" text-anchor="middle">68,000</text>
+    <text class="tick" x="358.8" y="242" text-anchor="middle">70,000</text>
+    <text class="tick" x="455.0" y="242" text-anchor="middle">72,000</text>
+    <path class="ln r" d="M70,194 L455,74"/>
+    <path class="vl" d="M291.4,44 L291.4,224"/>
+    <text class="lab c" x="296.4" y="60" text-anchor="start">損益分岐 68,600</text>
+    <path class="ln a" d="M70.0,173.0 L166.3,173.0 L455.0,83.0"/>
+    <text class="val" x="76" y="166" text-anchor="start">−2,600</text>
+    <text class="val" x="449" y="66" text-anchor="end">+3,400</text>
+    <text class="lab" x="550" y="22">カバード・コール</text>
+    <path class="gl" d="M550,74 L935,74 M550,194 L935,194"/>
+    <path class="zl" d="M550,134 L935,134"/>
+    <path class="ax" d="M550,44 L550,224"/>
+    <text class="tick" x="544" y="78" text-anchor="end">+4,000</text>
+    <text class="tick" x="544" y="138" text-anchor="end">0</text>
+    <text class="tick" x="544" y="198" text-anchor="end">−4,000</text>
+    <text class="tick" x="550.0" y="242" text-anchor="middle">64,000</text>
+    <text class="tick" x="646.3" y="242" text-anchor="middle">66,000</text>
+    <text class="tick" x="742.5" y="242" text-anchor="middle">68,000</text>
+    <text class="tick" x="838.8" y="242" text-anchor="middle">70,000</text>
+    <text class="tick" x="935.0" y="242" text-anchor="middle">72,000</text>
+    <path class="ln r" d="M550,194 L935,74"/>
+    <path class="vl" d="M718.4,44 L718.4,224"/>
+    <text class="lab c" x="713.4" y="60" text-anchor="end">損益分岐 67,500</text>
+    <path class="ln b" d="M550.0,186.5 L838.8,96.5 L935.0,96.5"/>
+    <text class="val" x="556" y="214" text-anchor="start">−3,500</text>
+    <text class="val" x="929" y="114" text-anchor="end">+2,500</text>
+    <text class="tick" x="480" y="286" text-anchor="middle">横軸：満期日（SQ）の日経平均株価　縦軸：損益（円、指数1単位あたり）　点線：現物だけを持った場合</text>
+  </svg>
+  <div class="cap">図1　<b>設例。</b>現物の買値・権利行使価格・プレミアムはすべて設例で、実在の気配値ではない。日経225オプションで組むときは1枚 ＝ 1,000倍。</div>
+  </div>
+  <div class="formula">
+    <code>プロテクティブ・プットの損益分岐点 ＝ 現物の買値 ＋ 払ったプレミアム</code><br>
+    <code>カバード・コールの損益分岐点 ＝ 現物の買値 − 受け取ったプレミアム</code>
+    <span class="n">設例：68,000 ＋ 600 ＝ 68,600円。68,000 − 500 ＝ 67,500円。<b>組み合わせの損益は、現物とオプションの損益の足し算。</b></span>
+  </div>
+  <ol class="q">
+    <li><b>SQ の日経平均が64,000円だった。現物だけ・プロテクティブ・プット・カバード・コールの3つの損益はそれぞれいくらか。</b>
+      <span class="hint"><span class="lb">着地点</span>現物の損 −4,000円に、オプションの損益を足す。<b>プットは2,000円の価値、コールは0円。</b>払った600円・受け取った500円を忘れない。</span></li>
+    <li><b>図1 の右（カバード・コール）は、<a href="lecture_20260929.html#s-opt">第9回</a>の4つの立場のどれと同じ形か。左（プロテクティブ・プット）はどうか。</b>
+      <span class="hint"><span class="lb">着地点</span>折れ曲がる位置と、平らな側がどちらにあるか。<b>同じ形の損益を2通りの組み方で作れるなら、値段は同じでなければならない。</b>§2 の裁定と同じ理屈（プット・コール・パリティ）。</span></li>
+    <li><b>自チームの保有で比率が最大の銘柄に、どちらかを1本足すなら、どちらか。その銘柄で何が起きると見ているかを1行で。</b>
+      <span class="hint"><span class="lb">着地点</span>下げに備えるならプロテクティブ・プット、横ばいと見るならカバード・コール。<b>日経225オプションは指数なので、個別銘柄の動きとは一致しない</b>（<a href="lecture_20261006.html#s-pf">第10回 問4</a>）。</span></li>
+  </ol>
+  <div class="rel"><b>数字の出どころ</b>　図1・カード・式の数字はすべて<b>設例</b>。取引単位（日経225オプション1,000倍）は<b>日本取引所グループの商品概要</b><span class="st p1">一次</span>。</div>
+</section>
+
+<footer>
+  <h2>数字の扱いについて</h2>
+  <ul>
+    <li><b>§1 の原文は提供された文章をそのまま掲載。</b>欄外の照合は2026年10月14日時点で、仏語・英語の報道本文は開けていない。<b>検索結果の要約による判定</b>なので、講義前に出典を一度開いて確かめる。</li>
+    <li><b>§1 の国債の利回り・差は報道ベース。</b>ドイツとの差の頂点（約1.47〜1.52ポイント）は報道で幅がある。日本勢の保有23兆円は Bloomberg の推計。ヘッジ後の利回りの式は概算。</li>
+    <li><b>ムーディーズの見直し（10/23予定）は講義後。</b>講義日には結果が出ていない。</li>
+    <li><b>§2 の10/14 の先物と現物は、終値の時刻が15分ずれている。</b>差の約420円は概数。裁定買い残は9/25時点（10/2・10/9 時点の値は講義前に日本取引所グループで確かめる）。理論価格の設例の金利・配当は設例。</li>
+    <li><b>§3 はすべて設例。</b></li>
+    <li><b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b></li>
+  </ul>
+  <div class="src">
+    <b>出典</b>
+    <ul>
+      <li><span class="st p1">一次</span>日本取引所グループ 裁定取引に係る現物ポジション — <a href="https://www.jpx.co.jp/markets/statistics-equities/program/index.html" target="_blank" rel="noopener">jpx.co.jp/markets/statistics-equities/program/</a></li>
+      <li><span class="st p1">一次</span>日本取引所グループ 日経225オプション 商品概要 — <a href="https://www.jpx.co.jp/derivatives/products/domestic/225options/index.html" target="_blank" rel="noopener">jpx.co.jp/derivatives/products/domestic/225options/</a></li>
+      <li><span class="st p2">報道</span>裁定買い残 3週連続増加（9/25時点） — <a href="https://www.nikkei.com/article/DGXZQOFL300MUTQ6A930C2000000/" target="_blank" rel="noopener">日本経済新聞（9/30）</a></li>
+      <li><span class="st p2">報道</span>日経225先物 12月限 10/14 終値 — <a href="https://kabutan.jp/news/marketnews/?b=n202610140862" target="_blank" rel="noopener">株探</a></li>
+      <li><span class="st p2">報道</span>フランス10年債とドイツ10年債の差 — <a href="https://www.ideal-investisseur.fr/en/markets/oat-bund-spread.html" target="_blank" rel="noopener">ideal-investisseur</a></li>
+      <li>§1 の原文の出典は §1 の「照合できた項目と出典」に一覧</li>
+    </ul>
+  </div>
+  <div class="next">
+    <b>前回（後期 第3回・10/13）</b>　<a href="lecture_20261013.html">フィンランドの備えと米中首脳会談、ホワイトハウス超知能協定（6社）、AIロールアップ、オプションのスプレッド戦略、チーム別ポートフォリオ結果</a>。§4 にブル・コール・スプレッドとアイアン・コンドル。<br>
+    <b>前回の記録</b>　<a href="../reviews/lecture_review_20261013.html">後期 第3回（10/13）で答えが出なかった問い</a><br>
+    <b>関連</b>　<a href="lecture_20260915.html">第7回</a>（国債の値段と金利、信用買い残）／<a href="lecture_20260908.html">第6回</a>（空売り）／<a href="lecture_20260929.html">第9回</a>（オプションの4つの立場）
+  </div>
+</footer>
+</div>
+</body>
+</html>
