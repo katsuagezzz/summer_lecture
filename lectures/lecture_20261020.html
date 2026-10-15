@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>講義資料 後期 第4回｜2026年10月20日 フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、プロテクティブ・プットとカバード・コール</title>
+<title>講義資料 後期 第4回｜2026年10月20日 フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、プロテクティブ・プットとカバード・コール、チーム別ポートフォリオ結果</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
@@ -525,6 +525,7 @@ nav.toc li{counter-increment:tc; position:relative; padding:8px 0 8px 46px; marg
 nav.toc li::before{content:counter(tc); position:absolute; left:0; top:6px; width:32px; height:32px; border-radius:10px; border:2px solid var(--ink); font-weight:900; text-align:center; line-height:28px; color:#fff; background:#2f6bff;}
 nav.toc li:nth-child(2)::before{background:#ff5a36;}
 nav.toc li:nth-child(3)::before{background:#8a3ffc;}
+nav.toc li:nth-child(4)::before{background:#00a88a;}
 nav.toc a{font-weight:800; border-bottom:none; background:linear-gradient(transparent 62%, rgba(255,210,63,.6) 62%);}
 
 /* 節 */
@@ -532,6 +533,7 @@ section.topic{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6p
 section.topic#s-fr{border-top:14px solid #2f6bff;}
 section.topic#s-arb{border-top:14px solid #ff5a36;}
 section.topic#s-opt{border-top:14px solid #8a3ffc;}
+section.topic#s-pf{border-top:14px solid #00a88a;}
 .fig .ln.r{stroke:var(--ink3); stroke-width:1.6; stroke-dasharray:4 4; fill:none;}
 .badge{border:2px solid var(--ink); font-size:13px; font-weight:900; padding:4px 14px; transform:rotate(-2deg); box-shadow:2px 2px 0 var(--ink);}
 .badge.macro{background:#2f6bff; color:#fff;}
@@ -603,7 +605,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
 </div>
 <header class="masthead">
   <div class="vol">LECTURE HANDOUT ／ 講義資料　後期 第4回</div>
-  <h1 class="title">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、プロテクティブ・プットとカバード・コール</h1>
+  <h1 class="title">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、プロテクティブ・プットとカバード・コール、チーム別ポートフォリオ結果</h1>
   <div class="meta">
     <span><b>講義</b>　2026年10月20日（火）16:20から</span>
     <span><b>作成</b>　2026年10月14日（水）</span>
@@ -613,7 +615,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
     <ul class="three">
       <li><strong>フランスの高校生の抗議とフランス国債の売り　利回り・独仏伊の差・日本勢の保有と売り</strong></li>
       <li><strong>裁定取引　日経225先物と現物の差、理論価格、裁定買い残</strong></li>
-      <li><strong>プロテクティブ・プットとカバード・コール　現物にオプションを1本足す2つの戦略</strong></li>
+      <li><strong>プロテクティブ・プットとカバード・コール、チーム別ポートフォリオ結果　現物にオプションを1本足す2つの戦略と、各チームの1週間</strong></li>
     </ul>
   </div>
 </header>
@@ -623,6 +625,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
     <li><a href="#s-fr">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）</a> <span class="s">― 冒頭に宿題1行。国債の数字と日本勢の動き、続けて原文をそのまま掲載し欄外で照合。問1〜問3</span></li>
     <li><a href="#s-arb">裁定取引（日経225先物と現物）</a> <span class="s">― 10/14の先物と現物、理論価格の式、裁定買い残、小説『巨大投資銀行』の3つの場面。問4〜問8</span></li>
     <li><a href="#s-opt">プロテクティブ・プットとカバード・コール</a> <span class="s">― 満期損益は図1。問9〜問11</span></li>
+    <li><a href="#s-pf">チーム別ポートフォリオ結果</a> <span class="s">― TradingViewの3リンクと記入欄。問12・問13</span></li>
   </ol>
 </nav>
 
@@ -950,6 +953,36 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
       <span class="hint"><span class="lb">着地点</span>下げに備えるならプロテクティブ・プット、横ばいと見るならカバード・コール。<b>日経225オプションは指数なので、個別銘柄の動きとは一致しない</b>（<a href="lecture_20261006.html#s-pf">第10回 問4</a>）。</span></li>
   </ol>
   <div class="rel"><b>数字の出どころ</b>　図1・カード・式の数字はすべて<b>設例</b>。取引単位（日経225オプション1,000倍）は<b>日本取引所グループの商品概要</b><span class="st p1">一次</span>。</div>
+</section>
+
+<!-- ============ §4 チーム別ポートフォリオ結果 ============ -->
+<section class="topic" id="s-pf">
+  <span class="badge bridge">§4 チーム</span>
+  <h2 class="thead">チーム別ポートフォリオ結果（3チーム・10/13から10/20まで）</h2>
+  <p class="sub">各チーム、自分のリンクを開いて結果を記入し、報告する。</p>
+  <div class="pf">
+    <a href="https://jp.tradingview.com/portfolios/96d42da1b31d4f47b13c34536ff7f36e/" target="_blank" rel="noopener"><span class="tm">Aチーム</span><span class="u">jp.tradingview.com/portfolios/96d42da1…</span></a>
+    <a class="b" href="https://jp.tradingview.com/portfolios/12725df68d9d44b79c1d2e74b1b9eb85/" target="_blank" rel="noopener"><span class="tm">Bチーム</span><span class="u">jp.tradingview.com/portfolios/12725df6…</span></a>
+    <a class="c" href="https://www.tradingview.com/portfolios/2fd709d801b343a2935bca992c72e9ce/" target="_blank" rel="noopener"><span class="tm">Cチーム</span><span class="u">www.tradingview.com/portfolios/2fd709d8…</span></a>
+  </div>
+  <h3>結果の記入欄</h3>
+  <div class="entry"><b>Aチーム</b>　前回比 <span class="blank">　　</span>％（基準日 <span class="blank">　　</span>・評価通貨 <span class="blank">　　</span>）　比率が最大の銘柄の比率 <span class="blank">　　</span>％</div>
+  <div class="entry"><b>Bチーム</b>　前回比 <span class="blank">　　</span>％（基準日 <span class="blank">　　</span>・評価通貨 <span class="blank">　　</span>）　比率が最大の銘柄の比率 <span class="blank">　　</span>％</div>
+  <div class="entry"><b>Cチーム</b>　前回比 <span class="blank">　　</span>％（基準日 <span class="blank">　　</span>・評価通貨 <span class="blank">　　</span>）　比率が最大の銘柄の比率 <span class="blank">　　</span>％</div>
+  <h3>報告の4点</h3>
+  <ol class="chain">
+    <li><b>前回比 ±%</b>　基準日と評価通貨を必ず言う。同じ期間の日経平均と並べる（10/14 終値は67,744.29円）</li>
+    <li><b>配分</b>　業種ごと・国（通貨）ごとの割合。<b>比率が最大の1銘柄と、その比率</b></li>
+    <li><b>効いた出来事</b>　10/13 の講義以降に起きたことのうち、どれが、どの銘柄に効いたか。§1 のフランス国債・米国債の利回りを含めて。効いていないなら、効いていないと言う</li>
+    <li><b>組み替える条件</b>　保有銘柄1つについて1行。数値を入れる</li>
+  </ol>
+  <ol class="q">
+    <li><b>3チームの前回比を並べたとき、差をつくったのは配分か、個別銘柄か。</b>
+      <span class="hint"><span class="lb">着地点</span>比率が最大の銘柄の動き × その比率 で、前回比の何割が説明できるかを出す。<b>率を出したら分母を言う。</b></span></li>
+    <li><b>米10年債が5.2％前後、フランス10年債が4.8％台で高止まりしたこの1週間に、自チームの保有株で最も下げた1銘柄はどれか。金利が効いたと言えるか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260915.html">第7回</a>の「金利が株の分母に入る式」。<b>同じ週に下げた理由が金利以外にないかを先に確かめる。</b></span></li>
+  </ol>
+  <div class="rel"><b>ポートフォリオの扱い</b>　各チームのリンクは TradingView のポートフォリオ。<b>この資料には保有銘柄も評価額も書かない。</b>記入欄は教室で埋める。数字を読み上げるときは、<b>基準日と評価通貨をそのつど言うこと。</b></div>
 </section>
 
 <footer>
