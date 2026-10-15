@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>講義資料 後期 第4回｜2026年10月20日 フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、プロテクティブ・プットとカバード・コール、チーム別ポートフォリオ結果</title>
+<title>講義資料 後期 第4回｜2026年10月20日 フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、バタフライのコール買いとプット買い、チーム別ポートフォリオ結果</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
@@ -605,7 +605,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
 </div>
 <header class="masthead">
   <div class="vol">LECTURE HANDOUT ／ 講義資料　後期 第4回</div>
-  <h1 class="title">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、プロテクティブ・プットとカバード・コール、チーム別ポートフォリオ結果</h1>
+  <h1 class="title">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、バタフライのコール買いとプット買い、チーム別ポートフォリオ結果</h1>
   <div class="meta">
     <span><b>講義</b>　2026年10月20日（火）16:20から</span>
     <span><b>作成</b>　2026年10月14日（水）</span>
@@ -615,7 +615,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
     <ul class="three">
       <li><strong>フランスの高校生の抗議とフランス国債の売り　利回り・独仏伊の差・日本勢の保有と売り</strong></li>
       <li><strong>裁定取引　日経225先物と現物の差、理論価格、裁定買い残</strong></li>
-      <li><strong>プロテクティブ・プットとカバード・コール、チーム別ポートフォリオ結果　現物にオプションを1本足す2つの戦略と、各チームの1週間</strong></li>
+      <li><strong>バタフライのコール買いとプット買い、チーム別ポートフォリオ結果　3つの権利行使価格を1・2・1で組む戦略と、各チームの1週間</strong></li>
     </ul>
   </div>
 </header>
@@ -624,7 +624,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
   <ol>
     <li><a href="#s-fr">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）</a> <span class="s">― 冒頭に宿題1行。国債の数字と日本勢の動き、続けて原文をそのまま掲載し欄外で照合。問1〜問3</span></li>
     <li><a href="#s-arb">裁定取引（日経225先物と現物）</a> <span class="s">― 10/14の先物と現物、理論価格の式、裁定買い残、小説『巨大投資銀行』の3つの場面。問4〜問8</span></li>
-    <li><a href="#s-opt">プロテクティブ・プットとカバード・コール</a> <span class="s">― 満期損益は図1。問9〜問11</span></li>
+    <li><a href="#s-opt">バタフライのコール買いとプット買い</a> <span class="s">― 満期損益は図1。問9〜問11</span></li>
     <li><a href="#s-pf">チーム別ポートフォリオ結果</a> <span class="s">― TradingViewの3リンクと記入欄。問12・問13</span></li>
   </ol>
 </nav>
@@ -878,81 +878,85 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
 <!-- ============ §3 オプション戦略 ============ -->
 <section class="topic" id="s-opt">
   <span class="badge word">§3 オプション</span>
-  <h2 class="thead">プロテクティブ・プットとカバード・コール（現物にオプションを1本足す2つの戦略）</h2>
-  <p class="sub"><a href="lecture_20261013.html#s-opt">後期 第3回 §4</a> まではオプションどうしの組み合わせ。今回は<b>持っている現物</b>に1本足す。設例は日経平均に連動する現物を68,000円で1単位持っているとする。</p>
+  <h2 class="thead">バタフライのコール買いとプット買い（3つの権利行使価格を1・2・1で組む）</h2>
+  <p class="sub"><a href="lecture_20261013.html#s-opt">後期 第3回 §4</a> のブル・コール・スプレッドを2つ、向きを逆にしてつなげた形。権利行使価格は66,000円・68,000円・70,000円。真ん中だけ2枚売る。</p>
   <div class="twocol">
     <div class="card">
-      <div class="ch">プロテクティブ・プット ── 現物 ＋ プットの買い</div>
-      <p><b>構成</b>　現物 68,000円 ＋ プット 66,000円を600円で買う</p>
-      <p><b>下がったとき</b>　66,000円より下は、プットで売れる。損は 2,000 ＋ 600 ＝ 2,600円で止まる</p>
-      <p><b>上がったとき</b>　現物の値上がりから600円を引いた分が残る。上限なし</p>
-      <p><b>見方</b>　持ち続けたい現物に、下げの保険を掛ける</p>
+      <div class="ch">バタフライ・コールの買い ── コールで組む</div>
+      <p><b>構成</b>　コール 66,000円を1枚買う（2,600）＋ コール 68,000円を2枚売る（1,300 × 2）＋ コール 70,000円を1枚買う（500）</p>
+      <p><b>払うもの</b>　2,600 − 2,600 ＋ 500 ＝ 500ポイント（50万円）</p>
+      <p><b>損益の限度</b>　損は500ポイントまで。利益は 2,000 − 500 ＝ 1,500ポイントまで（SQ がちょうど68,000円のとき）</p>
+      <p><b>見方</b>　SQ まで68,000円の近くにとどまると見る</p>
     </div>
     <div class="card b">
-      <div class="ch">カバード・コール ── 現物 ＋ コールの売り</div>
-      <p><b>構成</b>　現物 68,000円 ＋ コール 70,000円を500円で売る</p>
-      <p><b>上がったとき</b>　70,000円より上は、コールの買い手に渡す。利益は 2,000 ＋ 500 ＝ 2,500円で止まる</p>
-      <p><b>下がったとき</b>　受け取った500円の分だけ損が軽くなる。下の損は残る</p>
-      <p><b>見方</b>　大きくは上がらないと見て、持っている現物から500円を受け取る</p>
+      <div class="ch">バタフライ・プットの買い ── プットで組む</div>
+      <p><b>構成</b>　プット 70,000円を1枚買う（2,500）＋ プット 68,000円を2枚売る（1,200 × 2）＋ プット 66,000円を1枚買う（500）</p>
+      <p><b>払うもの</b>　2,500 − 2,400 ＋ 500 ＝ 600ポイント（60万円）</p>
+      <p><b>損益の限度</b>　損は600ポイントまで。利益は 2,000 − 600 ＝ 1,400ポイントまで（SQ がちょうど68,000円のとき）</p>
+      <p><b>見方</b>　コールで組んだ場合と同じ。使う道具だけが違う</p>
     </div>
   </div>
-  <h3>2つの戦略の満期損益</h3>
+  <h3>2つのバタフライの満期損益</h3>
   <div class="fig">
-  <svg viewBox="0 0 960 300" role="img" aria-label="現物68,000円に権利行使価格66,000円のプットの買いを足したプロテクティブ・プットと、権利行使価格70,000円のコールの売りを足したカバード・コールの満期損益。点線は現物だけを持った場合">
-    <text class="lab" x="70" y="22">プロテクティブ・プット</text>
+  <svg viewBox="0 0 960 300" role="img" aria-label="権利行使価格66,000円・68,000円・70,000円で組んだバタフライ・コールの買いとバタフライ・プットの買いの満期損益">
+    <text class="lab" x="70" y="22">バタフライ・コールの買い</text>
     <path class="gl" d="M70,74 L455,74 M70,194 L455,194"/>
     <path class="zl" d="M70,134 L455,134"/>
     <path class="ax" d="M70,44 L70,224"/>
-    <text class="tick" x="64" y="78" text-anchor="end">+4,000</text>
+    <text class="tick" x="64" y="78" text-anchor="end">+2,000</text>
     <text class="tick" x="64" y="138" text-anchor="end">0</text>
-    <text class="tick" x="64" y="198" text-anchor="end">−4,000</text>
+    <text class="tick" x="64" y="198" text-anchor="end">−2,000</text>
     <text class="tick" x="70.0" y="242" text-anchor="middle">64,000</text>
     <text class="tick" x="166.3" y="242" text-anchor="middle">66,000</text>
     <text class="tick" x="262.5" y="242" text-anchor="middle">68,000</text>
     <text class="tick" x="358.8" y="242" text-anchor="middle">70,000</text>
     <text class="tick" x="455.0" y="242" text-anchor="middle">72,000</text>
-    <path class="ln r" d="M70,194 L455,74"/>
-    <path class="vl" d="M291.4,44 L291.4,224"/>
-    <text class="lab c" x="296.4" y="60" text-anchor="start">損益分岐 68,600</text>
-    <path class="ln a" d="M70.0,173.0 L166.3,173.0 L455.0,83.0"/>
-    <text class="val" x="76" y="166" text-anchor="start">−2,600</text>
-    <text class="val" x="449" y="66" text-anchor="end">+3,400</text>
-    <text class="lab" x="550" y="22">カバード・コール</text>
+    <path class="vl" d="M190.3,44 L190.3,224"/>
+    <path class="vl" d="M334.7,44 L334.7,224"/>
+    <text class="lab c" x="185.3" y="60" text-anchor="end">損益分岐 66,500</text>
+    <text class="lab c" x="339.7" y="60" text-anchor="start">損益分岐 69,500</text>
+    <path class="ln a" d="M70.0,149.0 L166.3,149.0 L262.5,89.0 L358.8,149.0 L455.0,149.0"/>
+    <text class="val" x="262.5" y="80" text-anchor="middle">+1,500</text>
+    <text class="val" x="76" y="168" text-anchor="start">−500</text>
+    <text class="val" x="449" y="168" text-anchor="end">−500</text>
+    <text class="lab" x="550" y="22">バタフライ・プットの買い</text>
     <path class="gl" d="M550,74 L935,74 M550,194 L935,194"/>
     <path class="zl" d="M550,134 L935,134"/>
     <path class="ax" d="M550,44 L550,224"/>
-    <text class="tick" x="544" y="78" text-anchor="end">+4,000</text>
+    <text class="tick" x="544" y="78" text-anchor="end">+2,000</text>
     <text class="tick" x="544" y="138" text-anchor="end">0</text>
-    <text class="tick" x="544" y="198" text-anchor="end">−4,000</text>
+    <text class="tick" x="544" y="198" text-anchor="end">−2,000</text>
     <text class="tick" x="550.0" y="242" text-anchor="middle">64,000</text>
     <text class="tick" x="646.3" y="242" text-anchor="middle">66,000</text>
     <text class="tick" x="742.5" y="242" text-anchor="middle">68,000</text>
     <text class="tick" x="838.8" y="242" text-anchor="middle">70,000</text>
     <text class="tick" x="935.0" y="242" text-anchor="middle">72,000</text>
-    <path class="ln r" d="M550,194 L935,74"/>
-    <path class="vl" d="M718.4,44 L718.4,224"/>
-    <text class="lab c" x="713.4" y="60" text-anchor="end">損益分岐 67,500</text>
-    <path class="ln b" d="M550.0,186.5 L838.8,96.5 L935.0,96.5"/>
-    <text class="val" x="556" y="214" text-anchor="start">−3,500</text>
-    <text class="val" x="929" y="114" text-anchor="end">+2,500</text>
-    <text class="tick" x="480" y="286" text-anchor="middle">横軸：満期日（SQ）の日経平均株価　縦軸：損益（円、指数1単位あたり）　点線：現物だけを持った場合</text>
+    <path class="vl" d="M675.1,44 L675.1,224"/>
+    <path class="vl" d="M809.9,44 L809.9,224"/>
+    <text class="lab c" x="670.1" y="60" text-anchor="end">損益分岐 66,600</text>
+    <text class="lab c" x="814.9" y="60" text-anchor="start">損益分岐 69,400</text>
+    <path class="ln b" d="M550.0,152.0 L646.3,152.0 L742.5,92.0 L838.8,152.0 L935.0,152.0"/>
+    <text class="val" x="742.5" y="83" text-anchor="middle">+1,400</text>
+    <text class="val" x="556" y="171" text-anchor="start">−600</text>
+    <text class="val" x="929" y="171" text-anchor="end">−600</text>
+    <text class="tick" x="480" y="286" text-anchor="middle">横軸：満期日（SQ）の日経平均株価　縦軸：損益（指数ポイント）</text>
   </svg>
-  <div class="cap">図1　<b>設例。</b>現物の買値・権利行使価格・プレミアムはすべて設例で、実在の気配値ではない。日経225オプションで組むときは1枚 ＝ 1,000倍。</div>
+  <div class="cap">図1　<b>設例。</b>権利行使価格・プレミアムはすべて設例で、実在の気配値ではない。日経225オプションは1枚 ＝ 1,000倍なので、100ポイント ＝ 10万円。</div>
   </div>
   <div class="formula">
-    <code>プロテクティブ・プットの損益分岐点 ＝ 現物の買値 ＋ 払ったプレミアム</code><br>
-    <code>カバード・コールの損益分岐点 ＝ 現物の買値 − 受け取ったプレミアム</code>
-    <span class="n">設例：68,000 ＋ 600 ＝ 68,600円。68,000 − 500 ＝ 67,500円。<b>組み合わせの損益は、現物とオプションの損益の足し算。</b></span>
+    <code>バタフライの最大の利益 ＝ 権利行使価格の間隔 − 払った額</code><br>
+    <code>バタフライの損益分岐点 ＝ 下の権利行使価格 ＋ 払った額、上の権利行使価格 − 払った額</code>
+    <span class="n">コール：66,000 ＋ 500 ＝ 66,500円、70,000 − 500 ＝ 69,500円。プット：66,000 ＋ 600 ＝ 66,600円、70,000 − 600 ＝ 69,400円。<b>組み合わせの損益は、4枚それぞれの損益の足し算。</b></span>
   </div>
   <ol class="q">
-    <li><b>SQ の日経平均が64,000円だった。現物だけ・プロテクティブ・プット・カバード・コールの3つの損益はそれぞれいくらか。</b>
-      <span class="hint"><span class="lb">着地点</span>現物の損 −4,000円に、オプションの損益を足す。<b>プットは2,000円の価値、コールは0円。</b>払った600円・受け取った500円を忘れない。</span></li>
-    <li><b>図1 の右（カバード・コール）は、<a href="lecture_20260929.html#s-opt">第9回</a>の4つの立場のどれと同じ形か。左（プロテクティブ・プット）はどうか。</b>
-      <span class="hint"><span class="lb">着地点</span>折れ曲がる位置と、平らな側がどちらにあるか。<b>同じ形の損益を2通りの組み方で作れるなら、値段は同じでなければならない。</b>§2 の裁定と同じ理屈（プット・コール・パリティ）。</span></li>
-    <li><b>自チームの保有で比率が最大の銘柄に、どちらかを1本足すなら、どちらか。その銘柄で何が起きると見ているかを1行で。</b>
-      <span class="hint"><span class="lb">着地点</span>下げに備えるならプロテクティブ・プット、横ばいと見るならカバード・コール。<b>日経225オプションは指数なので、個別銘柄の動きとは一致しない</b>（<a href="lecture_20261006.html#s-pf">第10回 問4</a>）。</span></li>
+    <li><b>SQ の日経平均が69,000円だった。バタフライ・コールの買いとバタフライ・プットの買いの損益は、それぞれいくらか。</b>
+      <span class="hint"><span class="lb">着地点</span>4枚を1本ずつ出して足す。<b>売った68,000円は2枚分。</b>コールは 66,000円と68,000円の2本が使われ、プットは70,000円の1本だけが使われる。</span></li>
+    <li><b>バタフライの買いと、<a href="lecture_20261013.html#s-opt">後期 第3回</a>のアイアン・コンドル（設例）は、どちらも「真ん中にとどまる」と見る戦略。違いは何か。</b>
+      <span class="hint"><span class="lb">着地点</span><b>バタフライの買いは最初に払い、アイアン・コンドルは最初に受け取る。</b>利益が出る幅と、最大の利益・損の大きさを、2つの図で並べる。</span></li>
+    <li><b>図1 の2つは、権利行使価格が同じで満期の損益の形も同じ。それなのに設例の払う額は500と600で違う。どう組めば、この差の100ポイントが残るか。</b>
+      <span class="hint"><span class="lb">着地点</span>§2 の裁定取引。<b>同じ損益を生むものに2つの値段が付いたら、安いほうを買い、高いほうを売る。</b>コールで組んだほうを買い、プットで組んだほうを売れば、満期の損益は打ち消し合う。実際には手数料と証拠金がかかり、この程度の差は残りにくい。</span></li>
   </ol>
-  <div class="rel"><b>数字の出どころ</b>　図1・カード・式の数字はすべて<b>設例</b>。取引単位（日経225オプション1,000倍）は<b>日本取引所グループの商品概要</b><span class="st p1">一次</span>。</div>
+  <div class="rel"><b>数字の出どころ</b>　図1・カード・式の数字はすべて<b>設例</b>。問11 の差（500と600）は裁定を説明するために置いた設例の差で、実際の気配値ではない。取引単位（日経225オプション1,000倍）は<b>日本取引所グループの商品概要</b><span class="st p1">一次</span>。</div>
 </section>
 
 <!-- ============ §4 チーム別ポートフォリオ結果 ============ -->
