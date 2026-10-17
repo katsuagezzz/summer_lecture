@@ -595,6 +595,32 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
   .hw{background:#fff;}
 }
 </style>
+<style>
+/* ---------- 後期 第4回で追加：節ごとに背景の色調を変える（いまどの節にいるかを分かりやすく） ---------- */
+:root{
+  --sec-fr:#eef4ff; --sec-imf:#e8f8fb; --sec-jpy:#f1efff;
+  --sec-arb:#fff1ea; --sec-opt:#f7efff; --sec-pf:#e9f8f2;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --sec-fr:#1b2448; --sec-imf:#132f38; --sec-jpy:#24224a;
+    --sec-arb:#3a231d; --sec-opt:#2d2149; --sec-pf:#14332c;
+  }
+}
+section.topic#s-fr{background:var(--sec-fr);}
+section.topic#s-imf{background:var(--sec-imf); border-top-color:#00a3c4;}
+section.topic#s-jpy{background:var(--sec-jpy); border-top-color:#5b4bff;}
+section.topic#s-arb{background:var(--sec-arb);}
+section.topic#s-opt{background:var(--sec-opt);}
+section.topic#s-pf{background:var(--sec-pf);}
+nav.toc li:nth-child(2)::before{background:#00a3c4;}
+nav.toc li:nth-child(3)::before{background:#5b4bff;}
+#s-imf .badge.macro{background:#00a3c4;}
+#s-jpy .badge.macro{background:#5b4bff;}
+section.topic .sub a{color:var(--macro);}
+@media print{ section.topic{background:#fff !important;} }
+</style>
+</head>
 <body>
 <div class="wrap">
 <a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
