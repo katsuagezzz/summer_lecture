@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>講義資料 後期 第4回｜2026年10月20日 フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、バタフライのコール買いとプット買い、チーム別ポートフォリオ結果</title>
+<title>講義資料 後期 第4回｜2026年10月20日 フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、IMF・世界銀行年次総会と日本のGDP順位、裁定取引（日経225先物と現物）、バタフライのコール買いとプット買い、チーム別ポートフォリオ結果</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
@@ -523,14 +523,15 @@ nav.toc{border:3px solid var(--ink); border-radius:20px; box-shadow:var(--shadow
 nav.toc ol{list-style:none; padding:0; counter-reset:tc;}
 nav.toc li{counter-increment:tc; position:relative; padding:8px 0 8px 46px; margin:0;}
 nav.toc li::before{content:counter(tc); position:absolute; left:0; top:6px; width:32px; height:32px; border-radius:10px; border:2px solid var(--ink); font-weight:900; text-align:center; line-height:28px; color:#fff; background:#2f6bff;}
-nav.toc li:nth-child(2)::before{background:#ff5a36;}
-nav.toc li:nth-child(3)::before{background:#8a3ffc;}
-nav.toc li:nth-child(4)::before{background:#00a88a;}
+nav.toc li:nth-child(2)::before{background:#2f6bff;}
+nav.toc li:nth-child(3)::before{background:#ff5a36;}
+nav.toc li:nth-child(4)::before{background:#8a3ffc;}
+nav.toc li:nth-child(5)::before{background:#00a88a;}
 nav.toc a{font-weight:800; border-bottom:none; background:linear-gradient(transparent 62%, rgba(255,210,63,.6) 62%);}
 
 /* 節 */
 section.topic{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var(--ink); position:relative;}
-section.topic#s-fr{border-top:14px solid #2f6bff;}
+section.topic#s-fr,section.topic#s-imf{border-top:14px solid #2f6bff;}
 section.topic#s-arb{border-top:14px solid #ff5a36;}
 section.topic#s-opt{border-top:14px solid #8a3ffc;}
 section.topic#s-pf{border-top:14px solid #00a88a;}
@@ -605,7 +606,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
 </div>
 <header class="masthead">
   <div class="vol">LECTURE HANDOUT ／ 講義資料　後期 第4回</div>
-  <h1 class="title">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、裁定取引（日経225先物と現物）、バタフライのコール買いとプット買い、チーム別ポートフォリオ結果</h1>
+  <h1 class="title">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）、IMF・世界銀行年次総会と日本のGDP順位、裁定取引（日経225先物と現物）、バタフライのコール買いとプット買い、チーム別ポートフォリオ結果</h1>
   <div class="meta">
     <span><b>講義</b>　2026年10月20日（火）16:20から</span>
     <span><b>作成</b>　2026年10月14日（水）</span>
@@ -613,9 +614,9 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
   </div>
   <div class="lede">
     <ul class="three">
-      <li><strong>フランスの高校生の抗議とフランス国債の売り　利回り・独仏伊の差・日本勢の保有と売り</strong></li>
-      <li><strong>裁定取引　日経225先物と現物の差、理論価格、裁定買い残</strong></li>
-      <li><strong>バタフライのコール買いとプット買い、チーム別ポートフォリオ結果　3つの権利行使価格を1・2・1で組む戦略と、各チームの1週間</strong></li>
+      <li><strong>フランス国債の売りと、IMF・世界銀行年次総会　利回り・日本勢の売り、AIと債務の警告、日本のGDP 6位</strong></li>
+      <li><strong>裁定取引とバタフライ　先物と現物の差、理論価格、1・2・1で組む2つの戦略</strong></li>
+      <li><strong>チーム別ポートフォリオ結果　各チームの1週間、配分、組み替える条件</strong></li>
     </ul>
   </div>
 </header>
@@ -623,9 +624,10 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
   <h2>この資料の構成</h2>
   <ol>
     <li><a href="#s-fr">フランスの高校生の抗議とフランス国債の売り（2026年9〜10月）</a> <span class="s">― 冒頭に宿題1行。国債の数字と日本勢の動き、続けて原文をそのまま掲載し欄外で照合。問1〜問3</span></li>
-    <li><a href="#s-arb">裁定取引（日経225先物と現物）</a> <span class="s">― 10/14の先物と現物、理論価格の式、裁定買い残、小説『巨大投資銀行』の3つの場面。問4〜問8</span></li>
-    <li><a href="#s-opt">バタフライのコール買いとプット買い</a> <span class="s">― 実際の画面は図1、満期損益は図2。問9〜問11</span></li>
-    <li><a href="#s-pf">チーム別ポートフォリオ結果</a> <span class="s">― TradingViewの3リンクと記入欄。問12・問13</span></li>
+    <li><a href="#s-imf">IMF・世界銀行年次総会（バンコク、2026年10月）と日本のGDP順位</a> <span class="s">― 先に IMF のGDP見通し、続けて原文をそのまま掲載し欄外で照合。原典リンクつき。問4・問5</span></li>
+    <li><a href="#s-arb">裁定取引（日経225先物と現物）</a> <span class="s">― 10/14の先物と現物、理論価格の式、裁定買い残、小説『巨大投資銀行』の3つの場面。問6〜問10</span></li>
+    <li><a href="#s-opt">バタフライのコール買いとプット買い</a> <span class="s">― 実際の画面は図1、満期損益は図2。問11〜問13</span></li>
+    <li><a href="#s-pf">チーム別ポートフォリオ結果</a> <span class="s">― TradingViewの3リンクと記入欄。問14・問15</span></li>
   </ol>
 </nav>
 
@@ -780,9 +782,129 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
   <div class="rel"><b>数字の出どころ</b>　抗議の数字は仏政府の発表を報じたもの。<b>拘束と逮捕は数え方が違う。</b>国債の利回り・差は報道ベース、債務比率と非居住者保有は一次情報（INSEE・フランス銀行）。格付けの見直し日程は報道ベース。</div>
 </section>
 
-<!-- ============ §2 裁定取引 ============ -->
+<!-- ============ §2 IMF・世界銀行年次総会と日本のGDP順位 ============ -->
+<section class="topic" id="s-imf">
+  <span class="badge macro">§2 マクロ</span>
+  <h2 class="thead">IMF・世界銀行年次総会（バンコク、2026年10月）と日本のGDP順位</h2>
+  <h3>実物：IMF の名目GDP見通し（2026年10月版）</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="k">日本（2027年見通し）</div><div class="v">4兆4,676億ドル</div><div class="n">6位。2026年は4兆3,419億ドルで4位<span class="st p2">報道</span></div></div>
+    <div class="kpi m"><div class="k">インド（2027年見通し）</div><div class="v">4兆5,211億ドル</div><div class="n">米・中・独に次ぐ4位<span class="st p2">報道</span></div></div>
+    <div class="kpi c"><div class="k">英国（2027年見通し）</div><div class="v">4兆4,889億ドル</div><div class="n">5位。4月版では日本を抜くのは2029年<span class="st p2">報道</span></div></div>
+  </div>
+  <p class="sub">数字はドル建ての名目GDP（IMF 世界経済見通し 2026年10月版を報じた日経・NHK）。下の原文は提供された文章をそのまま掲載。ファクトと違う点・確認できなかった点は欄外に明記。照合は2026年10月17日時点で、IMF の演説記録とデータベースはこの環境では開けていない。</p>
+  <div class="legend">
+    <span class="lg"><mark class="sm">　</mark><span class="mk sm">小差</span>言い回し・条件の違い（3）</span>
+    <span class="lg"><mark class="ck">　</mark><span class="mk ck">未確認</span>出典で確かめられない（4）</span>
+    <span class="lg"><mark class="nt">　</mark><span class="mk nt">補足</span>誤りではないが読み方に効く（4）</span>
+    <span class="lg"><mark class="ev">　</mark><span class="mk ev">評価</span>照合の対象外（3）</span>
+  </div>
+  <span class="artlbl">原文</span>
+  <div class="ar">
+    <p class="tx">今週10月12日、バンコクのクイーン・シリキット国立コンベンションセンターでIMFと世界銀行の年次総会が開催され、<mark class="nt">191の国と地域</mark>から1万5,000人を超える中央銀行総裁、財務大臣、エコノミスト、銀行家、そして記者が集まりました。通常この総会は、ワシントンで2年続けて開かれ、3年目に加盟国へ出張する決まりです。今回のタイでの開催は1991年以来、実に35年ぶりになります。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>191</b>　IMF の加盟国数。会期は10/12〜10/18。会場・約1万5,000人・ワシントン2年と加盟国1年の順番・1991年以来は一致。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">開幕に先立つ10月7日、IMFのゲオルギエバ専務理事はシンガポールで恒例の「カーテンレイザー」演説を行い、常夏の国々に向けて<mark class="nt">「冬が来る」</mark>と告げました。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>「冬が来る」</b>　『ゲーム・オブ・スローンズ』の引用。北半球の冬に暖房の需要が増え、エネルギー価格がさらに上がりうる、という文脈。会場はリー・クアンユー公共政策大学院。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx"><mark class="nt">彼女が挙げたのは三つの寒波です。第一に、8カ月目に入った湾岸の戦争と5年目のウクライナ戦争がもたらす</mark>、高止まりするエネルギー価格。第二に、AI。第三に、過去最高の公的債務と、膨らみ続ける利払いです。<br>世界経済はいま、中東発の負の供給ショックとAI発の正の需要ショックに、正反対の方向へ引き裂かれていて、そしてその影響は「極めて不均一」かつ、AIブームは多くの国を素通りしている、と彼女は語りました。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>「三つの寒波」「8カ月目」「5年目」</b>　本人の言葉ではなく書き手の整理。挙げたリスク（エネルギー・AI・債務）は一致。報道の呼び方は「イラン戦争」（2026年2/28開戦）。「極めて不均一」（highly uneven）は一致。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">AI投資の対GDP比は、鉄道、電力網、電話網を建設した時代の水準に並び、<mark class="sm">やがてそれを超えるのは、間違いありません</mark>。AI関連のハードウェアはすでに世界のモノの貿易の1割以上を占め、なお増え続けています。<br>もしAIがうまく使われれば世界の成長率を<mark class="sm">年0.5ポイント押し上げ、それはASEANひとつ分の経済を世界に加えるのに等しくなる</mark>と予測されますが、結果はいまだ見えません。<br>一方で、世界の公的債務は第二次大戦直後以来の水準に近づき、2030年を待たずに世界GDPの100％を超える見通しです。<br>世界の成長率が3％前後で踏みとどまっているのは、ひとえにAI投資が<mark class="ck">「ギアを上げた」</mark>からであり、エネルギー価格が足を引っ張るなかでそれを支えているのは、ハードウェアを供給するタイを含むアジアだ、と述べています。<br><mark class="ev">つまり、世界経済はいま、データセンターの建設ラッシュという一本足で、かろうじて立っているのです。</mark></p>
+    <div class="mg">
+      <div class="nn sm"><span class="mk sm">小差</span><b>鉄道・電力網・電話網</b>　本人は「並び、<b>おそらく</b>上回る」（will reach and likely exceed）。見通しで、断定ではない。モノの貿易の1割超は一致（IMF の推計）。</div>
+      <div class="nn sm"><span class="mk sm">小差</span><b>0.5ポイント・ASEAN</b>　「<b>最大</b>で年0.5ポイント」。成長率を3％から3.5％にすると「<b>10年で</b>ASEAN一つ分」を加える、という言い方。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>「ギアを上げた」</b>　この言い回しは報道で見つからない。成長3％前後をAI投資が支える、という発言は<b>10/12 のバンコク</b>（10/7 の演説ではない）。公的債務の見通しは一致。</div>
+      <div class="nn"><span class="mk ev">評価</span><b>「一本足」</b>　書き手の見立て。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">しかし、本当に驚いたのは、開幕を飾った世銀主催のセッションで、IMFの専務理事ゲオルギエバが、AIを「ゆっくり進む津波」と呼んだことです。やがて世界の仕事の約4割、先進国では約6割、<mark class="nt">低所得国でも約23％</mark>が影響を受け、そして最初に飲み込まれるのは、これから労働市場に入ってくる若者だ、と明確に話しました。</p>
+    <div class="mg">
+      <div class="nn nt"><span class="mk nt">補足</span><b>約23％</b>　報道ベース。2024年1月の IMF の分析では低所得国は約26％。世銀のパネル（10/12）、「slow moving tsunami」、約4割・約6割、若者が先、は一致。津波の比喩は2024年5月から使っている。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">彼女の言葉をなぞらえば、若者はふつう定型的で反復的な仕事から入り、そこから階段を上がっていきます。しかし、その仕事が消えたら、どうやって上がるのでしょうか。<mark class="sm">「コーヒーショップの店員を職業的な未来だと思う若者はいない」</mark>。IMFのトップが、入り口の仕事がなくなる世界を、公の場でこう描写したのです。</p>
+    <div class="mg">
+      <div class="nn sm"><span class="mk sm">小差</span><b>本人の言葉</b>　"I don't think any young person wants to be a barista in a coffee shop as their professional future."（コーヒーショップのバリスタを将来の職業にしたい若者はいないと思う）。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">さらに彼女は、AIが所得を労働者から資本の所有者へ移すなら、政府は最も頼りにしている税基盤を失う、と付け加えました。<mark class="ev">AIによる「労働から資本への所得移転」を、議論の余地のある仮説ではなく既定の前提として語りました。</mark><br>また、ゲオルギエバは演説で、「必要な政策行動をこれ以上先延ばしにはできない」と言い、各国政府は成長で債務を薄めることを当てにせず、「非常に厳しい政治的選択」を覚悟せよ、と迫りました。</p>
+    <div class="mg">
+      <div class="nn"><span class="mk ok">一致</span>税基盤の発言（"erode the tax base"）、「先延ばしにはできない」「非常に厳しい政治的選択」。</div>
+      <div class="nn"><span class="mk ev">評価</span><b>「既定の前提」</b>　書き手の読み。本人の言い方は「〜しうる（could）」。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">では、急変する世界のなかで、日本はどの位置にいるのでしょうか。日本の名目GDPは来年2027年、インドと英国の両方に抜かれ、世界6位に後退する見通しです。<br>日本は2026年の4兆3,419億ドルから27年には4兆4,676億ドルへ増えはするものの、インドは4兆5,211億ドルで米中独に次ぐ4位に浮上し、英国も4兆4,889億ドルで日本を上回る。<br>4月の時点では、英国に抜かれるのは2029年とされていましたが2年前倒しになってしまいました。2023年にドイツに抜かれて4位、来年はインドと英国に抜かれて6位。ここに本当の時代の速度感が描かれています。</p>
+    <div class="mg">
+      <div class="nn"><span class="mk ok">一致</span>数字はすべて一致（IMF 世界経済見通し 2026年10月版、10/13公表）。日本の成長率見通しは2026・27年とも0.7％。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">あわせて今週発表されたIMFの最新レポートによると、一人当たりのGDPでは、<mark class="ck">オーストラリアが約7万5,000ドル</mark>、韓国は約4万3,500ドル、そして日本は約3万5,000ドルと、<mark class="ck">すでに日本は世界40位台</mark>です。<br><mark class="ck">およそ30年前の1995年、日本の一人当たりGDPは約4万4,000ドルで、オーストラリアは約2万ドル</mark>と、日本のちょうど半分でしたが、いまでは逆に、日本の2倍を超えています。韓国も、とっくに先へ行ってしまった現実を直視する必要があります。</p>
+    <div class="mg">
+      <div class="nn ck"><span class="mk ck">未確認</span><b>オーストラリア約7万5,000ドル</b>　4月版の値（約7万5,600ドル）。10月版の値は確認できていない。韓国4万3,511ドル・日本約3万5,400ドルは10月版の報道と一致。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>40位台</b>　4月版では日本は42位。10月版の順位は確認できていない。</div>
+      <div class="nn ck"><span class="mk ck">未確認</span><b>1995年の数字</b>　出典が見つからない。IMF のデータベース（1人当たり名目GDP、ドル建て）で確かめる。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">国の総額が抜かれるのは人口の問題で説明がつきますが、一人当たりGDPは、この30年に日本人ひとりひとりが受け取ってきた富の大きさです。この30年、日本は何もしなかったわけではありません。<br>「日本式システム」を守ることや動かないことのために、全力を尽くしてきたのです。賃金を上げず、金利を上げず、会社を潰さず、選択を先送りにして、そのたびに減税と給付で痛みを薄めてきました。<br>ゲオルギエバの言う「非常に厳しい政治的選択」を、日本は誰よりも長く先延ばしにしてきた国です。そのツケが、総額で6位、一人当たりで40位台という数字になってしまった。現実から目をそらすべきではありません。</p>
+    <div class="mg"></div>
+  </div>
+  <div class="ar">
+    <p class="tx"><mark class="ev">彼女は「冬が来る」と言いました。けれども日本にとって、冬はこれから来るのではありません。30年前から、ずっと冬の中にいた。</mark>それに気づかずにいられたのは、周りの国々が後ろにいたからで、いま、その国々がついに前を走り始めたのです。</p>
+    <div class="mg">
+      <div class="nn"><span class="mk ev">評価</span>書き手の見立て。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx">果たして、真冬より寒い冬とは、いったいどのような気候なのでしょうか？<br>そして、その先に待ち受ける日本の現実は、いかなる社会なのでしょうか？</p>
+    <div class="mg"></div>
+  </div>
+  <div class="ar">
+    <p class="tx">次週に続きます。</p>
+    <div class="mg"></div>
+  </div>
+  <div class="chk">
+    <h3>照合できた項目と原典</h3>
+    <p class="pfnote"><span class="st p1">一次</span>IMF・世界銀行・政府の公表　<span class="st p2">報道</span>報道機関。IMF の演説記録とデータベースはこの環境では開けておらず、<b>検索結果の要約で照合</b>した。</p>
+    <ul>
+      <li><span class="mk ok">一致</span>2026年総会をバンコクで開催（ワシントン2年・加盟国1年、タイは1991年以来）<span class="lk"><span class="st p1">一次</span><a href="https://www.imf.org/en/news/articles/2023/04/19/pr23122-imf-and-the-world-bank-group-to-hold-2026-annual-meetings-in-bangkok-thailand" target="_blank" rel="noopener">IMF・世界銀行 プレスリリース（2023/4/19）</a>　<span class="st p1">一次</span><a href="https://www.imf.org/en/meetings/2026/annual" target="_blank" rel="noopener">IMF 2026年年次総会</a></span></li>
+      <li><span class="mk ok">一致</span>カーテンレイザー演説（10/7、シンガポール）<span class="lk"><span class="st p1">一次</span><a href="https://www.imf.org/en/videos/view/6406409910112" target="_blank" rel="noopener">IMF 動画</a>　<span class="st p2">報道</span><a href="https://www.cnbc.com/2026/10/07/economy-inflation-ai-trade-imf-iran-hormuz-trump-.html" target="_blank" rel="noopener">CNBC（10/7）</a>　<span class="st p2">報道</span><a href="https://fortune.com/2026/10/07/imf-chief-debt-inflation-ai-regulation/" target="_blank" rel="noopener">Fortune（10/7）</a></span></li>
+      <li><span class="mk ok">一致</span>2つのショックと「極めて不均一」<span class="lk"><span class="st p2">報道</span><a href="https://www.dailysabah.com/business/economy/energy-shock-debt-ai-risks-threaten-global-growth-imf-chief" target="_blank" rel="noopener">Reuters（Daily Sabah 経由、10/7）</a></span></li>
+      <li><span class="mk sm">小差</span>最大0.5ポイント、10年でASEAN一つ分<span class="lk"><span class="st p2">報道</span><a href="https://tass.com/economy/2198591" target="_blank" rel="noopener">TASS</a></span></li>
+      <li><span class="mk ok">一致</span>AI投資が成長3％前後を支える（10/12、バンコク）<span class="lk"><span class="st p2">報道</span><a href="https://www.engineeringnews.co.za/article/imf-says-ai-investment-keeps-global-growth-around-3-but-brings-massive-disruption-2026-10-12" target="_blank" rel="noopener">Reuters（Engineering News 経由、10/12）</a></span></li>
+      <li><span class="mk ok">一致</span>「ゆっくり進む津波」、約4割・約6割、若者、バリスタの発言<span class="lk"><span class="st p2">報道</span><a href="https://www.cnbc.com/2026/10/12/imf-world-bank-ai-jobs-inflation-.html" target="_blank" rel="noopener">CNBC（10/12）</a>　<span class="st p2">報道</span><a href="https://fortune.com/2026/10/13/imf-chief-kristalina-georgieva-ai-job-market-warning-tsunami-of-disruption-hurt-gen-z-workers/" target="_blank" rel="noopener">Fortune（10/13）</a>　<span class="st p2">報道</span><a href="https://www.cityam.com/slow-moving-tsunami-imf-warns-ai-could-hit-60-per-cent-of-jobs-in-advanced-economies/" target="_blank" rel="noopener">City AM</a></span></li>
+      <li><span class="mk ok">一致</span>税基盤の発言<span class="lk"><span class="st p2">報道</span><a href="https://www.irishtimes.com/business/work/2026/10/12/imf-chief-alarmed-at-slow-moving-tsunami-of-ai-for-jobs-taxes/" target="_blank" rel="noopener">Bloomberg（Irish Times 経由、10/12）</a></span></li>
+      <li><span class="mk ok">一致</span>日本の名目GDP 2027年に6位（インド・英国に抜かれる）<span class="lk"><span class="st p2">報道</span><a href="https://www.nikkei.com/article/DGXZQOUA142QN0U6A011C2000000/" target="_blank" rel="noopener">日本経済新聞</a>　<span class="st p2">報道</span><a href="https://news.web.nhk/newsweb/na/nd-20261015de59559" target="_blank" rel="noopener">NHK（10/15）</a>　<span class="st p1">一次</span><a href="https://www.imf.org/en/Publications/WEO" target="_blank" rel="noopener">IMF 世界経済見通し（WEO）</a></span></li>
+      <li><span class="mk ck">未確認</span>1人当たりGDP のオーストラリア・順位・1995年の値<span class="lk">一次情報は IMF WEO データベース（1人当たり名目GDP、ドル建て）。講義前に確かめる</span></li>
+    </ul>
+  </div>
+  <ol class="q">
+    <li><b>日本の名目GDPは、2026年の4兆3,419億ドルから2027年の4兆4,676億ドルへ増える。それでも順位は4位から6位へ下がる。順位が下がる理由を、数字の単位から1つ挙げる。</b>
+      <span class="hint"><span class="lb">着地点</span><b>ドル建て</b>であること。円で増えても、円安ならドルでは増えにくい。<a href="lecture_20260915.html">第7回</a>のドル円と、インド・英国の成長率を並べる。</span></li>
+    <li><b>1人当たりGDP は、総額を何で割った数字か。日本の1人当たりGDP がドル建てで下がったとき、その理由を「分子」「分母」「為替」に分けて言う。</b>
+      <span class="hint"><span class="lb">着地点</span><b>率を出したら分母を書く。</b>分母は人口。1995年と2026年のドル円の水準を並べると、ドル建ての数字のどれだけが為替で説明できるかが見える。</span></li>
+  </ol>
+  <div class="rel"><b>数字の出どころ</b>　名目GDP・1人当たりGDP は IMF 世界経済見通し（2026年10月版）を報じた記事による<b>報道ベース</b>で、すべて<b>見通し・推計</b>。ゲオルギエバ専務理事の発言は報道の引用で、演説記録の原文は開けていない。</div>
+</section>
+
+<!-- ============ §3 裁定取引 ============ -->
 <section class="topic" id="s-arb">
-  <span class="badge corp">§2 ファイナンス</span>
+  <span class="badge corp">§3 ファイナンス</span>
   <h2 class="thead">裁定取引（日経225先物と現物）</h2>
   <p class="sub">同じものに2つの値段が付いたとき、高いほうを売って安いほうを買い、値段がそろう日を待つ。先物と現物は、SQ の日に必ず同じ値段になる。</p>
   <h3>実物：10/14 の日経平均と12月限の先物</h3>
@@ -846,7 +968,7 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
   <h4>場面2　3日目の68回債：先物が割安 → 先物を買い、現物を売る</h4>
   <ol class="chain">
     <li><b>何が起きたか</b>　指標銘柄の68回債だけは人気（プレミアム）が付き、68回債から計算した理論先物価格は102円77銭。実際の先物は101円96銭で、大きく下回った</li>
-    <li><b>組んだ取引</b>　先物を買う ＋ 68回債を売る。<b>手元に68回債がないので、生保・銀行・証券会社から借りて売る</b>（§2 の裁定売り、<a href="lecture_20260908.html">第6回</a>の空売りと同じ形）</li>
+    <li><b>組んだ取引</b>　先物を買う ＋ 68回債を売る。<b>手元に68回債がないので、生保・銀行・証券会社から借りて売る</b>（§3 の裁定売り、<a href="lecture_20260908.html">第6回</a>の空売りと同じ形）</li>
     <li><b>結果（作中）</b>　借り集めた68回債860億円で裁定を組み、約6億9千万円の利益を確定</li>
   </ol>
   <h4>場面3　米国債のオン・ザ・ランとオフ・ザ・ラン：同じ満期で値段が違う2本</h4>
@@ -875,9 +997,9 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
   <div class="rel"><b>数字の出どころ</b>　日経平均・先物の終値は報道ベース（株探）。裁定買い残は日本取引所グループの公表を報じた日経の記事（9/25時点、9/30公表）<span class="st p2">報道</span>。一次情報は<a href="https://www.jpx.co.jp/markets/statistics-equities/program/index.html" target="_blank" rel="noopener">日本取引所グループ「裁定取引に係る現物ポジション」</a>。設例の金利・配当・先物の値段は<b>設例</b>で、日銀の政策金利（1.25％程度）を借りた。<b>実際の短期金利と期間中の配当は、講義前に確かめる。</b></div>
 </section>
 
-<!-- ============ §3 オプション戦略 ============ -->
+<!-- ============ §4 オプション戦略 ============ -->
 <section class="topic" id="s-opt">
-  <span class="badge word">§3 オプション</span>
+  <span class="badge word">§4 オプション</span>
   <h2 class="thead">バタフライのコール買いとプット買い（3つの権利行使価格を1・2・1で組む）</h2>
   <p class="sub"><a href="lecture_20261013.html#s-opt">後期 第3回 §4</a> のブル・コール・スプレッドを2つ、向きを逆にしてつなげた形。権利行使価格は66,000円・68,000円・70,000円。真ん中だけ2枚売る。</p>
   <h3>実物：証券会社のアプリの画面（日経225オプション 26/11限・10/15）</h3>
@@ -963,14 +1085,14 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
     <li><b>バタフライの買いと、<a href="lecture_20261013.html#s-opt">後期 第3回</a>のアイアン・コンドル（設例）は、どちらも「真ん中にとどまる」と見る戦略。違いは何か。</b>
       <span class="hint"><span class="lb">着地点</span><b>バタフライの買いは最初に払い、アイアン・コンドルは最初に受け取る。</b>利益が出る幅と、最大の利益・損の大きさを、2つの図で並べる。</span></li>
     <li><b>図2 の2つは、権利行使価格が同じで満期の損益の形も同じ。それなのに設例の払う額は500と600で違う。どう組めば、この差の100ポイントが残るか。</b>
-      <span class="hint"><span class="lb">着地点</span>§2 の裁定取引。<b>同じ損益を生むものに2つの値段が付いたら、安いほうを買い、高いほうを売る。</b>コールで組んだほうを買い、プットで組んだほうを売れば、満期の損益は打ち消し合う。実際には手数料と証拠金がかかり、この程度の差は残りにくい。</span></li>
+      <span class="hint"><span class="lb">着地点</span>§3 の裁定取引。<b>同じ損益を生むものに2つの値段が付いたら、安いほうを買い、高いほうを売る。</b>コールで組んだほうを買い、プットで組んだほうを売れば、満期の損益は打ち消し合う。実際には手数料と証拠金がかかり、この程度の差は残りにくい。</span></li>
   </ol>
-  <div class="rel"><b>数字の出どころ</b>　図1は2026年10月15日の実際の画面（未発注）。図2・カード・式の数字はすべて<b>設例</b>。問11 の差（500と600）は裁定を説明するために置いた設例の差で、実際の気配値ではない。取引単位（日経225オプション1,000倍）は<b>日本取引所グループの商品概要</b><span class="st p1">一次</span>。</div>
+  <div class="rel"><b>数字の出どころ</b>　図1は2026年10月15日の実際の画面（未発注）。図2・カード・式の数字はすべて<b>設例</b>。問13 の差（500と600）は裁定を説明するために置いた設例の差で、実際の気配値ではない。取引単位（日経225オプション1,000倍）は<b>日本取引所グループの商品概要</b><span class="st p1">一次</span>。</div>
 </section>
 
-<!-- ============ §4 チーム別ポートフォリオ結果 ============ -->
+<!-- ============ §5 チーム別ポートフォリオ結果 ============ -->
 <section class="topic" id="s-pf">
-  <span class="badge bridge">§4 チーム</span>
+  <span class="badge bridge">§5 チーム</span>
   <h2 class="thead">チーム別ポートフォリオ結果（3チーム・10/13から10/20まで）</h2>
   <p class="sub">各チーム、自分のリンクを開いて結果を記入し、報告する。</p>
   <div class="pf">
@@ -1003,10 +1125,11 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
   <ul>
     <li><b>§1 の原文は提供された文章をそのまま掲載。</b>欄外の照合は2026年10月14日時点で、仏語・英語の報道本文は開けていない。<b>検索結果の要約による判定</b>なので、講義前に出典を一度開いて確かめる。</li>
     <li><b>§1 の国債の利回り・差は報道ベース。</b>ドイツとの差の頂点（約1.47〜1.52ポイント）は報道で幅がある。日本勢の保有23兆円は Bloomberg の推計。ヘッジ後の利回りの式は概算。</li>
+    <li><b>§2 の GDP の数字は IMF 世界経済見通し（2026年10月版）を報じた記事による見通し。</b>1人当たりGDP のオーストラリアの値・日本の順位・1995年の値は確認できていない。IMF の演説記録は開けておらず、発言は報道の引用。</li>
     <li><b>ムーディーズの見直し（10/23予定）は講義後。</b>講義日には結果が出ていない。</li>
-    <li><b>§2 の10/14 の先物と現物は、終値の時刻が15分ずれている。</b>差の約420円は概数。裁定買い残は9/25時点（10/2・10/9 時点の値は講義前に日本取引所グループで確かめる）。理論価格の設例の金利・配当は設例。</li>
-    <li><b>§2 の小説の場面の数字（102円、2億円、68回債860億円など）は作中のもの</b>で、実際の取引記録ではない。引用は必要な部分だけにとどめた。</li>
-    <li><b>§3 の図1は10/15 の実際の画面（未発注）。図2・カード・式は設例。</b></li>
+    <li><b>§3 の10/14 の先物と現物は、終値の時刻が15分ずれている。</b>差の約420円は概数。裁定買い残は9/25時点（10/2・10/9 時点の値は講義前に日本取引所グループで確かめる）。理論価格の設例の金利・配当は設例。</li>
+    <li><b>§3 の小説の場面の数字（102円、2億円、68回債860億円など）は作中のもの</b>で、実際の取引記録ではない。引用は必要な部分だけにとどめた。</li>
+    <li><b>§4 の図1は10/15 の実際の画面（未発注）。図2・カード・式は設例。</b></li>
     <li><b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b></li>
   </ul>
   <div class="src">
@@ -1017,12 +1140,12 @@ footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var
       <li><span class="st p2">報道</span>裁定買い残 3週連続増加（9/25時点） — <a href="https://www.nikkei.com/article/DGXZQOFL300MUTQ6A930C2000000/" target="_blank" rel="noopener">日本経済新聞（9/30）</a></li>
       <li><span class="st p2">報道</span>日経225先物 12月限 10/14 終値 — <a href="https://kabutan.jp/news/marketnews/?b=n202610140862" target="_blank" rel="noopener">株探</a></li>
       <li><span class="st p2">報道</span>フランス10年債とドイツ10年債の差 — <a href="https://www.ideal-investisseur.fr/en/markets/oat-bund-spread.html" target="_blank" rel="noopener">ideal-investisseur</a></li>
-      <li>黒木亮『巨大投資銀行（上）』第二章「裁定取引」 — §2 の引用（小説。数字は作中のもの）</li>
+      <li>黒木亮『巨大投資銀行（上）』第二章「裁定取引」 — §3 の引用（小説。数字は作中のもの）</li>
       <li>§1 の原文の出典は §1 の「照合できた項目と出典」に一覧</li>
     </ul>
   </div>
   <div class="next">
-    <b>前回（後期 第3回・10/13）</b>　<a href="lecture_20261013.html">フィンランドの備えと米中首脳会談、ホワイトハウス超知能協定（6社）、AIロールアップ、オプションのスプレッド戦略、チーム別ポートフォリオ結果</a>。§4 にブル・コール・スプレッドとアイアン・コンドル。<br>
+    <b>前回（後期 第3回・10/13）</b>　<a href="lecture_20261013.html">フィンランドの備えと米中首脳会談、ホワイトハウス超知能協定（6社）、AIロールアップ、オプションのスプレッド戦略、チーム別ポートフォリオ結果</a>。§5 にブル・コール・スプレッドとアイアン・コンドル。<br>
     <b>前回の記録</b>　<a href="../reviews/lecture_review_20261013.html">後期 第3回（10/13）で答えが出なかった問い</a><br>
     <b>関連</b>　<a href="lecture_20260915.html">第7回</a>（国債の値段と金利、信用買い残）／<a href="lecture_20260908.html">第6回</a>（空売り）／<a href="lecture_20260929.html">第9回</a>（オプションの4つの立場）
   </div>
