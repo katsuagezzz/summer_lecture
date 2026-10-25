@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>講義資料 後期 第5回｜2026年10月27日 米中間選挙の情勢（投票日11/3・議席・世論・予測市場・州別の上院選）、米国テック企業の7〜9月期決算（発表済み9社・株価の反応と10/28〜11/2の予定）、AIの動向（2026年10月）、チーム別ポートフォリオ結果</title>
+<title>講義資料 後期 第5回｜2026年10月27日 米中間選挙の情勢（投票日11/3・議席・世論・予測市場・州別の上院選）、米国テック企業の7〜9月期決算（発表済み9社・株価の反応と10/28〜11/2の予定）、AIの動向（2026年10月）、先物の売りと将来の買い戻し（日経225先物 12月限・SQ 12/11）、チーム別ポートフォリオ結果</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
@@ -607,6 +607,11 @@ section.topic#s-elec{background:var(--sec-elec);}
 section.topic#s-earn{background:var(--sec-earn); border-top-color:var(--corp);}
 section.topic#s-ai{background:var(--sec-ai); border-top-color:#8a3ffc;}
 section.topic#s-pf{background:var(--sec-pf);}
+section.topic#s-fut{background:var(--sec-fut); border-top-color:#c27c00;}
+#s-fut .badge.word{background:#c27c00;}
+:root{--sec-fut:#fff7e3;}
+@media (prefers-color-scheme: dark){ :root{--sec-fut:#352a14;} }
+.pf a.v{border-left-color:#c27c00;}
 section.topic .sub a{color:var(--macro);}
 .fig .bar{fill:var(--corp);} .fig .rng{fill:var(--corp); opacity:.38;}
 .fig .val{font-size:12px; font-weight:700; fill:var(--ink2);}
@@ -644,7 +649,7 @@ section.topic .sub a{color:var(--macro);}
 </div>
 <header class="masthead">
   <div class="vol">LECTURE HANDOUT ／ 講義資料　後期 第5回</div>
-  <h1 class="title">米中間選挙の情勢（投票日11/3・議席・世論・予測市場・州別の上院選）、米国テック企業の7〜9月期決算（発表済み9社・株価の反応と10/28〜11/2の予定）、AIの動向（2026年10月）、チーム別ポートフォリオ結果</h1>
+  <h1 class="title">米中間選挙の情勢（投票日11/3・議席・世論・予測市場・州別の上院選）、米国テック企業の7〜9月期決算（発表済み9社・株価の反応と10/28〜11/2の予定）、AIの動向（2026年10月）、先物の売りと将来の買い戻し（日経225先物 12月限・SQ 12/11）、チーム別ポートフォリオ結果</h1>
   <div class="meta">
     <span><b>講義</b>　2026年10月27日（火）16:20から</span>
     <span><b>作成</b>　2026年10月23日（金）</span>
@@ -654,7 +659,7 @@ section.topic .sub a{color:var(--macro);}
     <ul class="three">
       <li><strong>米中間選挙　議席、一般投票、予測市場、上院の接戦7州、ガソリン価格</strong></li>
       <li><strong>米国テック企業の決算とAIの動向　Meta の設備投資と現金、4社の設備投資計画、超知能タスクフォース、AIエージェントによる侵入</strong></li>
-      <li><strong>チーム別ポートフォリオ結果　各チームの1週間、配分、決算週の組み替え条件</strong></li>
+      <li><strong>先物の売りとチーム別ポートフォリオ結果　売りは将来の買い戻し、自分が売った1銘柄、決算週の組み替え条件</strong></li>
     </ul>
   </div>
 </header>
@@ -664,7 +669,8 @@ section.topic .sub a{color:var(--macro);}
     <li><a href="#s-elec">米中間選挙の情勢（投票日11/3・10/22時点）</a> <span class="s">― 冒頭に宿題1行。第6回（9/8）からの変化、議席の見通しは図1、州別の上院選は図2。問1〜問3</span></li>
     <li><a href="#s-earn">米国テック企業の7〜9月期決算（発表済み9社・株価の反応と10/28〜11/2の予定）</a> <span class="s">― Meta から。決算と株価の反応は図3、1週間の株価は図4、4社の設備投資計画は図5。問4〜問6</span></li>
     <li><a href="#s-ai">AIの動向（2026年10月1日〜22日）</a> <span class="s">― 政策・資金・侵入の年表。問7〜問9</span></li>
-    <li><a href="#s-pf">チーム別ポートフォリオ結果（3チーム・10/20から10/27まで）</a> <span class="s">― TradingViewの3リンクと記入欄。問10・問11</span></li>
+    <li><a href="#s-fut">先物の売りと将来の買い戻し（日経225先物 12月限・SQ 12/11）</a> <span class="s">― 動画リンクと要点の照合、12月限の売り建玉、決済の2つの道、自分が売った1銘柄の記入欄。問10〜問12</span></li>
+    <li><a href="#s-pf">チーム別ポートフォリオ結果（3チーム・10/20から10/27まで）</a> <span class="s">― TradingViewの3リンクと記入欄。問13・問14</span></li>
   </ol>
 </nav>
 
@@ -1153,9 +1159,80 @@ section.topic .sub a{color:var(--macro);}
   </ol>
 </section>
 
-<!-- ============ §4 チーム別ポートフォリオ結果 ============ -->
+<!-- ============ §4 先物の売り ============ -->
+<section class="topic" id="s-fut">
+  <span class="badge word">§4 先物</span>
+  <h2 class="thead">先物の売りと将来の買い戻し（日経225先物 12月限・SQ 12/11）</h2>
+  <p class="sub">先に動画を見てから読む。下に動画の要点（受講者側の要約）と照合。</p>
+  <div class="pf">
+    <a class="v" href="https://youtu.be/VSj8C0J3E54?si=RVXJHz9qbDTcZ3V_" target="_blank" rel="noopener"><span class="tm">動画（YouTube）</span><span class="u">youtu.be/VSj8C0J3E54</span></a>
+  </div>
+
+  <h3>動画の要点と照合（10/24 時点）</h3>
+  <ul class="cal">
+    <li><span class="d"><span class="mk ok">一致</span></span><span class="c"><b>米国市場で、上がっていたヘルスケア・金融から、下がっていた半導体・IT へ短期資金が移動</b>　10/23 はダウ −1.2％、半導体株指数 ＋0.4％、Microsoft ＋0.7％、サイバーセキュリティ株 ＋6％前後<span class="st p2">報道</span></span></li>
+    <li><span class="d"><span class="mk sm">小差</span></span><span class="c"><b>原油は1バレル103ドル台</b>　10/23 の WTI は100ドル超との報道。103ドル台の時点は確かめられず<span class="st p2">報道</span></span></li>
+    <li><span class="d"><span class="mk ck">未確認</span></span><span class="c"><b>原油高の影響で、週末も取引できるビットコインが下落</b>　値動き・因果とも確かめていない</span></li>
+    <li><span class="d"><span class="mk ev">対象外</span></span><span class="c"><b>配信者がエネルギー株など約12銘柄を手じまい。次は半導体を「バスケット買い」</b>　配信者個人の売買。バスケット買い＝1つの業種の複数銘柄をまとめて買う方法</span></li>
+    <li><span class="d"><span class="mk ck">未確認</span></span><span class="c"><b>GMO が不正取引の損失補填・無償化を発表</b>　10/22 にログイン情報が盗まれ悪用された可能性と、不正操作の報告を公表したところまでは確認（§3）。補填・無償化の発表は確かめられず<span class="st p2">報道</span></span></li>
+    <li><span class="d"><span class="mk ng">相違</span></span><span class="c"><b>下落は先物主導で、海外勢は現物株を手放していない</b>　10月第2週（13〜16日）の海外投資家は<b>現物株も3,654億円の売り越し</b>（前週は1兆4,318億円の買い越し）<span class="st p1">一次</span></span></li>
+    <li><span class="d"><span class="mk ck">未確認</span></span><span class="c"><b>10月の海外投資家の先物の売り越しは3.2兆円。コロナショックを超える規模</b>　大阪取引所の週次の集計で10月分を確かめられず。比較として、2026年3月第1週の先物の売り越しは9,835億円との報道<span class="st p2">報道</span></span></li>
+    <li><span class="d"><span class="mk sm">小差</span></span><span class="c"><b>先物の売りは、ルール上必ず買い戻しになる</b>　決済は買い戻しか、SQ での差金決済。<b>SQ まで持てば先物の買い注文は出ない。</b>次の限月へ乗り換える（ロールオーバー）と、買い戻しと同時に次の限月を売る</span></li>
+    <li><span class="d"><span class="mk ev">評価</span></span><span class="c"><b>3.2兆円の売りが、そのまま3.2兆円の買いパワーになる</b>　金額は未確認。裁定のヘッジとしての先物売りは、現物の買いと組になっていて、閉じるときは現物の売りが出る（後期 第4回 §4）</span></li>
+  </ul>
+  <p class="unsure">要点の文は受講者から提供された要約による。動画そのものは見ていない。判定は10/24 の検索結果の要約による。</p>
+
+  <h3>実物：日経225先物 12月限の売り</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="k">12月限の終値（10/22）</div><div class="v">63,297.5円</div><div class="n">前日比 −1.88％<span class="st p2">報道</span></div></div>
+    <div class="kpi c"><div class="k">売り越し最大の証券会社（10/16）</div><div class="v">31,228枚</div><div class="n">HSBC証券。2位ゴールドマン・サックス 10,849枚、3位モルガン・スタンレー 10,019枚<span class="st p2">報道</span></div></div>
+    <div class="kpi m"><div class="k">31,228枚の金額</div><div class="v">約2兆円</div><div class="n">1枚＝指数×1,000円、指数6万4,000円前後で概算<span class="st p4">推計</span></div></div>
+    <div class="kpi"><div class="k">満期（SQ）</div><div class="v">12/11（金）</div><div class="n">12月限の最終決済日<span class="st p1">一次</span></div></div>
+  </div>
+  <p class="unsure">証券会社ごとの建玉は、その会社を通した注文の合計。顧客が誰か、裁定取引のヘッジか、値下がりを狙う売りかは分からない。</p>
+
+  <h3>先物を売った後の流れ</h3>
+  <ol class="chain">
+    <li><b>売る</b>　手元に何も持たずに、12月限を売る。売り建玉が残る</li>
+    <li><b>待つ</b>　値下がりすれば利益、値上がりすれば損失。証拠金で毎日清算</li>
+    <li><b>決済の道①：買い戻す</b>　SQ の前に同じ枚数を買う。<b>この買い注文が、先物の買い圧力になる</b></li>
+    <li><b>決済の道②：SQ まで持つ</b>　SQ の値段で差額だけを受け払う。先物の買い注文は出ない</li>
+    <li><b>伝わる</b>　先物が上がると、現物との差を埋める裁定（後期 第4回 §4）で現物株も買われる</li>
+  </ol>
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">先物の売り</div>
+      <p><b>期限</b>　SQ（12月限は12/11）。期日は全員同じ</p>
+      <p><b>決済</b>　反対売買（買い戻し）か、SQ で差金決済</p>
+      <p><b>残高</b>　建玉。取引参加者別に週1回公表<span class="st p1">一次</span></p>
+    </div>
+    <div class="card b">
+      <div class="ch">信用売り（空売り）</div>
+      <p><b>期限</b>　制度信用は6か月。期日は人ごとに違う</p>
+      <p><b>決済</b>　株を買い戻して返すか、持っている株を渡す（現渡し）</p>
+      <p><b>残高</b>　信用売り残。週1回公表（<a href="lecture_20260908.html">第6回</a>）<span class="st p1">一次</span></p>
+    </div>
+  </div>
+
+  <h3>自分が売った1銘柄（教室で記入。提出しない）</h3>
+  <div class="entry"><b>売った理由</b>　<span class="blank">　　　　　　　　　　　　　　</span></div>
+  <div class="entry"><b>売った値段と、いまの値段</b>　<span class="blank">　　　　</span>円 → <span class="blank">　　　　</span>円（<span class="blank">　　</span>月<span class="blank">　　</span>日）</div>
+  <div class="entry"><b>買い戻す（買い直す）条件</b>　<span class="blank">　　　　　　　　　　　　　　</span></div>
+
+  <h3>問い</h3>
+  <ol class="q">
+    <li><b>売り越し最大の31,228枚は、12/11 までにどんな注文になって出てくるか。上の連鎖の2つの道で答える。</b>
+      <span class="hint"><span class="lb">着地点</span>決済の道①と②。<b>買い注文になるのは①の買い戻しだけ。</b>売りが積み上がるほど、将来の買い戻しの量も積み上がる。</span></li>
+    <li><b>「先物の売りが多いほど、将来は上がる」と言えるか。言えない場合を1つ挙げる。</b>
+      <span class="hint"><span class="lb">着地点</span>後期 第4回 §4 の裁定買い（現物買い＋先物売り）。<b>ヘッジの先物売りは現物の買いと組で、SQ では現物を売って閉じる。</b>買い戻しが一斉に起きるのは、値上がりで売り方が損失に耐えられなくなるとき（踏み上げ）。</span></li>
+    <li><b>動画の配信者は、原油が高いうちにエネルギー株など約12銘柄を手じまいした。自分なら同じ日に売るか。続けて、上の記入欄の1銘柄について、売った後に値上がりしたら何をするかを1行で。</b>
+      <span class="hint"><span class="lb">着地点</span>売りは将来の買いの予約、という §4 の形を自分の売買に当てはめる。<b>結果（値段）ではなく、売った時点の理由で判断を評価する。</b>§5 の「組み替える条件」と同じく、数値で決めておく。</span></li>
+  </ol>
+</section>
+
+<!-- ============ §5 チーム別ポートフォリオ結果 ============ -->
 <section class="topic" id="s-pf">
-  <span class="badge bridge">§4 チーム</span>
+  <span class="badge bridge">§5 チーム</span>
   <h2 class="thead">チーム別ポートフォリオ結果（3チーム・10/20から10/27まで）</h2>
   <p class="sub">各チーム、自分のリンクを開いて結果を記入し、報告する。</p>
   <div class="pf">
@@ -1191,6 +1268,7 @@ section.topic .sub a{color:var(--macro);}
     <li><b>§1 の図1・図2は Cook Political Report の評価を報じた記事による。</b>Cook のページは開けていない。下院の欠員の数は出典で2と3に分かれる。サウスカロライナの民主の候補者名は出典で食い違うため載せていない。</li>
     <li><b>§2 の決算の数字は各社の発表を報じた記事による。</b>Meta の予想（EPS）は和解費用の扱いで比べ方がそろわないため載せていない。図4の株価は出典ごとに数セントの差がある（多数の値を採用）。図5 の4社合計は集計会社の推計。10/28 以降の予想値は発表前の市場予想で、確定値ではない。NVIDIA の発表日は未確定。</li>
     <li><b>§3 の OpenAI の評価額・Anthropic の上場時期は報道で、未成立・未発表。</b>大統領令14434 の60日の期限（11/28 前後）は解説記事による計算で、原文は確かめていない。</li>
+    <li><b>§4 の建玉は相場サイトが掲載した取引参加者別の値（10/16 時点）</b>で、大阪取引所の公表資料は開けていない。約2兆円は枚数×指数×1,000円の概算。動画の要点は受講者から提供された要約で、動画そのものは見ていない。「10月の先物売り越し3.2兆円」は公表値を確かめられていない。記入欄は教室で書き、提出しない。</li>
     <li><b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b></li>
   </ul>
   <div class="src">
@@ -1213,6 +1291,11 @@ section.topic .sub a{color:var(--macro);}
       <li><span class="st p2">報道</span>株価の終値 — <a href="https://stockanalysis.com/" target="_blank" rel="noopener">StockAnalysis</a>／<a href="https://finance.yahoo.com/" target="_blank" rel="noopener">Yahoo Finance</a>　10/23 の市場 — <a href="https://gvwire.com/2026/10/23/dow-sp-500-fall-tech-steadies-to-end-rocky-week/" target="_blank" rel="noopener">ロイター配信（GV Wire）</a></li>
       <li><span class="st p2">報道</span>Cook の上院評価の変更 — <a href="https://www.washingtonpost.com/politics/2026/10/20/us-senate-race-minnesota-moves-toward-gop-new-cook-rating/" target="_blank" rel="noopener">Washington Post（10/20）</a>　下院 — <a href="https://www.washingtonpost.com/politics/2026/10/23/democrats-may-flip-between-12-22-seats-cook-political-report-estimates/" target="_blank" rel="noopener">Washington Post（10/23）</a></li>
       <li><span class="st p2">報道</span>サウスカロライナの議席 — <a href="https://www.cbsnews.com/news/lindsey-graham-replacement-senate-south-carolina-governor/" target="_blank" rel="noopener">CBS News</a>　オクラホマの任命 — <a href="https://wtop.com/national/2026/03/oklahomas-governor-picks-energy-executive-alan-armstrong-to-fill-us-senate-seat-through-end-of-year/" target="_blank" rel="noopener">WTOP（AP）</a></li>
+      <li><span class="st p2">報道</span>日経225先物 12月限の取引参加者別建玉（10/16） — <a href="https://fu.minkabu.jp/chart/nikkei225/volume" target="_blank" rel="noopener">みんかぶ先物</a>　12月限の終値 — <a href="https://jp.investing.com/indices/japan-225-futures-historical-data" target="_blank" rel="noopener">Investing.com</a></li>
+      <li><span class="st p1">一次</span>日経225先物 商品概要（取引単位・最終決済） — <a href="https://www.jpx.co.jp/derivatives/products/domestic/225futures/index.html" target="_blank" rel="noopener">jpx.co.jp/derivatives/products/domestic/225futures/</a></li>
+      <li><span class="st p1">一次</span>海外投資家の現物株 10月第2週 3,654億円の売り越し（東証の投資部門別売買状況） — <a href="https://www.nikkei.com/article/DGXZQOFL225UNTS6A021C2000000/" target="_blank" rel="noopener">日本経済新聞</a>／<a href="https://moneyworld.jp/news/detail?id=221542" target="_blank" rel="noopener">QUICK Money World</a></li>
+      <li><span class="st p2">報道</span>海外勢の先物売り越し（2026年3月第1週） — <a href="https://www.bloomberg.com/jp/news/articles/2026-03-12/TBRKGUT9NJLT00" target="_blank" rel="noopener">Bloomberg</a></li>
+      <li>動画 — <a href="https://youtu.be/VSj8C0J3E54?si=RVXJHz9qbDTcZ3V_" target="_blank" rel="noopener">YouTube（youtu.be/VSj8C0J3E54）</a></li>
       <li>地図の州境 — us-atlas 3.0.1（米国勢調査局の地図データ、アルベルス図法）</li>
       <li><span class="st p2">報道</span>10/22 の米国市場 — <a href="https://gvwire.com/2026/10/22/wall-street-sinks-as-nasdaq-falls-over-2-on-ai-cost-worries/" target="_blank" rel="noopener">AP 配信（GV Wire）</a></li>
       <li><span class="st p2">報道</span>AIエージェントによる侵入 — <a href="https://www.cp24.com/news/world/2026/10/19/how-one-hacker-used-ai-agents-and-a-few-thousand-dollars-to-break-into-scores-of-sites-reuters-exclusive/" target="_blank" rel="noopener">ロイター配信（CP24）</a></li>
