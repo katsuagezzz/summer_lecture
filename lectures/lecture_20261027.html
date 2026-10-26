@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>講義資料 後期 第5回｜2026年10月27日 米中間選挙の情勢（投票日11/3・議席・世論・予測市場・州別の上院選）、米国テック企業の7〜9月期決算（発表済み9社・株価の反応と10/28〜11/2の予定）、AIの動向（2026年10月）、先物の売りと将来の買い戻し（日経225先物 12月限・SQ 12/11）、チーム別ポートフォリオ結果</title>
+<title>講義資料 後期 第5回｜2026年10月27日 米中間選挙の情勢（投票日11/3・議席・世論・予測市場・州別の上院選）、米国テック企業の7〜9月期決算（発表済み9社・株価の反応と10/28〜11/2の予定）、AIの動向（2026年10月）、日経平均の下落とオプションの値段（日経225ミニ 11月限 コール67,000円・プット61,000円）、先物の売りと将来の買い戻し（日経225先物 12月限・SQ 12/11）、チーム別ポートフォリオ結果</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
@@ -608,6 +608,9 @@ section.topic#s-earn{background:var(--sec-earn); border-top-color:var(--corp);}
 section.topic#s-ai{background:var(--sec-ai); border-top-color:#8a3ffc;}
 section.topic#s-pf{background:var(--sec-pf);}
 section.topic#s-fut{background:var(--sec-fut); border-top-color:#c27c00;}
+section.topic#s-opt{background:var(--sec-opt); border-top-color:#8a3ffc;}
+:root{--sec-opt:#f7efff;}
+@media (prefers-color-scheme: dark){ :root{--sec-opt:#2d2149;} }
 #s-fut .badge.word{background:#c27c00;}
 :root{--sec-fut:#fff7e3;}
 @media (prefers-color-scheme: dark){ :root{--sec-fut:#352a14;} }
@@ -649,7 +652,7 @@ section.topic .sub a{color:var(--macro);}
 </div>
 <header class="masthead">
   <div class="vol">LECTURE HANDOUT ／ 講義資料　後期 第5回</div>
-  <h1 class="title">米中間選挙の情勢（投票日11/3・議席・世論・予測市場・州別の上院選）、米国テック企業の7〜9月期決算（発表済み9社・株価の反応と10/28〜11/2の予定）、AIの動向（2026年10月）、先物の売りと将来の買い戻し（日経225先物 12月限・SQ 12/11）、チーム別ポートフォリオ結果</h1>
+  <h1 class="title">米中間選挙の情勢（投票日11/3・議席・世論・予測市場・州別の上院選）、米国テック企業の7〜9月期決算（発表済み9社・株価の反応と10/28〜11/2の予定）、AIの動向（2026年10月）、日経平均の下落とオプションの値段（日経225ミニ 11月限 コール67,000円・プット61,000円）、先物の売りと将来の買い戻し（日経225先物 12月限・SQ 12/11）、チーム別ポートフォリオ結果</h1>
   <div class="meta">
     <span><b>講義</b>　2026年10月27日（火）16:20から</span>
     <span><b>作成</b>　2026年10月23日（金）</span>
@@ -659,7 +662,7 @@ section.topic .sub a{color:var(--macro);}
     <ul class="three">
       <li><strong>米中間選挙　議席、一般投票、予測市場、上院の接戦7州、ガソリン価格</strong></li>
       <li><strong>米国テック企業の決算とAIの動向　Meta の設備投資と現金、4社の設備投資計画、超知能タスクフォース、AIエージェントによる侵入</strong></li>
-      <li><strong>先物の売りとチーム別ポートフォリオ結果　売りは将来の買い戻し、自分が売った1銘柄、決算週の組み替え条件</strong></li>
+      <li><strong>オプション・先物・チーム別ポートフォリオ結果　日経平均と11月限のコール・プットの値動き、売りは将来の買い戻し、自分が売った1銘柄</strong></li>
     </ul>
   </div>
 </header>
@@ -669,8 +672,9 @@ section.topic .sub a{color:var(--macro);}
     <li><a href="#s-elec">米中間選挙の情勢（投票日11/3・10/22時点）</a> <span class="s">― 冒頭に宿題1行。第6回（9/8）からの変化、議席の見通しは図1、州別の上院選は図2。問1〜問3</span></li>
     <li><a href="#s-earn">米国テック企業の7〜9月期決算（発表済み9社・株価の反応と10/28〜11/2の予定）</a> <span class="s">― Meta から。決算と株価の反応は図3、1週間の株価は図4、4社の設備投資計画は図5。問4〜問6</span></li>
     <li><a href="#s-ai">AIの動向（2026年10月1日〜22日）</a> <span class="s">― 政策・資金・侵入の年表。問7〜問9</span></li>
-    <li><a href="#s-fut">先物の売りと将来の買い戻し（日経225先物 12月限・SQ 12/11）</a> <span class="s">― 動画リンクと要点の照合、12月限の売り建玉、決済の2つの道、自分が売った1銘柄の記入欄。問10〜問12</span></li>
-    <li><a href="#s-pf">チーム別ポートフォリオ結果（3チーム・10/20から10/27まで）</a> <span class="s">― TradingViewの3リンクと記入欄。問13・問14</span></li>
+    <li><a href="#s-opt">日経平均の下落とオプションの値段（日経225ミニ 11月限 コール67,000円・プット61,000円）</a> <span class="s">― 実際の画面3枚は図6。日経平均・コール・プットの変化率を並べる。問10〜問12</span></li>
+    <li><a href="#s-fut">先物の売りと将来の買い戻し（日経225先物 12月限・SQ 12/11）</a> <span class="s">― 動画リンクと要点の照合、12月限の売り建玉、決済の2つの道、自分が売った1銘柄の記入欄。問13〜問15</span></li>
+    <li><a href="#s-pf">チーム別ポートフォリオ結果（3チーム・10/20から10/27まで）</a> <span class="s">― TradingViewの3リンクと記入欄。問16・問17</span></li>
   </ol>
 </nav>
 
@@ -1159,9 +1163,51 @@ section.topic .sub a{color:var(--macro);}
   </ol>
 </section>
 
-<!-- ============ §4 先物の売り ============ -->
+<!-- ============ §4 オプション ============ -->
+<section class="topic" id="s-opt">
+  <span class="badge word">§4 オプション</span>
+  <h2 class="thead">日経平均の下落とオプションの値段（日経225ミニ 11月限 コール67,000円・プット61,000円）</h2>
+
+  <h3>実物：同じ期間の3つの値段</h3>
+  <div class="fig">
+    <div class="shots">
+      <figure><img src="img/20261027/fig_06c_nikkei.jpg" alt="日経平均の日足チャート。10月上旬の高値70,798.62円から、10月26日の終値62,189.65円まで下落。パラボリックとMACDつき" loading="lazy"><figcaption>日経平均（日足、10/26 終値）</figcaption></figure>
+      <figure><img src="img/20261027/fig_06a_call_67000.jpg" alt="日経225ミニオプション 26年11月限 コール67,000円の日足チャート。10月上旬の高値4,900円から、10月27日の夜間取引で345円まで下落" loading="lazy"><figcaption>コール67,000円（11月限、ミニ）</figcaption></figure>
+      <figure><img src="img/20261027/fig_06b_put_61000.jpg" alt="日経225ミニオプション 26年11月限 プット61,000円の日足チャート。10月中旬の安値230円から、10月27日の夜間取引で1,165円まで上昇" loading="lazy"><figcaption>プット61,000円（11月限、ミニ）</figcaption></figure>
+    </div>
+    <div class="cap">図6　<b>実際のアプリの画面（2026年10月26日夕方〜夜）。</b>日経平均は10/26 の終値。コール・プットは10/26 夕方からの夜間取引（取引日は10/27）の値で、日付が「26/10/27」になっている。黄色い点はパラボリック、下段は MACD。口座の情報は写っていない。値段は画面の時点のもので、講義日には動いている。</div>
+  </div>
+
+  <h3>変化率を並べる（10月上旬・中旬の高値・安値から）</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="k">日経平均</div><div class="v">約 −12％</div><div class="n">高値 70,798.62円（10月上旬）→ 62,189.65円（10/26）</div></div>
+    <div class="kpi c"><div class="k">コール67,000円</div><div class="v">約 −93％</div><div class="n">高値 4,900円（10月上旬）→ 345円。1枚は100倍で 49万円 → 3万4,500円</div></div>
+    <div class="kpi m"><div class="k">プット61,000円</div><div class="v">約5倍</div><div class="n">安値 230円（10月中旬）→ 1,165円。1枚は 2万3,000円 → 11万6,500円</div></div>
+  </div>
+  <p class="unsure">高値・安値と日付は図6の画面からの読み取り。期間の起点がコール・日経平均（高値）とプット（安値）で少しずれる。ミニオプションの取引単位は指数×100円<span class="st p1">一次</span>。</p>
+
+  <h3>差が開く仕組み</h3>
+  <ol class="chain">
+    <li><b>権利行使価格との距離</b>　日経平均が70,000円台のとき、コール67,000円は「すでに権利行使価格を上回る」側。62,000円台では約5,000円下に離れ、満期に価値が残る見込みが薄れる</li>
+    <li><b>残り日数</b>　11月限の満期（SQ）は11/13（金）。残りが短いほど、離れた権利行使価格まで戻る時間がない</li>
+    <li><b>変動の大きさ</b>　相場が荒れると、下がる側に備えるプットの値段が上がる。プット61,000円は日経平均がまだ上にあるのに1,165円</li>
+    <li><b>損失の上限</b>　買い手の損失は払った値段まで。コールの買い手は −93％ でも、それ以上は失わない</li>
+  </ol>
+
+  <h3>問い</h3>
+  <ol class="q">
+    <li><b>日経平均は約12％下がり、コール67,000円は約93％下がった。何倍の差か。差を生んだものを上の連鎖から2つ選ぶ。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260929.html">第9回</a>のオプションの4つの立場。<b>オプションの値段は、指数そのものではなく「満期に権利行使価格を超えるかどうか」の値段。</b>指数の1割が、オプションでは9割になる。</span></li>
+    <li><b>10/26 の日経平均62,189.65円は、プットの権利行使価格61,000円より上にある。満期にいまの値段のままならプットの価値は0円。それでも1,165円が付いているのは、何に対する値段か。</b>
+      <span class="hint"><span class="lb">着地点</span>本質的価値（いま行使したら得られる額）は0。<b>1,165円はすべて、11/13 までに61,000円を下回るかもしれない、という時間と不安の値段。</b>後期 第3回・第4回のストラドル・スプレッド・バタフライで「変動の大きさを買う」と言ったもの。</span></li>
+    <li><b>10月上旬にコールを4,900円で1枚買った人と、10月中旬にプットを230円で1枚買った人。10/26 夜の時点の損益を円で出す。次の §5 の「買い戻し」で日経平均が急に戻ったら、2人の損益はどちらに動くか。</b>
+      <span class="hint"><span class="lb">着地点</span>取引単位は100倍。<b>（いまの値段 − 買った値段）× 100。</b>コールの買い手は −45万5,500円、プットの買い手は ＋9万3,500円。§5 の踏み上げが起きれば、向きは逆になる。</span></li>
+  </ol>
+</section>
+
+<!-- ============ §5 先物の売り ============ -->
 <section class="topic" id="s-fut">
-  <span class="badge word">§4 先物</span>
+  <span class="badge word">§5 先物</span>
   <h2 class="thead">先物の売りと将来の買い戻し（日経225先物 12月限・SQ 12/11）</h2>
   <p class="sub">先に動画を見てから読む。下に動画の要点（受講者側の要約）と照合。</p>
   <div class="pf">
@@ -1226,13 +1272,13 @@ section.topic .sub a{color:var(--macro);}
     <li><b>「先物の売りが多いほど、将来は上がる」と言えるか。言えない場合を1つ挙げる。</b>
       <span class="hint"><span class="lb">着地点</span>後期 第4回 §4 の裁定買い（現物買い＋先物売り）。<b>ヘッジの先物売りは現物の買いと組で、SQ では現物を売って閉じる。</b>買い戻しが一斉に起きるのは、値上がりで売り方が損失に耐えられなくなるとき（踏み上げ）。</span></li>
     <li><b>動画の配信者は、原油が高いうちにエネルギー株など約12銘柄を手じまいした。自分なら同じ日に売るか。続けて、上の記入欄の1銘柄について、売った後に値上がりしたら何をするかを1行で。</b>
-      <span class="hint"><span class="lb">着地点</span>売りは将来の買いの予約、という §4 の形を自分の売買に当てはめる。<b>結果（値段）ではなく、売った時点の理由で判断を評価する。</b>§5 の「組み替える条件」と同じく、数値で決めておく。</span></li>
+      <span class="hint"><span class="lb">着地点</span>売りは将来の買いの予約、という §5 の形を自分の売買に当てはめる。<b>結果（値段）ではなく、売った時点の理由で判断を評価する。</b>§6 の「組み替える条件」と同じく、数値で決めておく。</span></li>
   </ol>
 </section>
 
-<!-- ============ §5 チーム別ポートフォリオ結果 ============ -->
+<!-- ============ §6 チーム別ポートフォリオ結果 ============ -->
 <section class="topic" id="s-pf">
-  <span class="badge bridge">§5 チーム</span>
+  <span class="badge bridge">§6 チーム</span>
   <h2 class="thead">チーム別ポートフォリオ結果（3チーム・10/20から10/27まで）</h2>
   <p class="sub">各チーム、自分のリンクを開いて結果を記入し、報告する。</p>
   <div class="pf">
@@ -1268,7 +1314,8 @@ section.topic .sub a{color:var(--macro);}
     <li><b>§1 の図1・図2は Cook Political Report の評価を報じた記事による。</b>Cook のページは開けていない。下院の欠員の数は出典で2と3に分かれる。サウスカロライナの民主の候補者名は出典で食い違うため載せていない。</li>
     <li><b>§2 の決算の数字は各社の発表を報じた記事による。</b>Meta の予想（EPS）は和解費用の扱いで比べ方がそろわないため載せていない。図4の株価は出典ごとに数セントの差がある（多数の値を採用）。図5 の4社合計は集計会社の推計。10/28 以降の予想値は発表前の市場予想で、確定値ではない。NVIDIA の発表日は未確定。</li>
     <li><b>§3 の OpenAI の評価額・Anthropic の上場時期は報道で、未成立・未発表。</b>大統領令14434 の60日の期限（11/28 前後）は解説記事による計算で、原文は確かめていない。</li>
-    <li><b>§4 の建玉は相場サイトが掲載した取引参加者別の値（10/16 時点）</b>で、大阪取引所の公表資料は開けていない。約2兆円は枚数×指数×1,000円の概算。動画の要点は受講者から提供された要約で、動画そのものは見ていない。「10月の先物売り越し3.2兆円」は公表値を確かめられていない。記入欄は教室で書き、提出しない。</li>
+    <li><b>§4 の図6は10/26 の実際の画面。</b>高値・安値と日付は画面からの読み取りで、変化率は概数。期間の起点が商品ごとに少しずれる。</li>
+    <li><b>§5 の建玉は相場サイトが掲載した取引参加者別の値（10/16 時点）</b>で、大阪取引所の公表資料は開けていない。約2兆円は枚数×指数×1,000円の概算。動画の要点は受講者から提供された要約で、動画そのものは見ていない。「10月の先物売り越し3.2兆円」は公表値を確かめられていない。記入欄は教室で書き、提出しない。</li>
     <li><b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b></li>
   </ul>
   <div class="src">
@@ -1295,6 +1342,7 @@ section.topic .sub a{color:var(--macro);}
       <li><span class="st p1">一次</span>日経225先物 商品概要（取引単位・最終決済） — <a href="https://www.jpx.co.jp/derivatives/products/domestic/225futures/index.html" target="_blank" rel="noopener">jpx.co.jp/derivatives/products/domestic/225futures/</a></li>
       <li><span class="st p1">一次</span>海外投資家の現物株 10月第2週 3,654億円の売り越し（東証の投資部門別売買状況） — <a href="https://www.nikkei.com/article/DGXZQOFL225UNTS6A021C2000000/" target="_blank" rel="noopener">日本経済新聞</a>／<a href="https://moneyworld.jp/news/detail?id=221542" target="_blank" rel="noopener">QUICK Money World</a></li>
       <li><span class="st p2">報道</span>海外勢の先物売り越し（2026年3月第1週） — <a href="https://www.bloomberg.com/jp/news/articles/2026-03-12/TBRKGUT9NJLT00" target="_blank" rel="noopener">Bloomberg</a></li>
+      <li><span class="st p1">一次</span>日経225ミニオプション 商品概要（取引単位 指数×100円） — <a href="https://www.jpx.co.jp/derivatives/products/domestic/index.html" target="_blank" rel="noopener">日本取引所グループ</a></li>
       <li>動画 — <a href="https://youtu.be/VSj8C0J3E54?si=RVXJHz9qbDTcZ3V_" target="_blank" rel="noopener">YouTube（youtu.be/VSj8C0J3E54）</a></li>
       <li>地図の州境 — us-atlas 3.0.1（米国勢調査局の地図データ、アルベルス図法）</li>
       <li><span class="st p2">報道</span>10/22 の米国市場 — <a href="https://gvwire.com/2026/10/22/wall-street-sinks-as-nasdaq-falls-over-2-on-ai-cost-worries/" target="_blank" rel="noopener">AP 配信（GV Wire）</a></li>
