@@ -609,6 +609,10 @@ section.topic#s-ai{background:var(--sec-ai); border-top-color:#8a3ffc;}
 section.topic#s-pf{background:var(--sec-pf);}
 section.topic#s-fut{background:var(--sec-fut); border-top-color:#c27c00;}
 section.topic#s-opt{background:var(--sec-opt); border-top-color:#8a3ffc;}
+table.cmp td.n{font-variant-numeric:tabular-nums; white-space:nowrap; text-align:right;}
+table.cmp td.n.neg{color:var(--corp); font-weight:700;} table.cmp td.n.pos{color:var(--bridge); font-weight:700;}
+table.cmp tr.grp td{background:var(--note-bg); font-size:12.5px; font-weight:800; color:var(--ink3); padding:6px 10px;}
+table.cmp td .p{display:block; font-size:11.5px; color:var(--ink3); font-weight:400;}
 section.topic#s-ant{background:var(--sec-ant); border-top-color:var(--corp);}
 :root{--sec-ant:#fff4ec;}
 @media (prefers-color-scheme: dark){ :root{--sec-ant:#3a2620;} }
@@ -1218,6 +1222,27 @@ section.topic .sub a{color:var(--macro);}
   <div class="cap">図6　<b>S-1 の損益計算書の数字</b>（左は年間、右は上半期。左右で目盛りが違う）<span class="st p1">一次</span>。2026年上半期の営業損失（約6.9億ドル）は報道の値で、S-1 の抜粋では確かめていない。粗利益率（約85％）は報道によって「売上原価」の扱いが違い、載せていない。</div>
   </div>
 
+
+  <h3>競合との比較：売上と営業損益（億ドル）</h3>
+  <div class="tblwrap">
+  <table class="cmp">
+    <thead><tr><th>会社</th><th>2025年 売上</th><th>2025年 営業損益</th><th>直近 売上</th><th>直近 営業損益</th><th>出典・注記</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td colspan="6">AIモデルの専業</td></tr>
+      <tr><td class="h">Anthropic<span class="p">上場申請中</span></td><td class="n ">45.9</td><td class="n neg">−80.6</td><td class="n ">162.9</td><td class="n neg">−6.9</td><td><span class="st p1">一次</span>S-1。2026年上半期の営業損益は報道</td></tr>
+      <tr><td class="h">OpenAI<span class="p">非上場</span></td><td class="n ">130.7</td><td class="n neg">−209.2</td><td class="n ">約124</td><td class="n neg">約−216</td><td><span class="st p2">報道</span>流出した投資家向け資料。上半期は四半期の報道を合算（株式報酬込み）</td></tr>
+      <tr><td class="h">xAI<span class="p">SpaceX の SI 部門</span></td><td class="n ">32.0</td><td class="n neg">−63.6</td><td class="n ">75.6</td><td class="n pos">＋4.3</td><td><span class="st p1">一次</span>SpaceX の S-1・決算。直近は7〜9月期で、X・Cursor の売上を含む</td></tr>
+      <tr class="grp"><td colspan="6">クラウド（AIを貸す側。AIだけの数字は非開示）</td></tr>
+      <tr><td class="h">Google Cloud<span class="p">Alphabet の部門</span></td><td class="n ">約587</td><td class="n pos">＋139</td><td class="n ">247.7</td><td class="n pos">＋88.1</td><td><span class="st p1">一次</span>直近は4〜6月期</td></tr>
+      <tr><td class="h">Microsoft Intelligent Cloud<span class="p">6月決算</span></td><td class="n ">—</td><td class="n pos">＋569.7</td><td class="n ">393</td><td class="n pos">約＋160</td><td><span class="st p1">一次</span>2025欄は2026年6月期。直近は4〜6月期。売上の年間値は未取得</td></tr>
+      <tr><td class="h">AWS<span class="p">Amazon の部門</span></td><td class="n ">1,287</td><td class="n pos">＋456</td><td class="n ">422</td><td class="n pos">＋166</td><td><span class="st p1">一次</span>直近は4〜6月期</td></tr>
+      <tr class="grp"><td colspan="6">半導体（計算資源を売る側）</td></tr>
+      <tr><td class="h">NVIDIA<span class="p">1月決算・全社</span></td><td class="n ">2,159</td><td class="n pos">＋1,304</td><td class="n ">962</td><td class="n pos">＋637</td><td><span class="st p1">一次</span>2025欄は2026年1月期。直近は5〜7月期。うちデータセンター売上 1,937・890</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="unsure">「直近」は Anthropic・OpenAI が2026年1〜6月、それ以外は四半期（3か月）で、期間がそろっていない。クラウド3社は AI 以外の売上も含む部門の値。Meta は AI の売上を開示していない。Mistral（年換算売上 4億ドル超）、Cohere（約2.4億ドル）、Perplexity（7.5億ドル超）は年換算の報道値のみで、損益は非開示<span class="st p2">報道</span>。</p>
+
   <h3>上場の条件</h3>
   <ol class="chain">
     <li><b>10/26</b>　S-1 を公開。6月に非公開で草案を提出済み（報道）</li>
@@ -1264,8 +1289,8 @@ section.topic .sub a{color:var(--macro);}
 
   <h3>問い</h3>
   <ol class="q">
-    <li><b>2025年は売上45.9億ドルに対し営業損失80.6億ドル。2026年1〜6月は売上162.9億ドルで、営業損失は約6.9億ドル（報道）。何が変わったか。図6と、計算資源の費用73.3億ドル（2025年）から考える。</b>
-      <span class="hint"><span class="lb">着地点</span>売上の伸びが、計算資源の費用の伸びを上回ると損失が縮む（規模の経済）。<b>§2 の Meta は逆向き</b>で、設備投資が営業キャッシュフローを上回った。</span></li>
+    <li><b>2025年は売上45.9億ドルに対し営業損失80.6億ドル。2026年1〜6月は売上162.9億ドルで、営業損失は約6.9億ドル（報道）。何が変わったか。図6と、計算資源の費用73.3億ドル（2025年）から考える。上の表の OpenAI と比べて何が違うか。</b>
+      <span class="hint"><span class="lb">着地点</span>売上の伸びが、計算資源の費用の伸びを上回ると損失が縮む（規模の経済）。<b>§2 の Meta は逆向き</b>で、設備投資が営業キャッシュフローを上回った。OpenAI は売上が近い規模でも営業損失が大きい（数字は流出資料の報道で、会計の基準がそろわない）。</span></li>
     <li><b>2026年1〜6月の純損失807億ドルのうち、約724億ドルは現金が出ていない。何が損失になったのか。この損失を理由に「赤字の会社」と言ってよいか。</b>
       <span class="hint"><span class="lb">着地点</span>転換社債・SAFE（将来株になる約束）の評価替え。<b>会社の価値が上がるほど、株に換わる約束の時価も上がり、損失に見える。</b>§2 の問4と同じく、損益計算書とキャッシュフロー計算書を分けて読む。</span></li>
     <li><b>上場するクラスAを買っても、議決権の過半数は創業者の1株、取締役の過半数は信託が持つ。自分ならこの株を買うか。買うなら何を条件にするか。</b>
@@ -1424,6 +1449,7 @@ section.topic .sub a{color:var(--macro);}
     <li><b>§1 の図1・図2は Cook Political Report の評価を報じた記事による。</b>Cook のページは開けていない。下院の欠員の数は出典で2と3に分かれる。サウスカロライナの民主の候補者名は出典で食い違うため載せていない。</li>
     <li><b>§2 の決算の数字は各社の発表を報じた記事による。</b>10/26 の個別株の終値は相場サイトの値で、出典の時刻が古い可能性がある。Meta の予想（EPS）は和解費用の扱いで比べ方がそろわないため載せていない。図4の株価は出典ごとに数セントの差がある（多数の値を採用）。図5 の4社合計は集計会社の推計。10/28 以降の予想値は発表前の市場予想で、確定値ではない。NVIDIA の発表日は未確定。</li>
     <li><b>§3 の OpenAI の評価額は報道で、未成立。</b>大統領令14434 の60日の期限（11/28 前後）は解説記事による計算で、原文は確かめていない。</li>
+    <li><b>§4 の競合比較の表は、期間・範囲・会計の基準がそろっていない。</b>OpenAI は流出した投資家向け資料の報道で監査済みの開示ではない。Google Cloud の2025年売上は二次資料の集計、Microsoft の4〜6月期の営業利益は年間値からの差し引きと報道。</li>
     <li><b>§4 の S-1 の数字は、SEC の原文を検索結果の抜粋で読んだもの</b>（全文は開けていない）。上場の価格・株数・評価額は未定。純損失のうち評価替えの額、上半期の営業損失・キャッシュフロー・現金、支払い約束の内訳、販売経路の割合は報道の値。この資料は Anthropic のモデル（Claude）を使って作成している。</li>
     <li><b>§5 の図7は10/26 の実際の画面。</b>高値・安値と日付は画面からの読み取りで、変化率は概数。期間の起点が商品ごとに少しずれる。</li>
     <li><b>§6 の建玉は相場サイトが掲載した取引参加者別の値（10/16 時点）</b>で、大阪取引所の公表資料は開けていない。約2兆円は枚数×指数×1,000円の概算。動画の要点は受講者から提供された要約で、動画そのものは見ていない。「10月の先物売り越し3.2兆円」は公表値を確かめられていない。記入欄は教室で書き、提出しない。</li>
@@ -1456,6 +1482,9 @@ section.topic .sub a{color:var(--macro);}
       <li><span class="st p1">一次</span>日経225ミニオプション 商品概要（取引単位 指数×100円） — <a href="https://www.jpx.co.jp/derivatives/products/domestic/index.html" target="_blank" rel="noopener">日本取引所グループ</a></li>
       <li><span class="st p1">一次</span>Anthropic, PBC Form S-1（2026年10月26日） — <a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm" target="_blank" rel="noopener">SEC EDGAR</a>／<a href="https://www.anthropic.com/news/s1-sec" target="_blank" rel="noopener">anthropic.com</a></li>
       <li><span class="st p2">報道</span>S-1 の解説 — <a href="https://www.cnbc.com/2026/10/26/anthropic-ipo-live-updates-ai-s-1-filing.html" target="_blank" rel="noopener">CNBC</a>／<a href="https://www.cnn.com/2026/10/26/tech/anthropic-files-ipo" target="_blank" rel="noopener">CNN</a>／<a href="https://fortune.com/2026/10/26/anthropics-s-1/" target="_blank" rel="noopener">Fortune</a>／<a href="https://www.datacenterdynamics.com/en/news/anthropic-files-s-1-for-ipo-with-417bn-in-compute-commitments/" target="_blank" rel="noopener">DCD（支払い約束）</a></li>
+      <li><span class="st p2">報道</span>OpenAI の2025年の決算（流出資料） — <a href="https://finance.yahoo.com/markets/stocks/articles/openai-2025-financials-leaked-38-121508294.html" target="_blank" rel="noopener">Yahoo Finance</a>　2026年4〜6月期 — <a href="https://finance.yahoo.com/technology/ai/articles/openai-q2-growth-trails-anthropic-102250259.html" target="_blank" rel="noopener">Yahoo Finance（WSJ 引用）</a></li>
+      <li><span class="st p1">一次</span>SpaceX 7〜9月期 10-Q — <a href="https://www.sec.gov/Archives/edgar/data/0001181412/000162828026066880/spcx-20260930.htm" target="_blank" rel="noopener">SEC EDGAR</a>　Alphabet 4〜6月期 — <a href="https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm" target="_blank" rel="noopener">SEC EDGAR</a>　Microsoft 2026年6月期 10-K — <a href="https://www.sec.gov/Archives/edgar/data/0000789019/000119312526323660/msft-20260630.htm" target="_blank" rel="noopener">SEC EDGAR</a></li>
+      <li><span class="st p1">一次</span>Amazon 4〜6月期 — <a href="https://ir.aboutamazon.com/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf" target="_blank" rel="noopener">Amazon IR</a>　NVIDIA 2027年度第2四半期 — <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027" target="_blank" rel="noopener">NVIDIA</a></li>
       <li><span class="st p1">一次</span>ケイデンス 7〜9月期 — <a href="https://www.sec.gov/Archives/edgar/data/0000813672/000081367226000116/cdns10262026ex9901.htm" target="_blank" rel="noopener">SEC EDGAR</a>　<span class="st p2">報道</span>10/26 の米国市場 — <a href="https://www.cnbc.com/2026/10/25/stock-market-today-live-updates.html" target="_blank" rel="noopener">CNBC</a>　FOMC の織り込み — <a href="https://www.kiplinger.com/investing/live/fed-meeting-updates-and-commentary-october-2026" target="_blank" rel="noopener">Kiplinger</a></li>
       <li><span class="st p2">報道</span>期日前投票 — <a href="https://www.nbcnews.com/politics/2026-elections/early-vote" target="_blank" rel="noopener">NBC News</a>　<span class="st p1">一次</span>ガソリン州別平均 — <a href="https://gasprices.aaa.com/state-gas-price-averages/" target="_blank" rel="noopener">AAA</a></li>
       <li>動画 — <a href="https://youtu.be/VSj8C0J3E54?si=RVXJHz9qbDTcZ3V_" target="_blank" rel="noopener">YouTube（youtu.be/VSj8C0J3E54）</a></li>
