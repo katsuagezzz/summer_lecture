@@ -40,6 +40,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
+| 後期 第5回 | 2026-10-27 | 後期 第5回（10月27日）で答えが出なかった問い（全16問。海岸の州の人口・上院の2議席・米国の決算の提出期限・銀行株と金利／Meta の和解費用と営業利益・設備投資と減価償却・Netflix の広告・TSMC の株価・Anthropic の上半期／コールの損益分岐点・プットの買い手と売り手・プットを6万円で決済・SQ の日・先物の差金決済／配当の手取り・AIが作った数字の確かめ方。**答えつき**（各問の「答えを開く」）） | [HTML](reviews/lecture_review_20261027.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20261027.html) |
 | 後期 第4回 | 2026-10-20 | 後期 第4回（10月20日）で答えが出なかった問い（全15問。国債の値段が下がる理由・独仏日の10年債・利払い・フランス国債は買いか・長期金利と米中間選挙／IMF と世界銀行・マネタリーベースの中身・名目GDP・日銀の決定／10/19 の数字で組む裁定・先物とオプションの違い・なぜ皆やらないか／バタフライの最大損益と取引単位。**答えつき**（各問の「答えを開く」）） | [HTML](reviews/lecture_review_20261020.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20261020.html) |
 | 後期 第3回 | 2026-10-13 | 後期 第3回（10月13日）で答えが出なかった問い（全16問。北欧3国の首都・NATO・安保理・「米中は第二次大戦の同盟国」の文言／ロールアップの意味・PEとの違い・EBITDA／板の読み方・売るコールの義務・ブル・コール・スプレッドの313と最大損益・売りを組み合わせる理由／アイアン・コンドルの60,000円の計算・「絶対に損しない」か／アクティブとパッシブ。**答えつき**（各問の「答えを開く」）） | [HTML](reviews/lecture_review_20261013.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20261013.html) |
 | 夏期 第8回 | 2026-09-22 | 第8回（9月22日）で答えが出なかった問い（全18問。政策金利と長期金利の違い／利上げの日の業種と通貨の向き／国債の値段・満期に戻る額・同じ満期で値段が違う理由／空売りと信用買いの現金の向き／マスク×エコノミスト誌の英文で `in that case` と `more` が指すもの／オプションの売り手の損と、保有銘柄の組み替え条件。**答えなし。**教室で出た答えと着地点の2行だけ） | [HTML](reviews/lecture_review_20260922.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/reviews/lecture_review_20260922.html) |
