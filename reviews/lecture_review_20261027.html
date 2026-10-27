@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>復習 後期 第5回｜2026年10月27日 答えが出なかった問い（全16問）</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+/* ---------- 問い（教室で出た答え／着地点） ---------- */
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+
+.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
+.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
+.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
+  width:6px; height:6px; border-radius:50%; background:var(--macro);}
+.lede ul.three strong{border-bottom:none; padding-bottom:0;}
+
+.tag.m{background:var(--macro-bg); color:var(--macro);}
+.tag.c{background:var(--corp-bg); color:var(--corp);}
+.tag.w{background:var(--word-bg); color:var(--word);}
+.qtags{display:inline;}
+
+.qa .q .said, .qa .q .hint{
+  display:block; margin-top:7px; padding-left:11px;
+  font-size:13.5px; line-height:1.7; color:var(--ink2);
+}
+.qa .q .said{border-left:3px solid var(--q-line);}
+.qa .q .hint{border-left:3px solid var(--bridge);}
+.qa .q .lb{font-weight:800; letter-spacing:.04em; margin-right:5px;}
+.qa .q .said .lb{color:var(--ink3);}
+.qa .q .hint .lb{color:var(--bridge);}
+.qa .q a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+/* Q番号を6つのまとまりをまたいで通す */
+.qa{counter-reset:qq;}
+.qa .q{counter-reset:none;}
+.qa h3{font-size:18px; margin:26px 0 8px; letter-spacing:.01em;}
+.qa h3:first-of-type{margin-top:18px;}
+.qa code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px; font-weight:700; background:var(--word-bg); color:var(--word);
+  padding:1px 5px; border-radius:4px; word-break:break-word;}
+.meta a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+/* ---------- 後期 第3回で追加：答えを開く（JSなし） ---------- */
+#qa details{margin-top:8px; border:1px solid var(--line); border-radius:8px; background:var(--panel);}
+#qa summary{cursor:pointer; padding:7px 11px; font-size:13px; font-weight:800; color:var(--bridge); letter-spacing:.04em;}
+#qa details[open] summary{border-bottom:1px solid var(--line2);}
+#qa .ans{padding:9px 12px 11px; font-size:14px; line-height:1.75; color:var(--ink);}
+#qa .ans p{margin:0;}
+#qa .ans p+p{margin-top:7px;}
+#qa .ans .calc{font-weight:800; font-variant-numeric:tabular-nums;}
+@media print{ #qa details{border:none;} #qa details > *{display:block;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="backlink" href="../seminar.html">&larr; 夏期集中講座の資料一覧</a>
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="../lectures/lecture_20261020.html">後期 第4回 10/20 講義資料</a>
+  <a href="lecture_review_20261020.html">後期 第4回 10/20 答えが出なかった問い</a>
+  <a href="../lectures/lecture_20261027.html">後期 第5回 10/27 講義資料</a>
+  <span class="cur">後期 第5回 10/27 答えが出なかった問い</span>
+</div>
+
+<header class="masthead">
+  <div class="vol">LECTURE REVIEW ／ 復習ページ　後期 第5回</div>
+  <h1 class="title">後期 第5回（10月27日）で答えが出なかった問い（全16問）</h1>
+  <div class="meta">
+    <span><b>講義</b>　2026年10月27日（火）16:20–18:20</span>
+    <span><b>作成</b>　2026年10月27日（火）</span>
+    <span><b>出題元</b>　当日の教室のやり取り</span>
+    <span><b>配布資料</b>　<a href="../lectures/lecture_20261027.html">後期 第5回 講義資料</a></span>
+  </div>
+  <div class="lede">
+    <ul class="three">
+      <li><strong>その場で答えが出なかった問い、取り違えた問い、学生から出て答えが曖昧に終わった問いだけを拾った</strong></li>
+      <li><strong>答えは各問の「答えを開く」の中。開く前に、自分の言葉と数字で1行書く</strong></li>
+      <li><strong>次回の冒頭はここから出す</strong></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>このページの構成</h2>
+  <ol>
+    <li><a href="#g1">選挙と市場の基礎</a> <span class="s">― Q1〜Q4。海岸の州の人口、上院の2議席、米国の決算の早さ、金融株と金利</span></li>
+    <li><a href="#g2">決算の読み方</a> <span class="s">― Q5〜Q9。Meta の和解費用、設備投資と減価償却、Netflix の広告、TSMC の株価、Anthropic の上半期</span></li>
+    <li><a href="#g3">オプションと先物</a> <span class="s">― Q10〜Q14。コールの損益分岐点、買い手の権利と売り手の義務、プットを6万円で決済、SQ の日、先物の決済</span></li>
+    <li><a href="#g4">配当とAIの道具</a> <span class="s">― Q15・Q16。配当利回り2％の手取り、AIが作った画面の数字</span></li>
+  </ol>
+</nav>
+
+<section class="topic qa" id="qa">
+  <span class="badge bridge">後期 第5回の記録 ／ 2026年10月27日</span>
+  <h2 class="thead">答えが出なかった問い ── 16問</h2>
+  <p class="sub">10/27 の教室で問われ、その場で答えが出なかった問い・取り違えた問い・学生から出て答えが曖昧に終わった問いだけを拾った。<b>「教室で出た答え」→自分で1行→「答えを開く」の順。</b>発言者は書いていない。数字は講義資料（10/26 時点）による。</p>
+
+  <h3 id="g1">選挙と市場の基礎</h3>
+  <ol class="q">
+    <li><b>米国の東海岸・西海岸の州に住む人は、全人口の何割か。</b><span class="qtags"><span class="tag m">中間選挙</span><span class="tag m">人口</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「8割以上じゃない」。<b>多すぎる。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">太平洋岸3州（カリフォルニア・オレゴン・ワシントン）約5,100万人 ＋ 大西洋岸14州（メーン〜フロリダ）約1億800万人 ≒ 約1億6,000万人 ÷ 全米 約3億4,000万人 ＝ 約5割</p>
+        <p>大西洋岸にはフロリダ・ジョージア・サウスカロライナ・ノースカロライナのように<b>共和党が強い州も入る</b>。「海岸＝民主」は西海岸と北東部の話。</p>
+        <p><b>着地点</b>　講義資料 §1 図2 の地図。<b>色は面積ではなく州で塗っている。</b>人口は国勢調査局の州別推計を丸めた<b>概算</b>。</p>
+      </div></details></li>
+
+    <li><b>人口約3,900万人のカリフォルニアと、約60万人のワイオミング。上院議員は何人ずつか。それが中間選挙の結果にどう効くか。</b><span class="qtags"><span class="tag m">上院</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「議員の数はそれで均衡しちゃう」で終わり、仕組みは説明されなかった。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p>上院は<b>人口に関係なく各州2人</b>（合衆国憲法）。下院は人口で配分（カリフォルニア52・ワイオミング1）。</p>
+        <p>人口の少ない内陸の州が多い共和党は、得票数で負けても上院で議席を取りやすい。<b>一般投票で民主＋8〜9ポイントでも、上院が6割台半ばにとどまる理由の1つ。</b></p>
+        <p><b>着地点</b>　講義資料 §1 図1・図2。<b>上院は「州の数」の選挙、下院は「人の数」の選挙。</b></p>
+      </div></details></li>
+
+    <li><b>米国の会社は、四半期が終わってから何日で決算を出すのか。日本はどうか。</b><span class="qtags"><span class="tag c">決算</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「1か月ぐらいで出てきちゃう」「日本より1か月以上早い」。<b>日数の決まりは出なかった。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p><b>米国</b>　四半期報告書（10-Q）の提出期限は、大企業（大規模早期提出会社）で<b>期末から40日</b>、それ以外は45日（SEC の規則）。決算発表は多くがその前、期末から3〜5週間。</p>
+        <p><b>日本</b>　四半期の決算短信は<b>期末から45日以内</b>が目安（東証）。2024年に四半期報告書の提出義務がなくなり、法定は半期報告書になった。</p>
+        <p>差は「1か月以上」ではなく、<b>決まりの上では数日〜2週間ほど</b>。9月期決算の多い日本企業は11月上旬〜中旬に集中する。</p>
+        <p><b>着地点</b>　講義資料 §2 の「これから」の日付。<b>期末（9/30）から何日目かで数える。</b></p>
+      </div></details></li>
+
+    <li><b>米国の銀行株（JPモルガン・シティなど）が下げた理由として「金利が下がりそうだから」が出た。いま市場は FOMC で利下げを織り込んでいるか。</b><span class="qtags"><span class="tag m">金利</span><span class="tag c">銀行</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「中間選挙」「金利下げそうって思ってるから」。<b>織り込みの数字は確かめられなかった。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p>講義資料 §2 の予定欄：10/28 の FOMC は<b>据え置き（3.75〜4.00％）が約9割</b>、12月は<b>利上げが約7割</b>の織り込み<span class="st p2">報道</span>。<b>市場は利下げではなく、利上げ寄り。</b></p>
+        <p>銀行の利益の柱は、貸出金利と預金金利の差（利ざや）。金利が下がると利ざやが縮み、銀行株には逆風、という理屈自体は合っている。<b>ただし前提の「利下げ予想」が数字と合わない。</b>下げた理由は、ほかの材料（景気・貸し倒れ・AI関連の貸出）から探し直す。</p>
+        <p><b>着地点</b>　<a href="../lectures/lecture_20260922.html">第8回</a>の日米の政策金利。<b>理由を言う前に、その理由の前提を数字で確かめる。</b></p>
+      </div></details></li>
+  </ol>
+
+  <h3 id="g2">決算の読み方</h3>
+  <ol class="q">
+    <li><b>Meta の和解費用 約99億ドルは「一度きりだから特別損失」か。営業利益率が40％→20％になったことと、どう関係するか。</b><span class="qtags"><span class="tag c">決算書</span><span class="tag c">Meta</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>学生が「販管費に含まれる」と答え、講師が「一度きりだから特別損失」と引き取った。<b>米国の会計では学生の答えに近い。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p>米国の会計基準（US GAAP）には、日本の「特別損失」にあたる区分が<b>ない</b>（2015年に「異常項目」の区分も廃止）。Meta は和解費用を<b>営業費用に入れた</b>。だから営業利益が約130億ドルまで下がり、営業利益率が20％になった。</p>
+        <p class="calc">和解費用を除くと：営業利益 約130億 ＋ 約99億 ＝ 約229億ドル ÷ 売上 646億ドル ≒ 約35％</p>
+        <p>日本の会社なら特別損失に置き、営業利益には入らない可能性が高い。<b>同じ費用でも、会計基準で営業利益が変わる。</b></p>
+        <p><b>着地点</b>　講義資料 §2 の Meta のカード。<b>「本業が悪くなったのか」は、一度きりの費用を除いてから言う。</b>概算。</p>
+      </div></details></li>
+
+    <li><b>Meta が3か月で使った設備投資349億ドルは、その期の損益計算書に費用として出るか。</b><span class="qtags"><span class="tag c">決算書</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「じゃあ関係はないです」→講師「将来にわたって関係ある」。<b>どう関係するかの説明が途中で終わった。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">設備投資 349億ドル（現金はいま出る：キャッシュフロー計算書）→ 資産に計上（貸借対照表）→ 耐用年数にわたって減価償却費として少しずつ費用に（損益計算書）</p>
+        <p>現金はすぐ出るが、費用は数年に分けて出る。<b>だから利益は残っても、フリーキャッシュフローはマイナスになりうる</b>（Meta の7〜9月期）。</p>
+        <p><b>着地点</b>　講義資料 §2 問4。<b>3つの表のどこに、いつ出るか。</b></p>
+      </div></details></li>
+
+    <li><b>Netflix の主な収入はサブスクと広告のどちらか。広告の見通しを下げただけで株価が下がったのはなぜか。</b><span class="qtags"><span class="tag c">Netflix</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「サブスクと広告、メインはサブスク」は正解。株価は「10パー以上」下がったと言われたが、<b>翌日は −5.3％、1週間で −6.6％</b>。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">広告収入の通期見通し 27億ドル ÷ 通期売上見通し 511億ドル ≒ 約5％</p>
+        <p>広告はまだ売上の約5％。それでも株価が動いたのは、<b>広告が「これから伸びる部分」として株価に織り込まれていた</b>から。30億→27億ドルの下方修正は、成長の期待を削る。</p>
+        <p><b>着地点</b>　<a href="../lectures/lecture_20260901.html">第5回</a>の「予想との差で値段が動く」。<b>いまの大きさではなく、伸びる部分の期待が値段になっている。</b></p>
+      </div></details></li>
+
+    <li><b>TSMC は売上が前年同期比 約＋41％（ドル建て）なのに、発表日の株価（ADR）は約 −1.8％。なぜ反応しないのか。</b><span class="qtags"><span class="tag c">TSMC</span><span class="tag c">AI</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「お金が Anthropic の上場のほうに行っちゃった」。<b>仮説としては面白いが、発表日（10/15）は S-1 公開（10/26）より前。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p>TSMC は自社で見通し（7〜9月期 446億〜458億ドル）を出していて、結果（約467億ドル）は上振れ。<b>ただし市場は高い伸びをすでに織り込んでいた。</b>見通しの上振れ幅が、期待を大きく超えなかった。</p>
+        <p>「Anthropic の上場に資金が移る」は、10/26 以降の値動きで確かめる仮説。<b>日付の順番を先に確かめる。</b></p>
+        <p><b>着地点</b>　<a href="../lectures/lecture_20260901.html">第5回</a>と講義資料 §2 図3。<b>売上の伸びの大きさと株価の向きは、一致しない。</b></p>
+      </div></details></li>
+
+    <li><b>Anthropic の2026年1〜6月の売上は、2025年1年間の売上の何倍か。「四半期で黒字」とはどの数字のことか。</b><span class="qtags"><span class="tag c">Anthropic</span><span class="tag c">決算書</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「2024年度、昨年度」と年がずれ、倍率は出なかった。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">2026年1〜6月 1,628.6億ドル ÷ 2025年1年間 458.5億ドル ≒ 約3.6倍（半年で）</p>
+        <p>「四半期で黒字」は、<b>2026年4〜6月期の営業利益 約9.7億ドル</b>（S-1 を引いた報道）。1〜6月の合計では営業損失 約6.9億ドル。<b>純損益は評価替えで約807億ドルの赤字</b>なので、どの利益の話かを必ず言う。</p>
+        <p><b>着地点</b>　講義資料 §4 図6 と問11。<b>「黒字」と言うときは、営業利益か純利益か、何か月分かを添える。</b></p>
+      </div></details></li>
+  </ol>
+
+  <h3 id="g3">オプションと先物</h3>
+  <ol class="q">
+    <li><b>10月上旬にコール67,000円を4,900円で買った人は、日経平均がいくらを超えれば満期に得をするか。日経平均が高値70,798円まで行ったとき、得をしていたか。</b><span class="qtags"><span class="tag c">オプション</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>講師が「67,000に4,900足すと7万2千円ぐらい」と説明。<b>考え方は正しい。正確な損益分岐点と、高値との比較は出なかった。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">損益分岐点 ＝ 67,000 ＋ 4,900 ＝ 71,900円</p>
+        <p class="calc">高値 70,798円で満期なら：70,798 − 67,000 ＝ 3,798円 ＜ 払った 4,900円 → 1,102円の損</p>
+        <p><b>日経平均が権利行使価格を約3,800円上回っても、満期の損益はマイナス。</b>払ったプレミアムを超えて初めて利益。</p>
+        <p><b>着地点</b>　講義資料 §5 問13・問15。<b>「権利行使価格を超えた」と「得をした」は別。</b></p>
+      </div></details></li>
+
+    <li><b>プットを買った人は、満期に必ず売らなければならないのか。</b><span class="qtags"><span class="tag c">オプション</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「プットを買うと、その金額で売らなきゃいけない」→「そうだね」「お互いに義務」。<b>買い手と売り手を取り違えた。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p><b>買い手</b>　権利だけ。得なときだけ使えばよい。<b>損失は払ったプレミアムまで。</b></p>
+        <p><b>売り手</b>　義務を負う。買い手が権利を使えば、必ず応じる。受け取ったプレミアムが最大の利益で、損失には上限がない（プットは権利行使価格まで）。</p>
+        <p>日経225オプションは<b>満期（SQ）に差金で自動決済</b>される。株を実際に売り買いするのではなく、SQ の値と権利行使価格の差額だけを受け払う。得になる側は自動で権利行使、損になる側は価値0で終わる。</p>
+        <p><b>着地点</b>　<a href="../lectures/lecture_20260929.html">第9回</a>のオプションの4つの立場。<b>権利を買う側と、義務を売る側。</b></p>
+      </div></details></li>
+
+    <li><b>プット61,000円を1,165円で買った人と売った人。SQ の日経平均が60,000円なら、それぞれ得か損か。</b><span class="qtags"><span class="tag c">オプション</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「6万円ぐらいだったら利益出る」（買い手として）。<b>わずかに損。</b>売り手については「儲かる」で終わり、計算されなかった。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">SQ での価値 ＝ 61,000 − 60,000 ＝ 1,000円</p>
+        <p class="calc">買い手：1,000 − 1,165 ＝ −165円 × 100（ミニ）＝ −1万6,500円</p>
+        <p class="calc">売り手：1,165 − 1,000 ＝ ＋165円 × 100 ＝ ＋1万6,500円</p>
+        <p>損益分岐点は 61,000 − 1,165 ＝ <b>59,835円</b>。買い手はこれより下がって初めて利益。</p>
+        <p><b>着地点</b>　講義資料 §5 問14。<b>「権利行使価格を下回る」と「利益が出る」は別。</b></p>
+      </div></details></li>
+
+    <li><b>11月限のオプションの満期（SQ）は、11月の何日か。</b><span class="qtags"><span class="tag c">オプション</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「11月の第二水曜か金曜か」。</span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p><b>第2金曜日 ＝ 2026年11月13日（金）</b>。取引の最終日はその前日（11/12）。SQ の値は13日朝の構成銘柄の始値で決まる。</p>
+        <p>中間選挙（11/3）の結果は、SQ の10日前に出る。<b>選挙後の値動きを11月限で取れる日程。</b></p>
+        <p><b>着地点</b>　講義資料 §5 の「残り日数」。<b>時間価値は SQ に向かって0に近づく。</b></p>
+      </div></details></li>
+
+    <li><b>先物の売りが積み上がると、決済日に「誰かが現物を買って決済しなければならない」のか。</b><span class="qtags"><span class="tag c">先物</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>講師が「決済日で現物を誰かが買って決済しなきゃいけない」と説明。<b>日経225先物では正確ではない。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p>日経225先物は<b>差金決済</b>。SQ まで持てば差額を受け払うだけで、現物も先物も買う必要はない。<b>買い注文が出るのは、SQ の前に自分で買い戻すとき。</b></p>
+        <p>SQ に現物の売買が集まるのは、<b>裁定取引で現物を持っている人</b>が、SQ の始値で現物を売って閉じるとき（後期 第4回 §4）。</p>
+        <p><b>着地点</b>　講義資料 §6 の連鎖「決済の道①・②」と問16・問17。</p>
+      </div></details></li>
+  </ol>
+
+  <h3 id="g4">配当とAIの道具</h3>
+  <ol class="q">
+    <li><b>配当利回り2％の米国株を100万円分持つと、1年で手元にいくら入るか。</b><span class="qtags"><span class="tag c">配当</span><span class="tag w">税金</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「100万円で2万円返ってくる」。<b>税引き前の数字。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p class="calc">2万円 × （1 − 米国の源泉税10％）×（1 − 日本の税20.315％）≒ 約1万4,000円</p>
+        <p>特定口座で米国株の配当を受け取る場合の<b>概算</b>。確定申告の外国税額控除で米国分の一部は取り戻せる。NISA 口座なら日本の税は0、米国の10％は残る。為替でも円の受取額は変わる。</p>
+        <p><b>着地点</b>　数字の作法。<b>利回りを出したら、税引き前か後か、何の通貨かを言う。</b></p>
+      </div></details></li>
+
+    <li><b>AIに「雑に頼んで」作らせた株価のダッシュボード。表示された数字を使う前に、何を確かめるか。</b><span class="qtags"><span class="tag w">AI</span><span class="tag c">データ</span></span>
+      <span class="said"><span class="lb">教室で出た答え</span>「どこを参照させているかはチェックした方がいい」で時間切れ。<b>何をどう確かめるかまでは出なかった。</b></span>
+      <details><summary>答えを開く</summary><div class="ans">
+        <p><b>出どころ</b>　どのサイト・API から取ったか（Yahoo Finance、EDINET など）。一次情報か、まとめサイトか</p>
+        <p><b>時点</b>　いつの値か。無料の API は遅延や数か月前の値のことがある</p>
+        <p><b>定義</b>　「年初来高値」「75日線」「出来高の増加」を、何と比べて判定しているか</p>
+        <p><b>照合</b>　1銘柄だけ、証券会社の画面と数字を突き合わせる</p>
+        <p>教室で紹介された「モメンタム」の3条件（年初来高値の更新・上向きの75日線より上・出来高の増加）も、<b>定義が1つずれると別の銘柄が出てくる。</b></p>
+        <p><b>着地点</b>　数字の作法（予想／推計／報道／一次の区別、時点を書く）。<b>AIが出した数字も、出典と時点を書けないものは使わない。</b></p>
+      </div></details></li>
+  </ol>
+
+  <div class="rel"><b>数字の出どころ</b>　株価・決算・予測市場・オプションの値段は講義資料（10/26 時点）による。人口は米国勢調査局の州別推計を丸めた概算。決算の提出期限は SEC・東証の規則、税率は2026年10月時点の制度による概算。<b>ゼミ生の氏名・保有銘柄・評価額は載せていない。</b>講義後半のAIツールの実演とその後の雑談は、問いの形にならないものは拾っていない。</div>
+</section>
+
+<footer>
+  <div class="next">
+    <b>この回の講義資料</b>　<a href="../lectures/lecture_20261027.html">米中間選挙の情勢、米国テック企業の7〜9月期決算、AIの動向、Anthropic の上場申請書、日経平均の下落とオプションの値段、先物の売りと将来の買い戻し、チーム別ポートフォリオ結果</a><br>
+    <b>前回の復習</b>　<a href="lecture_review_20261020.html">後期 第4回（10/20）で答えが出なかった問い</a>
+  </div>
+</footer>
+</div>
+</body>
+</html>
