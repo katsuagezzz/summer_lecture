@@ -125,7 +125,7 @@ Coworkのクラウドセッション）。**手元の作業フォルダは古い
 
 1. `lectures/lecture_<track>_YYYYMMDD.html` を追加
 2. **直前の回のHTMLの「次回」リンク**を新しい回に向ける（相互リンクなので両方向）
-3. 該当トラックのポータル（`seminar.html` / `sasaki.html` / `toyonaga.html`）に行を足す
+3. 該当トラックのポータル（`seminar.html` / `sasaki.html` / `toyonaga.html`）に行を足す。**カードは日付・回数・タイトルだけ。**タグや内容の説明（`.desc`）は書かない
 4. `README.md` の該当トラックの表に行を足す
 5. private 側に講師版ノートを作る（`summer_lecture_private/CLAUDE.md` の「講師版の3点セット」）
 6. `index.html` は原則さわらない（トラック振り分けのみ。新トラック追加時だけ）
