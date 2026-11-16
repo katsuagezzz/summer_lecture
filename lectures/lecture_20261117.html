@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講義資料 後期 第7回｜2026年11月17日 APECと米中ロ首脳会談、日米株式市場、ゼミのポートフォリオ（IBM・ソフトバンクグループ）</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
+  --line:#dfe3ea; --line2:#eef1f5;
+  --macro:#1c6fd4; --macro-bg:#e8f1fd;
+  --corp:#b8480f; --corp-bg:#fdeee6;
+  --bridge:#0e7c66; --bridge-bg:#e4f4f0;
+  --word:#6b3fb5; --word-bg:#f0eafb;
+  --up:#0f7a4d; --down:#c02626;
+  --accent:#14181f;
+  --q-bg:#fbf7e8; --q-line:#e0cf94;
+  --note-bg:#f1f3f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116; --panel:#161b23; --ink:#e8ecf2; --ink2:#b6c0cd; --ink3:#8a95a4;
+    --line:#2a323d; --line2:#212832;
+    --macro:#6fb2ff; --macro-bg:#132539;
+    --corp:#ff9c66; --corp-bg:#331e12;
+    --bridge:#5fd6bb; --bridge-bg:#0f2a26;
+    --word:#c3a6f5; --word-bg:#241a36;
+    --up:#4fc98a; --down:#ff7b7b;
+    --accent:#e8ecf2;
+    --q-bg:#221f14; --q-line:#4a422a;
+    --note-bg:#1b212a;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:22px 22px 80px;}
+.backlink{display:inline-block; font-size:13px; font-weight:700; color:var(--ink3); text-decoration:none; margin-bottom:10px;}
+.backlink:hover{color:var(--macro);}
+
+/* ---------- シリーズナビ ---------- */
+.snav{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+.snav a, .snav span{
+  font-size:12.5px; font-weight:700; text-decoration:none; padding:6px 12px;
+  border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink2);
+  white-space:nowrap;
+}
+.snav a:hover{border-color:var(--macro); color:var(--macro);}
+.snav .cur{background:var(--accent); color:var(--bg); border-color:var(--accent);}
+.snav .lbl{border:none; background:none; color:var(--ink3); padding:6px 2px; letter-spacing:.08em; font-size:11.5px;}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:26px 28px; margin-bottom:22px; border-top:6px solid var(--accent);
+}
+.vol{font-size:13px; letter-spacing:.18em; color:var(--ink3); font-weight:700;}
+h1.title{font-size:32px; line-height:1.3; margin:6px 0 14px; letter-spacing:.01em;}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-size:14px; color:var(--ink2); border-top:1px solid var(--line2); padding-top:14px;}
+.meta b{color:var(--ink); font-weight:700;}
+.lede{margin-top:18px; padding:16px 18px; background:var(--note-bg); border-radius:10px; font-size:16.5px; line-height:1.9; color:var(--ink);}
+.lede strong{border-bottom:2px solid var(--macro); padding-bottom:1px;}
+
+nav.toc{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:22px;}
+nav.toc h2{font-size:15px; margin:0 0 12px; letter-spacing:.06em; color:var(--ink3);}
+nav.toc ol{margin:0; padding-left:1.4em; font-size:15px;}
+nav.toc li{margin-bottom:6px;}
+nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+nav.toc a:hover{color:var(--macro); border-bottom-color:var(--macro);}
+nav.toc .s{color:var(--ink3); font-size:13.5px;}
+
+section.topic{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 28px 28px; margin-bottom:22px;}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; margin-bottom:10px;}
+.badge.macro{background:var(--macro-bg); color:var(--macro);}
+.badge.corp{background:var(--corp-bg); color:var(--corp);}
+.badge.bridge{background:var(--bridge-bg); color:var(--bridge);}
+.badge.word{background:var(--word-bg); color:var(--word);}
+h2.thead{font-size:25px; line-height:1.45; margin:2px 0 6px; letter-spacing:.01em;}
+.sub{font-size:14.5px; color:var(--ink3); margin:0 0 20px;}
+h3{font-size:16px; margin:26px 0 12px; padding-left:11px; border-left:4px solid var(--accent); line-height:1.5;}
+h4{font-size:14.5px; margin:18px 0 8px; color:var(--ink2); letter-spacing:.04em;}
+ul{padding-left:1.25em;}
+.facts li{margin-bottom:9px;}
+.struct{background:var(--note-bg); border-radius:10px; padding:16px 18px 16px 34px; margin:10px 0;}
+
+/* ---------- KPIタイル ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:10px; margin:16px 0 8px;}
+.kpi{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.kpi .k{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:4px;}
+.kpi .v{font-size:22px; font-weight:800; line-height:1.25; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi .n{font-size:12.5px; color:var(--ink2); line-height:1.6; margin-top:4px;}
+.kpi.m .v{color:var(--macro);} .kpi.c .v{color:var(--corp);} .kpi.g .v{color:var(--bridge);}
+
+.points{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin:14px 0 4px;}
+.point{border:1px solid var(--line); border-radius:10px; padding:13px 15px; background:var(--bg);}
+.point .h{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:5px;}
+.point.b .h{color:var(--corp);} .point.c .h{color:var(--bridge);}
+.point p{margin:0; font-size:14.5px; line-height:1.7;}
+
+.formula{background:var(--note-bg); border-left:4px solid var(--bridge); border-radius:0 9px 9px 0; padding:13px 17px; margin:12px 0; font-size:15.5px; line-height:2;}
+.formula code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14.5px; background:transparent; font-weight:700;}
+.formula .n{display:block; font-size:13.5px; color:var(--ink2); line-height:1.7; margin-top:6px;}
+
+.chain{list-style:none; margin:14px 0 6px; padding:0; counter-reset:ch;}
+.chain li{counter-increment:ch; position:relative; padding:11px 14px 11px 46px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-radius:9px; font-size:14.8px; line-height:1.65;}
+.chain li::before{content:counter(ch); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:var(--bg); font-size:12px; font-weight:800; text-align:center; line-height:22px;}
+.chain li::after{content:"↓"; position:absolute; left:21px; bottom:-9px; font-size:13px; color:var(--ink3); font-weight:800; line-height:1;}
+.chain li:last-child::after{content:"";}
+
+/* ---------- 宿題カード ---------- */
+.hw{border:1px solid var(--line); border-top:5px solid var(--macro); border-radius:12px; padding:20px 22px 22px; margin:16px 0 0; background:var(--bg);}
+.hw.t{border-top-color:var(--corp);}
+.hw.s{border-top-color:var(--bridge);}
+.hwhead{display:flex; flex-wrap:wrap; gap:9px; align-items:baseline; margin-bottom:4px;}
+.team{font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:3px 11px; border-radius:6px; background:var(--macro-bg); color:var(--macro);}
+.hw.t .team{background:var(--corp-bg); color:var(--corp);}
+.hw.s .team{background:var(--bridge-bg); color:var(--bridge);}
+.hwtime{font-size:12.5px; color:var(--ink3); font-weight:700;}
+.hwttl{font-size:19px; font-weight:800; line-height:1.5; margin:2px 0 10px;}
+.hw h4{margin-top:16px;}
+
+/* ---------- 問いリスト ---------- */
+.q{list-style:none; margin:8px 0 0; padding:0; counter-reset:qq;}
+.q>li{counter-increment:qq; position:relative; padding:12px 15px 12px 44px; margin-bottom:8px; background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px; font-size:15px; line-height:1.7;}
+.q>li::before{content:"Q" counter(qq); position:absolute; left:12px; top:12px; font-size:12px; font-weight:800; color:var(--ink3); letter-spacing:.03em;}
+.q>li b{font-weight:800;}
+.q .hint{display:block; margin-top:6px; font-size:13.5px; color:var(--ink2); line-height:1.65;}
+
+.deliv{background:var(--note-bg); border-radius:9px; padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.75;}
+.deliv b{font-weight:800;}
+
+table.calc{width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0;}
+table.calc th, table.calc td{border-bottom:1px solid var(--line2); padding:8px 10px; text-align:right; vertical-align:top;}
+table.calc th:first-child, table.calc td:first-child{text-align:left;}
+table.calc thead th{border-bottom:2px solid var(--line); font-size:13px; color:var(--ink3); text-align:right;}
+table.calc thead th:first-child{text-align:left;}
+table.calc td.num{font-variant-numeric:tabular-nums;}
+.pos{color:var(--up); font-weight:700;} .neg{color:var(--down); font-weight:700;}
+.tblwrap{overflow-x:auto;}
+
+/* ---------- タイムテーブル ---------- */
+.tl{margin:12px 0 0; padding:0; list-style:none;}
+.tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.5px;}
+.tl .t{flex:0 0 78px; font-weight:800; color:var(--ink3); font-variant-numeric:tabular-nums; font-size:13.5px; padding-top:2px;}
+.tl .c{flex:1;}
+.tl .c b{font-weight:800;}
+
+.views{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-top:12px;}
+.view{border:1px solid var(--line); border-left:4px solid var(--macro); border-radius:8px; padding:13px 15px; background:var(--bg);}
+.view .who{font-size:12.5px; font-weight:800; color:var(--macro); margin-bottom:5px;}
+.view p{margin:0; font-size:14.5px; line-height:1.7;}
+.view.b{border-left-color:var(--corp);} .view.b .who{color:var(--corp);}
+.view.c{border-left-color:var(--bridge);} .view.c .who{color:var(--bridge);}
+
+.gloss dl{margin:0; border-top:1px solid var(--line2);}
+.gloss dt{font-size:15px; font-weight:800; padding:12px 0 0; color:var(--ink);}
+.gloss dt .en{font-size:12.5px; font-weight:700; color:var(--ink3); margin-left:7px;}
+.gloss dd{margin:3px 0 0; padding:0 0 12px; border-bottom:1px solid var(--line2); font-size:14.5px; line-height:1.75; color:var(--ink2);}
+.gloss dd b{color:var(--ink); font-weight:700;}
+.gloss.compact dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); column-gap:26px;}
+.gloss.compact dd{font-size:14px;}
+
+.rel{margin-top:16px; font-size:13.5px; color:var(--ink2); background:var(--note-bg); border-radius:8px; padding:11px 15px;}
+.rel b{color:var(--ink);}
+.rel a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+.tag{display:inline-block; font-size:11px; font-weight:700; padding:1px 7px; border-radius:4px; background:var(--note-bg); color:var(--ink3); margin-left:5px; vertical-align:1px;}
+.tag.chk{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .tag.chk{color:#d9c07a;} }
+
+.src{font-size:13px; color:var(--ink3); margin-top:14px; border-top:1px dashed var(--line); padding-top:11px;}
+.src b{color:var(--ink2); font-weight:700; letter-spacing:.06em; font-size:11.5px;}
+.src ul{margin:6px 0 0; padding-left:1.15em;}
+.src li{margin-bottom:4px; line-height:1.6;}
+.src a{color:var(--macro); text-decoration:none; word-break:break-all;}
+.src a:hover{border-bottom:1px solid var(--macro);}
+
+footer{margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 28px; font-size:13.5px; color:var(--ink2);}
+footer h2{font-size:16px; margin:0 0 10px; color:var(--ink);}
+footer ul{margin:0 0 14px; padding-left:1.25em;}
+footer li{margin-bottom:6px;}
+.next{border-top:1px solid var(--line2); padding-top:13px; font-size:14.5px; color:var(--ink);}
+footer a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+
+@media print{
+  body{background:#fff; font-size:10.5pt;}
+  .wrap{max-width:100%; padding:0;}
+  nav.toc, .snav{display:none;}
+  header.masthead, section.topic, footer{border:1px solid #ccc; page-break-inside:avoid; margin-bottom:12px;}
+  a{color:#000 !important;}
+}
+@media (max-width:640px){
+  h1.title{font-size:24px;} h2.thead{font-size:20px;} .hwttl{font-size:17px;}
+  .wrap{padding:14px 13px 50px;}
+  section.topic, header.masthead, nav.toc, footer{padding:18px 16px;}
+  .hw{padding:16px 15px 18px;}
+  .gloss.compact dl{grid-template-columns:1fr;}
+  .tl li{flex-direction:column; gap:2px;}
+}
+</style>
+<style>
+/* ---------- 第3回で追加したパーツ ---------- */
+.scorecard{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+.scorecard th,.scorecard td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+.scorecard thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+.scorecard td.h{font-weight:700; color:var(--ink); width:27%;}
+.mark{display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:5px; white-space:nowrap;}
+.mark.o{background:var(--bridge-bg); color:var(--bridge);}
+.mark.x{background:var(--corp-bg); color:var(--corp);}
+.mark.p{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+@media (prefers-color-scheme: dark){ .mark.p{color:#d9c07a;} }
+.cal{margin:12px 0 0; padding:0; list-style:none;}
+.cal li{display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(--line2); font-size:14.5px; align-items:baseline;}
+.cal .d{flex:0 0 96px; font-weight:800; color:var(--macro); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.cal .c{flex:1;}
+.cal li.hot .d{color:var(--corp);}
+.cal li.hot{background:var(--corp-bg); border-radius:8px; padding-left:10px; padding-right:10px; border-bottom-color:transparent;}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0 6px; font-size:14px;}
+.flow .n{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 13px; font-weight:700; line-height:1.5;}
+.flow .a{color:var(--ink3); font-weight:800;}
+.callout{background:var(--q-bg); border:1px solid var(--q-line); border-radius:10px; padding:15px 18px; margin:16px 0 4px; font-size:15px; line-height:1.8;}
+.callout b{font-weight:800;}
+.callout .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.09em; color:#8a6d1f; margin-bottom:5px;}
+@media (prefers-color-scheme: dark){ .callout .lbl{color:#d9c07a;} }
+.unsure{font-size:12px; color:var(--ink3); font-weight:700;}
+
+/* ---------- 配布版で追加したパーツ ---------- */
+/* 記入欄（採点表の判定列など。ここは自分で埋める） */
+.fill{display:block; min-height:26px; border:1px dashed var(--q-line); border-radius:6px;
+      background:var(--q-bg); font-size:11.5px; color:#8a6d1f; font-weight:700;
+      padding:4px 8px; text-align:center; letter-spacing:.04em;}
+@media (prefers-color-scheme: dark){ .fill{color:#d9c07a;} }
+.scorecard td.j{width:16%;}
+
+/* 必答／余力 */
+.tagm,.tago{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em;
+      padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; white-space:nowrap;}
+.tagm{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.35);}
+.tago{background:var(--note-bg); color:var(--ink3); border:1px solid var(--line);}
+
+/* 役割カード */
+.roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:16px 0 6px;}
+.role{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+      background:var(--panel); padding:14px 16px;}
+.role .nm{font-size:15.5px; font-weight:800; margin-bottom:2px;}
+.role .rl{font-size:11.5px; font-weight:800; letter-spacing:.06em; color:var(--bridge); margin-bottom:6px;}
+.role p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink2);}
+
+/* 出典の格付けタグ */
+.st{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    padding:1px 6px; border-radius:4px; margin-right:6px; vertical-align:1px;}
+.st.p1{background:var(--bridge-bg); color:var(--bridge);}   /* 一次 */
+.st.p2{background:var(--macro-bg); color:var(--macro);}     /* 報道 */
+.st.p3{background:var(--word-bg); color:var(--word);}       /* 解説 */
+.st.p4{background:var(--corp-bg); color:var(--corp);}       /* 二次・要確認 */
+
+/* 空欄の式 */
+.blank{display:inline-block; min-width:84px; border-bottom:2px dashed var(--q-line);
+       text-align:center; color:#8a6d1f; font-weight:800;}
+@media (prefers-color-scheme: dark){ .blank{color:#d9c07a;} }
+</style>
+<style>
+/* ---------- 第4回で追加したパーツ ---------- */
+.promptbox{background:var(--note-bg); border:1px solid var(--line); border-left:4px solid var(--word);
+  border-radius:0 10px 10px 0; padding:15px 17px; margin:12px 0;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px; line-height:1.95; white-space:pre-wrap; word-break:break-word; color:var(--ink);}
+.promptbox .cap{display:block; font-family:inherit; font-size:11.5px; font-weight:800;
+  letter-spacing:.09em; color:var(--word); margin-bottom:8px;}
+.twocol{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; margin:14px 0 4px;}
+.card{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg);}
+.card .ch{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:6px;}
+.card.b .ch{color:var(--corp);} .card.c .ch{color:var(--bridge);} .card.d .ch{color:var(--word);}
+.card p{margin:0; font-size:14.5px; line-height:1.75;}
+.card p+p{margin-top:8px;}
+.quote{border-left:4px solid var(--word); background:var(--word-bg); border-radius:0 9px 9px 0;
+  padding:13px 17px; margin:13px 0; font-size:15px; line-height:1.9;}
+.quote .src2{display:block; font-size:12.5px; color:var(--ink3); font-weight:700; margin-top:7px;}
+table.cmp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.cmp th, table.cmp td{border-bottom:1px solid var(--line2); padding:10px; vertical-align:top; text-align:left;}
+table.cmp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em;}
+table.cmp td.h{font-weight:700; color:var(--ink); width:22%;}
+@media (max-width:640px){ .promptbox{font-size:12px;} }
+</style>
+<style>
+/* ---------- 第5回で追加したパーツ ---------- */
+/* サプライズ表（実績 − 予想） */
+table.surp{width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0 4px;}
+table.surp th, table.surp td{border-bottom:1px solid var(--line2); padding:9px 10px; text-align:right; vertical-align:top;}
+table.surp th:first-child, table.surp td:first-child{text-align:left;}
+table.surp thead th{border-bottom:2px solid var(--line); font-size:12.5px; color:var(--ink3); letter-spacing:.05em; text-align:right;}
+table.surp thead th:first-child{text-align:left;}
+table.surp td.num{font-variant-numeric:tabular-nums;}
+table.surp td.h{font-weight:700; color:var(--ink); text-align:left;}
+/* 答え合わせカード */
+.ac{border:1px solid var(--line); border-left:4px solid var(--bridge); border-radius:0 10px 10px 0;
+    background:var(--bg); padding:14px 16px; margin-bottom:10px;}
+.ac .qq{font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--ink3); margin-bottom:5px;}
+.ac .aa{font-size:15px; line-height:1.75; margin:0;}
+.ac .aa b{font-weight:800;}
+.ac.miss{border-left-color:var(--corp);}
+.ac.miss .qq{color:var(--corp);}
+/* 時点ラベル（同じ銘柄・違う時点） */
+.snap{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:2px;
+      background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 6px;}
+.snap div{background:var(--panel); padding:12px 14px;}
+.snap .w{font-size:11.5px; color:var(--ink3); font-weight:800; letter-spacing:.04em; margin-bottom:4px; line-height:1.45;}
+.snap .r{font-size:19px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.3;}
+.snap .r.up{color:var(--up);} .snap .r.down{color:var(--down);}
+.snap .z{font-size:12px; color:var(--ink2); margin-top:3px; line-height:1.55;}
+</style>
+<style>
+/* ---------- リードの3点箇条書き（第6回で追加） ---------- */
+/* リードの3点箇条書き */
+.lede ul.three{margin:9px 0 0; padding-left:1.15em; list-style:none;}
+.lede ul.three li{position:relative; margin-bottom:3px; line-height:1.75;}
+.lede ul.three li::before{content:""; position:absolute; left:-0.95em; top:.72em;
+  width:5px; height:5px; border-radius:50%; background:var(--macro);}
+.lede ul.three strong{border-bottom:none; padding-bottom:0;}
+</style>
+<style>
+/* ---------- ポートフォリオ報告・ネットキャッシュ（第5回で追加） ---------- */
+.pf{display:grid; grid-template-columns:repeat(auto-fit,minmax(238px,1fr)); gap:11px; margin:14px 0 6px;}
+.pf a{display:block; border:1px solid var(--line); border-left:4px solid var(--macro);
+      border-radius:0 10px 10px 0; background:var(--bg); padding:13px 15px;
+      text-decoration:none; color:var(--ink);}
+.pf a:hover{border-color:var(--macro);}
+.pf .tm{display:block; font-size:12.5px; font-weight:800; letter-spacing:.06em; color:var(--macro); margin-bottom:4px;}
+.pf .u{display:block; font-size:12.5px; color:var(--ink3); line-height:1.55; word-break:break-all;}
+.pf a.b{border-left-color:var(--corp);} .pf a.b .tm{color:var(--corp);} .pf a.b:hover{border-color:var(--corp);}
+.pf a.c{border-left-color:var(--bridge);} .pf a.c .tm{color:var(--bridge);} .pf a.c:hover{border-color:var(--bridge);}
+/* ネットキャッシュの記入表 */
+table.nc{width:100%; border-collapse:collapse; font-size:14px; margin:12px 0 4px;}
+table.nc th, table.nc td{border-bottom:1px solid var(--line2); padding:8px 9px; text-align:left; vertical-align:middle;}
+table.nc thead th{border-bottom:2px solid var(--line); font-size:12px; color:var(--ink3); letter-spacing:.04em;}
+table.nc td.h{font-weight:700; color:var(--ink); white-space:nowrap;}
+@media print{ .pf a{border:1px solid #ccc;} }
+</style>
+<style>
+/* ---------- 前回回答できなかった質問（第6回の書式をそのまま使う） ---------- */
+/* 分類タグ。色の意味は既存の変数に合わせる（macro＝マクロの論点／corp＝株と実務） */
+.tag.m{background:var(--macro-bg); color:var(--macro);}
+.tag.c{background:var(--corp-bg); color:var(--corp);}
+.tag.w{background:var(--word-bg); color:var(--word);}
+.qtags{display:inline;}
+.meta a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+/* 教室で出た答え／着地点 */
+#qa .q .said, #qa .q .hint{
+  display:block; margin-top:7px; padding-left:11px;
+  font-size:13.5px; line-height:1.7; color:var(--ink2);
+}
+#qa .q .said{border-left:3px solid var(--q-line);}
+#qa .q .hint{border-left:3px solid var(--bridge);}
+#qa .q .lb{font-weight:800; letter-spacing:.04em; margin-right:5px;}
+#qa .q .said .lb{color:var(--ink3);}
+#qa .q .hint .lb{color:var(--bridge);}
+/* Q番号を3つのまとまりをまたいで通す */
+#qa{counter-reset:qq;}
+#qa .q{counter-reset:none;}
+#qa h3{margin-top:26px;}
+#qa h3:first-of-type{margin-top:18px;}
+</style>
+<style>
+/* ---------- 記入欄・宿題 ---------- */
+.entry{background:var(--q-bg); border:1px solid var(--q-line); border-radius:9px;
+  padding:12px 16px; margin:10px 0; font-size:15px; line-height:2.2;}
+.entry b{font-weight:800;}
+.entry .blank{min-width:96px; margin:0 4px;}
+.entry .wide{min-width:100%;}
+.chain a{color:var(--macro); text-decoration:none; border-bottom:1px solid rgba(120,150,190,.45);}
+</style>
+<style>
+/* ---------- 9/19 追記：図（第7回の書式をそのまま使う） ---------- */
+.fig{margin:14px 0 6px; padding:14px 12px 10px; background:var(--bg); border:1px solid var(--line); border-radius:12px;}
+.fig svg{width:100%; height:auto; display:block; font-family:inherit;}
+.fig .cap{font-size:13px; color:var(--ink3); margin:8px 4px 0; line-height:1.6;}
+.fig .ax{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .gl{stroke:var(--line2); stroke-width:1; fill:none;}
+.fig .zl{stroke:var(--line); stroke-width:1.5; fill:none;}
+.fig .ln{fill:none; stroke-width:2.8; stroke-linejoin:round;}
+.fig .ln.a{stroke:var(--macro);} .fig .ln.b{stroke:var(--corp);} .fig .ln.c{stroke:var(--bridge);}
+.fig .vl{stroke:var(--down); stroke-width:1.5; stroke-dasharray:5 4; fill:none;}
+.fig .tick{font-size:11.5px; fill:var(--ink3);}
+.fig .lab{font-size:12.5px; font-weight:700; fill:var(--ink);}
+.fig .lab.c{fill:var(--corp);}
+.fig .val{font-size:12px; font-weight:800; fill:var(--ink2); font-variant-numeric:tabular-nums;}
+.fig .bar.a{fill:var(--macro);} .fig .bar.b{fill:var(--corp);} .fig .bar.c{fill:var(--bridge);}
+.fig a{fill:var(--macro);}
+/* 10/1 追記：スマホ画面のスクリーンショット */
+.shots{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px;}
+.shots figure{margin:0;}
+.shots img{width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:8px;}
+.shots figcaption{font-size:12px; font-weight:700; color:var(--ink2); margin-top:4px; text-align:center;}
+@media print{ .shots{grid-template-columns:repeat(3,1fr);} .fig{page-break-inside:avoid;} }
+/* この回の問いは「問」番号で、3つの節をまたいで通す */
+body{counter-reset:qq;}
+.q{counter-reset:none;}
+section.topic .q>li::before{content:"問" counter(qq);}
+section.topic .q>li{padding-left:50px;}
+section.topic .q .hint{display:block; margin-top:7px; padding-left:11px; border-left:3px solid var(--bridge);
+  font-size:13.5px; line-height:1.7; color:var(--ink2);}
+section.topic .q .hint .lb{font-weight:800; letter-spacing:.04em; margin-right:5px; color:var(--bridge);}
+.pfnote{font-size:13.5px; color:var(--ink2); line-height:1.75; margin:10px 0 0;}
+/* 4つの立場のカード（2×2） */
+.four{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0 4px;}
+@media(max-width:640px){ .four{grid-template-columns:1fr;} }
+</style>
+<style>
+/* ---------- 第10回で追加：原文＋欄外の照合、照合結果リスト ---------- */
+.legend{display:flex; flex-wrap:wrap; gap:8px 14px; margin:12px 0 4px; font-size:13px; color:var(--ink2);}
+.legend .lg{display:inline-flex; align-items:center; gap:6px;}
+.mk{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.06em; padding:2px 8px; border-radius:5px; white-space:nowrap;}
+.mk.ng{background:var(--corp-bg); color:var(--corp); border:1px solid rgba(184,72,15,.4);}
+.mk.sm{background:var(--q-bg); color:#8a6d1f; border:1px solid var(--q-line);}
+.mk.ck{background:var(--word-bg); color:var(--word); border:1px solid rgba(107,63,181,.35);}
+.mk.ev{background:var(--note-bg); color:var(--ink2); border:1px solid var(--line);}
+.mk.nt{background:var(--macro-bg); color:var(--macro); border:1px solid rgba(28,111,212,.3);}
+.mk.ok{background:var(--bridge-bg); color:var(--bridge); border:1px solid rgba(14,124,102,.35);}
+@media (prefers-color-scheme: dark){ .mk.sm{color:#d9c07a;} }
+
+.artlbl{display:block; margin:26px 0 6px; font-size:12.5px; font-weight:800; letter-spacing:.09em; color:var(--ink3); border-top:2px solid var(--line); padding-top:12px;}
+.artlbl:first-of-type{margin-top:16px;}
+.ar{display:grid; grid-template-columns:minmax(0,1fr) 262px; gap:0 20px; align-items:start;}
+.ar p.tx{margin:0 0 14px; font-size:15.5px; line-height:1.95;}
+.ar .mg{font-size:12.5px; line-height:1.65; color:var(--ink2);}
+.ar .mg .nn{border-left:3px solid var(--line); background:var(--note-bg); border-radius:0 8px 8px 0; padding:8px 11px; margin-bottom:8px;}
+.ar .mg .nn.ng{border-left-color:var(--corp);}
+.ar .mg .nn.sm{border-left-color:var(--q-line);}
+.ar .mg .nn.ck{border-left-color:var(--word);}
+.ar .mg .nn.nt{border-left-color:var(--macro);}
+.ar .mg .nn b{color:var(--ink); font-weight:800;}
+.ar .mg .nn .mk{margin-right:5px;}
+mark.ng,mark.sm,mark.ck,mark.ev,mark.nt{color:inherit; padding:0 1px; border-radius:2px;}
+mark.ng{background:rgba(184,72,15,.22); border-bottom:2px solid var(--corp);}
+mark.sm{background:rgba(224,207,148,.45); border-bottom:2px solid var(--q-line);}
+mark.ck{background:rgba(107,63,181,.16); border-bottom:2px solid var(--word);}
+mark.ev{background:rgba(120,130,145,.18); border-bottom:2px dotted var(--ink3);}
+mark.nt{background:rgba(28,111,212,.14); border-bottom:2px solid var(--macro);}
+@media (max-width:820px){
+  .ar{grid-template-columns:1fr;}
+  .ar .mg{margin:-4px 0 14px;}
+}
+@media print{ mark{background:none !important;} .ar{grid-template-columns:1fr 200px;} }
+
+.chk ul{list-style:none; margin:0; padding:0;}
+.chk h4{margin:20px 0 6px;}
+.chk li{padding:9px 0; border-bottom:1px solid var(--line2); font-size:14.3px; line-height:1.7;}
+.chk li .lk{display:block; font-size:12.5px; color:var(--ink3); margin-top:2px; line-height:1.6;}
+.chk li .lk a{color:var(--macro); text-decoration:none; word-break:break-all; border-bottom:1px solid rgba(120,150,190,.45);}
+.hwhint{font-size:13.5px; color:var(--ink2); line-height:1.7; margin:10px 0 0; padding-left:11px; border-left:3px solid var(--bridge);}
+.hwhint .lb{font-weight:800; letter-spacing:.04em; color:var(--bridge); margin-right:5px;}
+</style>
+<style>
+/* ---------- ポップ版（第10回から。色の意味づけ macro/corp/bridge/word/q は踏襲） ---------- */
+:root{
+  --bg:#fff8ef; --panel:#ffffff; --ink:#1d1633; --ink2:#443b5e; --ink3:#7a7091;
+  --line:#1d1633; --line2:#efe6f7;
+  --macro:#2f6bff; --macro-bg:#e3ecff;
+  --corp:#ff5a36; --corp-bg:#ffe7df;
+  --bridge:#00a88a; --bridge-bg:#d9f7ef;
+  --word:#8a3ffc; --word-bg:#efe3ff;
+  --accent:#1d1633;
+  --q-bg:#fff4c2; --q-line:#f2c230;
+  --note-bg:#f6f1ff;
+  --pop-y:#ffd23f; --pop-p:#ff6fb5;
+  --shadow:4px 4px 0 var(--ink);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#15112a; --panel:#1f1a3a; --ink:#f4f0ff; --ink2:#cdc4ea; --ink3:#9d93c0;
+    --line:#f4f0ff; --line2:#2e2752;
+    --macro:#7aa2ff; --macro-bg:#1d2a5c;
+    --corp:#ff8a6b; --corp-bg:#4a2219;
+    --bridge:#3fe0bf; --bridge-bg:#0f3a33;
+    --word:#b98cff; --word-bg:#34205c;
+    --accent:#f4f0ff;
+    --q-bg:#3a3214; --q-line:#c9a227;
+    --note-bg:#28224a;
+    --pop-y:#ffd23f; --pop-p:#ff6fb5;
+    --shadow:4px 4px 0 #000;
+  }
+}
+body{
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255,111,181,.16) 0 120px, transparent 121px),
+    radial-gradient(circle at 92% 22%, rgba(47,107,255,.14) 0 160px, transparent 161px),
+    radial-gradient(circle at 80% 70%, rgba(255,210,63,.16) 0 140px, transparent 141px),
+    var(--bg);
+  background-attachment:fixed;
+}
+
+/* 表紙 */
+header.masthead{
+  position:relative; overflow:hidden;
+  background:linear-gradient(135deg,#2f6bff 0%,#8a3ffc 52%,#ff6fb5 100%);
+  color:#fff; border:3px solid var(--ink); border-top-width:3px; border-radius:22px;
+  box-shadow:6px 6px 0 var(--ink);
+}
+header.masthead::before,header.masthead::after{content:""; position:absolute; border-radius:50%; pointer-events:none;}
+header.masthead::before{width:220px; height:220px; right:-60px; top:-70px; background:var(--pop-y); opacity:.9;}
+header.masthead::after{width:90px; height:90px; right:150px; bottom:-30px; background:#fff; opacity:.25;}
+header.masthead > *{position:relative; z-index:1;}
+header.masthead .vol{color:#fff; opacity:.9; display:inline-block; background:rgba(0,0,0,.22); padding:4px 12px; border-radius:999px; font-size:12px;}
+header.masthead h1.title{color:#fff; font-size:34px; font-weight:900; text-shadow:3px 3px 0 rgba(29,22,51,.35); margin-right:120px;}
+header.masthead .meta{color:#fff; border-top:2px dashed rgba(255,255,255,.5);}
+header.masthead .meta b{color:var(--pop-y);}
+header.masthead .lede{background:#fff; color:#1d1633; border:3px solid #1d1633; border-radius:16px; box-shadow:4px 4px 0 #1d1633;}
+header.masthead .lede ul.three li::before{width:12px; height:12px; left:-1.25em; top:.5em; border-radius:4px; transform:rotate(12deg);}
+header.masthead .lede ul.three li:nth-child(1)::before{background:#2f6bff;}
+header.masthead .lede ul.three li:nth-child(2)::before{background:#8a3ffc;}
+header.masthead .lede ul.three li:nth-child(3)::before{background:#ff5a36;}
+header.masthead .lede ul.three{padding-left:1.5em;}
+@media (max-width:640px){ header.masthead h1.title{font-size:25px; margin-right:40px;} header.masthead::before{width:130px; height:130px; right:-50px; top:-50px;} }
+
+/* ナビ・目次 */
+.snav a,.snav span{border:2px solid var(--ink); font-weight:800;}
+.snav .cur{background:var(--pop-y); color:#1d1633; border-color:var(--ink); box-shadow:2px 2px 0 var(--ink);}
+.snav .lbl{border:none;}
+.snav a:hover{background:var(--macro-bg);}
+nav.toc{border:3px solid var(--ink); border-radius:20px; box-shadow:var(--shadow);}
+nav.toc ol{list-style:none; padding:0; counter-reset:tc;}
+nav.toc li{counter-increment:tc; position:relative; padding:8px 0 8px 46px; margin:0;}
+nav.toc li::before{content:counter(tc); position:absolute; left:0; top:6px; width:32px; height:32px; border-radius:10px; border:2px solid var(--ink); font-weight:900; text-align:center; line-height:28px; color:#fff; background:#2f6bff;}
+nav.toc li:nth-child(2)::before{background:#2f6bff;}
+nav.toc li:nth-child(3)::before{background:#2f6bff;}
+nav.toc li:nth-child(4)::before{background:#ff5a36;}
+nav.toc li:nth-child(5)::before{background:#8a3ffc;}
+nav.toc li:nth-child(6)::before{background:#00a88a;}
+nav.toc a{font-weight:800; border-bottom:none; background:linear-gradient(transparent 62%, rgba(255,210,63,.6) 62%);}
+
+/* 節 */
+section.topic{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var(--ink); position:relative;}
+section.topic#s-fr,section.topic#s-imf,section.topic#s-jpy{border-top:14px solid #2f6bff;}
+section.topic#s-arb{border-top:14px solid #ff5a36;}
+section.topic#s-opt{border-top:14px solid #8a3ffc;}
+section.topic#s-pf{border-top:14px solid #00a88a;}
+.fig .ln.r{stroke:var(--ink3); stroke-width:1.6; stroke-dasharray:4 4; fill:none;}
+.badge{border:2px solid var(--ink); font-size:13px; font-weight:900; padding:4px 14px; transform:rotate(-2deg); box-shadow:2px 2px 0 var(--ink);}
+.badge.macro{background:#2f6bff; color:#fff;}
+.badge.word{background:#8a3ffc; color:#fff;}
+.badge.corp{background:#ff5a36; color:#fff;}
+.badge.bridge{background:#00a88a; color:#fff;}
+h2.thead{font-size:27px; font-weight:900;}
+h3{border-left:none; padding:4px 14px; display:inline-block; background:var(--pop-y); color:#1d1633; border:2px solid var(--ink); border-radius:999px; box-shadow:2px 2px 0 var(--ink); font-size:15px;}
+.chk h3{margin-top:30px;}
+
+/* 宿題カード */
+.hw{border:3px solid var(--ink); border-top:3px solid var(--ink); border-radius:18px;
+    background:repeating-linear-gradient(-45deg, var(--q-bg) 0 14px, var(--panel) 14px 28px);
+    box-shadow:5px 5px 0 var(--pop-p);}
+.hw .hwttl{font-size:21px; font-weight:900; background:var(--panel); display:inline; padding:0 4px; box-decoration-break:clone; -webkit-box-decoration-break:clone; line-height:1.8;}
+.hw .hwtime{display:inline-block; background:var(--ink); color:var(--bg); padding:2px 10px; border-radius:999px; margin-bottom:8px;}
+.hw .hwhint{background:var(--panel); border-radius:10px; padding:8px 12px; border:2px solid var(--bridge); border-left-width:6px; margin-top:12px;}
+
+/* 凡例・欄外 */
+.legend{background:var(--note-bg); border:2px dashed var(--ink3); border-radius:14px; padding:10px 14px;}
+.mk{border-width:2px; border-radius:999px; font-weight:900;}
+.artlbl{display:inline-block; border:2px solid var(--ink); border-radius:999px; padding:4px 14px; background:var(--macro-bg); color:var(--macro); box-shadow:2px 2px 0 var(--ink);}
+.ar .mg .nn{border:2px solid var(--ink); border-left-width:6px; border-radius:12px; background:var(--panel); box-shadow:3px 3px 0 var(--line2);}
+.ar .mg .nn.ng{border-left-color:var(--corp); background:var(--corp-bg);}
+.ar .mg .nn.sm{border-left-color:var(--q-line); background:var(--q-bg);}
+.ar .mg .nn.ck{border-left-color:var(--word); background:var(--word-bg);}
+.ar .mg .nn.nt{border-left-color:var(--macro); background:var(--macro-bg);}
+mark.ng{background:rgba(255,90,54,.28);} mark.ck{background:rgba(138,63,252,.2);} mark.nt{background:rgba(47,107,255,.18);} mark.sm{background:rgba(255,210,63,.5);}
+.chk li{border-bottom:2px dotted var(--line2);}
+
+/* カード・KPI・図・式 */
+.kpi,.card,.fig,.pf a{border:2px solid var(--ink); border-radius:16px; box-shadow:4px 4px 0 var(--ink);}
+.kpi:nth-child(1){background:var(--q-bg);} .kpi:nth-child(2){background:var(--macro-bg);} .kpi:nth-child(3){background:var(--corp-bg);}
+.kpi .v{font-weight:900;}
+.card{border-top:8px solid var(--macro);} .card.b{border-top-color:var(--corp);}
+.fig{background:var(--panel);}
+.formula{border:2px solid var(--ink); border-left:8px solid var(--bridge); border-radius:14px; background:var(--bridge-bg);}
+.pf a{border-left-width:8px; transition:transform .12s ease, box-shadow .12s ease;}
+.pf a:hover{transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink);}
+.chain li{border:2px solid var(--ink); border-radius:14px;}
+.chain li::before{background:var(--pop-p); color:#fff; border:2px solid var(--ink); width:26px; height:26px; line-height:22px; left:11px; top:9px;}
+
+/* 問い */
+.q>li{border:2px solid var(--ink); border-radius:16px; box-shadow:3px 3px 0 var(--q-line);}
+section.topic .q>li::before{content:"問" counter(qq); background:var(--pop-y); color:#1d1633; border:2px solid var(--ink); border-radius:8px; padding:0 5px; left:9px; font-weight:900;}
+section.topic .q>li{padding-left:58px;}
+
+.rel{border:2px dashed var(--ink3); border-radius:14px;}
+footer{border:3px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var(--ink);}
+
+@media print{
+  body{background:#fff;}
+  header.masthead{background:#fff; color:#000; box-shadow:none;}
+  header.masthead::before,header.masthead::after{display:none;}
+  header.masthead h1.title,header.masthead .meta,header.masthead .vol{color:#000; text-shadow:none; background:none;}
+  section.topic,nav.toc,footer,.kpi,.card,.fig,.hw,.q>li,.pf a{box-shadow:none !important;}
+  .hw{background:#fff;}
+}
+</style>
+<style>
+/* ---------- 後期 第5回：節ごとに背景の色調を変える ---------- */
+:root{
+  --sec-elec:#eef4ff; --sec-earn:#fff1ea; --sec-ai:#f7efff; --sec-pf:#e9f8f2;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --sec-elec:#1b2448; --sec-earn:#3a231d; --sec-ai:#2d2149; --sec-pf:#14332c; }
+}
+section.topic#s-elec{background:var(--sec-elec);}
+section.topic#s-earn{background:var(--sec-earn); border-top-color:var(--corp);}
+section.topic#s-ai{background:var(--sec-ai); border-top-color:#8a3ffc;}
+section.topic#s-pf{background:var(--sec-pf);}
+section.topic#s-fut{background:var(--sec-fut); border-top-color:#c27c00;}
+section.topic#s-opt{background:var(--sec-opt); border-top-color:#8a3ffc;}
+table.cmp td.n{font-variant-numeric:tabular-nums; white-space:nowrap; text-align:right;}
+table.cmp td.n.neg{color:var(--corp); font-weight:700;} table.cmp td.n.pos{color:var(--bridge); font-weight:700;}
+table.cmp tr.grp td{background:var(--note-bg); font-size:12.5px; font-weight:800; color:var(--ink3); padding:6px 10px;}
+table.cmp td .p{display:block; font-size:11.5px; color:var(--ink3); font-weight:400;}
+section.topic#s-ant{background:var(--sec-ant); border-top-color:var(--corp);}
+:root{--sec-ant:#fff4ec;}
+@media (prefers-color-scheme: dark){ :root{--sec-ant:#3a2620;} }
+:root{--sec-opt:#f7efff;}
+@media (prefers-color-scheme: dark){ :root{--sec-opt:#2d2149;} }
+#s-fut .badge.word{background:#c27c00;}
+:root{--sec-fut:#fff7e3;}
+@media (prefers-color-scheme: dark){ :root{--sec-fut:#352a14;} }
+.pf a.v{border-left-color:#c27c00;}
+section.topic .sub a{color:var(--macro);}
+.fig .bar{fill:var(--corp);} .fig .rng{fill:var(--corp); opacity:.38;}
+.fig .val{font-size:12px; font-weight:700; fill:var(--ink2);}
+.fig .bar2{fill:var(--ink3); opacity:.55;} .fig .bar3{fill:var(--macro);}
+.fig .dot{fill:var(--corp); stroke:var(--panel); stroke-width:2;}
+/* 上院・下院の図：Cook の評価の色（両モード共通）、改選なしの州は薄い色 */
+.fig .st{stroke:var(--panel); stroke-width:1;}
+.fig .r-SR{fill:#b2182b;} .fig .r-LiR{fill:#d6604d;} .fig .r-LeR{fill:#f4a582;} .fig .r-T{fill:#f2c94c;}
+.fig .r-LeD{fill:#92c5de;} .fig .r-LiD{fill:#4393c3;} .fig .r-SD{fill:#2166ac;}
+.fig .p-D{fill:#2166ac;} .fig .p-R{fill:#b2182b;} .fig .p-V{fill:var(--line);} .fig .p-I{fill:#8a94a6;}
+.fig .n-RR{fill:#f2dede;} .fig .n-DD{fill:#dde7f3;} .fig .n-RD{fill:#e9e4ef;}
+.fig .sl{font-size:11px; font-weight:800; fill:#1d2330;} .fig .sl.w{fill:#fff;} .fig .sl.tu{font-size:12.5px;}
+.fig .sl.nl,.fig .sl.cl{fill:var(--ink2);} .fig .dg{font-size:8.5px; font-weight:700;}
+.fig .lead{stroke:var(--ink3); stroke-width:.8; fill:none;}
+.fig .bl{font-size:11.5px; font-weight:800; fill:#1d2330;} .fig .bl.w{fill:#fff;} .fig .bl.nn{fill:var(--ink2);}
+.lgd{display:flex; flex-wrap:wrap; gap:6px 14px; margin:10px 4px 0; font-size:12.5px; color:var(--ink2);}
+.lgd span{display:inline-flex; align-items:center; gap:5px;}
+.lgd i{display:inline-block; width:14px; height:14px; border-radius:3px; border:1px solid var(--line);}
+@media (prefers-color-scheme: dark){
+  .fig .n-RR{fill:#4a3036;} .fig .n-DD{fill:#2a3850;} .fig .n-RD{fill:#3a3346;}
+}
+@media print{ section.topic{background:#fff !important;} }
+</style>
+<style>
+/* ---------- 後期 第6回 ---------- */
+:root{--sec-mkt:#e8f8fb; --sec-lib:#f7efff; --sec-60k:#fff7e3;}
+@media (prefers-color-scheme: dark){ :root{--sec-mkt:#132f38; --sec-lib:#2d2149; --sec-60k:#352a14;} }
+section.topic#s-mkt{background:var(--sec-mkt); border-top-color:#00a3c4;}
+section.topic#s-lib{background:var(--sec-lib); border-top-color:#8a3ffc;}
+section.topic#s-60k{background:var(--sec-60k); border-top-color:#c27c00;}
+#s-mkt .badge.macro{background:#00a3c4;}
+#s-60k .badge.bridge{background:#c27c00;}
+.fig .x-DH{fill:#9cc6ef;} .fig .x-DF{fill:#1e5bd8;} .fig .x-RH{fill:#b2182b;} .fig .x-UN{fill:#f2c94c;}
+mark.ok{color:inherit; padding:0 1px; border-radius:2px; background:rgba(0,168,138,.18); border-bottom:2px solid var(--bridge);}
+.ar .mg .nn.ok{border-left-color:var(--bridge);}
+@media print{ section.topic{background:#fff !important;} }
+</style>
+<style>
+/* ---------- 後期 第7回 ---------- */
+:root{--sec-apec:#eef4ff; --sec-pfz:#e9f8f2; --sec-ibm:#fff1ea; --sec-sbg:#f7efff;}
+@media (prefers-color-scheme: dark){ :root{--sec-apec:#1b2448; --sec-pfz:#14332c; --sec-ibm:#3a231d; --sec-sbg:#2d2149;} }
+section.topic#s-apec{background:var(--sec-apec);}
+section.topic#s-pfz{background:var(--sec-pfz);}
+section.topic#s-ibm{background:var(--sec-ibm); border-top-color:var(--corp);}
+section.topic#s-sbg{background:var(--sec-sbg); border-top-color:#8a3ffc;}
+#s-sbg .badge.corp{background:#8a3ffc;}
+@media print{ section.topic{background:#fff !important;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="backlink" href="../seminar.html">← 夏期集中講座の一覧へ</a>
+<div class="snav">
+  <span class="lbl">夏期集中講座</span>
+  <a href="lecture_20260901.html">第5回 9/1 講義資料</a>
+  <a href="lecture_20260825.html">第4回 8/25 講義資料</a>
+  <a href="lecture_20261110.html">後期 第6回 11/10 講義資料</a>
+  <span class="cur">後期 第7回 11/17 講義資料</span>
+</div>
+<header class="masthead">
+  <div class="vol">LECTURE HANDOUT ／ 講義資料　後期 第7回</div>
+  <h1 class="title">APECと米中ロ首脳会談、日米株式市場、ゼミのポートフォリオ（IBM・ソフトバンクグループ）</h1>
+  <div class="meta">
+    <span><b>講義</b>　2026年11月17日（火）16:20から</span>
+    <span><b>作成</b>　2026年11月16日（月）</span>
+    <span><b>数字の時点</b>　株価は11/13（金）の終値、日本は一部11/16。決算は IBM 9月末・ソフトバンクグループ 9月末。APEC の首脳会議は講義の後（11/18〜19）</span>
+  </div>
+  <div class="lede">
+    <ul class="three">
+      <li><strong>APEC と米中ロ首脳会談　深圳の首脳会議、核軍縮の3首脳会談、米中の休戦期限</strong></li>
+      <li><strong>日米株式市場　先週の上昇と11/16 の下落、米金利5％台、円安、日本のマイナス成長</strong></li>
+      <li><strong>ゼミのポートフォリオ　IBM とソフトバンクグループの部門別利益率、MOAT、ネットキャッシュ比率、時価純資産</strong></li>
+    </ul>
+  </div>
+</header>
+<nav class="toc">
+  <h2>この資料の構成</h2>
+  <ol>
+    <li><a href="#s-apec">APEC（深圳）と米中ロ首脳会談（11/18〜19）</a> <span class="s">― 冒頭に宿題1行。日程、議題、米中の休戦。問1〜問3</span></li>
+    <li><a href="#s-mkt">日米株式市場（11/9〜11/16）</a> <span class="s">― 指数・金利・為替・GDP の年表。問4・問5</span></li>
+    <li><a href="#s-pfz">ゼミのポートフォリオ（IBM 1株・ソフトバンクグループ 4株・買付余力）</a> <span class="s">― 取得額は図1。損益。問6</span></li>
+    <li><a href="#s-ibm">IBM の部門別利益率・MOAT・ネットキャッシュ比率（2026年9月末）</a> <span class="s">― 部門別利益率は図2。問7〜問9</span></li>
+    <li><a href="#s-sbg">ソフトバンクグループの中間決算・時価純資産・MOAT（2026年9月末）</a> <span class="s">― 時価純資産と時価総額は図3。問10〜問12</span></li>
+  </ol>
+</nav>
+
+<!-- ============ §1 APEC ============ -->
+<section class="topic" id="s-apec">
+  <span class="badge macro">§1 マクロ</span>
+  <h2 class="thead">APEC（深圳）と米中ロ首脳会談（11/18〜19）</h2>
+  <h3>宿題</h3>
+  <div class="hw" id="s-hw" style="margin-bottom:18px">
+    <div class="hwtime">提出は次回講義日の 12:00 まで、HTMLで</div>
+    <div class="hwttl">IBM とソフトバンクグループのどちらかを、買い増す・持ち続ける・売るのどれにするか。部門別利益率・MOAT・ネットキャッシュ比率（または時価純資産）のうち1つを根拠に1行で。</div>
+    <div class="hwhint"><span class="lb">着地点</span>§4・§5 の数字。<a href="lecture_20260825.html">第4回</a>の安全余裕率と<a href="lecture_20260901.html">第5回</a>のネットキャッシュ比率。<b>買付余力 5,703円の使い道まで決める。</b></div>
+  </div>
+
+  <h3>実物：今週の日程</h3>
+  <ul class="cal">
+    <li><span class="d">11/16（月）</span><span class="c">高市首相がフィリピン・中国へ出発（4日間）。2025年の台湾発言以来、初の訪中。習主席との会談は予定なしとの報道<span class="st p2">報道</span></span></li>
+    <li><span class="d">11/17〜18</span><span class="c">APEC CEO サミット（深圳）<span class="st p2">報道</span></span></li>
+    <li><span class="d">11/17（米国）</span><span class="c">NVIDIA の決算。CEO の辞任（11/12 前後に発表）の後、初の決算<span class="st p2">報道</span></span></li>
+    <li class="hot"><span class="d">11/19（木）</span><span class="c">APEC 首脳会議。トランプ大統領と習主席の首脳会談・昼食会。<b>米中ロの3首脳会談</b>（3人がそろうのは初めて）<span class="st p2">報道</span></span></li>
+    <li><span class="d">2027/1/10</span><span class="c">米中の貿易休戦の期限（11月に2か月延長）。中国のレアアース輸出規制の停止、追加関税24％の停止も同じ期限<span class="st p1">一次</span></span></li>
+  </ul>
+  <p class="unsure">首脳会議の日付は「11/18〜19」と「11/19」で報道が分かれる（APEC 事務局の発表は11/19）。</p>
+
+  <h3>2つの会談</h3>
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">米中首脳会談</div>
+      <p><b>議題</b>　貿易休戦（1/10 期限）、半導体の輸出規制と AI。米側は「輸出規制は議題にしない」<span class="st p2">報道</span></p>
+      <p><b>背景</b>　NVIDIA の中国向け販売をめぐる問題で、議会は国防権限法に半導体の条項を入れようとしている</p>
+      <p><b>中国の手札</b>　米国が半導体の規制を強めれば、レアアースの輸出規制を強める可能性、との分析<span class="st p3">解説</span></p>
+    </div>
+    <div class="card b">
+      <div class="ch">米中ロ3首脳会談</div>
+      <p><b>議題</b>　核軍縮・核不拡散と「大国間の戦略的安定」。大統領はイランも取り上げる意向。<b>ウクライナは議題外</b><span class="st p2">報道</span></p>
+      <p><b>見通し</b>　米政府高官「何らかの合意に至るとは考えていない」<span class="st p2">報道</span></p>
+      <p><b>背景</b>　米ロの新戦略兵器削減条約（新START）は2026年2月に失効。中国は核弾頭が少ないことを理由に3か国の交渉を拒んできた</p>
+    </div>
+  </div>
+
+  <h3>問い</h3>
+  <ol class="q">
+    <li><b>3首脳会談に「合意は期待しない」と米政府が言っている。それでも市場が注目するのはなぜか。原油・円・防衛株のどれに効きうるかを1つ選ぶ。</b>
+      <span class="hint"><span class="lb">着地点</span>後期 第6回 §2（Foreign Affairs）。<b>大統領はイランを取り上げる意向。</b>イランをめぐる緊張が下がれば原油が下がる（11/4 は WTI −8％）。<a href="lecture_20260901.html">第5回</a>の「予想との差」：合意なしが織り込み済みなら、動くのは予想外の部分だけ。</span></li>
+    <li><b>米中の休戦は1/10 まで。延長されなかった場合、IBM とソフトバンクグループのどちらがより影響を受けるか。</b>
+      <span class="hint"><span class="lb">着地点</span>§4・§5。IBM は中国の売上を開示しておらず、アジア太平洋は売上の約18％。ソフトバンクグループは半導体（Arm）と AI（OpenAI）の比重が大きく、半導体の規制とレアアースに効く。<b>APEC と両社を直接結びつけた報道は見つからない。</b>経路を自分で組み立てる。</span></li>
+    <li><b>高市首相が APEC で習主席と会談できない場合、日本株のどの業種に効くか。</b>
+      <span class="hint"><span class="lb">着地点</span>中国向けの売上の比率が高い業種（機械・電子部品・化粧品・観光）。<b>政治の関係が売上に効く経路は、輸出・訪日客・レアアース。</b></span></li>
+  </ol>
+</section>
+
+<!-- ============ §2 日米株式市場 ============ -->
+<section class="topic" id="s-mkt">
+  <span class="badge macro">§2 市場</span>
+  <h2 class="thead">日米株式市場（11/9〜11/16）</h2>
+  <h3>実物：先週と今週の数字</h3>
+  <div class="kpis">
+    <div class="kpi m"><div class="k">日経平均（11/13）</div><div class="v">61,142円</div><div class="n">週間 ＋6.5％、5か月ぶりの上げ幅。11/16 は約59,660円（約 −2.4％）<span class="st p2">報道</span></div></div>
+    <div class="kpi m"><div class="k">S&amp;P500（11/13）</div><div class="v">7,561.67</div><div class="n">週間 ＋2.5％、5週ぶりの上昇。ナスダック総合 ＋2.3％<span class="st p2">報道</span></div></div>
+    <div class="kpi c"><div class="k">米10年債（11/13）</div><div class="v">約5.1％</div><div class="n">週間で約0.3ポイント上昇。10月下旬以来の5％台<span class="st p2">報道</span></div></div>
+    <div class="kpi c"><div class="k">ドル円（11/16）</div><div class="v">約159.7円</div><div class="n">7月に協調介入があった160円の手前<span class="st p2">報道</span></div></div>
+  </div>
+  <ul class="cal">
+    <li><span class="d">11/10</span><span class="c">日銀の10月会合の主な意見。12月の利上げを示す内容との見方。エコノミストの約8割が12月に1.50％への利上げを予想<span class="st p2">報道</span></span></li>
+    <li class="hot"><span class="d">11/12 前後</span><span class="c">NVIDIA のジェンスン・フアン CEO が辞任。財務責任者が暫定 CEO。中国向けの販売をめぐり議会が調査<span class="st p2">報道</span></span></li>
+    <li><span class="d">11/13</span><span class="c">米国の物価指標（卸売物価など）が強く、FRB の利上げを織り込む動き。米10年債が5％台へ<span class="st p2">報道</span></span></li>
+    <li class="hot"><span class="d">11/16</span><span class="c">日本の7〜9月期 GDP（1次速報）は年率 −0.1％（予想 ＋0.3％）。9月のエネルギー補助金の終了が消費に響いた。同じ日、アドバンテスト 約 −10％、東京エレクトロン −5〜7％、ソフトバンクグループ 約 −4％<span class="st p1">一次</span></span></li>
+  </ul>
+  <p class="unsure">中間選挙は、上院で民主が55議席以上（アラスカは開票中）、下院は民主が250議席台の見込み（11/13 時点）<span class="st p2">報道</span>。</p>
+
+  <h3>問い</h3>
+  <ol class="q">
+    <li><b>米国の金利が5％台に戻り、ドル円が160円に近い。IBM 1株の円での値段には、株価と為替のどちらが効いたか。</b>
+      <span class="hint"><span class="lb">着地点</span>§3 の損益。<b>円で持つ人の米国株の損益 ＝ 株価の変化 × 為替の変化。</b>11/10 から11/13 まで、IBM の株価は ＋1％、ドル円は約 ＋1％。</span></li>
+    <li><b>日本の GDP がマイナスでも、日銀が12月に利上げすると予想されているのはなぜか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260922.html">第8回</a>の日米の政策金利。<b>物価（円安とエネルギー）と景気（GDP）のどちらを優先するか。</b>160円に近い円安が物価を押し上げる。</span></li>
+  </ol>
+</section>
+
+<!-- ============ §3 ゼミのポートフォリオ ============ -->
+<section class="topic" id="s-pfz">
+  <span class="badge bridge">§3 実践</span>
+  <h2 class="thead">ゼミのポートフォリオ（IBM 1株・ソフトバンクグループ 4株・買付余力）</h2>
+  <div class="fig">
+  <svg viewBox="0 0 960 120" role="img" aria-label="ゼミのポートフォリオの取得額。IBM 39,867円、ソフトバンクグループ 15,700円、買付余力 5,703円、合計61,270円">
+<rect class="bar" x="40.0" y="20" width="572.6" height="40"/>
+<text class="lab" x="46.0" y="82">IBM（1株）</text><text class="val" x="46.0" y="102">39,867円（65％）</text>
+<rect class="bar3" x="612.6" y="20" width="225.5" height="40"/>
+<text class="lab" x="618.6" y="82">ソフトバンクグループ（4株）</text><text class="val" x="618.6" y="102">15,700円（26％）</text>
+<rect class="bar2" x="838.1" y="20" width="81.9" height="40"/>
+<text class="lab" x="844.1" y="82">買付余力</text><text class="val" x="844.1" y="102">5,703円（9％）</text>
+</svg>
+  <div class="lgd"><span><i style="background:var(--corp)"></i>IBM</span><span><i style="background:var(--macro)"></i>ソフトバンクグループ</span><span><i style="background:var(--ink3);opacity:.55"></i>買付余力</span></div>
+  <div class="cap">図1　<b>ゼミのポートフォリオの取得額</b>（合計61,270円）。ソフトバンクグループは11/12 の始値 3,925円で4株。IBM の取得額は円建て（為替手数料を含む）。</div>
+  </div>
+  <h3>11/13 の終値での損益</h3>
+  <ul class="cal">
+    <li><span class="d">IBM</span><span class="c">247.13ドル × 約159.5円 ＝ 約39,400円。取得額から約 −450円（約 −1％）<span class="st p4">推計</span></span></li>
+    <li><span class="d">ソフトバンクグループ</span><span class="c">3,547円 × 4株 ＝ 14,188円。取得額から −1,512円（約 −10％）。11/16 は3,416円前後<span class="st p2">報道</span></span></li>
+    <li><span class="d">合計</span><span class="c">約59,300円。61,270円から約 −2,000円（約 −3％）<span class="st p4">推計</span></span></li>
+  </ul>
+  <p class="unsure">IBM の取得額 39,867円は、11/10 の終値（244.53ドル）× その日のドル円（158円前後）＝ 約38,700円より約3％高い。約定日・約定の値段・為替の手数料を取引報告書で確かめる。</p>
+  <h3>問い</h3>
+  <ol class="q">
+    <li><b>損益の率を、何を分母にして出したか。61,270円か、株に払った55,567円か。どちらを使うかで、ソフトバンクグループの下げの見え方はどう変わるか。</b>
+      <span class="hint"><span class="lb">着地点</span>数字の作法。<b>率を出したら分母を書く。</b>買付余力（現金）を分母に入れると、率は小さく見える。後期 第6回 §6 の問い。</span></li>
+  </ol>
+</section>
+
+<!-- ============ §4 IBM ============ -->
+<section class="topic" id="s-ibm">
+  <span class="badge corp">§4 企業</span>
+  <h2 class="thead">IBM の部門別利益率・MOAT・ネットキャッシュ比率（2026年9月末）</h2>
+  <h3>実物：7〜9月期（10/21 発表）</h3>
+  <div class="kpis">
+    <div class="kpi c"><div class="k">売上</div><div class="v">171億ドル</div><div class="n">前年同期比 ＋5％。通期見通しは ＋4〜5％（7月に引き下げ）<span class="st p1">一次</span></div></div>
+    <div class="kpi c"><div class="k">ソフトウェアの売上</div><div class="v">78億ドル</div><div class="n">＋8％。全社売上の約46％。うち Red Hat を含むハイブリッドクラウド ＋11％<span class="st p1">一次</span></div></div>
+    <div class="kpi"><div class="k">フリーキャッシュフロー（1〜9月）</div><div class="v">約78億ドル</div><div class="n">通期見通しは2025年（147億ドル）より10億ドル超の増加<span class="st p1">一次</span></div></div>
+    <div class="kpi m"><div class="k">株価（11/13）</div><div class="v">247.13ドル</div><div class="n">PER 約21倍（予想 約19倍）、配当利回り 約2.7％。6/2 の最高値は332ドル<span class="st p2">報道</span></div></div>
+  </div>
+
+  <h3>部門別の利益率</h3>
+  <div class="fig">
+  <svg viewBox="0 0 960 284" role="img" aria-label="IBM の部門別の利益率。ソフトウェア 35.0％（2025年 33.1％）、インフラ 19.3％（22.0％）、コンサルティング 12.2％（11.7％）">
+<path class="gl" d="M200,10 L200,254"/><text class="tick" x="200" y="272" text-anchor="middle">0％</text>
+<path class="gl" d="M334,10 L334,254"/><text class="tick" x="334" y="272" text-anchor="middle">8％</text>
+<path class="gl" d="M468,10 L468,254"/><text class="tick" x="468" y="272" text-anchor="middle">16％</text>
+<path class="gl" d="M602,10 L602,254"/><text class="tick" x="602" y="272" text-anchor="middle">24％</text>
+<path class="gl" d="M736,10 L736,254"/><text class="tick" x="736" y="272" text-anchor="middle">32％</text>
+<path class="gl" d="M870,10 L870,254"/><text class="tick" x="870" y="272" text-anchor="middle">40％</text>
+<path class="ax" d="M200,10 L200,254"/>
+<text class="lab" x="190" y="32" text-anchor="end">ソフトウェア 7〜9月</text>
+<rect class="bar" x="200" y="19" width="586" height="19" rx="2"/>
+<text class="val" x="792" y="33">35.0％</text>
+<text class="lab" x="190" y="62" text-anchor="end">ソフトウェア 2025年</text>
+<rect class="bar2" x="200" y="49" width="554" height="19" rx="2"/>
+<text class="val" x="760" y="63">33.1％</text>
+<text class="lab" x="190" y="122" text-anchor="end">インフラ 7〜9月</text>
+<rect class="bar" x="200" y="109" width="323" height="19" rx="2"/>
+<text class="val" x="529" y="123">19.3％</text>
+<text class="lab" x="190" y="152" text-anchor="end">インフラ 2025年</text>
+<rect class="bar2" x="200" y="139" width="368" height="19" rx="2"/>
+<text class="val" x="574" y="153">22.0％</text>
+<text class="lab" x="190" y="212" text-anchor="end">コンサルティング 7〜9月</text>
+<rect class="bar" x="200" y="199" width="204" height="19" rx="2"/>
+<text class="val" x="410" y="213">12.2％</text>
+<text class="lab" x="190" y="242" text-anchor="end">コンサルティング 2025年</text>
+<rect class="bar2" x="200" y="229" width="196" height="19" rx="2"/>
+<text class="val" x="402" y="243">11.7％</text>
+</svg>
+  <div class="lgd"><span><i style="background:var(--corp)"></i>2026年7〜9月期</span><span><i style="background:var(--ink3);opacity:.55"></i>2025年通期</span></div>
+  <div class="cap">図2　<b>IBM の部門別の利益率（部門利益 ÷ 部門売上）</b><span class="st p1">一次</span>。7〜9月期の部門売上はソフトウェア 78億・コンサルティング 53億・インフラ 37億ドル。金融（顧客への融資）部門は売上が約2億ドルと小さく、外した。インフラの7〜9月期は、前年の新型メインフレーム（z17）発売の反動でメインフレームの売上が約2割減った期。</div>
+  </div>
+
+  <h3>MOAT：堀と、堀を越えてくるもの</h3>
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">堀</div>
+      <p><b>メインフレーム</b>　銀行・保険の基幹系。乗り換えの費用が大きい（切り替えコスト）</p>
+      <p><b>Red Hat</b>　Linux と OpenShift。OpenShift の年間定期収入は ＋30％超<span class="st p2">報道</span></p>
+      <p><b>買収</b>　HashiCorp（2025年2月）、Confluent（2026年3月、約116億ドル）でソフトウェアを厚くした<span class="st p1">一次</span></p>
+      <p><b>量子コンピュータ</b>　520量子ビットの新チップ（11/11 発表）。5年で約100億ドルを投資<span class="st p2">報道</span></p>
+    </div>
+    <div class="card b">
+      <div class="ch">堀を越えてくるもの</div>
+      <p><b>クラウド大手</b>　AWS・Azure・Google Cloud（後期 第6回 §3）</p>
+      <p><b>AI の開発ツール</b>　2/23 に、Anthropic の AI プログラミングツールへの懸念で株価 −13％<span class="st p2">報道</span></p>
+      <p><b>設備投資の行き先</b>　7/14 に −25％（過去最大の下げ）。顧客が支出をメインフレーム・ソフトから AI 向けのサーバーへ移した<span class="st p2">報道</span></p>
+      <p><b>CEO の発言</b>　「顧客は AI 投資が効果を生むか心配し始めた」（10/21）</p>
+    </div>
+  </div>
+
+  <h3>ネットキャッシュ比率（清原式）</h3>
+  <ol class="chain">
+    <li><b>流動資産</b>　312億ドル<span class="st p1">一次</span></li>
+    <li><b>投資有価証券 × 70％</b>　投資・その他の資産 20億ドル × 0.7 ＝ 約14億ドル<span class="st p4">推計</span></li>
+    <li><b>負債総額</b>　1,188億ドル<span class="st p1">一次</span></li>
+    <li><b>ネットキャッシュ</b>　312 ＋ 14 − 1,188 ＝ <b>約 −862億ドル</b><span class="st p4">推計</span></li>
+    <li><b>ネットキャッシュ比率</b>　−862 ÷ 時価総額 約2,340億ドル ＝ <b>約 −0.37</b><span class="st p4">推計</span></li>
+  </ol>
+  <p class="unsure">有利子負債は638億ドル（9月末）で、手元の現金・有価証券は111億ドル<span class="st p1">一次</span>。有利子負債には、顧客への融資を支える金融部門の借入が含まれる（金額は確かめられていない）。</p>
+
+  <h3>問い</h3>
+  <ol class="q">
+    <li><b>IBM の利益は、どの部門から来ているか。部門売上 × 利益率で、3部門の利益をざっと出す。</b>
+      <span class="hint"><span class="lb">着地点</span>図2。<b>ソフトウェア 78 × 35％ ≒ 27億ドル、インフラ 37 × 19％ ≒ 7億、コンサルティング 53 × 12％ ≒ 6億。</b>売上の半分以下のソフトウェアが、利益の約2/3。</span></li>
+    <li><b>ネットキャッシュ比率は約 −0.37。清原式なら「買わない」銘柄か。それでも買う理由があるとすれば何か。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260901.html">第5回</a>のネットキャッシュ比率と<a href="lecture_20260825.html">第4回</a>のシケモク投資。<b>清原式は「現金で守る」投資。IBM は「稼ぐ力（フリーキャッシュフロー 年150億ドル超の見通し）と配当」で持つ銘柄。</b>同じ物差しで全部の銘柄を測らない。</span></li>
+    <li><b>IBM の堀は、メインフレームか Red Hat か。7/14 の −25％は、どちらの堀が弱まったと市場が見た結果か。</b>
+      <span class="hint"><span class="lb">着地点</span>上のカード2枚。<b>顧客の設備投資が AI のサーバーへ移ると、メインフレームとソフトの更新が後回しになる。</b>堀（切り替えコスト）は残っても、更新の時期が遅れれば売上は減る。</span></li>
+  </ol>
+</section>
+
+<!-- ============ §5 ソフトバンクグループ ============ -->
+<section class="topic" id="s-sbg">
+  <span class="badge corp">§5 企業</span>
+  <h2 class="thead">ソフトバンクグループの中間決算・時価純資産・MOAT（2026年9月末）</h2>
+  <h3>実物：中間決算（11/10 発表）</h3>
+  <div class="kpis">
+    <div class="kpi c"><div class="k">純損益（4〜9月）</div><div class="v">−7,680億円</div><div class="n">前年同期は ＋2.9兆円。7〜9月だけで約 −1.1兆円<span class="st p1">一次</span></div></div>
+    <div class="kpi"><div class="k">米データセンターの発電設備</div><div class="v">−5,972億円</div><div class="n">発電設備の調達の見直しによる損失<span class="st p2">報道</span></div></div>
+    <div class="kpi m"><div class="k">LTV（9/30）</div><div class="v">15.9％</div><div class="n">純有利子負債 ÷ 保有株式の価値。方針は平常時25％未満<span class="st p1">一次</span></div></div>
+    <div class="kpi c"><div class="k">株価（11/13）</div><div class="v">3,547円</div><div class="n">2026年1月に1株を4株に分割。6/2 の年初来高値 9,074円から約6割下落<span class="st p2">報道</span></div></div>
+  </div>
+  <ul class="cal">
+    <li><span class="d">通信（ソフトバンク）</span><span class="c">4〜9月の純利益 3,645億円（＋4.5％）。通期見通しを6,100億円へ引き上げ<span class="st p1">一次</span></span></li>
+    <li><span class="d">Arm</span><span class="c">7〜9月の売上 14.4億ドル（＋27％）。研究開発費の増加で、Arm などの部門は赤字<span class="st p2">報道</span></span></li>
+    <li><span class="d">OpenAI</span><span class="c">累計の出資 646億ドル、持ち分 約13％。上半期は評価の変更なし。OpenAI の上場は早くて2027年との報道<span class="st p2">報道</span></span></li>
+    <li><span class="d">資金</span><span class="c">9/24 に約111億ドルのドル建て・ユーロ建て社債（利率は最大9.75％）。手元流動性 約5.0兆円<span class="st p2">報道</span></span></li>
+  </ul>
+
+  <h3>時価純資産と時価総額</h3>
+  <div class="fig">
+  <svg viewBox="0 0 960 194" role="img" aria-label="ソフトバンクグループの時価純資産と時価総額。時価純資産 9/30 59.8兆円、11/9 試算 44.7兆円、時価総額 11/13 20.2兆円、純有利子負債 11.3兆円">
+<path class="gl" d="M230,10 L230,164"/><text class="tick" x="230" y="182" text-anchor="middle">0兆</text>
+<path class="gl" d="M358,10 L358,164"/><text class="tick" x="358" y="182" text-anchor="middle">14兆</text>
+<path class="gl" d="M486,10 L486,164"/><text class="tick" x="486" y="182" text-anchor="middle">28兆</text>
+<path class="gl" d="M614,10 L614,164"/><text class="tick" x="614" y="182" text-anchor="middle">42兆</text>
+<path class="gl" d="M742,10 L742,164"/><text class="tick" x="742" y="182" text-anchor="middle">56兆</text>
+<path class="gl" d="M870,10 L870,164"/><text class="tick" x="870" y="182" text-anchor="middle">70兆</text>
+<path class="ax" d="M230,10 L230,164"/>
+<text class="lab" x="220" y="32" text-anchor="end">時価純資産（9/30）</text>
+<rect class="bar" x="230" y="19" width="547" height="19" rx="2"/>
+<text class="val" x="783" y="33">59.8兆円</text>
+<text class="lab" x="220" y="62" text-anchor="end">時価純資産（11/9 試算）</text>
+<rect class="bar" x="230" y="49" width="409" height="19" rx="2"/>
+<text class="val" x="645" y="63">44.7兆円</text>
+<text class="lab" x="220" y="92" text-anchor="end">時価総額（11/13）</text>
+<rect class="bar3" x="230" y="79" width="185" height="19" rx="2"/>
+<text class="val" x="421" y="93">20.2兆円</text>
+<text class="lab" x="220" y="152" text-anchor="end">純有利子負債（9/30）</text>
+<rect class="bar2" x="230" y="139" width="103" height="19" rx="2"/>
+<text class="val" x="339" y="153">11.3兆円</text>
+</svg>
+  <div class="lgd"><span><i style="background:var(--corp)"></i>時価純資産</span><span><i style="background:var(--macro)"></i>時価総額</span><span><i style="background:var(--ink3);opacity:.55"></i>純有利子負債</span></div>
+  <div class="cap">図3　<b>時価純資産（保有株式の価値 − 純有利子負債）と時価総額</b>。9/30 は会社の公表値<span class="st p1">一次</span>。11/9 は同日の株価で置き直した試算<span class="st p2">報道</span>。時価総額は3,547円 × 自己株式を除く約57億株<span class="st p4">推計</span>。保有株式の価値（9/30、71.1兆円）のうち Arm が約54％、OpenAI を持つ SVF2 が約28％。</div>
+  </div>
+
+  <h3>MOAT と、効き方の違う2つの事業</h3>
+  <div class="twocol">
+    <div class="card">
+      <div class="ch">堀</div>
+      <p><b>Arm</b>　スマートフォンの CPU の設計図の業界標準。出荷されるチップ1個ごとにロイヤルティ</p>
+      <p><b>通信（ソフトバンク）</b>　毎年の安定した現金。親会社への配当</p>
+    </div>
+    <div class="card b">
+      <div class="ch">堀の外のリスク</div>
+      <p><b>集中</b>　Arm と OpenAI で保有資産の8割超</p>
+      <p><b>借入</b>　純有利子負債 11.3兆円。株価が下がると LTV が上がる（9月末から11/9 までに時価純資産は約15兆円減）</p>
+      <p><b>実行</b>　米国のデータセンターの発電設備で 5,972億円の損失</p>
+      <p><b>規制</b>　中国が ABB のロボット事業の買収（約54億ドル）を止めた<span class="st p2">報道</span></p>
+    </div>
+  </div>
+
+  <h3>ネットキャッシュ比率が使えない理由</h3>
+  <ol class="chain">
+    <li><b>流動資産</b>　14.2兆円、<b>負債総額</b>　約50.0兆円<span class="st p1">一次</span></li>
+    <li><b>最大の資産の Arm は連結子会社</b>　投資有価証券に入らない。負債には通信・Arm の負債も入る</li>
+    <li><b>清原式の結果</b>　大きくマイナスになるが、会社の中身を表さない</li>
+    <li><b>代わりの物差し</b>　時価純資産との差（ディスカウント）。11/13 の時価総額は、11/9 の試算の時価純資産を約55％下回る<span class="st p4">推計</span></li>
+  </ol>
+
+  <h3>問い</h3>
+  <ol class="q">
+    <li><b>時価総額が時価純資産の約半分。安全余裕率として見れば「割安」か。それでも株価が下がり続けるのはなぜか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260825.html">第4回</a>の安全余裕率（TBS HD の3.59倍）。<b>時価純資産そのものが Arm と OpenAI の値段で動く。</b>分子が下がっている間は、割安に見えても下がる。</span></li>
+    <li><b>OpenAI に646億ドルを出しても、上半期の損益には評価の変更がなかった。OpenAI の上場が2027年に遅れることは、ソフトバンクグループの何に効くか。</b>
+      <span class="hint"><span class="lb">着地点</span>後期 第5回 §4（Anthropic の S-1）。<b>上場すれば値段が毎日付き、時価純資産に反映される。上場が遅れれば、売って現金にする手段も遅れる。</b>9.75％の社債の利払いは毎年出ていく。</span></li>
+    <li><b>IBM とソフトバンクグループ、MOAT が強いのはどちらか。ゼミの次の5,703円をどちらに入れるか、または入れないか。</b>
+      <span class="hint"><span class="lb">着地点</span>§4 と §5 のカード。<b>IBM は「堀で稼ぎ、配当で返す」、ソフトバンクグループは「堀を持つ会社を持ち、借りて増やす」。</b>宿題の1行につなげる。</span></li>
+  </ol>
+</section>
+
+<footer>
+  <h2>数字の扱いについて</h2>
+  <ul>
+    <li><b>すべて2026年11月16日時点の検索結果の要約による。</b>SEC・IR の資料本文は開けていないものがある。講義前に出典を一度開いて確かめる。</li>
+    <li><b>§1 の APEC の首脳会議と3首脳会談は講義の後</b>（11/19）。日付は報道で分かれる。米国の対中関税の水準は出典で食い違うため載せていない。</li>
+    <li><b>§2 の11/16 の日経平均は出典で数十円の差</b>（59,662円と59,676円）。中間選挙の議席は11/13 時点の見込み。</li>
+    <li><b>§3 の円での損益は推計</b>（11/13 のドル円 約159.5円は単一の出典）。IBM の取得額は取引報告書で確かめる。</li>
+    <li><b>§4 の清原式ネットキャッシュは推計。</b>「投資有価証券」には IBM の「投資・その他の資産」を当てた。有利子負債には金融部門の借入が含まれる。部門別の利益率は2025年第4四半期の値が出典で食い違う（通年値を使った）。</li>
+    <li><b>§5 の部門別の数字は説明資料の読み取りで、確度が低い。</b>11/9 の時価純資産は試算。時価総額は推計。</li>
+    <li><b>ゼミ生の氏名は載せていない。</b>ポートフォリオはゼミとして共同で持つ口座。</li>
+  </ul>
+  <div class="src">
+    <b>出典</b>
+    <ul>
+      <li><span class="st p1">一次</span>APEC 事務局（首脳週の案内） — <a href="https://www.apec.org/press/news-releases/2026/apec-advances-trade--ai-cooperation-ahead-of-leaders--week" target="_blank" rel="noopener">apec.org</a>　<span class="st p2">報道</span>3首脳会談 — <a href="https://www.cnn.com/2026/11/13/politics/trump-putin-xi-meeting" target="_blank" rel="noopener">CNN</a>／<a href="https://www.aljazeera.com/news/2026/11/14/trump-xi-putin-trilateral-meeting-at-apec-what-to-expect" target="_blank" rel="noopener">Al Jazeera</a>　高市首相 — <a href="https://www.aa.com.tr/en/asia-pacific/japans-takaichi-to-attend-apec-summit-on-1st-china-visit-since-taiwan-row/4124723" target="_blank" rel="noopener">Anadolu</a></li>
+      <li><span class="st p2">報道</span>米中の休戦の延長 — <a href="https://www.supplychaindive.com/news/us-china-officially-extend-trade-war-truce-by-2-months/874107/" target="_blank" rel="noopener">Supply Chain Dive</a>　NVIDIA — <a href="https://www.cnn.com/2026/11/11/business/live-news/nvidia-jensen-huang-investigation-fallout" target="_blank" rel="noopener">CNN</a>／<a href="https://www.npr.org/2026/11/16/nx-s1-6041738/trump-xi-and-putin-china-nvidia" target="_blank" rel="noopener">NPR</a></li>
+      <li><span class="st p2">報道</span>市場 — <a href="https://www.brecorder.com/news/40448831/nikkei-posts-best-week-in-5-months-despite-nvidia-turmoil" target="_blank" rel="noopener">Business Recorder（日経平均）</a>／<a href="https://wtop.com/national/2026/11/how-major-us-stock-indexes-fared-friday-11-13-2026/" target="_blank" rel="noopener">AP 配信（米国）</a>／<a href="https://www.cnbc.com/2026/11/13/treasury-yields-fed-rates.html" target="_blank" rel="noopener">CNBC（米国債）</a>　<span class="st p1">一次</span>7〜9月期 GDP — <a href="https://www.esri.cao.go.jp/jp/sna/sokuhou/sokuhou_top.html" target="_blank" rel="noopener">内閣府</a></li>
+      <li><span class="st p1">一次</span>IBM 7〜9月期 — <a href="https://www.sec.gov/Archives/edgar/data/0000051143/000005114326000093/ibm-20261021xex991.htm" target="_blank" rel="noopener">8-K（SEC EDGAR）</a>／<a href="https://www.sec.gov/Archives/edgar/data/0000051143/000005114326000095/ibm-20260930.htm" target="_blank" rel="noopener">10-Q</a>　2025年 — <a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000027/ibmars2025.pdf" target="_blank" rel="noopener">アニュアルレポート</a>　<span class="st p2">報道</span>7/14 の下落 — <a href="https://invezz.com/ca/news/2026/07/15/is-ibm-stock-a-buy-after-its-historic-25percent-single-day-crash-here-is-what-analysts-say/" target="_blank" rel="noopener">Invezz</a></li>
+      <li><span class="st p1">一次</span>ソフトバンクグループ 中間決算短信 — <a href="https://group.softbank/media/Project/sbg/sbg/pdf/ir/financials/financial_reports/financial-report_q2fy2026_01_ja.pdf" target="_blank" rel="noopener">group.softbank</a>　時価純資産 — <a href="https://group.softbank/en/ir/stock/sotp" target="_blank" rel="noopener">group.softbank</a>　株式分割 — <a href="https://group.softbank/en/ir/stock/splits" target="_blank" rel="noopener">group.softbank</a>　ソフトバンク（通信）— <a href="https://www.softbank.jp/en/corp/news/press/sbkk/2026/20261109_01/" target="_blank" rel="noopener">softbank.jp</a></li>
+      <li><span class="st p2">報道</span>ソフトバンクグループ — <a href="https://www.cnbc.com/2026/11/10/softbank-2q-earnings-tech-selloff.html" target="_blank" rel="noopener">CNBC（決算）</a>／<a href="https://www.cnbc.com/2026/09/24/softbank-shares-bond-issuance-openai.html" target="_blank" rel="noopener">CNBC（社債）</a>／<a href="https://www.nikkei.com/article/DGXZQOFL110P10R11C26A1000000/" target="_blank" rel="noopener">日本経済新聞</a>　株価 — <a href="https://finance.yahoo.co.jp/quote/9984.T/history" target="_blank" rel="noopener">Yahoo!ファイナンス</a></li>
+    </ul>
+  </div>
+  <div class="next">
+    <b>前回（後期 第6回・11/10）</b>　<a href="lecture_20261110.html">米中間選挙の結果、トランプ政権の対外政策、GAFAMの決算、年末に向けた市場動向、AIデータセンターと電力、6万円で買った銘柄、チーム別ポートフォリオ</a><br>
+    <b>関連</b>　<a href="lecture_20260825.html">第4回</a>（バリュー投資・安全余裕率）／<a href="lecture_20260901.html">第5回</a>（ネットキャッシュ比率）
+  </div>
+</footer>
+</div>
+</body>
+</html>
