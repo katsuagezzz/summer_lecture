@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>講義資料 後期 第7回｜2026年11月17日 APECと米中ロ首脳会談、日米株式市場、ゼミのポートフォリオ（IBM・ソフトバンクグループ）、AI資本の所有</title>
+<title>講義資料 後期 第7回｜2026年11月17日 APECと米中ロ首脳会談、日米株式市場、ゼミのポートフォリオ（IBM・ソフトバンクグループ）、AI資本の所有、NVIDIAショック、四季報秋号の12銘柄</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --ink2:#3f4855; --ink3:#6b7686;
@@ -666,6 +666,9 @@ mark.ok{color:inherit; padding:0 1px; border-radius:2px; background:rgba(0,168,1
 section.topic#s-apec{background:var(--sec-apec);}
 section.topic#s-pfz{background:var(--sec-pfz);}
 section.topic#s-ibm{background:var(--sec-ibm); border-top-color:var(--corp);}
+section.topic#s-sk{background:var(--sec-pfz); border-top-color:var(--bridge);}
+table.cmp td.n{font-variant-numeric:tabular-nums; white-space:nowrap; text-align:right;}
+section.topic#s-nv{background:var(--sec-ibm); border-top-color:var(--corp);}
 section.topic#s-sbg{background:var(--sec-sbg); border-top-color:#8a3ffc;}
 #s-sbg .badge.corp{background:#8a3ffc;}
 section.topic#s-ai{background:var(--sec-pfz); border-top-color:var(--bridge);}
@@ -684,7 +687,7 @@ section.topic#s-ai{background:var(--sec-pfz); border-top-color:var(--bridge);}
 </div>
 <header class="masthead">
   <div class="vol">LECTURE HANDOUT ／ 講義資料　後期 第7回</div>
-  <h1 class="title">APECと米中ロ首脳会談、日米株式市場、ゼミのポートフォリオ（IBM・ソフトバンクグループ）、AI資本の所有</h1>
+  <h1 class="title">APECと米中ロ首脳会談、日米株式市場、ゼミのポートフォリオ（IBM・ソフトバンクグループ）、AI資本の所有、NVIDIAショック、四季報秋号の12銘柄</h1>
   <div class="meta">
     <span><b>講義</b>　2026年11月17日（火）16:20から</span>
     <span><b>作成</b>　2026年11月16日（月）</span>
@@ -707,6 +710,8 @@ section.topic#s-ai{background:var(--sec-pfz); border-top-color:var(--bridge);}
     <li><a href="#s-ibm">IBM の部門別利益率・MOAT・ネットキャッシュ比率（2026年9月末）</a> <span class="s">― 部門別利益率は図2。問7〜問9</span></li>
     <li><a href="#s-sbg">ソフトバンクグループの中間決算・時価純資産・MOAT（2026年9月末）</a> <span class="s">― 時価純資産と時価総額は図3。問10〜問12</span></li>
     <li><a href="#s-ai">AI資本の所有と分配（エミン・ユルマズの論考、2026年11月）</a> <span class="s">― 論旨、金利の論文、2つの分配の制度。問13〜問15</span></li>
+    <li><a href="#s-nv">NVIDIAショックの4つの柱（エミン・ユルマズの論考、2026年11月）</a> <span class="s">― 辞任から決算までの年表、要約と照合。問16〜問18</span></li>
+    <li><a href="#s-sk">四季報秋号の12銘柄と銘柄選定の条件（2026年秋）</a> <span class="s">― 論旨、選定の4条件、12銘柄の表。問19〜問21</span></li>
   </ol>
 </nav>
 
@@ -1043,6 +1048,136 @@ section.topic#s-ai{background:var(--sec-pfz); border-top-color:var(--bridge);}
   </ol>
 </section>
 
+<!-- ============ §7 NVIDIAショック ============ -->
+<section class="topic" id="s-nv">
+  <span class="badge corp">§7 論考</span>
+  <h2 class="thead">NVIDIAショックの4つの柱（エミン・ユルマズの論考、2026年11月）</h2>
+  <p class="sub">エミン・ユルマズ氏の「NVIDIAショック」の分析を、提供された<b>要約</b>で掲載（原典は特定できていない。候補は文春オンライン 11/14 の対談、日本経済新聞 11/16 のインタビュー、本人の note）。疑惑の部分は原文でも「報じられている」「調査待ち」とされ、断定していない。照合は2026年11月16日時点で、欄外に明記。</p>
+
+  <h3>実物：辞任から決算まで</h3>
+  <ul class="cal">
+    <li class="hot"><span class="d">11/12</span><span class="c">NVIDIA が8-Kでフアン CEO の辞任を開示。財務責任者のコレット・クレス氏が暫定 CEO。同日の NVIDIA 株は一時14％安、終値 −4.3％<span class="st p1">一次</span></span></li>
+    <li><span class="d">11/12</span><span class="c">日経平均 429円安。アドバンテストだけで約313円の押し下げ<span class="st p2">報道</span></span></li>
+    <li class="hot"><span class="d">11/16</span><span class="c">日経平均 1,480円安の59,662円（6万円割れ）。アドバンテストと東京エレクトロンの2銘柄で約1,071円の押し下げ<span class="st p2">報道</span></span></li>
+    <li><span class="d">11/17（米国）</span><span class="c">NVIDIA の決算（日本時間11/18 早朝）。会社見通しは売上1,080億ドル ±2％<span class="st p2">報道</span></span></li>
+  </ul>
+
+  <h3>要約と照合</h3>
+  <div class="legend">
+    <span class="lg"><mark class="ok">　</mark><span class="mk ok">一致</span>出典どおり（2）</span>
+    <span class="lg"><mark class="ng">　</mark><span class="mk ng">相違</span>出典と違う（1）</span>
+    <span class="lg"><mark class="sm">　</mark><span class="mk sm">小差</span>範囲・時点の差（3）</span>
+    <span class="lg"><mark class="ev">　</mark><span class="mk ev">評価</span>筆者の見方（2）</span>
+  </div>
+  <span class="artlbl">要約</span>
+  <div class="ar">
+    <p class="tx"><mark class="ev">NVIDIAショックは CEO 辞任のスキャンダルではなく国家安全保障の問題で、AIブームの構造的な弱点が表面化したもの。半導体の売りは米議会の規制の中身がはっきりするまで続きうるが、明確になれば反発に転じる</mark>。</p>
+    <div class="mg"><div class="nn ev"><span class="mk ev">評価</span><b>結論</b>　筆者の見方。照合の対象外。</div></div>
+  </div>
+  <div class="ar">
+    <p class="tx"><b>①議会と輸出規制</b>　<mark class="sm">FT によると、議会が超党派で対中 AI 半導体の規制強化の法案を進める。輸出だけでなく、海外のデータセンターの GPU をクラウド経由で使う行為も対象。政府の輸出許可を議会が審査・差し止めできる構想、フアン氏らへの証言要求、国防権限法への盛り込みの可能性</mark>。</p>
+    <div class="mg"><div class="nn sm"><span class="mk sm">小差</span><b>法案</b>　1本ではなく4本のパッケージ（議会審査の AI OVERWATCH 法、所在追跡の Chip Security 法など）。クラウド経由の利用を対象にする法案は下院を369対22で通過済み、上院で止まっている。証言は「聴取の要請」で、相手は NVIDIA の CEO・法務責任者・商務省の担当者。FT 本文は確かめていない。</div></div>
+  </div>
+  <div class="ar">
+    <p class="tx"><b>②Megaspeed の疑惑</b>　シンガポールの Megaspeed（元は中国のゲーム会社）の<mark class="ok">総資産が約3,300万ドルから約30億ドルへ急拡大</mark>し、<mark class="sm">GPU の購入が48億ドル超</mark>。第三国を経由すると最終の利用者が追えず、物理的な輸出規制だけでは止められない。<mark class="sm">NVIDIA の地域別売上（シンガポール向け約22％）の集計基準の変更</mark>にも触れるが、「ただちに不正を意味しない」と留保。</p>
+    <div class="mg">
+      <div class="nn ok"><span class="mk ok">一致</span><b>総資産</b>　2023年 約3,289万ドル → 2024年 約29.75億ドル（シンガポールの登記書類、報道経由）。2015年に中国のゲーム会社の海外法人として設立、2023年に社名変更。</div>
+      <div class="nn sm"><span class="mk sm">小差</span><b>48億ドル</b>　貿易記録では「NVIDIA 製チップを搭載した AI 機器」で、うち GPU は約20億ドル（約13.6万個）との分析。Megaspeed は疑惑を否定、NVIDIA は「横流しの証拠なし」。</div>
+      <div class="nn sm"><span class="mk sm">小差</span><b>約22％</b>　2025年7月期の請求先ベースの値。出荷先としてのシンガポールは売上の2％未満。集計基準は2025年10月期から顧客の本社所在地に変わり、シンガポールの区分はなくなった（約1年前の変更）<span class="st p1">一次</span>。</div>
+    </div>
+  </div>
+  <div class="ar">
+    <p class="tx"><b>③AI 業界の資金循環</b>（筆者が最も重要とする柱）　NVIDIA が AI 企業に投資し、その企業が GPU を買う循環。<mark class="ng">Hunterbrook の分析では、支払いの約束・収入の保証・直接投資の合計が約5,420億ドル</mark>。最終需要でどこまで支えられているか、資金の供給が止まっても需要が続くかが最大のリスク。</p>
+    <div class="mg"><div class="nn ng"><span class="mk ng">相違</span><b>5,420億ドル</b>　Hunterbrook の集計（11/6 ごろ）は<b>約5,305億ドル</b>。<b>大半はメモリ・ウェハなど仕入れ先への調達の約束（約2,790億ドル）</b>で、AI 企業への出資ではない。OpenAI への最大1,000億ドルの出資案は含まない。「5,400億ドル超」は Bloomberg の別の集計。</div></div>
+  </div>
+  <div class="ar">
+    <p class="tx"><b>④政治リスク</b>　<mark class="ok">中間選挙でデータセンターへの反発（電力・水・料金）が争点になった</mark>。AI 産業そのものが規制の対象になる時代に入った。</p>
+    <div class="mg"><div class="nn ok"><span class="mk ok">一致</span><b>中間選挙</b>　地方の住民投票41件のうち40件で、データセンターを制限する側が勝った。争点の中心は電気料金で、水は副次的。</div></div>
+  </div>
+  <div class="ar">
+    <p class="tx"><b>日本株</b>　<mark class="ev">東京エレクトロン・アドバンテスト・ディスコは、設備投資の下方修正があれば、業績が悪くなる前に株価が調整しうる。ただし日本株全体の長期上昇のシナリオ（ガバナンス改革・株主還元）は崩れていない。AI 関連とそれ以外を分け、織り込まれた成長期待を見極めること</mark>。</p>
+    <div class="mg"><div class="nn ev"><span class="mk ev">評価</span><b>日本株</b>　筆者の見方。11/5 には日経平均が下がり TOPIX が上がった（後期 第6回 §1）。</div></div>
+  </div>
+
+  <h3>問い</h3>
+  <ol class="q">
+    <li><b>NVIDIA の約束の総額 約5,305億ドルのうち、「AI 企業への出資」と「仕入れ先への調達の約束」はどちらが大きいか。筆者の言う「資金循環」に当てはまるのはどちらか。</b>
+      <span class="hint"><span class="lb">着地点</span>欄外の照合。<b>出資した相手が自社の製品を買うのが循環、部品を買う約束は通常の仕入れ。</b>後期 第5回 §4 の Anthropic の支払い約束 約4,170億ドル、後期 第6回 §3 の受注残と同じく、約束の中身を分けて読む。</span></li>
+    <li><b>「規制の中身がはっきりすれば反発する」のはなぜか。悪いニュースが確定しても株価が上がる仕組みを1行で。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260901.html">第5回</a>の「予想との差で値段が動く」。<b>分からない間は最悪の場合まで値段に入る。中身が決まれば、最悪よりましな分だけ戻る。</b></span></li>
+    <li><b>ゼミのソフトバンクグループは「AI 関連」か「それ以外」か。筆者の4つの柱のうち、ソフトバンクグループに最も効くのはどれか。</b>
+      <span class="hint"><span class="lb">着地点</span>§5 の時価純資産の内訳（Arm 約54％、OpenAI を持つ SVF2 約28％）。<b>③の資金循環：OpenAI への出資と社債の調達は、AI への資金供給そのもの。</b>11/16 にソフトバンクグループは約 −4％。</span></li>
+  </ol>
+</section>
+
+<!-- ============ §8 四季報秋号 ============ -->
+<section class="topic" id="s-sk">
+  <span class="badge bridge">§8 論考</span>
+  <h2 class="thead">四季報秋号の12銘柄と銘柄選定の条件（2026年秋、株価は9/29 終値）</h2>
+  <p class="sub">会社四季報の秋号（2026年4集）をもとにした銘柄選びの論考を、提供された<b>要約</b>と記事の図表の内容で掲載（筆者・掲載日・媒体は未確認）。図表は記事の画像を元に組み直した。数字は記事の値で、照合していない。</p>
+
+  <h3>論旨</h3>
+  <ul class="cal">
+    <li><span class="d">結論</span><span class="c">秋相場は「銘柄ピッカーの相場」。指数は最高値圏で、日経平均は年末6万円台なら「御の字」。AI トレードが一巡し、ファンダメンタルズの強い割安株が物色されやすい</span></li>
+    <li><span class="d">四季報の評価</span><span class="c">秋号の5段階評価が2年ぶりに「買い」。秋号が「買い」の年は翌年の上昇が目立った傾向</span></li>
+    <li><span class="d">四季報の数字</span><span class="c">新高値1,010社 対 新安値60社、上方修正1,050社（約26％）。ただしデータは2〜3週間前の情報で、日足でトレンドを確認する</span></li>
+    <li class="hot"><span class="d">業種</span><span class="c">今期の伸びは輸送用機器 ＋51％、鉱業 ＋37％、製造業 ＋31％、電気機器 ＋18％。<b>全産業では今期 ＋23％ → 来期 ＋5％前後に減速</b>。「今期の急増を追うな」</span></li>
+    <li><span class="d">来期も二桁増益</span><span class="c">輸送用機器、電気・ガス、医薬品（来期 ＋20％前後）、電気機器、鉄鋼（＋15％）、サービス業。化学も来期 ＋12％へ改善</span></li>
+  </ul>
+
+  <h3>銘柄選定の主な条件</h3>
+  <div class="kpis">
+    <div class="kpi c"><div class="k">① 業績</div><div class="v">良い・回復局面</div><div class="n">業績が良い、または回復局面にある企業</div></div>
+    <div class="kpi m"><div class="k">② 財務</div><div class="v">自己資本比率 50％以上</div><div class="n">一つの基準。少し下回っても問題はない</div></div>
+    <div class="kpi c"><div class="k">③ 株主還元</div><div class="v">配当・自社株買い</div><div class="n">株主還元が厚い</div></div>
+    <div class="kpi m"><div class="k">④ 割安感</div><div class="v">PBR など</div><div class="n">PBR（株価純資産倍率）などから見て割高感が小さい</div></div>
+  </div>
+  <div class="twocol">
+    <div class="card d">
+      <div class="ch">＋ テーマ株の組み合わせ</div>
+      <p>GSX（4417）・JBCC（9889）のような高ROE（自己資本利益率）・高成長のテーマ株も組み合わせる</p>
+    </div>
+    <div class="card b">
+      <div class="ch">＋ チャートの形も重視</div>
+      <p>会社四季報の月足チャートで強気のトレンドを示す銘柄を選ぶ</p>
+      <p>最新の日足チャートでトレンドが崩れていないことを確かめる</p>
+    </div>
+  </div>
+  <p class="unsure">「クオリティ ＋ バリュー ＋ 株主還元」が中心で、そこにテーマ株を少し加えた形（記事の説明）。</p>
+
+  <h3>12銘柄（2026年4集・秋号）</h3>
+  <div class="tblwrap">
+  <table class="cmp">
+    <thead><tr><th>コード・会社名</th><th>選定理由（記事）</th><th>時価総額<br>（億円）</th><th>株価<br>（9/29）</th><th>PBR</th><th>配当<br>利回り</th></tr></thead>
+    <tbody>
+      <tr><td class="h">2489 アドウェイズ</td><td>業績急回復。無借金のキャッシュリッチ企業。配当利回りは3％弱で積極的な株主還元</td><td class="n">173</td><td class="n">413</td><td class="n">1.1</td><td class="n">2.9％</td></tr>
+      <tr><td class="h">2801 キッコーマン</td><td>海外の日本食ブームと値上げで業績堅調。ROE は二桁の優良大型食品企業</td><td class="n">15,961</td><td class="n">1,646</td><td class="n">2.7</td><td class="n">1.5％</td></tr>
+      <tr><td class="h">2908 フジッコ</td><td>業績堅調で無借金のキャッシュリッチ企業。PBR と PSR は1倍割れの割安企業</td><td class="n">472</td><td class="n">1,574</td><td class="n">0.6</td><td class="n">2.9％</td></tr>
+      <tr><td class="h">3028 アルペン</td><td>業績堅調で実質借金ゼロ。連続増配。PBR と PSR は1倍割れ</td><td class="n">908</td><td class="n">2,336</td><td class="n">0.7</td><td class="n">2.6％</td></tr>
+      <tr><td class="h">3504 丸八ホールディングス</td><td>業績堅調で自己資本比率74％。PBR 0.4倍。配当利回りは3％超</td><td class="n">230</td><td class="n">1,391</td><td class="n">0.4</td><td class="n">3.6％</td></tr>
+      <tr><td class="h">4417 グローバルセキュリティパートナーズ</td><td>業績堅調で予想ROE 60％。AI を使ったサイバーセキュリティ対策で伸びる。優良テーマ株</td><td class="n">835</td><td class="n">5,460</td><td class="n">18.4</td><td class="n">0.9％</td></tr>
+      <tr><td class="h">4746 東計電算</td><td>業績堅調で無借金。自己資本比率80％、配当利回り6％超</td><td class="n">1,458</td><td class="n">1,950</td><td class="n">2.4</td><td class="n">6.1％</td></tr>
+      <tr><td class="h">6306 日工</td><td>業績堅調で実質借金ゼロ。配当利回り4％超。PBR はちょうど1倍、PSR は1倍割れ</td><td class="n">400</td><td class="n">1,001</td><td class="n">1.0</td><td class="n">4.2％</td></tr>
+      <tr><td class="h">6592 マブチモーター</td><td>業績堅調で実質無借金のキャッシュリッチ企業。配当基準を引き上げ、予想配当利回り4％超</td><td class="n">4,466</td><td class="n">1,713</td><td class="n">1.2</td><td class="n">4.1％</td></tr>
+      <tr><td class="h">7733 オリンパス</td><td>業績急反発で予想ROE 13％。AI 関連ではない優良ディフェンシブ企業</td><td class="n">22,585</td><td class="n">2,026</td><td class="n">2.9</td><td class="n">1.5％</td></tr>
+      <tr><td class="h">9304 澁澤倉庫</td><td>業績V字回復、新事業にも期待。自己資本比率50％超、配当利回り4％超</td><td class="n">1,307</td><td class="n">2,148</td><td class="n">1.7</td><td class="n">4.2％</td></tr>
+      <tr><td class="h">9889 JBCCホールディングス</td><td>過去3期増収増益。実質無借金でROE 24％超。サイバーセキュリティ関連のテーマ銘柄</td><td class="n">1,219</td><td class="n">1,715</td><td class="n">4.2</td><td class="n">3.5％</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="unsure">記事の表を組み直したもの。株価・時価総額・PBR・配当利回りは9/29 の終値ベースで、講義日の値ではない<span class="st p2">報道</span>。</p>
+
+  <h3>問い</h3>
+  <ol class="q">
+    <li><b>ゼミの2銘柄に、この記事の4つの条件を当てはめる。IBM とソフトバンクグループは、どの条件を満たし、どの条件で落ちるか。</b>
+      <span class="hint"><span class="lb">着地点</span>§4・§5。ソフトバンクグループの自己資本比率は約24％（9月末）、PBR 約1.2倍。IBM は配当利回り約2.7％だが、有利子負債が638億ドル。<b>2銘柄とも「② 財務」で落ちる。</b>記事は「クオリティ＋バリュー＋還元」、ゼミの2銘柄は「AI・成長への賭け」。</span></li>
+    <li><b>全産業の利益は今期 ＋23％、来期 ＋5％前後。「今期の急増を追うな」はなぜか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260901.html">第5回</a>の「予想との差で値段が動く」。<b>株価は来期の利益を先に織り込む。</b>今期が良くても来期が鈍れば、株価は今期の数字に反応しない。</span></li>
+    <li><b>12銘柄から1社を選び、清原式のネットキャッシュ比率を出す。PBR の低い銘柄（丸八 0.4倍、フジッコ 0.6倍）ほど、ネットキャッシュ比率は高いか。</b>
+      <span class="hint"><span class="lb">着地点</span><a href="lecture_20260901.html">第5回</a>のネットキャッシュ比率と<a href="lecture_20260825.html">第4回</a>のシケモク投資。<b>PBR は純資産全体、ネットキャッシュは現金に近い資産だけを見る。</b>工場・土地の多い会社は PBR が低くてもネットキャッシュ比率は低い。EDINET で決算書を開く。</span></li>
+  </ol>
+</section>
+
 <footer>
   <h2>数字の扱いについて</h2>
   <ul>
@@ -1054,6 +1189,8 @@ section.topic#s-ai{background:var(--sec-pfz); border-top-color:var(--bridge);}
     <li><b>§5 の部門別の数字は説明資料の読み取りで、確度が低い。</b>11/9 の時価純資産は試算。時価総額は推計。</li>
     <li><b>§6 は有料記事の要約。</b>本文は転載していない。論文の「短期金利10％超」はモデルの条件次第の試算で、予測ではない。筆者の見方と論文の内容を分けて書いた。</li>
     <li><b>ゼミ生の氏名は載せていない。</b>ポートフォリオはゼミとして共同で持つ口座。</li>
+      <li><b>§7 はエミン・ユルマズ氏の論考の要約</b>（提供された要約。原典は特定できていない）。照合は検索結果の要約によるもので、FT・Hunterbrook・SEC の原文は開けていない。疑惑は報道・調査中の段階。</li>
+      <li><b>§8 は四季報秋号をもとにした論考の要約と、記事の図表を組み直したもの。</b>筆者・掲載日・媒体は未確認。12銘柄の数字は9/29 終値ベースで、照合していない。</li>
   </ul>
   <div class="src">
     <b>出典</b>
@@ -1065,6 +1202,9 @@ section.topic#s-ai{background:var(--sec-pfz); border-top-color:var(--bridge);}
       <li><span class="st p1">一次</span>ソフトバンクグループ 中間決算短信 — <a href="https://group.softbank/media/Project/sbg/sbg/pdf/ir/financials/financial_reports/financial-report_q2fy2026_01_ja.pdf" target="_blank" rel="noopener">group.softbank</a>　時価純資産 — <a href="https://group.softbank/en/ir/stock/sotp" target="_blank" rel="noopener">group.softbank</a>　株式分割 — <a href="https://group.softbank/en/ir/stock/splits" target="_blank" rel="noopener">group.softbank</a>　ソフトバンク（通信）— <a href="https://www.softbank.jp/en/corp/news/press/sbkk/2026/20261109_01/" target="_blank" rel="noopener">softbank.jp</a></li>
       <li><span class="st p2">報道</span>ソフトバンクグループ — <a href="https://www.cnbc.com/2026/11/10/softbank-2q-earnings-tech-selloff.html" target="_blank" rel="noopener">CNBC（決算）</a>／<a href="https://www.cnbc.com/2026/09/24/softbank-shares-bond-issuance-openai.html" target="_blank" rel="noopener">CNBC（社債）</a>／<a href="https://www.nikkei.com/article/DGXZQOFL110P10R11C26A1000000/" target="_blank" rel="noopener">日本経済新聞</a>　株価 — <a href="https://finance.yahoo.co.jp/quote/9984.T/history" target="_blank" rel="noopener">Yahoo!ファイナンス</a></li>
       <li><span class="st p3">解説</span>エミン・ユルマズ — <a href="https://note.com/eminyurumazu/n/na0137c8b0cce" target="_blank" rel="noopener">EM384（前編）</a>／<a href="https://note.com/eminyurumazu/n/n960b9dedb7a4" target="_blank" rel="noopener">EM385（後編）</a>（note・有料）　<span class="st p1">一次</span>論文 — <a href="https://arxiv.org/abs/2502.11264" target="_blank" rel="noopener">arXiv:2502.11264</a>　アラスカ州 — <a href="https://pfd.alaska.gov/Division-Info/About-Us" target="_blank" rel="noopener">pfd.alaska.gov</a>　ノルウェー — <a href="https://www.nbim.no/en/about-us/about-the-fund/" target="_blank" rel="noopener">nbim.no</a></li>
+      <li><span class="st p1">一次</span>NVIDIA の CEO 交代（8-K） — <a href="https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm" target="_blank" rel="noopener">SEC EDGAR</a>　クラウド経由の利用を対象にする法案 — <a href="https://chinaselectcommittee.house.gov/media/press-releases/house-passes-bipartisan-legislation-to-limit-adversaries-remote-access-to-critical-technology" target="_blank" rel="noopener">下院中国特別委員会</a></li>
+      <li><span class="st p2">報道</span>議会の動き — <a href="https://www.semafor.com/article/11/12/2026/a-high-probability-congress-pushes-tighter-export-controls-following-nvidia-scandal" target="_blank" rel="noopener">Semafor</a>　Megaspeed — <a href="https://mothership.sg/2026/11/what-is-megaspeed/" target="_blank" rel="noopener">Mothership</a>　Hunterbrook — <a href="https://hntrbrk.com/investigations/nvidia" target="_blank" rel="noopener">hntrbrk.com</a>　データセンターの住民投票 — <a href="https://fortune.com/2026/11/13/voters-data-centers-ballot-measures-midterms" target="_blank" rel="noopener">Fortune</a></li>
+      <li><span class="st p2">報道</span>エミン・ユルマズ氏の論考の候補 — <a href="https://news.yahoo.co.jp/articles/ba5b22ab1cb4d74fa3342436df27d75135afbb76" target="_blank" rel="noopener">文春オンライン（11/14）</a>／<a href="https://www.nikkei.com/article/DGXZQOUB137MO0T11C26A1000000/" target="_blank" rel="noopener">日本経済新聞（11/16）</a>　11/16 の日経平均 — <a href="https://www.zaikei.co.jp/article/20261116/877828.html" target="_blank" rel="noopener">財経新聞</a></li>
     </ul>
   </div>
   <div class="next">
