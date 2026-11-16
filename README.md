@@ -26,7 +26,7 @@
 
 | 回 | 講義日 | テーマ | ファイル |
 |---|---|---|---|
-| 後期 第7回 | 2026-11-17 | APEC・米中ロ首脳会談、日米株式市場、IBM、ソフトバンクグループ | [HTML](lectures/lecture_20261117.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20261117.html) |
+| 後期 第7回 | 2026-11-17 | APEC・米中ロ首脳会談、日米株式市場、IBM、ソフトバンクグループ、AI資本 | [HTML](lectures/lecture_20261117.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20261117.html) |
 | 後期 第6回 | 2026-11-10 | 米中間選挙の結果、トランプ政権の対外政策、GAFAMの決算、年末に向けた市場動向、AIデータセンターと電力、6万円で買った銘柄、チーム別ポートフォリオ | [HTML](lectures/lecture_20261110.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20261110.html) |
 | 後期 第5回 | 2026-10-27 | 中間選挙、大手テック決算、Anthropic上場申請、オプション、先物、チーム別ポートフォリオ | [HTML](lectures/lecture_20261027.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20261027.html) |
 | 後期 第4回 | 2026-10-20 | フランス国債、IMF、マネタリーベース、裁定取引、バタフライ、チーム別ポートフォリオ | [HTML](lectures/lecture_20261020.html) ・ [Pages](https://katsuagezzz.github.io/summer_lecture/lectures/lecture_20261020.html) |
