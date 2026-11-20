@@ -607,6 +607,8 @@ section.topic#s-elec{background:var(--sec-elec);}
 section.topic#s-earn{background:var(--sec-earn); border-top-color:var(--corp);}
 section.topic#s-ai{background:var(--sec-ai); border-top-color:#8a3ffc;}
 section.topic#s-pf{background:var(--sec-pf);}
+pre.prompt{white-space:pre-wrap; word-break:break-all; font-family:inherit; font-size:14px; line-height:1.75; background:var(--panel); border:2px dashed var(--line); border-radius:10px; padding:14px 16px; margin:8px 0 10px; color:var(--ink);}
+pre.prompt a{color:var(--macro);}
 section.topic#s-fut{background:var(--sec-fut); border-top-color:#c27c00;}
 section.topic#s-opt{background:var(--sec-opt); border-top-color:#8a3ffc;}
 table.cmp td.n{font-variant-numeric:tabular-nums; white-space:nowrap; text-align:right;}
@@ -716,7 +718,7 @@ section.topic#s-pf{background:var(--sec-pf);}
   <ol>
     <li><a href="#s-apec">APEC・米中ロ首脳会談の結果（深圳、11/19）</a> <span class="s">― 冒頭に宿題1行。米中会談と3首脳会談のカード。問1・問2</span></li>
     <li><a href="#s-geo">台湾・イラン・AI・宇宙の見通しと日本株（2026年11月）</a> <span class="s">― 4つの見通しのカード、日経平均は図1。問3〜問5</span></li>
-    <li><a href="#s-work">2027年の投資見通しの比較（18社）</a> <span class="s">― AI に入れるプロンプトと18社のリンク</span></li>
+    <li><a href="#s-work">2027年の投資見通しの比較（18社）</a> <span class="s">― AI に入れるプロンプト（18社のリンクつき）</span></li>
     <li><a href="#s-pfz">ゼミのポートフォリオの進捗（購入から11/19 まで）</a> <span class="s">― 評価額は図2。問6・問7</span></li>
     <li><a href="#s-pf">チーム別の発表（3チーム・11/17から11/24まで）</a> <span class="s">― TradingView の3リンクと記入欄。問8・問9</span></li>
   </ol>
@@ -841,31 +843,46 @@ section.topic#s-pf{background:var(--sec-pf);}
 <section class="topic" id="s-work">
   <span class="badge word">§3 ワーク</span>
   <h2 class="thead">2027年の投資見通しの比較（18社）</h2>
-  <p class="sub">下のプロンプトを AI に入れ、各自で比較の資料を作る（宿題）。18社の資料はリンク先の PDF・記事。</p>
-  <h3>AI に入れるプロンプト</h3>
-  <div class="hw">
-    <div class="hwttl" style="font-size:15px;line-height:1.8">作りたいスペースのテーマは 2027年の投資テーマです。下記投資会社の戦略を明確に要点をまとめて。なるべく箇条書き。各投資会社の戦略の違い、（分野、アロケーション、地政学予測、金額）など投資戦略を分析して比較できるようにして</div>
-  </div>
-  <h3>18社の2027年見通し</h3>
-  <ul class="cal">
-    <li><span class="d">JPモルガンAM</span><span class="c"><a href="https://cdn.jpmorganfunds.com/content/dam/jpm-am-aem/global/en/insights/market-insights/investment-outlook-2027.pdf" target="_blank" rel="noopener">投資見通し2027</a>　／　<a href="https://am.jpmorgan.com/content/dam/jpm-am-aem/asiapacific/regional/en/insights/market-insights/market-outlook-2027/MI-Market%20Outlook%202027.pdf" target="_blank" rel="noopener">市場見通し2027（アジア太平洋）</a></span></li>
-    <li><span class="d">モルガン・スタンレー</span><span class="c"><a href="https://morganstanley.com/insights/articles/stock-market-investment-outlook-2027" target="_blank" rel="noopener">2027年グローバル投資見通し</a></span></li>
-    <li><span class="d">UBS</span><span class="c"><a href="https://lnkd.in/gjiVt_gp" target="_blank" rel="noopener">今後1年の展望</a>（LinkedIn の短縮リンク）</span></li>
-    <li><span class="d">ゴールドマン・サックス</span><span class="c"><a href="https://gspublishing.com/content/research/en/reports/2026/11/12/20639be2-7e87-4525-a462-ece229e47acb.pdf" target="_blank" rel="noopener">2027年グローバル市場見通し</a>　／　<a href="https://gspublishing.com/content/research/en/reports/2026/11/12/0c0ea955-0dca-4122-bf64-1ba3ee02be8b.pdf" target="_blank" rel="noopener">マクロ経済見通し2027</a></span></li>
-    <li><span class="d">バークレイズPB</span><span class="c"><a href="https://privatebank.barclays.com/content/dam/privatebank-barclays-com/en-gb/private-bank/documents/insights/2026/outlook-2027/Barclays_Private_Bank_Outlook_2027.pdf" target="_blank" rel="noopener">見通し2027</a></span></li>
-    <li><span class="d">JPモルガンPB</span><span class="c"><a href="https://assets.jpmprivatebank.com/content/dam/jpm-pb-aem/global/en/custom/outlook-2027/documents/2027-annual-outlook.pdf" target="_blank" rel="noopener">見通し2027</a></span></li>
-    <li><span class="d">PGIM</span><span class="c"><a href="https://pgim.com/content/dam/pgim/us/en/pgim-center/active/documents/campaigns/PGIM_2027%20Global%20Market%20Outlook.pdf" target="_blank" rel="noopener">市場見通し2027</a></span></li>
-    <li><span class="d">DWS AM</span><span class="c"><a href="https://lnkd.in/gGcw9vDM" target="_blank" rel="noopener">2027年の10の投資テーマ</a>（LinkedIn の短縮リンク）</span></li>
-    <li><span class="d">HSBC PB</span><span class="c"><a href="https://hsbc.com.my/content/dam/hsbc/en/docs/wealth-insights/market-outlook/investment-outlook/think-future-2027.pdf" target="_blank" rel="noopener">シンク・フューチャー2027</a></span></li>
-    <li><span class="d">サンタンデール</span><span class="c"><a href="https://santander.com/content/dam/santander-com/es/contenido-paginas/sala-de-comunicacion/the-year-ahead-2027/the-year-ahead-2027-report.pdf" target="_blank" rel="noopener">今後1年の展望2027 ── 世界経済見通し</a></span></li>
-    <li><span class="d">インベスコ</span><span class="c"><a href="https://invesco.com/content/dam/invesco/hk/en/pdf/quicklink/invesco-2027-outlook-hk-nov-26-david-chao.pdf" target="_blank" rel="noopener">2027年投資見通し</a></span></li>
-    <li><span class="d">ING</span><span class="c"><a href="https://think.ing.com/uploads/pdf-replacements/Global_Macro_Outlook_2027.pdf" target="_blank" rel="noopener">市場見通し2027</a></span></li>
-    <li><span class="d">ニューバーガー・バーマン</span><span class="c"><a href="https://lnkd.in/gftwqtAq" target="_blank" rel="noopener">2027年</a>（LinkedIn の短縮リンク）</span></li>
-    <li><span class="d">ABNアムロ</span><span class="c"><a href="https://lnkd.in/gCp5__qp" target="_blank" rel="noopener">2027年グローバル経済見通し</a>（LinkedIn の短縮リンク）</span></li>
-    <li><span class="d">EFG</span><span class="c"><a href="https://assets.ctfassets.net/1u811bvgvthc/KsAQG92v2oQ85VqoY3B4m/ec19697c768241e49cecc71be5297a88/Global_Outlook_2027.pdf" target="_blank" rel="noopener">見通し2027</a></span></li>
-    <li><span class="d">コロンビア・スレッドニードル</span><span class="c"><a href="https://docs.columbiathreadneedle.com/documents/Multi-Asset%20Investment%20Outlook%202027%20-%20Technological%20tailwind,%20geopolitical%20headwind.pdf?inline=true" target="_blank" rel="noopener">マルチアセット投資見通し2027</a></span></li>
-  </ul>
-  <p class="unsure">ゴールドマン・サックスと JPモルガンAM は2本ずつ（計18本）。LinkedIn の短縮リンクはログインを求められることがある。</p>
+  <p class="sub">下の枠の文章を全文そのまま AI に入れ、各自で比較の資料を作る（宿題）。</p>
+  <h3>AI に入れるプロンプト（全文をそのままコピー）</h3>
+  <pre class="prompt">作りたいスペースのテーマは 2027年の投資テーマです。下記投資会社の戦略を明確に要点をまとめて。なるべく箇条書き。各投資会社の戦略の違い、（分野、アロケーション、地政学予測、金額）など投資戦略を分析して比較できるようにして
+
+JPモルガンAM 投資見通し2027：<a href="https://cdn.jpmorganfunds.com/content/dam/jpm-am-aem/global/en/insights/market-insights/investment-outlook-2027.pdf" target="_blank" rel="noopener">https://cdn.jpmorganfunds.com/content/dam/jpm-am-aem/global/en/insights/market-insights/investment-outlook-2027.pdf</a>
+
+モルガン・スタンレー 2027年グローバル投資見通し：<a href="https://morganstanley.com/insights/articles/stock-market-investment-outlook-2027" target="_blank" rel="noopener">https://morganstanley.com/insights/articles/stock-market-investment-outlook-2027</a>
+
+UBS 今後1年の展望：<a href="https://lnkd.in/gjiVt_gp" target="_blank" rel="noopener">https://lnkd.in/gjiVt_gp</a>
+
+ゴールドマン・サックス 2027年グローバル市場見通し：<a href="https://gspublishing.com/content/research/en/reports/2026/11/12/20639be2-7e87-4525-a462-ece229e47acb.pdf" target="_blank" rel="noopener">https://gspublishing.com/content/research/en/reports/2026/11/12/20639be2-7e87-4525-a462-ece229e47acb.pdf</a>
+
+バークレイズPB 見通し2027：<a href="https://privatebank.barclays.com/content/dam/privatebank-barclays-com/en-gb/private-bank/documents/insights/2026/outlook-2027/Barclays_Private_Bank_Outlook_2027.pdf" target="_blank" rel="noopener">https://privatebank.barclays.com/content/dam/privatebank-barclays-com/en-gb/private-bank/documents/insights/2026/outlook-2027/Barclays_Private_Bank_Outlook_2027.pdf</a>
+
+JPモルガンPB 見通し2027：<a href="https://assets.jpmprivatebank.com/content/dam/jpm-pb-aem/global/en/custom/outlook-2027/documents/2027-annual-outlook.pdf" target="_blank" rel="noopener">https://assets.jpmprivatebank.com/content/dam/jpm-pb-aem/global/en/custom/outlook-2027/documents/2027-annual-outlook.pdf</a>
+
+PGIM 市場見通し2027：<a href="https://pgim.com/content/dam/pgim/us/en/pgim-center/active/documents/campaigns/PGIM_2027%20Global%20Market%20Outlook.pdf" target="_blank" rel="noopener">https://pgim.com/content/dam/pgim/us/en/pgim-center/active/documents/campaigns/PGIM_2027%20Global%20Market%20Outlook.pdf</a>
+
+DWS AM 2027年の10の投資テーマ：<a href="https://lnkd.in/gGcw9vDM" target="_blank" rel="noopener">https://lnkd.in/gGcw9vDM</a>
+
+HSBC PB シンク・フューチャー2027：<a href="https://hsbc.com.my/content/dam/hsbc/en/docs/wealth-insights/market-outlook/investment-outlook/think-future-2027.pdf" target="_blank" rel="noopener">https://hsbc.com.my/content/dam/hsbc/en/docs/wealth-insights/market-outlook/investment-outlook/think-future-2027.pdf</a>
+
+サンタンデール 今後1年の展望2027 — 世界経済見通し：<a href="https://santander.com/content/dam/santander-com/es/contenido-paginas/sala-de-comunicacion/the-year-ahead-2027/the-year-ahead-2027-report.pdf" target="_blank" rel="noopener">https://santander.com/content/dam/santander-com/es/contenido-paginas/sala-de-comunicacion/the-year-ahead-2027/the-year-ahead-2027-report.pdf</a>
+
+ゴールドマン・サックス マクロ経済見通し2027 — 安定したベースシナリオと下振れリスク：<a href="https://gspublishing.com/content/research/en/reports/2026/11/12/0c0ea955-0dca-4122-bf64-1ba3ee02be8b.pdf" target="_blank" rel="noopener">https://gspublishing.com/content/research/en/reports/2026/11/12/0c0ea955-0dca-4122-bf64-1ba3ee02be8b.pdf</a>
+
+インベスコ 2027年投資見通し：<a href="https://invesco.com/content/dam/invesco/hk/en/pdf/quicklink/invesco-2027-outlook-hk-nov-26-david-chao.pdf" target="_blank" rel="noopener">https://invesco.com/content/dam/invesco/hk/en/pdf/quicklink/invesco-2027-outlook-hk-nov-26-david-chao.pdf</a>
+
+ING 市場見通し2027：<a href="https://think.ing.com/uploads/pdf-replacements/Global_Macro_Outlook_2027.pdf" target="_blank" rel="noopener">https://think.ing.com/uploads/pdf-replacements/Global_Macro_Outlook_2027.pdf</a>
+
+JPモルガンAM 市場見通し2027：<a href="https://am.jpmorgan.com/content/dam/jpm-am-aem/asiapacific/regional/en/insights/market-insights/market-outlook-2027/MI-Market%20Outlook%202027.pdf" target="_blank" rel="noopener">https://am.jpmorgan.com/content/dam/jpm-am-aem/asiapacific/regional/en/insights/market-insights/market-outlook-2027/MI-Market%20Outlook%202027.pdf</a>
+
+ニューバーガー・バーマン 2027年：<a href="https://lnkd.in/gftwqtAq" target="_blank" rel="noopener">https://lnkd.in/gftwqtAq</a>
+
+ABNアムロ 2027年グローバル経済見通し：<a href="https://lnkd.in/gCp5__qp" target="_blank" rel="noopener">https://lnkd.in/gCp5__qp</a>
+
+EFG 見通し2027：<a href="https://assets.ctfassets.net/1u811bvgvthc/KsAQG92v2oQ85VqoY3B4m/ec19697c768241e49cecc71be5297a88/Global_Outlook_2027.pdf" target="_blank" rel="noopener">https://assets.ctfassets.net/1u811bvgvthc/KsAQG92v2oQ85VqoY3B4m/ec19697c768241e49cecc71be5297a88/Global_Outlook_2027.pdf</a>
+
+コロンビア・スレッドニードル マルチアセット投資見通し2027：<a href="https://docs.columbiathreadneedle.com/documents/Multi-Asset%20Investment%20Outlook%202027%20-%20Technological%20tailwind,%20geopolitical%20headwind.pdf?inline=true" target="_blank" rel="noopener">https://docs.columbiathreadneedle.com/documents/Multi-Asset%20Investment%20Outlook%202027%20-%20Technological%20tailwind,%20geopolitical%20headwind.pdf?inline=true</a></pre>
+  <p class="unsure">18本のうち、ゴールドマン・サックスと JPモルガンAM は2本ずつ。LinkedIn の短縮リンク（lnkd.in）はログインを求められることがある。</p>
   <div class="rel"><b>比べる軸</b>　分野（どの業種・資産）、配分（株・債券・現金・代替の割合）、地政学の予測（台湾・イラン・米中・関税）、金額（成長率・目標値・利回り）。<b>各社の数字は出典のページと一緒に書く。AI がまとめた数字は、PDF の該当ページで確かめる。</b></div>
 </section>
 
