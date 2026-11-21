@@ -607,6 +607,7 @@ section.topic#s-elec{background:var(--sec-elec);}
 section.topic#s-earn{background:var(--sec-earn); border-top-color:var(--corp);}
 section.topic#s-ai{background:var(--sec-ai); border-top-color:#8a3ffc;}
 section.topic#s-pf{background:var(--sec-pf);}
+.shots.wide{grid-template-columns:1fr; gap:14px;}
 pre.prompt{white-space:pre-wrap; word-break:break-all; font-family:inherit; font-size:14px; line-height:1.75; background:var(--panel); border:2px dashed var(--line); border-radius:10px; padding:14px 16px; margin:8px 0 10px; color:var(--ink);}
 pre.prompt a{color:var(--macro);}
 section.topic#s-fut{background:var(--sec-fut); border-top-color:#c27c00;}
@@ -720,7 +721,7 @@ section.topic#s-pf{background:var(--sec-pf);}
     <li><a href="#s-geo">台湾・イラン・AI・宇宙の見通しと日本株（2026年11月）</a> <span class="s">― 4つの見通しのカード、日経平均は図1。問3〜問5</span></li>
     <li><a href="#s-work">2027年の投資見通しの比較（18社）</a> <span class="s">― AI に入れるプロンプト（18社のリンクつき）</span></li>
     <li><a href="#s-pfz">ゼミのポートフォリオの進捗</a> <span class="s">― ポートフォリオのページへのリンク。問6・問7</span></li>
-    <li><a href="#s-pf">チーム別の発表（3チーム・11/17から11/24まで）</a> <span class="s">― TradingView の3リンクと記入欄。問8・問9</span></li>
+    <li><a href="#s-pf">チーム別の発表（3チーム・11/17から11/24まで）</a> <span class="s">― TradingView の3リンク、各チームの推移は図2、発表の4点。問8・問9</span></li>
   </ol>
 </nav>
 
@@ -900,19 +901,25 @@ EFG 見通し2027：<a href="https://assets.ctfassets.net/1u811bvgvthc/KsAQG92v2
 <section class="topic" id="s-pf">
   <span class="badge bridge">§5 チーム</span>
   <h2 class="thead">チーム別の発表（3チーム・11/17から11/24まで）</h2>
-  <p class="sub">各チーム、自分のリンクを開いて結果を記入し、発表する。</p>
+  <p class="sub">各チーム、自分のリンクを開いて結果を発表する。</p>
   <div class="pf">
     <a href="https://jp.tradingview.com/portfolios/96d42da1b31d4f47b13c34536ff7f36e/" target="_blank" rel="noopener"><span class="tm">Aチーム</span><span class="u">jp.tradingview.com/portfolios/96d42da1…</span></a>
     <a class="b" href="https://jp.tradingview.com/portfolios/12725df68d9d44b79c1d2e74b1b9eb85/" target="_blank" rel="noopener"><span class="tm">Bチーム</span><span class="u">jp.tradingview.com/portfolios/12725df6…</span></a>
     <a class="c" href="https://www.tradingview.com/portfolios/2fd709d801b343a2935bca992c72e9ce/" target="_blank" rel="noopener"><span class="tm">Cチーム</span><span class="u">www.tradingview.com/portfolios/2fd709d8…</span></a>
   </div>
-  <h3>結果の記入欄</h3>
-  <div class="entry"><b>Aチーム</b>　前回比 <span class="blank">　　</span>％（基準日 <span class="blank">　　</span>・評価通貨 <span class="blank">　　</span>）　比率が最大の銘柄の比率 <span class="blank">　　</span>％</div>
-  <div class="entry"><b>Bチーム</b>　前回比 <span class="blank">　　</span>％（基準日 <span class="blank">　　</span>・評価通貨 <span class="blank">　　</span>）　比率が最大の銘柄の比率 <span class="blank">　　</span>％</div>
-  <div class="entry"><b>Cチーム</b>　前回比 <span class="blank">　　</span>％（基準日 <span class="blank">　　</span>・評価通貨 <span class="blank">　　</span>）　比率が最大の銘柄の比率 <span class="blank">　　</span>％</div>
+  <h3>各チームのポートフォリオの推移</h3>
+  <div class="fig">
+    <div class="shots wide">
+      <figure><img src="img/20261124/fig_02a_team_a.jpg" alt="Aチームのポートフォリオの推移（6か月）。8月から10月に大きく増え、11月に入って急落し、11/20 前後に約 −6.7万" loading="lazy"><figcaption>Aチーム（6か月・損益）</figcaption></figure>
+      <figure><img src="img/20261124/fig_02b_team_b.jpg" alt="Bチームのポートフォリオの推移（3か月）。9月から10月上旬にプラス、10月中旬以降に下げ、11/20 前後に約 −5.9万" loading="lazy"><figcaption>Bチーム（3か月・損益）</figcaption></figure>
+      <figure><img src="img/20261124/fig_02c_team_c.jpg" alt="Cチームのポートフォリオの推移（3か月）。評価額は約10万ドルから11月中旬に急落し、約6.9万ドル" loading="lazy"><figcaption>Cチーム（3か月・評価額・米ドル）</figcaption></figure>
+    </div>
+    <div class="cap">図2　<b>TradingView の各チームのポートフォリオの画面（2026年11月20〜21日）</b>。<b>A・B は損益（評価額の増減）、C は評価額（米ドル）で、縦軸の意味と期間がそろっていない</b>。グラフの部分だけを切り出し、保有銘柄の一覧とアカウント名は載せていない。</div>
+  </div>
+
   <h3>発表の4点</h3>
   <ol class="chain">
-    <li><b>前回比 ±%</b>　基準日と評価通貨を必ず言う。同じ期間の日経平均（図1）と並べる</li>
+    <li><b>前回比 ±%</b>　基準日と評価通貨を必ず言う。同じ期間の日経平均（図1）と、自チームのグラフ（図2）を並べる</li>
     <li><b>配分</b>　業種ごと・国（通貨）ごとの割合。<b>比率が最大の1銘柄と、その比率</b></li>
     <li><b>効いた出来事</b>　NVIDIA の決算、APEC・3首脳会談、Anthropic の上場、11/20 の急落のうち、どれが、どの銘柄に効いたか</li>
     <li><b>2027年に向けて</b>　§3 のワークで読んだ1社の見通しと、自チームの配分は合っているか。1行で</li>
@@ -923,7 +930,7 @@ EFG 見通し2027：<a href="https://assets.ctfassets.net/1u811bvgvthc/KsAQG92v2
     <li><b>§2 の4つの見通しのうち、自チームのポートフォリオが最も弱いのはどれか。</b>
       <span class="hint"><span class="lb">着地点</span>§2 のカード。<b>台湾なら半導体、イランなら原油の輸入に頼る業種、AI なら設備投資の恩恵を受ける銘柄。</b></span></li>
   </ol>
-  <div class="rel"><b>ポートフォリオの扱い</b>　各チームのリンクは TradingView のポートフォリオ。<b>この資料には各チームの保有銘柄も評価額も書かない。</b>記入欄は教室で埋める。数字を読み上げるときは、<b>基準日と評価通貨をそのつど言うこと。</b></div>
+  <div class="rel"><b>ポートフォリオの扱い</b>　各チームのリンクは TradingView のポートフォリオ。<b>この資料には各チームの保有銘柄も評価額も書かない。</b>数字を読み上げるときは、<b>基準日と評価通貨をそのつど言うこと。</b></div>
 </section>
 
 <footer>
@@ -934,6 +941,7 @@ EFG 見通し2027：<a href="https://assets.ctfassets.net/1u811bvgvthc/KsAQG92v2
     <li><b>§2 の台湾侵攻の確率を示したシンクタンクの数字は、出典が二次情報のため載せていない。</b>野村の2027年末の目標は記事によって7万円と6万6,000円。半導体の法案が国防権限法に最終的に入るかは未確定。</li>
     <li><b>§3 の18社の資料は内容を確かめていない。</b>リンクは提供されたもの。</li>
     <li><b>ゼミ生の氏名と、各チームの保有銘柄は載せていない。</b>ゼミのポートフォリオはゼミとして共同で持つ口座。</li>
+      <li><b>§5 の図2は各チームの TradingView の画面の切り出し。</b>チームとの対応は提供された順（A・B・C）。各チームの保有銘柄とアカウント名は載せていない。</li>
   </ul>
   <div class="src">
     <b>出典</b>
