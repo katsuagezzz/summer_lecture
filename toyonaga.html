@@ -6,42 +6,50 @@
 <meta name="description" content="豊長さん個別指導の講義資料。金利・国債・為替・PLの段階損益・金融政策・2社の財務比較">
 <title>豊長さん 個別指導 ｜ iU 志村ゼミ</title>
 <style>
-:root{--bg:#f6f7f9;--panel:#fff;--ink:#14181f;--ink2:#3f4855;--ink3:#6b7686;--line:#dfe3ea;--accent:#1c6fd4;--accent-bg:#e8f1fd;--corp:#b8480f;--corp-bg:#fdeee6;--rev:#6b3fb5;--rev-bg:#f0eafb;}
-@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--panel:#161b23;--ink:#e8ecf2;--ink2:#b6c0cd;--ink3:#8a95a4;--line:#2a323d;--accent:#6fb2ff;--accent-bg:#132539;--corp:#ff9c66;--corp-bg:#331e12;--rev:#c3a6f5;--rev-bg:#241a36;}}
+:root{--bg:#fdf6ec;--dot:#efd9bf;--panel:#fff;--ink:#1d1a17;--ink2:#4a443d;--ink3:#7a7168;--edge:#1d1a17;
+--pink:#f2557a;--orange:#f7882f;--blue:#2f7be6;--green:#1fa463;--purple:#8b4fe0;--yellow:#d9a100;
+--pink-bg:#fde6ec;--orange-bg:#feeddf;--blue-bg:#e3efff;--green-bg:#ddf5e8;--purple-bg:#efe6fd;--yellow-bg:#fdf3d1;}
+@media (prefers-color-scheme:dark){:root{--bg:#1b1815;--dot:#332c25;--panel:#25211d;--ink:#f5efe6;--ink2:#d4ccc1;--ink3:#a59b8f;--edge:#f0e8dc;
+--pink:#ff7f9c;--orange:#ffa15a;--blue:#6aa6ff;--green:#4fd08e;--purple:#b48cff;--yellow:#f2c53d;
+--pink-bg:#3d2229;--orange-bg:#3d2a1b;--blue-bg:#1b2a40;--green-bg:#183324;--purple-bg:#2c2140;--yellow-bg:#3a3014;}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
-.wrap{max-width:860px;margin:0 auto;padding:34px 22px 80px}
-header{background:var(--panel);border:1px solid var(--line);border-top:6px solid var(--ink);border-radius:14px;padding:26px 28px;margin-bottom:22px}
-.kicker{font-size:12.5px;letter-spacing:.18em;color:var(--ink3);font-weight:700}
-h1{font-size:30px;margin:6px 0 10px;line-height:1.35}
-header p{margin:0;color:var(--ink2);font-size:15px}
-h2{font-size:17px;margin:30px 0 12px;padding-left:11px;border-left:4px solid var(--ink)}
-.issue{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:19px 22px;margin-bottom:12px;transition:transform .12s ease,border-color .12s ease}
-.issue:hover{transform:translateY(-2px);border-color:var(--accent)}
-.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:7px}
-.vol{font-size:12px;font-weight:800;letter-spacing:.06em;background:var(--ink);color:var(--bg);padding:2px 9px;border-radius:5px}
-.date{font-size:12.5px;color:var(--ink3);font-weight:700}
-.tag{font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px}
-.tag.m{background:var(--accent-bg);color:var(--accent)}
-.tag.c{background:var(--corp-bg);color:var(--corp)}
-.tag.r{background:var(--rev-bg);color:var(--rev)}
-.vol.r{background:var(--rev);color:var(--bg)}
-.issue.r:hover{border-color:var(--rev)}
-.tag.h{background:var(--corp-bg);color:var(--corp)}
-.vol.h{background:var(--corp);color:var(--bg)}
-.issue.h{border-left:4px solid var(--corp)}
-.issue.h:hover{border-color:var(--corp)}
-.lead{font-size:14px;color:var(--ink3);margin:-4px 0 12px}
-.ttl{font-size:18.5px;font-weight:800;line-height:1.55;margin:2px 0 5px}
-.desc{font-size:14.5px;color:var(--ink2);margin:0}
-footer{margin-top:34px;font-size:13px;color:var(--ink3);border-top:1px solid var(--line);padding-top:16px}
-@media(max-width:600px){h1{font-size:23px}.wrap{padding:20px 14px 50px}header{padding:19px 17px}.issue{padding:15px 16px}}
-.backlink{display:inline-block;font-size:13px;font-weight:700;color:var(--ink3);text-decoration:none;margin-bottom:14px}
-.backlink:hover{color:var(--accent)}
-.issue.t{border-left:4px solid var(--ink)}
-.issue.t:hover{border-color:var(--accent)}
-.count{font-size:12.5px;color:var(--ink3);font-weight:700}
-
+body{margin:0;background-color:var(--bg);background-image:radial-gradient(var(--dot) 1.6px,transparent 1.7px);background-size:22px 22px;color:var(--ink);font-family:"Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 22px 80px}
+.backlink{display:inline-block;font-size:13px;font-weight:800;color:var(--ink2);text-decoration:none;margin-bottom:14px;background:var(--panel);border:2px solid var(--edge);border-radius:999px;padding:3px 14px}
+.backlink:hover{color:var(--pink)}
+header{position:relative;background:linear-gradient(90deg,#f2557a 0%,#f7882f 55%,#f9c74f 100%);border:4px solid var(--edge);border-radius:26px;box-shadow:5px 6px 0 var(--edge);padding:18px 92px 18px 24px;margin-bottom:16px;color:#fff;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
+header::after{content:"📚";position:absolute;right:26px;top:50%;transform:translateY(-50%);font-size:44px;line-height:1}
+.kicker{font-size:13px;font-weight:900;letter-spacing:.08em;color:#1d1a17;background:#fff;border:3px solid #1d1a17;border-radius:999px;padding:3px 16px;white-space:nowrap}
+h1{font-size:30px;margin:0;line-height:1.35;font-weight:900;text-shadow:0 2px 0 rgba(0,0,0,.18)}
+.intro{background:var(--panel);border:3px solid var(--edge);border-radius:18px;padding:12px 18px;margin:0 0 12px;color:var(--ink2);font-size:14.5px;font-weight:600;max-width:860px}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 8px}
+.jump a{font-size:14px;font-weight:900;text-decoration:none;color:var(--ink);background:var(--panel);border:3px solid var(--edge);border-radius:999px;padding:4px 16px;box-shadow:3px 3px 0 var(--edge)}
+.jump a:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--edge)}
+h2{display:inline-block;font-size:18px;font-weight:900;margin:30px 0 14px;background:var(--ink);color:var(--bg);border-radius:999px;padding:5px 20px}
+h2.term{display:block;font-size:24px;background:none;color:var(--ink);border-radius:0;padding:0 0 6px;margin:48px 0 4px;border-bottom:4px dashed var(--edge)}
+h3{display:inline-block;font-size:15px;font-weight:900;margin:20px 0 12px;color:var(--ink);background:var(--panel);border:3px solid var(--edge);border-radius:999px;padding:2px 16px}
+.grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}}
+.issue{--c:var(--pink);--cbg:var(--pink-bg);--ico:"📝";position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--panel);border:3px solid var(--edge);border-top:10px solid var(--c);border-radius:16px;box-shadow:4px 4px 0 var(--edge);padding:12px 12px 10px;transition:transform .12s ease,box-shadow .12s ease}
+.issue:hover{transform:translate(2px,3px);box-shadow:3px 3px 0 var(--edge)}
+.grid .issue:nth-child(6n+2){--c:var(--orange);--cbg:var(--orange-bg);--ico:"🤝"}
+.grid .issue:nth-child(6n+3){--c:var(--blue);--cbg:var(--blue-bg);--ico:"💼"}
+.grid .issue:nth-child(6n+4){--c:var(--green);--cbg:var(--green-bg);--ico:"📣"}
+.grid .issue:nth-child(6n+5){--c:var(--purple);--cbg:var(--purple-bg);--ico:"🌱"}
+.grid .issue:nth-child(6n+6){--c:var(--yellow);--cbg:var(--yellow-bg);--ico:"⭐"}
+.issue::before{content:var(--ico);position:absolute;right:10px;top:9px;font-size:22px;line-height:1}
+.issue::after{content:"読む →";order:3;margin-top:auto;padding-top:6px;align-self:flex-end;font-size:12.5px;font-weight:900;color:var(--c)}
+.row{display:block;order:2;margin:8px 0 0}
+.vol{font-size:12px;font-weight:900;color:#fff;background:var(--c);border:2px solid var(--edge);border-radius:9px;padding:0 8px;white-space:nowrap}
+.date{display:block;width:100%;font-size:11.5px;font-weight:800;color:var(--ink2);background:var(--cbg);border-radius:9px;padding:4px 8px;line-height:1.4}
+.ttl{order:1;font-size:14px;font-weight:900;line-height:1.5;margin:0}
+.row .vol{position:absolute;left:12px;top:10px}
+.issue{padding-top:42px}
+.issue.h{--c:var(--pink);--cbg:var(--pink-bg);--ico:"🎒"}
+.desc,.tag,.lead,.count{display:none}
+footer{margin-top:44px;font-size:13px;color:var(--ink3);background:var(--panel);border:3px solid var(--edge);border-radius:18px;padding:12px 18px}
+@media(max-width:600px){h1{font-size:22px}.wrap{padding:16px 14px 50px}header{padding:14px 64px 14px 16px;border-radius:20px}header::after{font-size:32px;right:16px}.grid{gap:12px}h2.term{font-size:20px}}
+@media print{body{background:#fff;color:#000}header{background:none;color:#000;box-shadow:none}h1{text-shadow:none}.issue,.jump a{box-shadow:none;break-inside:avoid}.issue::after{content:none}.backlink,.jump{display:none}}
 </style>
 </head>
 <body>
@@ -50,11 +58,13 @@ footer{margin-top:34px;font-size:13px;color:var(--ink3);border-top:1px solid var
 <header>
   <div class="kicker">個別指導 · 豊長さん</div>
   <h1>個別指導の講義資料</h1>
-  <p>iU 情報経営イノベーション専門職大学／志村ゼミ<br>30分の個別指導。<b>この資料に答えは書いていません。空欄と問いだけがあります。</b>授業までに自分で埋めてくること。</p>
+
 </header>
+<p class="intro">iU 情報経営イノベーション専門職大学／志村ゼミ<br>30分の個別指導。<b>この資料に答えは書いていません。空欄と問いだけがあります。</b>授業までに自分で埋めてくること。</p>
 
 <h2>次回の講義資料</h2>
 
+<div class="grid">
 <a class="issue r" href="lectures/lecture_toyonaga_20260925.html#review">
   <div class="row">
     <span class="vol r">復習</span>
@@ -62,9 +72,11 @@ footer{margin-top:34px;font-size:13px;color:var(--ink3);border-top:1px solid var
   </div>
   <div class="ttl">原価率・人件費率・在庫日数の復習</div>
 </a>
+</div>
 
 <h2>これまでの回</h2>
 
+<div class="grid">
 <a class="issue t" href="lectures/lecture_toyonaga_20260925.html">
   <div class="row">
     <span class="vol">個別</span>
@@ -120,6 +132,7 @@ footer{margin-top:34px;font-size:13px;color:var(--ink3);border-top:1px solid var
   </div>
   <div class="ttl">在庫を持たない会社の大型投資</div>
 </a>
+</div>
 
 <footer>
   各ページは外部依存のない単一HTMLファイルです。数字は決算短信・官庁発表などの一次情報で裏取りし、推計値・未確定値は各ページのフッターに明記しています。
