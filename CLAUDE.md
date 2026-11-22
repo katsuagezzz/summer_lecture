@@ -158,5 +158,5 @@ Coworkのクラウドセッション）。**手元の作業フォルダは古い
 ## GitHub Pages
 
 `main` の `/(root)` を公開。`index.html` が3トラックへの振り分けハブ。
-`all.html` は講師用の総合目次（全トラック）。`seminar.html` は「次回 → 後期 → 夏期集中講座 → 講義ネタ速報」の順に区切ってある。
+`all.html` は講師用の総合目次（全トラック）。`seminar.html` は「後期 → 夏期集中講座 → 講義ネタ速報」の順に区切ってある。次回分も後期の講義資料の先頭に置く（「次回」欄は 2026-11-22 に廃止）。
 公開URL： https://katsuagezzz.github.io/summer_lecture/
