@@ -7,35 +7,54 @@
 <meta name="description" content="iU 志村ゼミの講義資料の総合目次（ゼミ後期・夏期集中講座・個別指導2トラック）">
 <title>講義資料の総合目次 ｜ iU 志村ゼミ</title>
 <style>
-:root{--bg:#f6f7f9;--panel:#fff;--ink:#14181f;--ink2:#3f4855;--ink3:#6b7686;--line:#dfe3ea;--accent:#1c6fd4;--accent-bg:#e8f1fd;--corp:#b8480f;--corp-bg:#fdeee6;--rev:#6b3fb5;--rev-bg:#f0eafb;--grn:#0e7c66;--grn-bg:#e6f6f1;}
-@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--panel:#161b23;--ink:#e8ecf2;--ink2:#b6c0cd;--ink3:#8a95a4;--line:#2a323d;--accent:#6fb2ff;--accent-bg:#132539;--corp:#ff9c66;--corp-bg:#331e12;--rev:#c3a6f5;--rev-bg:#241a36;--grn:#5fd3b5;--grn-bg:#10302a;}}
+:root{--bg:#fdf6ec;--dot:#efd9bf;--panel:#fff;--ink:#1d1a17;--ink2:#4a443d;--ink3:#7a7168;--edge:#1d1a17;
+--pink:#f2557a;--orange:#f7882f;--blue:#2f7be6;--green:#1fa463;--purple:#8b4fe0;--yellow:#d9a100;
+--pink-bg:#fde6ec;--orange-bg:#feeddf;--blue-bg:#e3efff;--green-bg:#ddf5e8;--purple-bg:#efe6fd;--yellow-bg:#fdf3d1;}
+@media (prefers-color-scheme:dark){:root{--bg:#1b1815;--dot:#332c25;--panel:#25211d;--ink:#f5efe6;--ink2:#d4ccc1;--ink3:#a59b8f;--edge:#f0e8dc;
+--pink:#ff7f9c;--orange:#ffa15a;--blue:#6aa6ff;--green:#4fd08e;--purple:#b48cff;--yellow:#f2c53d;
+--pink-bg:#3d2229;--orange-bg:#3d2a1b;--blue-bg:#1b2a40;--green-bg:#183324;--purple-bg:#2c2140;--yellow-bg:#3a3014;}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP",sans-serif;line-height:1.7;font-size:15.5px}
-.wrap{max-width:900px;margin:0 auto;padding:34px 22px 80px}
-header{background:var(--panel);border:1px solid var(--line);border-top:6px solid var(--ink);border-radius:14px;padding:24px 26px;margin-bottom:18px}
-.kicker{font-size:12.5px;letter-spacing:.18em;color:var(--ink3);font-weight:700}
-h1{font-size:27px;margin:6px 0 8px;line-height:1.35}
-header p{margin:0;color:var(--ink2);font-size:14.5px}
-.note{margin-top:10px;font-size:13px;color:var(--corp);font-weight:700}
-.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.jump a{font-size:13px;font-weight:700;text-decoration:none;color:var(--accent);background:var(--accent-bg);padding:3px 11px;border-radius:999px}
-section{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:16px 0}
-h2{font-size:19px;margin:0 0 2px;display:flex;align-items:baseline;gap:10px}
-.cnt{font-size:12.5px;color:var(--ink3);font-weight:700}
-.sub{margin:0 0 10px;font-size:13px;color:var(--ink3)}
-.sub a{color:var(--accent)}
-.list{list-style:none;margin:0;padding:0}
-.list li{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;padding:7px 0;border-top:1px solid var(--line)}
-.list li:first-child{border-top:0}
-.d{flex:0 0 3.4em;font-size:13px;font-weight:800;color:var(--ink2);font-variant-numeric:tabular-nums}
-.k{flex:0 0 auto;font-size:11px;font-weight:800;padding:1px 8px;border-radius:5px}
-.k.l{background:var(--accent-bg);color:var(--accent)} .k.r{background:var(--rev-bg);color:var(--rev)} .k.s{background:var(--grn-bg);color:var(--grn)} .k.n{background:var(--corp-bg);color:var(--corp)}
-.v{flex:0 0 auto;font-size:11.5px;font-weight:700;color:var(--ink3)}
-.list a{flex:1 1 18em;color:var(--ink);text-decoration:none;font-weight:600}
-.list a:hover{color:var(--accent);text-decoration:underline}
-footer{margin-top:28px;font-size:13px;color:var(--ink3);border-top:1px solid var(--line);padding-top:14px}
-@media(max-width:600px){.wrap{padding:20px 14px 50px} h1{font-size:22px} section{padding:14px 15px}}
-@media print{body{background:#fff} section,header{border-color:#ccc} .jump{display:none}}
+body{margin:0;background-color:var(--bg);background-image:radial-gradient(var(--dot) 1.6px,transparent 1.7px);background-size:22px 22px;color:var(--ink);font-family:"Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Meiryo","Noto Sans JP","Helvetica Neue",Arial,sans-serif;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 22px 80px}
+.backlink{display:inline-block;font-size:13px;font-weight:800;color:var(--ink2);text-decoration:none;margin-bottom:14px;background:var(--panel);border:2px solid var(--edge);border-radius:999px;padding:3px 14px}
+.backlink:hover{color:var(--pink)}
+header{position:relative;background:linear-gradient(90deg,#f2557a 0%,#f7882f 55%,#f9c74f 100%);border:4px solid var(--edge);border-radius:26px;box-shadow:5px 6px 0 var(--edge);padding:18px 92px 18px 24px;margin-bottom:16px;color:#fff;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
+header::after{content:"📚";position:absolute;right:26px;top:50%;transform:translateY(-50%);font-size:44px;line-height:1}
+.kicker{font-size:13px;font-weight:900;letter-spacing:.08em;color:#1d1a17;background:#fff;border:3px solid #1d1a17;border-radius:999px;padding:3px 16px;white-space:nowrap}
+h1{font-size:30px;margin:0;line-height:1.35;font-weight:900;text-shadow:0 2px 0 rgba(0,0,0,.18)}
+.intro{background:var(--panel);border:3px solid var(--edge);border-radius:18px;padding:12px 18px;margin:0 0 12px;color:var(--ink2);font-size:14.5px;font-weight:600;max-width:860px}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 8px}
+.jump a{font-size:14px;font-weight:900;text-decoration:none;color:var(--ink);background:var(--panel);border:3px solid var(--edge);border-radius:999px;padding:4px 16px;box-shadow:3px 3px 0 var(--edge)}
+.jump a:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--edge)}
+h2{display:inline-block;font-size:18px;font-weight:900;margin:30px 0 14px;background:var(--ink);color:var(--bg);border-radius:999px;padding:5px 20px}
+h2.term{display:block;font-size:24px;background:none;color:var(--ink);border-radius:0;padding:0 0 6px;margin:48px 0 4px;border-bottom:4px dashed var(--edge)}
+h3{display:inline-block;font-size:15px;font-weight:900;margin:20px 0 12px;color:var(--ink);background:var(--panel);border:3px solid var(--edge);border-radius:999px;padding:2px 16px}
+.grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}}
+.issue{--c:var(--pink);--cbg:var(--pink-bg);--ico:"📝";position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--panel);border:3px solid var(--edge);border-top:10px solid var(--c);border-radius:16px;box-shadow:4px 4px 0 var(--edge);padding:12px 12px 10px;transition:transform .12s ease,box-shadow .12s ease}
+.issue:hover{transform:translate(2px,3px);box-shadow:3px 3px 0 var(--edge)}
+.grid .issue:nth-child(6n+2){--c:var(--orange);--cbg:var(--orange-bg);--ico:"🤝"}
+.grid .issue:nth-child(6n+3){--c:var(--blue);--cbg:var(--blue-bg);--ico:"💼"}
+.grid .issue:nth-child(6n+4){--c:var(--green);--cbg:var(--green-bg);--ico:"📣"}
+.grid .issue:nth-child(6n+5){--c:var(--purple);--cbg:var(--purple-bg);--ico:"🌱"}
+.grid .issue:nth-child(6n+6){--c:var(--yellow);--cbg:var(--yellow-bg);--ico:"⭐"}
+.issue::before{content:var(--ico);position:absolute;right:10px;top:9px;font-size:22px;line-height:1}
+.issue::after{content:"読む →";order:3;margin-top:auto;padding-top:6px;align-self:flex-end;font-size:12.5px;font-weight:900;color:var(--c)}
+.row{display:block;order:2;margin:8px 0 0}
+.vol{font-size:12px;font-weight:900;color:#fff;background:var(--c);border:2px solid var(--edge);border-radius:9px;padding:0 8px;white-space:nowrap}
+.date{display:block;width:100%;font-size:11.5px;font-weight:800;color:var(--ink2);background:var(--cbg);border-radius:9px;padding:4px 8px;line-height:1.4}
+.ttl{order:1;font-size:14px;font-weight:900;line-height:1.5;margin:0}
+.row .vol{position:absolute;left:12px;top:10px}
+.issue{padding-top:42px}
+.issue.h{--c:var(--pink);--cbg:var(--pink-bg);--ico:"🎒"}
+.desc,.tag,.lead,.count{display:none}
+footer{margin-top:44px;font-size:13px;color:var(--ink3);background:var(--panel);border:3px solid var(--edge);border-radius:18px;padding:12px 18px}
+@media(max-width:600px){h1{font-size:22px}.wrap{padding:16px 14px 50px}header{padding:14px 64px 14px 16px;border-radius:20px}header::after{font-size:32px;right:16px}.grid{gap:12px}h2.term{font-size:20px}}
+@media print{body{background:#fff;color:#000}header{background:none;color:#000;box-shadow:none}h1{text-shadow:none}.issue,.jump a{box-shadow:none;break-inside:avoid}.issue::after{content:none}.backlink,.jump{display:none}}
+.sub{margin:6px 0 10px;font-size:13.5px;font-weight:700;color:var(--ink3)}
+.sub a{color:var(--ink2)}
+.note{display:block;margin-top:6px;color:var(--pink)}
+.cnt{font-size:14px;font-weight:800;color:var(--ink3);margin-left:10px}
 </style>
 </head>
 <body>
@@ -43,89 +62,336 @@ footer{margin-top:28px;font-size:13px;color:var(--ink3);border-top:1px solid var
 <header>
   <div class="kicker">ALL MATERIALS</div>
   <h1>講義資料の総合目次</h1>
-  <p>3つのトラック（ゼミ・佐々木さん・豊長さん）の講義資料・復習ページを、日付の新しい順に1枚に並べた講師用の目次。</p>
-  <p class="note">受講者には、このページではなく各トラックのポータルを渡す（ゼミ＝seminar.html、佐々木さん＝sasaki.html、豊長さん＝toyonaga.html）。</p>
-  <nav class="jump"><a href="#autumn">ゼミ 後期</a><a href="#summer">ゼミ 夏期集中講座</a><a href="#news">講義ネタ速報</a><a href="#sasaki">佐々木さん</a><a href="#toyonaga">豊長さん</a></nav>
 </header>
-<section id="autumn">
-  <h2>ゼミ　後期（2026年10月〜）<span class="cnt">9本</span></h2>
-  <p class="sub">毎週火曜16:20。　ポータル：<a href="seminar.html">seminar.html</a></p>
-  <ul class="list">
-    <li><span class="d">11/24</span><span class="k l">資料</span><span class="v">後期 第8回</span><a href="lectures/lecture_20261124.html">APEC後の世界、台湾・イラン・AI・宇宙、日本株、2027年の投資見通し、ゼミのポートフォリオ</a></li>
-    <li><span class="d">11/17</span><span class="k l">資料</span><span class="v">後期 第7回</span><a href="lectures/lecture_20261117.html">APEC・米中ロ首脳会談、日米株式市場、IBM、ソフトバンクグループ、AI資本、NVIDIAショック、四季報の12銘柄</a></li>
-    <li><span class="d">11/10</span><span class="k l">資料</span><span class="v">後期 第6回</span><a href="lectures/lecture_20261110.html">中間選挙の結果、トランプ政権の対外政策、GAFAM決算、セクターローテーション、AIと電力</a></li>
-    <li><span class="d">10/27</span><span class="k l">資料</span><span class="v">後期 第5回</span><a href="lectures/lecture_20261027.html">中間選挙、大手テック決算、Anthropic上場申請、オプション、先物</a></li>
-    <li><span class="d">10/27</span><span class="k r">復習</span><span class="v">後期 第5回</span><a href="reviews/lecture_review_20261027.html">答えが出なかった問い</a></li>
-    <li><span class="d">10/20</span><span class="k l">資料</span><span class="v">後期 第4回</span><a href="lectures/lecture_20261020.html">フランス国債、IMF、マネタリーベース、裁定取引、バタフライ</a></li>
-    <li><span class="d">10/20</span><span class="k r">復習</span><span class="v">後期 第4回</span><a href="reviews/lecture_review_20261020.html">答えが出なかった問い</a></li>
-    <li><span class="d">10/13</span><span class="k l">資料</span><span class="v">後期 第3回</span><a href="lectures/lecture_20261013.html">米中会談、超知能協定、AIロールアップ、オプション</a></li>
-    <li><span class="d">10/13</span><span class="k r">復習</span><span class="v">後期 第3回</span><a href="reviews/lecture_review_20261013.html">答えが出なかった問い</a></li>
-  </ul>
-</section>
+<p class="intro">3つのトラック（ゼミ・佐々木さん・豊長さん）の講義資料・復習ページを、日付の新しい順に1枚に並べた講師用の目次。<b class="note">受講者には、このページではなく各トラックのポータルを渡す（ゼミ＝seminar.html、佐々木さん＝sasaki.html、豊長さん＝toyonaga.html）。</b></p>
+<nav class="jump"><a href="#autumn">ゼミ 後期</a><a href="#summer">ゼミ 夏期集中講座</a><a href="#news">講義ネタ速報</a><a href="#sasaki">佐々木さん</a><a href="#toyonaga">豊長さん</a></nav>
+<h2 class="term" id="autumn">ゼミ　後期（2026年10月〜）<span class="cnt">9本</span></h2>
+<p class="sub">毎週火曜16:20。　ポータル：<a href="seminar.html">seminar.html</a></p>
+<div class="grid">
+<a class="issue" href="lectures/lecture_20261124.html">
+  <div class="row">
+    <span class="vol">後期 第8回・資料</span>
+    <span class="date">11/24</span>
+  </div>
+  <div class="ttl">APEC後の世界、台湾・イラン・AI・宇宙、日本株、2027年の投資見通し、ゼミのポートフォリオ</div>
+</a>
+<a class="issue" href="lectures/lecture_20261117.html">
+  <div class="row">
+    <span class="vol">後期 第7回・資料</span>
+    <span class="date">11/17</span>
+  </div>
+  <div class="ttl">APEC・米中ロ首脳会談、日米株式市場、IBM、ソフトバンクグループ、AI資本、NVIDIAショック、四季報の12銘柄</div>
+</a>
+<a class="issue" href="lectures/lecture_20261110.html">
+  <div class="row">
+    <span class="vol">後期 第6回・資料</span>
+    <span class="date">11/10</span>
+  </div>
+  <div class="ttl">中間選挙の結果、トランプ政権の対外政策、GAFAM決算、セクターローテーション、AIと電力</div>
+</a>
+<a class="issue" href="lectures/lecture_20261027.html">
+  <div class="row">
+    <span class="vol">後期 第5回・資料</span>
+    <span class="date">10/27</span>
+  </div>
+  <div class="ttl">中間選挙、大手テック決算、Anthropic上場申請、オプション、先物</div>
+</a>
+<a class="issue" href="reviews/lecture_review_20261027.html">
+  <div class="row">
+    <span class="vol">後期 第5回・復習</span>
+    <span class="date">10/27</span>
+  </div>
+  <div class="ttl">答えが出なかった問い</div>
+</a>
+<a class="issue" href="lectures/lecture_20261020.html">
+  <div class="row">
+    <span class="vol">後期 第4回・資料</span>
+    <span class="date">10/20</span>
+  </div>
+  <div class="ttl">フランス国債、IMF、マネタリーベース、裁定取引、バタフライ</div>
+</a>
+<a class="issue" href="reviews/lecture_review_20261020.html">
+  <div class="row">
+    <span class="vol">後期 第4回・復習</span>
+    <span class="date">10/20</span>
+  </div>
+  <div class="ttl">答えが出なかった問い</div>
+</a>
+<a class="issue" href="lectures/lecture_20261013.html">
+  <div class="row">
+    <span class="vol">後期 第3回・資料</span>
+    <span class="date">10/13</span>
+  </div>
+  <div class="ttl">米中会談、超知能協定、AIロールアップ、オプション</div>
+</a>
+<a class="issue" href="reviews/lecture_review_20261013.html">
+  <div class="row">
+    <span class="vol">後期 第3回・復習</span>
+    <span class="date">10/13</span>
+  </div>
+  <div class="ttl">答えが出なかった問い</div>
+</a>
+</div>
 
-<section id="summer">
-  <h2>ゼミ　夏期集中講座（2026年8月〜10月）<span class="cnt">14本</span></h2>
-  <p class="sub">毎週火曜16:20。第1・2回は復習ページのみ。　ポータル：<a href="seminar.html">seminar.html</a></p>
-  <ul class="list">
-    <li><span class="d">10/6</span><span class="k l">資料</span><span class="v">第10回</span><a href="lectures/lecture_20261006.html">欧州の選挙、ストラドルとストラングル</a></li>
-    <li><span class="d">9/29</span><span class="k l">資料</span><span class="v">第9回</span><a href="lectures/lecture_20260929.html">米中首脳会談、オプションの4つの立場</a></li>
-    <li><span class="d">9/22</span><span class="k l">資料</span><span class="v">第8回</span><a href="lectures/lecture_20260922.html">日米の利上げ、オプション取引</a></li>
-    <li><span class="d">9/22</span><span class="k r">復習</span><span class="v">第8回</span><a href="reviews/lecture_review_20260922.html">答えが出なかった問い</a></li>
-    <li><span class="d">9/15</span><span class="k l">資料</span><span class="v">第7回</span><a href="lectures/lecture_20260915.html">米国債・金利・ドル円・株、信用買い</a></li>
-    <li><span class="d">9/8</span><span class="k l">資料</span><span class="v">第6回</span><a href="lectures/lecture_20260908.html">中間選挙の現在地、信用取引</a></li>
-    <li><span class="d">9/4</span><span class="k s">自習</span><a href="lectures/lecture_20260904.html">日銀の国債買い入れと信用創造</a></li>
-    <li><span class="d">9/1</span><span class="k l">資料</span><span class="v">第5回</span><a href="lectures/lecture_20260901.html">NVIDIA決算、Anthropic上場、中間決算</a></li>
-    <li><span class="d">9/1</span><span class="k r">復習</span><span class="v">第5回</span><a href="reviews/lecture_review_20260901.html">ネットキャッシュ比率、AIサプライチェーン、買収</a></li>
-    <li><span class="d">8/25</span><span class="k l">資料</span><span class="v">第4回</span><a href="lectures/lecture_20260825.html">バリュー投資、金利と為替</a></li>
-    <li><span class="d">8/18</span><span class="k l">資料</span><span class="v">第3回</span><a href="lectures/lecture_20260818.html">SpaceX・Anthropicの上場、電力</a></li>
-    <li><span class="d">8/18</span><span class="k r">復習</span><span class="v">第3回</span><a href="reviews/lecture_quiz_20260818.html">Anthropic・為替・金利（復習クイズ）</a></li>
-    <li><span class="d">8/11</span><span class="k r">復習</span><span class="v">第2回</span><a href="reviews/lecture_review_20260811.html">為替介入、金利、減価償却、原価率</a></li>
-    <li><span class="d">8/4</span><span class="k r">復習</span><span class="v">第1回</span><a href="reviews/lecture_review_20260804.html">政府・日銀・市場・米国、損益計算書</a></li>
-  </ul>
-</section>
+<h2 class="term" id="summer">ゼミ　夏期集中講座（2026年8月〜10月）<span class="cnt">14本</span></h2>
+<p class="sub">毎週火曜16:20。第1・2回は復習ページのみ。　ポータル：<a href="seminar.html">seminar.html</a></p>
+<div class="grid">
+<a class="issue" href="lectures/lecture_20261006.html">
+  <div class="row">
+    <span class="vol">第10回・資料</span>
+    <span class="date">10/6</span>
+  </div>
+  <div class="ttl">欧州の選挙、ストラドルとストラングル</div>
+</a>
+<a class="issue" href="lectures/lecture_20260929.html">
+  <div class="row">
+    <span class="vol">第9回・資料</span>
+    <span class="date">9/29</span>
+  </div>
+  <div class="ttl">米中首脳会談、オプションの4つの立場</div>
+</a>
+<a class="issue" href="lectures/lecture_20260922.html">
+  <div class="row">
+    <span class="vol">第8回・資料</span>
+    <span class="date">9/22</span>
+  </div>
+  <div class="ttl">日米の利上げ、オプション取引</div>
+</a>
+<a class="issue" href="reviews/lecture_review_20260922.html">
+  <div class="row">
+    <span class="vol">第8回・復習</span>
+    <span class="date">9/22</span>
+  </div>
+  <div class="ttl">答えが出なかった問い</div>
+</a>
+<a class="issue" href="lectures/lecture_20260915.html">
+  <div class="row">
+    <span class="vol">第7回・資料</span>
+    <span class="date">9/15</span>
+  </div>
+  <div class="ttl">米国債・金利・ドル円・株、信用買い</div>
+</a>
+<a class="issue" href="lectures/lecture_20260908.html">
+  <div class="row">
+    <span class="vol">第6回・資料</span>
+    <span class="date">9/8</span>
+  </div>
+  <div class="ttl">中間選挙の現在地、信用取引</div>
+</a>
+<a class="issue" href="lectures/lecture_20260904.html">
+  <div class="row">
+    <span class="vol">自習</span>
+    <span class="date">9/4</span>
+  </div>
+  <div class="ttl">日銀の国債買い入れと信用創造</div>
+</a>
+<a class="issue" href="lectures/lecture_20260901.html">
+  <div class="row">
+    <span class="vol">第5回・資料</span>
+    <span class="date">9/1</span>
+  </div>
+  <div class="ttl">NVIDIA決算、Anthropic上場、中間決算</div>
+</a>
+<a class="issue" href="reviews/lecture_review_20260901.html">
+  <div class="row">
+    <span class="vol">第5回・復習</span>
+    <span class="date">9/1</span>
+  </div>
+  <div class="ttl">ネットキャッシュ比率、AIサプライチェーン、買収</div>
+</a>
+<a class="issue" href="lectures/lecture_20260825.html">
+  <div class="row">
+    <span class="vol">第4回・資料</span>
+    <span class="date">8/25</span>
+  </div>
+  <div class="ttl">バリュー投資、金利と為替</div>
+</a>
+<a class="issue" href="lectures/lecture_20260818.html">
+  <div class="row">
+    <span class="vol">第3回・資料</span>
+    <span class="date">8/18</span>
+  </div>
+  <div class="ttl">SpaceX・Anthropicの上場、電力</div>
+</a>
+<a class="issue" href="reviews/lecture_quiz_20260818.html">
+  <div class="row">
+    <span class="vol">第3回・復習</span>
+    <span class="date">8/18</span>
+  </div>
+  <div class="ttl">Anthropic・為替・金利（復習クイズ）</div>
+</a>
+<a class="issue" href="reviews/lecture_review_20260811.html">
+  <div class="row">
+    <span class="vol">第2回・復習</span>
+    <span class="date">8/11</span>
+  </div>
+  <div class="ttl">為替介入、金利、減価償却、原価率</div>
+</a>
+<a class="issue" href="reviews/lecture_review_20260804.html">
+  <div class="row">
+    <span class="vol">第1回・復習</span>
+    <span class="date">8/4</span>
+  </div>
+  <div class="ttl">政府・日銀・市場・米国、損益計算書</div>
+</a>
+</div>
 
-<section id="news">
-  <h2>ゼミ　講義ネタ速報<span class="cnt">2本</span></h2>
-  <p class="sub">ゼミトラック専用。　ポータル：<a href="seminar.html">seminar.html</a></p>
-  <ul class="list">
-    <li><span class="d">8/25</span><span class="k n">速報</span><a href="news_briefs/lecture_news_20260825.html">金利・株・円の需給</a></li>
-    <li><span class="d">8/9</span><span class="k n">速報</span><a href="news_briefs/lecture_news_20260809.html">為替介入とトヨタ・ソフトバンクG</a></li>
-  </ul>
-</section>
+<h2 class="term" id="news">ゼミ　講義ネタ速報<span class="cnt">2本</span></h2>
+<p class="sub">ゼミトラック専用。　ポータル：<a href="seminar.html">seminar.html</a></p>
+<div class="grid">
+<a class="issue" href="news_briefs/lecture_news_20260825.html">
+  <div class="row">
+    <span class="vol">速報</span>
+    <span class="date">8/25</span>
+  </div>
+  <div class="ttl">金利・株・円の需給</div>
+</a>
+<a class="issue" href="news_briefs/lecture_news_20260809.html">
+  <div class="row">
+    <span class="vol">速報</span>
+    <span class="date">8/9</span>
+  </div>
+  <div class="ttl">為替介入とトヨタ・ソフトバンクG</div>
+</a>
+</div>
 
-<section id="sasaki">
-  <h2>佐々木さん（個別・週2回・各30分）<span class="cnt">11本</span></h2>
-  <p class="sub">基礎知識の定着を優先。　ポータル：<a href="sasaki.html">sasaki.html</a></p>
-  <ul class="list">
-    <li><span class="d">10/14</span><span class="k r">復習</span><a href="lectures/lecture_sasaki_20261014_review.html">統計の調べ方と統計の英語</a></li>
-    <li><span class="d">10/7</span><span class="k r">復習</span><a href="lectures/lecture_sasaki_20261007_review.html">オプションの買い（コール・ストラドル）</a></li>
-    <li><span class="d">9/30</span><span class="k r">復習</span><a href="lectures/lecture_sasaki_20260930_review.html">オプションの売り（コール・プット）</a></li>
-    <li><span class="d">9/10</span><span class="k l">資料</span><a href="lectures/lecture_sasaki_20260910.html">信用取引（空売り）と優待クロス</a></li>
-    <li><span class="d">9/10</span><span class="k r">復習</span><a href="lectures/lecture_sasaki_20260910_review.html">空売り・クロス取引</a></li>
-    <li><span class="d">9/7</span><span class="k l">資料</span><a href="lectures/lecture_sasaki_20260907.html">ビル・アックマンと資金集め</a></li>
-    <li><span class="d">9/7</span><span class="k r">復習</span><a href="lectures/lecture_sasaki_20260907_review.html">英語の比較表現（more valuable）</a></li>
-    <li><span class="d">9/3</span><span class="k l">資料</span><a href="lectures/lecture_sasaki_20260903.html">決算と株価の反応、割安の判断</a></li>
-    <li><span class="d">8/24</span><span class="k l">資料</span><a href="lectures/lecture_sasaki_20260824.html">米国の利払いと国防費</a></li>
-    <li><span class="d">8/20</span><span class="k l">資料</span><a href="lectures/lecture_sasaki_20260820.html">金利・為替・インフレ</a></li>
-    <li><span class="d">8/17</span><span class="k l">資料</span><a href="lectures/lecture_sasaki_20260817.html">ZOZOの決算</a></li>
-  </ul>
-</section>
+<h2 class="term" id="sasaki">佐々木さん（個別・週2回・各30分）<span class="cnt">11本</span></h2>
+<p class="sub">基礎知識の定着を優先。　ポータル：<a href="sasaki.html">sasaki.html</a></p>
+<div class="grid">
+<a class="issue" href="lectures/lecture_sasaki_20261014_review.html">
+  <div class="row">
+    <span class="vol">復習</span>
+    <span class="date">10/14</span>
+  </div>
+  <div class="ttl">統計の調べ方と統計の英語</div>
+</a>
+<a class="issue" href="lectures/lecture_sasaki_20261007_review.html">
+  <div class="row">
+    <span class="vol">復習</span>
+    <span class="date">10/7</span>
+  </div>
+  <div class="ttl">オプションの買い（コール・ストラドル）</div>
+</a>
+<a class="issue" href="lectures/lecture_sasaki_20260930_review.html">
+  <div class="row">
+    <span class="vol">復習</span>
+    <span class="date">9/30</span>
+  </div>
+  <div class="ttl">オプションの売り（コール・プット）</div>
+</a>
+<a class="issue" href="lectures/lecture_sasaki_20260910.html">
+  <div class="row">
+    <span class="vol">資料</span>
+    <span class="date">9/10</span>
+  </div>
+  <div class="ttl">信用取引（空売り）と優待クロス</div>
+</a>
+<a class="issue" href="lectures/lecture_sasaki_20260910_review.html">
+  <div class="row">
+    <span class="vol">復習</span>
+    <span class="date">9/10</span>
+  </div>
+  <div class="ttl">空売り・クロス取引</div>
+</a>
+<a class="issue" href="lectures/lecture_sasaki_20260907.html">
+  <div class="row">
+    <span class="vol">資料</span>
+    <span class="date">9/7</span>
+  </div>
+  <div class="ttl">ビル・アックマンと資金集め</div>
+</a>
+<a class="issue" href="lectures/lecture_sasaki_20260907_review.html">
+  <div class="row">
+    <span class="vol">復習</span>
+    <span class="date">9/7</span>
+  </div>
+  <div class="ttl">英語の比較表現（more valuable）</div>
+</a>
+<a class="issue" href="lectures/lecture_sasaki_20260903.html">
+  <div class="row">
+    <span class="vol">資料</span>
+    <span class="date">9/3</span>
+  </div>
+  <div class="ttl">決算と株価の反応、割安の判断</div>
+</a>
+<a class="issue" href="lectures/lecture_sasaki_20260824.html">
+  <div class="row">
+    <span class="vol">資料</span>
+    <span class="date">8/24</span>
+  </div>
+  <div class="ttl">米国の利払いと国防費</div>
+</a>
+<a class="issue" href="lectures/lecture_sasaki_20260820.html">
+  <div class="row">
+    <span class="vol">資料</span>
+    <span class="date">8/20</span>
+  </div>
+  <div class="ttl">金利・為替・インフレ</div>
+</a>
+<a class="issue" href="lectures/lecture_sasaki_20260817.html">
+  <div class="row">
+    <span class="vol">資料</span>
+    <span class="date">8/17</span>
+  </div>
+  <div class="ttl">ZOZOの決算</div>
+</a>
+</div>
 
-<section id="toyonaga">
-  <h2>豊長さん（個別・毎週金15:00・30分）<span class="cnt">7本</span></h2>
-  <p class="sub">答えを載せず、空欄と問いだけ。　ポータル：<a href="toyonaga.html">toyonaga.html</a></p>
-  <ul class="list">
-    <li><span class="d">9/25</span><span class="k l">資料</span><a href="lectures/lecture_toyonaga_20260925.html">ファーストリテイリングとしまむらの原価率・在庫</a></li>
-    <li><span class="d">9/18</span><span class="k r">復習</span><a href="lectures/lecture_toyonaga_20260918_review.html">マスク×エコノミスト誌の語彙</a></li>
-    <li><span class="d">9/11</span><span class="k l">資料</span><a href="lectures/lecture_toyonaga_20260911.html">お金を刷ることとインフレ</a></li>
-    <li><span class="d">9/4</span><span class="k l">資料</span><a href="lectures/lecture_toyonaga_20260904.html">日銀の国債買い入れと信用創造</a></li>
-    <li><span class="d">9/4</span><span class="k r">復習</span><a href="lectures/lecture_toyonaga_20260904_review.html">国債とお金の流れの復習</a></li>
-    <li><span class="d">8/28</span><span class="k l">資料</span><a href="lectures/lecture_toyonaga_20260828.html">メルカリの損益計算書と4つの利益</a></li>
-    <li><span class="d">8/21</span><span class="k l">資料</span><a href="lectures/lecture_toyonaga_20260821.html">在庫を持たない会社の大型投資</a></li>
-  </ul>
-</section>
+<h2 class="term" id="toyonaga">豊長さん（個別・毎週金15:00・30分）<span class="cnt">7本</span></h2>
+<p class="sub">答えを載せず、空欄と問いだけ。　ポータル：<a href="toyonaga.html">toyonaga.html</a></p>
+<div class="grid">
+<a class="issue" href="lectures/lecture_toyonaga_20260925.html">
+  <div class="row">
+    <span class="vol">資料</span>
+    <span class="date">9/25</span>
+  </div>
+  <div class="ttl">ファーストリテイリングとしまむらの原価率・在庫</div>
+</a>
+<a class="issue" href="lectures/lecture_toyonaga_20260918_review.html">
+  <div class="row">
+    <span class="vol">復習</span>
+    <span class="date">9/18</span>
+  </div>
+  <div class="ttl">マスク×エコノミスト誌の語彙</div>
+</a>
+<a class="issue" href="lectures/lecture_toyonaga_20260911.html">
+  <div class="row">
+    <span class="vol">資料</span>
+    <span class="date">9/11</span>
+  </div>
+  <div class="ttl">お金を刷ることとインフレ</div>
+</a>
+<a class="issue" href="lectures/lecture_toyonaga_20260904.html">
+  <div class="row">
+    <span class="vol">資料</span>
+    <span class="date">9/4</span>
+  </div>
+  <div class="ttl">日銀の国債買い入れと信用創造</div>
+</a>
+<a class="issue" href="lectures/lecture_toyonaga_20260904_review.html">
+  <div class="row">
+    <span class="vol">復習</span>
+    <span class="date">9/4</span>
+  </div>
+  <div class="ttl">国債とお金の流れの復習</div>
+</a>
+<a class="issue" href="lectures/lecture_toyonaga_20260828.html">
+  <div class="row">
+    <span class="vol">資料</span>
+    <span class="date">8/28</span>
+  </div>
+  <div class="ttl">メルカリの損益計算書と4つの利益</div>
+</a>
+<a class="issue" href="lectures/lecture_toyonaga_20260821.html">
+  <div class="row">
+    <span class="vol">資料</span>
+    <span class="date">8/21</span>
+  </div>
+  <div class="ttl">在庫を持たない会社の大型投資</div>
+</a>
+</div>
 
-<footer>各ページは外部依存のない単一HTMLファイル。資料を1本足したら、このページにも1行足す。</footer>
+<footer>各ページは外部依存のない単一HTMLファイル。資料を1本足したら、このページにもカードを1枚足す。</footer>
 </div>
 </body>
 </html>
